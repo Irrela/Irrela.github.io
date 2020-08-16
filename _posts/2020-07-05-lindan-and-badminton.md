@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 林丹从国家队退役，带起一波回忆
-categories: Blog
-description: 打羽毛球好几年了，中间也有好些故事，值得记录一下。
-keywords: 羽毛球, 林丹
+title: L1b Probability Review
+categories: SML
+description: 
+keywords: 
 ---
 
 昨天朋友圈和微博上有不少人在转发林丹从国家队退役的消息，有一点感慨的同时，我在想，以后新入坑的羽毛球迷们，可能渐渐就都不知道「超级丹」、「林李大战」，还有「四大天王」这些名词了吧。
