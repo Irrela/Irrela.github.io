@@ -1,9 +1,22 @@
 ---
 layout: post
-title: template page
-categories: [cate1, cate2]
-description: some word here
-keywords: keyword1, keyword2
+title: L2 Lexical Analysis and Regular Expression
+categories: PLI
+description: 
+keywords:
 ---
 
-Content here
+###  词法分析(Lexical Analysis）
+
+单独考虑每个字符，语法分析器`syntax analyzer`可以直接处理字符流。然而很多编译器使用单独的词法分析器(也称为扫描器`scanner`或词法分析器`lexer`)，其主要工作是将输入流从字符流转换为令牌流。 语法分析器对该令牌流进行操作。 
+
+由于关注点的分离，这种安排通常会产生非常干净的代码：语法分析器发现复杂的结构，而词法分析器除了发现一些简单的结构外，还处理一些平凡的、低级的问题。
+
+### 词法分析的其他职责
+- 丢弃输入中不需要的部分(标记之间的空格和注释)。
+- 跟踪行号，有时跟踪列号(用于错误报告，例如在Haskell中，用于越位规则)。 
+- 大小写粉碎(用于不区分大小写的语言)。
+- 处理文件包含指令，并跟踪哪些文件的哪些部分仍需读取。
+- 处理宏定义和展开宏。
+
+后两个通常只出现在与预处理器(如C预处理器)集成的扫描仪中。 将预处理器集成到扫描仪中可以提高性能，但代价是复杂性大大增加。
