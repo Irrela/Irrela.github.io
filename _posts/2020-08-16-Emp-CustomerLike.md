@@ -80,7 +80,7 @@ public class BD1 {
 
 HashMap<Integer, List<Integer>>的trick很好，可以处理为某个attribute生成另一个相关，想记录的attribute的可变长度list。
 
-```
+```java
 public class BD1 {
     public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
