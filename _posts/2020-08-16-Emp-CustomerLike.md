@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 用户喜好
-categories: Emp
+categories: EMP
 description: 
 keywords: HashMap, ByteD
 ---
@@ -39,7 +39,7 @@ Output:
 
 问题：时间复杂度，如果给定的用户区间很大的话，每次的遍历cost很大。
 
-```
+```java
 public class BD1 {
 
     public static void main(String[] args) {
