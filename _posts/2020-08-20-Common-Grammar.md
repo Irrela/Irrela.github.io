@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 常用库及函数
-categories: JAVA 
+categories: Java
 description: 
 keywords: 
 ---
