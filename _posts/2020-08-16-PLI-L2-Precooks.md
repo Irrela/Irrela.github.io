@@ -28,7 +28,8 @@ $$ stmt \to if \ (expr) \ stmt \ else \ stmt $$
 - 一个产生式集合，即一个左部（nonter）， 一个箭头，一个右部（nonter+ter的sequence）
 - 一个被指定的nonter作为开始符号。
 
-> 一个terminal string由零个或多个terminal组成， 零个的由叫空串。
+ 一个terminal string由零个或多个terminal组成， 零个的由叫空串。
+ > 空串例子： 函数的参数列表可能是无参数的。
 
 输入的结构通常使用上下文无关的语法规则来描述，如下所示：
 ```
@@ -39,6 +40,20 @@ expr → expr binop expr
 expr → identifier const
 ```
 
+### 语法分析（parsing）
+语法分析的任务是：接受一个ter string作为输入，找出文法的开始符号，推导出这个string的方法。
+
+如果不能从文法的开始符号推到出该ter string，则报告该ter string中包含的语法错误。
+
+#### 语法分析树
+parse tree具有以下性质：
+- 根节点的标号为文法的开始符号。
+- 每个叶节点的标号为一个ter或空串。
+- 每个内部节点为一个nonter。
+
+例子：产生式$$ A \to XYZ $$ 在parse tree中表现为A为父节点，X, Y, Z为`从左至右`的三个子节点。
+
+一棵parse tree的叶节点从左至右构成了树的结果（yield），
 #### parse tree & Abstract Syntax Tree
 解析树包含对编译器的其余部分没有影响的表面细节。 删除它们将生成抽象语法树：
 
@@ -56,7 +71,7 @@ expr → identifier const
 #### Attribute Grammars(属性语法)
 通过语义分析收集的信息可以以附加到节点的属性的形式存储在抽象语法树中。 
 
-属性可以是
+属性： 表示与某个程序构造相关的任意的量。可以是：
 - 表达式的类型
 - 将函数的局部变量映射到其当前位置的表
 
