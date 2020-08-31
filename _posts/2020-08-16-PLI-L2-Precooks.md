@@ -16,7 +16,7 @@ mathjax: true
 简称文法，描述了大多数程序设计语言构造的语法结构。
 以if-else举例， 该构造规则可表示为：
 
-$$ stmt \to if (expr) stmt else stmt $$
+$$ stmt \to if \quad (expr) \quad stmt \quad else \quad stmt $$
 
 右箭头表示“可以具有如下形式”， 这样的规则叫产生式（production）。
 
@@ -27,6 +27,8 @@ $$ stmt \to if (expr) stmt else stmt $$
 - 一个非终结符号集合，也称`语法变量`， 每个nonterminal表示一个terminal串的集合。
 - 一个产生式集合，即一个左部（nonter）， 一个箭头，一个右部（nonter+ter的sequence）
 - 一个被指定的nonter作为开始符号。
+
+> 一个terminal string由零个或多个terminal组成， 零个的由叫空串。
 
 输入的结构通常使用上下文无关的语法规则来描述，如下所示：
 ```
