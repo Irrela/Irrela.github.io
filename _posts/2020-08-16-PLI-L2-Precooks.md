@@ -4,12 +4,13 @@ title: L2 Syntax Analysis & Attributes & Code Generation
 categories: PLI
 description: 
 keywords:
+mathjax: true
 ---
 
 ### Syntax（语法）
 > Syntax描述该语言的程序的正确形式。
 
-> semantics定义程序的含义， 即每个程序在运行时该做什么事。
+> Semantics定义程序的含义， 即每个程序在运行时该做什么事。
 
 #### context-free grammar
 简称文法，描述了大多数程序设计语言构造的语法结构。
@@ -20,6 +21,12 @@ $$ stmt \to if (expr) stmt else stmt $$
 右箭头表示“可以具有如下形式”， 这样的规则叫产生式（production）。
 
 在产生式中，if和括号这样的词法元素叫终结符号（terminal），expr和stmt这样的变量叫非终结符号（nonterminal）。
+
+`context-free grammar`由四部分组成：
+- 一个终结符号集合， 也称`词法单元`， 表达逻辑。
+- 一个非终结符号集合，也称`语法变量`， 每个nonterminal表示一个terminal串的集合。
+- 一个产生式集合，即一个左部（nonter）， 一个箭头，一个右部（nonter+ter的sequence）
+- 一个被指定的nonter作为开始符号。
 
 输入的结构通常使用上下文无关的语法规则来描述，如下所示：
 ```
