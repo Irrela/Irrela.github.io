@@ -16,7 +16,7 @@ mathjax: true
 简称文法，描述了大多数程序设计语言构造的语法结构。
 以if-else举例， 该构造规则可表示为：
 
-$$ stmt \to if \quad (expr) \quad stmt \quad else \quad stmt $$
+$$ stmt \to if \ (expr) \ stmt \ else \ stmt $$
 
 右箭头表示“可以具有如下形式”， 这样的规则叫产生式（production）。
 
