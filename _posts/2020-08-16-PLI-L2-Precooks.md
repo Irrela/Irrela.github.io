@@ -6,7 +6,21 @@ description:
 keywords:
 ---
 
-### Syntax
+### Syntax（语法）
+> Syntax描述该语言的程序的正确形式。
+
+> semantics定义程序的含义， 即每个程序在运行时该做什么事。
+
+#### context-free grammar
+简称文法，描述了大多数程序设计语言构造的语法结构。
+以if-else举例， 该构造规则可表示为：
+
+$$ stmt \to if (expr) stmt else stmt $$
+
+右箭头表示“可以具有如下形式”， 这样的规则叫产生式（production）。
+
+在产生式中，if和括号这样的词法元素叫终结符号（terminal），expr和stmt这样的变量叫非终结符号（nonterminal）。
+
 输入的结构通常使用上下文无关的语法规则来描述，如下所示：
 ```
 assignment → lvalue assign op expr semicolon
