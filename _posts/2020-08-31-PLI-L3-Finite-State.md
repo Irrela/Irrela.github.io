@@ -4,8 +4,8 @@ title: L3 Finite-State Automata
 categories: PLI
 description: 
 keywords:
+mermaid: true
 mathjax: true
-
 ---
 ### Recognizers
 语言L的recognizer是一种算法，该算法接受输入字符串x，如果x在L中，则返回“yes”，否则返回“no”。 
