@@ -204,7 +204,7 @@ data Maybe a = Nothing | Just a
 >
 > linSearch xs y
 >   |occs == [] = Nothing
->   | otherwise = Just (head occs)
+>   |otherwise = Just (head occs)
 >   where
 >       occs = [i | (x,i) <- zip xs [0..], x == y]
 ```
@@ -294,3 +294,18 @@ data SM a = SM (S -> (S, a))
 
 这个想法是，一个动作不仅产生一个value，它还改变一个“state”。
 
+```haskell
+instance Monad SM where
+    return a
+        = SM (\s -> (s, a))
+    SM sm0 >>= f
+        = SM (\s0 -> let (s1, a1) = sm0 s0
+                          SM sm1 = f a1
+                     in
+                        sm1 s1     
+             )           
+```
+
+虽然看起来可能很奇怪，但作为状态线程程序中“隐藏管道”的工具，这可能非常有用。 
+
+我们将在第8课中看到一个很好的例子，当我们使用state monad进行解析时。
