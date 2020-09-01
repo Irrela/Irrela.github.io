@@ -45,3 +45,8 @@ $$M = (Q, \Sigma, \delta, q_{0}, F)$$是一个DFA, $$m = v_{1}, v_{2}\dots v_{n}
 
 另外，如果语言A：
 $$A = \{w | M \ accepts \ w \}$$, 即A是从开始状态到某个接受状态的所有路径上的标号串的集合，称语言A被该DFA接受
+
+#### 状态转换图
+以图形方式，状态转换图将每个状态显示为一个圆圈，接受状态显示为双圆圈，开始状态用一个不知从哪里来的箭头标记。 状态之间的箭头表示转移函数。 每个箭头都标有一个或一组字符。 下面是一个识别ba∗b的dfa：
+<img src="/images/posts/pli/state transition diagrams.pdf" width="100%" alt="state transition diagrams" />
+
