@@ -43,7 +43,7 @@ puts (c : s) = putChar c >> puts s
 ```haskell
 main = print ([(n, 2^n) | n <- [0..19]])
 
-main = puts "ha >> puts "ha"
+main = puts "ha" >> puts "ha"
 
 main = let m = puts "ha" in m >> m 
 ```
@@ -173,8 +173,8 @@ instance Functor [] where
 instance Functor Tree where   
     fmap f Void
         = Void 
-    fmapf(Trtnt’)
-        = Tr (fmap f t) (f n) (fmap f t’)
+    fmapf(Tr t n n')
+        = Tr (fmap f t) (f n) (fmap f t')
 ```
 
 #### The Monad Class
