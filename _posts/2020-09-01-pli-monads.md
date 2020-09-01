@@ -33,8 +33,33 @@ print :: Show a =>  IO ()
 
 Prelude中还定义了用于组合操作的函数(>>)。 (实际上(>>)和 return 来自Monad type 类。)
 ```haskell
-(>>) :: IO () -> IO () -> IO ()
+> (>>) :: IO () -> IO () -> IO ()
 puts :: String -> IO ()
 puts [] = return ()
 puts (c : s) = putChar c >> puts s
+```
+#### The Variable main
+到目前为止，我们只有表示动作的表达式。 如何才能真正让行动发生呢？
+```haskell
+main = print ([(n, 2^n) | n <- [0..19]])
+
+main = puts "ha >> puts "ha"
+
+main = let m = puts "ha" in m >> m 
+```
+#### Input
+input产生一个值，这就是IO被参数化的原因。
+```haskell
+getChar :: IO Char
+getLine :: IO String
+interact :: (String -> String) -> IO()
+```
+函数getChar返回输入中的第一个字符。
+
+函数getLine返回第一行。 
+
+函数InterAct以函数f作为其参数。 将整个输入传递给函数，并输出结果。
+
+```haskell
+> main = interact (filter isAscii)
 ```
