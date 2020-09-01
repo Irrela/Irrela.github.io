@@ -63,3 +63,199 @@ interact :: (String -> String) -> IO()
 ```haskell
 > main = interact (filter isAscii)
 ```
+
+#### Using Files
+```haskell
+> type FilePath = String
+> writeFile :: FilePath -> String -> IO ()
+> appendFile :: FilePath -> String -> IO ()
+> readFile :: FilePath -> IO String
+> main
+>   = appendFile "squares" (show [(x,x*x) | x <- [1..9]])
+```
+
+#### Plumbing(>>=)
+根据我们是否要使用第一个操作的结果，有两种方法对操作进行排序。 
+
+`>>=` 操作将第一个操作的结果传递给下一个操作。
+```haskell
+> (>>=) :: IO a -> (a -> IO B) -> IO b
+> (>>) :: IO a -> IO b -> IO b
+> return :: a -> IO a
+
+> m >> k = m >>= \_ -> k
+
+> main = readFile "inp"  >>= \s ->
+>        writeFile "out" (filter isAcsii s) >>
+>        putStr "Filtering successful\n"
+```
+
+#### Do Expressions
+使monad风格看起来真正imperative，只是一个句法问题。 DO表达式支持以下内容：
+```haskell
+> main
+>   = do
+>       putStr "Input file: "
+>       ifile <- getLine
+>       putStr "Output file: "
+>       ofile <- getLine
+>       s <- readFile ifile
+>       writeFile ofile (filter isAscii s)
+>       putStrLn "Filtering successful"
+```
+#### Monadic编程例子
+交互式检查二叉树中的节点：
+```haskell
+data Direction = Myleft | MyRight | MyQuit
+
+inspectTree :: Show a => Tree a -> IO()
+inspectTree Void
+    = putChar "Empty"
+
+inspectTree (Tr left node right)
+    = do
+        putStrLn(show node)
+        cmd <- response
+        case cmd of
+            MyLeft -> inspectTree left
+            MyRight -> inspectTree right
+            MyQuit -> return()
+
+response :: IO Direction
+response
+    = do
+        putStrLn "(L)eft or (R)ight or (Q)uit?"
+        c <- getLine
+        case c of
+            "l" -> return MyLeft
+            "L" -> return MyLeft
+            "r" -> return MyRight
+            "R" -> return MyRight
+            "q" -> return MyQuit
+            "Q" -> return MyQuit
+```
+#### Type and Data Constructors
+我们已经给出过type Tree a 的定义：
+```haskell
+data Tree a
+    = Void
+    | Tr(Tree a) a (Tree a)
+        deriving (Eq, Show)
+```
+这里Tr是一个`data constructor`，用于构造类型为Tree a的元素。请注意，它只是一个`function`。 
+
+Tree是一种`type constructor`，是一种更高阶的类型。 它是一个从type到type的函数。
+
+#### Higher-Order Types
+
+Prelude定义：
+```haskell
+class Functor f where
+    fmap :: (a -> b) -> fa -> fb
+```
+注意类型变量f是如何应用于其他类型的：换句话说，它是一个`type constructor`。 
+
+作为`Functor`实例的`Types`允许“map”函数，该函数将a -> b类型的函数“提升”到更高的 fa -> fb级别。
+
+#### The Functor Class
+Lists是Functor的实例, with fmap = map。
+
+```haskell
+instance Functor [] where 
+    fmap f []
+        = []
+    fmap f (x:xs)
+        = f x : fmap f xs
+```
+我们可以使任何其他“container”类型成为Functor的实例：
+
+```haskell
+instance Functor Tree where   
+    fmap f Void
+        = Void 
+    fmapf(Trtnt’)
+        = Tr (fmap f t) (f n) (fmap f t’)
+```
+
+#### The Monad Class
+另一个利用高阶类型的类是Monad类。
+```haskell
+class Monad m where
+   (>>=) :: ma->(a->mb)->mb
+   (>>) :: ma->mb->mb
+   return:: a->ma 
+
+m >> k = m >>= \_ -> k
+```
+运算符 >>= 称为“bind”，运算符 >> 称为“sequence”。 
+
+显然，我们已经看到了Monad类的一个实例：类型构造函数IO.
+
+#### The Maybe Instance
+一种有用的数据类型是“Maybe”类型：
+```haskell
+data Maybe a = Nothing | Just a
+```
+
+例如，我们可以使用“Nothing”表示搜索不成功：
+
+```haskell
+> linSearch :: Eq a => [a] -> a -> Maybe Int 
+>
+> linSearch xs y
+>   |occs == [] = Nothing
+>   | otherwise = Just (head occs)
+>   where
+>       occs = [i | (x,i) <- zip xs [0..], x == y]
+```
+
+Maybe既是一个monad也是一个functor：
+
+```haskell
+> instance Monad Maybe where 
+>   return = Just
+>   Just x >>= f = f x
+>   Nothing >>= f = Nothing
+
+
+> instance Functor Maybe where
+>   fmap f (Just x) = Just (f x) 
+>   fmap f Nothing = Nothing
+```
+
+为什么我们想要Maybe作为一个monad，为什么要给 >>= 这个特殊的定义呢？- 因为它能帮助我们编写更整洁的程序！ 
+
+假设f和g都是可能会产生一些异常结果的函数(因此我们想给它们一个Maybe type)，并且我们想要使用它们的组合g( f x)。 
+这就导致不少单调乏味的plumbing工作：
+
+```haskell
+case (f x) of
+    Nothing -> Nothing 
+    Just y -> case (g y) of
+        Nothing -> Nothing 
+        Just z -> Just z
+```
+但既然Maybe是一个monad，我们可以改写上述为：
+```haskell
+f x >>= \y -> 
+g y >>= \z ->
+return z
+
+-- same thing in do notation
+do y <- f x
+   z <- g y
+   return z
+```
+
+甚至进一步简化为：
+```haskell
+f x >>= \y ->
+g y >>= return
+
+-- more simple, by so-called monad law
+f x >>= \y -> g y
+
+-- more simple!
+f x >>= g
+```
+
