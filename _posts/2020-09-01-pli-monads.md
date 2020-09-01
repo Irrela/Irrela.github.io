@@ -258,4 +258,39 @@ f x >>= \y -> g y
 -- more simple!
 f x >>= g
 ```
+#### The MonadPlus Class
+许多monad都有更多的结构，即一个自然的“zero”元素和一个“plus”运算符，遵循:
+```haskell
+m >>= (\x -> mzero) = mzero
+mzero >>= f = mzero
+m 'mplus' mzero = m
+mzero 'mplus' m = m
+
+-- with the class definition
+class Monad m => MonadPlus m where
+    mzero :: m a
+    mzero :: m a -> m a -> m a
+```
+
+##### MonadPlus Eg
+```haskell
+> instance MonadPlus [] where 
+>   mzero = []
+>   mplus = (++)
+
+> instance MonadPlus Maybe where 
+>   mzero = Nothing 
+>   Nothing ‘mplus‘ ys = ys
+>   xs ‘mplus‘ ys = xs
+```
+
+#### State Monads
+state Monads(状态单体)具有以下形式的类型:
+```haskell
+data SM a = SM (S -> (S, a))
+```
+
+其中S是某种“state”类型，而a是某种“value”类型。 
+
+这个想法是，一个动作不仅产生一个value，它还改变一个“state”。
 
