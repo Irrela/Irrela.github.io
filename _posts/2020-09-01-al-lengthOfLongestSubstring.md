@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 重建二叉树
+title: 最长不含重复字符的子字符串
 categories: Algorithm
 description: 
 keywords: preorder, inorder

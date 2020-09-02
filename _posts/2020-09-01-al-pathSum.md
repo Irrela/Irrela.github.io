@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 重建二叉树
+title: 二叉树中和为某一值的路径
 categories: Algorithm
 description: 
 keywords: preorder, inorder

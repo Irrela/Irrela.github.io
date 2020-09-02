@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 数组中的逆序对
+title: 扑克牌中的顺子 
 categories: Algorithm
 description: 
 keywords: mergeSort

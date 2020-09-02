@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 重建二叉树
+title: 和为s的连续正数序列
 categories: Algorithm
 description: 
 keywords: preorder, inorder

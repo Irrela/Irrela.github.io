@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 重建二叉树
+title: 连续子数组的最大和
 categories: Algorithm
 description: 
 keywords: preorder, inorder
