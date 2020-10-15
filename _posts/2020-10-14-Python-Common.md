@@ -28,3 +28,12 @@ def load_data_txt(source_data):
             
     return res
 ```
+
+### np读取例子
+```python
+    arms = np.loadtxt('dataset.txt', usecols=(0,))
+    rewards = np.loadtxt('dataset.txt', usecols=(1,))
+    features = np.loadtxt('dataset.txt', usecols=np.arange(2, 102)) #如何选定多列
+
+    context = np.reshape(features, (10000, 10, 10)) # 如何划分不同axis
+```
