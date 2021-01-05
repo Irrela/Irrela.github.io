@@ -8,7 +8,7 @@ keywords:
 
 # 二叉树
 
-## 二叉树的镜像
+## SA27 二叉树的镜像
 ```py
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -38,7 +38,7 @@ class Solution(object):
         return root
 ```
 
-## 二叉树的深度
+## SA55 二叉树的深度
 ```py
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -59,7 +59,7 @@ class Solution(object):
         return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1
 ```
 
-## 对称的二叉树
+## SA28 对称的二叉树
 ```py
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -88,7 +88,7 @@ class Solution(object):
 
         return recur(root.left, root.right)
 ```
-## 平衡二叉树
+## SA55 平衡二叉树
 ```py
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -121,7 +121,7 @@ class Solution(object):
         return 1 + max(left, right) if abs(left - right) <= 1 else -1
 ```
 
-## 二叉搜索树的第k大节点
+## SA54 二叉搜索树的第k大节点
 ```py
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -163,7 +163,7 @@ class Solution(object):
         self.dfs(node.left)
 ```
 
-## 二叉树的最近公共祖先
+## SA68 二叉树的最近公共祖先
 ```py
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -205,7 +205,7 @@ class Solution(object):
         return root
 ```
 
-## 二叉搜索树的最近公共祖先
+## SA68 二叉搜索树的最近公共祖先
 ```py
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -237,7 +237,7 @@ class Solution(object):
         return root
 ```
 
-## 从上到下打印二叉树
+## SA32 从上到下打印二叉树
 从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。
 
 例如:
@@ -286,7 +286,7 @@ class Solution(object):
         return res
 ```
 
-## 从上到下打印二叉树II
+## SA32 从上到下打印二叉树II
 从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。
 
 例如:
@@ -346,7 +346,7 @@ class Solution(object):
         return res
 ```
 
-## 从上到下打印二叉树III
+## SA32 从上到下打印二叉树III
 请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。
 
 例如:
@@ -409,7 +409,7 @@ class Solution(object):
 
         return res
 ```
-## 重建二叉树
+## SA07 重建二叉树
 ```py
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -443,7 +443,7 @@ class Solution(object):
         return root
 ```
 
-## 二叉搜索树的后序遍历序列
+## SA33 二叉搜索树的后序遍历序列
 ```py
 class Solution(object):
     def verifyPostorder(self, postorder):
@@ -467,7 +467,7 @@ class Solution(object):
         return cur == len(postorder)-1 and self.verifyPostorder(postorder[:mid]) and self.verifyPostorder(postorder[mid:-1])
 ```
 
-## 树的子结构
+## SA26 树的子结构
 ```py
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -501,7 +501,7 @@ class Solution(object):
         return self.is_part_of(parent.left, child.left) and self.is_part_of(parent.right, child.right)
 ```
 
-## 二叉搜索树与双向链表
+## SA36 二叉搜索树与双向链表
 ```py
 """
 # Definition for a Node.
@@ -539,7 +539,7 @@ class Solution(object):
         self.dfs(node.right)
 ```
 
-## 二叉树中和为某一值的路径
+## SA34 二叉树中和为某一值的路径
 ```py
 class Solution(object):
     def pathSum(self, root, sum):
@@ -572,8 +572,96 @@ class Solution(object):
         path.pop()
 ```
 
-# Stack
-## 栈的压入、弹出序列
+# Stack, Queue
+## SA09 用两个栈实现队列
+```py
+class CQueue(object):
+
+    def __init__(self):
+        self.in_stack = []
+        self.out_stack = []
+
+    def appendTail(self, value):
+        """
+        :type value: in_stackt
+        :rtype: None
+        """
+        self.in_stack.append(value)
+
+
+    def deleteHead(self):
+        """
+        :rtype: in_stackt
+        """
+        if not self.out_stack:
+            while self.in_stack:
+                self.out_stack.append(self.in_stack.pop())
+
+        if not self.out_stack:
+            return -1
+
+        return self.out_stack.pop()
+
+# Your CQueue object will be instantiated and called as such:
+# obj = CQueue()
+# obj.appendTail(value)
+# param_2 = obj.deleteHead()
+```
+## SA30 包含min函数的栈
+```py
+class MinStack(object):
+
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.stack, self.mono = [], []
+
+
+    def push(self, x):
+        """
+        :type x: int
+        :rtype: None
+        """
+        self.stack.append(x)
+        if not self.mono or self.mono[-1] >= x:
+            self.mono.append(x)
+
+
+    def pop(self):
+        """
+        :rtype: None
+        """
+        if self.mono[-1] == self.stack.pop():
+            self.mono.pop()
+
+
+
+    def top(self):
+        """
+        :rtype: int
+        """
+        return self.stack[-1]
+
+
+    def min(self):
+        """
+        :rtype: int
+        """
+        return self.mono[-1]
+
+
+
+# Your MinStack object will be instantiated and called as such:
+# obj = MinStack()
+# obj.push(x)
+# obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.min()
+```
+
+
+## SA31 栈的压入、弹出序列
 ```py
 class Solution {
     public boolean validateStackSequences(int[] pushed, int[] popped) {
@@ -601,4 +689,1499 @@ class Solution {
 }
 ```
 
+## SA59 队列的最大值
+```py
+class MaxQueue(object):
+
+    def __init__(self):
+        self.queue = []
+        self.mono = []
+
+    def max_value(self):
+        """
+        :rtype: int
+        """
+        if not self.mono:
+            return -1
+        
+        return self.mono[0]
+
+
+    def push_back(self, value):
+        """
+        :type value: int
+        :rtype: None
+        """
+        self.queue.append(value)
+        while self.mono and self.mono[-1] < value:
+            self.mono.pop()
+        self.mono.append(value)
+
+
+    def pop_front(self):
+        """
+        :rtype: int
+        """
+        if not self.queue:
+            return -1
+        if self.mono[0] == self.queue[0]:
+            self.mono.pop(0)
+        return self.queue.pop(0)
+
+
+
+# Your MaxQueue object will be instantiated and called as such:
+# obj = MaxQueue()
+# param_1 = obj.max_value()
+# obj.push_back(value)
+# param_3 = obj.pop_front()
+```
+
+
+
+# 链表
+## SA24 反转链表
+```py
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if not head:
+            return None
+
+        prev = None
+        cur = head
+
+        while cur:
+            _next = cur.next
+
+            cur.next = prev
+            prev = cur
+            cur = _next
+
+        return prev
+```
+
+## SA06 从尾到头打印链表
+```py
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def reversePrint(self, head):
+        """
+        :type head: ListNode
+        :rtype: List[int]
+        """
+
+        if not head:
+            return []
+
+        temp = []
+        while head:
+            temp.append(head.val)
+            head = head.next
+
+        res = []
+
+        while temp:
+            res.append(temp.pop())
+
+        return res
+```
+
+## SA35 复杂链表的复制
+```py
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, x, next=None, random=None):
+        self.val = int(x)
+        self.next = next
+        self.random = random
+"""
+class Solution(object):
+    def copyRandomList(self, head):
+        """
+        :type head: Node
+        :rtype: Node
+        """
+
+        if not head:
+            return None
+
+        dict = {}
+        cur = head
+        
+        while cur:
+            dict[cur] = Node(cur.val)
+            cur = cur.next
+
+        cur = head
+
+        while cur:
+            dict.get(cur).random = dict.get(cur.random)
+            dict.get(cur).next = dict.get(cur.next)
+
+            cur = cur.next
+        
+        return dict[head]
+```
+
+## SA25 合并两个排序的链表
+```py
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def mergeTwoLists(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+
+        cur = ListNode(-1)
+        head = cur
+
+        while l1 and l2:
+            if l1.val <= l2.val:
+                cur.next = l1
+                l1 = l1.next
+            else:
+                cur.next = l2
+                l2 = l2.next
+            cur = cur.next
+
+        if not l1:
+            cur.next = l2
+        else:
+            cur.next = l1
+
+        return head.next
+```
+
+## SA52 两个链表的第一个公共节点
+```py
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def getIntersectionNode(self, headA, headB):
+        """
+        :type head1, head1: ListNode
+        :rtype: ListNode
+        """
+        if not headA or not headB:
+            return None
+        
+        node_a = headA
+        node_b = headB
+
+        while node_a != node_b:
+            if not node_a:
+                node_a = headB
+            else:
+                node_a = node_a.next
+
+            if not node_b:
+                node_b = headA
+            else:
+                node_b = node_b.next
+
+        return node_a
+```
+
+## SA22 链表中倒数第k个节点
+```py
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def getKthFromEnd(self, head, k):
+        """
+        :type head: ListNode
+        :type k: int
+        :rtype: ListNode
+        """
+
+        cur = head
+        while k:
+            cur = cur.next
+            k -= 1
+        while cur:
+            cur = cur.next
+            head = head.next
+        return head
+```
+
+## SA18 删除链表的节点
+```py
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+class Solution(object):
+    def deleteNode(self, head, val):
+        """
+        :type head: ListNode
+        :type val: int
+        :rtype: ListNode
+        """
+
+        if not head:
+            return None
+
+        if val == head.val:
+            return head.next
+
+        node = head
+        while node.next:
+            if node.next.val == val:
+                node.next = node.next.next
+                return head
+            node = node.next
+```
+
+# DP
+## SA42 连续子数组的最大和
+```py
+class Solution(object):
+    def maxSubArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if not nums:
+            return 0
+
+        res, one_before = nums[0], nums[0]
+
+        for i in range(1, len(nums)):
+            if one_before < 0:
+                one_before = nums[i]
+            else:
+                one_before += nums[i]
+            
+            res = max(res, one_before)
+
+        return res
+```
+
+## SA48 最长不含重复字符的子字符串
+```py
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+
+        if not s:
+            return 0
+
+        index_dict = {}
+        i = -1
+        res = 0
+
+        for j in range(len(s)):
+            if index_dict.has_key(s[j]):
+                i = max(i, index_dict[s[j]])
+
+            index_dict[s[j]] = j
+            res = max(res, j-i)
+
+        return res
+```
+
+## SA47 礼物的最大价值
+```py
+class Solution(object):
+    def maxValue(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+
+        if not grid or not grid[0]:
+            return -1
+
+        rows = len(grid)
+        cols = len(grid[0])
+
+        for i in range(1, rows):
+            grid[i][0] += grid[i-1][0]
+
+        for i in range(1, cols):
+            grid[0][i] += grid[0][i-1]
+
+        for i in range(1, rows):
+            for j in range(1, cols):
+                grid[i][j] += max(grid[i][j-1], grid[i-1][j])
+
+        return grid[rows-1][cols-1]
+```
+
+## SA49 丑数
+```py
+class Solution(object):
+    def nthUglyNumber(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        
+        two_index, three_index, five_index = 0, 0, 0
+        dp = [1]
+
+        for i in range(1,n):
+            ugly_two = dp[two_index]*2
+            ugly_three = dp[three_index]*3
+            ugly_five = dp[five_index]*5
+
+            ugly = min(ugly_two, ugly_three, ugly_five)
+            dp.append(ugly)
+
+            # 注意不要用elif，存在一个ugly同时可以被*2，*3 或 *5得到，需要同时更新index
+            if ugly == ugly_two: 
+                two_index += 1
+            if ugly == ugly_three:
+                three_index += 1
+            if ugly == ugly_five:
+                five_index += 1
+
+        return dp[-1]
+```
+
+## SA63 股票的最大利润
+```py
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        if not prices:
+            return 0
+
+        lowest = prices[0]
+        revenue = 0
+
+        for i in prices:
+            lowest = min(lowest, i)
+            revenue = max(i - lowest, revenue)
+
+        return revenue
+```
+
+## SA14 剪绳子
+给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n>1并且m>1），每段绳子的长度记为 k[0],k[1]...k[m-1] 。请问 k[0]*k[1]*...*k[m-1] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。
+
+示例 1：
+```
+输入: 2
+输出: 1
+解释: 2 = 1 + 1, 1 × 1 = 1
+示例 2:
+
+输入: 10
+输出: 36
+解释: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36
+```
+
+```py
+class Solution(object):
+    def cuttingRope(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n < 4:
+            return n-1
+
+        oneB = 3
+        twoB = 2
+        threeB = 1 
+
+        for i in range(4, n+1):
+            cur = max(twoB * 2, threeB * 3)
+            threeB = twoB
+            twoB = oneB
+            oneB = cur
+
+        return oneB
+```
+
+## SA14 剪绳子II（贪心）
+给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n>1并且m>1），每段绳子的长度记为 k[0],k[1]...k[m - 1] 。请问 k[0]*k[1]*...*k[m - 1] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。
+
+答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。
+```
+示例 1：
+
+输入: 2
+输出: 1
+解释: 2 = 1 + 1, 1 × 1 = 1
+示例 2:
+
+输入: 10
+输出: 36
+解释: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36
+```
+
+```py
+class Solution(object):
+    def cuttingRope(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n < 4:
+            return n-1
+
+        mod = int(1e9+7)
+        res = 1
+
+        while n > 4:
+            res *= 3
+            res %= mod
+            n -= 3
+
+        return int(res*n%mod)
+```
+
+## SA60 n个骰子的点数
+[python声明二维数组的坑](https://www.cnblogs.com/PyLearn/p/7795552.html)
+```py
+>>> dp = [[1]*3]*3
+>>> dp
+[[1, 1, 1], [1, 1, 1], [1, 1, 1]]
+>>> dp[0][0] = 2
+>>> dp
+[[2, 1, 1], [2, 1, 1], [2, 1, 1]]
+```
+matrix = [array] * n操作中，只是创建n个指向array的引用，所以一旦array改变，matrix中3个list也会随之改变。
+
+```py
+class Solution(object):
+    def dicesProbability(self, n):
+        """
+        :type n: int
+        :rtype: List[float]
+        """
+        if not n:
+            return []
+
+        # dp = [[0]*(6*n+1)]*(n+1)
+        # 声明二维数组时不要用上式
+        dp = [[0 for _ in range(6*n+1)] for _ in range(n+1)]
+
+
+        for i in range(1,7):
+            dp[1][i] = 1
+
+
+        for i in range(2, n+1):
+            for j in range(1*i, 6*i+1):
+                for cur in range(1, 7):
+                    if j >= cur+1:
+                        dp[i][j] += dp[i-1][j-cur]
+
+        res = []
+        total = pow(6, n)
+
+        for i in range(n, 6*n+1):
+            res.append(float(dp[n][i]*1.0/total))
+        
+        return res
+```
+
+
+# 多指针， 滑动窗口
+## SA57 和为s的连续正数序列
+```py
+class Solution(object):
+    def findContinuousSequence(self, target):
+        """
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        if not target:
+            return []
+
+        low, high = 1, 1
+        sum = 0
+        res = []
+
+        while low <= (target/2):
+            if sum < target:
+                sum += high
+                high += 1
+            elif sum > target:
+                sum -= low
+                low += 1
+            else:
+                res.append(range(low, high))
+                sum -= low
+                low += 1
+
+
+        return res
+```
+
+## SA57 和为s的两个数字
+```py
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        if not nums:
+            return []
+
+        low, high = 0, len(nums)-1
+
+        while low < high:
+            sum = nums[low] + nums[high]
+            if sum > target:
+                high -= 1
+            elif sum < target:
+                low +=1
+            else:
+                return [nums[low], nums[high]]
+        
+        return []
+```
+
+## SA21 调整数组顺序使奇数位于偶数前面
+```py
+class Solution(object):
+    def exchange(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        if not nums:
+            return []
+
+        low, high = 0, len(nums)-1
+
+        while low < high:
+            while low < high and nums[low]%2 != 0:
+                low += 1
+            while low < high and nums[high]%2 == 0:
+                high -= 1
+
+            nums[low], nums[high] = nums[high], nums[low]
+
+        return nums
+```
+
+## SA53 在排序数组中查找数字 I
+```py
+class Solution(object):
+    def search(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        if not nums:
+            return 0
+
+        low, high = 0, len(nums)-1
+        
+        while low <= high:
+            mid = (low + high)/2
+            if nums[mid] <= target:
+                low = mid+1
+            else:
+                high = mid-1
+
+        right = low
+
+        if high >=0 and nums[high] != target:
+            return 0
+
+        low = 0
+
+        while low <= high:
+            mid = (low + high)/2
+            if nums[mid] < target:
+                low = mid+1
+            else:
+                high = mid-1
+        left = high
+
+        return right - left - 1
+```
+
+## SA11 旋转数组的最小数字
+```py
+class Solution(object):
+    def minArray(self, numbers):
+        """
+        :type numbers: List[int]
+        :rtype: int
+        """
+        if not numbers:
+            return -1
+        
+        low, high = 0, len(numbers)-1
+
+        while low < high:
+            mid = (low+high)/2
+            if numbers[mid] < numbers[high]:
+                high = mid
+            elif numbers[mid] > numbers[high]:
+                low = mid+1
+            else:
+                high -= 1
+
+        return numbers[low]
+```
+
+## SA48 最长不含重复字符的子字符串
+```py
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+
+        if not s:
+            return 0
+
+        index_dict = {}
+        i = -1
+        res = 0
+
+        for j in range(len(s)):
+            if index_dict.has_key(s[j]):
+                i = max(i, index_dict[s[j]])
+
+            index_dict[s[j]] = j
+            res = max(res, j-i)
+
+        return res
+```
+
+## SA59 滑动窗口的最大值
+```py
+class Solution(object):
+    def maxSlidingWindow(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        if not nums:
+            return []
+
+        res = []
+        mono = []
+
+        for i in range(k):
+            while mono and mono[-1] < nums[i]:
+                mono.pop()
+            mono.append(nums[i])
+        res.append(mono[0])
+
+        for i in range(k, len(nums)):
+            if mono[0] == nums[i-k]:
+                mono.pop(0)
+            while mono and mono[-1] < nums[i]:
+                mono.pop()
+            mono.append(nums[i])
+            res.append(mono[0])
+
+        return res
+```
+
+
+
+# 回溯, Search
+
+## SA38 字符串的排列
+```py
+class Solution(object):
+    def permutation(self, s):
+        """
+        :type s: str
+        :rtype: List[str]
+        """
+        if not s:
+            return []
+
+        self.res = []
+        self.recur(s, "")
+
+        return self.res
+
+
+    def recur(self, str, path):
+        if not str:
+            self.res.append(path)
+
+        saw = set()
+
+        for i in range(len(str)):
+            if str[i] in saw:
+                continue
+            saw.add(str[i])
+            self.recur(str[:i]+str[i+1:], path+str[i])
+```
+
+## 
+
+## SA13 机器人的运动范围
+```py
+class Solution(object):
+    def movingCount(self, m, n, k):
+        """
+        :type m: int
+        :type n: int
+        :type k: int
+        :rtype: int
+        """
+        def get_sum(n):
+            res = 0
+            while n > 0:
+                res += n%10
+                n //= 10
+
+            return res
+
+        is_visited = set()
+        directions = [[0,1],[0,-1],[1,0],[-1,0]]
+
+        def dfs(row, col):
+            temp_res = 0
+            if row < 0 or row >= m or col < 0 or col >= n:
+                return temp_res
+            if get_sum(row) + get_sum(col) > k:
+                return temp_res
+            if (row, col) in is_visited:
+                return temp_res
+
+            is_visited.add((row, col))
+            temp_res += 1
+
+            for direc in directions:
+                temp_res += dfs(row+direc[0], col+direc[1])
+
+            return temp_res
+
+        return dfs(0, 0)
+```
+
+## SA12 矩阵中的路径
+```py
+class Solution(object):
+    def exist(self, board, word):
+        """
+        :type board: List[List[str]]
+        :type word: str
+        :rtype: bool
+        """
+        rows = len(board)
+        cols = len(board[0])
+        
+        def search(row, col, s):
+            if s == "":
+                return True
+
+            if row < 0 or col < 0 or row >= rows or col >= cols:
+                return False
+
+            if s[0] != board[row][col]:
+                return False
+            
+            board[row][col] = 'ocuppied'
+            new_str = s[1:]
+            res = search(row+1, col, new_str) or search(row, col+1, new_str) or search(row-1, col, new_str) or search(row, col-1, new_str)
+
+            if res:
+                return True
+            else:
+                board[row][col] = s[0]
+                return False
+
+        for i in range(rows):
+            for j in range(cols):
+                if search(i, j, word):
+                    return True
+        
+        return False
+```
+
+
+
+
+# String
+## SA58 翻转单词顺序
+```py
+class Solution(object):
+    def reverseWords(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+
+        s = s.strip()
+        i, j = len(s)-1, len(s)-1
+
+        res = []
+
+        while j >= 0:
+            while j >= 0 and s[j] != " ":
+                j -= 1
+            res.append(s[j+1: i+1])
+
+            while j >= 0 and s[j] == " ":
+                j -= 1
+            i = j
+        
+        return " ".join(res)
+```
+
+## SA46 把数字翻译成字符串
+给定一个数字，我们按照如下规则把它翻译为字符串：0 翻译成 “a” ，1 翻译成 “b”，……，11 翻译成 “l”，……，25 翻译成 “z”。一个数字可能有多个翻译。请编程实现一个函数，用来计算一个数字有多少种不同的翻译方法。
+```
+示例 1:
+
+输入: 12258
+输出: 5
+解释: 12258有5种不同的翻译，分别是"bccfi", "bwfi", "bczi", "mcfi"和"mzi"
+```
+
+```py
+class Solution(object):
+    def translateNum(self, num):
+        """
+        :type num: int
+        :rtype: int
+        """
+        if not num:
+            return 1
+
+        string = str(num)
+
+        one_step, two_step = 1, 1
+
+        for i in range(2, len(string)+1):
+            temp = int(string[i-2:i])
+
+            if temp < 26 and temp > 9:
+                cur = one_step + two_step
+            else:
+                cur = one_step
+
+            two_step = one_step
+            one_step = cur
+
+        return one_step
+```
+
+
+
+# Digit
+- `&`:	按位与运算符：参与运算的两个值,如果两个相应位都为1,则该位的结果为1,否则为0	(a & b) 输出结果 12 ，二进制解释： 0000 1100
+- `|`:	按位或运算符：只要对应的二个二进位有一个为1时，结果位就为1。	(a | b) 输出结果 61 ，二进制解释： 0011 1101
+- `^`:	按位异或运算符：当两对应的二进位相异时，结果为1	(a ^ b) 输出结果 49 ，二进制解释： 0011 0001
+- `~`:	按位取反运算符：对数据的每个二进制位取反,即把1变为0,把0变为1 。~x 类似于 -x-1	(~a ) 输出结果 -61 ，二进制解释： 1100 0011，在一个有符号二进制数的补码形式。
+- `<<`:	左移动运算符：运算数的各二进位全部左移若干位，由 << 右边的数字指定了移动的位数，高位丢弃，低位补0。	a << 2 输出结果 240 ，二进制解释： 1111 0000
+- `>>`:	右移动运算符：把">>"左边的运算数的各二进位全部右移若干位，>> 右边的数字指定了移动的位数
+
+## Java的 >>, >>>
+`>>`是算术右移，`>>>`是逻辑右移。
+
+在算术移位中，将扩展符号位以保留数字的符号性。
+
+例如：用8位表示的-2将是11111110（因为最高有效位的权重为负）。使用算术移位将其右移一位，您将得到11111111-1。但是，逻辑上的右移并不关心该值是否可能表示一个带符号的数字。它只是将所有内容移至右侧，并从左侧填充0。使用逻辑移位将-2右移一位将得到01111111。  
+
+## SA43 1～n 整数中 1 出现的次数
+```py
+class Solution(object):
+    def countDigitOne(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        digit = 1
+        low = 0
+        current = n % 10
+        high = n / 10
+        res = 0
+
+        while current > 0 or high > 0:
+            if current == 0:
+                res += digit*high
+            elif current == 1:
+                res += digit*high+1+low
+            else:
+                res += (high+1)*digit
+
+            low += current * digit
+            current = high % 10
+            high /= 10
+            digit *= 10
+
+        return res
+```
+
+## SA17 打印从1到最大的n位数
+```py
+class Solution(object):
+    def printNumbers(self, n):
+        """
+        :type n: int
+        :rtype: List[int]
+        """
+        if n < 1:
+            return None
+        
+        max = 1
+
+        while n:
+            max *= 10
+            n -= 1
+
+        res = []
+        for i in range(1,max):
+            res.append(i)
+
+        return res
+```
+
+
+## SA44 数字序列中某一位的数字
+数字以0123456789101112131415…的格式序列化到一个字符序列中。在这个序列中，第5位（从下标0开始计数）是5，第13位是1，第19位是4，等等。
+
+请写一个函数，求任意第n位对应的数字。
+```
+示例 1：
+
+输入：n = 3
+输出：3
+示例 2：
+
+输入：n = 11
+输出：0
+```
+
+```py
+class Solution(object):
+    def findNthDigit(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        base = 9
+        digit = 1
+        start = 1
+
+        while n > base:
+            n -= base
+            start *= 10
+            digit += 1
+            base = 9 * start * digit
+
+        num = start + (n-1) // digit
+        res = int(str(num)[(n-1)%digit])
+
+        return res
+```
+
+## SA16 数值的整数次方
+```py
+class Solution(object):
+    def myPow(self, x, n):
+        """
+        :type x: float
+        :type n: int
+        :rtype: float
+        """
+
+        def _pow(x, n):
+            if n == 0:
+                return 1
+            temp = _pow(x, n/2)
+
+            if n & 1 == 1:
+                return temp*temp*x
+            else:
+                return temp*temp
+                
+        if n < 0:
+            x = 1/x
+            n = -n
+
+        return _pow(x,n)
+```
+
+## SA56 数组中数字出现的次数 I
+一个整型数组 nums 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是O(1)。
+```
+示例 1：
+
+输入：nums = [4,1,4,6]
+输出：[1,6] 或 [6,1]
+示例 2：
+
+输入：nums = [1,2,10,4,1,4,3,3]
+输出：[2,10] 或 [10,2]
+```
+```py
+class Solution(object):
+    def singleNumbers(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        k = 0
+        for x in nums:
+            k ^= x
+
+        mask = 1
+
+        while mask & k == 0:
+            mask <<= 1
+        
+        a, b = 0, 0
+        
+        for x in nums:
+            if x & mask == 0:
+                a ^= x
+            else:
+                b ^= x
+
+        return [a, b]
+```
+
+## SA56 数组中数字出现的次数 II
+在一个数组 nums 中除一个数字只出现一次之外，其他数字都出现了三次。请找出那个只出现一次的数字。
+```
+示例 1：
+
+输入：nums = [3,4,3,3]
+输出：4
+示例 2：
+
+输入：nums = [9,1,7,9,7,9,7]
+输出：1
+```
+
+```py
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+
+        if not nums:
+            return 0
+
+        counts = [0 for _ in range(32)]
+
+        for num in nums:
+            for i in range(32):
+                counts[i] += num & 1
+                num >>= 1
+
+        res, base = 0, 1
+
+        for i in range(32):
+            res += base * (counts[i] % 3)
+            base <<= 1
+
+        return res
+```
+
+## SA03 数组中重复的数字
+```py
+class Solution(object):
+    def findRepeatNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if not nums:
+            return 0
+
+        repeat = [0 for _ in range(len(nums))]
+
+        for i in nums:
+            if repeat[i]:
+                return i
+            
+            repeat[i] = 1
+
+        return -1
+```
+
+
+# Sort related
+## SA51 数组中的逆序对(merfeSort)
+```java
+class Solution {
+    public int reversePairs(int[] nums) {
+        
+        int len = nums.length;
+
+        return mergeSort(nums, 0, len - 1);
+
+    }
+
+    public int mergeSort(int[] nums, int low, int high){
+
+        if(low >= high){
+            return 0;
+        }
+
+        int mid = (low + high) / 2;
+
+        int left = mergeSort(nums, low, mid);
+        int right = mergeSort(nums, mid + 1, high);
+
+        if(nums[mid] <= nums[mid + 1]){
+            return left + right;
+        }
+
+        int cross = merge(nums, low, high, mid);
+
+        return left + right + cross;
+    }
+
+    public int merge(int[] nums, int low, int high, int mid){
+        int leftLen = mid - low + 1;
+        int rightLen = high - mid;
+
+        int[] left = new int[leftLen];
+        int[] right = new int[rightLen];
+
+        for(int i = 0; i < leftLen; i++){
+            left[i] = nums[low + i];
+        }
+        for(int i = 0; i < rightLen; i++){
+            right[i] = nums[mid + 1 + i];
+        }
+
+        int i = 0, j = 0, k = low, count = 0;
+
+        while(i < leftLen && j < rightLen){
+            if(right[j] < left[i]){
+                nums[k++] = right[j++];
+                count += leftLen - i;
+            }else{
+                nums[k++] = left[i++];
+            }
+        }
+
+        while(i < leftLen){
+            nums[k++] = left[i++];
+        }
+
+        while(j < rightLen){
+            nums[k++] = right[j++];
+        }
+
+        return count;
+    }
+}
+```
+```py
+class Solution(object):
+    def reversePairs(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+
+        return self.merge_sort(nums, 0, len(nums)-1)
+
+    def merge_sort(self, nums, low, high): #int
+        if low >= high:
+            return 0
+
+        mid = (low+high) // 2
+
+        left_num = self.merge_sort(nums, low, mid)
+        right_num = self.merge_sort(nums, mid+1, high)
+
+        if nums[mid] <= nums[mid+1]:
+            return left_num + right_num
+        
+        cross_num = self.merge(nums, low, mid, high)
+
+        return left_num + right_num + cross_num
+    
+    def merge(self, nums, low, mid, high):
+        # 注意不要写成nums[:mid+1], nums[mid+1:]
+        # 是在nums中取子段
+        # 左边取 [low, mid], 右边取[mid+1, high]
+        left_part = nums[low:mid+1]
+        right_part = nums[mid+1:high+1]
+
+        for i in range(mid-low+1):
+            left_part[i] = nums[low+i]
+
+        for i in range(high-mid):
+            right_part[i] = nums[mid+1+i]
+
+        i, j = 0, 0
+        k = low
+        count = 0
+
+        while i < len(left_part) and j < len(right_part):
+            if right_part[j] < left_part[i]:
+                nums[k] = right_part[j]
+                k += 1
+                j += 1
+                count += len(left_part) - i
+            else:
+                nums[k] = left_part[i]
+                k += 1
+                i += 1
+
+        while i < len(left_part):
+            nums[k] = left_part[i]
+            k += 1
+            i += 1
+
+        while j < len(right_part):
+            nums[k] = right_part[j]
+            k += 1
+            j += 1
+
+        return count
+```
+
+## SA45 把数组排成最小的数（Quick_sort）
+```py
+class Solution(object):
+    def minNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: str
+        """
+        if not nums:
+            return ""
+
+        def quick_sort(arr, low, high):
+            if low >= high:
+                return
+            
+            i, j = low, high
+
+            while i < j:
+                while i < j and arr[j] + arr[low] >= arr[low] + arr[j]:
+                    j -= 1
+                while i < j and arr[i] + arr[low] <= arr[low] + arr[i]:
+                    i += 1
+
+                arr[j], arr[i] = arr[i], arr[j]
+
+            arr[i], arr[low] = arr[low], arr[i]
+
+            quick_sort(arr, low, i-1)
+            quick_sort(arr, i+1, high)
+
+        strs = [str(num) for num in nums]
+        quick_sort(strs, 0, len(strs)-1)
+        return "".join(strs)
+```
+
+## SA40 最小的k个数
+```py
+class Solution(object):
+    def getLeastNumbers(self, arr, k):
+        """
+        :type arr: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        if not arr or k <= 0:
+            return []
+
+        self.quick_sort(arr, 0, len(arr)-1)
+
+        return arr[:k]
+
+    def quick_sort(self, arr, low, high):
+        if low >= high:
+            return 
+
+        i, j = low, high
+        pivot = arr[low]
+
+        while i < j:
+            while i < j and arr[j] >= pivot:
+                j -= 1
+            while i < j and arr[i] <= pivot:
+                i += 1  
+
+            arr[j], arr[i] = arr[i], arr[j]
+
+        arr[low], arr[i] = arr[i], arr[low]
+
+        self.quick_sort(arr, low, i-1)
+        self.quick_sort(arr, i+1, high)
+```
+
+
+# 特殊
+## SA66 构建乘积数组
+```py
+class Solution(object):
+    def constructArr(self, a):
+        """
+        :type a: List[int]
+        :rtype: List[int]
+        """
+        if not a:
+            return []
+
+        res = [1]
+
+        for i in range(1, len(a)):
+            res.append(res[i-1]*a[i-1])
+
+        temp = 1
+
+        for i in range(len(a)-2, -1, -1):
+            temp *= a[i+1]
+            res[i] *= temp
+
+        return res
+```
+
+## SA29 顺时针打印矩阵
+```py
+class Solution(object):
+    def spiralOrder(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: List[int]
+        """
+        if not matrix or not matrix[0]:
+            return []
+
+        up, down = 0, len(matrix)-1
+        left, right = 0, len(matrix[0])-1
+        res = []
+
+        while True:
+            for i in range(left, right+1):
+                res.append(matrix[up][i])
+            up += 1
+            if up > down:
+                break
+
+            for i in range(up, down+1):
+                res.append(matrix[i][right])
+            right -= 1
+            if left > right:
+                break
+
+            for i in range(right, left-1, -1):
+                res.append(matrix[down][i])
+            down -= 1
+            if up > down:
+                break
+
+            for i in range(down, up-1, -1):
+                res.append(matrix[i][left])
+            left += 1
+            if left > right:
+                break
+
+        return res
+```
+
+## 61. 扑克牌中的顺子
+```py
+class Solution(object):
+    def isStraight(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        if not nums:
+            return False
+
+        _max = -1
+        _min = 14
+
+        repeat = set()
+
+        for card in nums:
+            if card == 0:
+                continue
+            if card in repeat:
+                return False
+            else:
+                repeat.add(card)
+
+            _max = max(_max, card)
+            _min = min(_min, card)
+
+        return _max - _min < 5
+```
+
+## 62. 圆圈中最后剩下的数字
+0,1,,n-1这n个数字排成一个圆圈，从数字0开始，每次从这个圆圈里删除第m个数字。求出这个圆圈里剩下的最后一个数字。
+
+例如，0、1、2、3、4这5个数字组成一个圆圈，从数字0开始每次删除第3个数字，则删除的前4个数字依次是2、0、4、1，因此最后剩下的数字是3。
+
+```
+示例 1：
+
+输入: n = 5, m = 3
+输出: 3
+示例 2：
+
+输入: n = 10, m = 17
+输出: 2
+```
+
+```py
+class Solution(object):
+    def lastRemaining(self, n, m):
+        """
+        :type n: int
+        :type m: int
+        :rtype: int
+        """
+        if not n:
+            return 1
+        last_index = self.lastRemaining(n-1, m)
+
+        return (last_index+m)%n
+```
 
