@@ -1,6 +1,6 @@
 ---
 layout: post
-title: カケラ
+title: Leetcode Model
 categories: Algorithm
 description: 
 keywords: 
