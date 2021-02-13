@@ -54,7 +54,7 @@ public class UserController {
 }
 ```
 
-> 截至此时，已经可以启动项目看到两个页面。
+截至此时，已经可以启动项目看到两个页面。
 
 ## 集成Mybatis
 ### 库表准备
@@ -185,6 +185,7 @@ mybatis.mapper-locations=classpath:mappers/*Mapper.xml
 
 ### 在启动类上添加扫描dao接口的注解
 > @MapperScan("com.seiro.demo.dao")
+
 ```java
 @MapperScan("com.seiro.demo.dao")
 @SpringBootApplication
