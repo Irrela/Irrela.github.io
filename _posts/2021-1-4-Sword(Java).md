@@ -105,77 +105,60 @@ class Solution {
 }
 ```
 ## SA68 二叉树的最近公共祖先
-```python
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+```java
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        // 祖先题固定段
+        if(root == null){
+            return null;
+        }
+        if(p == null || q == null){
+            return p == null ? q : p;
+        }
+        if(p == root || q == root){
+            return p == root ? p : q;
+        }
+        // 
 
-class Solution(object):
-    def lowestCommonAncestor(self, root, p, q):
-        """
-        :type root: TreeNode
-        :type p: TreeNode
-        :type q: TreeNode
-        :rtype: TreeNode
-        """
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
 
-        if not root:
-            return None
-        
-        if not p or not q:
-            if not p:
-                return q
-            else:
-                return p
+        if(left == null || right == null){//如果两个都为null则返回null， 这条语句也能实现。
+            return left == null ? right : left;
+        }
 
-        if p is root or q is root:
-            return root
-
-        left = self.lowestCommonAncestor(root.left, p, q)
-        right = self.lowestCommonAncestor(root.right, p, q)
-        
-        if not left or not right:
-            if not left:
-                return right
-            else:
-                return left
-        
-        return root
+        return root;//两个都不为null, 左右子树分别包含p，q的情况。
+    }
+}
 ```
 
 ## SA68 二叉搜索树的最近公共祖先
-```python
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+```java
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        // 祖先题固定段
+        if(root == null){
+            return null;
+        }
+        if(p == null || q == null){
+            return p == null ? q : p;
+        }
+        if(p == root || q == root){
+            return p == root ? p : q;
+        }
+        // 
 
-class Solution(object):
-    def lowestCommonAncestor(self, root, p, q):
-        """
-        :type root: TreeNode
-        :type p: TreeNode
-        :type q: TreeNode
-        :rtype: TreeNode
-        """
-        if not root:
-            return None
+        if(p.val > root.val && q.val > root.val) {
+            return lowestCommonAncestor(root.right, p, q);
+        }
 
-        if p is root or q is root:
-            return root
+        if(p.val < root.val && q.val < root.val) {
+            return lowestCommonAncestor(root.left, p, q);
+        }
 
-        if root.val < p.val and root.val < q.val:
-            return self.lowestCommonAncestor(root.right, p, q)
-
-        if root.val > p.val and root.val > q.val:
-            return self.lowestCommonAncestor(root.left, p, q)
-
-        return root
+        return root;
+    }
+}
 ```
 
 ## SA32 从上到下打印二叉树
@@ -195,36 +178,39 @@ class Solution(object):
 [3,9,20,15,7]
 
 Solution:
-```python
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+```java
+class Solution {
+    public int[] levelOrder(TreeNode root) {
+        if(root == null) {
+            return new int[0];
+        }
 
-class Solution(object):
-    def levelOrder(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[int]
-        """
-        if not root:
-            return []
+        List<TreeNode> queue = new ArrayList<>();
+        List<Integer> resList = new ArrayList<>();
 
-        queue = [root]
-        res = []
+        queue.add(root);
 
-        while queue:
-            node = queue.pop(0)
-            res.append(node.val)
+        while(!queue.isEmpty()) {
+            TreeNode node = queue.remove(0);
+            resList.add(node.val);
 
-            if node.left:
-                queue.append(node.left)
-            if node.right:
-                queue.append(node.right)
+            if(node.left != null) {
+                queue.add(node.left);
+            }
 
-        return res
+            if(node.right != null) {
+                queue.add(node.right);
+            }
+        }
+        
+        int len = resList.size();
+        int[] res = new int[len];
+        for(int i = 0; i < len; i++) {
+            res[i] = resList.remove(0);
+        }
+        return res;
+    }
+}
 ```
 
 ## SA32 从上到下打印二叉树II
@@ -249,42 +235,43 @@ class Solution(object):
 ```
 
 Solution:
-```python
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+```java
+class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
 
-class Solution(object):
-    def levelOrder(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[List[int]]
-        """
+        if(root == null){
+            return res;
+        }
 
-        if not root:
-            return []
+        List<TreeNode> queue = new ArrayList<>();
+        int queueSize;
 
-        queue = [root]
-        res = []
+        queue.add(root);
 
-        while queue:
-            temp = []
-            for i in range(len(queue)):
-                node = queue.pop(0)
-                temp.append(node.val)
+        while(!queue.isEmpty()) {
+            List<Integer> tempRow = new ArrayList<>();
+            queueSize = queue.size();
 
-                if node.left:
-                    queue.append(node.left)
+            for(int i = 0; i < queueSize; i++) {
+                TreeNode node = queue.remove(0);
+                tempRow.add(node.val);
+                
+                if(node.left != null) {
+                    queue.add(node.left);
+                }
 
-                if node.right:
-                    queue.append(node.right)
+                if(node.right != null) {
+                    queue.add(node.right);
+                }
+            }
 
-            res.append(temp)
+            res.add(tempRow);
+        }
 
-        return res
+        return res;
+    }
+}
 ```
 
 ## SA32 从上到下打印二叉树III
@@ -309,46 +296,49 @@ class Solution(object):
 ```
 
 Solution:
-```python
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+```java
+class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
 
-class Solution(object):
-    def levelOrder(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[List[int]]
-        """
-        if not root:
-            return []
+        List<List<Integer>> res = new ArrayList<>();
+        if (root == null) {
+            return res;
+        }
 
-        queue = [root]
-        res = []
-        depth = 0
+        List<TreeNode> queue = new ArrayList<>();
+        queue.add(root);
+        boolean flag = true;
 
-        while queue:
-            temp = []
+        while (!queue.isEmpty()){
+            List<Integer> tempRow = new ArrayList<>();
+            int len = queue.size();
 
-            for i in range(len(queue)):
-                node = queue.pop(0)
-                if depth & 1 == 0:
-                    temp.append(node.val)
-                else:
-                    temp.insert(0, node.val)
+            for (int i = 0; i < len; i++){
+                TreeNode node = queue.remove(0);
+                
+                if (flag) {
+                    tempRow.add(node.val);
+                }
+                else{
+                    tempRow.add(0,node.val);
+                }
+                
+                if (node.left != null){
+                    queue.add(node.left);
+                }
+                if (node.right != null){
+                    queue.add(node.right);
+                }
+            }
+            flag = !flag;
+            
+            res.add(tempRow);
 
-                if node.left:
-                    queue.append(node.left)
-                if node.right:
-                    queue.append(node.right)
-
-            res.append(temp)
-            depth += 1
-
-        return res
+        }
+        
+        return res;
+    }
+}
 ```
 ## 剑指 Offer 07. 重建二叉树
 输入某二叉树的前序遍历和中序遍历的结果，请重建该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。
@@ -369,94 +359,129 @@ class Solution(object):
 
 ```java
 class Solution {
-    HashMap<Integer, Integer> dic = new HashMap<>();
-    int[] preorder;
+        HashMap<Integer, Integer> inorderMap = new HashMap<>();
+        int[] preorder;
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         this.preorder = preorder;
         int len = preorder.length;
 
-        for (int i = 0; i < len; i++) {
-            dic.put(inorder[i], i);
+        for(int i = 0; i < len; i++) {
+            inorderMap.put(inorder[i], i);
         }
 
         return recur(0, 0, len-1);
     }
 
-    public TreeNode recur(int root, int left, int right) {
-        if (left > right) {
+    // root: 在preorder中的index
+    private TreeNode recur(int root, int left, int right) {
+
+        if(left > right) {
             return null;
         }
 
         TreeNode rootNode = new TreeNode(preorder[root]);
-        int i = dic.get(preorder[root]);
+        int i = inorderMap.get(preorder[root]);
 
         rootNode.left = recur(root + 1, left, i - 1);
-        rootNode.right = recur(i-left+root + 1, i+1, right);
-        
+        rootNode.right = recur(root + 1 + i - left, i + 1, right);
+
         return rootNode;
     }
 }
 ```
 
 ## SA33 二叉搜索树的后序遍历序列
-```python
-class Solution(object):
-    def verifyPostorder(self, postorder):
-        """
-        :type postorder: List[int]
-        :rtype: bool
-        """
-        if not postorder:
-            return True
+```java
+class Solution {
+    public boolean verifyPostorder(int[] postorder) {
+        int len = postorder.length;
+        if(len == 0) {
+            return true;
+        }
 
-        cur = 0
+        int cur = 0;
 
-        while postorder[cur] < postorder[-1]:
-            cur += 1
+        while(postorder[cur] < postorder[len-1]) {
+            cur++;
+        }
 
-        # mid是第一个val大于root的，即right child，所以recur时左边取不到mid
-        mid = cur
+        // mid是第一个val大于root的，即right child，所以recur时左边取不到mid
+        int mid = cur;
 
-        while postorder[cur] > postorder[-1]:
-            cur += 1
+        while(postorder[cur] > postorder[len-1]) {
+            cur++;
+        }
 
-        return cur == len(postorder)-1 and self.verifyPostorder(postorder[:mid]) and self.verifyPostorder(postorder[mid:-1])
+        return (cur == len - 1) && verifyPostorder(Arrays.copyOfRange(postorder, 0, mid)) && verifyPostorder(Arrays.copyOfRange(postorder, mid, len - 1));// len-1, 不取到最后一位。
+    }
+}
+```
+
+> 不用copyOfRange的策略, overload一个带start，end参数的verifyPostorder。 然而leetcode结果并不会省空间。还是建议第一种。
+```java
+class Solution {
+    
+    int[] postorder;
+
+    public boolean verifyPostorder(int[] postorder) {
+        this.postorder = postorder;
+        int len = postorder.length;
+        if(len == 0) {
+            return true;
+        }
+
+        return recur(0, len-1);
+    }
+
+    private boolean recur(int start, int end) {
+        if(start >= end){
+            return true;
+        }
+        
+        int pointer = start;
+        while(postorder[pointer] < postorder[end]){
+            pointer++;
+        }
+
+        int mid = pointer;
+
+        while(postorder[pointer] > postorder[end]){
+            pointer++;
+        }
+
+        return pointer == end && recur(start, mid - 1) && recur(mid, end - 1);
+    }
+}
 ```
 
 ## SA26 树的子结构
-```python
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+```java
+class Solution {
+    public boolean isSubStructure(TreeNode A, TreeNode B) {
+        if(A == null && B == null) {
+            return true;
+        }
+        if(A == null || B == null) {
+            return false;
+        }
 
-class Solution(object):
-    def isSubStructure(self, A, B):
-        """
-        :type A: TreeNode
-        :type B: TreeNode
-        :rtype: bool
-        """
+        return isPartOf(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
+    }
 
-        if not A and not B:
-            return True
-
-        if not A or not B:
-            return False
+    private boolean isPartOf(TreeNode parent, TreeNode child) {
+        if(child == null) {
+            return true;
+        }
+        if(parent == null || parent.val != child.val) {
+            return false;
+        }
         
-        return self.is_part_of(A, B) or self.isSubStructure(A.left, B) or self.isSubStructure(A.right, B)
-
-    def is_part_of(self, parent, child):
-        if not child:
-            return True
-        if not parent or parent.val != child.val:
-            return False
-
-        return self.is_part_of(parent.left, child.left) and self.is_part_of(parent.right, child.right)
+        return isPartOf(parent.left, child.left) && isPartOf(parent.right, child.right);
+    }
+}
 ```
+
 ## SA54 二叉搜索树的第k大节点
 ```java
 class Solution {
@@ -492,76 +517,144 @@ class Solution {
 }
 ```
 ## SA36 二叉搜索树与双向链表 problem
-```python
-"""
-# Definition for a Node.
-class Node(object):
-    def __init__(self, val, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-"""
-class Solution(object):
-    def treeToDoublyList(self, root):
-        """
-        :type root: Node
-        :rtype: Node
-        """
-        if not root:
-            return None
+```java
+class Solution {
 
-        self.prev, self.head = None, None
-        self.dfs(root)
-        self.prev.right, self.head.left = self.head, self.prev
-        return self.head
+    Node prev, head;
 
-    def dfs(self, node):
-        if not node:
-            return 
+    public Node treeToDoublyList(Node root) {
+        if(root == null) {
+            return null;
+        }
         
-        self.dfs(node.left)
-        if self.prev:
-            self.prev.right, node.left = node, self.prev
-        else:
-            self.head = node
-        self.prev = node
+        dfs(root);
 
-        self.dfs(node.right)
+        prev.right = head;
+        head.left = prev;
+
+        return head;
+    }
+
+    private void dfs(Node node) {
+        if(node == null) {
+            return ;
+        }
+
+        dfs(node.left);
+        
+        if(prev != null) {
+            prev.right = node;
+            node.left = prev;
+        } else {
+            head = node;
+        }
+        prev = node;
+
+        dfs(node.right);
+    }
+}
+```
+
+```java
+class Solution {
+    
+    static Node head;//head和pre都只是引用，不是新的node
+    static Node pre;//当递归完成后，head指向deque第一个node， pre指向最后一个node
+    
+    public Node treeToDoublyList(Node root) {
+        if(root == null){
+            return null;
+        }
+        
+        head = null;
+        pre = null;
+        
+        leftConnect(root);
+        
+        if(pre == null){
+            head = root;
+        }else{
+            pre.right = root;
+        }
+        
+        root.left = pre;
+        pre = root;
+        
+        rightConnect(root.right);
+        
+        head.left = pre;
+        pre.right = head;
+        
+        return head;
+    }
+    
+    public static void leftConnect(Node node){
+        if(node == null){
+            return;
+        }
+        
+        leftConnect(node.left);
+        
+        if(pre == null){
+            head = node;
+        }else{
+            pre.right = node;
+        }
+        
+        node.left = pre;
+        pre = node;
+        
+    }
+    
+    public static void rightConnect(Node node){
+        if(node == null){
+            return;
+        }
+        
+        pre.right = node;
+        node.left = pre;
+        pre = node;
+        
+        rightConnect(node.right);
+    }
+}
 ```
 
 ## SA34 二叉树中和为某一值的路径 problem
-```python
-class Solution(object):
-    def pathSum(self, root, sum):
-        """
-        :type root: TreeNode
-        :type sum: int
-        :rtype: List[List[int]]
-        """
-        if not root:
-            return []
-        self.res = []
-        self.dfs(root, sum, [])
+```java
+class Solution {
+    
+    List<List<Integer>> res = new ArrayList<>();
 
-        return self.res
+    public List<List<Integer>> pathSum(TreeNode root, int sum) {
+        if(root == null) {
+            return res;
+        }
 
-    def dfs(self, node, sum, path):
-        if not node:
-            return
-        
-        sum -= node.val
-        path.append(node.val)
+        dfs(root, sum, new ArrayList<Integer>());
 
-        if not sum and not node.left and not node.right:
-            self.res.append(path[:])
-            
+        return res;
+    }
 
-        self.dfs(node.left, sum, path)
-        self.dfs(node.right, sum, path)
+    private void dfs(TreeNode node, int sum, List<Integer> path) {
+        if(node == null) {
+            return ;
+        }
 
-
-        # 尝试去掉改行，感觉不影响结果
-        path.pop()
+        sum -= node.val;
+        // 选择
+        path.add(node.val);
+        // 判断终末跳出
+        if(sum == 0 && node.left == null && node.right == null) {
+            res.add(new ArrayList<Integer>(path));
+        }
+        // 向下search
+        dfs(node.left, sum, path);
+        dfs(node.right, sum, path);
+        // 完全search也未有return，进行回溯
+        path.remove(path.size()-1);
+    }
+}
 ```
 
 # Stack, Queue
@@ -600,57 +693,87 @@ class CQueue(object):
 # param_2 = obj.deleteHead()
 ```
 ## SA30 包含min函数的栈
-```python
-class MinStack(object):
+### 双压
+当遇到小于栈顶min的新元素时，先压入一个当前min，更新min，再压入新元素
 
-    def __init__(self):
-        """
-        initialize your data structure here.
-        """
-        self.stack, self.mono = [], []
+出栈时，弹出栈顶元素，如果该元素等于min，则再弹出一个栈顶元素，并将min更新为第二次弹出的元素
+（等于则出栈两次，将min更新为第二次出栈元素。 不等于则单纯出栈一次）
 
+```java
+class MinStack {
+    List<Integer> stack;
+    int min;
+    /** initialize your data structure here. */
+    public MinStack() {
+        stack = new ArrayList<>();
+        min = Integer.MAX_VALUE;
+    }
+    
+    public void push(int x) {
+        if(x <= min){
+            stack.add(min);
+            min = x;
+        }
 
-    def push(self, x):
-        """
-        :type x: int
-        :rtype: None
-        """
-        self.stack.append(x)
-        # ！！！一定要有 = 
-        if not self.mono or x <= self.mono[-1]:
-            self.mono.append(x)
+        stack.add(x);
+    }
+    
+    public void pop() {
+        if(min == stack.remove(stack.size()-1)){
+            min = stack.remove(stack.size()-1);
+        }
+    }
+    
+    public int top() {
+        return stack.get(stack.size()-1);
+    }
+    
+    public int min() {
+        return min;
+    }
+}
+```
 
+### Mono
+> 单调栈一定注意栈顶元素比较要用equals！
+list存的都是Integer, 比较内容用equals, 由于自动装箱拆箱的范围在-128 ~ 127之间，在此之外的数就会比较引用，很显然，mono栈顶和stack栈顶的引用不一样
+```java
+class MinStack {
+    List<Integer> stack;
+    List<Integer> mono;
 
-    def pop(self):
-        """
-        :rtype: None
-        """
-        if self.mono[-1] == self.stack.pop():
-            self.mono.pop()
+    /** initialize your data structure here. */
+    public MinStack() {
+        stack = new ArrayList<>();
+        mono = new ArrayList<>();
+    }
+    
+    public void push(int x) {
+        stack.add(x);
+        if(mono.isEmpty() || x <= mono.get(mono.size()-1)) {
+            mono.add(x);
+        }
+    }
+    
+    public void pop() {
+        if(stack.isEmpty()) {
+            return;
+        }
 
-
-
-    def top(self):
-        """
-        :rtype: int
-        """
-        return self.stack[-1]
-
-
-    def min(self):
-        """
-        :rtype: int
-        """
-        return self.mono[-1]
-
-
-
-# Your MinStack object will be instantiated and called as such:
-# obj = MinStack()
-# obj.push(x)
-# obj.pop()
-# param_3 = obj.top()
-# param_4 = obj.min()
+        // list存的都是Integer, 比较内容用equals, 由于自动装箱拆箱的范围在-128 ~ 127之间，在此之外的数就会比较引用，很显然，mono栈顶和stack栈顶的引用不一样
+        if(mono.get(mono.size()-1).equals(stack.remove(stack.size()-1))) {
+            mono.remove(mono.size()-1);
+        }
+    }
+    
+    public int top() {
+        return stack.get(stack.size()-1);
+    }
+    
+    public int min() {
+        return mono.get(mono.size()-1);
+    }
+}
 ```
 
 
@@ -666,120 +789,89 @@ class Solution {
             return false;
         }
 
-        Deque<Integer> stack = new LinkedList<>();
-        int popedIndex = 0;
+        List<Integer> stack = new ArrayList<>();
+        int poppedIndex = 0;
 
-        for(int num : pushed){
-            stack.push(num);
-            while(!stack.isEmpty() && stack.peek().equals(popped[popedIndex])){
-                stack.pop();
-                popedIndex++;
+        for(int num : pushed) {
+            stack.add(num);
+            while(!stack.isEmpty() && stack.get(stack.size()-1).equals(popped[poppedIndex])) {   
+                stack.remove(stack.size()-1);
+                poppedIndex++;
             }
         }
 
-        return stack.isEmpty();       
+        return stack.isEmpty();
     }
 }
 ```
-```python
-class Solution(object):
-    def validateStackSequences(self, pushed, popped):
-        if not pushed and not popped:
-            return True
-        if len(pushed) != len(popped):
-            return False
-
-        stack = []
-        pop_index = 0
-
-        for elem in pushed:
-            stack.append(elem)
-            while(stack and stack[-1] == popped[pop_index]):
-                stack.pop()
-                pop_index += 1
-
-        return not stack
-```
 
 ## SA59 队列的最大值
-```python
-class MaxQueue(object):
+> 栈的max min用单调栈，队列的max min用单调队列
 
-    def __init__(self):
-        self.queue = []
-        self.mono = []
+```java
+class MaxQueue {
 
-    def max_value(self):
-        """
-        :rtype: int
-        """
-        if not self.mono:
-            return -1
-        
-        return self.mono[0]
+    List<Integer> queue;
+    List<Integer> mono;
 
+    public MaxQueue() {
+        queue = new ArrayList<>();
+        mono = new ArrayList<>();
+    }
+    
+    public int max_value() {
+        if(mono.isEmpty()) {
+            return -1;
+        }
+        return mono.get(0);
+    }
+    
+    public void push_back(int value) {
+        queue.add(value);
+        while(!mono.isEmpty() && mono.get(mono.size()-1) < value) {
+            mono.remove(mono.size()-1);
+        }
+        mono.add(value);
+    }
+    
+    public int pop_front() {
+        if(queue.isEmpty()) {
+            return -1;
+        }
 
-    def push_back(self, value):
-        """
-        :type value: int
-        :rtype: None
-        """
-        self.queue.append(value)
-        while self.mono and self.mono[-1] < value:
-            self.mono.pop()
-        self.mono.append(value)
+        int pop = queue.remove(0);
+        if((mono.get(0).equals(pop))) {
+            mono.remove(0);
+        }
 
-
-    def pop_front(self):
-        """
-        :rtype: int
-        """
-        if not self.queue:
-            return -1
-        if self.mono[0] == self.queue[0]:
-            self.mono.pop(0)
-        return self.queue.pop(0)
-
-
-
-# Your MaxQueue object will be instantiated and called as such:
-# obj = MaxQueue()
-# param_1 = obj.max_value()
-# obj.push_back(value)
-# param_3 = obj.pop_front()
+        return pop;
+    }
+}
 ```
-
-
 
 # 链表
 ## SA24 反转链表
-```python
-# Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+```java
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head == null) {
+            return null;
+        }
 
-class Solution(object):
-    def reverseList(self, head):
-        """
-        :type head: ListNode
-        :rtype: ListNode
-        """
-        if not head:
-            return None
+        ListNode prev = null;
+        ListNode node = head;
 
-        prev = None
-        cur = head
+        while(node != null) {
+            ListNode next = node.next;
 
-        while cur:
-            _next = cur.next
+            node.next = prev;
+            prev = node;
+            node = next;
+        }
 
-            cur.next = prev
-            prev = cur
-            cur = _next
-
-        return prev
+        return prev;
+    }
+}
 ```
 
 ## SA06 从尾到头打印链表
@@ -822,191 +914,162 @@ class Solution {
 ```java
 class Solution {
     public int[] reversePrint(ListNode head) {
+        if(head == null) {
+            return new int[0];
+        }   
+
         int len = 0;
-        ListNode tmp = head;
+        ListNode node = head;
 
-        while(tmp != null){
-            tmp = tmp.next;
+        while(node != null) {
             len++;
+            node = node.next;
         }
-
-        if(len == 0) return new int[0];
-
+        
         int[] res = new int[len];
-        tmp = head;
+        node = head;
 
-        for(int i = len - 1;i >=0;i--){
-            res[i] = tmp.val;
-            tmp = tmp.next;
+        for(int i = len - 1; i >= 0; i-- ) {
+            res[i] = node.val;
+            node = node.next;
         }
-        return res;
 
+        return res;
+    }   
+}
+```
+
+## SA35 复杂链表的复制
+```java
+class Solution {
+    public Node copyRandomList(Node head) {
+        if(head == null) {
+            return null;
+        }
+
+        HashMap<Node, Node> map = new HashMap<>();
+
+        Node node = head;
+        while(node != null) {
+            map.put(node, new Node(node.val));
+            node = node.next;
+        }
+
+        node = head;
+
+        while(node != null) {
+            map.get(node).random = map.get(node.random);
+            map.get(node).next = map.get(node.next);
+            node = node.next;
+        }
+
+        return map.get(head);
+    }
+}
+```
+
+## SA25 合并两个排序的链表
+```java
+class Solution {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if(l1 == null || l2 == null) {
+            return l1 == null ? l2 : l1;
+        }
+
+        // core part
+        ListNode dummy = new ListNode(-1);
+        ListNode node = dummy;
+
+        while(l1 != null && l2 != null) {
+            if(l1.val < l2.val) {
+                node.next = l1;
+                l1 = l1.next;
+            } else {
+                node.next = l2;
+                l2 = l2.next;
+            }
+            node = node.next;
+        }
+
+        node.next = l1 == null ? l2 : l1;
+
+        return dummy.next;
+    }
+}
+```
+
+## SA52 两个链表的第一个公共节点
+> 本质求公倍数
+```java
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if(headA == null || headB == null) {
+            return null;
+        }
+
+        ListNode nodeA = headA;
+        ListNode nodeB = headB;
+
+        while(nodeA != nodeB) {
+            nodeA = nodeA == null ? headB : nodeA.next;
+            nodeB = nodeB == null ? headA : nodeB.next;
+        }
+
+        return nodeA;
+    }
+}
+```
+
+## SA22 链表中倒数第k个节点
+```java
+class Solution {
+    public ListNode getKthFromEnd(ListNode head, int k) {
+        if(head == null) {
+            return null;
+        }
+
+        ListNode first = head, second = head;
+
+        for(int i = 0; i < k; i++) {
+            first = first.next;
+        }
+
+        while(first != null) {
+            first = first.next;
+            second = second.next;
+        }
+
+        return second;
 
     }
 }
 ```
 
-## SA35 复杂链表的复制
-```python
-"""
-# Definition for a Node.
-class Node:
-    def __init__(self, x, next=None, random=None):
-        self.val = int(x)
-        self.next = next
-        self.random = random
-"""
-class Solution(object):
-    def copythonRandomList(self, head):
-        """
-        :type head: Node
-        :rtype: Node
-        """
-
-        if not head:
-            return None
-
-        dict = {}
-        cur = head
-        
-        while cur:
-            dict[cur] = Node(cur.val)
-            cur = cur.next
-
-        cur = head
-
-        while cur:
-            dict.get(cur).random = dict.get(cur.random)
-            dict.get(cur).next = dict.get(cur.next)
-
-            cur = cur.next
-        
-        return dict[head]
-```
-
-## SA25 合并两个排序的链表
-```python
-# Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
-class Solution(object):
-    def mergeTwoLists(self, l1, l2):
-        """
-        :type l1: ListNode
-        :type l2: ListNode
-        :rtype: ListNode
-        """
-
-        cur = ListNode(-1)
-        head = cur
-
-        while l1 and l2:
-            if l1.val <= l2.val:
-                cur.next = l1
-                l1 = l1.next
-            else:
-                cur.next = l2
-                l2 = l2.next
-            cur = cur.next
-
-        if not l1:
-            cur.next = l2
-        else:
-            cur.next = l1
-
-        return head.next
-```
-
-## SA52 两个链表的第一个公共节点
-```python
-# Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
-class Solution(object):
-    def getIntersectionNode(self, headA, headB):
-        """
-        :type head1, head1: ListNode
-        :rtype: ListNode
-        """
-        if not headA or not headB:
-            return None
-        
-        node_a = headA
-        node_b = headB
-
-        while node_a != node_b:
-            if not node_a:
-                node_a = headB
-            else:
-                node_a = node_a.next
-
-            if not node_b:
-                node_b = headA
-            else:
-                node_b = node_b.next
-
-        return node_a
-```
-
-## SA22 链表中倒数第k个节点
-```python
-# Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
-class Solution(object):
-    def getKthFromEnd(self, head, k):
-        """
-        :type head: ListNode
-        :type k: int
-        :rtype: ListNode
-        """
-
-        cur = head
-        while k:
-            cur = cur.next
-            k -= 1
-        while cur:
-            cur = cur.next
-            head = head.next
-        return head
-```
-
 ## SA18 删除链表的节点
-```python
-# Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-class Solution(object):
-    def deleteNode(self, head, val):
-        """
-        :type head: ListNode
-        :type val: int
-        :rtype: ListNode
-        """
+```java
+class Solution {
+    public ListNode deleteNode(ListNode head, int val) {
+        if(head == null) {
+            return null;
+        }
+        
+        // Note!
+        if(val == head.val) {
+            return head.next;
+        }
 
-        if not head:
-            return None
+        ListNode node = head, prev = head;
 
-        if val == head.val:
-            return head.next
+        while(node.val != val) {
+            prev = node;
+            node = node.next;
+        }
 
-        node = head
-        while node.next:
-            if node.next.val == val:
-                node.next = node.next.next
-                return head
-            node = node.next
+        prev.next = node.next;
+
+        return head;
+    }
+}
 ```
 
 # DP
@@ -1035,57 +1098,78 @@ class Solution(object):
 ```
 
 ## SA48 最长不含重复字符的子字符串
-```python
-class Solution(object):
-    def lengthOfLongestSubstring(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
 
-        if not s:
-            return 0
+我们可以使用哈希表记录每个字符的index，然后尽量向右移动尾指针来拓展窗口，并更新窗口的最大长度。如果尾指针指向的元素重复，则将头指针直接移动到窗口中重复元素的右侧。
 
-        index_dict = {}
-        i = -1
-        res = 0
+```java
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
 
-        for j in range(len(s)):
-            if index_dict.has_key(s[j]):
-                i = max(i, index_dict[s[j]])
+        if(s == null || s.length() == 0){
+            return 0;
+        }
 
-            index_dict[s[j]] = j
-            res = max(res, j-i)
+        // 不用int[26]是因为可能有' ', ' ' - 'a' = -65
+        int[] record = new int[128];
+        for(int i = 0; i < 128; i++){
+            record[i] = -1;
+        }
 
-        return res
+        int res = 0;
+        int len = s.length();
+        int head = -1, tail = 0; // 注意head设成-1
+
+        for(;tail < len; tail++){
+            int index = s.charAt(tail);
+
+            if(record[index] != -1){
+                head = Math.max(head, record[index]); // Note! 还是要比较一下，反例：abba(当b刚好接在b后面时)
+            }
+
+            record[index] = tail;
+
+            res = Math.max(res, tail - head);
+        }
+
+        return res;
+    }
+}
 ```
 
 ## SA47 礼物的最大价值
-```python
-class Solution(object):
-    def maxValue(self, grid):
-        """
-        :type grid: List[List[int]]
-        :rtype: int
-        """
+```java
+class Solution {
+    public int maxValue(int[][] grid) {
 
-        if not grid or not grid[0]:
-            return -1
+        if(grid == null || grid.length == 0 || grid[0].length == 0) {
+            return 0;
+        }
 
-        rows = len(grid)
-        cols = len(grid[0])
+        int rows = grid.length, cols = grid[0].length;
 
-        for i in range(1, rows):
-            grid[i][0] += grid[i-1][0]
+        // 一定要有这一步, 例如: 1 2 3
+        //                    2 x
+        //                    3
+        // x从左应该是 +3（1 -》2）, 我们要第一列和第一行先更新成：
+        //                    1 1+2 1+2+3
+        //                    3 x
+        //                    7
+        for(int i = 1; i < rows; i++) {
+            grid[i][0] += grid[i-1][0];
+        }
+        for(int i = 1; i < cols; i++) {
+            grid[0][i] += grid[0][i-1];
+        }
 
-        for i in range(1, cols):
-            grid[0][i] += grid[0][i-1]
+        for(int i = 1; i < rows; i++) {
+            for(int j = 1; j < cols; j++) {
+                grid[i][j] += Math.max(grid[i-1][j], grid[i][j-1]);
+            }
+        }
 
-        for i in range(1, rows):
-            for j in range(1, cols):
-                grid[i][j] += max(grid[i][j-1], grid[i-1][j])
-
-        return grid[rows-1][cols-1]
+        return grid[rows - 1][cols - 1];
+    }
+}
 ```
 
 ## SA49 丑数
@@ -1119,6 +1203,41 @@ class Solution(object):
         return dp[-1]
 ```
 
+```java
+class Solution {
+    public int nthUglyNumber(int n) {
+        if(n <= 0) {
+            return 0;
+        }
+
+        int indexTwo = 0, indexThree = 0, indexFive = 0;
+        int[] dp = new int[n];
+        dp[0] = 1;
+
+        for(int i = 1; i < n; i++) {
+            int two = dp[indexTwo] * 2;
+            int three = dp[indexThree] * 3;
+            int five = dp[indexFive] * 5;
+
+            dp[i] = Math.min(Math.min(two, three), five);
+
+            // 注意不要用elif，存在一个ugly同时可以被*2，*3 或 *5得到，需要同时更新index
+            if(dp[i] == two) {
+                indexTwo++;
+            }
+            if(dp[i] == three) {
+                indexThree++;
+            }
+            if(dp[i] == five) {
+                indexFive++;
+            }
+        }
+
+        return dp[n-1];
+    }
+}
+```
+
 ## SA63 股票的最大利润
 ```python
 class Solution(object):
@@ -1138,6 +1257,46 @@ class Solution(object):
             revenue = max(price - lowest, revenue)
 
         return revenue
+```
+
+```java
+class Solution {
+    //可以多次买卖
+    // public int maxProfit(int[] prices) {
+    //     int len = prices.length;
+
+    //     int[] hold = new int[len];
+    //     int[] no = new int[len];
+
+    //     hold[0] = -prices[0];
+
+    //     for(int i = 1; i < len; i++){
+    //         hold[i] = Math.max(no[i-1] - prices[i], hold[i-1]);
+    //         no[i] = Math.max(no[i-1], hold[i-1] + prices[i]);
+    //     }
+
+    //     return no[len - 1];
+    // }
+
+    public int maxProfit(int[] prices) {
+        int len = prices.length;
+
+        if(len == 0){
+            return 0;
+        }
+        
+        int lowest = prices[0];
+        int profit = 0;
+
+        for(int price : prices){
+            // 下述两句顺序无关先后
+            profit = Math.max(profit, price - lowest);
+            lowest = Math.min(lowest, price);
+        }
+
+        return profit;
+    }
+}
 ```
 
 ## SA14 剪绳子
@@ -1177,6 +1336,52 @@ class Solution(object):
 
         return oneB
 ```
+### 贪心
+```java
+class Solution {
+    public int cuttingRope(int n) {
+        if(n < 4){
+            return n - 1;
+        }
+
+        int res = 1;
+
+        while(n > 4){
+            res *= 3;
+            n -= 3;
+        }
+
+        return res * n;
+    }
+}
+```
+
+### dp
+```java
+class Solution {
+    public int cuttingRope(int n) {
+
+        if(n < 4){
+            return n - 1;
+        }
+
+        // n-step代表另一段取n时，前面能取到的最大值， 即后面有一段时可以取的最大值
+        // 举例，当后面没有另一段时， n=3 只能分成1，2而不能单取一个3
+        int oneStep = 3;
+        int twoStep = 2;
+        int threeStep = 1; 
+
+        for(int i = 4; i <= n; i++){
+            int current = Math.max(twoStep * 2, threeStep * 3);
+            threeStep = twoStep;
+            twoStep = oneStep;
+            oneStep = current;
+        }
+
+        return oneStep;
+    }
+}
+```
 
 ## SA14 剪绳子II（贪心）
 给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n>1并且m>1），每段绳子的长度记为 k[0],k[1]...k[m - 1] 。请问 k[0]*k[1]*...*k[m - 1] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。
@@ -1194,6 +1399,8 @@ class Solution(object):
 输出: 36
 解释: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36
 ```
+
+> 和剪绳子I的区别在于n的取值从58增大到1000， 即要考虑大数问题
 
 ```python
 class Solution(object):
@@ -1214,6 +1421,27 @@ class Solution(object):
             n -= 3
 
         return int(res*n%mod)
+```
+
+```java
+class Solution {
+    public int cuttingRope(int n) {
+        if(n < 4){
+            return n - 1;
+        }
+
+        int mod = (int)1e9 + 7;
+        long res = 1;
+
+        while(n > 4){
+            res *= 3;
+            res %= mod;
+            n -= 3;
+        }
+
+        return (int)(res * n % mod);
+    }
+}
 ```
 
 ## SA60 n个骰子的点数 problem
@@ -1243,7 +1471,6 @@ class Solution(object):
         dp = [[0 for _ in range(6*n+1)] for _ in range(n+1)]
         # 申请n+1，但是从1开始初始，只是为了好看
 
-
         for i in range(1, 7):
             dp[1][i] = 1
 
@@ -1254,7 +1481,7 @@ class Solution(object):
                         dp[i][j] += dp[i-1][j-cur]
 
         res = []
-        total = 6**n
+        total = 6 ** n
 
         for i in range(n, 6*n+1):
             res.append(float(dp[n][i]*1.0 / total))
@@ -1262,38 +1489,87 @@ class Solution(object):
         return res
 ```
 
+```java
+class Solution {
+    public double[] dicesProbability(int n) {
+        int pointNum = 5 * n + 1;
+        int[] dp = new int[6 * n + 1];
+        dp[0] = 1;
+        double total = Math.pow(6, n);
+
+        for(int i = 0; i < n; i++){
+            for(int j = 6 * i;j >= i;j--){ // 反过来不行
+                for(int k = 1; k < 7; k++){
+                    dp[j+k] += dp[j];
+                }
+                dp[j] = 0;
+            }
+        }
+
+        double[] res = new double[pointNum];
+        for(int i = 0; i < pointNum; i++){
+            res[i] = (double) dp[i + n] / total;
+        }
+        return res;
+    }
+}
+```
 
 # 多指针， 滑动窗口
 ## SA57 和为s的连续正数序列
-```python
-class Solution(object):
-    def findContinuousSequence(self, target):
-        """
-        :type target: int
-        :rtype: List[List[int]]
-        """
-        if not target:
-            return []
 
-        low, high = 1, 1
-        sum = 0
-        res = []
+> 此题着重Java处理List转换二位数组
 
-        while low <= (target/2):
-            if sum < target:
-                sum += high
-                high += 1
-            elif sum > target:
-                sum -= low
-                low += 1
-            else:
-                # 要求记录所有符合要求的子序列
-                res.append(range(low, high))
-                sum -= low
-                low += 1
+```java
+class Solution {
+    public int[][] findContinuousSequence(int target) {
+        if(target <= 0) {
+            return new int[0][0];
+        }
+        
+        // 注意，可以构造一维数组的List
+        List<int[]> res = new ArrayList<>();
+
+        int low = 1, high = 1;
+        int sum = 0;
+
+        while(low <= target/2) {
+            if(sum < target) {
+                sum += high;
+                high++;
+            } else if(sum > target) {
+                sum -= low;
+                low++;
+            } else {
+                int[] temp = new int[high - low];
+                for(int i = low; i < high; i++) {
+                    temp[i-low] = i;
+                }
+                // for(int k = 0; k < high - low; k++){
+                //     temp[k] = low + k;
+                // }
+                res.add(temp);
+
+                sum -= low;
+                low++;
+            }
+        }
+
+        // 这里只用写准二维，一维随便什么都可以 
+        int[][] resl = new int[res.size()][];
+
+        // 这里要用--的写法，不然上下界都在靠拢
+        for(int i = res.size() - 1; i >= 0; i--) {
+            resl[i] = res.remove(res.size()-1);
+        }
+        return resl;
+
+        // 或者直接内置语法转换
+        return res.toArray(new int[0][]);
 
 
-        return res
+    }
+}
 ```
 
 ## SA57 和为s的两个数字
