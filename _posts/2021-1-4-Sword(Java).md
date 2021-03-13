@@ -659,6 +659,37 @@ class Solution {
 
 # Stack, Queue
 ## SA09 用两个栈实现队列
+```java
+class CQueue {
+
+    List<Integer> in;
+    List<Integer> out;
+
+    public CQueue() {
+        in = new ArrayList<>();
+        out = new ArrayList<>();
+    }
+    
+    public void appendTail(int value) {
+        in.add(value);
+    }
+    
+    public int deleteHead() {
+        if(out.isEmpty()) {
+            while(!in.isEmpty()) {
+                out.add(in.remove(in.size()-1));
+            }
+        }
+
+        if(out.isEmpty()) {
+            return -1;
+        }
+
+        return out.remove(out.size()-1);
+    }
+}
+```
+
 ```python
 class CQueue(object):
 
@@ -811,27 +842,27 @@ class Solution {
 ```java
 class MaxQueue {
 
-    List<Integer> queue;
-    List<Integer> mono;
+    Deque<Integer> queue;
+    Deque<Integer> mono;
 
     public MaxQueue() {
-        queue = new ArrayList<>();
-        mono = new ArrayList<>();
+        queue = new ArrayDeque<>();
+        mono = new ArrayDeque<>();
     }
     
     public int max_value() {
         if(mono.isEmpty()) {
             return -1;
         }
-        return mono.get(0);
+        return mono.peekFirst();
     }
     
     public void push_back(int value) {
-        queue.add(value);
-        while(!mono.isEmpty() && mono.get(mono.size()-1) < value) {
-            mono.remove(mono.size()-1);
+        queue.addLast(value);
+        while(!mono.isEmpty() && mono.peekLast() < value) {
+            mono.removeLast();
         }
-        mono.add(value);
+        mono.addLast(value);
     }
     
     public int pop_front() {
@@ -839,9 +870,9 @@ class MaxQueue {
             return -1;
         }
 
-        int pop = queue.remove(0);
-        if((mono.get(0).equals(pop))) {
-            mono.remove(0);
+        int pop = queue.removeFirst();
+        if((mono.peekFirst().equals(pop))) {
+            mono.removeFirst();
         }
 
         return pop;
@@ -1074,27 +1105,29 @@ class Solution {
 
 # DP
 ## SA42 连续子数组的最大和
-```python
-class Solution(object):
-    def maxSubArray(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        if not nums:
-            return 0
+```java
+class Solution {
+    public int maxSubArray(int[] nums) {
+        if(nums == null || nums.length == 0) {
+            return 0;
+        }
 
-        res, one_before = nums[0], nums[0]
+        int curSum = nums[0];
+        int max = nums[0];
 
-        for i in range(1, len(nums)):
-            if one_before < 0:
-                one_before = nums[i]
-            else:
-                one_before += nums[i]
-            
-            res = max(res, one_before)
+        for(int i = 1; i < nums.length; i++) {
+            if(curSum >= 0) {
+                curSum += nums[i];
+            } else {
+                curSum = nums[i];
+            }
 
-        return res
+            max = Math.max(max, curSum);
+        }
+
+        return max;
+    }
+}
 ```
 
 ## SA48 最长不含重复字符的子字符串
@@ -1173,36 +1206,6 @@ class Solution {
 ```
 
 ## SA49 丑数
-```python
-class Solution(object):
-    def nthUglyNumber(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        
-        two_index, three_index, five_index = 0, 0, 0
-        dp = [1]
-
-        for i in range(1,n):
-            ugly_two = dp[two_index]*2
-            ugly_three = dp[three_index]*3
-            ugly_five = dp[five_index]*5
-
-            ugly = min(ugly_two, ugly_three, ugly_five)
-            dp.append(ugly)
-
-            # 注意不要用elif，存在一个ugly同时可以被*2，*3 或 *5得到，需要同时更新index
-            if ugly == ugly_two: 
-                two_index += 1
-            if ugly == ugly_three:
-                three_index += 1
-            if ugly == ugly_five:
-                five_index += 1
-
-        return dp[-1]
-```
-
 ```java
 class Solution {
     public int nthUglyNumber(int n) {
@@ -1239,26 +1242,6 @@ class Solution {
 ```
 
 ## SA63 股票的最大利润
-```python
-class Solution(object):
-    def maxProfit(self, prices):
-        """
-        :type prices: List[int]
-        :rtype: int
-        """
-        if not prices:
-            return 0
-
-        lowest = prices[0]
-        revenue = 0
-
-        for price in prices:
-            lowest = min(lowest, price)
-            revenue = max(price - lowest, revenue)
-
-        return revenue
-```
-
 ```java
 class Solution {
     //可以多次买卖
@@ -1312,29 +1295,6 @@ class Solution {
 输入: 10
 输出: 36
 解释: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36
-```
-
-```python
-class Solution(object):
-    def cuttingRope(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        if n < 4:
-            return n-1
-
-        oneB = 3
-        twoB = 2
-        threeB = 1 
-
-        for i in range(4, n+1):
-            cur = max(twoB * 2, threeB * 3)
-            threeB = twoB
-            twoB = oneB
-            oneB = cur
-
-        return oneB
 ```
 ### 贪心
 ```java
@@ -1402,27 +1362,6 @@ class Solution {
 
 > 和剪绳子I的区别在于n的取值从58增大到1000， 即要考虑大数问题
 
-```python
-class Solution(object):
-    def cuttingRope(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        if n < 4:
-            return n-1
-
-        mod = int(1e9+7)
-        res = 1
-
-        while n > 4:
-            res *= 3
-            res %= mod
-            n -= 3
-
-        return int(res*n%mod)
-```
-
 ```java
 class Solution {
     public int cuttingRope(int n) {
@@ -1455,39 +1394,6 @@ class Solution {
 [[2, 1, 1], [2, 1, 1], [2, 1, 1]]
 ```
 matrix = [array] * n操作中，只是创建n个指向array的引用，所以一旦array改变，matrix中3个list也会随之改变。
-
-```python
-class Solution(object):
-    def dicesProbability(self, n):
-        """
-        :type n: int
-        :rtype: List[float]
-        """
-        if not n:
-            return []
-
-        # dp = [[0]*(6*n+1)]*(n+1)
-        # 声明二维数组时不要用上式
-        dp = [[0 for _ in range(6*n+1)] for _ in range(n+1)]
-        # 申请n+1，但是从1开始初始，只是为了好看
-
-        for i in range(1, 7):
-            dp[1][i] = 1
-
-        for i in range(2, n+1):
-            for j in range(i, 6*i+1):
-                for cur in range(1, 7):
-                    if j - cur > 0:
-                        dp[i][j] += dp[i-1][j-cur]
-
-        res = []
-        total = 6 ** n
-
-        for i in range(n, 6*n+1):
-            res.append(float(dp[n][i]*1.0 / total))
-
-        return res
-```
 
 ```java
 class Solution {
@@ -1573,187 +1479,277 @@ class Solution {
 ```
 
 ## SA57 和为s的两个数字
-```python
-class Solution(object):
-    def twoSum(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        if not nums:
-            return []
+```java
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int low = 0, high = nums.length - 1;
 
-        low, high = 0, len(nums)-1
+        while(low < high){
+            if(nums[low] + nums[high] == target){
+                return new int[]{nums[low], nums[high]}; // 初始化数组写法
+            }else if(nums[low] + nums[high] > target){
+                high--;
+            }else{
+                low++;
+            }
+        }
 
-        while low < high:
-            sum = nums[low] + nums[high]
-            if sum > target:
-                high -= 1
-            elif sum < target:
-                low +=1
-            else:
-                return [nums[low], nums[high]]
-        
-        return []
+        return new int[]{nums[low], nums[high]};
+    }
+}
 ```
 
 ## SA21 调整数组顺序使奇数位于偶数前面
-```python
-class Solution(object):
-    def exchange(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[int]
-        """
-        if not nums:
-            return []
+```java
+class Solution {
+    public int[] exchange(int[] nums) {
+        int left = 0;
+        int right = nums.length - 1;
 
-        low, high = 0, len(nums)-1
+        while(left < right){
+            while((nums[left] & 1) == 1 && left < right){
+                left++;
+            }
 
-        while low < high:
-            while low < high and nums[low]%2 != 0:
-                low += 1
-            while low < high and nums[high]%2 == 0:
-                high -= 1
+            while((nums[right] & 1) == 0 && left < right){
+                right--;
+            }
 
-            nums[low], nums[high] = nums[high], nums[low]
+            swap(nums, left, right);
+        }
 
-        return nums
+        return nums;
+    }
+
+    public static void swap(int[] arr, int a, int b){
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
+}
 ```
 
 ## SA53 在排序数组中查找数字 I problem
-```python
-class Solution(object):
-    def search(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: int
-        """
-        if not nums:
-            return 0
+```java
+class Solution {
+    public int search(int[] nums, int target) {
+        if(nums == null){
+            return 0;
+        }
+        int len = nums.length;
 
-        low, high = 0, len(nums)-1
-        
-        while low <= high:
-            mid = (low + high)/2
-            if nums[mid] <= target:
-                low = mid+1
-            else:
-                high = mid-1
+        int res = 0;
+        int low = 0;
+        int high = len - 1;
 
-        right = low
+        while(i < j){
+            int mid = low + (high - low) / 2;
+            if(nums[mid] < target){
+                low = mid + 1;
+            } else if(nums[mid] > target) {
+                high = mid - 1;
+            } else {
+                high--;
+            }
+        }
 
-        if high >=0 and nums[high] != target:
-            return 0
+        while(low < len && nums[low] == target) {
+            res++;
+            low++;
+        }
 
-        low = 0
+        return res;
+    }
+}
+```
 
-        while low <= high:
-            mid = (low + high)/2
-            if nums[mid] < target:
-                low = mid+1
-            else:
-                high = mid-1
-        left = high
+```java
+class Solution {
+    public int search(int[] nums, int target) {
+        if(nums == null){
+            return 0;
+        }
+        int len = nums.length;
 
-        return right - left - 1
+
+        int i = 0;
+        int j = len - 1;
+
+        while(i <= j){
+            int mid = i + (j - i) / 2;
+            if(nums[mid] <= target){
+                i = mid + 1;
+            }else{
+                j = mid - 1;
+            }
+        }
+
+        int right = i;
+        if(j >= 0 && nums[j] != target){ // j>=0 is necessary.
+            return 0;
+        }
+
+        i = 0;
+        j = len - 1;
+        while(i <= j){
+            int mid = i + (j - i) / 2;
+            if(nums[mid] >= target){
+                j = mid - 1;
+            }else{
+                i = mid + 1;
+            }
+        }
+        int left = j;
+
+        return right - left - 1;
+    }
+}
 ```
 
 ## SA11 旋转数组的最小数字 repeat
-```python
-class Solution(object):
-    def minArray(self, numbers):
-        """
-        :type numbers: List[int]
-        :rtype: int
-        """
-        if not numbers:
-            return -1
-        
-        low, high = 0, len(numbers)-1
+```java
+class Solution {
+    public int minArray(int[] numbers) {
+        int len = numbers.length;
+        int low = 0;
+        int high = len - 1;
 
-        while low < high:
-            mid = (low+high)/2
-            if numbers[mid] < numbers[high]:
-                high = mid
-            elif numbers[mid] > numbers[high]:
-                low = mid+1
-            else:
-                high -= 1
+        while(low < high){
+            int mid = (low + high) / 2;
 
-        return numbers[low]
+            if(numbers[mid] < numbers[high]){
+                high = mid;
+            }else if(numbers[mid] > numbers[high]){
+                low = mid + 1;
+            }else{
+                high--;
+            }
+        }
+
+        return numbers[low];
+        // return numbers[high];
+    }
+}
 ```
 
 ## SA59 滑动窗口的最大值
-```python
-class Solution(object):
-    def maxSlidingWindow(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: List[int]
-        """
-        if not nums:
-            return []
+```java
+class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        if(nums.length == 0 || k == 0){
+            return new int[]{};
+        }
+        Deque<Integer> monoQueue = new ArrayDeque<>();
+        int[] res = new int[nums.length - k + 1];
 
-        res = []
-        mono = []
+        for(int i = 0;i < k;i++){
+            while(!monoQueue.isEmpty() && monoQueue.peekLast() < nums[i]){
+                monoQueue.removeLast();
+            }
+            monoQueue.addLast(nums[i]);
+        }
 
-        for i in range(k):
-            while mono and mono[-1] < nums[i]:
-                mono.pop()
-            mono.append(nums[i])
-        res.append(mono[0])
+        res[0] = monoQueue.peekFirst();//形成窗口后先处理index 0， 再进入后一个循环
 
-        for i in range(k, len(nums)):
-            # 单调队列首位刚好是这次滑动要移除的
-            if mono[0] == nums[i-k]:
-                mono.pop(0)
+        for(int i = k;i < nums.length;i++){
 
-            while mono and mono[-1] < nums[i]:
-                mono.pop()
-            mono.append(nums[i])
-            res.append(mono[0])
+            if(monoQueue.peekFirst() == nums[i-k]){//注意是i-k,即此次从左边移出窗口的num
+                monoQueue.removeFirst();
+            }
+            while(!monoQueue.isEmpty() && monoQueue.peekLast() < nums[i]){
+                monoQueue.removeLast();
+            }
+            monoQueue.addLast(nums[i]);
+            res[i-k+1] = monoQueue.peekFirst();
 
-        return res
+        }
+
+        return res;
+    }
+}
 ```
-
-
 
 # 回溯, Search
 
 ## SA38 字符串的排列 problem
-```python
-class Solution(object):
-    def permutation(self, s):
-        """
-        :type s: str
-        :rtype: List[str]
-        """
-        if not s:
-            return []
+```java
+class Solution {
 
-        self.res = []
-        self.recur(s, "")
+    List<String> res;
+    char[] c;
 
-        return self.res
+    public String[] permutation(String s) {
+        res = new LinkedList<>();
+        c = s.toCharArray();
+        dfs(0);
+        return res.toArray(new String[res.size()]);
+    }
 
+    private void dfs(int x) {
+        if(x == c.length - 1) {
+            res.add(new String(c));      // 添加排列方案
+            return;
+        }
+        HashSet<Character> set = new HashSet<>();
+        for(int i = x; i < c.length; i++) {
+            if(set.contains(c[i])) {
+              continue;
+            } // 重复，因此剪枝
+            set.add(c[i]);
+            swap(i, x);                      // 交换，将 c[i] 固定在第 x 位
+            dfs(x + 1);                      // 开启固定第 x + 1 位字符
+            swap(i, x);                      // 恢复交换
+        }
+    }
 
-    def recur(self, str, path):
-        if not str:
-            self.res.append(path)
+    private void swap(int a, int b) {
+        char tmp = c[a];
+        c[a] = c[b];
+        c[b] = tmp;
+    }
+}
+```
 
-        saw = set()
+```java
+class Solution {
 
-        for i in range(len(str)):
-            # 
-            if str[i] in saw:
-                continue
+    HashSet<String> res = new HashSet<>();
+    StringBuilder str = new StringBuilder();
 
-            saw.add(str[i])
-            self.recur(str[:i]+str[i+1:], path+str[i])
+    public String[] permutation(String s) {
+        int len = s.length();
+
+        if(s == null || len == 0){
+            return new String[]{};
+        }
+
+        char[] chars = s.toCharArray();
+        boolean[] isUsed = new boolean[len];
+
+        recursive(0, len, chars, isUsed);
+
+        return res.toArray(new String[0]);
+    }
+
+    public void recursive(int depth, int len, char[] chars, boolean[] isUsed){
+        if(depth == len){
+            res.add(new String(str));
+            return;
+        }
+
+        for(int i = 0; i < len; i++){
+            if(!isUsed[i]){
+                isUsed[i] = true;
+                str.append(chars[i]);
+
+                recursive(depth + 1, len, chars, isUsed);
+
+                isUsed[i] = false;
+                str.deleteCharAt(str.length() - 1);
+            }
+        }
+    } 
+}
 ```
 
 ## 
