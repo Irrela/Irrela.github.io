@@ -1679,33 +1679,39 @@ class Solution {
     char[] c;
 
     public String[] permutation(String s) {
-        res = new LinkedList<>();
+        res = new ArrayList<>();
+        if(s == null) {
+            return new String[0];
+        }
+
         c = s.toCharArray();
-        dfs(0);
-        return res.toArray(new String[res.size()]);
+        recur(0);
+        return res.toArray(new String[0]);
     }
 
-    private void dfs(int x) {
-        if(x == c.length - 1) {
-            res.add(new String(c));      // 添加排列方案
+    private void recur(int index) {
+        if(index == c.length - 1) { // 添加排列方案
+            res.add(new String(c));
             return;
         }
-        HashSet<Character> set = new HashSet<>();
-        for(int i = x; i < c.length; i++) {
-            if(set.contains(c[i])) {
-              continue;
-            } // 重复，因此剪枝
-            set.add(c[i]);
-            swap(i, x);                      // 交换，将 c[i] 固定在第 x 位
-            dfs(x + 1);                      // 开启固定第 x + 1 位字符
-            swap(i, x);                      // 恢复交换
+
+        Set<Character> map = new HashSet<>();
+        for(int i = index; i < c.length; i++) {
+            if(map.contains(c[i])) {
+                continue;  // 重复，因此剪枝
+            }
+
+            map.add(c[i]);
+            swap(i, index);   // 交换，将 c[i] 固定在第 index 位
+            recur(index+1);   // 开启固定第 index + 1 位字符
+            swap(index, i);   // 恢复交换
         }
     }
 
     private void swap(int a, int b) {
-        char tmp = c[a];
+        char temp = c[a];
         c[a] = c[b];
-        c[b] = tmp;
+        c[b] = temp;
     }
 }
 ```
@@ -1755,116 +1761,168 @@ class Solution {
 ## 
 
 ## SA13 机器人的运动范围
-```python
-class Solution(object):
-    def movingCount(self, m, n, k):
-        """
-        :type m: int
-        :type n: int
-        :type k: int
-        :rtype: int
-        """
-        def get_sum(n):
-            res = 0
-            while n > 0:
-                res += n%10
-                n //= 10
+```java
+class Solution {
 
-            return res
+    int rows;
+    int cols;
+    int target;
+    int[][] directions = new int[][] {{1,0}, {-1,0}, {0, 1}, {0, -1}};
+    boolean[][] isVisited;
 
-        is_visited = set()
-        directions = [[0,1],[0,-1],[1,0],[-1,0]]
+    public int movingCount(int m, int n, int k) {
+        rows = m;
+        cols = n;
+        target = k;
+        isVisited = new boolean[rows][cols];
 
-        def search(row, col):
+        return search(0 ,0);
+    }
 
-            temp_res = 0
+    private int search(int row, int col) {
+        int tempRes = 0;
 
-            if row < 0 or row >= m or col < 0 or col >= n:
-                return temp_res
-            if get_sum(row) + get_sum(col) > k:
-                return temp_res
-            if (row, col) in is_visited:
-                return temp_res
+        if(!isInGrid(row, col)) {
+            return tempRes;
+        }
+        if((getDigit(row) + getDigit(col)) > target) {
+            return tempRes;
+        }
+        if(isVisited[row][col]) {
+            return tempRes;
+        }
 
-            is_visited.add((row, col))
-            temp_res += 1
+        isVisited[row][col] = true;
+        tempRes += 1;
 
-            for direc in directions:
-                temp_res += search(row+direc[0], col+direc[1])
+        for(int[] direc : directions) {
+            tempRes += search(row + direc[0], col + direc[1]);
+        }
 
-            return temp_res
+        return tempRes;
+    }
 
-        return search(0, 0)
+    private boolean isInGrid(int row, int col){
+        return row >= 0 && row < rows && col >=0 && col < cols;
+    }
+    
+    private int getDigit(int num) {
+        int res = 0;
+        while(num > 0) {
+            res += num % 10;
+            num /= 10;
+        }
+
+        return res;
+    }
+
+}
 ```
 
 ## SA12 矩阵中的路径
-```python
-class Solution(object):
-    def exist(self, board, word):
-        """
-        :type board: List[List[str]]
-        :type word: str
-        :rtype: bool
-        """
-        rows = len(board)
-        cols = len(board[0])
+```java
+class Solution {
+
+    int rows;
+    int cols;
+    String word;
+    char[][] board;
+
+    public boolean exist(char[][] board, String word) {
+        if(board == null || board.length == 0 || board[0].length == 0) {
+            return false;
+        }
+
+        rows = board.length;
+        cols = board[0].length;
+        this.board = board;
+        this.word = word;
+
+        // 因为从任何一个char开始都可能，所以要遍历
+        for(int i = 0; i < rows; i++) {
+            for(int j = 0; j < cols; j++) {
+                if(find(i, j, 0)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private boolean find(int row, int col, int index) { 
         
-        def search(row, col, s):
-            if s == "":
-                return True
+        //三条件顺序不可变
+        // Grid
+        // char符合
+        // 到最后一位
 
-            if row < 0 or col < 0 or row >= rows or col >= cols:
-                return False
+        if(!isInGrid(row, col)) {
+            return false;
+        }
 
-            if s[0] != board[row][col]:
-                return False
-            
-            board[row][col] = 'ocuppied'
-            new_str = s[1:]
-            res = search(row+1, col, new_str) or search(row, col+1, new_str) or search(row-1, col, new_str) or search(row, col-1, new_str)
-
-            if res:
-                return True
-            else:
-                board[row][col] = s[0]
-                return False
-
-        for i in range(rows):
-            for j in range(cols):
-                if search(i, j, word):
-                    return True
+        if(word.charAt(index) != board[row][col]) {
+            return false;
+        }
         
-        return False
+        if(index == word.length()-1) {
+            return true;
+        }
+
+        char holder = board[row][col];
+        board[row][col] = '$';
+        boolean res = find(row + 1, col, index + 1) 
+                      || find(row, col + 1, index + 1) 
+                      || find(row - 1, col, index + 1) 
+                      || find(row, col -1, index +1);
+
+        if(res) {
+            return true;
+        } else {
+            board[row][col] = holder;
+            return false;
+        }
+    }
+
+    private boolean isInGrid(int row, int col) {
+        return row >= 0 && row < rows && col >= 0 && col < cols;
+    }
+}
 ```
-
-
 
 
 # String
 ## SA58 翻转单词顺序
-```python
-class Solution(object):
-    def reverseWords(self, s):
-        """
-        :type s: str
-        :rtype: str
-        """
 
-        s = s.strip()
-        i, j = len(s)-1, len(s)-1
+String的substring和join方法
 
-        res = []
-
-        while j >= 0:
-            while j >= 0 and s[j] != " ":
-                j -= 1
-            res.append(s[j+1: i+1])
-
-            while j >= 0 and s[j] == " ":
-                j -= 1
-            i = j
+```java
+class Solution {
+    public String reverseWords(String s) {
+        if(s == null) {
+            return null;
+        }
         
-        return " ".join(res)
+        s = s.trim();
+
+        int len = s.length();
+        int left = len - 1, right = len - 1;
+        List<String> res = new ArrayList<>();
+
+        while(left >= 0) {
+            while(left >= 0 && s.charAt(left) != ' ') {
+                left--;
+            }
+            res.add(s.substring(left + 1, right + 1));
+            while(left >= 0 && s.charAt(left) == ' ') {
+                left--;
+            }
+            right = left;
+        }
+
+        return String.join(" ", res);
+    }
+}
 ```
 
 ## SA46 把数字翻译成字符串 problem
@@ -1877,32 +1935,32 @@ class Solution(object):
 解释: 12258有5种不同的翻译，分别是"bccfi", "bwfi", "bczi", "mcfi"和"mzi"
 ```
 
-```python
-class Solution(object):
-    def translateNum(self, num):
-        """
-        :type num: int
-        :rtype: int
-        """
-        if not num:
-            return 1
+```java
+class Solution {
+    public int translateNum(int num) {
+        String str = String.valueOf(num);
+        int oneStep = 1;
+        int twoStep = 1;
+        int cur;
 
-        string = str(num)
+        for(int i = 2; i < str.length() + 1; i++) {
+            if(isTwoDigit(str.substring(i - 2, i))) {
+                cur = oneStep + twoStep;
+            } else {
+                cur = oneStep;
+            }
 
-        one_step, two_step = 1, 1
+            twoStep = oneStep;
+            oneStep = cur;
+        }
 
-        for i in range(2, len(string)+1):
-            temp = int(string[i-2:i])
+        return oneStep;
+    }
 
-            if temp < 26 and temp > 9:
-                cur = one_step + two_step
-            else:
-                cur = one_step
-
-            two_step = one_step
-            one_step = cur
-
-        return one_step
+    private boolean isTwoDigit(String str) {
+        return str.compareTo("25") <= 0 &&  str.compareTo("10") >= 0;
+    }
+}
 ```
 
 
@@ -1937,57 +1995,53 @@ class Solution(object):
 例如：用8位表示的-2将是11111110（因为最高有效位的权重为负）。使用算术移位将其右移一位，您将得到11111111-1。但是，逻辑上的右移并不关心该值是否可能表示一个带符号的数字。它只是将所有内容移至右侧，并从左侧填充0。使用逻辑移位将-2右移一位将得到01111111。  
 
 ## SA43 1～n 整数中 1 出现的次数
-```python
-class Solution(object):
-    def countDigitOne(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        digit = 1
-        low = 0
-        current = n % 10
-        high = n / 10
-        res = 0
+low和high都是多位数，cur只算那个数位
 
-        while current > 0 or high > 0:
-            if current == 0:
-                res += digit*high
-            elif current == 1:
-                res += digit*high+1+low
-            else:
-                res += (high+1)*digit
+如 12345678， cur是4，则low是5678， high是123.
 
-            low += current * digit
-            current = high % 10
-            high /= 10
-            digit *= 10
+```java
+class Solution {
+    public int countDigitOne(int n) {
+        int digit = 1; // cur的数位
+        int low = 0;
+        int current = n % 10;
+        int high = n / 10;
+        int res = 0;
 
-        return res
+        while(current > 0 || high > 0){ // note there!!
+            if(current == 0){
+                res += digit * high;
+            }else if(current == 1){
+                res += digit * high + 1 + low;
+            }else{
+                res += (high + 1) * digit;
+            }
+
+            low += current * digit;
+            current = high % 10;
+            high /= 10;
+            digit *= 10;
+        }
+
+        return res;
+    }
+}
 ```
 
 ## SA17 打印从1到最大的n位数
-```python
-class Solution(object):
-    def printNumbers(self, n):
-        """
-        :type n: int
-        :rtype: List[int]
-        """
-        if n < 1:
-            return None
-        
-        max = 1
+```java
+class Solution {
+    public int[] printNumbers(int n) {
+        int max = (int)Math.pow(10, n);
+        int[] res = new int[max-1];
 
-        while n:
-            max *= 10
-            n -= 1
+        for(int i = 1; i < max; i++) {
+            res[i-1] = i;
+        }
 
-        res = []
-        for i in range(1,max):
-            res.append(i)
-
-        return res
+        return res;
+    }
+}
 ```
 
 
@@ -2004,6 +2058,23 @@ class Solution(object):
 
 输入：n = 11
 输出：0
+```
+```java
+class Solution {
+    public int findNthDigit(int n) {
+        int digit = 1;
+        long start = 1;
+        long count = 9;
+        while (n > count) {
+            n -= count;
+            digit += 1;
+            start *= 10;
+            count = digit * start * 9; // 数位，如0-9有10个1位数，所以范围是10，10-99有90个2位数，所以范围是180。
+        }
+        long num = start + (n - 1) / digit;
+        return String.valueOf(num).charAt((n - 1) % digit) - '0';
+    }
+}
 ```
 
 ```python
@@ -2030,30 +2101,35 @@ class Solution(object):
 ```
 
 ## SA16 数值的整数次方
-```python
-class Solution(object):
-    def myPow(self, x, n):
-        """
-        :type x: float
-        :type n: int
-        :rtype: float
-        """
+```java
+class Solution {
+    public double myPow(double x, int n) {
+        double base = x;
+        int pow = n;
 
-        def _pow(x, n):
-            if n == 0:
-                return 1
-            temp = _pow(x, n/2)
+        if(n < 0){
+            base =  1 / x;
+            pow *= -1;
+        }
 
-            if n & 1 == 1:
-                return temp*temp*x
-            else:
-                return temp*temp
-                
-        if n < 0:
-            x = 1/x
-            n = -n
+        return pow(base, pow);
+    }
 
-        return _pow(x,n)
+    public double pow(double base, int pow){
+        if(pow == 0){
+            return 1;
+        }
+        
+        double temp = pow(base, pow / 2);
+
+        if((pow & 1) == 0){
+            return temp * temp;
+        }else{
+            return temp * temp * base;
+        }
+        
+    }
+}
 ```
 
 ## 136. 只出现一次的数字 1
@@ -2084,30 +2160,34 @@ class Solution:
 输出：[2,10] 或 [10,2]
 ```
 ```python
-class Solution(object):
-    def singleNumbers(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[int]
-        """
-        k = 0
-        for x in nums:
-            k ^= x
+class Solution {
+    public int[] singleNumbers(int[] nums) {
+        int k = 0;
+        for(int x : nums){
+            k ^= x;
+        }
 
-        mask = 1
+        int mask = 1;
 
-        while mask & k == 0:
-            mask <<= 1
-        
-        a, b = 0, 0
-        
-        for x in nums:
-            if x & mask == 0: # 以0和其他数做划分，并不是非0即1
-                a ^= x
-            else:
-                b ^= x
+        while((mask & k) != 1){
+            mask <<= 1;
+        }
 
-        return [a, b]
+        int a = 0;
+        int b = 0;
+
+        for(int x : nums){ // 用mask把所有nums分成两份，一份包含a， 一份包含b， 两份中的其他数字因为还是成对的，所以全部异或之后就是a和b
+            if((x & mask) == 0){
+                a ^= x;
+            }else{
+                b ^= x;
+            }
+        }
+
+        return new int[]{b, a};
+
+    }
+}
 ```
 
 ## SA56 数组中数字出现的次数 II
@@ -2123,34 +2203,37 @@ class Solution(object):
 输出：1
 ```
 
-！！！考虑数字的二进制形式，对于出现三次的数字，各 二进制位 出现的次数都是 33 的倍数。
-因此，统计所有数字的各二进制位中 1 的出现次数，并对 3 求余，结果则为只出现一次的数字
+！！！考虑数字的二进制形式，对于出现三次的数字，各 二进制位 出现的次数都是 3 的倍数。
+因此，统计所有数字的各二进制位中 1 的出现次数，并对 3 求余（把出现3次的消除），结果则为只出现一次的数字
 
 ```python
-class Solution(object):
-    def singleNumber(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+class Solution {
+    public int singleNumber(int[] nums) {
+        if(nums == null || nums.length == 0){
+            return 0;
+        }
 
-        if not nums:
-            return 0
+        int len = nums.length;
+        int[] counts = new int[32];
 
-        counts = [0 for _ in range(32)]
+        for(int num : nums){
+            for(int i = 0; i < 32; i++){
+                counts[i] += num & 1;
+                num >>>= 1;
+            }
+        }
 
-        for num in nums: # 记录所有num在同一数位上出现1的总数
-            for i in range(32): # 每次都遍历32位，不要写while num > 0，不然不方便更新counts
-                counts[i] += num & 1
-                num >>= 1 # pythonthon的右移默认无符号数右移
+        int res = 0;
+        int base = 1;
 
-        res, base = 0, 1
-
-        for i in range(32):
-            res += base * (counts[i] % 3)
-            base <<= 1
-
-        return res
+        for(int i = 0; i < 32; i++){
+            res += base * (counts[i] % 3);
+            base <<= 1;
+        }
+        
+        return res;
+    }
+}
 ```
 
 ## SA03 数组中重复的数字
@@ -2184,7 +2267,7 @@ class Solution {
 
         for(int i = 0; i < len; i++) {
             while(nums[i] != i) { // note
-                if(nums[i] == nums[nums[i]]) {
+                if(nums[i] == nums[nums[i]]) { // 把不在自己位置的数换到他本来的位置上，之后遇到重复的就返回
                     return nums[i];
                 }
                 swap(nums, i, nums[i]);
@@ -2221,7 +2304,7 @@ class Solution {
             return 0;
         }
 
-        int mid = (low + high) / 2;
+        int mid = low + (high - low) / 2;
 
         int left = mergeSort(nums, low, mid);
         int right = mergeSort(nums, mid + 1, high);
@@ -2237,22 +2320,25 @@ class Solution {
 
     public int merge(int[] nums, int low, int high, int mid){
         int leftLen = mid - low + 1;
-        int rightLen = high - mid;
+        int rightLen = high - mid; //不包括mid
 
-        int[] left = new int[leftLen];
-        int[] right = new int[rightLen];
+        // int[] left = new int[leftLen];
+        // int[] right = new int[rightLen];
 
-        for(int i = 0; i < leftLen; i++){
-            left[i] = nums[low + i];
-        }
-        for(int i = 0; i < rightLen; i++){
-            right[i] = nums[mid + 1 + i];
-        }
+        // for(int i = 0; i < leftLen; i++){
+        //     left[i] = nums[low + i];
+        // }
+        // for(int i = 0; i < rightLen; i++){
+        //     right[i] = nums[mid + 1 + i];
+        // }
+
+        int[] left = Arrays.copyOfRange(nums, low, mid + 1);
+        int[] right = Arrays.copyOfRange(nums, mid + 1, high + 1);
 
         int i = 0, j = 0, k = low, count = 0;
 
         while(i < leftLen && j < rightLen){
-            if(right[j] < left[i]){
+            if(right[j] < left[i]){ // 相比merge多了一个加算逆序
                 nums[k++] = right[j++];
                 count += leftLen - i;
             }else{
@@ -2272,109 +2358,95 @@ class Solution {
     }
 }
 ```
-```python
-class Solution(object):
-    def reversePairs(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-
-        return self.merge_sort(nums, 0, len(nums)-1)
-
-    def merge_sort(self, nums, low, high): #int
-        if low >= high:
-            return 0
-
-        mid = (low+high) // 2
-
-        left_num = self.merge_sort(nums, low, mid)
-        right_num = self.merge_sort(nums, mid+1, high)
-
-        if nums[mid] <= nums[mid+1]:
-            return left_num + right_num
-        
-        cross_num = self.merge(nums, low, mid, high)
-
-        return left_num + right_num + cross_num
-    
-    def merge(self, nums, low, mid, high):
-        # 注意不要写成nums[:mid+1], nums[mid+1:]
-        # 是在nums中取子段
-        # 左边取 [low, mid], 右边取[mid+1, high]
-        left_part = nums[low:mid+1]
-        right_part = nums[mid+1:high+1]
-
-        for i in range(mid-low+1):
-            left_part[i] = nums[low+i]
-
-        for i in range(high-mid):
-            right_part[i] = nums[mid+1+i]
-
-        i, j = 0, 0
-        k = low
-        count = 0
-
-        while i < len(left_part) and j < len(right_part):
-            if right_part[j] < left_part[i]:
-                nums[k] = right_part[j]
-                k += 1
-                j += 1
-                count += len(left_part) - i
-            else:
-                nums[k] = left_part[i]
-                k += 1
-                i += 1
-
-        while i < len(left_part):
-            nums[k] = left_part[i]
-            k += 1
-            i += 1
-
-        while j < len(right_part):
-            nums[k] = right_part[j]
-            k += 1
-            j += 1
-
-        return count
-```
 
 ## SA45 把数组排成最小的数（Quick_sort）
-```python
-class Solution(object):
-    def minNumber(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: str
-        """
-        if not nums:
-            return ""
+```java
+class Solution {
+    public String minNumber(int[] nums) {
+        if(nums == null || nums.length == 0){
+            return "";
+        }
 
-        def quick_sort(arr, low, high):
-            if low >= high:
-                return
-            
-            i, j = low, high
+        int len = nums.length;
+        String[] strs = new String[len];
 
-            while i < j:
-                while i < j and arr[j] + arr[low] >= arr[low] + arr[j]:
-                    j -= 1
-                while i < j and arr[i] + arr[low] <= arr[low] + arr[i]:
-                    i += 1
+        for(int i = 0; i < len; i++){
+            strs[i] = String.valueOf(nums[i]);
+        }
+        
+        sort(strs, 0, strs.length - 1);
 
-                arr[j], arr[i] = arr[i], arr[j]
+        return String.join("", strs);
+    }
 
-            arr[i], arr[low] = arr[low], arr[i]
+    public static void sort(String[] strs, int low, int high){
 
-            quick_sort(arr, low, i-1)
-            quick_sort(arr, i+1, high)
+        if(low >= high){
+            return;
+        }
 
-        strs = [str(num) for num in nums]
-        quick_sort(strs, 0, len(strs)-1)
-        return "".join(strs)
+        int i = low;
+        int j = high;
+
+        while(i < j){
+            while((strs[j]+strs[low]).compareTo(strs[low]+strs[j]) >= 0 && i < j){
+                j--;
+            }
+
+            while((strs[i]+strs[low]).compareTo(strs[low]+strs[i]) <= 0 && i < j){
+                i++;
+            }
+
+            swap(strs, i, j);
+        }
+
+        swap(strs, low, i);
+
+        sort(strs, low, j-1);
+        sort(strs, j+1, high);
+    }
+
+    public static void swap(String[] strs, int a, int b){
+        String temp = strs[a];
+        strs[a] = strs[b];
+        strs[b] = temp;
+    }
+}
 ```
 
 ## SA40 最小的k个数
+### priorityQueue
+```java
+class Solution {
+    public int[] getLeastNumbers(int[] arr, int k) {
+        if(arr == null || k == 0) {
+            return new int[0];
+        }
+
+        PriorityQueue<Integer> queue = new PriorityQueue<>(k, (Integer a, Integer b) -> b-a); // 初始容量可以不写，是达到就会扩容的而非限死。
+
+        for(int num : arr) {
+            if(queue.size() < k) {
+                queue.offer(num);
+            } else {
+                if(queue.peek() > num) {
+                    queue.poll();
+                    queue.offer(num);
+                }
+            }
+        }
+
+        int[] res = new int[k];
+        int i = 0;
+        while(!queue.isEmpty()){
+            res[i++] = queue.poll();
+        }
+
+        return res;
+    }
+}   
+```
+### 排序
 ```python
 class Solution(object):
     def getLeastNumbers(self, arr, k):
@@ -2414,28 +2486,109 @@ class Solution(object):
 
 # 特殊
 ## SA66 构建乘积数组
-```python
-class Solution(object):
-    def constructArr(self, a):
-        """
-        :type a: List[int]
-        :rtype: List[int]
-        """
-        if not a:
-            return []
+### 直线思维
+每一行分成两段，连乘
+问题在于会超时
+解决超时的办法是让每一行能尽量利用之前行的计算结果 -> 上下三角
+```java
+class Solution {
 
-        res = [1]
+    int[] a;
 
-        for i in range(1, len(a)):
-            res.append(res[i-1]*a[i-1])
+    public int[] constructArr(int[] a) {
+        if(a == null) {
+            return new int[0];
+        }
 
-        temp = 1
+        this.a = a;
+        int[] res = new int[a.length];
 
-        for i in range(len(a)-2, -1, -1):
-            temp *= a[i+1]
-            res[i] *= temp
+        for(int i = 0; i < a.length; i++) {
+            res[i] = calculate(i);
+        }
 
-        return res
+        return res;
+    }
+
+    private int calculate(int index) {
+        int temp = 1;
+
+        for(int i = 0; i < index; i++) {
+            temp *= a[i];
+        }
+
+        for(int i = index + 1; i < a.length; i++) {
+            temp *= a[i];
+        }
+
+        return temp;
+    }
+}
+```
+### 上下三角
+下三角先计算每一行前一段的乘积，这样就可以只连乘一次（下一行比上一行多乘一个数）
+上三角再计算每一行后一段，注意边界是len-2， 因为下三角从倒数第二行开始，所以相应调整index为i+1，即a[len-1] 到 a[1]
+```java
+class Solution {
+    public int[] constructArr(int[] a) {
+        int len = a.length;
+        if(len == 0){
+            return new int[]{};
+        }        
+
+        int[] res = new int[len];
+
+        res[0] = 1;
+        for(int i = 1;i < len;i++){
+            res[i] = res[i-1]*a[i-1];
+        }
+
+        int temp = 1;
+
+        for(int i = len - 2;i >= 0; i--){// len - 2, i >= 0
+            temp *= a[i+1]; //i+1
+            res[i] *= temp;
+        }
+
+        return res;
+    }
+}
+```
+### 直线思维
+```java
+class Solution {
+
+    int[] a;
+
+    public int[] constructArr(int[] a) {
+        if(a == null) {
+            return new int[0];
+        }
+
+        this.a = a;
+        int[] res = new int[a.length];
+
+        for(int i = 0; i < a.length; i++) {
+            res[i] = calculate(i);
+        }
+
+        return res;
+    }
+
+    private int calculate(int index) {
+        int temp = 1;
+
+        for(int i = 0; i < index; i++) {
+            temp *= a[i];
+        }
+
+        for(int i = index + 1; i < a.length; i++) {
+            temp *= a[i];
+        }
+
+        return temp;
+    }
+}
 ```
 
 ## SA29 顺时针打印矩阵
@@ -2527,19 +2680,18 @@ class Solution(object):
 输出: 2
 ```
 
-```python
-class Solution(object):
-    def lastRemaining(self, n, m):
-        """
-        :type n: int
-        :type m: int
-        :rtype: int
-        """
-        if not n:
-            return 1
-        last_index = self.lastRemaining(n-1, m)
+```java
+class Solution {
+    public int lastRemaining(int n, int m) {
+        if(n == 1){
+            return 0;
+        }
 
-        return (last_index+m)%n
+        int nextIndex = lastRemaining(n-1, m);
+
+        return (m + nextIndex) % n;
+    }
+}
 ```
 
 
