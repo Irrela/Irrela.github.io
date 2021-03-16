@@ -1758,8 +1758,6 @@ class Solution {
 }
 ```
 
-## 
-
 ## SA13 机器人的运动范围
 ```java
 class Solution {
@@ -2592,46 +2590,50 @@ class Solution {
 ```
 
 ## SA29 顺时针打印矩阵
-```python
-class Solution(object):
-    def spiralOrder(self, matrix):
-        """
-        :type matrix: List[List[int]]
-        :rtype: List[int]
-        """
-        if not matrix or not matrix[0]:
-            return []
+```java
+class Solution {
+    public int[] spiralOrder(int[][] matrix) {
+        if(matrix == null || matrix.length == 0 || matrix[0].length == 0){
+            return new int[]{};
+        }
 
-        up, down = 0, len(matrix)-1
-        left, right = 0, len(matrix[0])-1
-        res = []
+        int rows = matrix.length;
+        int cols = matrix[0].length;
 
-        while True:
-            for i in range(left, right+1):
-                res.append(matrix[up][i])
-            up += 1
-            if up > down:
-                break
+        int[] res = new int[rows * cols];
+        int index = 0;
 
-            for i in range(up, down+1):
-                res.append(matrix[i][right])
-            right -= 1
-            if left > right:
-                break
+        int left = 0;
+        int right = cols - 1;
+        int up = 0;
+        int down = rows - 1;
 
-            for i in range(right, left-1, -1):
-                res.append(matrix[down][i])
-            down -= 1
-            if up > down:
-                break
+        while(index < rows * cols){
+            for(int i = left;i <= right && index < rows * cols;i++){
+                res[index++] = matrix[up][i];
+            }
 
-            for i in range(down, up-1, -1):
-                res.append(matrix[i][left])
-            left += 1
-            if left > right:
-                break
+            for (int i = up + 1; i <= down && index < rows * cols;i++){
+                res[index++] = matrix[i][right];
+            }
 
-        return res
+            for(int i = right - 1;i >= left && index < rows * cols;i--){
+                res[index++] = matrix[down][i];
+            }
+
+            for(int i = down - 1; i >= up + 1 && index < rows * cols;i--){
+                res[index++] = matrix[i][left];
+            }
+
+            left++;
+            up++;
+            right--;
+            down--;
+        }
+
+        return res;
+    }
+}
 ```
 
 ## 61. 扑克牌中的顺子
