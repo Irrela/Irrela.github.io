@@ -1758,6 +1758,64 @@ class Solution {
 }
 ```
 
+## SA13 机器人的运动范围
+```java
+class Solution {
+
+    int rows;
+    int cols;
+    int target;
+    // int[][] directions = new int[][] {{1,0}, {-1,0}, {0, 1}, {0, -1}};
+    boolean[][] isVisited;
+
+    public int movingCount(int m, int n, int k) {
+        rows = m;
+        cols = n;
+        target = k;
+        isVisited = new boolean[rows][cols];
+
+        return search(0 ,0);
+    }
+
+    private int search(int row, int col) {
+        int tempRes = 0;
+
+        if(!isInGrid(row, col)) {
+            return tempRes;
+        }
+        if((getDigit(row) + getDigit(col)) > target) {
+            return tempRes;
+        }
+        if(isVisited[row][col]) {
+            return tempRes;
+        }
+
+        isVisited[row][col] = true;
+        tempRes += 1;
+
+        for(int[] direc : directions) {
+            tempRes += search(row + direc[0], col + direc[1]);
+        }
+
+        return tempRes;
+    }
+
+    private boolean isInGrid(int row, int col){
+        return row >= 0 && row < rows && col >=0 && col < cols;
+    }
+    
+    private int getDigit(int num) {
+        int res = 0;
+        while(num > 0) {
+            res += num % 10;
+            num /= 10;
+        }
+
+        return res;
+    }
+}
+```
+
 ## SA12 矩阵中的路径
 ```java
 class Solution {
