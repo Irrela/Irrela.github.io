@@ -1765,7 +1765,7 @@ class Solution {
     int rows;
     int cols;
     int target;
-    // int[][] directions = new int[][] {{1,0}, {-1,0}, {0, 1}, {0, -1}};
+    int[][] directions = new int[][] { {1, 0}, {-1, 0}, {0, 1}, {0, -1} };
     boolean[][] isVisited;
 
     public int movingCount(int m, int n, int k) {
