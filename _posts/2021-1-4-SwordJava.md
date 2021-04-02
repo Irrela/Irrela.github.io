@@ -9,6 +9,67 @@ keywords:
 
 # 二叉树
 
+## 199. 二叉树的右视图
+给定一棵二叉树，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。
+```
+示例:
+输入: [1,2,3,null,5,null,4]
+输出: [1, 3, 4]
+解释:
+
+   1            <---
+ /   \
+2     3         <---
+ \     \
+  5     4       <---
+```
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+
+    List<Integer> res = new ArrayList<>();
+
+    public List<Integer> rightSideView(TreeNode root) {
+        if(root == null) {
+            return res;
+        }
+
+        dfs(root, 0);
+
+        return res;
+    }
+
+    private void dfs(TreeNode node, int depth) {
+        if(node == null) {
+            return;
+        }
+
+        if(res.size() == depth) {
+            res.add(node.val);
+        }
+
+        depth++;
+        dfs(node.right, depth);
+        dfs(node.left, depth);
+    }
+}
+```
+
+
 ## SA27 二叉树的镜像
 ```java
  * Definition for a binary tree node.
@@ -1421,7 +1482,141 @@ class Solution {
 }
 ```
 
+## 322. 零钱兑换
+给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。
+
+你可以认为每种硬币的数量是无限的。
+```
+示例 1：
+
+输入：coins = [1, 2, 5], amount = 11
+输出：3 
+解释：11 = 5 + 5 + 1
+```
+
+```java
+class Solution {
+    public int coinChange(int[] coins, int amount) {
+        if(coins == null) {
+            return -1;
+        }
+
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, amount + 1); // 把每一个金额设置成amount+1，也可用其他的大值，这个比较方便
+        dp[0] = 0;
+
+        for(int i = 1; i <= amount; i++) {
+            for(int j = 0; j < coins.length; j++) {
+                if(i >= coins[j]) {
+                    dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1);
+                }
+            }
+        }
+
+        return dp[amount] == amount + 1 ? -1 : dp[amount];
+    }
+}
+```
+
 # 多指针， 滑动窗口
+
+## 15. 三数之和
+给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
+
+注意：答案中不可以包含重复的三元组。
+```
+示例 1：
+
+输入：nums = [-1,0,1,2,-1,-4]
+输出：[[-1,-1,2],[-1,0,1]]
+```
+> 先排序，然后对每一个 不同（同负值跳过） 的负值做滑动窗口
+
+```java
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> ret = new ArrayList<>();
+        int n = nums.length;
+        Arrays.sort(nums);
+        
+        for (int i = 0; i < n - 2; i++) {
+            if (nums[i] > 0) {
+                return ret;
+            } // 数组是升序排列的，所以如果nums[i] > 0，后面不可能出现和为0的解，直接返回
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }// 跳过可能导致重复的解，
+
+            int left = i + 1, right = n - 1;
+            while (left < right) {
+                int temp = nums[i] + nums[left] + nums[right];
+                if (temp > 0) {
+                    right--;
+                } else if (temp < 0) {
+                    left++;
+                } else {
+                    List<Integer> t = new ArrayList<>();
+                    t.add(nums[i]);
+                    t.add(nums[left]);
+                    t.add(nums[right]);
+                    ret.add(t);
+                    while (left < right && nums[right] == nums[right - 1]) right--;
+                    while (left < right && nums[left] == nums[left + 1]) left++;
+                    right--;
+                    left++;
+                }
+            }
+        }
+        return ret;
+    }
+}
+```
+
+```java
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        Set<List<Integer>> ret = new HashSet<>();
+        int n = nums.length;
+        Arrays.sort(nums);
+        
+        for (int i = 0; i < n - 2; i++) {
+            if (nums[i] > 0) {
+                break;
+            } // 数组是升序排列的，所以如果nums[i] > 0，后面不可能出现和为0的解，直接返回
+
+
+            int left = i + 1, right = n - 1;
+            while (left < right) {
+                int temp = nums[i] + nums[left] + nums[right];
+                if (temp > 0) {
+                    right--;
+                } else if (temp < 0) {
+                    left++;
+                } else {
+                    List<Integer> t = new ArrayList<>();
+                    t.add(nums[i]);
+                    t.add(nums[left]);
+                    t.add(nums[right]);
+                    ret.add(t);
+                    while (left < right && nums[right] == nums[right - 1]) right--;
+                    while (left < right && nums[left] == nums[left + 1]) left++;
+                    right--;
+                    left++;
+                }
+            }
+        }
+
+        List<List<Integer>> res = new ArrayList<>();
+        for(List<Integer> i : ret) {
+            res.add(i);
+        }
+
+        return res;
+    }
+}
+```
+
+
 ## SA57 和为s的连续正数序列
 
 > 此题着重Java处理List转换二位数组
