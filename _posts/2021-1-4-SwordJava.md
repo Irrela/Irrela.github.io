@@ -1520,6 +1520,39 @@ class Solution {
 
 # 多指针， 滑动窗口
 
+## 求浮点数的平方根 保留小数
+```java
+public class Main {
+    private static double epsilon = 1e-15;
+    public static void main(String[] args)throws IOException{
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        String numStr = bf.readLine().trim();
+        int x = Integer.parseInt(numStr);
+        double ans = mySqrt(x,epsilon);
+        System.out.printf(String.format("%.3f",ans));
+    }
+
+    public static double mySqrt(double x , double epsilon){
+        double left = 0 , right = x;
+        if(x == 0 || x == 1){
+            return x;
+        }
+        while(left < right){
+            double mid = left + (right - left) / 2;
+            if(Math.abs(mid * mid - x) < epsilon){
+                return mid;
+            }else if(mid * mid < x){
+                left = mid;
+            }else{
+                right = mid;
+            }
+        }
+        return left;
+    }
+
+}
+```
+
 ## 15. 三数之和
 给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
 
@@ -2966,4 +2999,31 @@ class Solution {
         return new String(str);
     }
 }
+```
+
+## 矩阵原地转置
+
+```java
+class Solution {
+
+    public void rotate(int[][] matrix) {
+        if(matrix.size()==0) {
+            return ;
+        }
+
+        int n = matrix.size();
+        int cnt = n / 2, step = 1;
+
+        while(step <= cnt) {
+            int i = step - 1;
+            for(int j = step - 1; j < n - step; j++)
+            {
+                swap(matrix[i][j],matrix[n-j-1][step-1]);
+                swap(matrix[n-j-1][step-1],matrix[n-step][n-j - 1]);
+                swap(matrix[n-step][n-j-1],matrix[j][n-step]);
+            }
+            step++;
+        }
+    }
+};
 ```
