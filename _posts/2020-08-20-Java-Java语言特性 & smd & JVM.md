@@ -6,6 +6,16 @@ description:
 keywords: 
 ---
 [toc]
+
+## 语言特性
+### 继承与多态
+
+继承有什么好处？最大的好处是子类获得了父类的全部功能。由于Animial实现了run()方法，因此，Dog和Cat作为它的子类，什么事也没干，就自动拥有了run()方法
+
+当子类和父类都存在相同的run()方法时，我们说，子类的run()覆盖了父类的run()，在代码运行的时候，总是会调用子类的run()。这样，我们就获得了继承的另一个好处：多态。
+
+子类可以继承父类所有成员变量，但private的无法访问。父构造器无法继承
+
 ## Java集合
 ### HashMap工作原理及实现
 
@@ -23,6 +33,12 @@ keywords:
 <https://www.jianshu.com/p/31e5ab16935f>
 
 <http://www.51gjie.com/java/574.html#:~:text=Java%20volatile%E5%85%B3%E9%94%AE%E5%AD%97%E4%BD%9C%E7%94%A8,%E4%BF%AE%E9%A5%B0%E7%9A%84%E5%8F%98%E9%87%8F%E8%BF%9B%E8%A1%8C%E7%BC%93%E5%AD%98%E3%80%82>
+
+### CAS
+CAS是英文单词CompareAndSwap的缩写，中文意思是：比较并替换。CAS需要有3个操作数：内存地址V，旧的预期值A，即将要更新的目标值B。
+
+CAS指令执行时，当且仅当内存地址V的值与预期值A相等时，将内存地址V的值修改为B，否则就什么都不做。整个比较并替换的操作是一个原子操作。
+
 
 ### 异常处理
 假设利用 return 语句从 try 语句块中退出。在方法返回前，finally子句的内容将被执行。如果 finally 子句中也有一个 return 语句，这个返回值将会覆盖原始的返回值。
@@ -109,8 +125,6 @@ public class Singleton{
 ```
 
 > 双重校验锁的好处：第一个if保证只有第一次实例化的时候进行加锁，
-
-
 
 
 ## JVM
