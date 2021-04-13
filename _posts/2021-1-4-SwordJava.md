@@ -942,6 +942,87 @@ class MaxQueue {
 ```
 
 # 链表
+## 链表加法（正向）
+```
+输入：l1 = [2,4,3], l2 = [5,6,4]
+输出：[7,0,8]
+解释：342 + 465 = 807.
+
+```
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        int carry = 0;
+        ListNode head = new ListNode(-1);
+        ListNode cur = head;
+
+        while(l1 != null || l2 != null) {
+            int temp = (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + carry;
+            carry = temp / 10;
+
+            cur.next = new ListNode(temp % 10);
+
+            l1 = (l1 == null ? l1 : l1.next);
+            l2 = (l2 == null ? l2 : l2.next);
+            cur = cur.next;
+        }
+        if(carry == 1) {
+            cur.next = new ListNode(1);
+        }
+        return head.next;
+    }
+}
+```
+## 链表求和（反向）
+```
+输入：(7 -> 1 -> 6) + (5 -> 9 -> 2)，即617 + 295
+输出：2 -> 1 -> 9，即912
+```
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        int carry = 0;
+        ListNode head = new ListNode(0);
+        ListNode cur = head;
+        
+        while (l1 != null || l2 != null) {
+            int num1 = l1 == null ? 0 : l1.val;
+            int num2 = l2 == null ? 0 : l2.val;
+            
+            int num = num1 + num2 + carry;
+            carry = num / 10;
+            
+            cur.next = new ListNode(num % 10);
+            
+            l1 = l1 == null ? null : l1.next;
+            l2 = l2 == null ? null : l2.next;
+            cur = cur.next;
+        }
+        if (carry == 1)
+            cur.next = new ListNode(carry);
+        return head.next;
+    }
+}
+```
+
 ## SA24 反转链表
 ```java
 class Solution {
@@ -1165,6 +1246,27 @@ class Solution {
 ```
 
 # DP
+
+## 最长公共子序列longestCommonSubsequence
+```java
+class Solution {
+    public int longestCommonSubsequence(String text1, String text2) {
+        int len1 = text1.length();
+        int len2 = text2.length();
+        int[][] dp = new int[len1 + 1][len2 + 1];
+        for (int i = 1; i <= len1; ++i) {
+            for (int j = 1; j <= len2; ++j) {
+                if (text1.charAt(i - 1) == text2.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                } else {
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                }
+            }
+        }
+        return dp[len1][len2];
+    }
+}
+```
 ## SA42 连续子数组的最大和
 ```java
 class Solution {
