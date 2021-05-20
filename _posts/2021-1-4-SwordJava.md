@@ -3129,3 +3129,740 @@ class Solution {
     }
 };
 ```
+ ## karake
+ # 二叉树
+
+
+
+# Stack, Queue
+## 32. 最长有效括号
+给你一个只包含 '(' 和 ')' 的字符串，找出最长有效（格式正确且连续）括号子串的长度。
+```
+示例 1：
+输入：s = "(()"
+输出：2
+```
+```
+示例 2：
+输入：s = ")()())"
+输出：4
+```
+```
+示例 3：
+输入：s = ""
+输出：0
+```
+> 我们始终保持栈底元素为当前已经遍历过的元素中「最后一个没有被匹配的右括号的下标」
+
+- 对于遇到的每个'(' ，我们将它的下标放入栈中.
+- 对于遇到的每个')' ，我们先弹出栈顶元素表示匹配了当前右括号：
+== 如果栈为空，说明当前的右括号为没有被匹配的右括号，我们将其下标放入栈中来更新我们之前提到的「最后一个没有被匹配的右括号的下标.
+== 如果栈不为空，当前右括号的下标减去栈顶元素即为「以该右括号为结尾的最长有效括号的长度」.
+
+```java
+public class Solution {
+    public int longestValidParentheses(String s) {
+        int maxRes = 0;
+        LinkedList<Integer> stack = new LinkedList<>();
+        stack.add(-1);
+
+        for(int i = 0; i < s.length(); i++) {
+            if(s.charAt(i) == '(') {
+                stack.add(i);
+            } else {
+                stack.remove(stack.size()-1);
+                if(stack.isEmpty()) {
+                    stack.add(i);
+                } else {
+                    maxRes = Math.max(maxRes, i-stack.get(stack.size()-1));
+                }
+            }
+        }
+        return maxRes;
+    }
+}
+```
+
+## 20. 有效的括号
+给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
+
+有效字符串需满足：
+
+左括号必须用相同类型的右括号闭合。
+左括号必须以正确的顺序闭合。
+注意空字符串可被认为是有效字符串。
+
+```
+示例 1:
+输入: "()"
+输出: true
+```
+```
+示例 2:
+输入: "()[]{}"
+输出: true
+```
+```
+示例 3:
+输入: "(]"
+输出: false
+```
+```java
+class Solution {
+    private static final Map<Character, Character> map = new HashMap<>();
+    public boolean isValid(String s) {
+
+        map.put('{','}'); 
+        map.put('[',']'); 
+        map.put('(',')'); 
+        map.put('?','?');
+
+        if(s.length() > 0 && !map.containsKey(s.charAt(0))) {
+            return false;
+        }
+
+        LinkedList<Character> stack = new LinkedList<>();
+        stack.add('?');
+
+        for(Character c : s.toCharArray()) {
+            if(map.containsKey(c)) {
+                stack.add(c);
+            } else if(map.get(stack.remove(stack.size()-1)) != c) {
+                return false;
+            }
+        }
+        return stack.size() == 1;
+    }
+}
+
+```
+
+## 17. 电话号码的字母组合
+给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。
+
+给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
+```
+示例:
+输入："23"
+输出：["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
+```
+```java
+class Solution {
+	public List<String> letterCombinations(String digits) {
+        List<String> res = new ArrayList<>();
+        if(digits == null || digits.length() == 0) {
+            return res;
+        }
+
+        String[] letterMap = {"abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+        res.add("");
+
+        for(int i = 0; i < digits.length(); i++) {
+            String letters = letterMap[digits.charAt(i) - '2'];
+            int currentSize = res.size(); // 记录当前queue长度再出队
+
+            for(int j = 0; j < currentSize; j++) {
+                String temp = res.remove(0);
+                for(int k = 0; k < letters.length(); k++) {
+                    res.add(temp + letters.charAt(k));
+                }
+            }
+        }
+        return res;
+    }
+}
+```
+
+
+# 链表
+## 面试题 02.05. 链表求和
+给定两个用链表表示的整数，每个节点包含一个数位。
+这些数位是反向存放的，也就是个位排在链表首部。
+编写函数对这两个整数求和，并用链表形式返回结果。
+```
+示例：
+输入：(7 -> 1 -> 6) + (5 -> 9 -> 2)，即617 + 295
+输出：2 -> 1 -> 9，即912
+```
+进阶：思考一下，假设这些数位是正向存放的，又该如何解决呢?
+```
+示例：
+输入：(6 -> 1 -> 7) + (2 -> 9 -> 5)，即617 + 295
+输出：9 -> 1 -> 2，即912
+```
+
+思路:
+将两个链表看成是相同长度的进行遍历，如果一个链表较短则在前面补 00，比如 987 + 23 = 987 + 023 = 1010
+每一位计算的同时需要考虑上一位的进位问题，而当前位计算结束后同样需要更新进位值
+如果两个链表全部遍历完毕后，进位值为 11，则在新链表最前方添加节点 11
+
+> 小技巧：对于链表问题，返回结果为头结点时，通常需要先初始化一个预先指针 pre，该指针的下一个节点指向真正的头结点head。使用预先指针的目的在于链表初始化时无可用节点值，而且链表构造过程需要指针移动，进而会导致头指针丢失，无法返回结果。
+
+```java
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        int carry = 0;
+        ListNode head = new ListNode(0);
+        ListNode cur = head;
+
+        while (l1 != null || l2 != null) {
+            int num1 = (l1 == null ? 0 : l1.val);
+            int num2 = (l2 == null ? 0 : l2.val);
+            
+            int num = num1 + num2 + carry;
+            carry = num / 10;
+            
+            cur.next = new ListNode(num % 10);
+            
+            l1 = (l1 == null ? null : l1.next);
+            l2 = (l2 == null ? null : l2.next);
+            cur = cur.next;
+        }
+        if (carry == 1)
+            cur.next = new ListNode(carry);
+        return head.next;
+    }
+}
+```
+
+## 2. 两数相加
+给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。
+
+请你将两个数相加，并以相同形式返回一个表示和的链表。
+
+你可以假设除了数字 0 之外，这两个数都不会以 0 开头。
+
+```
+示例 1：
+输入：l1 = [2,4,3], l2 = [5,6,4]
+输出：[7,0,8]
+解释：342 + 465 = 807.
+```
+```
+示例 2：
+输入：l1 = [0], l2 = [0]
+输出：[0]
+```
+```
+示例 3：
+输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+输出：[8,9,9,9,0,0,0,1]
+```
+```java
+
+```
+
+# DP
+## 32. 最长有效括号
+给你一个只包含 '(' 和 ')' 的字符串，找出最长有效（格式正确且连续）括号子串的长度。
+```
+示例 1：
+输入：s = "(()"
+输出：2
+```
+```
+示例 2：
+输入：s = ")()())"
+输出：4
+```
+```
+示例 3：
+输入：s = ""
+输出：0
+```
+```java
+public class Solution {
+    public int longestValidParentheses(String s) {
+        int maxRes = 0;
+        int[] dp = new int[s.length()];
+
+        for(int i = 1; i < s.length(); i++) {
+            if(s.charAt(i) == ')') {
+                if(s.charAt(i-1) == '(') {
+                    dp[i] = (i>=2 ? dp[i-2] : 0) + 2;
+                } else if(i-dp[i-1] > 0 && s.charAt(i-dp[i-1]-1) == '(') {
+                    dp[i] = dp[i-1] + ((i-dp[i-1]) >= 2 ? dp[i - dp[i-1] -2] : 0) + 2;
+                }
+                maxRes = Math.max(maxRes, dp[i]);
+            }
+        }
+        return maxRes;
+    }
+}
+
+```
+
+
+# 多指针， 滑动窗口
+## 打家劫舍
+```java
+class Solution {
+    public int rob(int[] nums) {
+        if(nums == null) {
+            return 0;
+        }
+        if(nums.length == 1) {
+            return nums[0];
+        }
+
+        int[] dp = new int[nums.length];
+        dp[0] = nums[0];
+        dp[1] = Math.max(nums[0], nums[1]);
+
+        for(int i = 2; i < nums.length; i++) {
+            dp[i] = Math.max(dp[i - 1], dp[i - 2]+ nums[i]);
+        }
+
+        return dp[nums.length - 1];
+    }
+}
+```
+
+## 打家劫舍II
+```py
+class Solution(object):
+    def rob(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        l = len(nums)
+        if l == 0:
+            return 0
+        if l == 1:
+            return nums[0]
+        if l == 2:
+            return max(nums[0], nums[1])
+        
+
+        two = nums[0]
+        one = max(nums[0], nums[1])
+
+        for i in range(2, l-1):
+            cur = max(two+nums[i], one)
+            two = one
+            one = cur
+
+        two_head = nums[1]
+        one_head = max(nums[1], nums[2])
+
+        for i in range(3, l):
+            cur = max(two_head+nums[i], one_head)
+            two_head = one_head
+            one_head = cur
+
+        return max(one, one_head)
+```
+
+## 打家劫舍III
+```py
+class Solution(object):
+    def rob(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        res = self.dfs(root)
+        return max(res[0], res[1])
+    
+    def dfs(self, node):
+        res = [0 for _ in range(2)]
+
+        if not node:
+            return res
+
+        left = self.dfs(node.left)
+        right = self.dfs(node.right)
+
+        res[0] = max(left[0], left[1]) + max(right[0], right[1])
+        res[1] = left[0] + right[0] + node.val
+
+        return res
+```
+
+
+## 接雨水
+```java
+class Solution {
+    public int trap(int[] height) {
+        
+        int len = height.length;
+        int vol = 0;
+
+        if(len == 0){
+            return 0;
+        }
+
+        int[] maxLeft = new int[len];
+        int[] maxRight = new int[len];
+
+        for(int i = 1; i < len; i++){
+            maxLeft[i] = Math.max(maxLeft[i-1], height[i-1]);
+        }
+
+        for(int i = len - 2; i >= 0; i--){
+            maxRight[i] = Math.max(maxRight[i+1], height[i+1]);
+        }
+
+        for(int i = 1; i < len - 1; i++){
+            int min = Math.min(maxLeft[i], maxRight[i]);
+
+            if(height[i] < min){
+                vol += min - height[i];
+            }
+        }
+
+        return vol;
+    }
+}
+```
+## 11. 盛最多水的容器
+给你 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0) 。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。
+
+```
+示例 1：
+输入：[1,8,6,2,5,4,8,3,7]
+输出：49 
+解释：图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。
+```
+> 移动指针：相对高的一边不动，矮的移动以寻求更大可能
+
+```java
+class Solution {
+    public int maxArea(int[] height) {
+        int low = 0, high = height.length - 1;
+        int res = 0;
+        int tempVol = 0;
+
+        while(low < high) {
+            tempVol = Math.min(height[low], height[high]) * (high - low);
+            res = Math.max(res, tempVol);
+
+            if(height[low] <= height[high]) {
+                low++;
+            } else {
+                high--;
+            }
+        }
+
+        return res;
+    }
+}
+```
+
+## 15. 三数之和
+给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
+
+注意：答案中不可以包含重复的三元组。
+```
+示例 1：
+输入：nums = [-1,0,1,2,-1,-4]
+输出：[[-1,-1,2],[-1,0,1]]
+```
+
+1. 当 nums[k] > 0 时直接break跳出：因为 nums[j] >= nums[i] >= nums[k] > 0，即 33 个数字都大于 00 ，在此固定指针 k 之后不可能再找到结果了。
+
+2. 当 k > 0且nums[k] == nums[k - 1]时即跳过此元素nums[k]：因为已经将 nums[k - 1] 的所有组合加入到结果中，本次双指针搜索只会得到重复组合。
+
+3. i，j 分设在数组索引 (k, len(nums))(k,len(nums)) 两端，当i < j时循环计算s = nums[k] + nums[i] + nums[j]，并按照以下规则执行双指针移动：
+
+- 当s < 0时，i += 1并跳过所有重复的nums[i]；
+- 当s > 0时，j -= 1并跳过所有重复的nums[j]；
+- 当s == 0时，记录组合[k, i, j]至res，执行i += 1和j -= 1并跳过所有重复的nums[i]和nums[j]，防止记录到重复组合。
+
+
+
+```java
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> ret = new ArrayList<>();
+        int n = nums.length;
+        Arrays.sort(nums);
+        
+        for (int i = 0; i < n - 2; i++) {
+            if (nums[i] > 0) {
+                return ret;
+            } // 数组是升序排列的，所以如果nums[i] > 0，后面不可能出现和为0的解，直接返回
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }// 跳过可能导致重复的解
+
+            int left = i + 1, right = n - 1;
+            while (left < right) {
+                int temp = nums[i] + nums[left] + nums[right];
+                if (temp > 0) {
+                    right--;
+                } else if (temp < 0) {
+                    left++;
+                } else {
+                    List<Integer> t = new ArrayList<>();
+                    t.add(nums[i]);
+                    t.add(nums[left]);
+                    t.add(nums[right]);
+                    ret.add(t);
+                    while (left < right && nums[right] == nums[right - 1]) right--;
+                    while (left < right && nums[left] == nums[left + 1]) left++;
+                    right--;
+                    left++;
+                }
+            }
+        }
+        return ret;
+    }
+}
+```
+
+
+
+# 回溯, Search
+## 127. 单词接龙
+字典 wordList 中从单词 beginWord 和 endWord 的 转换序列 是一个按下述规格形成的序列：
+
+序列中第一个单词是 beginWord 。
+序列中最后一个单词是 endWord 。
+每次转换只能改变一个字母。
+转换过程中的中间单词必须是字典 wordList 中的单词。
+给你两个单词 beginWord 和 endWord 和一个字典 wordList ，找到从 beginWord 到 endWord 的最短转换序列中的单词数目。如果不存在这样的转换序列，返回 0。
+
+```
+示例 1：
+输入：beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"]
+输出：5
+解释：一个最短转换序列是 "hit" -> "hot" -> "dot" -> "dog" -> "cog", 返回它的长度 5。
+```
+```
+示例 2：
+输入：beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log"]
+输出：0
+解释：endWord "cog" 不在字典中，所以无法进行转换。
+```
+
+```java
+public class Solution {
+    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        Set<String> wordSet = new HashSet<>(wordList);
+        if(wordSet.size() == 0 || !wordSet.contains(endWord)) {
+            return 0;
+        }
+        wordSet.remove(beginWord);
+
+        LinkedList<String> queue = new LinkedList<>();
+        queue.add(beginWord);
+        HashSet<String> visited = new HashSet<>();
+        visited.add(beginWord);
+
+        // Start BFS
+        int step = 1;
+        while(!queue.isEmpty()) {
+            int currentSize = queue.size();
+            for(int i = 0; i < currentSize; i++) {
+                // 依次遍历当前队列中的单词
+                String currentWord = queue.remove(0);
+                
+                // 如果 currentWord 能够修改 1 个字符与 endWord 相同，则返回 step + 1
+                if(changeOneWord(currentWord, endWord, queue, visited, wordSet)) {
+                    return step + 1;
+                }
+            }
+            step++;
+        }
+        return 0;
+    }
+
+    public boolean changeOneWord(String currentWord, String endWord, Queue<String> queue, Set<String> visited, Set<String> wordSet) {
+        char[] charArray = currentWord.toCharArray();
+        for(int i = 0; i < endWord.length(); i++) {
+            char originChar = charArray[i];
+            for(char k = 'a'; k <= 'z'; k++) {
+                if(k == originChar) {
+                    continue;
+                }
+                charArray[i] = k;
+                String nextWord = String.valueOf(charArray);
+                if(wordSet.contains(nextWord)) {
+                    if(nextWord.equals(endWord)) {
+                        return true;
+                    }
+                    if(!visited.contains(nextWord)) {
+                        queue.add(nextWord);
+                        visited.add(nextWord);
+                    }
+                }
+            }
+            // recovery
+            charArray[i] = originChar;
+        }
+        return false;
+    }
+}
+```
+
+## 17. 电话号码的字母组合
+给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。
+
+给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
+```
+示例:
+输入："23"
+输出：["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
+```
+```java
+class Solution {
+    String[] letterMap = {"abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+    List<String> res = new ArrayList<>();
+
+    public List<String> letterCombinations(String digits) {
+        if(digits == null || digits.length() == 0) {
+            return new ArrayList<>();
+        }
+        this.recur(digits, new StringBuilder(), 0);
+        return res;
+    }
+
+    private void recur(String str, StringBuilder letter, int index) {
+        if(index == str.length()) {
+            res.add(letter.toString());
+            return;
+        } // Jump out 
+
+        char c = str.charAt(index);
+        int pos = c - '2';
+        String mapString = letterMap[pos];
+
+        for(int i = 0; i < mapString.length(); i++) {
+            letter.append(mapString.charAt(i));
+
+            this.recur(str, letter, index + 1);
+            letter.deleteCharAt(letter.length()-1);
+        }
+    }
+}
+```
+
+## 22. 括号生成
+数字 n 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。
+
+```
+示例 1：
+输入：n = 3
+输出：["((()))","(()())","(())()","()(())","()()()"]
+```
+- 当前左右括号都有大于 0 个可以使用的时候，才产生分支；
+- 产生左分支的时候，只看当前是否还有左括号可以使用；
+- 产生右分支的时候，还受到左分支的限制，右边剩余可以使用的括号数量一定得在严格大于左边剩余的数量的时候，才可以产生分支；
+- 在左边和右边剩余的括号数都等于 0 的时候结算。
+
+```java
+public class Solution {
+    public List<String> generateParenthesis(int n) {
+        List<String> res = new ArrayList<>();
+        if(n == 0) {
+            return res;
+        }
+
+        this.dfs(new StringBuilder(), n, n, res);
+        return res;
+    }
+
+    private void dfs(StringBuilder curStr, int left, int right, List<String> res) {
+        if(left == 0 && right == 0) {
+            res.add(curStr.toString());
+            return;
+        }
+
+        if(left > right) {
+            return;
+        }
+
+        if(left > 0) {
+            this.dfs(curStr.append("("), left - 1, right, res);
+        }
+
+        if(right > 0) {
+            this.dfs(curStr.append(")"), left, right - 1, res);
+        }
+    }
+}
+```
+
+
+
+
+# String
+
+
+# Digit
+- `&`:	按位与运算符：参与运算的两个值,如果两个相应位都为1,则该位的结果为1,否则为0	(a & b) 输出结果 12 ，二进制解释： 0000 1100
+- `|`:	按位或运算符：只要对应的二个二进位有一个为1时，结果位就为1。	(a | b) 输出结果 61 ，二进制解释： 0011 1101
+- `^`:	按位异或运算符：当两对应的二进位相异时，结果为1	(a ^ b) 输出结果 49 ，二进制解释： 0011 0001
+- `~`:	按位取反运算符：对数据的每个二进制位取反,即把1变为0,把0变为1 。~x 类似于 -x-1	(~a ) 输出结果 -61 ，二进制解释： 1100 0011，在一个有符号二进制数的补码形式。
+- `<<`:	左移动运算符：运算数的各二进位全部左移若干位，由 << 右边的数字指定了移动的位数，高位丢弃，低位补0。	a << 2 输出结果 240 ，二进制解释： 1111 0000
+- `>>`:	右移动运算符：把">>"左边的运算数的各二进位全部右移若干位，>> 右边的数字指定了移动的位数
+
+[异或的使用](https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/solution/zhi-chu-xian-yi-ci-de-shu-xi-lie-wei-yun-suan-by-a/)
+
+异或的性质
+两个数字异或的结果a^b是将 a 和 b 的二进制每一位进行运算，得出的数字。 运算的逻辑是
+如果同一位的数字相同则为 0，不同则为 1
+
+异或的规律
+
+- 任何数和本身异或则为 0
+
+- 任何数和 0 异或是 本身
+
+- 异或满足交换律。 即 a ^ b ^ c ，等价于 a ^ c ^ b
+
+## Java的 >>, >>>
+`>>`是算术右移，`>>>`是逻辑右移。
+
+在算术移位中，将扩展符号位以保留数字的符号性。
+
+例如：用8位表示的-2将是11111110（因为最高有效位的权重为负）。使用算术移位将其右移一位，您将得到11111111-1。但是，逻辑上的右移并不关心该值是否可能表示一个带符号的数字。它只是将所有内容移至右侧，并从左侧填充0。使用逻辑移位将-2右移一位将得到01111111。  
+
+
+
+
+# Sort related
+
+# Hash
+## 1. 两数之和
+给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。
+
+你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。
+
+你可以按任意顺序返回答案。
+
+```
+示例 1：
+输入：nums = [2,7,11,15], target = 9
+输出：[0,1]
+解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
+```
+```
+示例 2：
+输入：nums = [3,2,4], target = 6
+输出：[1,2]
+```
+```
+示例 3：
+输入：nums = [3,3], target = 6
+输出：[0,1]
+```
+
+```java
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> hashTable = new HashMap<>();
+        for(int i = 0; i < nums.length; i++) {
+            if(hashTable.containsKey(target - nums[i])) {
+                return new int[] {hashTable.get(target - nums[i], i)};
+            }
+            hashTable.put(nums[i], i);
+        }
+        return new int[0];
+    }
+}
+```
+
+# 特殊
