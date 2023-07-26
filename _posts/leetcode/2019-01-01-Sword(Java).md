@@ -1,7 +1,7 @@
 ---
 title: Sword (Java)
 categories: Leetcode
-tags:
+permalink: /posts/leetcode/Sword-(Java)
 - Leetcode
 ---
 # 二叉树
