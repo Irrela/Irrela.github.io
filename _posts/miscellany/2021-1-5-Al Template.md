@@ -1,9 +1,8 @@
 ---
-layout: post
 title: Al Template
 categories: Miscellany
-description: 
-keywords: 
+tags:
+- Miscellany
 ---
 [toc]
 

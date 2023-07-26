@@ -1,9 +1,8 @@
 ---
-layout: post
 title: L3 Finite-State Automata
 categories: Pli
-description: 
-keywords:
+tags:
+- PLI
 
 mathjax: true
 ---

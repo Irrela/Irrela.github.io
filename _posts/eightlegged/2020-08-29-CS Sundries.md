@@ -1,8 +1,8 @@
 ---
 title: Computer Science Miscellanies
 categories: Eightlegged
-description: 
-keywords: 
+tags:
+- Eight-legged
 ---
 [toc]
 ### 强，弱，动静态

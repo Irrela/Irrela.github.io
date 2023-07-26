@@ -1,9 +1,9 @@
 ---
-layout: post
+# layout: post
 title: Git related
 categories: Tool
-description: 
-keywords: 
+tags:
+- Tool
 ---
 [toc]
 

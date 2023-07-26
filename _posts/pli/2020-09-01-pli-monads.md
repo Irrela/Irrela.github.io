@@ -1,9 +1,8 @@
 ---
-layout: post
 title: L5 Haskell with Monads
 categories: Pli
-description: 
-keywords:
+tags:
+- PLI
 mathjax: true
 ---
 ### Monadic Programming

@@ -1,10 +1,9 @@
 ---
-layout: post
 title: L2 Syntax Analysis & Attributes & Code Generation
-categories: Pli
-description: 
-keywords:
+categories: PLI
 mathjax: true
+tags:
+- PLI
 ---
 
 ### Syntax（语法）

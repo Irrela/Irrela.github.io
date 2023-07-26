@@ -1,9 +1,8 @@
 ---
-layout: post
 title: To LEARN LIST
 categories: Miscellany
-description: 
-keywords: 
+tags:
+- Miscellany
 ---
 [toc]
 ## DB

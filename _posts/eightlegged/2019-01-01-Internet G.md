@@ -1,6 +1,8 @@
 ---
 title: Internet
 categories: Eightlegged
+tags:
+- Eight-legged
 ---
 
 # HTTP 超文本传输​​协议

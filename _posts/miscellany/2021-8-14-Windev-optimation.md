@@ -1,9 +1,8 @@
 ---
-layout: post
 title: Win开发环境优化
 categories: Miscellany
-description: 
-keywords: 
+tags:
+- Miscellany
 ---
 [toc]
 

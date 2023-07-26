@@ -1,10 +1,9 @@
 
 ---
-layout: post
 title: Java语言特性 && JVM
 categories: Java
-description: 
-keywords: 
+tags:
+- Java
 ---
 [toc]
 

@@ -1,9 +1,9 @@
 ---
-layout: post
+# layout: post
 title: Vue搭建项目(with vue-cli)&连接后端
 categories: Tool
-description: 
-keywords: 
+tags:
+- Tool
 ---
 [toc]
 ## 环境准备

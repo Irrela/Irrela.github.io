@@ -1,9 +1,9 @@
 ---
-layout: post
+# layout: post
 title: L4+ Scanner Generator Challenges
 categories: Pli
-description: 
-keywords:
+tags:
+- PLI
 mathjax: true
 ---
 
