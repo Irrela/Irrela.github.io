@@ -4,7 +4,6 @@ categories: Miscellany
 tags:
 - Miscellany
 ---
-[toc]
 ## DB
 [知乎问答：MySQL 对于千万级的大表要怎么优化？](https://ld246.com/article/1497318811539)
 [一篇文章带你彻底了解MySQL各种约束](https://segmentfault.com/a/1190000039214953)

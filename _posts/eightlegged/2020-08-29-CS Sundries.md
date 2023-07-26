@@ -4,7 +4,7 @@ categories: Eightlegged
 tags:
 - Eight-legged
 ---
-[toc]
+
 ### 强，弱，动静态
 
 #### 强类型，弱类型

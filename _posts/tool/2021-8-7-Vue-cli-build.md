@@ -5,7 +5,7 @@ categories: Tool
 tags:
 - Tool
 ---
-[toc]
+
 ## 环境准备
 
 ### 确认安装nodejs：

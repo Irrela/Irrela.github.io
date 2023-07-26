@@ -4,7 +4,6 @@ categories: Miscellany
 tags:
 - Miscellany
 ---
-[toc]
 
 # 二叉树
 

@@ -4,7 +4,6 @@ categories: Miscellany
 tags:
 - Miscellany
 ---
-[toc]
 
 ## 包管理工具scoop
 Github仓库：https://github.com/lukesampson/scoop

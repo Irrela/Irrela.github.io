@@ -5,7 +5,7 @@ categories: Java
 tags:
 - Java
 ---
-[toc]
+
 
 ## 语言特性
 ### 继承与多态
