@@ -1,0 +1,222 @@
+---
+layout: post
+title: IELTS Language Material
+categories: English
+description:
+keywords:
+---
+
+# Unfamiliar words
+- narrator 
+- falcon(s)
+- fancy
+- referee
+- refreshment
+- cottage /ˈkɒt.ɪdʒ/
+- pottery
+- cassette(s) /kəˈset/
+- infection
+- pence / penny
+- drowsiness /ˈdraʊ.zi.nəs/
+- kelp
+- wetland
+- brochure(s)
+- journeyman
+- tractor
+- chin
+- attentive
+- dedication
+- palm
+- kit
+- mileage
+- perk
+- burglar
+- robber
+- crocodile
+- dropout
+- cram
+- respondent
+- ballroom
+- flat (department)
+- outline
+- shuttle
+- hoof
+- personnel
+- utensil(s) /juːˈten.sɪl/
+- human(s) 
+- sewage /ˈsuː.ɪdʒ/
+- sewer
+- mid-morning
+- concession(s)
+- breathtaking
+- slang /slæŋ/
+- kangaroo
+- corpse
+- informative
+- cafeteria
+- lounge /laʊndʒ/
+- bedsit
+- shear /ʃɪə(r)/
+- renewal /rɪˈnjuː.əl/
+- foyer /ˈfɔɪ.eɪ/
+- fortnight
+- breeding
+- correspondence
+- unanimous /juːˈnæn.ɪ.məs/
+- housekeeping
+- velvet
+- prone
+- barren
+- intervention
+- elbow /ˈel.bəʊ/
+- tune
+- recreation
+- expectancy
+- prospectus
+- catering
+- contaminant(s)
+- naught
+- irritable
+- trolley
+- parcel
+- sundial
+- rehearsal /rəˈhɜː.səl/
+- blanket
+- high-rise 
+- monologue /ˈmɒn.əl.ɒɡ/
+- polish
+- allowance
+- precaution(s)
+- seasoned
+- disturbance
+- encyclopedia /ɪnˌsaɪ.kləˈpiː.di.ə/
+- cot
+- alley /ˈæl.i/
+- ferry
+- cupboard
+- malaria /məˈleə.ri.ə/
+- projector
+- accountant
+- leprosy /ˈlep.rə.si/
+- appeal
+- nursery
+- cashier
+- mustache
+- beard
+- stern
+- pensioner(s)
+- cabinet
+- rubber
+- starter
+- shoplifter(s)
+- reception
+- blouse
+- badge
+ 
+# Similar Words
+
+- committee
+- commission (verb & noun)
+- council /ˈkaʊn.səl/
+
+---
+- scarce /skeəs/
+- rare /reə(r)/
+
+---
+
+# Pronunciation
+## Mistake
+- lack /læk/
+- visa /ˈviː.zə/
+- town /taʊn/
+- theoretical /θɪəˈret.ɪ.kəl/
+- figure /ˈfɪɡ.ə(r)/
+- walk /wɔːk/
+- failure /ˈfeɪ.ljər/
+- period /ˈpɪə.ri.əd/
+- adult /ˈæd.ʌlt/
+- noble /ˈnəʊ.bəl/
+- elder /ˈel.də(r)/
+- tone /təʊn/
+- bowl /bəʊl/
+- flourish /ˈflʌr.ɪʃ/
+- vacancy /ˈveɪ.kən.si/
+- vacuum /ˈvæk.juːm/
+- fossil /ˈfɒs.(ə)l/
+- isolation /ˌaɪ.səlˈeɪ.ʃən/
+- bilingual /baɪˈlɪŋ.ɡw(ə)l/
+- width /wɪtθ/
+- safari /səˈfɑː.ri/
+- bath /bɑːθ/
+- path /pɑːθ/
+- promising  /ˈprɒm.ɪ.sɪŋ/
+- award /əˈwɔːd/
+- epidemic /ˌep.ɪˈdem.ɪk/
+- raw /rɔː/
+
+## Stress
+- professor  /prəˈfes.ər/
+- priority /praɪˈɒr.ə.ti/
+
+## Confusion
+
+- vary /ˈveə.ri/
+- variety /vəˈraɪə.ti/
+- various /ˈveə.ri.əs/
+
+---
+- entrance /ˈen.trəns/ 
+
+---
+- exist /ɪɡˈzɪst/
+- exit /ˈek.sɪt/
+- export /ɪkˈspɔːt/
+- experiment /ɪkˈsper.ɪ.mənt/
+- expert /ˈek.spɜːt/
+
+---
+- exhibit /ɪɡˈzɪb.ɪt/
+- exhibitor /ɪɡˈzɪb.ɪ.tər/
+- exhibition /ˌek.sɪˈbɪʃ.ən/
+
+---
+- embassy /ˈem.bə.si/
+- ambassador /æmˈbæs.ə.dər/
+
+---
+- sense /sens/
+- scene /siːn/
+- scent /sent/
+
+---
+- word /wɜːd/
+- world /wɜːld/
+
+--- 
+- mature /məˈtʃʊər/
+- maturation /ˌmætʃ.əˈreɪ.ʃən/
+
+---
+- injury /ˈɪn.dʒər.i/
+- injure /ˈɪn.dʒə(r)/
+
+--- 
+- academic /ˌæk.əˈdem.ɪk/
+- academy /əˈkæd.ə.mi/
+
+--- 
+- loan /ləʊn/
+- low /ləʊ/
+
+---
+- migrate /maɪˈɡreɪt/
+- immigrate /ˈɪm.ɪ.ɡreɪt/
+
+---
+- cloth /klɒθ/
+- clothes /kləʊðz/
+
+--- 
+- allergy /ˈæl.ə.dʒi/
+- allergic /əˈlɜː.dʒɪk/
