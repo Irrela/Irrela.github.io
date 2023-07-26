@@ -1,5 +1,4 @@
 ---
-# layout: post
 title: Cpp Primer
 categories: Cpp
 tags:
