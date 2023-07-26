@@ -1,6 +1,5 @@
 ---
-layout: post
-title: CS Sundries
+title: Computer Science Miscellanies
 categories: Eightlegged
 description: 
 keywords: 

@@ -1,11 +1,7 @@
 ---
-layout: post
 title: Internet
 categories: Eightlegged
-description: 
-keywords: 
 ---
-[toc]
 
 # HTTP 超文本传输​​协议
 浏览器提出的每个请求都是独立的。HTTP 协议是无状态的。这意味着每个单独的请求都需要携带完成它所需的所有信息。在 HTTP 请求中，此信息通过`标头`传递。
