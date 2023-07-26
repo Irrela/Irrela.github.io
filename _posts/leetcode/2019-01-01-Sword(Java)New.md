@@ -1,16 +1,11 @@
 ---
-layout: post
-title: Sword(Java-New)
+title: Sword (Java-New)
 categories: Leetcode
-description:
-keywords:
 ---
-
-[toc]
 
 # 二叉树
 
-## Aru Notes
+## Miscellany
 
 ### 关于遍历
 

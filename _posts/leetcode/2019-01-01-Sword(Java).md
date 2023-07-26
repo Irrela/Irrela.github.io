@@ -1,13 +1,10 @@
 ---
-title: Sword(Java)
+title: Sword (Java)
 categories: Leetcode
 ---
-
-[toc]
-
 # 二叉树
 
-## Aru Notes
+## Miscellany
 
 ### 关于遍历
 
