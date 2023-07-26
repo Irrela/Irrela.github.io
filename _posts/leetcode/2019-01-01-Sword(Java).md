@@ -1,8 +1,6 @@
 ---
-layout: post
 title: Sword(Java)
 categories: Leetcode
-toc: true
 ---
 
 [toc]
