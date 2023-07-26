@@ -1,9 +1,6 @@
 ---
-layout: post
 title: The Economist
 categories: English
-description:
-keywords:
 ---
 
 # 1. Big tech’s supersized ambitions

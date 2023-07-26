@@ -1,9 +1,6 @@
 ---
-layout: post
 title: IELTS Language Material
 categories: English
-description:
-keywords:
 ---
 
 # Unfamiliar words

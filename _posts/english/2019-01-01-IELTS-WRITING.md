@@ -1,9 +1,6 @@
 ---
-layout: post
 title: IELTS WRITTNG SAMPLES NETWORK
 categories: English
-description:
-keywords:
 ---
 
 https://www.douban.com/doulist/39348933/

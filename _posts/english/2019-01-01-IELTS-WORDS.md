@@ -1,9 +1,6 @@
 ---
-layout: post
 title: IELTS Words
 categories: English
-description:
-keywords:
 ---
 
 > [When to double before adding -ing](https://zhuanlan.zhihu.com/p/65080642) 
