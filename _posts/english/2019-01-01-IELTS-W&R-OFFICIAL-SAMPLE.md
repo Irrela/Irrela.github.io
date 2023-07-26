@@ -1,9 +1,8 @@
 ---
-layout: post
 title: IELTS OFFICIAL SAMPLE
 categories: English
-description:
-keywords:
+tags:
+- English
 ---
 
 # CAM 17-1 

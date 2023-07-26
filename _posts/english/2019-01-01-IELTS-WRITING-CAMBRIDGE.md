@@ -1,6 +1,8 @@
 ---
 title: IELTS WRITTNG SAMPLES CAMBRIDGE
 categories: English
+tags:
+- English
 ---
 
 # CAM 17-1 

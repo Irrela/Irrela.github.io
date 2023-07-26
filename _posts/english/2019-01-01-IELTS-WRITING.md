@@ -1,6 +1,8 @@
 ---
 title: IELTS WRITTNG SAMPLES NETWORK
 categories: English
+tags:
+- English
 ---
 
 https://www.douban.com/doulist/39348933/
