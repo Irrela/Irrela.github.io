@@ -321,11 +321,10 @@ int main() {
 ```
 输出：
 
-```scss
-Alice (25) Bob (30) Charlie (20)
-使用比较对象的示例：
 ```
-
+Alice (25) Bob (30) Charlie (20)
+```
+使用比较对象的示例：
 ```cpp
 #include <iostream>
 #include <vector>
@@ -357,7 +356,7 @@ int main() {
 ```
 输出：
 
-```scss
+```
 Charlie (20) Alice (25) Bob (30)
 ```
 std::sort 是 C++ 中非常有用的排序函数，它能够轻松对数组和容器进行排序，并通过自定义比较函数或比较对象，满足各种排序需求。
