@@ -86,3 +86,54 @@ int main() {
 }
 
 ```
+### 清除流对象的错误状态
+`std::cin.clear()` 是一个流对象的成员函数，用于清除流的错误状态。当流处于错误状态（如 failbit 或 badbit 被置位）时，流将停止接受输入或输出，并且需要通过调用 clear() 函数来清除错误状态，使得流恢复到正常状态（即 goodbit 置位）。
+
+调用 clear() 函数会将流的错误状态位清除，并且允许继续对流进行输入输出操作。这样，即使之前的输入操作失败了，也可以继续尝试新的输入。
+
+通常，在使用 std::cin 进行输入时，我们应该在读取数据后检查流的状态。
+如果发生了输入错误，比如输入了非法字符，导致 failbit 被置位，我们需要使用 clear() 函数清除错误状态。否则，流将处于错误状态，后续的输入操作将无效。
+
+下面是一个示例，演示了如何使用 clear() 函数来处理输入错误：
+```cpp
+int main() {
+    int number;
+
+    std::cout << "Enter a number: ";
+    
+    while (!(std::cin >> number)) {
+        // 输入失败，清除错误状态
+        std::cin.clear();
+
+        // 忽略错误输入，读取并忽略无效字符，直到遇到换行符
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+        std::cout << "Invalid input. Please try again: ";
+    }
+
+    std::cout << "You entered: " << number << std::endl;
+
+    return 0;
+}
+```
+下面的实例演示了如何处理输入流 std::cin 的状态以保证在调用 process_input(cin) 函数后，std::cin 的状态**与调用前保持一致**。
+```cpp
+int main() {
+    /*
+    这段代码的目的是处理 std::cin 流的状态，确保在调用 process_input 函数前后，std::cin 的状态能够正确地保持一致，避免错误状态的影响。
+    这在处理用户输入时尤其有用，以确保输入操作的正确性。
+    */
+    auto old_state = cin.rdstate();
+    cin.clear();
+    process_input(cin);
+    cin.setstate(old_state);
+
+    /*
+    这段代码的作用是清除输入流 cin 的 failbit 和 badbit 状态，以确保流对象处于正常状态，允许后续的输入操作继续进行。
+    1. ~：这是位求反运算符（bitwise NOT），它会将一个整数的所有位取反。例如，~x 会将 x 中的每一位 0 变成 1，1 变成 0。
+    2. cin.rdstate() & ~cin.failbit & ~cin.badbit：这一部分代码使用位运算，将当前的流状态的 failbit 和 badbit 状态位清除，保留其他状态位。
+    3. 带参数的clear函数接受一个iostate值作为新状态
+    */
+    cin.clear(cin.rdstate() & ~cin.failbit & ~cin.badbit);
+}
+```
