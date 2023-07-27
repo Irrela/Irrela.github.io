@@ -249,7 +249,7 @@ int main() {
 
 std::sort 的常用用法如下：
 
-对数组进行排序：
+**对数组进行排序：**
 ```cpp
 #include <iostream>
 #include <algorithm>
@@ -269,7 +269,7 @@ int main() {
 }
 ```
 
-对容器进行排序：
+**对容器进行排序：**
 ```cpp
 #include <iostream>
 #include <vector>
@@ -289,7 +289,7 @@ int main() {
 }
 ```
 
-自定义排序规则：
+**自定义排序规则：**
 
 如果要对自定义类型进行排序，我们可以通过定义比较函数或者比较对象来指定排序规则。比较函数或比较对象必须是可调用的，并返回一个 bool 值，用于表示两个元素的大小关系。如果返回 true，表示第一个元素应该在第二个元素之前，如果返回 false，表示第一个元素应该在第二个元素之后。
 使用比较函数的示例：
@@ -309,7 +309,7 @@ bool compareByName(const Person& p1, const Person& p2) {
 }
 
 int main() {
-    std::vector<Person> people = { {"Alice", 25}, {"Bob", 30}, {"Charlie", 20} };
+    std::vector<Person> people = {{"Alice", 25}, {"Bob", 30}, {"Charlie", 20}};
 
     std::sort(people.begin(), people.end(), compareByName); // 使用自定义比较函数
 
@@ -327,7 +327,7 @@ int main() {
 Alice (25) Bob (30) Charlie (20)
 ```
 
-使用比较对象的示例：
+**使用比较对象的示例：**
 ```cpp
 #include <iostream>
 #include <vector>
@@ -345,7 +345,7 @@ struct CompareByAge {
 };
 
 int main() {
-    std::vector<Person> people = { {"Alice", 25}, {"Bob", 30}, {"Charlie", 20} };
+    std::vector<Person> people = {{"Alice", 25}, {"Bob", 30}, {"Charlie", 20}};
 
     std::sort(people.begin(), people.end(), CompareByAge()); // 使用自定义比较对象
 
