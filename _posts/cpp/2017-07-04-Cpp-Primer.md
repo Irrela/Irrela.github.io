@@ -241,6 +241,167 @@ int main() {
 在有些情况下，元素的拷贝构造可能会涉及到较大的开销，尤其是在处理自定义类型或者包含大量数据的类型时。
 
 # Miscellany
+
+### sort
+在 C++ 中，std::sort 是标准库中用于排序容器或数组元素的函数，定义在 <algorithm> 头文件中。它使用快速排序（Quick Sort）或者归并排序（Merge Sort）算法来对容器或数组中的元素进行排序。std::sort 可以对各种内置数据类型和自定义类型进行排序，只需要定义好比较函数或使用默认的比较操作符 < 即可。
+
+std::sort 的常用用法如下：
+
+1. 对数组进行排序：
+```cpp
+#include <iostream>
+#include <algorithm>
+
+int main() {
+    int arr[] = {5, 2, 9, 1, 5, 6};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    std::sort(arr, arr + size); // 对整个数组进行排序
+
+    // 输出排序后的数组
+    for (int i = 0; i < size; ++i) {
+        std::cout << arr[i] << " ";
+    }
+
+    return 0;
+}
+```
+
+2. 对容器进行排序：
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<int> vec = {5, 2, 9, 1, 5, 6};
+
+    std::sort(vec.begin(), vec.end()); // 对整个容器进行排序
+
+    // 输出排序后的容器元素
+    for (int num : vec) {
+        std::cout << num << " ";
+    }
+
+    return 0;
+}
+```
+
+3. 自定义排序规则：
+
+如果要对自定义类型进行排序，我们可以通过定义比较函数或者比较对象来指定排序规则。比较函数或比较对象必须是可调用的，并返回一个 bool 值，用于表示两个元素的大小关系。如果返回 true，表示第一个元素应该在第二个元素之前，如果返回 false，表示第一个元素应该在第二个元素之后。
+使用比较函数的示例：
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+struct Person {
+    std::string name;
+    int age;
+};
+
+bool compareByName(const Person& p1, const Person& p2) {
+    return p1.name < p2.name;
+}
+
+int main() {
+    std::vector<Person> people = {{"Alice", 25}, {"Bob", 30}, {"Charlie", 20}};
+
+    std::sort(people.begin(), people.end(), compareByName); // 使用自定义比较函数
+
+    // 输出排序后的人员信息
+    for (const Person& p : people) {
+        std::cout << p.name << " (" << p.age << ") ";
+    }
+
+    return 0;
+}
+```
+输出：
+
+```scss
+Alice (25) Bob (30) Charlie (20)
+使用比较对象的示例：
+```
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+struct Person {
+    std::string name;
+    int age;
+};
+
+struct CompareByAge {
+    bool operator()(const Person& p1, const Person& p2) const {
+        return p1.age < p2.age;
+    }
+};
+
+int main() {
+    std::vector<Person> people = {{"Alice", 25}, {"Bob", 30}, {"Charlie", 20}};
+
+    std::sort(people.begin(), people.end(), CompareByAge()); // 使用自定义比较对象
+
+    // 输出排序后的人员信息
+    for (const Person& p : people) {
+        std::cout << p.name << " (" << p.age << ") ";
+    }
+
+    return 0;
+}
+```
+输出：
+
+```scss
+Charlie (20) Alice (25) Bob (30)
+```
+std::sort 是 C++ 中非常有用的排序函数，它能够轻松对数组和容器进行排序，并通过自定义比较函数或比较对象，满足各种排序需求。
+
+### getline
+getline() 是一个用于从输入流中读取一行文本的函数。它可以从输入流（如 std::cin 或 std::ifstream）读取一行字符数据，并存储到一个字符串中，直到遇到换行符 \n 或指定的分隔符为止。getline() 函数的原型如下：
+
+`std::istream& getline(std::istream& is, std::string& str, char delim);`
+
+其中，is 是输入流对象（通常是 std::cin 或文件流 std::ifstream），str 是存储读取的文本的字符串，delim 是可选参数，用于指定分隔符，表示遇到该字符时停止读取，默认为换行符 \n。
+
+getline() 函数从输入流中读取字符，并将其存储到字符串 str 中，直到遇到换行符或指定的分隔符为止。然后，它会将输入流对象的读取位置移动到下一行的起始位置或分隔符之后，准备下一次读取。
+
+下面是使用 getline() 函数读取多个以逗号分隔的节点值的示例：
+
+```cpp
+#include <iostream>
+#include <sstream>
+#include <string>
+
+int main() {
+    std::string input = "Node1,Node2,Node3,Node4";
+    std::istringstream ss(input); // 使用输入字符串初始化 stringstream
+
+    std::string nodeVal;
+    while (getline(ss, nodeVal, ',')) {
+        std::cout << "Node value: " << nodeVal << std::endl;
+    }
+
+    return 0;
+}
+```
+输出：
+```
+Node value: Node1
+Node value: Node2
+Node value: Node3
+Node value: Node4
+```
+
+在上述示例中，我们使用 std::istringstream 将输入字符串 input 初始化为 std::stringstream 对象 ss。然后，我们通过循环使用 getline(ss, nodeVal, ',') 来读取多个以逗号分隔的节点值，并打印每个节点的值。getline() 会自动识别逗号为分隔符，并在读取完一个节点值后，将 ss 的读取位置移动到下一个逗号之后，准备读取下一个节点值。
+
+这种用法在解析以逗号分隔的数据时很常见，特别是在处理 CSV 文件（逗号分隔值）或其他类似格式的数据时非常有用。
+
 ### stoi
 stoi 是 C++ 中的一个函数，用于将字符串转换为整数类型（int）。它的原型如下：
 `int stoi (const string& str, size_t* idx = 0, int base = 10);`
