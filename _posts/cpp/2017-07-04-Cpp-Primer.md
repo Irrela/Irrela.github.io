@@ -240,5 +240,46 @@ int main() {
 
 在有些情况下，元素的拷贝构造可能会涉及到较大的开销，尤其是在处理自定义类型或者包含大量数据的类型时。
 
+# Miscellany
+### stoi
+stoi 是 C++ 中的一个函数，用于将字符串转换为整数类型（int）。它的原型如下：
+`int stoi (const string& str, size_t* idx = 0, int base = 10);`
+参数解释：
+
+- str: 要转换的字符串。
+- idx: 一个指向 size_t 类型的指针，指向函数中未转换的第一个字符的索引。可以为 nullptr，表示不需要这个信息。
+- base: 可选参数，用于指定字符串的进制，可以是 10（默认）、8 或 16。
+
+stoi 函数从字符串的开头开始解析整数，并尝试将其转换为 int 类型。它会跳过字符串中的空格，直到遇到第一个非空格字符为止。如果第一个非空格字符不是有效的数字字符或正负号，则 stoi 函数返回 0。否则，它会解析连续的数字字符，直到遇到非数字字符为止，并将解析的数字转换为整数。
+
+如果 idx 不为 nullptr，stoi 函数将更新 idx 指针的值，以指向字符串中未转换的第一个字符的索引。这在某些情况下很有用，例如你可以使用 stoi 函数转换字符串中的多个整数，并根据 idx 的值来定位下一个要转换的整数的起始位置。
+
+以下是一些使用 stoi 函数的例子：
+
+```cpp
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string str1 = "123";
+    int num1 = std::stoi(str1);
+    std::cout << "num1: " << num1 << std::endl;  // Output: num1: 123
+
+    std::string str2 = "-456";
+    int num2 = std::stoi(str2);
+    std::cout << "num2: " << num2 << std::endl;  // Output: num2: -456
+
+    std::string str3 = "  789abc";
+    size_t idx;
+    int num3 = std::stoi(str3, &idx);
+    std::cout << "num3: " << num3 << ", idx: " << idx << std::endl;
+    // Output: num3: 789, idx: 6 (指向未转换的字符 'a')
+
+    return 0;
+}
+```
+需要注意的是，如果字符串中包含无效的字符（非数字字符），或者整数超出了 int 类型的表示范围，stoi 函数会抛出 `std::invalid_argument` 或 `std::out_of_range` 异常。
+
+因此，在使用 stoi 函数时，最好进行错误处理，以确保字符串能够正确转换为整数。
 
 
