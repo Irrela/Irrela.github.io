@@ -307,7 +307,7 @@ bool compareByName(const Person& p1, const Person& p2) {
 }
 
 int main() {
-    // std::vector<Person> people = {{"Alice", 25}, {"Bob", 30}, {"Charlie", 20}};
+    std::vector<Person> people = {{"A", 25}, {"Bob", 30}, {"Charlie", 20}};
 
     std::sort(people.begin(), people.end(), compareByName); // 使用自定义比较函数
 
@@ -342,7 +342,7 @@ struct CompareByAge {
 };
 
 int main() {
-    // std::vector<Person> people = {{"Alice", 25}, {"Bob", 30}, {"Charlie", 20}};
+    std::vector<Person> people = {{"Alice", 25}, {"Bob", 30}, {"Charlie", 20}};
 
     std::sort(people.begin(), people.end(), CompareByAge()); // 使用自定义比较对象
 
