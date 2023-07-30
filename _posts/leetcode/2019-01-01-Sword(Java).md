@@ -4460,3 +4460,54 @@ class Solution {
 };
 ```
 
+```cpp
+current:
+    i: 0, current: , s[i]: a
+    current: a
+        i: 0, current: a, s[i]: a
+        s[0]: a, used, continue
+        
+        i: 1, current: a, s[i]: a
+        current: aa
+            i: 0, current: aa, s[i]: a
+            s[0]: a, used, continue
+            i: 1, current: aa, s[i]: a
+            s[1]: a, used, continue
+            i: 2, current: aa, s[i]: b
+                current: aab
+                ==== return: aab ====
+        
+        i: 2, current: a, s[i]: b
+        current: ab
+            i: 0, current: ab, s[i]: a
+            s[0]: a, used, continue
+
+            i: 1, current: ab, s[i]: a
+                current: aba
+                ==== return: aba ====
+            
+            i: 2, current: ab, s[i]: b
+            s[2]: b, used, continue
+
+    i: 1, current: , s[i]: a
+    i: 1, s[i] == s[i-1], continue
+
+    i: 2, current: , s[i]: b
+    current: b
+        i: 0, current: b, s[i]: a
+        current: ba
+            i: 0, current: ba, s[i]: a
+            s[0]: a, used, continue
+            i: 1, current: ba, s[i]: a
+                current: baa
+                ==== return: baa ====
+
+            i: 2, current: ba, s[i]: b
+            s[2]: b, used, continue
+
+        i: 1, current: b, s[i]: a
+        i: 1, s[i] == s[i-1], continue
+        
+        i: 2, current: b, s[i]: b
+        s[2]: b, used, continue
+```
