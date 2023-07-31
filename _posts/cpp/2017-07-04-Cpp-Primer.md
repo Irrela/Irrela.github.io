@@ -453,11 +453,11 @@ int main() {
 
 - **预处理（Preprocessing）**：
 
-    预处理是编译过程的第一个阶段。在预处理阶段，预处理器会处理源代码中的预处理指令，例如 #include 包含头文件、#define 定义宏等。预处理器会根据预处理指令展开代码，并生成一个被称为预处理后的文件（通常以 .i 或 .ii 为扩展名）。预处理后的文件是展开了所有宏、包含了所有头文件的源代码文件。
+    预处理是编译过程的第一个阶段。在预处理阶段，预处理器会处理源代码中的预处理指令，例如 `#include 包含头文件、#define 定义宏`等。预处理器会根据预处理指令展开代码，并生成一个被称为预处理后的文件（通常以 .i 或 .ii 为扩展名）。预处理后的文件是展开了所有宏、包含了所有头文件的源代码文件。
 
 - **编译（Compilation）**：
     
-    编译是预处理后文件的下一阶段。在编译阶段，编译器会将预处理后的文件翻译成汇编代码。这个阶段是将高级语言（C++）翻译成低级语言（汇编语言）的过程。编译器会进行词法分析、语法分析、语义分析等操作，并生成汇编代码文件（通常以 .s 为扩展名）。
+    编译是预处理后文件的下一阶段。在编译阶段，编译器会将预处理后的文件翻译成汇编代码。这个阶段是将高级语言（C++）翻译成低级语言（汇编语言）的过程。编译器会进行`词法分析、语法分析、语义分析`等操作，并生成汇编代码文件（通常以 .s 为扩展名）。
 
 - **汇编（Assembly）**：
     
@@ -472,3 +472,68 @@ int main() {
     - 静态链接：在静态链接中，目标文件中所需的代码会被复制并嵌入到最终的可执行文件中，生成一个完全独立的可执行文件。这意味着可执行文件不依赖于外部的库文件，但会增加可执行文件的大小。静态链接在编译时完成。
 
     - 动态链接：在动态链接中，目标文件中所需的代码并不会被复制到可执行文件中，而是在运行时由操作系统动态加载并链接到可执行文件中。这样可执行文件更加小巧，但会依赖于外部的共享库文件。动态链接在运行时完成。
+
+
+# Project Dev
+## Pkg management - Conan
+1. Install Conan
+```
+brew install conan
+
+conan --version 
+
+conan profile detect
+
+conan profile list
+```
+2. Install other libs by Conan
+项目根目录下新建`conanfile.txt`, 作为Conan的包配置文件, 内容类似于：
+```
+[requires]
+gtest/1.8.1
+
+[generators]
+cmake
+```
+配置好后在根目录下运行：
+```shell
+// 根据配置文件下载包
+conan install . 
+```
+1. Cmakelist.txt
+```txt
+# 包含 Conan 的构建和工具模块
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup(TARGETS)
+```
+
+## Gtest
+### FetchContent
+配置Cmakelist.txt
+```txt
+# 下载并构建 Google Test
+include(FetchContent)
+FetchContent_Declare(
+        googletest
+        URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+)
+FetchContent_MakeAvailable(googletest)
+
+# 添加单元测试可执行文件，并链接 Google Test 相关的源文件
+add_executable(test_yakuman
+        test/test_main.cpp
+        # 在这里添加您的单元测试源文件
+        src/domain/hand.cpp
+        src/domain/tile.cpp
+        )
+
+# 添加项目的头文件目录和 Google Test 的头文件目录
+target_include_directories(test_yakuman PRIVATE include ${googletest_SOURCE_DIR}/googletest/include)
+
+# 链接 Google Test 相关的库
+target_link_libraries(test_yakuman gtest_main)
+
+# 添加测试
+enable_testing()
+add_test(NAME test_yakuman COMMAND test_yakuman)
+```
