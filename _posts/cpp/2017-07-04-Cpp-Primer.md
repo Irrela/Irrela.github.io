@@ -475,37 +475,58 @@ int main() {
 
 
 # Project Dev
+## Cmake
+### CMakeLists.txt
+CMakeLists.txt 是 CMake 构建系统的核心配置文件，是每个 CMake 项目都必须包含的文件，用于定义**项目的构建规则和设置编译选项**。
+
+在 CMakeLists.txt 文件中，您可以定义项目的源代码、头文件、可执行文件、库文件以及它们之间的依赖关系。通过编写 CMakeLists.txt 文件，您可以告诉 CMake 如何构建您的项目，并指定项目的构建过程、生成目标等。
+
+> CMakeUserPresets.json的用途 ？
+
+CMakeUserPresets.json 是 CMake 3.19 版本引入的新特性，用于简化 CMake 项目的配置和构建过程。该文件是一个 JSON 格式的配置文件，允许用户定义项目的构建配置和设置。
+
+CMakeUserPresets.json 文件的目的是**让用户能够更轻松地配置项目的构建选项，而无需直接修改 CMakeLists.txt 文件**。
+
+CMakeUserPresets.json 文件可以包含多个预设（Presets），每个预设定义了一组构建选项和配置。预设可以包含构建类型（如 Debug 或 Release）、目标平台、构建选项（如编译标志、链接选项等）等信息。用户可以在 CMakeUserPresets.json 中定义预设，然后通过 CMake 用户预设功能来选择要应用的预设，以方便地配置项目的构建。
+
+使用 CMakeUserPresets.json，您可以将构建选项和配置从 CMakeLists.txt 文件中分离出来，使 CMakeLists.txt 更专注于描述项目的整体结构和构建规则，而将构建选项的配置留给 CMakeUserPresets.json 文件。
+
+> 在Clion中默认构建文件输出在cmake-build-debug文件夹，删掉之后reload会自动创建
+
+
+
 ## Pkg management - Conan
 1. Install Conan
-```
-brew install conan
+    ```
+    brew install conan
 
-conan --version 
+    conan --version 
 
-conan profile detect
+    conan profile detect
 
-conan profile list
-```
+    conan profile list
+    ```
+
 2. Install other libs by Conan
-项目根目录下新建`conanfile.txt`, 作为Conan的包配置文件, 内容类似于：
-```
-[requires]
-gtest/1.8.1
+    项目根目录下新建`conanfile.txt`, 作为Conan的包配置文件, 内容类似于：
+    ```
+    [requires]
+    gtest/1.8.1
 
-[generators]
-cmake
-```
-配置好后在根目录下运行：
-```shell
-// 根据配置文件下载包
-conan install . 
-```
-1. Cmakelist.txt
-```txt
-# 包含 Conan 的构建和工具模块
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup(TARGETS)
-```
+    [generators]
+    cmake
+    ```
+    配置好后在根目录下运行：
+    ```shell
+    // 根据配置文件下载包
+    conan install . 
+    ```
+3. Cmakelist.txt
+    ```txt
+    # 包含 Conan 的构建和工具模块
+    include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+    conan_basic_setup(TARGETS)
+    ```
 
 ## Gtest
 ### FetchContent
