@@ -494,6 +494,65 @@ CMakeUserPresets.json 文件可以包含多个预设（Presets），每个预设
 > 在Clion中默认构建文件输出在cmake-build-debug文件夹，删掉之后reload会自动创建
 
 
+## Pkg management - vcpkg
+### install error "pkg-config"
+```
+CMake Error at scripts/cmake/vcpkg_find_acquire_program.cmake:163 (message):
+  Could not find pkg-config.  Please install it via your package manager:
+
+      brew install pkg-config
+Call Stack (most recent call first):
+  scripts/cmake/vcpkg_fixup_pkgconfig.cmake:203 (vcpkg_find_acquire_program)
+  ports/gtest/portfile.cmake:49 (vcpkg_fixup_pkgconfig)
+  scripts/ports.cmake:147 (include)
+
+
+error: building gtest:arm64-osx failed with: BUILD_FAILED
+Elapsed time to handle gtest:arm64-osx: 6.3 s
+Please ensure you're using the latest port files with `git pull` and `vcpkg update`.
+Then check for known issues at:
+    https://github.com/microsoft/vcpkg/issues?q=is%3Aissue+is%3Aopen+in%3Atitle+gtest
+You can submit a new issue at:
+    https://github.com/microsoft/vcpkg/issues/new?title=[gtest]+Build+error&body=Copy+issue+body+from+%2FUsers%2Fsakagami%2Fvscode%2Fgit%2Fdev_tool%2Fvcpkg%2Finstalled%2Fvcpkg%2Fissue_body.md
+```
+
+solution:
+`brew install pkg-config`
+### Clion 配置
+Preference -> Build,Execution, Deployment -> Cmake
+- 复制default
+- Cmake Options 加上 `-DCMAKE_TOOLCHAIN_FILE=/Users/sakagami/vscode/git/dev_tool/vcpkg/scripts/buildsystems/vcpkg.cmake`
+- default配置下取消勾选enable(只用新配置)
+- Apply
+
+### 以Gtest为例
+通过vcpkg下载gtest
+```sh
+~/vscode/git/dev_tool/vcpkg (master) » vcpkg install gtest                        sakagami@Seitsuno
+Computing installation plan...
+The following packages are already installed:
+    gtest:arm64-osx -> 1.13.0
+gtest:arm64-osx is already installed
+Total install time: 6.25 us
+The package gtest is compatible with built-in CMake targets:
+
+    enable_testing()
+    
+    find_package(GTest CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main)
+    
+    add_test(AllTestsInMain main)
+```
+
+在CMakeLists.txt中加上
+```txt
+enable_testing()
+
+find_package(GTest CONFIG REQUIRED)
+target_link_libraries(main PRIVATE GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main)
+
+add_test(AllTestsInMain main)
+```
 
 ## Pkg management - Conan
 1. Install Conan
@@ -558,3 +617,5 @@ target_link_libraries(test_yakuman gtest_main)
 enable_testing()
 add_test(NAME test_yakuman COMMAND test_yakuman)
 ```
+
+
