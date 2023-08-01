@@ -554,6 +554,31 @@ target_link_libraries(main PRIVATE GTest::gtest GTest::gtest_main GTest::gmock G
 add_test(AllTestsInMain main)
 ```
 
+### 用vcpkg下载boost的时候报错
+```
+      Failed to download file with error: 1
+      If you are using a proxy, please check your proxy setting. Possible causes are:
+      
+      1. You are actually using an HTTP proxy, but setting HTTPS_PROXY variable
+         to `https://address:port`. This is not correct, because `https://` prefix
+         claims the proxy is an HTTPS proxy, while your proxy (v2ray, shadowsocksr
+         , etc..) is an HTTP proxy. Try setting `http://address:port` to both
+         HTTP_PROXY and HTTPS_PROXY instead.
+```
+
+Solution:
+如果您使用 shadowsocks 进行代理，您可以通过以下方式同时将 HTTP_PROXY 和 HTTPS_PROXY 环境变量设置为 http://address:port，其中 address 是 shadowsocks 代理服务器的地址，port 是代理服务器的端口号：
+
+在终端中执行以下命令：
+```
+# export http_proxy=http://address:port
+# 只替换https就行
+export https_proxy=http://address:port
+```
+请确保将 address 和 port 替换为**实际的 shadowsocks 代理服务器地址和端口号**。
+
+注意：在终端中使用 http_proxy 和 https_proxy 环境变量（小写）设置 HTTP 和 HTTPS 的代理，而不是使用 HTTP_PROXY 和 HTTPS_PROXY 环境变量（大写）。在不同的环境中，可能会有大小写的区别，请根据实际情况使用正确的环境变量。
+
 ## Pkg management - Conan
 1. Install Conan
     ```
