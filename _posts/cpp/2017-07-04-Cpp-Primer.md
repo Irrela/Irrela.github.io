@@ -545,7 +545,7 @@ The package gtest is compatible with built-in CMake targets:
 ```
 
 在CMakeLists.txt中加上
-```txt
+```
 enable_testing()
 
 find_package(GTest CONFIG REQUIRED)
@@ -576,12 +576,12 @@ add_test(AllTestsInMain main)
     cmake
     ```
     配置好后在根目录下运行：
-    ```shell
+    ```sh
     // 根据配置文件下载包
     conan install . 
     ```
 3. Cmakelist.txt
-    ```txt
+    ```
     # 包含 Conan 的构建和工具模块
     include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
     conan_basic_setup(TARGETS)
@@ -590,7 +590,7 @@ add_test(AllTestsInMain main)
 ## Gtest
 ### FetchContent
 配置Cmakelist.txt
-```txt
+```
 # 下载并构建 Google Test
 include(FetchContent)
 FetchContent_Declare(
