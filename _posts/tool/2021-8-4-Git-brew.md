@@ -1,11 +1,11 @@
 ---
 # layout: post
-title: Git related
+title: Git & brew
 categories: Tool
 tags:
 - Tool
 ---
-
+# Git
 ## Definition of Concepts
 ### Fork & clone
 在 GitHub 中，"fork"（分叉）是指将别人的仓库复制到你自己的 GitHub 账号下，从而在你的账号中创建了一个与原始仓库相同的副本。这个副本是独立的，并且你可以在自己的副本中进行修改和提交。
@@ -193,3 +193,14 @@ pull 根据不同的配置，可等于 fetch + merge 或 fetch + rebase。
 https://stackoverflow.com/questions/5834014/lf-will-be-replaced-by-crlf-in-git-what-is-that-and-is-it-important
 
 > git config --global core.safecrlf false // 禁用警告并保持它的功能
+
+
+# Brew
+## Command
+```
+// 查看pkg信息
+brew info <pkg-name>
+
+// pkg所在文件夹路径
+brew --prefix <pkg-name>
+```

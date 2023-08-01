@@ -39,6 +39,15 @@ I know some people might say that where there is a will, there is a way, but bea
 
 Even if we did, with years and years of being controlled by a figure of authority, whatever will power we had would have been chipped away, piece by piece, until we are left with an inability to decide what we want or need(Reclaim).
 
+## Money for young people & Society (12-3)
+Why do some parents give their children money to spend each week?
+> I think it's because kids need some money on them. They may need to take **public transportation** when they go out or buy a drink after playing with friends outside. Additionally, some parents **are consciously cultivating** their children's money concepts, teaching them to manage their wealth from a young age, which will help them in their future work and life.
+
+Do you agree that schools should teach children how to manage money?
+
+> I think it is very necessary. I have seen many peers whose financial situation is a mess after working, and **it is often unrelated to income level**. I have seen classmates with not very high income who, after **persisting in financial management** for a long time, can accumulate a considerable amount of wealth, while some friends with better income often need to borrow money from others. It can be seen that financial management is a very useful skill that everyone should master. Therefore, it is very necessary to teach children these knowledge in school.
+
+
 # Own Expression
 ## Buy Time
 I suppose there are many reasons
