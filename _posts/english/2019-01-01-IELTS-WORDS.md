@@ -482,3 +482,31 @@ In Task 2, you will have to write an essay based on a task on a topic of general
 - Prevalent
 - Get accustomed to
 - 
+
+
+## Miscellany
+proliferation
+
+idealized image
+
+Day-to-day affairs
+
+ethnic groups
+
+Globalized world
+
+relentless
+
+bland
+
+oust the traditional objects
+
+crafted
+old-school craftspeople
+
+cosmetic
+
+utensil: kitchen utensils
+
+disillusioned
+

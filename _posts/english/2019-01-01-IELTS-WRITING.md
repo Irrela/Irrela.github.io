@@ -1,5 +1,5 @@
 ---
-title: IELTS WRITTNG SAMPLES NETWORK
+title: IELTS WRITTNG
 categories: English
 tags:
 - English
@@ -37,147 +37,109 @@ Alongside the influence of the Internet, globalisation is making the world small
 In conclusion, we are faced with a huge number of options in most areas of life nowadays, and this is often more bewildering than beneficial.
 
 
-Day-to-day affairs
 
-The loss of profits and productivity would not be worth a single day of more convenient traffic.
 
-It may at first seem that ...
+# Expression
+## Counter
+While money can play a crucial role in contributing to happiness, it is **not the sole determining factor**.
 
+While it is undeniable that ...
+
+Themselves, **rather than** the goverment, are supposed to be responsible for
+
+## Causation
+Is one of the main causes of ...
+
+
+## Contrast
+By contrast / On the contrary, it may be regarded more as a ...
+
+## Affect
 It would do more to ...
 
 Could have devastating ... effects on ...
 
-For one thing,
-
-On the contrary, it may be regarded more as a ...
-By contrast
+## Solution
 
 
+## Subjective
+It is a commonly discussed topic among parents
+
+I strongly believe that this modern development is largely **detrimental** to culture worldwide.
+
+Get a clear perspective of what they are hoping to do with their lives
+
+I'm wondering if this is a idiomatic
+
+In my mind
+
+It may at first seem that ...
 
 Have no other options to ...
 
 While it is a noble goal to ...
 
---- 
-Improve the situation
 
-Is likely to need more than a simple rise in the price of  petrol
+## Pending
+The way individuals choose to use their wealth will **shape the extent to** which money can buy happiness in today's society.
 
-While it is undeniable that 
+The loss of profits and productivity would not be worth a single day of more convenient traffic.
 
-Is one of the main causes of 
+The watch **mechanism** is extremely **intricate**
 
-It would be very unpopular with everyone who ...
-
-I think to tackle the problem
-
-A more effective strategy for improving air quality
-
-Be supplanted by ...
-
-In my mind
-
-commute / commuting 
-
-hold hand out to the goverment
-
-allocate funds to ...
-
-ethnic groups
-
-cost-effective
-
-I'm wondering if this is a idiomatic
-
-The watch mechanism is extremely intricate
-
-The only obligation to people is ...
-
-Globalized world
-
-Print most public documents in every one of those ethnic group's languages
-
-A themselves, rather than the goverment, are supposed to be responsible for
-
-
-It's quite common these days for young people in many countries to ...
-
-Broader view of life to draw on 
+Broader view of life to **draw on** 
 Broaden their horizons
-
-Get a clear perspertive of what they are hoping to do with their lives
-
-May be the best way to gain this
 
 I need to take some time off from work
 There are certainly dangers in taking time off at that important age
 
+The concept of identity **is inextricably bound up in** our cultural heritage and personal experiences.
 
-I strongly believe that this modern development is largely detrimental to culture worldwide.
+**The rise in unemployment** has been a significant concern for policymakers and the general public alike.
 
-ethos 
-is inextricably bound up in ...
+The new factory opening in the area will **provide employment[u] for** local people.
 
-relentless
-
-every corner of the world
-
-bland
-
-oust the traditional objects
-
-the rise in unemployment
-provide employment for local people
+The mesmerizing displays of luxury goods **impel visitors to open their wallets**.
 
 
-the manifestations of a place's character
+After days of rain and gloomy weather, the thought of spending the weekend indoors with no exciting plans ahead **seemed like a dreary prospect**.
 
-crafted
-old-school craftspeople
+Despite **having a deep distaste for learning**, he **reluctantly** attended the mandatory workshops **at the university**.
 
-ritual
+**Rebellious youths** always **develop the notion** that **they have the world figured out**
 
-cosmetic
+**As the deadline approaches**, he can't help but **count the hours** until his presentation.
 
-utensil: kitchen utensils
+Investing in education can **impart more advantages to** individuals in terms of career opportunities and personal growth.
 
-disillusioned
+Study **tirelessly** in hopes of getting even the smallest step ahead in **the educational rat race**
 
-impel visitors to open their wallets
+Many young students **aspire to intellect** and pursue higher education to achieve their academic goals.
 
-souvenirs
+Students' academic performance is often **evaluated in the form of grades and tests**.
 
-but I say that 
+The team **collaborated effectively** to **tackle the problem** and find a solution that satisfied everyone.
 
-faceless uniformity is a dreary prospect
+By implementing effective policies and investing in infrastructure, we can **improve the situation** of public transportation in our city.
 
-=== 
-A deep distaste for learning
+Traditional bookstores have **been supplanted by** online retailers as the preferred choice for purchasing books.
 
-Count the hours until class ends
+Investing in energy-efficient appliances is a **cost-effective** way to reduce your monthly utility bills.
 
-Is as mysterious as it is worrying
+People from **every corner of the world** gathered in the city to celebrate the international cultural festival.
 
-Looking for answers to this issue, one may consider ...
+The vibrant street art and bustling markets are **the manifestations of** this place's character.
 
-rebellious youths always develop the notion that they have the world figured out
+After facing multiple setbacks in his career, John **became thoroughly disillusioned with** the corporate world and decided to **pursue his passion for** art instead.
 
-confirmation bias
+The government decided to **allocate funds to** improve the healthcare system in rural areas.
 
-proliferation
 
-idealized image
+I **commute to** work by train every morning.
+The new job will involve much less **commuting[u]**.
+The long daily commuting to work was exhausting and time-consuming."
 
-In spite of his injury,
+**Despite the overwhelming evidence presented**, her **confirmation bias** led her to only pay attention to information that supported her preexisting beliefs.
 
-the spite that students have for learning may be the dwindling returns on their long study sessions
-
-It is a commonly discussed topic among parents
-
-be imparted more advantages
-
-study tirelessly in hopes of getting even the smallest step ahead in the educational rat race
-
-in the form of grades and tests
-
-aspire to intellect
+Coffee and the newspaper are part of my morning **ritual**.
+喝咖啡和读报纸是我早晨必做的事情之一。

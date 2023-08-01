@@ -47,6 +47,11 @@ Do you agree that schools should teach children how to manage money?
 
 > I think it is very necessary. I have seen many peers whose financial situation is a mess after working, and **it is often unrelated to income level**. I have seen classmates with not very high income who, after **persisting in financial management** for a long time, can accumulate a considerable amount of wealth, while some friends with better income often need to borrow money from others. It can be seen that financial management is a very useful skill that everyone should master. Therefore, it is very necessary to teach children these knowledge in school.
 
+Do you think it is a good idea for students to earn money while studying?
+> **I think this needs to be discussed on a case-by-case basis**. Some students may not come from **well-off families** and **have no choice but to** work part-time to earn money, **while for other students**, I think it's important to **measure the benefits of working and studying**. If a student can obtain a **well-paying job** after graduation with professional skills and qualifications, I think it is more wise to **invest more time in studying school courses**. However, as you are aware, there are **exceptionally gifted** students who may have already established successful businesses **during their time in school**. Consequently, they have the option to **allocate more time and effort towards further developing their ventures**.
+
+
+
 
 # Own Expression
 ## Buy Time
