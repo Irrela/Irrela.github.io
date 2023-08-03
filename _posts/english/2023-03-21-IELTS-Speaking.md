@@ -4,13 +4,15 @@ categories: English
 tags:
 - English
 ---
-
 # GPT prompt
 ## Answer
 Provide me an answer to an Ielts speaking part three question, and score at least 8 according to Ielts criteria. Note the answer should be no more than 3-4 sentences.
 
 The requirements:
-The answer should be colloquial and concise, express your ideas as accurately as you can, use complex grammatical structures if necessary, if there are several simple sentences, join them up in a way that makes your point clearer. pick up natural and idiomatic phrases.
+- (Important) The answer should be colloquial and concise
+- (Important) Use booster, connective, and discourse marker phrases to make your speech more natural and fluent
+- Express your ideas as accurately as you can, use complex grammatical structures if necessary - If there are several simple sentences, join them up in a way that makes your point clearer. 
+- Pick up natural and idiomatic collocations and phrases.
 
 The question is :
 How important it is to arrive early in your country?
@@ -21,13 +23,61 @@ My idea is :
 Improve my answer to an Ielts speaking part three question, and score at least 8 according to Ielts criteria. Note the answer should be no more than 3-4 sentences.
 
 The requirements:
-The answer should be colloquial and concise, express your ideas as accurately as you can, use complex grammatical structures if necessary, if there are several simple sentences, join them up in a way that makes your point clearer. pick up natural and idiomatic phrases.
+- (Important) The answer should be colloquial and concise
+- (Important) Use booster, connective, and discourse marker phrases to make your speech more natural and fluent
+- Express your ideas as accurately as you can, use complex grammatical structures if necessary - If there are several simple sentences, join them up in a way that makes your point clearer. 
+- Pick up natural and idiomatic collocations and phrases.
 
 The question is :
 How important it is to arrive early in your country?
 
 My original answer is :
 Based on my personal experience, this varies in different regions. In big cities, people generally place more importance on punctuality, especially in work-related situations. However, in my hometown, a small inland city, the whole city has a slow pace and a somewhat laid-back atmosphere. If you want to meet someone for lunch at 12 o'clock for example, it's best to say 11 o'clock from the beginning, because most of the time people will be a little late. But wherever you are, punctual people are always welcomed.
+
+# Criteria
+## Fluency and coherence
+- Speaks fluently with only occasional repetition or self-correction; 
+- Hesitation is usually content-related and only rarely to search for language 
+- Develops topics coherently and appropriately
+## Lexical resource	
+- Uses a wide vocabulary resource readily and flexibly to convey precise meaning 
+- Uses less common and idiomatic vocabulary skilfully, with occasional inaccuracies 
+- Uses paraphrase effectively as required
+## Grammatical range and accuracy
+- Uses a wide range of structures flexibly 
+- Produces a majority of error-free sentences with only very occasional inappropriate or basic/non-systematic errors
+## Pronunciation
+- 发音通常易于理解，其口音对内容理解的影响非常小。
+
+## How to improve
+How to improve:
+Talk to other English speakers about more abstract topics or more difficult current topics. Keep the discussion going for as long as possible. 
+
+At the same time, try to express your ideas as accurately as you can, using the best words you know.
+Many of your ideas will also require the use of complex grammatical structures. If you’re using several simple sentences, try to join them up in a way that makes your point clearer.
+
+Listen (and read) in English more to help you pick up natural and idiomatic phrases. When listening, note the rhythm and also the words that the speaker stresses. Is your rhythm similar? Are you putting the stress on the right words?
+
+## Booster
+Here are some common booster, connective, and discourse marker phrases that you can use to make your speech more natural and fluent:
+
+- **Booster phrases:** in fact, actually, to be honest, frankly speaking, to tell you the truth, as a matter of fact
+- **Connective phrases:** moreover, furthermore, in addition, on top of that, besides, similarly, likewise, accordingly, consequently, hence, therefore
+- **Discourse markers:** well, anyway, so, you know, I mean, like, right, okay, now, then, actually, to be honest, frankly speaking, to tell you the truth, anyway, so, you know, I mean, like, right, okay, now, then
+
+Using these phrases can help you to connect your ideas more effectively and make your speech sound more natural and fluent.
+
+
+# Skill and strategies
+[Part I](https://www.ieltsadvantage.com/2015/05/18/ielts-speaking-topics-part-1/)
+[Part II](https://www.ieltsadvantage.com/2015/03/03/ielts-speaking-task-2-strategy/)
+[Part III](https://www.ieltsadvantage.com/2015/03/25/ielts-speaking-part-3-guide/)
+## Structure
+For part 1 of the speaking test you should try to give answers that are between 2-3 sentences long. 
+
+Part 2 requires you to speak for between 1-2 minutes and if you need help with this please see out speaking part 2 guide. 
+
+Part 3 answers are normally 3-4 sentences long. To extend your answers in part 3, make sure you answer the question and then explain your main points and give relevant examples to support your main points.
 
 # PART-1
 
@@ -113,6 +163,17 @@ Do you think the theatre should be run as a business or as a public service?
 > Arriving early **holds varying degrees of importance across different regions** in my country. **In major cities**, punctuality is highly valued, particularly **in professional settings**. However, in my hometown, a small inland city, the pace is more relaxed, and people **tend to be a bit more laid-back about timing**. For instance, if you plan to **meet for lunch** at 12 o'clock, **it's often wise to suggest 11 o'clock initially**, as people might arrive a little later. **Nevertheless, punctual individuals are always appreciated regardless of the location.**
 
 3. How can modern technology help people to arrive early?
+> Well, you know, modern technology can **be a real game-changer** when it comes to arriving early. One way it helps is through navigation apps like Google Maps, which offer real-time traffic updates and alternative routes to avoid congestion. Additionally, **smartphone reminders** and alarms can **keep us on track** and **prompt us to leave early**. Moreover, public transport apps provide schedules and live updates, ensuring we can plan our journeys more efficiently. **All in all**, technology is definitely **a handy tool** to beat the clock and be on time.
+
+4. What kinds of jobs require the most patience?
+> Oh, for sure! Some jobs really demand **a ton of patience**. One example is customer service roles, where you have to deal with all sorts of people and their complaints. Another one would be teaching, especially with young kids – you need **oodles of patience** to keep them engaged and motivated. And let's not forget about healthcare professionals, where you need **immense** patience to handle patients' needs and emotions. Overall, any job that **involves interacting with people** and requires **a steady temperament** would benefit from **a hefty dose of patience**.
+
+5. Is it always better to be patient in work (or studies)?
+Absolutely yes! Patience **plays a crucial role in both work and studies**. When collaborating with others, **varying levels of understanding** can lead to communication challenges, and staying patient helps **maintain a positive team dynamic**. Nobody enjoys working with impatient and irritable colleagues; instead, people prefer those who remain calm and composed. Moreover, many rewarding jobs **demand long-term dedication**, and patience becomes essential to persist through challenges until achieving success. It's a valuable quality that can lead to better outcomes and **harmonious relationships** **in both professional and academic settings**.
+
+6. Do you agree or disagree that the older people are, the more patient they are?
+I don't necessarily agree that older people are always more patient. In my view, **patience is more closely related to one's innate nature rather than age**. Some individuals **exhibit remarkable patience from a very young age**, while others may struggle with impatience **even as they grow older**. Life experiences can certainly **shape one's understanding of patience**, but it remains a **personal trait that varies from person to person**. Some people may become more patient **after learning from past mistakes**, while others might not **introspect** or attribute failures to some other reasons.
+
 
 
 
