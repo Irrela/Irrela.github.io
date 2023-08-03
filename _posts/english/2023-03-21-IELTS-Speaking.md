@@ -6,16 +6,28 @@ tags:
 ---
 
 # GPT prompt
-> Provide me an answer to an Ielts speaking part three question, and score at least 8 according to Ielts criteria. Note the answer should be no more than 3-4 sentences and use oral expression.
->
-> The question is :
+## Answer
+Provide me an answer to an Ielts speaking part three question, and score at least 8 according to Ielts criteria. Note the answer should be no more than 3-4 sentences.
 
-> Improve my answer to an Ielts speaking part three question, and score at least 8 according to Ielts criteria. Note the answer should be no more than 3-4 sentences and use oral expression.
->
-> The question is :
->
-> My original answer is :
-> 
+The requirements:
+The answer should be colloquial and concise, express your ideas as accurately as you can, use complex grammatical structures if necessary, if there are several simple sentences, join them up in a way that makes your point clearer. pick up natural and idiomatic phrases.
+
+The question is :
+How important it is to arrive early in your country?
+
+My idea is :
+
+## Improve 
+Improve my answer to an Ielts speaking part three question, and score at least 8 according to Ielts criteria. Note the answer should be no more than 3-4 sentences.
+
+The requirements:
+The answer should be colloquial and concise, express your ideas as accurately as you can, use complex grammatical structures if necessary, if there are several simple sentences, join them up in a way that makes your point clearer. pick up natural and idiomatic phrases.
+
+The question is :
+How important it is to arrive early in your country?
+
+My original answer is :
+Based on my personal experience, this varies in different regions. In big cities, people generally place more importance on punctuality, especially in work-related situations. However, in my hometown, a small inland city, the whole city has a slow pace and a somewhat laid-back atmosphere. If you want to meet someone for lunch at 12 o'clock for example, it's best to say 11 o'clock from the beginning, because most of the time people will be a little late. But wherever you are, punctual people are always welcomed.
 
 # PART-1
 
@@ -95,7 +107,13 @@ Do you think the theatre should be run as a business or as a public service?
 
 ## Arriving early & Being patient (12-1)
 1. In what kinds of situations should people always arrive early?
-It is crucial in situations **where punctuality is highly valued**, such as Job interviews, important meetings, and academic examinations, these are some examples where being early **demonstrates professionalism, respect, and preparedness.** Additionally, for public events or appointments with **limited seating or availability**, arriving early **ensures securing a spot or service without unnecessary stress**.
+> It is crucial in situations **where punctuality is highly valued**, such as Job interviews, important meetings, and academic examinations, these are some examples where being early **demonstrates professionalism, respect, and preparedness.** Additionally, for public events or appointments with **limited seating or availability**, arriving early **ensures securing a spot or service without unnecessary stress**.
+
+2. How important it is to arrive early in your country?
+> Arriving early **holds varying degrees of importance across different regions** in my country. **In major cities**, punctuality is highly valued, particularly **in professional settings**. However, in my hometown, a small inland city, the pace is more relaxed, and people **tend to be a bit more laid-back about timing**. For instance, if you plan to **meet for lunch** at 12 o'clock, **it's often wise to suggest 11 o'clock initially**, as people might arrive a little later. **Nevertheless, punctual individuals are always appreciated regardless of the location.**
+
+3. How can modern technology help people to arrive early?
+
 
 
 
