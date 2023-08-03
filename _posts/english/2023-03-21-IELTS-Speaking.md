@@ -30,14 +30,14 @@ And also, it seems like Legos are quite popular(Point 2). To be honest, I have n
 So yeah, those are some of the toys kids like in China.(Paraphrase)
 
 ## Controversial example
-> Why is it difficult for some people to make decisions?
-Well, I suppose there are all sorts of reasons, but one that I can think of is maybe it has a bit to do with their upbringing, like maybe their parents were too controlling and hard to make every single decision for their children. 
-
-Many articles and papers talk about how kids with parents like this grow up into indecisive adults. And I guess this happens quite often because when parents decide what you wear, what you eat, where you go, and who you meet, and they never allow you to make a decision for yourself, then gradually, you feel like there’s no point in deciding anything for yourself, and you get used to doing whatever your parents tell you to do, so you just lose the ability to think and choose as an individual. 
-
-I know some people might say that where there is a will, there is a way, but bear in mind, what I’m saying is that the inability to make decisions is actually rooted in childhood experiences(Counter argument), and as a kid. we didn’t have much will power, did we?
-
-Even if we did, with years and years of being controlled by a figure of authority, whatever will power we had would have been chipped away, piece by piece, until we are left with an inability to decide what we want or need(Reclaim).
+Why is it difficult for some people to make decisions?\
+> Well, I suppose there are all sorts of reasons, but one that I can think of is maybe it has a bit to do with their upbringing, like maybe their parents were too controlling and hard to make every single decision for their children. 
+> 
+> Many articles and papers talk about how kids with parents like this grow up into indecisive adults. And I guess this happens quite often because when parents decide what you wear, what you eat, where you go, and who you meet, and they never allow you to make a decision for yourself, then gradually, you feel like there’s no point in deciding anything for yourself, and you get used to doing whatever your parents tell you to do, so you just lose the ability to think and choose as an individual. 
+> 
+> I know some people might say that where there is a will, there is a way, but bear in mind, what I’m saying is that the inability to make decisions is actually rooted in childhood experiences(Counter argument), and as a kid. we didn’t have much will power, did we?
+> 
+> Even if we did, with years and years of being controlled by a figure of authority, whatever will power we had would have been chipped away, piece by piece, until we are left with an inability to decide what we want or need(Reclaim).
 
 ## Money for young people & Society (12-3)
 Why do some parents give their children money to spend each week?
