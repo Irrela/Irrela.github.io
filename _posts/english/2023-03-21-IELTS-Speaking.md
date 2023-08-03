@@ -5,6 +5,18 @@ tags:
 - English
 ---
 
+# GPT prompt
+> Provide me an answer to an Ielts speaking part three question, and score at least 8 according to Ielts criteria. Note the answer should be no more than 3-4 sentences and use oral expression.
+>
+> The question is :
+
+> Improve my answer to an Ielts speaking part three question, and score at least 8 according to Ielts criteria. Note the answer should be no more than 3-4 sentences and use oral expression.
+>
+> The question is :
+>
+> My original answer is :
+> 
+
 # PART-1
 
 
@@ -75,6 +87,19 @@ How important is the theatre in your country's history?
 > 
 > **I'm not very familiar with this area**, but I know that theater has a long history in my country. From emperors to ordinary people, everyone listened to plays, so theaters are very common and popular in ancient China. Theaters provide an important entertainment and social venue for people, and most traditional dramas are adapted from historical stories, so it also plays a big role in inheriting history and traditional culture.
 
+How strong a tradition is it today in your country to go to the theatre?
+> In my country, the tradition of going to the theatre **has diminished over the years**. While there are still people who appreciate live performances and value traditional arts, it is not as prevalent as it used to be. The younger generation seems to prefer **modern forms of entertainment** such as movies, concerts, and digital media, which **have gained popularity in recent times**.
+
+Do you think the theatre should be run as a business or as a public service?
+> In my opinion, the theatre **can benefit from a combination of both** business and public service models. By operating as a business, the theatre can **generate revenue**, attract investment, and **sustain itself financially**. However, it's equally important for the theatre to serve as a public service, **ensuring accessibility to** a diverse audience, **promoting cultural enrichment**, and **preserving** artistic traditions. **Striking a balance between the two approaches** can help the theatre thrive while **fulfilling its broader societal role.**
+
+## Arriving early & Being patient (12-1)
+1. In what kinds of situations should people always arrive early?
+It is crucial in situations **where punctuality is highly valued**, such as Job interviews, important meetings, and academic examinations, these are some examples where being early **demonstrates professionalism, respect, and preparedness.** Additionally, for public events or appointments with **limited seating or availability**, arriving early **ensures securing a spot or service without unnecessary stress**.
+
+
+
+
 # Own Expression
 ## Buy Time
 I suppose there are many reasons
@@ -87,4 +112,8 @@ That’s a tough question for me, **I’ve never thought about it before**
 
 ## Counter Argument
 I know I can’t deny that …, but I just really think that **in most circumstances/cases**, it’s **the other way around**.
+
+## Opinion
+Theaters may be **better off** being operated as private businesses.
+
 
