@@ -59,6 +59,22 @@ What disadvantages are there in a society where the gap between rich and poor is
 Do you think richer countries have a responsibility to help poorer countries?
 > I don't think they have a responsibility or obligation to do so, but it is actually beneficial for them to do so. For example, if wealthy countries can help poor countries establish industries so that **more local people can have decent jobs**, then their income and **standard of living** can improve. They can gradually afford better products and services produced by richer countries, which can **in turn** benefit the wealthy countries.
 
+## Watching films & movies (12-2)
+What are the most popular types of films in your country?
+> **Based on my impression**, action movies, **suspenseful mystery movies**, and comedies are quite popular. I see that on social media, these types of movies have a higher degree of popularity. However, in recent years, I have also seen some popular **sci-fi movies**, such as Nolan's Interstellar and China's own The Wandering Earth.
+
+
+What is the difference between watching a film in the cinema and watching a film at home?
+> I think the biggest difference is the **hardware equipment**. The screens in cinemas are huge and the sound quality is good, which can **give people a very shocking and immersive experience**, especially when watching some **big-budget war or action films**. I remember watching Dunkirk and 1917 in the cinema before, and the feeling was completely different from **when I later re-watched them** on TV at home. Of course, there are also advantages to watching at home, such as being able to watch the movies you want at any time, and popcorn and soft drinks are much cheaper than in the cinema.
+
+Do you think cinemas will close in the future?
+> **As I mentioned before**, due to the difference in hardware conditions, I think cinemas still **have a strong advantage in terms of** viewing experience in the short term. I know some people have **set up home theaters** that can achieve similar experiences, but I don't think this is **an affordable option for most people**. Additionally, I think watching movies **as a social activity** is also important to many people, such as **when couples go on dates**, watching a movie together would be a good choice after or before a dinner.
+
+How important is the theatre in your country's history?
+> **I want to confirm if you are referring to** theater where you watch plays and not movies theaters.
+> 
+> **I'm not very familiar with this area**, but I know that theater has a long history in my country. From emperors to ordinary people, everyone listened to plays, so theaters are very common and popular in ancient China. Theaters provide an important entertainment and social venue for people, and most traditional dramas are adapted from historical stories, so it also plays a big role in inheriting history and traditional culture.
+
 # Own Expression
 ## Buy Time
 I suppose there are many reasons
