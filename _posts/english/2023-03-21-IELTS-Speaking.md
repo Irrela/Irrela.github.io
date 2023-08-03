@@ -30,7 +30,7 @@ And also, it seems like Legos are quite popular(Point 2). To be honest, I have n
 So yeah, those are some of the toys kids like in China.(Paraphrase)
 
 ## Controversial example
-Why is it difficult for some people to make decisions?\
+Why is it difficult for some people to make decisions?
 > Well, I suppose there are all sorts of reasons, but one that I can think of is maybe it has a bit to do with their upbringing, like maybe their parents were too controlling and hard to make every single decision for their children. 
 > 
 > Many articles and papers talk about how kids with parents like this grow up into indecisive adults. And I guess this happens quite often because when parents decide what you wear, what you eat, where you go, and who you meet, and they never allow you to make a decision for yourself, then gradually, you feel like there’s no point in deciding anything for yourself, and you get used to doing whatever your parents tell you to do, so you just lose the ability to think and choose as an individual. 
@@ -50,8 +50,14 @@ Do you agree that schools should teach children how to manage money?
 Do you think it is a good idea for students to earn money while studying?
 > **I think this needs to be discussed on a case-by-case basis**. Some students may not come from **well-off families** and **have no choice but to** work part-time to earn money, **while for other students**, I think it's important to **measure the benefits of working and studying**. If a student can obtain a **well-paying job** after graduation with professional skills and qualifications, I think it is more wise to **invest more time in studying school courses**. However, as you are aware, there are **exceptionally gifted** students who may have already established successful businesses **during their time in school**. Consequently, they have the option to **allocate more time and effort towards further developing their ventures**.
 
+Do you think it is true that in today's society money cannot buy happiness?
+> It's hard to say. I personally believe that money can indeed contribute a lot to one's overall well-being and happiness. If I were financially free, I would have more time to spend with my family, afford better education and healthcare for my families, and invest more in my personal hobbies, all of which would **positively impact** my happiness. **I think this holds true for most people**. However, **in extreme cases**, such as individuals who are already very wealthy, the amount of happiness that more wealth can bring may be limited.
 
+What disadvantages are there in a society where the gap between rich and poor is very large?
+> I think the biggest disadvantage is that it will **affect people's values and motivation**. When **there is a large wealth gap in society**, the rich can continue to accumulate wealth without doing anything, while **the poor can hardly change their situation no matter how hard they work**.So people tend to **maintain the status quo**, and the precious value of working hard and **getting corresponding rewards/payback** will be destroyed. For society, this leads to **stagnation** and lack of vitality. 
 
+Do you think richer countries have a responsibility to help poorer countries?
+> I don't think they have a responsibility or obligation to do so, but it is actually beneficial for them to do so. For example, if wealthy countries can help poor countries establish industries so that **more local people can have decent jobs**, then their income and **standard of living** can improve. They can gradually afford better products and services produced by richer countries, which can **in turn** benefit the wealthy countries.
 
 # Own Expression
 ## Buy Time

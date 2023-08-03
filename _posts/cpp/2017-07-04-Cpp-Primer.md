@@ -494,6 +494,25 @@ CMakeUserPresets.json 文件可以包含多个预设（Presets），每个预设
 > 在Clion中默认构建文件输出在cmake-build-debug文件夹，删掉之后reload会自动创建
 
 
+## Pkg management - brew
+通过brew下包，然后手动配置cmake，以boost为例
+
+```
+# Cmakelist.txt中添加如下
+
+### Boost ###
+# 设置 Boost 库的路径
+set(BOOST_ROOT /opt/homebrew/Cellar/boost)
+# 寻找 Boost 库并添加包含路径
+#find_package(Boost REQUIRED COMPONENTS filesystem container algorithm)
+find_package(Boost REQUIRED) #
+
+include_directories(${Boost_INCLUDE_DIRS})
+target_link_libraries(yakuman ${Boost_LIBRARIES})
+```
+> find_package(Boost REQUIRED), 建议整个使用，如果单个组件引入要确认好组件名， 比如algorithm就不是一个可用的组件名
+
+
 ## Pkg management - vcpkg
 ### install error "pkg-config"
 ```
