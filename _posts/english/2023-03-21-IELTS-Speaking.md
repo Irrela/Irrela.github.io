@@ -177,7 +177,18 @@ Do you think the theatre should be run as a business or as a public service?
 
 ## Choosing work & Work-life balance (13 - 1)
 1. What kinds of jobs do young people not want to do in your country?
-   
+> In China, there are certain jobs that young people tend to avoid. For instance, ***labor-intensive jobs*** like agricultural work or construction may not be appealing due to the physically demanding nature and relatively lower pay. Similarly, jobs in manufacturing industries, such as assembly line work, may not be preferred as they ***are often associated with repetitive tasks and limited career advancement opportunities***. Moreover, certain service-oriented roles, such as cleaning or garbage collection, might not be popular choices ***among young people*** due to ***the perceived social status and remuneration.*** Instead, many young individuals in China often ***aspire to work in tech-related fields***, finance, or creative industries, ***which are seen as more prestigious and promising in terms of career growth and remuneration.***
+
+
+2. What kinds of jobs do young people not want to do in your country?
+> Well, ***I think there is no definite conclusion***. Parents can provide resources and support to ***kickstart their children's careers*** with their own expertise and connections, saving them time and effort. On the other hand, teachers often have a better understanding of market trends and can ***offer insights into*** future job developments. Ultimately, a combination of their guidance can be the most beneficial for young individuals, as they ***bring different perspectives and knowledge to the table***.
+
+3. Is money always the most important thing when choosing a job?
+> In my opinion, ***this statement is true for the most part***. For most people, ***making a living is a primary concern***, as we need to meet our basic needs first. Of course, I know money ***is not the sole consideration / not the whole story***; some might also prioritize other values like passion, work-life balance, or personal fulfillment. However, ***money can indeed complement these other aspirations***. With a solid financial foundation, we can more easily pursue higher goals and invest in hobbies, ***making it more likely to lead the life we truly desire***. For instance, a high-paying job could offer the opportunity to retire early and have the means to fulfill our dreams.
+
+
+
+
 
 
 
@@ -194,7 +205,11 @@ That’s a tough question for me, **I’ve never thought about it before**
 ## Counter Argument
 I know I can’t deny that …, but I just really think that **in most circumstances/cases**, it’s **the other way around**.
 
+But, we can also consider it this way
+
 ## Opinion
 Theaters may be **better off** being operated as private businesses.
 
 
+## Mean
+I think this issue needs to be discussed **on a case-by-case basis**.
