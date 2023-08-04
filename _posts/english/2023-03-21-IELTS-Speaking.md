@@ -6,7 +6,7 @@ tags:
 ---
 # GPT prompt
 ## Answer
-Provide me an answer to an Ielts speaking part three question, and score at least 8 according to Ielts criteria. Note the answer should be no more than 3-4 sentences.
+Please provide me with a response to an IELTS Speaking Part 3 question and ensure it meets the criteria for at least Band 8 according to IELTS standards. Note the response should be no more than 3-4 sentences.
 
 The requirements:
 - (Important) The answer should be colloquial and concise
@@ -20,7 +20,7 @@ How important it is to arrive early in your country?
 My idea is :
 
 ## Improve 
-Improve my answer to an Ielts speaking part three question, and score at least 8 according to Ielts criteria. Note the answer should be no more than 3-4 sentences.
+Please improve my answer to an IELTS Speaking Part 3 question and ensure it meets the criteria for at least Band 8 according to IELTS standards. Note the response should be no more than 3-4 sentences.
 
 The requirements:
 - (Important) The answer should be colloquial and concise

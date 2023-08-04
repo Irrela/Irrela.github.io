@@ -7,12 +7,47 @@ tags:
 
 https://www.douban.com/doulist/39348933/
 
+# GPT prompt
+## Task 1
+Please provide me with a response to an IELTS Writing Task 1 question and ensure it meets the criteria for at least Band 8 according to IELTS standards. Note the response should be at least 150 words but no more than 180 words.
+
+The requirements:
+- Covers all the requirements of the task appropriately, relevantly and sufficiently.
+- All bullet points are clearly presented, and appropriately illustrated or extended.
+- The message can be followed with ease.
+- Express ideas as accurately as you can.
+- Information and ideas are logically sequenced, and cohesion is well managed.
+- A wide resource is fluently and flexibly used to convey precise meanings within the scope of the task.
+- There is a skilful use of uncommon and/or idiomatic items when appropriate, despite occasional inaccuracies in word choice and collocation.
+- A wide range of structures within the scope of the task is flexibly and accurately used.
+- The majority of sentences are error-free, and punctuation is well managed.
+
+The question is :
+
+My idea is :
+
+## Task 2 
+Please provide me with a response to an IELTS Writing Task 2 question and ensure it meets the criteria for at least Band 8 according to IELTS standards. Note the response should be at least 250 words but no more than 280 words.
+
+The requirements for the response:
+- (Must) Write at least 250 words but no more than 280 words.
+- The prompt is appropriately and sufficiently addressed.
+- A clear and well-developed position is presented in response to the question/s.
+- Ideas are relevant, well extended and supported.
+- The message can be followed with ease.
+- Information and ideas are logically sequenced, and cohesion is well managed.
+- A wide resource is fluently and flexibly used to convey precise meanings.
+- There is skilful use of uncommon and/or idiomatic items when appropriate, despite occasional inaccuracies in word choice and collocation.
+- A wide range of structures is flexibly and accurately used.
+
+The question prompt is :
+
 # Criteria
 ## Target
 ### Task1
 1. Task achievement
 - The response covers all the requirements of the task appropriately, relevantly and sufficiently.
-- (General Training) All bullet points are clearly presented, and appropriately illustrated or extended.
+- All bullet points are clearly presented, and appropriately illustrated or extended.
 - There may be occasional omissions or lapses in content.
 
 2. Coherence and cohesion
@@ -20,7 +55,6 @@ https://www.douban.com/doulist/39348933/
 - Information and ideas are logically sequenced, and cohesion is well managed.
 - Occasional lapses in coherence or cohesion may occur.
 - Paragraphing is used sufficiently and appropriately.
-
 
 3. Lexical resource
 - A wide resource is fluently and flexibly used to convey precise meanings within the scope of the task.
@@ -64,6 +98,31 @@ https://www.douban.com/doulist/39348933/
 - Produce more complex sentences
 
 
+# Practice
+## Type: Why
+### Importance of English as an International Language for Study Abroad
+> Prompt: You should spend no more than 40 minutes on this task. As part of a class assignment, you have to write about the following topic.
+> 
+> ***Millions of people every year move to English-speaking countries such as Australia, Britain, or America in order to study at school, college, or university.***
+> 
+> ***Why do so many people want to study in English? Why is English such an important international language?***
+> 
+> Give reasons for your answer.
+> 
+> You should write at least 250 words.
+
+
+Studying in English-speaking countries has become a widespread aspiration for millions of individuals worldwide. There are several reasons driving this phenomenon, and English's significance as an international language plays a pivotal role in attracting learners.
+
+First and foremost, English has emerged as the global lingua franca due to historical factors such as British colonial expansion and the dominance of the United States in the post-World War II era. As a result, it has become the primary language of international communication, commerce, and diplomacy. This status as a common language fosters global connections, facilitating cross-cultural exchange and understanding.
+
+Moreover, English enjoys an unparalleled presence in the fields of science, technology, and academia. A vast majority of scientific research papers, academic publications, and technological advancements are conducted and disseminated in English. Consequently, aspiring scholars and professionals view proficiency in English as a gateway to accessing cutting-edge knowledge and collaborating with experts worldwide.
+
+Additionally, English proficiency enhances employability on a global scale. Employers in various industries prioritize candidates with English language skills, as it allows them to engage with a diverse customer base, expand business opportunities, and work effectively in multinational teams.
+
+Furthermore, studying in English-speaking countries offers students the opportunity to immerse themselves in an English-speaking environment, which accelerates language learning and promotes cultural understanding. This experiential approach allows learners to gain confidence in their language abilities and adapt to different cultural norms.
+
+In conclusion, the appeal of studying in English-speaking countries stems from English's prominent role as an international language. Its universal application in various sectors, coupled with the advantages of cultural exposure and academic excellence, make it an indispensable tool for those seeking global opportunities and success.
 
 # Small families
 > In many countries today, people in cities either live alone or in small family units, rather than in large, extended family groups. Is this a positive or negative trend?
