@@ -7,6 +7,7 @@ tags:
 
 # Is Chinese power about to peak?
 > The country’s historic ascent is levelling off. That need not make it more dangerous
+> 
 > May 11th 2023
 
 The he rise of China has been a defining feature of the world for the past four decades. Since the country began to open up and reform its economy in 1978, its gdp has grown by a dizzying 9% a year, on average. That has allowed a staggering 800m Chinese citizens to escape from poverty. Today China accounts for almost a fifth of global output. The sheer size of its market and manufacturing base has reshaped the global economy. Xi Jinping, who has ruled China for the past decade, hopes to use his country’s increasing heft to reshape the geopolitical order, too.
@@ -26,11 +27,14 @@ How might China handle this flatter trajectory? In the most optimistic scenario,
 Pessimists fear that China will become more combative as its economic trajectory falters. There are plenty of reasons to think this plausible. Mr Xi stokes a dangerous nationalism, to persuade ordinary Chinese that critics of his rule are slighting China itself. China’s military budget is forecast to rise by over 7% this year, in line with nominal gdp. Its military spending is lower than America’s, but still catching up. Its navy could be 50% bigger than America’s by 2030, and its nuclear arsenal will almost quadruple by 2035. “Beijing’s economic power may be peaking, but no other country is so capable of challenging America globally,” write Messrs Brands and Beckley.
 
 > Peer review
+
 Yet the most likely scenario is in the middle ground. The speed of China’s rise in the past two decades has been destabilising, forcing adjustments in the global economic and geopolitical order. That phase of intense economic disruption may now be over. And for all its troubles China’s economy is unlikely to shrink, triggering the kind of nihilistic and destructive thinking that Messrs Brands and Beckley fear. Mr Xi is unpredictable but his country’s long-run economic prospect is neither triumph nor disaster. Faced with decades of being a near-peer of America, China has good reason to eschew hubris and resist invading Taiwan. A crucial question is whether the superpowers can avoid misreading each other’s intentions, and thus stumbling into a conflict. Next week we will examine America’s global leadership—and how it should respond to China in the coming age of superpower parity. ■
 
 # The new Asian family
 > East Asian governments must try to manage a momentous social change they cannot prevent
+> 
 > Jul 6th 2023
+
 The concept of “Asian values”, once championed by leaders across the region, went out of vogue after the Asian financial crisis of 1997. The idea that East and South-East Asia’s disciplined governments had a unique economic edge over the decadent West suddenly seemed less compelling. Today in prosperous East Asia a different facet of those ballyhooed values is looking even more parlous. In China, Japan, South Korea and Taiwan, Asians’ supposed commitment to conservative family life is collapsing. As we report in our Asia and China sections this week, millions of young people are opting for looser, often lonelier and—in the East Asian context—less male-dominated arrangements. In a region that is home to over a fifth of humanity, the socioeconomic and demographic consequences will be vast, potentially destabilising and will shape millions of lives.
 
 In Japan, where the shift first became evident, married couples with at least one child accounted for 42% of households in 1980, and single people 20%. That has flipped. In 2020 couples with children accounted for 25% of households, and singletons 38%. And the decline is continuing. Last year 17% of Japanese men and 15% of women aged 18-34 said they would not marry, up from 2% and 4% in the early 1980s, and China recorded its lowest-ever number of marriages, half as many as a decade ago.
@@ -54,6 +58,7 @@ There are pockets of progress, notably in Taiwan, which recently took a more lib
 Governments should try to complete this lopsided revolution. Even if social change is not entirely within their grasp, and does not happen overnight, they can at least stop resisting it. To make family life more attractive, they need to deal with its gender imbalances as well as its costs by, for example, making paternity leave routine. They should look beyond heterosexual marriage, as their citizens have, and extend legal recognition to cohabiting, gay and other non-traditional arrangements—and afford them the support married couples now enjoy, especially over child-rearing. It is self-defeating and outrageous that China prevents single women from freezing their eggs, or that Japan makes it nearly impossible for gay couples to foster children.
 
 > Let them not wed
+
 Such policies would not fix the region’s demography. But they would have a more positive effect on it than the current ones. More important, they would leave millions freer to lead the lives they choose, especially women and gay people. East Asian governments have overseen the greatest-ever economic boom. Now they must attend to their citizens’ happiness and liberty. ■
 
 # How to run a business in a dangerous and disorderly world
