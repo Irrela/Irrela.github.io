@@ -184,10 +184,32 @@ Do you think the theatre should be run as a business or as a public service?
 > Well, ***I think there is no definite conclusion***. Parents can provide resources and support to ***kickstart their children's careers*** with their own expertise and connections, saving them time and effort. On the other hand, teachers often have a better understanding of market trends and can ***offer insights into*** future job developments. Ultimately, a combination of their guidance can be the most beneficial for young individuals, as they ***bring different perspectives and knowledge to the table***.
 
 3. Is money always the most important thing when choosing a job?
-> In my opinion, ***this statement is true for the most part***. For most people, ***making a living is a primary concern***, as we need to meet our basic needs first. Of course, I know money ***is not the sole consideration / not the whole story***; some might also prioritize other values like passion, work-life balance, or personal fulfillment. However, ***money can indeed complement these other aspirations***. With a solid financial foundation, we can more easily pursue higher goals and invest in hobbies, ***making it more likely to lead the life we truly desire***. For instance, a high-paying job could offer the opportunity to retire early and have the means to fulfill our dreams.
+> In my opinion, ***this statement is true for the most part***. 
+> 
+> For most people, ***making a living is a primary concern***, as we need to meet our basic needs first. Of course, I know money ***is not the sole consideration / not the whole story***; some might also prioritize other values like passion, work-life balance, or personal fulfillment. 
+> 
+> However, ***money can indeed complement these other aspirations***. With a solid financial foundation, we can more easily pursue higher goals and invest in hobbies, ***making it more likely to lead the life we truly desire***. For instance, a high-paying job could offer the opportunity to retire early and have the means to fulfill our dreams.
 
+4. Do you agree that many people nowadays are under pressure to work longer hours and take less holiday?
+> Yes, at least in China, most young people, ***including myself, are compelled to*** work for more than 8 hours a day, and some companies even expect regular overtime work on Saturdays. Moreover, most companies don't ***pay proper overtime compensation as mandated by labor laws***. This situation is both disturbing and prevalent, and unfortunately, ***it seems to be tolerated by the government***.
+>
+> In China, ***there's a practice known as*** "make-up days on public holidays," where holidays are moved to the nearest Friday or Monday to create longer breaks with weekends. However, this doesn't increase the total number of holidays, and ***resulting in longer consecutive workdays***. Unfortunately, this can negatively impact the physical and mental health of workers, posing a significant challenge in maintaining work-life balance.
 
+5. What is the impact on society of people having a poor work-life balance?
+> Having a poor work-life balance can significantly impact society in various ways. 
+> 
+> Firstly, it may lead to increased stress and ***burnout*** among individuals, ***affecting their overall well-being and productivity***. ***This, in turn, could result in a decrease in*** overall work efficiency and ***hinder*** societal progress. 
+> 
+> Moreover, ***strained*** work-life balance may lead to strained relationships, affecting family dynamics and potentially contributing to social issues. Therefore, promoting a healthy work-life balance is essential for the well-being of individuals and the ***smooth functioning of society as a whole.***
 
+6. How to improve work-life balance?
+> Improving work-life balance is essential for our well-being. 
+> 
+> Firstly, ***setting clear boundaries between work and personal time*** can help. For instance, avoiding bringing work back home and checking work emails during leisure hours.
+> 
+> Secondly, prioritizing self-care activities like exercise, meditation, or ***spending quality time with loved ones*** can ***recharge us mentally and emotionally***. 
+> 
+> Lastly, ***from employers' perspectives***, they can support employees by offering flexible working hours or remote work options, promoting a healthier balance between professional and personal life.
 
 
 
