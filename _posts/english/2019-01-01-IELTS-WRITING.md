@@ -101,11 +101,13 @@ The question prompt is :
 # Practice
 ## Type: Why
 ### Importance of English as an International Language for Study Abroad
-> Prompt: You should spend no more than 40 minutes on this task. As part of a class assignment, you have to write about the following topic.
+> Prompt: 
 > 
->> Millions of people every year move to English-speaking countries such as Australia, Britain, or America in order to study at school, college, or university.***
+> You should spend no more than 40 minutes on this task. As part of a class assignment, you have to write about the following topic.
+> 
+>> Millions of people every year move to English-speaking countries such as Australia, Britain, or America in order to study at school, college, or university.
 >>
->> Why do so many people want to study in English? Why is English such an important international language?***
+>> Why do so many people want to study in English? Why is English such an important international language?
 > 
 > Give reasons for your answer.
 > 
