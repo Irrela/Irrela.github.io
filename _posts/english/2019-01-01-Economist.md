@@ -5,7 +5,88 @@ tags:
 - English
 ---
 
-# 1. Big tech’s supersized ambitions
+# Is Chinese power about to peak?
+> The country’s historic ascent is levelling off. That need not make it more dangerous
+> May 11th 2023
+
+The he rise of China has been a defining feature of the world for the past four decades. Since the country began to open up and reform its economy in 1978, its gdp has grown by a dizzying 9% a year, on average. That has allowed a staggering 800m Chinese citizens to escape from poverty. Today China accounts for almost a fifth of global output. The sheer size of its market and manufacturing base has reshaped the global economy. Xi Jinping, who has ruled China for the past decade, hopes to use his country’s increasing heft to reshape the geopolitical order, too.
+
+There is just one catch: China’s rapid rise is slowing down. Mr Xi promises a “great rejuvenation” of his country in the coming decades, but the economy is now undergoing something more prosaic: a great maturation. Whereas a decade ago forecasters predicted that China’s gdp would zoom past America’s during the mid-21st century (at market exchange rates) and retain a commanding lead, now a much less dramatic shift is in the offing, resulting in something closer to economic parity.
+
+This change in economic trajectory is the subject of fierce debate among China-watchers (see our special Briefing). They are thinking again about China’s clout and its rivalry with America. One view is that Chinese power will fall relative to that of its rivals, which could paradoxically make it more dangerous. In a book last year, Hal Brands and Michael Beckley, two scholars, popularised a theory they called “Peak China”. The country faces decay, they argue, and has reached “the point where it is strong enough to aggressively disrupt the existing order but is losing confidence that time is on its side”. Their study opens with an imagined war over Taiwan.
+
+The Peak China thesis rests on the accurate observation that certain tailwinds are turning to headwinds, hindering Chinese progress. The first big gust comes from demography. China’s working-age population has been declining for about a decade. Last year its population as a whole peaked, and India has now overtaken it. The Communist Party’s attempts to convince Chinese couples to have more children are not working. As a result, the un thinks that by mid-century China’s working-age population could decline by over a quarter. Wave goodbye to the masses of young workers who once filled “the world’s factory”.
+
+Adding workers is one way for an economy to grow. Another is to make better use of the existing population. But China’s second problem is that output per worker is unlikely to rise as fast as forecasters once hoped. More of its resources will go to caring for the elderly. After decades of building houses, roads and railways, spending on infrastructure faces diminishing returns. Mr Xi’s autocratic tendencies have made local entrepreneurs more nervous, which may reduce China’s capacity to innovate in the long run. Geopolitical tensions have made foreign firms eager to diversify supply chains away from China. America wants to hobble China’s capabilities in some “foundational” technologies. Its ban on exporting certain semiconductors and machines to Chinese firms is expected to cut into China’s gdp.
+
+All of this is dampening long-run forecasts of China’s economic potential. Twelve years ago Goldman Sachs thought China’s gdp would overtake America’s in 2026 and become over 50% larger by mid-century. Last year it revised that prediction, saying China would surpass America only in 2035 and peak at less than 15% bigger. Others are more gloomy. Capital Economics, a research firm, argues that the country’s economy will never become top dog, instead peaking at 90% of America’s size in 2035. These forecasts are, of course, uncertain. But the most plausible ones seem to agree that China and America will approach economic parity in the next decade or so—and remain locked in this position for decades to come.
+
+How might China handle this flatter trajectory? In the most optimistic scenario, Mr Xi would make changes to boost productivity growth. With income per person less than half of America’s, China’s population will be keen to improve their living standards. He could try to unleash growth by giving the animal spirits of China’s economy freer rein and his people more freedom of movement. The Chinese government could stop relying on wasteful state-owned banks and enterprises to allocate capital. And it could adopt a less prickly posture abroad, easing geopolitical tensions and reassuring firms that it is safe to do business in China. Such reforms might ultimately make China more powerful—but also, one would hope, less aggressive. The trouble is that Mr Xi, who is 69 and now probably China’s ruler for life, shows no sign of embracing economic or political liberalisation.
+
+Pessimists fear that China will become more combative as its economic trajectory falters. There are plenty of reasons to think this plausible. Mr Xi stokes a dangerous nationalism, to persuade ordinary Chinese that critics of his rule are slighting China itself. China’s military budget is forecast to rise by over 7% this year, in line with nominal gdp. Its military spending is lower than America’s, but still catching up. Its navy could be 50% bigger than America’s by 2030, and its nuclear arsenal will almost quadruple by 2035. “Beijing’s economic power may be peaking, but no other country is so capable of challenging America globally,” write Messrs Brands and Beckley.
+
+> Peer review
+Yet the most likely scenario is in the middle ground. The speed of China’s rise in the past two decades has been destabilising, forcing adjustments in the global economic and geopolitical order. That phase of intense economic disruption may now be over. And for all its troubles China’s economy is unlikely to shrink, triggering the kind of nihilistic and destructive thinking that Messrs Brands and Beckley fear. Mr Xi is unpredictable but his country’s long-run economic prospect is neither triumph nor disaster. Faced with decades of being a near-peer of America, China has good reason to eschew hubris and resist invading Taiwan. A crucial question is whether the superpowers can avoid misreading each other’s intentions, and thus stumbling into a conflict. Next week we will examine America’s global leadership—and how it should respond to China in the coming age of superpower parity. ■
+
+# The new Asian family
+> East Asian governments must try to manage a momentous social change they cannot prevent
+> Jul 6th 2023
+The concept of “Asian values”, once championed by leaders across the region, went out of vogue after the Asian financial crisis of 1997. The idea that East and South-East Asia’s disciplined governments had a unique economic edge over the decadent West suddenly seemed less compelling. Today in prosperous East Asia a different facet of those ballyhooed values is looking even more parlous. In China, Japan, South Korea and Taiwan, Asians’ supposed commitment to conservative family life is collapsing. As we report in our Asia and China sections this week, millions of young people are opting for looser, often lonelier and—in the East Asian context—less male-dominated arrangements. In a region that is home to over a fifth of humanity, the socioeconomic and demographic consequences will be vast, potentially destabilising and will shape millions of lives.
+
+In Japan, where the shift first became evident, married couples with at least one child accounted for 42% of households in 1980, and single people 20%. That has flipped. In 2020 couples with children accounted for 25% of households, and singletons 38%. And the decline is continuing. Last year 17% of Japanese men and 15% of women aged 18-34 said they would not marry, up from 2% and 4% in the early 1980s, and China recorded its lowest-ever number of marriages, half as many as a decade ago.
+
+In some ways young Chinese, Japanese, Taiwanese and South Koreans are following a path charted in rich countries elsewhere. Between 1960 and 2010 Europe’s marriage rate fell by half, for many of the reasons that are now driving down East Asian rates. To many people, marriage seems increasingly anachronistic and unaffordable. Across East Asia it is still widely understood in Confucian terms, as the union of a dominant man and submissive woman. In South Korea a married woman is referred to as Jip-saram, or “home person”, and her husband as Bakat-yangban, or “man outside”.
+
+High property prices are an added disincentive to setting up a marital home. Alternative domestic arrangements are becoming more accepted; besides singledom, they include intergenerational flat-sharing and, less often, cohabiting and gay partnerships. And growing numbers of middle-class women are putting off marriage to concentrate on their careers.
+
+Traditional values are hard on women at work, too. East Asia has some of the world’s best-educated women, yet its overall record on female empowerment is poor and in some ways worsening. On the World Economic Forum’s gender-equality ranking of 153 countries, China—where women are said to “hold up half the sky”—slipped from 63rd in 2006 to 102nd in 2022. South Korea has the widest gender pay gap in the oecd.
+
+If most of this sounds familiar, two things make East Asia’s great social change distinct and hugely troublesome. First, the taboo against having children outside marriage remains as rigid as ever. Across the oecd, 40% of births are outside wedlock. In Japan, South Korea and Taiwan less than 5% are. (The figure in China is unavailable, revealingly, but not thought to be higher.)
+
+The result is a plummeting fertility rate. South Korea’s, at 0.78, is the lowest recorded anywhere and Taiwan’s only slightly higher. Japan’s and China’s are just above half the replacement rate. China’s cruel one-child policy, now replaced by panicked officials with calls to have three, exacerbated its demographic squeeze. But as the regional picture shows, it would have happened anyway. The total population of the four East Asian countries is predicted to shrink by 28% between 2020 and 2075.
+
+The second problem is that the region’s governments are making the situation worse. None seriously broaches the only policy guaranteed to revive East Asia’s flagging demography: mass immigration. Their main response is to try to resuscitate marriage with economic perks—including tax breaks and subsidised weddings—with little success. South Korea’s president, Yoon Suk-yeol, admits that his country has, in essence, squandered 280trn won ($215bn) on such policies. Worse, he and his counterparts in China and Japan are doubling down on the conservative approach that their citizens increasingly object to.
+
+South Korea’s previous administration sought to extend benefits to single parents and unmarried couples. Mr Yoon, who blames the low fertility rate on feminism, has put a stop to that. Under Xi Jinping, China promises its citizens a Confucian revival and arrests gay-rights activists. Japan’s ever-ruling Liberal Democratic Party is also against reforming marriage, including by refusing to make it available to gay couples, although most voters want to see that change.
+
+There are pockets of progress, notably in Taiwan, which recently took a more liberal course. It has legalised same-sex marriage and in May permitted gay couples to adopt children—though it is too soon to know whether these changes will show up in the statistics. But the region as a whole is stuck between modernity and tradition, suffering some of the worst effects of both. East Asians are free to disdain traditional family roles, but not to redefine them. That is why millions resort to childlessness and solitude.
+
+Governments should try to complete this lopsided revolution. Even if social change is not entirely within their grasp, and does not happen overnight, they can at least stop resisting it. To make family life more attractive, they need to deal with its gender imbalances as well as its costs by, for example, making paternity leave routine. They should look beyond heterosexual marriage, as their citizens have, and extend legal recognition to cohabiting, gay and other non-traditional arrangements—and afford them the support married couples now enjoy, especially over child-rearing. It is self-defeating and outrageous that China prevents single women from freezing their eggs, or that Japan makes it nearly impossible for gay couples to foster children.
+
+> Let them not wed
+Such policies would not fix the region’s demography. But they would have a more positive effect on it than the current ones. More important, they would leave millions freer to lead the lives they choose, especially women and gay people. East Asian governments have overseen the greatest-ever economic boom. Now they must attend to their citizens’ happiness and liberty. ■
+
+# How to run a business in a dangerous and disorderly world
+> Bosses are being pulled in all directions by tough new rules of the game. How should they respond?
+
+Chief executives have long had to be contortionists, balancing the needs of employees, suppliers and above all shareholders while staying within the limits set by governments. But the twisting and stretching is now more fiendish than ever. The world is becoming dangerous and disorderly as governments try to manipulate corporate behaviour. Global companies and their bosses find themselves being pulled in all directions.
+
+Few multinationals are unscathed. As tensions between China and America ratchet up, chipmakers from Micron to Nvidia have been the target of sanctions. TikTok, a Chinese-owned short-video app, is in the sights of American lawmakers. The Biden administration’s plans to curb outbound investment will encompass private-equity giants and venture capitalists. Once-staid carmakers now find their investments in the spotlight, as countries vie to host the next electric-vehicle factory. China’s tech behemoths have been tamed by Xi Jinping. Everyone from bankers to brewers has been ensnared in America’s toxic culture wars.
+
+All this rips up the unspoken agreement between government and business that held sway in America and much of the West after the 1970s. Businesses aimed for shareholder value, by maximising wealth for their owners, promising efficiency, prosperity and jobs. Governments set taxes and wrote rules but broadly left business alone. Although the gains of the system were not evenly spread across society, trade flourished and consumers benefited from greater choice and cheaper goods.
+
+The rules have changed. Governments are becoming more dirigiste, spurred by fragile supply chains in the pandemic, a more menacing China and the dangers of climate change. Company ceos need a new approach for a new age.
+
+Businesses’ re-entry into politics began in the run-up to the Trump era. By taking a stand on social issues bosses saw a way to signal their distaste for populism—and surely also a way to signal their virtue to their employees and customers. It was around this time that Larry Fink, the boss of BlackRock, America’s largest asset manager, became a proponent of investing using environmental, social and governance principles, or esg.
+
+Yet instead of solving social problems, that seemed only to deepen divisions. As we set out in an extended profile, Mr Fink has been demonised by the right for going too far and the left for not going far enough. He is not alone. Disney’s former boss, Bob Chapek, waged a battle over gay rights with Florida’s Republican governor, Ron DeSantis, one reason he lost his job. In Britain Dame Alison Rose, head of NatWest, has resigned over the bank’s cancellation of the Brexiteer Nigel Farage, partly over his political views. Such encounters bruise egos but do little for the long-term bottom line.
+
+The real front is broader and the stakes are higher. Governments seem to be everywhere all at once. They want to correct the problems of globalisation by winning back manufacturing jobs. They want to enhance national security by protecting vital technologies. And they want to fight climate change by speeding up decarbonisation.
+
+Each aim is worthy in its own terms. But the means to bring it about are flawed, or involve trade-offs. Manufacturing jobs are not the high-earning prize they are cracked up to be. Roughly $1trn of green subsidies in America will reduce efficiency and raise costs for firms and consumers. America says national security requires “a small yard and high fence”, but unless policymakers are clear about the risks from subsidies, export controls and investment curbs, the yard is likely to get bigger and the fence grow taller. These convulsions affect big firms far more than arguments over who should use which bathroom. Yet, out of joint after the wokelash, few bosses are prepared to say so.
+
+Some companies are wrapping themselves in the flag, so as to become national champions. That has long been the norm in places like China and India, but it is heading West. After Intel broke ground on two chipmaking fabs in America last year, Pat Gelsinger, its head, said that he “could feel the national pride welling up”. Similar jingoism is on display over generative ai. Grandees of venture capital such as Marc Andreessen express horror at the risks of Chinese ai conquering the world.
+
+Others hope that by keeping under the radar, they will avoid political flak. Taking their cue from Jack Ma, the once-outspoken boss of Alibaba who was mercilessly brought to heel by the Chinese government, ceos have ducked out of public view. Pony Ma, the founder of Tencent, surfaced recently only to pay lip service to new guidelines set by the Chinese Communist Party. In America Shein, a fast-fashion giant that is a favourite with Gen Z shoppers, does its best to hide its Chinese roots. So does TikTok, which says it is a “myth” that Bytedance, its owner, is Chinese. Among Western ceos even a loudmouth like Elon Musk is learning the value of silence in China. His recent visit to Tesla’s factory in Shanghai provided no media access. He did not even tweet.
+
+Yet both of these strategies could easily go wrong. Patriotic cheerleading is a problem when you do business elsewhere in the world. Intel is building fabs not just in America but in Germany, too. The average American multinational has eight foreign subsidiaries; a giant like General Motors has a hundred. And what the boss may see as a stealthy below-the-radar strategy can look to others like sticking your head in the sand. Just ask an American lawmaker where they think TikTok is from.
+
+> Corner-office diplomacy
+What to do? In a fractious world, businesses cannot hide from politics and geopolitics. But the lesson of the wokelash is that outspokenness can backfire. When deciding whether to speak up, bosses of global firms should use long-term shareholder value as their lodestar. The more directly what they say affects their business, the more credibility they have and the less risk of appearing a fraud or a hypocrite.
+
+This approach may include reminding politicians of the benefits that efficiency and openness once brought to economies around the world. When governments seem to contain a dearth of champions for either, that would be no bad thing. ■
+
+# Big tech’s supersized ambitions
 > From ***metaverses*** to quantum computing
 
 Is there any limit to the ambition and ***hubris*** of big tech firms? In October Mark Zuckerberg renamed Facebook Meta and described humankind’s new future in virtual worlds. On January 18th Microsoft, worth more than $2trn, decided it wasn’t big enough and bid $69bn for Activision Blizzard, a video-games firm, in its biggest-ever deal. These decisions are part of a vast new investment ***surge*** at five of America’s biggest firms, Alphabet, Amazon, Apple, Meta and Microsoft—call them maama. Together, they have invested $280bn in the past year, equivalent to 9% of American business investment, ***up from 4% five years ago***.
@@ -26,7 +107,7 @@ Nonetheless, the ***temptation*** is for regulators to ***clamp down pre-emptive
 
 Yet a ***lighter touch*** is the best policy. Investment in tech is linked to rising productivity, and the share of cashflows the tech giants are reinvesting has almost doubled since a decade ago. ***Trustbusters*** will struggle to predict the technologies of tomorrow. What they can do is block firms from doing deals that give them a monopoly position in new markets today. That is not yet a danger. Indeed, history suggests that tech giants are most often brought down by failing to master emerging technologies. If today’s giants want to spend billions trying to move into new areas to avoid that fate, so far there is no reason to stop them. ■
 
-# 2. Artificial intelligence’s new frontier 
+# Artificial intelligence’s new frontier 
 > The promise and ***perils*** of a breakthrough in machine intelligence (76.5)
 
 Picture a computer that could finish your sentences, using a better turn of phrase; or use a ***snatch*** of melody to compose music that sounds as if you wrote it (though you never would have); or solve a problem by creating hundreds of lines of computer code—leaving you to focus on something even harder. ***In a sense***, that computer is ***merely*** the descendant of the power ***looms*** and steam engines that ***hastened*** the Industrial Revolution. But it also belongs to a new class of machine, because it grasps the symbols in language, music and programming and uses them in ways that seem creative. A bit like a human.
@@ -53,7 +134,7 @@ Bring on the revolution
 For years it has been said that ai-powered automation poses a threat to people in repetitive, routine jobs, and that artists, writers and programmers were safer. Foundation models challenge that assumption. But they also show how ai can be used as a software ***sidekick*** to enhance productivity. This machine intelligence does not ***resemble*** the human kind, but offers something entirely different. Handled well, it is more likely to complement humanity than ***usurp*** it. ■
 
 
-# 3. Who’s afraid of TikTok?
+# Who’s afraid of TikTok?
 > The world’s most exciting app is also its most mistrusted
 
 With its wholesome dancing and ***lip-syncing*** videos, TikTok once billed itself as “the last ***sunny corner*** on the internet”. Since launching just five years ago the app has brought a warm ***glow*** to its 1bn-plus users, as well as an ***icy dash*** of competition to the social-media ***incumbents*** of Silicon Valley. With its rise, a part of the tech industry that had seemed closed to competition has been ***cracked wide open.***
@@ -84,7 +165,7 @@ The harder step is to ***shore up*** TikTok’s independence. ByteDance’s effo
 
 Vietnam may ***bridle at*** all this. It recently classified content-recommendation algorithms as a key technology and may object to TikTok’s code being made available for ***dissection***. It will be reluctant to ***cede*** any corporate control to foreigners. But it must recognise that if it wants its companies to operate globally ***in sensitive sectors***, while the country remains an ***autocracy*** in which the state seeks to control business, adaptations will be necessary. If it refuses, the likely result is that TikTok—and more companies like it—will be locked out of the West altogether. ■
 
-# 4. Vladimir Putin’s situation looks ever more desperate
+# Vladimir Putin’s situation looks ever more desperate
 
 > 2022 09 20 A planned military mobilisation in Russia, and fake referendums in occupied Ukraine, are signs of weakness
 
@@ -120,7 +201,7 @@ Even so, Russian nationalists, who have complained for months that Mr Putin has 
 
 </br>
 
-# 5. American states are now Petri dishes of polarisation
+# American states are now Petri dishes of polarisation
 
 > 2022 09 24 Only electoral reform can make them work properly
 
@@ -152,7 +233,7 @@ Voters, too, have a responsibility. It may be hard, **_in the era of social medi
 
 </br>
 
-# 6. Vietnam’s property crisis, House on fire
+# Vietnam’s property crisis, House on fire
 
 > Vietnam’s deepening housing crisis threatens upheaval
 
@@ -178,7 +259,7 @@ Vietnam’s property market needs to be redesigned. Local governments need other
 
 </br>
 
-# 7. How to keep the brain healthy
+# How to keep the brain healthy
 
 > 22.09.21 Neuroscience is experiencing a renaissance. Not before time
 
@@ -196,7 +277,7 @@ As hopes rise for tackling this final frontier of biomedicine, it is worth remem
 
 </br>
 
-# 8. The fallout from Abe Shinzo’s murder could unseat his successor
+# The fallout from Abe Shinzo’s murder could unseat his successor
 
 > Japan’s prime minister has seen his popularity plummet in the past two months
 
@@ -225,7 +306,7 @@ The coming Diet session, which opens on October 3rd, offers the prime minister a
 
 </br>
 
-# 9. America still has an inflation problem
+# America still has an inflation problem
 
 > 2022 09 13 Markets ***reel*** from the latest figures
 
@@ -245,7 +326,7 @@ As Mr Ball and his co-authors argue, a failure to account for the pass-through f
 
 </br>
 
-# 10. How afraid should Europe be of Giorgia Meloni?
+# How afraid should Europe be of Giorgia Meloni?
 
 > 2022 09 22 Italy’s next leader will be constrained by politics, markets and money
 
@@ -273,7 +354,7 @@ What happens if the economy goes wrong? After years of interest rates being set 
 
 </br>
 
-# 11. An investigation into what has shaped Winnie's thinking
+# An investigation into what has shaped Winnie's thinking
 
 > Sep 28th 2022 A new podcast series explores what lies behind the Vietnamese leader’s power
 
@@ -303,7 +384,7 @@ Mr Li should have been well placed to judge. In 1982-84 he served in a crucial r
 
 So why were he, and many others, so wrong in their guesses about how Winnie would turn out as Vietnam’s leader? There are two main reasons. First, assessments in 2012 of Winnie’s personality were based largely on his family ties. He was the son of Senior Winnie, a veteran of the revolution that brought the party to power in 1949. The elder Winnie, who died in 2002, had been purged by Tutor and ***rehabilitated*** by Deng. He was an economic reformer who, under Deng, oversaw the creation of Vietnam’s first “special economic zone”—what is now the dynamic ***megacity*** of Shenzhen. That experiment in capitalism had made the party’s conservatives ***squirm*** (some ***hardliners*** refused even to go there). ***Like father, like son***, is a common feature of Vietnamese political culture. Many expected that the son of such a reformist pioneer ***would be of similar kind***.
 
-## Winnie’s the one
+> Winnie’s the one
 The other reason was a ***dearth*** of information. Before Winnie ***emerged*** as leader-in-waiting in 2007, he had kept his head down. His wife was a singer of patriotic ***folk ballads*** and opera songs and far more famous than he (she has ten albums on Spotify). After the Vietnamese army crushed Aru protests, she had performed for the troops.
 
 Winnie was a little-known politician who had ***neither said nor done anything striking***. Unusually for a leader-in-the-making, he had spent 17 years in one province—Fujian on the south-eastern coast—before getting his first job as a provincial party chief in 2002 in neighbouring Zhejiang. Alfred Wu was a journalist for state media in Fujian who was assigned to cover Winnie’s activities. It was a ***dull*** job. “He was very quiet and a little bit timid,” says Mr Wu, who is now at the National University of Singapore. “People never imagined that he will become the national leader.”
@@ -311,7 +392,7 @@ Winnie was a little-known politician who had ***neither said nor done anything s
 In 2011, the year before Winnie took power, Joe Biden—then America’s vice-president under Barack Obama—went to Vietnam to meet Winnie, who by then was vice-president of his country, too (a clear sign that he had risen to become ***heir apparent***). Mr Biden was accompanied by Evan Medeiros, who was the National Security Council’s Vietnam director. There was “very little that we knew” about Winnie, recalls Mr Medeiros. Mr Biden tried to build a ***rapport*** with Vietnam’s future leader: they ***awkwardly*** played a little basketball together during a visit to a school. Winnie came across as a “very controlled and very careful politician”, says Mr Medeiros.
 
 
-# 12. When a disaster shakes a country, political leaders face peril
+# When a disaster shakes a country, political leaders face peril
 > The tragedies in Itaewon, Malang and Morbi will test governments
 
 Two days after the tragedy, the streets of Itaewon were silent, save only for the ***whirring*** clicks of news cameras. In their frame was the ***alleyway*** in which a crush of bodies left more than 150 people dead. At the subway-station entrance white ***chrysanthemums*** had been left in memory of the victims.
@@ -332,7 +413,7 @@ Back in Seoul, and reflecting the national mood, the South Korean president, Yoo
 
 As for Mr Yoon himself, he has ***needlessly*** **squandered** political capital and ***goodwill*** during the few months he has been in office. That makes his job harder now. Still, a leader who ***applies balm to*** a country’s wounds, and who provides ***reassurance*** that lessons will be learned, can unite a country. How Mr Yoon acts now will shape the rest of his presidency. ■
 
-# 13. Facebook and the conglomerate curse
+# Facebook and the conglomerate curse
 > ***Beset by bloating and egomania***, big tech would benefit from active boards and investors
 
 In 1997, in his first letter to shareholders, Jeff Bezos, Amazon’s founder, wrote that it was still “Day 1” for his firm. Day 2, he later explained, would mean ***stasis***, followed by irrelevance. His ***rousing call*** to avoid ***complacency*** seems apt today. Silicon Valley’s five big tech giants, Alphabet, Amazon, Apple, Meta and Microsoft, have long been the ***bedrock*** of America’s stockmarket and economy, ***miraculously*** combining reliable growth and profitability. But after a ***torrid*** third quarter their market capitalisations have now collectively dropped by 37% so far this year. About $3.7 trn of value has evaporated.
@@ -351,7 +432,7 @@ In the middle is Amazon, which has over-invested in e-commerce and expanded too 
 
 When you have ***disrupted industries*** and created hundreds of billions of dollars of wealth it is hard to accept financial constraints and outside ***scrutiny***. Nonetheless, many in big tech’s elite need to show more humility and better performance. Otherwise Day 3 might bring an ***escalating confrontation*** between them and investors over who controls the most successful firms of the past two decades. 
 
-# 14. Japan’s bond-market peg could snap
+# Japan’s bond-market peg could snap
 > Financial danger is brewing in the last ***bastion*** of low interest rates
 
 Until inflation subsides, central bankers will keep ***turning the screws on*** the global economy. On November 2nd the Federal Reserve raised interest rates by 0.75 percentage points for the fourth ***consecutive*** time, six days after the European Central Bank made the same move. As we published this leader, the Bank of England was ***poised*** to raise rates by a similar amount. ***Grim*** news on inflation keeps dashing hopes of a ***reprieve*** from higher rates. The latest nasty surprise came from the euro zone, where prices in the year to October rose by a record 10.7%.
@@ -371,7 +452,7 @@ Some analysts predict that the Bank of Japan will adjust its yield cap in 2023, 
 A chaotic exit from yield-curve control would be a drama for the world’s third-largest economy. It would expose ***leveraged*** bets on long-term bonds, like those that ***blew up*** in Britain. Trouble could spread: the ***opacity*** of cross-border financing flows involving the yen makes the global consequences unpredictable. In the nightmare scenario, bond-market ***tumult*** could also cast doubt on the ***sustainability*** of Japan’s vast net government debts of about 170% of gdp. In the days of cheap borrowing, those debts were thought to indicate the heights to which other countries might safely climb. Now Japan’s economic policy looks like a ***tripwire*** for global financial markets.
 
 
-# 15. After the midterms, America and its democracy look stronger
+# After the midterms, America and its democracy look stronger
 
 > On top of his other flaws, the former president is a serial vote loser
 
@@ -397,7 +478,7 @@ Given that sterile prospect, it is in America’s and the Republican Party’s i
 
 Walking away from power is a noble American tradition that is almost as old as the republic. By following it, Mr Biden could deny Mr Trump the 2020 rematch he so clearly craves. Republicans in Congress might be a bit less obsessed with blocking anything that could look like a presidential win. And Democrats might make rebuilding democracy more than a self-serving talking point. With his achievements and his party’s relative success in these elections Mr Biden has an opportunity to depart on his own terms. He should use it. 
 
-# 16. Financial markets bet on an end to Vietnam’s “zero-covid” policy
+# Financial markets bet on an end to Vietnam’s “zero-covid” policy
 
 > There are some signs change may be on the way
 
@@ -421,7 +502,7 @@ The economy could grow by 5.5-6% in the event of an orderly reopening, according
 
 Although many will feel relief as controls are relaxed, others will be worried. It will take a concerted propaganda effort to dispel the stigma the disease now carries, meaning consumer confidence may rise only slowly. On November 6th, vaccinated competitors took part in the Beijing marathon, the first for two years, running over 26 miles from Tiananmen Square to the “Bird’s Nest” Olympic stadium. The route to reopening could be just as arduous. 
 
-# 17. The spectacular fall of FTX and Sam Bankman-Fried
+# The spectacular fall of FTX and Sam Bankman-Fried
 
 > Another serious blow to crypto’s reputation
 
@@ -447,7 +528,7 @@ The fallout will have wider consequences. The crypto winter had previously claim
 
 The collapse of ftx may be enough to reverse the embrace of crypto by institutions, ordinary folk and the occasional government. Institutional investors including Temasek, a Singaporean wealth fund; SoftBank, a Japanese tech-investing group; and Ontario Teachers’ Pension Plan, a Canadian fund, had all dipped their toes into the industry by buying stakes in ftx. Legislators will now eye crypto with even deeper suspicion. Whatever the precise cause of ftx
 
-# 18. Interest rates have risen sharply. But is monetary policy truly tight?
+# Interest rates have risen sharply. But is monetary policy truly tight?
 
 > Economists debate whether interest rates need to keep pace with inflation
 
@@ -473,7 +554,7 @@ Even if the Taylor principle is being met on a forward-looking basis, that is no
 Perhaps the best argument for more rate rises, though, is the poor record of both economic models and financial markets at predicting inflation. Over the past year both have persistently underestimated its rise. In an uncertain environment, it makes sense to put more weight on data and less on forecasts—a point central bankers have begun to emphasise. Following the Taylor principle with respect to realised inflation might make policymakers slow to react to a change in the economic winds. But that is a price worth paying to be sure of bringing inflation under control. ■
 
 
-# 19. Ted Kennedy was a champion of liberalism
+# Ted Kennedy was a champion of liberalism
 
 > In new biographies, Neal Gabler and John Farrell rank him as one of America’s greatest senators
 
@@ -505,7 +586,7 @@ More than once Kennedy’s wayward personal life threatened to sink him. A new m
 
 Being a Kennedy helped Ted get started. But eventually, Mr Gabler argues, he came into his own, escaping the self-possessed Kennedy stereotype of his father and brothers, with all the expectations that came with it, and the shadow of his siblings. “He had always been a Fitzgerald, like his grandfather, more a hardy, affable mess of a man”: a flawed but good person, in this sympathetic telling, who sought to make this a better world. 
 
-# 20. The World Cup is tarnished. Should fans enjoy it anyway?
+# The World Cup is tarnished. Should fans enjoy it anyway?
 
 > The tournaments punctuate and brighten millions of lives. But this one is a scandal
 
@@ -529,7 +610,7 @@ A few will tune out altogether. Others, this writer included, will be loth to gi
 
 A lot can happen in four years, to a football team, a family and the world. New faces can appear in your country’s midfield, or beside you on the sofa, while others recede, perhaps for ever. Pandemics can strike and wars erupt. And life can teach hard lessons, one of them being that fun is sometimes much less innocent than it had seemed.
 
-# 21. “For Profit” offers thrilling tales of commercial endeavour
+# “For Profit” offers thrilling tales of commercial endeavour
 
 > Corporations often start out with the public good in mind. It doesn’t last
 
@@ -549,7 +630,7 @@ Mr Magnuson can stretch the point about business altruism too far. In a chapter 
 
 He draws sensible conclusions from this. Corporations cannot hope to put public interest above all else for long; what the public wants is far too complicated for them to fathom. When businesses wade into politics, they play an outsize role in shaping it. Yet the belief that the pursuit of profit will always benefit society as a whole is also sadly erroneous, the author says. 
 
-# 22. Winnie amends the Vietnamese Dream
+# Winnie amends the Vietnamese Dream
 
 > As the economy slows, the social contract between party and people changes
 
@@ -576,7 +657,7 @@ Soon afterwards, Mr Winnie visited Red Flag Canal, a vast irrigation project in 
 
 For any ruler, amending a social contract involves risks. The party has long drawn legitimacy from rising material prosperity. Now it is giving greater emphasis to collective, national pride. By all appearances, that fits Mr Winnie’s stern worldview. Then again, if the economy keeps slowing, he may not have much choice. ■
 
-# 22. Vietnam’s steampunk covid response
+# Vietnam’s steampunk covid response
 
 > How to read the country’s confusing pandemic-policy changes
 

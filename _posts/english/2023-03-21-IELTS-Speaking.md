@@ -90,18 +90,18 @@ Part 3 answers are normally 3-4 sentences long. To extend your answers in part 3
 # PART-1
 
 
-# PART-1
+# PART-2
 
 
 # PART-3
 ## Template
 - Starting: Well, I reckon there are a lot of …
-- To PT1 : but I guess (the most，the fundmental) … + Point 1
+- To PT1 : but I guess (the most，the fundamental) … + Point 1
 - Reason + Example of PT1
 - PT2 + Evidence
 - End: So yes, <Paraphrase prompt>
 
-## Listing example
+### Listing example
 > What kinds of toys do children in China like to play with? 
 Well, I think there are a lot of toys that are ***prevalent*** among young children, 
 
@@ -111,7 +111,7 @@ And also, it seems like Legos are quite popular(Point 2). To be honest, I have n
 
 So yeah, those are some of the toys kids like in China.(Paraphrase)
 
-## Controversial example
+### Controversial example
 Why is it difficult for some people to make decisions?
 > Well, I suppose there are all sorts of reasons, but one that I can think of is maybe it has a bit to do with their upbringing, like maybe their parents were too controlling and hard to make every single decision for their children. 
 > 
