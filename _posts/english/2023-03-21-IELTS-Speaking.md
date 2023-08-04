@@ -49,6 +49,31 @@ Based on my personal experience, this varies in different regions. In big cities
 ## Pronunciation
 - 发音通常易于理解，其口音对内容理解的影响非常小。
 
+## Band 8
+1. Fluency and coherence
+- Speaks fluently with only occasional repetition or self- correction; hesitation is usually content-related and only rarely to search for language
+
+- Develops topics coherently and appropriately
+
+2. Lexical resource
+- Uses a wide vocabulary resource readily and flexibly to convey precise meaning
+
+- Uses less common and idiomatic vocabulary skilfully, with occasional inaccuracies
+
+- Uses paraphrase effectively as required
+
+3. Grammatical range and accuracy
+- Uses a wide range of structures flexibly
+
+- Produces a majority of error-free sentences with only very occasional inappropriacies or basic/non-systematic errors
+
+4. Pronunciation
+- Uses a wide range of pronunciation features
+
+- Sustains flexible use of features, with only occasional lapses
+
+- Is easy to understand throughout; L1 accent has minimal effect on intelligibility
+
 ## How to improve
 How to improve:
 Talk to other English speakers about more abstract topics or more difficult current topics. Keep the discussion going for as long as possible. 
