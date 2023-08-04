@@ -1,5 +1,5 @@
 ---
-title: IELTS-Speaking
+title: IELTS Speaking
 categories: English
 tags:
 - English
@@ -35,47 +35,26 @@ My original answer is :
 Based on my personal experience, this varies in different regions. In big cities, people generally place more importance on punctuality, especially in work-related situations. However, in my hometown, a small inland city, the whole city has a slow pace and a somewhat laid-back atmosphere. If you want to meet someone for lunch at 12 o'clock for example, it's best to say 11 o'clock from the beginning, because most of the time people will be a little late. But wherever you are, punctual people are always welcomed.
 
 # Criteria
-## Fluency and coherence
-- Speaks fluently with only occasional repetition or self-correction; 
-- Hesitation is usually content-related and only rarely to search for language 
-- Develops topics coherently and appropriately
-## Lexical resource	
-- Uses a wide vocabulary resource readily and flexibly to convey precise meaning 
-- Uses less common and idiomatic vocabulary skilfully, with occasional inaccuracies 
-- Uses paraphrase effectively as required
-## Grammatical range and accuracy
-- Uses a wide range of structures flexibly 
-- Produces a majority of error-free sentences with only very occasional inappropriate or basic/non-systematic errors
-## Pronunciation
-- 发音通常易于理解，其口音对内容理解的影响非常小。
-
 ## Band 8
-1. Fluency and coherence
+## Fluency and coherence
 - Speaks fluently with only occasional repetition or self- correction; hesitation is usually content-related and only rarely to search for language
-
 - Develops topics coherently and appropriately
 
-2. Lexical resource
+## Lexical resource	
 - Uses a wide vocabulary resource readily and flexibly to convey precise meaning
-
 - Uses less common and idiomatic vocabulary skilfully, with occasional inaccuracies
-
 - Uses paraphrase effectively as required
 
-3. Grammatical range and accuracy
+## Grammatical range and accuracy
 - Uses a wide range of structures flexibly
-
 - Produces a majority of error-free sentences with only very occasional inappropriacies or basic/non-systematic errors
 
-4. Pronunciation
+## Pronunciation
 - Uses a wide range of pronunciation features
-
 - Sustains flexible use of features, with only occasional lapses
-
 - Is easy to understand throughout; L1 accent has minimal effect on intelligibility
 
-## How to improve
-How to improve:
+# How to improve
 Talk to other English speakers about more abstract topics or more difficult current topics. Keep the discussion going for as long as possible. 
 
 At the same time, try to express your ideas as accurately as you can, using the best words you know.
@@ -94,9 +73,13 @@ Using these phrases can help you to connect your ideas more effectively and make
 
 
 # Skill and strategies
+
 [Part I](https://www.ieltsadvantage.com/2015/05/18/ielts-speaking-topics-part-1/)
+
 [Part II](https://www.ieltsadvantage.com/2015/03/03/ielts-speaking-task-2-strategy/)
+
 [Part III](https://www.ieltsadvantage.com/2015/03/25/ielts-speaking-part-3-guide/)
+
 ## Structure
 For part 1 of the speaking test you should try to give answers that are between 2-3 sentences long. 
 

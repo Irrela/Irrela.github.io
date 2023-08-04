@@ -1,5 +1,5 @@
 ---
-title: IELTS WRITTNG
+title: IELTS Writing
 categories: English
 tags:
 - English
