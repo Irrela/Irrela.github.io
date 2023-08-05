@@ -22,9 +22,9 @@ The requirements:
 - A wide range of structures within the scope of the task is flexibly and accurately used.
 - The majority of sentences are error-free, and punctuation is well managed.
 
-The question is :
+The question prompt is :
 
-My idea is :
+My Points are :
 
 ## Task 2 
 Please provide me with a response to an IELTS Writing Task 2 question and ensure it meets the criteria for at least Band 8 according to IELTS standards. Note the response should be at least 250 words but no more than 280 words.
@@ -41,6 +41,9 @@ The requirements for the response:
 - A wide range of structures is flexibly and accurately used.
 
 The question prompt is :
+
+My Points are :
+
 
 # Criteria
 ## Target
@@ -99,19 +102,37 @@ The question prompt is :
 
 
 # Practice
+## Type: Agree or not
+
+Prompt: 
+> Some people believe that children's leisure activities must be educational; otherwise, they are a complete waste of time.
+>
+> Do you agree or disagree?
+> 
+> Give reasons for your answer and include any relevant examples from your experience.
+
+I completely disagree with the ***notion*** that children's leisure activities must be ***exclusively*** educational to be worthwhile. While education is crucial, children can learn valuable life lessons and skills from a diverse range of activities if guided effectively.
+
+Firstly, the definition of "educational" is subjective and ***can encompass various forms of learning***. For instance, engaging in team sports teaches children about cooperation, discipline, and leadership, which are essential life skills. Similarly, participating in creative pursuits like drawing or writing ***nurtures*** imagination and self-expression, promoting cognitive and emotional development.
+
+Secondly, many beneficial traits and abilities cannot be learned through ***explicit educational objectives***. For instance, engaging in outdoor activities like camping or hiking fosters ***resilience***, problem-solving, and ***adaptability***, which are essential for personal growth. Moreover, spending time with family and friends during leisure activities ***cultivates*** social skills, empathy, and ***emotional intelligence***.
+
+Lastly, striking a balance between educational and non-educational activities is crucial for a child's overall development. ***Excessive focus on*** academic pursuits can lead to ***burnout*** and ***hinder*** the child's creative and emotional growth. Having hobbies and pursuing leisure activities not only provides a ***much-needed*** break from academic pressures but also ***instills*** a lifelong love for learning and exploration.
+
+From personal experience, my younger brother developed excellent teamwork and leadership skills by participating in a local youth club's drama performances. Although not explicitly educational, the experience taught him the importance of cooperation and time management, which later proved invaluable in his academic and professional ***endeavors***.
+
+In conclusion, children's leisure activities should not be limited to being strictly educational. ***A well-rounded approach*** to leisure pursuits allows children to learn diverse skills, foster personal growth, and ***develop a passion for*** lifelong learning. Striking a balance between education and leisure is vital in shaping well-rounded individuals who can thrive academically, socially, and emotionally.
+
 ## Type: Why
 ### Importance of English as an International Language for Study Abroad
-> Prompt: 
-> 
-> You should spend no more than 40 minutes on this task. As part of a class assignment, you have to write about the following topic.
-> 
->> Millions of people every year move to English-speaking countries such as Australia, Britain, or America in order to study at school, college, or university.
->>
->> Why do so many people want to study in English? Why is English such an important international language?
+
+Prompt: 
+
+> Millions of people every year move to English-speaking countries such as Australia, Britain, or America in order to study at school, college, or university.
+>
+> Why do so many people want to study in English? Why is English such an important international language?
 > 
 > Give reasons for your answer.
-> 
-> You should write at least 250 words.
 
 Studying in English-speaking countries has become a widespread aspiration for millions of individuals worldwide. ***There are several reasons driving this phenomenon***, and English's significance as an international language ***plays a pivotal role in*** attracting learners.
 
