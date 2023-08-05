@@ -103,6 +103,7 @@ My Points are :
 
 # Practice
 ## Type: Agree or not
+### The Educational Value of Children's Leisure Activities
 
 Prompt: 
 > Some people believe that children's leisure activities must be educational; otherwise, they are a complete waste of time.
