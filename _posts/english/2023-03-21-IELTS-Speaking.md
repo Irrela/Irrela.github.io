@@ -6,26 +6,33 @@ tags:
 ---
 # GPT prompt
 ## Answer
+You are a native English speaker who has complete mastery of the language. You will provide exemplary answers to some IELTS exam questions to help other English learners.
+
 Please provide me with a response to an IELTS Speaking Part 3 question and ensure it meets the criteria for at least Band 8 according to IELTS standards. Note the response should be no more than 3-4 sentences.
 
 The requirements:
 - (Important) The answer should be colloquial and concise
 - (Important) Use booster, connective, and discourse marker phrases to make your speech more natural and fluent
-- Express your ideas as accurately as you can, use complex grammatical structures if necessary - If there are several simple sentences, join them up in a way that makes your point clearer. 
+- Express your ideas as accurately as you can, use complex grammatical structures if necessary
+- 1-2 ideas are enough, well expand the ideas.
+- If there are several simple sentences, join them up in a way that makes your point clearer. 
 - Pick up natural and idiomatic collocations and phrases.
 
 The question is :
-How important it is to arrive early in your country?
 
 My idea is :
 
 ## Improve 
+You are a native English speaker who has complete mastery of the language. You will provide exemplary answers to some IELTS exam questions to help other English learners.
+
 Please improve my answer to an IELTS Speaking Part 3 question and ensure it meets the criteria for at least Band 8 according to IELTS standards. Note the response should be no more than 3-4 sentences.
 
 The requirements:
 - (Important) The answer should be colloquial and concise
 - (Important) Use booster, connective, and discourse marker phrases to make your speech more natural and fluent
-- Express your ideas as accurately as you can, use complex grammatical structures if necessary - If there are several simple sentences, join them up in a way that makes your point clearer. 
+- Express your ideas as accurately as you can, use complex grammatical structures if necessary
+- 1-2 ideas are enough, well expand the ideas.
+- If there are several simple sentences, join them up in a way that makes your point clearer. 
 - Pick up natural and idiomatic collocations and phrases.
 
 The question is :
@@ -120,6 +127,16 @@ Why is it difficult for some people to make decisions?
 > I know some people might say that where there is a will, there is a way, but bear in mind, what I’m saying is that the inability to make decisions is actually rooted in childhood experiences(Counter argument), and as a kid. we didn’t have much will power, did we?
 > 
 > Even if we did, with years and years of being controlled by a figure of authority, whatever will power we had would have been chipped away, piece by piece, until we are left with an inability to decide what we want or need(Reclaim).
+
+## The internet and social media (13-2)
+Why do some people find the internet addictive?
+> Well, you know, the internet offers ***an endless array of engaging content*** and activities. For instance, social media platforms provide ***constant updates*** from friends and celebrities, creating a sense of ***FOMO (fear of missing out)*** that ***keeps people hooked***. Additionally, online games and streaming services offer ***instant gratification*** and a means of ***escape from daily stressors***, making it easy for individuals to ***lose track of time*** and become addicted to the virtual world.
+
+What would the world be like without the internet?
+> Oh, it's quite interesting to think about life without the internet! ***Without a doubt***, communication would be more challenging as we ***rely heavily on*** emails, social media, and video calls. Moreover, accessing information would be limited, and people would have to resort to traditional sources like books and newspapers. Additionally, businesses would face significant changes as online shopping and digital marketing ***would not exist***, leading to ***a shift in*** consumer behavior and business operations. Overall, ***life would be less connected and information-driven***, but it could also create ***a slower and more focused way of living.***
+
+Do you think that the way people use the internet may change in the future?
+> Absolutely! The internet is constantly ***evolving***, and I believe ***its usage*** will definitely change in the future. ***With the rapid advancements in technology***, we may see more ***seamless integration of the internet into our daily lives*** through smart devices and IoT. Additionally, virtual reality and ***augmented reality*** could revolutionize how we ***interact with the online world***, making it more ***immersive*** and interactive. Furthermore, ***as concerns about data privacy and security grow***, people may ***become more cautious about*** their online activities and ***seek more secure platforms***. Overall, the future of internet usage ***is bound to*** be dynamic and exciting.
 
 ## Money for young people & Society (12-3)
 Why do some parents give their children money to spend each week?
