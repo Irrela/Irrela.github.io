@@ -10,15 +10,15 @@ You are a native English speaker who has complete mastery of the language. You w
 
 Please provide me with a response to an IELTS Speaking Part 3 question and ensure it meets the criteria for at least Band 8 according to IELTS standards. Note the response should be no more than 3-4 sentences.
 
-The requirements:
+The requirements for the response:
 - (Important) The answer should be colloquial and concise
 - (Important) Use booster, connective, and discourse marker phrases to make your speech more natural and fluent
 - Express your ideas as accurately as you can, use complex grammatical structures if necessary
-- 1-2 ideas are enough, well expand the ideas.
+- 1-2 points are enough, well expand the ideas like providing examples or experiences to support them.
 - If there are several simple sentences, join them up in a way that makes your point clearer. 
 - Pick up natural and idiomatic collocations and phrases.
 
-The question is :
+The question prompt is :
 
 My idea is :
 
@@ -31,11 +31,11 @@ The requirements:
 - (Important) The answer should be colloquial and concise
 - (Important) Use booster, connective, and discourse marker phrases to make your speech more natural and fluent
 - Express your ideas as accurately as you can, use complex grammatical structures if necessary
-- 1-2 ideas are enough, well expand the ideas.
+- 1-2 points are enough, well expand the ideas like providing examples or experiences to support them.
 - If there are several simple sentences, join them up in a way that makes your point clearer. 
 - Pick up natural and idiomatic collocations and phrases.
 
-The question is :
+The question prompt is :
 How important it is to arrive early in your country?
 
 My original answer is :
@@ -137,6 +137,15 @@ What would the world be like without the internet?
 
 Do you think that the way people use the internet may change in the future?
 > Absolutely! The internet is constantly ***evolving***, and I believe ***its usage*** will definitely change in the future. ***With the rapid advancements in technology***, we may see more ***seamless integration of the internet into our daily lives*** through smart devices and IoT. Additionally, virtual reality and ***augmented reality*** could revolutionize how we ***interact with the online world***, making it more ***immersive*** and interactive. Furthermore, ***as concerns about data privacy and security grow***, people may ***become more cautious about*** their online activities and ***seek more secure platforms***. Overall, the future of internet usage ***is bound to*** be dynamic and exciting.
+
+What are the ways that social media can be used for positive purposes?
+> Social media can be a powerful tool for positive purposes in various ways. Firstly, it facilitates global communication and networking, ***connecting people*** from different cultures and backgrounds. For instance, social media platforms enable individuals to ***raise awareness about social issues*** and ***mobilize*** support for charitable causes. Secondly, it serves as a platform for ***knowledge sharing*** and educational resources. Many educators use social media to share ***informative content*** and ***engage students outside the classroom***. Overall, social media's ***positive impact lies in its potential to foster connections***, amplify voices, and promote learning and positive change on a global scale.
+
+Why do some individuals post highly negative comments about other people on social media?
+> You know, there can be various reasons behind why some individuals post highly negative comments on social media. Firstly, ***anonymity*** allows people to ***hide behind a screen*** and express their frustrations without ***facing direct consequences***. For example, ***online trolls*** often ***thrive on*** provoking reactions from others while remaining ***unidentified***. Secondly, social media can ***amplify*** the ***echo chamber effect***, where ***like-minded*** individuals ***reinforce each other's negative sentiments***, leading to ***a spiral of negativity***. As a result, some individuals ***may feel emboldened to*** post hurtful comments in such environments. Overall, the combination of anonymity and the echo chamber effect can contribute to the prevalence of highly negative comments on social media platforms.
+
+Do you think that companies' main form of advertising will be via social media in the future?
+> Absolutely! It's evident that social media is becoming increasingly dominant in the advertising landscape. ***With the widespread use of*** platforms like Facebook, Instagram, and Twitter, companies can ***reach a vast audience*** with ***targeted and personalized ads***. Moreover, social media allows for ***interactive and engaging advertising campaigns***, where companies ***can directly interact with their customers*** and ***build brand loyalty***. As technology and social media platforms continue to evolve, it is highly likely that companies will heavily rely on social media as their main form of advertising in the future.
 
 ## Money for young people & Society (12-3)
 Why do some parents give their children money to spend each week?
