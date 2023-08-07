@@ -114,36 +114,33 @@ Your points are :
 
 ### Government Control of Population 
 > **Prompt:** 
+> 
 > Some governments say how many children a family can have in their country. They may control the number of children someone has through taxes. It is sometimes necessary and right for a government to control the population in this way.
 >
 > Do you agree or disagree ? 
 >
 > Give reasons for your answer.
 
---- 
+I strongly disagree with the idea of governments controlling the number of children a family can have through taxes or any other coercive measures. While population management may be a concern, ***such practices raise significant ethical and practical issues***.
 
-I strongly disagree with the idea of governments controlling the number of children a family can have through taxes or any other coercive measures. While population management may be a concern, such practices raise significant ethical and practical issues.
+Firstly, imposing restrictions on family size ***infringes upon*** individual freedom and ***personal autonomy***. Family planning decisions ***should remain a private matter***, allowing individuals to make choices that ***best align with*** their values, beliefs, and circumstances. Government ***interference*** in this deeply personal aspect of life ***undermines basic human rights***.
 
-Firstly, imposing restrictions on family size infringes upon individual freedom and personal autonomy. Family planning decisions should remain a private matter, allowing individuals to make choices that best align with their values, beliefs, and circumstances. Government interference in this deeply personal aspect of life undermines basic human rights.
+Secondly, ***coercive*** measures such as taxes can be ineffective and ***counterproductive***. Instead of ***curbing*** population growth, ***they may lead to unintended consequences***. For instance, families facing economic hardship might choose to ***evade taxes*** or ***resort to*** unsafe ***abortion*** practices, ***endangering both their health and society at large***.
 
-Secondly, coercive measures such as taxes can be ineffective and counterproductive. Instead of curbing population growth, they may lead to unintended consequences. For instance, families facing economic hardship might choose to evade taxes or resort to unsafe abortion practices, endangering both their health and society at large.
-
-Lastly, focusing solely on population control through taxes overlooks the root causes of overpopulation. Governments should address the underlying factors, such as lack of access to education, healthcare, and family planning resources. Investing in comprehensive reproductive health services and educational programs empowers individuals to make informed choices and naturally leads to more sustainable population growth.
+Lastly, focusing solely on population control through taxes ***overlooks the root causes of*** overpopulation. Governments should address the ***underlying factors***, such as lack of access to education, healthcare, and family planning resources. Investing in comprehensive ***reproductive health services*** and educational programs ***empowers*** individuals to ***make informed choices*** and naturally leads to more sustainable population growth.
 
 In conclusion, while population management is an important consideration for governments, it should not be achieved through coercive measures like controlling family size through taxes. Such practices infringe on personal autonomy, have unintended consequences, and fail to address the underlying issues. Instead, fostering access to education, healthcare, and family planning resources empowers individuals to make responsible choices and ensures a more sustainable approach to population control.
 
 
 ### The Educational Value of Children's Leisure Activities
 
-> **Prompt:** 
+> **Prompt:**
 > 
 > Some people believe that children's leisure activities must be educational; otherwise, they are a complete waste of time.
 >
 > Do you agree or disagree?
 > 
 > Give reasons for your answer and include any relevant examples from your experience.
-
---- 
 
 I completely disagree with the ***notion*** that children's leisure activities must be ***exclusively*** educational to be worthwhile. While education is crucial, children can learn valuable life lessons and skills from a diverse range of activities if guided effectively.
 
@@ -168,8 +165,6 @@ In conclusion, children's leisure activities should not be limited to being stri
 > 
 > Give reasons for your answer.
 
----
-
 Studying in English-speaking countries has become a widespread aspiration for millions of individuals worldwide. ***There are several reasons driving this phenomenon***, and English's significance as an international language ***plays a pivotal role in*** attracting learners.
 
 ***First and foremost***, English ***has emerged as*** the global ***lingua franca*** due to ***historical factors*** such as British ***colonial expansion*** and the dominance of the United States in the post-World War II era. As a result, it has become the primary language of international communication, commerce, and diplomacy. This status as a common language ***fosters*** global connections, ***facilitating*** cross-cultural exchange and understanding.
@@ -188,8 +183,6 @@ In conclusion, the appeal of studying in English-speaking countries ***stems fro
 > In many countries today, people in cities either live alone or in small family units, rather than in large, extended family groups. 
 > 
 > Is this a positive or negative trend?
-
---- 
 
 It is true that cities are seeing a rise in smaller families and one-person households, while the extended family ***is becoming a rarity***. ***In my opinion***, this is a negative development.
 
