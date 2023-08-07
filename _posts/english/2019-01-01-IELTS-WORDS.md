@@ -510,3 +510,11 @@ utensil: kitchen utensils
 
 disillusioned
 
+## Synonyms
+Here are some synonyms for "assumption":
+
+- Presumption
+- Supposition
+- Premise
+- Hypothesis
+- Conjecture
