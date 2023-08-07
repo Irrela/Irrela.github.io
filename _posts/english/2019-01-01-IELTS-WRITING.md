@@ -119,7 +119,9 @@ Your points are :
 > Do you agree or disagree ? 
 >
 > Give reasons for your answer.
+
 --- 
+
 I strongly disagree with the idea of governments controlling the number of children a family can have through taxes or any other coercive measures. While population management may be a concern, such practices raise significant ethical and practical issues.
 
 Firstly, imposing restrictions on family size infringes upon individual freedom and personal autonomy. Family planning decisions should remain a private matter, allowing individuals to make choices that best align with their values, beliefs, and circumstances. Government interference in this deeply personal aspect of life undermines basic human rights.
@@ -140,7 +142,9 @@ In conclusion, while population management is an important consideration for gov
 > Do you agree or disagree?
 > 
 > Give reasons for your answer and include any relevant examples from your experience.
+
 --- 
+
 I completely disagree with the ***notion*** that children's leisure activities must be ***exclusively*** educational to be worthwhile. While education is crucial, children can learn valuable life lessons and skills from a diverse range of activities if guided effectively.
 
 Firstly, the definition of "educational" is subjective and ***can encompass various forms of learning***. For instance, engaging in team sports teaches children about cooperation, discipline, and leadership, which are essential life skills. Similarly, participating in creative pursuits like drawing or writing ***nurtures*** imagination and self-expression, promoting cognitive and emotional development.
@@ -156,13 +160,15 @@ In conclusion, children's leisure activities should not be limited to being stri
 ## Type: Why
 ### Importance of English as an International Language for Study Abroad
 
-Prompt: 
-
+> **Prompt:** 
+> 
 > Millions of people every year move to English-speaking countries such as Australia, Britain, or America in order to study at school, college, or university.
 >
 > Why do so many people want to study in English? Why is English such an important international language?
 > 
 > Give reasons for your answer.
+
+---
 
 Studying in English-speaking countries has become a widespread aspiration for millions of individuals worldwide. ***There are several reasons driving this phenomenon***, and English's significance as an international language ***plays a pivotal role in*** attracting learners.
 
