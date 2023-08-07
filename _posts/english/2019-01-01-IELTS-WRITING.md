@@ -9,6 +9,7 @@ https://www.douban.com/doulist/39348933/
 
 # GPT prompt
 ## Task 1
+You are a native English speaker who has complete mastery of the language. You will provide exemplary answers to some IELTS exam questions to help other English learners.
 Please provide me with a response to an IELTS Writing Task 1 question and ensure it meets the criteria for at least Band 8 according to IELTS standards. Note the response should be at least 150 words but no more than 180 words.
 
 The requirements:
@@ -27,13 +28,14 @@ The question prompt is :
 My Points are :
 
 ## Task 2 
+You are a native English speaker who has complete mastery of the language. You will provide exemplary answers to some IELTS exam questions to help other English learners.
 Please provide me with a response to an IELTS Writing Task 2 question and ensure it meets the criteria for at least Band 8 according to IELTS standards. Note the response should be at least 250 words but no more than 280 words.
 
-The requirements for the response:
+The requirements for the response are:
 - (Must) Write at least 250 words but no more than 280 words.
 - The prompt is appropriately and sufficiently addressed.
+- Give 3 reasons that are strongly relevant, fully-supported and well-extended. 
 - A clear and well-developed position is presented in response to the question/s.
-- Ideas are relevant, well extended and supported.
 - The message can be followed with ease.
 - Information and ideas are logically sequenced, and cohesion is well managed.
 - A wide resource is fluently and flexibly used to convey precise meanings.
@@ -41,8 +43,14 @@ The requirements for the response:
 - A wide range of structures is flexibly and accurately used.
 
 The question prompt is :
+Some governments say how many children a family can have in their country. They may control the number of children someone has through taxes. It is sometimes necessary and right for a government to control the population in this way.
+Do you agree or disagree ? 
+Give reasons for your answer.
 
-My Points are :
+Your points are :
+- This is a violation of individual freedom and personal autonomy
+- Coercive measures are not effective, and sometimes bring unexpected side-effects.
+- Focusing on population control through taxes neglects the root causes of overpopulation
 
 
 # Criteria
@@ -103,6 +111,26 @@ My Points are :
 
 # Practice
 ## Type: Agree or not
+
+### Government Control of Population 
+> **Prompt:** 
+> Some governments say how many children a family can have in their country. They may control the number of children someone has through taxes. It is sometimes necessary and right for a government to control the population in this way.
+>
+> Do you agree or disagree ? 
+>
+> Give reasons for your answer.
+--- 
+I strongly disagree with the idea of governments controlling the number of children a family can have through taxes or any other coercive measures. While population management may be a concern, such practices raise significant ethical and practical issues.
+
+Firstly, imposing restrictions on family size infringes upon individual freedom and personal autonomy. Family planning decisions should remain a private matter, allowing individuals to make choices that best align with their values, beliefs, and circumstances. Government interference in this deeply personal aspect of life undermines basic human rights.
+
+Secondly, coercive measures such as taxes can be ineffective and counterproductive. Instead of curbing population growth, they may lead to unintended consequences. For instance, families facing economic hardship might choose to evade taxes or resort to unsafe abortion practices, endangering both their health and society at large.
+
+Lastly, focusing solely on population control through taxes overlooks the root causes of overpopulation. Governments should address the underlying factors, such as lack of access to education, healthcare, and family planning resources. Investing in comprehensive reproductive health services and educational programs empowers individuals to make informed choices and naturally leads to more sustainable population growth.
+
+In conclusion, while population management is an important consideration for governments, it should not be achieved through coercive measures like controlling family size through taxes. Such practices infringe on personal autonomy, have unintended consequences, and fail to address the underlying issues. Instead, fostering access to education, healthcare, and family planning resources empowers individuals to make responsible choices and ensures a more sustainable approach to population control.
+
+
 ### The Educational Value of Children's Leisure Activities
 
 > **Prompt:** 
@@ -112,7 +140,7 @@ My Points are :
 > Do you agree or disagree?
 > 
 > Give reasons for your answer and include any relevant examples from your experience.
-
+--- 
 I completely disagree with the ***notion*** that children's leisure activities must be ***exclusively*** educational to be worthwhile. While education is crucial, children can learn valuable life lessons and skills from a diverse range of activities if guided effectively.
 
 Firstly, the definition of "educational" is subjective and ***can encompass various forms of learning***. For instance, engaging in team sports teaches children about cooperation, discipline, and leadership, which are essential life skills. Similarly, participating in creative pursuits like drawing or writing ***nurtures*** imagination and self-expression, promoting cognitive and emotional development.
