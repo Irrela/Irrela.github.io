@@ -511,6 +511,7 @@ utensil: kitchen utensils
 disillusioned
 
 ## Synonyms
+### Assumption
 Here are some synonyms for "assumption":
 
 - Presumption
@@ -518,3 +519,16 @@ Here are some synonyms for "assumption":
 - Premise
 - Hypothesis
 - Conjecture
+
+### Pivotal
+Here are some synonyms for "pivotal":
+Crucial
+Essential
+Vital
+Central
+Critical
+Key
+Fundamental
+Significant
+Indispensable
+Core
