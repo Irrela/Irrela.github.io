@@ -177,6 +177,9 @@ Furthermore, studying in English-speaking countries offers students the opportun
 
 In conclusion, the appeal of studying in English-speaking countries ***stems from*** English's ***prominent role*** as an international language. ***Its universal application in various sectors***, ***coupled with the advantages of*** cultural exposure and academic excellence, make it an ***indispensable tool*** for those seeking global opportunities and success.
 
+## Type: Both side
+###  Rise in Extreme Tourism (12-1) 
+
 ## Type: Development
 ### Dependence on Computers and the Future
 
