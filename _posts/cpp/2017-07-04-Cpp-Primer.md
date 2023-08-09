@@ -244,7 +244,7 @@ int main() {
 
 # Miscellany
 
-### `erase`
+### erase
 在 C++ 的容器类中，`erase` 函数用于从容器中删除一个或多个元素。它可以接受一个迭代器（iterator）作为参数，指示要删除的元素的位置。下面是关于 erase 函数的解释，以及示例代码：
 
 *erase 函数的用法：*
@@ -292,7 +292,7 @@ int main() {
 ```
 
 ### sort
-在 C++ 中，std::sort 是标准库中用于排序容器或数组元素的函数，定义在 <algorithm> 头文件中。它使用快速排序（Quick Sort）或者归并排序（Merge Sort）算法来对容器或数组中的元素进行排序。std::sort 可以对各种内置数据类型和自定义类型进行排序，只需要定义好比较函数或使用默认的比较操作符 < 即可。
+在 C++ 中，`std::sort` 是标准库中用于排序容器或数组元素的函数，定义在 <algorithm> 头文件中。它使用快速排序（Quick Sort）或者归并排序（Merge Sort）算法来对容器或数组中的元素进行排序。std::sort 可以对各种内置数据类型和自定义类型进行排序，只需要定义好比较函数或使用默认的比较操作符 < 即可。
 
 std::sort 的常用用法如下：
 
@@ -606,7 +606,7 @@ Destructing MyClass
 *示例代码:*
 见`shared_ptr`代码示例。
 
-### `shared_ptr的拷贝和赋值`
+### shared_ptr的拷贝和赋值
 - 引用次数递增：用一个shared_ptr初始化其他shared_ptr，或者将其作为参数传递，或者作为函数返回值时。 
 - 引用次数递减：给shared_ptr赋新值，或者shared_ptr被销毁
 
