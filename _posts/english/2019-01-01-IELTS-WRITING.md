@@ -178,7 +178,20 @@ Furthermore, studying in English-speaking countries offers students the opportun
 In conclusion, the appeal of studying in English-speaking countries ***stems from*** English's ***prominent role*** as an international language. ***Its universal application in various sectors***, ***coupled with the advantages of*** cultural exposure and academic excellence, make it an ***indispensable tool*** for those seeking global opportunities and success.
 
 ## Type: Both side
-###  Rise in Extreme Tourism (12-1) 
+### Rise in Extreme Tourism (12-1) 
+> **Prompt:** 
+> 
+> Today more and more tourists are visiting places where conditions are difficult, such as the Sahara desert or the Antarctic.
+> 
+> What are the benefits and disadvantages for tourists who visit such places?
+
+***In recent times***, an increasing number of tourists ***are drawn to*** destinations characterized by challenging conditions, such as the Sahara desert or the Antarctic. This phenomenon has both advantages and drawbacks, ***which I will discuss in detail below***. (This trend, while ***intriguing***, ***brings forth*** both advantages and drawbacks for the adventurous travelers.)
+
+On the positive side, visiting such demanding ***locales*** offers a unique and ***bold*** experience. Tourists are presented with the opportunity to ***step out of their comfort zones***, fostering personal growth and ***resilience***. These ***unconventional*** trips often lead to lifelong memories and stories to share, ***enhancing one's life perspective***. Additionally, these locations tend to be less crowded than traditional ***tourist spots***, allowing for a more ***intimate*** and ***contemplative*** travel experience.
+
+However, there are also ***notable*** disadvantages to consider. The extreme conditions of these places can pose serious health risks, including ***dehydration***, ***frostbite***, and altitude sickness. Moreover, ***the lack of infrastructure and amenities*** in these remote areas can make the journey physically demanding and mentally challenging. This may discourage some individuals, particularly those seeking relaxation and convenience, from undertaking such trips.
+
+In conclusion, the trend of tourists exploring destinations with ***harsh environments*** comes with ***its own set of*** pros and cons. While it offers the ***allure*** of adventure and self-improvement, the potential health ***hazards*** and physical challenges should not be ignored. As long as travelers carefully weigh these ***pluses and minuses*** and make informed decisions, they can **derive unique and enriching experiences from** visiting such demanding destinations.
 
 ## Type: Development
 ### Dependence on Computers and the Future
