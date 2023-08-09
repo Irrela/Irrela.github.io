@@ -185,6 +185,15 @@ In conclusion, the appeal of studying in English-speaking countries ***stems fro
 > 
 > Discuss both these views and give your own opinion.
 
+Friendship is ***a fundamental aspect*** of human interaction, and ***the question of whether to*** associate with those who share similar viewpoints or ***embrace diverse opinions*** has generated ***differing perspectives***. While some ***advocate*** for friends with ***harmonious*** viewpoints, I believe that having friends who occasionally ***challenge our opinions*** can be more beneficial.
+
+***On one hand***, individuals who prefer like-minded friends ***argue that*** such relationships provide comfort and ***validation***. Conversations with these friends are often smoother as ***there are fewer clashes of opinions***, fostering ***a sense of belonging***. Additionally, shared viewpoints can lead to the formation of strong bonds, creating a ***supportive social environment***. This can be particularly important ***during challenging times***, offering a network of individuals who are likely to offer ***unwavering*** support.
+
+On the other hand, ***cultivating*** friendships with differing opinions can be ***intellectually enriching***. Engaging in discussions with such friends can ***broaden one’s perspectives***, ***promote critical thinking***, and encourage personal growth. Experiencing diverse viewpoints challenges individuals to ***reevaluate their own beliefs***, leading to more ***informed and well-rounded*** opinions. Moreover, friendships that encompass differing viewpoints contribute to ***open dialogue*** and tolerance, attributes that are essential for a harmonious society.
+
+In my opinion, having friends with ***assorted standpoints*** is more advantageous. Such friendships stimulate cognitive growth, strengthen communication skills, and promote a culture of open-mindedness. Nonetheless, the balance between agreement and disagreement should be maintained. It is important for friends to respect each other's beliefs and engage in constructive conversations.
+
+In conclusion, while both approaches to friendship have merits, I contend that cultivating relationships with friends who offer ***varied thoughts*** can lead to personal and intellectual development. ***Adopting heterogeneous outlooks*** encourages ***analytical thought***, open discourse, and overall self-improvement, adding to a more inclusive and well-rounded society.
 
 
 ### Rise in Extreme Tourism (12-1) 

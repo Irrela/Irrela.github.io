@@ -559,6 +559,11 @@ Here are some synonyms for "advantages and disadvantages":
 - Gains and liabilities
 - Boons and hindrances
 
+### Foster
+
 
 
 provide me a proper synonym of "destinations" in context: 
+
+provide me some synonyms of "foster"
+
