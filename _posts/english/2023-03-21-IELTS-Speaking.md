@@ -131,8 +131,24 @@ Why is it difficult for some people to make decisions?
 > Even if we did, with years and years of being controlled by a figure of authority, whatever will power we had would have been chipped away, piece by piece, until we are left with an inability to decide what we want or need(Reclaim).
 
 
+## Children and reading
+What are the most popular types of children's books in your country?
+> ***I haven't closely followed this matter as*** I don't have kids yet. However, during my childhood, ***Japanese comics*** like Doraemon, Conan, and Dragon Ball were ***immensely*** popular(***all the rage***). There were tiny shops near our school that rented out these comics, and numerous students would ***sneak in*** a reading during lunch breaks or even in class. ***Besides that***, novels with ***captivating narratives(plots)*** and ***intriguing settings***, like the Harry Potter series, also had ***a significant fan base***.
 
+What are the benefits of parents reading books to their children?
+> Reading books to children offers several significant advantages. Firstly, it's an excellent ***avenue*** for interaction between parents and kids, fostering ***a deeper bond*** and cultivating a harmonious family environment. Additionally, for young ones in their ***language learning phase***, reading together aids in vocabulary and grammar ***acquisition***. This practice not only enhances their language skills but also ***cultivates a love for*** learning from an early age.
 
+Should parents always let children choose the books they read?
+> In my view, allowing children to choose their own books is a ***valuable approach***. ***Prioritizing their interests nurtures a genuine love for reading***. For instance, when kids ***are engaged with*** topics they enjoy, they are more likely to comprehend and remember the content. ***Conversely***, forcing them into reading material they ***aren't inclined towards*** could lead to ***disengagement*** and ***a lack of enduring impact*** in most cases. However, parents should ***maintain some awareness of*** their reading choices to ensure they are exposed to suitable and ***enriching*** content.
+
+How popular are electronic books are in your country?
+> From my observation, electronic books have ***gained a moderate level of popularity*** in my country. ***Among the younger generation***, e-books are a convenient choice due to their affordability, portability, and ***space-saving advantages***. This is particularly evident in urban areas where frequent ***relocations*** are common. However, ***it's worth mentioning*** that traditional printed books continue to ***hold significance*** for individuals who ***value reading as a cherished habit*** or for those who seek to build personal collections.
+
+What are the advantages of parents reading electronic books (compared to printed books)?
+> There are several benefits to parents reading electronic books to their children. Firstly, electronic books offer interactive features like animations and sounds that can engage children's attention and enhance their learning experience. Additionally, the portability of electronic devices allows parents to carry ***a wide variety of*** books wherever they go, ensuring a constant supply of reading material. Moreover, electronic books often come with ***adjustable*** text sizes and font styles, ***accommodating different reading preferences*** and promoting accessibility for children with visual ***impairments***. These digital features can make reading more enjoyable and inclusive for both parents and children.
+
+Will electronic books ever completely replace printed books in the future?
+> In my view, a complete replacement of printed books by electronic ones seems unlikely. While e-reading technology is advancing, many individuals still cherish the ***tactile sensation*** and ***aroma*** of physical books. Their engagement with the content is more ***holistic***, extending beyond mere text consumption. Additionally, printed books ***hold a collector's appeal***, surpassing that of e-books. For instance, my father ***takes great pride in*** his extensive bookshelf collection, an experience that electronic books can't fully ***replicate***.
 
 ## Technology and education （13-1）
 What is the best age for children to start computer lessons?
