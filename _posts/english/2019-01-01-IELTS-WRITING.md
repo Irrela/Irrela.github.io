@@ -340,3 +340,11 @@ The long daily commuting to work was exhausting and time-consuming."
 
 Coffee and the newspaper are part of my morning **ritual**.
 喝咖啡和读报纸是我早晨必做的事情之一。
+
+When choosing a vacation destination, it's important to ***take into account*** factors like weather, local culture, and available activities to ensure a satisfying experience.
+在选择度假目的地时，重要的是要考虑天气、当地文化和可用的活动等因素，以确保获得令人满意的体验。
+
+
+When evaluating job applicants, the company ***takes into consideration*** not only their qualifications and experience but also their interpersonal skills and cultural fit with the team.
+
+When evaluating job applicants, the company ***takes*** not only their qualifications and experience but also their interpersonal skills and cultural fit with the team ***into consideration***.

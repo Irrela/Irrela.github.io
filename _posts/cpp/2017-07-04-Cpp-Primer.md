@@ -5,7 +5,7 @@ tags:
 - Cpp
 ---
 
-# IO lib
+# 8. IO lib
 ## iostream
 头文件 iostream 是 C++ 标准库中非常重要的头文件之一。它提供了对输入和输出流的支持，使得我们可以进行简单而方便的输入输出操作。在 iostream 中定义了以下两个重要的流对象：
 
@@ -244,6 +244,53 @@ int main() {
 
 # Miscellany
 
+### `erase`
+在 C++ 的容器类中，`erase` 函数用于从容器中删除一个或多个元素。它可以接受一个迭代器（iterator）作为参数，指示要删除的元素的位置。下面是关于 erase 函数的解释，以及示例代码：
+
+*erase 函数的用法：*
+- 在序列式容器（如 std::vector、std::list）中，erase 接受一个迭代器参数，表示要删除的元素。
+- 在关联式容器（如 std::set、std::map）中，erase 接受一个键参数，表示要删除的键对应的元素。
+
+*示例代码：*
+以下示例演示了如何使用 erase 函数从 std::vector 和 std::map 中删除元素：
+```cpp
+#include <iostream>
+#include <vector>
+#include <map>
+
+int main() {
+    // 示例：使用 erase 删除 std::vector 中的元素
+    std::vector<int> vec = {1, 2, 3, 4, 5};
+    
+    // 删除第三个元素
+    vec.erase(vec.begin() + 2); // 迭代器指向第三个元素
+    
+    // 输出剩余的元素
+    for (const auto& num : vec) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
+    // 示例：使用 erase 删除 std::map 中的元素
+    std::map<std::string, int> myMap = {
+        {"apple", 10},
+        {"banana", 5},
+        {"cherry", 7}
+    };
+    
+    // 删除键为 "banana" 的元素
+    myMap.erase("banana");
+    
+    // 输出剩余的键值对
+    for (const auto& pair : myMap) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+
+    return 0;
+}
+
+```
+
 ### sort
 在 C++ 中，std::sort 是标准库中用于排序容器或数组元素的函数，定义在 <algorithm> 头文件中。它使用快速排序（Quick Sort）或者归并排序（Merge Sort）算法来对容器或数组中的元素进行排序。std::sort 可以对各种内置数据类型和自定义类型进行排序，只需要定义好比较函数或使用默认的比较操作符 < 即可。
 
@@ -446,8 +493,176 @@ int main() {
 
 因此，在使用 stoi 函数时，最好进行错误处理，以确保字符串能够正确转换为整数。
 
+# 12. 动态内存
+即"堆内存"， 用来存储 ***动态分配***的对象， 也即是 ***程序运行时分配的对象***， 其生命周期由程序来控制。
+
+## 12.1 智能指针
+### 12.1.0 new & delete
+```cpp
+#include <iostream>
+
+int main() {
+    // 使用 new 分配动态内存来创建一个整数
+    int* dynamicInt = new int;
+
+    // 检查内存是否成功分配
+    if (dynamicInt != nullptr) {
+        // 给动态内存赋值
+        *dynamicInt = 42;
+
+        // 输出动态内存中的值
+        std::cout << "Dynamic Int Value: " << *dynamicInt << std::endl;
+
+        // 释放动态内存
+        delete dynamicInt;
+    } else {
+        std::cout << "Failed to allocate dynamic memory!" << std::endl;
+    }
+
+    return 0;
+}
+```
+
+### 12.1.1 `shared_ptr`
+`std::shared_ptr` 是 C++ 标准库中的智能指针，用于管理动态分配的对象。与 Java 中的引用计数类似，shared_ptr 通过维护一个引用计数来跟踪对象的引用数，从而在适当的时候自动释放对象。下面是关于 shared_ptr 的原理、使用场景以及常用代码示例的解释：
+
+*原理：*
+- shared_ptr 内部有两个主要部分：对象指针和引用计数。
+- 当创建一个 shared_ptr 并将其指向某个对象时，引用计数初始化为 1。
+- 当另一个 shared_ptr 复制或从另一个 shared_ptr 创建时，引用计数递增。
+- 当 shared_ptr 超出作用域或手动调用 reset() 时，引用计数递减。
+- 当引用计数变为零时，shared_ptr 自动删除对象并释放内存。
+
+*使用场景：*
+- 在需要多个 shared_ptr 共享同一对象所有权的情况下，使用 shared_ptr。
+- 适用于对象的共享和传递，避免手动释放内存，减少内存泄漏的风险。
+
+*示例代码：*
+```cpp
+#include <iostream>
+#include <memory> // include std::shared_ptr
+
+class MyClass {
+public:
+    MyClass(int value) : data(value) {
+        std::cout << "Constructing MyClass" << std::endl;
+    }
+    ~MyClass() {
+        std::cout << "Destructing MyClass" << std::endl;
+    }
+
+    void printData() {
+        std::cout << "Data: " << data << std::endl;
+    }
+
+private:
+    int data;
+};
+
+int main() {
+    // 创建 shared_ptr，引用计数为 1
+    std::shared_ptr<MyClass> ptr1 = std::make_shared<MyClass>(42);
+
+    {
+        // 创建另一个 shared_ptr，引用计数递增为 2
+        std::shared_ptr<MyClass> ptr2 = ptr1;
+
+        // 使用 shared_ptr 所指对象
+        ptr1->printData();
+        ptr2->printData();
+
+    } // ptr2 超出作用域，引用计数递减为 1
+
+    // ptr1 所指对象仍然存在，引用计数为 1
+    ptr1->printData();
+
+    // ptr1 超出作用域，引用计数变为 0，对象被销毁
+    return 0;
+}
+
+```
+
+```cpp
+// Executing
+Constructing MyClass
+Data: 42
+Data: 42
+Destructing MyClass
+Data: 42
+Destructing MyClass
+```
+
+### 使用`make_shared`函数创建`shared_ptr`
+
+- `std::make_shared` 使用单一内存分配来创建对象和控制块。
+- 控制块中包含对象的引用计数以及可能的其他元数据。
+- 返回的 std::shared_ptr ***指向控制块，而不是对象本身***。
+- 对象位于控制块之后的内存位置。
+
+*使用场景：*
+- 当创建一个 std::shared_ptr 时，建议使用 std::make_shared，因为它可以减少内存分配的开销。
+- 在需要创建和管理共享指针的情况下，使用 std::make_shared。
+
+*示例代码:*
+见`shared_ptr`代码示例。
+
+### `shared_ptr的拷贝和赋值`
+- 引用次数递增：用一个shared_ptr初始化其他shared_ptr，或者将其作为参数传递，或者作为函数返回值时。 
+- 引用次数递减：给shared_ptr赋新值，或者shared_ptr被销毁
+
+当引用次数为0, shared_ptr自动释放自己管理的对象，并释放相关的内存（通过析构函数）。
+
+```cpp
+shared_ptr<Foo> factory(T arg)
+{
+    // Do something with arg ...
+    return make_shared<Foo>(arg);
+}
+
+void use_factory(T arg) 
+{
+    shared_ptr<Foo> p = factory(arg);
+} // p离开作用域，其指向的Foo对象被销毁并释放内存
+
+void use_factory_and_keep_res(T arg)
+{
+    shared_ptr<Foo> p = factory(arg);
+    return p; // 返回p，引用计数+1
+} // p离开作用域，但指向的Foo对象不会被销毁，内存不会被释放
+```
+### 多个对象共享成员数据：StrBlob 
+// TODO
+
 
 # Pending
+## about include
+In C++, there are two ways to include header files in your code: using angle brackets (<...>) and using double quotes ("..."). These two methods have different behaviors and are typically used in different scenarios.
+
+*Angle Brackets (<...>):*
+When you include a header file using angle brackets, the compiler searches for the header in the system's standard include paths. These paths are typically predefined by the compiler installation and include system headers and libraries.
+
+This syntax is commonly used for including standard library headers or headers from external libraries.
+
+```cpp
+#include <iostream>   // Including a standard library header
+#include <vector>     // Including another standard library header
+#include <mylibrary/myheader.h>  // Including a header from an external library
+```
+
+*Double Quotes (`"..."):*
+When you include a header file using double quotes, the compiler searches for the header in the current directory first, and if not found, it searches in the standard include paths. This allows you to include headers that are part of your project or are located in the same directory as your source files.
+
+This syntax is typically used for including your own project-specific headers.
+
+```cpp
+Copy code
+#include "myheader.h"   // Including a header from your project
+#include "util/helper.h"   // Including another project-specific header
+```
+
+In summary, the main difference between angle brackets and double quotes is the search path for header files. Angle brackets are used for system headers and libraries, while double quotes are used for project-specific headers. It's a good practice to use the appropriate syntax depending on where the header file is located and whether it's part of your project or an external library.
+
+
 ## 构建
 构建C++代码的可执行文件通常包括以下几个步骤：预处理、编译、汇编、链接。下面对每个步骤进行详细讲解：
 
