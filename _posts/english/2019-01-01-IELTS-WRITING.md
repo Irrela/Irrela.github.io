@@ -178,6 +178,15 @@ Furthermore, studying in English-speaking countries offers students the opportun
 In conclusion, the appeal of studying in English-speaking countries ***stems from*** English's ***prominent role*** as an international language. ***Its universal application in various sectors***, ***coupled with the advantages of*** cultural exposure and academic excellence, make it an ***indispensable tool*** for those seeking global opportunities and success.
 
 ## Type: Both side
+### Choosing Friends: Similarity vs. Disagreement
+> **Prompt:** 
+> 
+> Some people think it’s better to choose friends who always have the same opinions as them. Other people believe it's good to have friends who sometimes disagree with them. 
+> 
+> Discuss both these views and give your own opinion.
+
+
+
 ### Rise in Extreme Tourism (12-1) 
 > **Prompt:** 
 > 
@@ -189,7 +198,7 @@ In conclusion, the appeal of studying in English-speaking countries ***stems fro
 
 On the positive side, visiting such demanding ***locales*** offers a unique and ***bold*** experience. Tourists are presented with the opportunity to ***step out of their comfort zones***, fostering personal growth and ***resilience***. These ***unconventional*** trips often lead to lifelong memories and stories to share, ***enhancing one's life perspective***. Additionally, these locations tend to be less crowded than traditional ***tourist spots***, allowing for a more ***intimate*** and ***contemplative*** travel experience.
 
-However, there are also ***notable*** disadvantages to consider. The extreme conditions of these places can pose serious health risks, including ***dehydration***, ***frostbite***, and altitude sickness. Moreover, ***the lack of infrastructure and amenities*** in these remote areas can make the journey physically demanding and mentally challenging. This may discourage some individuals, particularly those seeking relaxation and convenience, from undertaking such trips.
+However, there are also ***notable*** disadvantages to consider. The extreme conditions of these places can pose serious health risks, including ***dehydration***, ***frostbite***, and altitude sickness. Moreover, The ***scarcity of essential infrastructure and basic amenities***, such as reliable roads, medical facilities, and accommodations, in these remote and isolated regions can ***substantially*** amplify the physical demands and present ***formidable*** mental challenges during the journey. This may discourage some individuals, particularly those seeking relaxation and convenience, from undertaking such trips.
 
 In conclusion, the trend of tourists exploring destinations with ***harsh environments*** comes with ***its own set of*** pros and cons. While it offers the ***allure*** of adventure and self-improvement, the potential health ***hazards*** and physical challenges should not be ignored. As long as travelers carefully weigh these ***pluses and minuses*** and make informed decisions, they can **derive unique and enriching experiences from** visiting such demanding destinations.
 
