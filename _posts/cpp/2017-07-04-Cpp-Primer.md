@@ -242,9 +242,9 @@ int main() {
 
 在有些情况下，元素的拷贝构造可能会涉及到较大的开销，尤其是在处理自定义类型或者包含大量数据的类型时。
 
-# Miscellany
+## Miscellany
 
-### erase
+#### erase
 在 C++ 的容器类中，`erase` 函数用于从容器中删除一个或多个元素。它可以接受一个迭代器（iterator）作为参数，指示要删除的元素的位置。下面是关于 erase 函数的解释，以及示例代码：
 
 *erase 函数的用法：*
@@ -291,7 +291,7 @@ int main() {
 
 ```
 
-### sort
+#### sort
 在 C++ 中，`std::sort` 是标准库中用于排序容器或数组元素的函数，定义在 <algorithm> 头文件中。它使用快速排序（Quick Sort）或者归并排序（Merge Sort）算法来对容器或数组中的元素进行排序。std::sort 可以对各种内置数据类型和自定义类型进行排序，只需要定义好比较函数或使用默认的比较操作符 < 即可。
 
 std::sort 的常用用法如下：
@@ -412,7 +412,7 @@ Charlie (20) Alice (25) Bob (30)
 
 std::sort 是 C++ 中非常有用的排序函数，它能够轻松对数组和容器进行排序，并通过自定义比较函数或比较对象，满足各种排序需求。
 
-### getline
+#### getline
 getline() 是一个用于从输入流中读取一行文本的函数。它可以从输入流（如 std::cin 或 std::ifstream）读取一行字符数据，并存储到一个字符串中，直到遇到换行符 \n 或指定的分隔符为止。getline() 函数的原型如下：
 
 `std::istream& getline(std::istream& is, std::string& str, char delim);`
@@ -452,7 +452,7 @@ Node value: Node4
 
 这种用法在解析以逗号分隔的数据时很常见，特别是在处理 CSV 文件（逗号分隔值）或其他类似格式的数据时非常有用。
 
-### stoi
+#### stoi
 stoi 是 C++ 中的一个函数，用于将字符串转换为整数类型（int）。它的原型如下：
 `int stoi (const string& str, size_t* idx = 0, int base = 10);`
 参数解释：
