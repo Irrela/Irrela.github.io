@@ -9,17 +9,90 @@ tags:
 ## 3.4 迭代器介绍
 ### 迭代器运算符
 
-`*iter`
-返回迭代器所指向元素的引用
+- `*iter` : 返回迭代器所指向元素的引用
 
-`iter->mem`
-解引用iter并获取该元素名为mem的成员，等价于`(*iter).mem`
+- `iter->mem`: 解引用iter并获取该元素名为mem的成员，等价于`(*iter).mem`
 
-`++iter`, `--iter`
-让迭代器指向容器下一个/上一个元素
+- `++iter`, `--iter`: 让迭代器指向容器下一个/上一个元素
 
-`iter_1 == iter_2`
-两个迭代器相等：指示同一个元素或者是同一个容器的 ***尾后迭代器***。
+- `iter_1 == iter_2`: 两个迭代器相等：指示同一个元素或者是同一个容器的 ***尾后迭代器***。
+
+### 3.4.2 迭代器运算
+P125
+
+# 6. 函数
+## 6.1 函数基础
+### 6.1.1 局部静态对象
+局部静态对象是在函数内部定义的静态变量，它在程序的整个生命周期内保持其存在，并 ***在首次访问时初始化***。局部静态对象在C++中有各种实际用途，下面是一些常见的使用场景：
+
+1. *延迟初始化：*  
+
+如果你需要在函数首次调用时初始化一个对象，但又希望它在后续调用中保持其值，局部静态对象非常有用。它可以避免重复初始化和销毁的开销。
+
+```cpp
+#include <iostream>
+
+class DatabaseConnection {
+public:
+    DatabaseConnection() {
+        std::cout << "Database connection established" << std::endl;
+    }
+
+    void query(const std::string& query) {
+        std::cout << "Executing query: " << query << std::endl;
+    }
+};
+
+void performDatabaseTask() {
+    static DatabaseConnection dbConnection; // 延迟初始化的局部静态对象
+
+    // 使用数据库连接执行任务
+    dbConnection.query("SELECT * FROM customers");
+}
+
+int main() {
+    std::cout << "Starting program" << std::endl;
+
+    // 第一次调用 performDatabaseTask 会初始化数据库连接
+    performDatabaseTask();
+
+    std::cout << "Continuing program" << std::endl;
+
+    // 后续调用 performDatabaseTask 会复用已初始化的数据库连接
+    performDatabaseTask();
+
+    std::cout << "Ending program" << std::endl;
+
+    return 0;
+}
+
+```
+在上述示例中，DatabaseConnection 类表示数据库连接，它在构造函数中输出连接信息。performDatabaseTask 函数用于执行与数据库相关的任务，但在第一次调用时才初始化数据库连接。注意以下几点：
+
+在 performDatabaseTask 函数内部，我们声明了一个局部静态对象 dbConnection。这意味着在第一次调用 performDatabaseTask 时，会执行构造函数并初始化数据库连接。
+
+第一次调用 performDatabaseTask 会输出 "Database connection established"，表示数据库连接被初始化。
+
+***在后续调用 performDatabaseTask 时，不会再执行构造函数***，因为 dbConnection 已经初始化过了。这意味着可以避免重复初始化的开销。
+
+在程序结束时，局部静态对象 dbConnection 的析构函数会被调用，但在这个例子中没有明确的析构输出。
+
+通过使用局部静态对象，你可以在需要时进行延迟初始化，避免了不必要的初始化开销，同时保持了对象在后续调用中的状态。
+
+2. 缓存数据： 
+   
+局部静态对象可以用于缓存需要长时间计算或获取的数据，以便在后续调用中重复使用，从而提高性能。
+
+```cpp
+std::string LoadFromFile(const std::string& filename) {
+    static std::map<std::string, std::string> fileCache;
+    auto it = fileCache.find(filename);
+    if (it != fileCache.end()) {
+        return it->second;
+    }
+    // Read file, populate fileCache, and return data
+}
+```
 
 
 # 8. IO lib
