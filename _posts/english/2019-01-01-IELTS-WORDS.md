@@ -481,7 +481,10 @@ In Task 2, you will have to write an essay based on a task on a topic of general
 - Sensible-seeming adaptation
 - Prevalent
 - Get accustomed to
-- 
+
+
+
+emotional attachment
 
 
 ## Miscellany

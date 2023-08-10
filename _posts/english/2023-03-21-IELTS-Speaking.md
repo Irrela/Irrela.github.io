@@ -131,6 +131,18 @@ Why is it difficult for some people to make decisions?
 > Even if we did, with years and years of being controlled by a figure of authority, whatever will power we had would have been chipped away, piece by piece, until we are left with an inability to decide what we want or need(Reclaim).
 
 
+## Creating a nice home
+Why do some people buy lots of things for their home?
+> Absolutely, many individuals today are drawn to purchasing various home products due to ***the influence of widespread marketing strategies***. Companies often ***present items*** like automated cleaning devices, ***air purifiers***, and indoor exercise equipment as essential for a modern lifestyle. This leads people to believe that ***acquiring*** these products will enhance their living conditions. Furthermore, the ***fast-paced*** urban life ***prompts*** residents to ***seek ways to*** create a soothing and relaxing atmosphere at home. For instance, I've noticed friends investing in smart home ***gadgets*** to unwind and ***rejuvenate*** after a ***hectic*** day in the city.
+>
+> ***I can relate to that!*** Visiting places like IKEA often inspires a desire for a well-decorated and comfortable living space. The carefully designed showrooms showcase a soothing atmosphere that many people ***aspire to*** recreate in their own homes. ***It's easy to get drawn into the idea of*** creating an ***inviting*** environment by acquiring various home gadgets and decorations, which might be why some individuals end up buying lots of things for their homes.
+
+Do you think it is very expensive to make a home look nice?
+> Absolutely, the cost of making a home look appealing ***varies greatly***. It's not always about ***spending a fortune***; a ***well-thought-out*** design and ***creative use of*** resources can ***go a long way in*** creating a beautiful and functional space. I've seen instances where people with limited budgets have ***transformed*** their homes ***into*** ***cozy havens*** by ***repurposing*** furniture, DIY projects, and clever ***decor*** choices. It's more about the thoughtful approach than the amount of money spent.
+
+Why don't some people care about how their home looks?
+> Absolutely, there are various reasons why some individuals might not prioritize the appearance of their homes. For instance, many renters might ***hesitate*** to invest in decorating as they view their living situation as temporary and believe that the effort won't ***yield long-term benefits***. Moreover, with the demands of modern life, people often find themselves ***swamped*** with work and ***commitments***, leaving them too fatigued to ***dedicate*** time and energy to home aesthetics.In such cases, functionality and convenience might ***take precedence over*** the visual aspect.
+
 ## Children and reading
 What are the most popular types of children's books in your country?
 > ***I haven't closely followed this matter as*** I don't have kids yet. However, during my childhood, ***Japanese comics*** like Doraemon, Conan, and Dragon Ball were ***immensely*** popular(***all the rage***). There were tiny shops near our school that rented out these comics, and numerous students would ***sneak in*** a reading during lunch breaks or even in class. ***Besides that***, novels with ***captivating narratives(plots)*** and ***intriguing settings***, like the Harry Potter series, also had ***a significant fan base***.
