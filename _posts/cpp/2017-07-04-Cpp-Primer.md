@@ -388,6 +388,60 @@ void use_factory_and_keep_res(T arg)
 
 
 # Pending
+## 类模板，函数模版
+*函数模板：*
+
+函数模板允许你编写通用的函数，能够处理不同数据类型的参数。它通过参数的数据类型来推断和生成特定的函数实现。
+```cpp
+template <typename T>
+T add(T a, T b) {
+    return a + b;
+}
+
+int main() {
+    int sum1 = add(3, 4);       // 调用add<int>
+    double sum2 = add(2.5, 1.5);  // 调用add<double>
+    return 0;
+}
+```
+
+*类模板：*
+
+类模板允许你编写通用的类，能够处理多种数据类型的成员变量和方法。它通过模板参数的数据类型来生成特定的类实现。
+```cpp
+template <typename T>
+class Stack {
+private:
+    std::vector<T> elements;
+public:
+    void push(T value) {
+        elements.push_back(value);
+    }
+    
+    T pop() {
+        T value = elements.back();
+        elements.pop_back();
+        return value;
+    }
+};
+
+int main() {
+    Stack<int> intStack;
+    intStack.push(5);
+    intStack.push(10);
+    int topValue = intStack.pop();
+
+    Stack<double> doubleStack;
+    doubleStack.push(3.14);
+    doubleStack.push(2.71);
+    double topDouble = doubleStack.pop();
+
+    return 0;
+}
+```
+
+
+
 ## about include
 In C++, there are two ways to include header files in your code: using angle brackets (<...>) and using double quotes ("..."). These two methods have different behaviors and are typically used in different scenarios.
 
