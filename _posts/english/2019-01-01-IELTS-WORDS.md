@@ -609,13 +609,48 @@ Here are some synonyms for "advantages and disadvantages":
 ### Damage
 - Impairment(s)
 
+### Choose
+- Opt for
+- Select
+- Decide on
+- Pick
+- Elect
+- In favor of
+- Settle on
 
-### Comprehensive
-- holistic
+### Difficult
+- Formidable
 
+### Challenges
+- Difficulties
+- Obstacles
+- Trials
+- Hurdles
+- Setbacks
+- Struggles
+- Hardships
+- Dilemmas
+- Adversities
+
+### Solely
+- Exclusively
+- Only
+- Purely
+- Entirely
+- Merely
+- Simply
+- Entirely
+- Alone
+- Singularly
+- Completely
 
 ### Be drawn to
 - Be inclined to
+
+### Decision-making
+- Judgement calls
+- Determining courses of action
+- Weighing alternatives
 
 
 provide me a proper synonym of "destinations" in context: 
