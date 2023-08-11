@@ -111,6 +111,27 @@ Your points are :
 
 # Practice
 ## Type: Agree or not
+### Online shopping closing
+> **Prompt:** 
+>
+> The growth of online shopping will one day lead to all shops in towns and cities closing.
+> 
+> Do you agree or disagree? 
+> 
+> Give reasons for your answer and include any relevant examples from your own knowledge or experience.
+
+The prevalence of online shopping has ***undeniably*** transformed the retail ***panorama***, but the ***assertion*** that all physical shops will eventually close in towns and cities seems overly ***speculative***. While online shopping offers unparalleled convenience, there are compelling reasons to believe that traditional ***brick-and-mortar*** stores will persist.
+
+Firstly, physical shops provide a ***tangible*** shopping experience that online platforms can't replicate. ***Shoppers*** often desire the opportunity to touch, feel, and test products before purchasing, particularly for items like clothing and furniture. For instance, selecting the perfect ***outfit*** or ***assessing the comfort of*** a sofa is ***best done*** in person. Furthermore, certain products such as fresh groceries or fragile items are more suited for in-store purchases, where customers can ***inspect*** the quality and ***ensure proper handling***.
+
+***Another factor to consider*** is the ***immediate gratification*** of taking purchases home ***promptly***. While online shopping offers convenience, it can't match the satisfaction of directly possessing an item. This ***swift*** access appeals to consumers who value ***instant rewards*** and may not want to wait for delivery.
+
+Additionally, physical stores play a vital role in ***brand loyalty*** and ***customer engagement***. Many ***big brands*** view their stores as key ***touchpoints*** where customers can interact with products and receive ***personalized assistance***. These stores contribute to brand identity and offer a chance for companies to establish strong emotional connections with their customers.
+
+In conclusion, the growth of online shopping will ***undoubtedly*** continue to reshape the retail industry. However, the complete closure of all physical shops in towns and cities is unlikely. The tactile shopping experience, immediate satisfaction, and importance of physical stores for brand loyalty suggest that both online and offline shopping ***avenues*** will ***coexist*** in the future retail landscape.
+
+
+
 
 ### Government Control of Population 
 > **Prompt:** 

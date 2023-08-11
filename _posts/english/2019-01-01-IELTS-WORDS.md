@@ -621,6 +621,32 @@ Here are some synonyms for "advantages and disadvantages":
 ### Difficult
 - Formidable
 
+### Proper
+- Appropriate
+- Suitable
+- Fitting
+- Decent
+- Right
+- Adequate
+- Becoming
+- Suitable
+- Authentic
+- Formal
+- Respectable
+- Fit
+
+### Immediate
+- Instant
+- Prompt
+- Direct
+- Swift
+- Quick
+- Rapid
+- Sudden
+- Abrupt
+- Without delay
+- Without hesitation
+
 ### Challenges
 - Difficulties
 - Obstacles
