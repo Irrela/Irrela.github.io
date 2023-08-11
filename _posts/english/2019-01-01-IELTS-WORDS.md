@@ -679,6 +679,11 @@ Here are some synonyms for "advantages and disadvantages":
 - Weighing alternatives
 
 
+### Contribute to
+- result in
+- lead to
+- cause
+
 provide me a proper synonym of "destinations" in context: 
 
 provide me some synonyms of "foster"
