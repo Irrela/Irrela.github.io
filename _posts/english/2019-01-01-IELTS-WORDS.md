@@ -606,6 +606,16 @@ Here are some synonyms for "advantages and disadvantages":
 - Increase
 - Maturity
 
+### Damage
+- Impairment(s)
+
+
+### Comprehensive
+- holistic
+
+
+### Be drawn to
+- Be inclined to
 
 
 provide me a proper synonym of "destinations" in context: 
