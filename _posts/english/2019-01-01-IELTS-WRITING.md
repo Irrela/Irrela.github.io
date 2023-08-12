@@ -110,7 +110,27 @@ Your points are :
 
 
 # Practice
-## Type: Agree or not
+## Type: Agree or not (Opinion)
+
+### Housing requirement & countryside spaces
+> **Prompt:** 
+>
+> In many places, new homes are needed, but the only space available for building them is in the countryside. Some people believe it is more important to protect the countryside and not build new homes there.
+>
+> What is your opinion about this?
+
+In the ongoing ***debate*** about whether to construct new homes in rural areas or preserve the countryside, my view ***leans toward*** the significance of accommodating the ***pressing(urgent) need*** for new housing. While I acknowledge the value of safeguarding the natural environment, several factors ***compel*** me to prioritize the creation of new dwellings.
+
+Firstly, the demand for housing is an urgent concern in many places. Rapid urbanization, population growth, and migration to cities have contributed to a shortage of suitable shelters. This habitation ***insufficiency(Scarcity/Lack/Deficiency)*** can lead to rising homelessness and unaffordable living conditions, especially for low-income families and individuals. Constructing homes in the countryside could provide a ***viable*** solution to address this issue and ensure that people have access to safe and comfortable ***living spaces(quarters)***.
+
+Secondly, the development of new homes in countryside can be undertaken with responsible planning and sustainable practices. Modern architectural techniques and eco-friendly designs can minimize the environmental impact of construction. ***Adhering to*** strict regulations and incorporating green design principles, new ***residence*** projects can be executed without ***compromising*** the beauty and ecological balance of the countryside. Furthermore, integrating green spaces and preserving natural elements within newly built residential areas can contribute to a harmonious ***coexistence*** between urbanization and nature.
+
+Lastly, the establishment of fresh residences in ***rustic areas*** can lead to economic growth and enhanced ***community infrastructure***. The building sector generates jobs and economic activity, benefiting both local economies and national development. Moreover, new housing projects often come with the expansion of essential facilities such as schools, healthcare centers, and transportation networks. This, ***in turn***, improves the overall quality of life in both urban and rural areas.
+
+In conclusion, while the protection of the countryside is a valid concern, the urgent need for new housing should ***take precedence***. Responsible urban planning and sustainable building practices can enable us to meet the housing demand without ***irreparably*** harming the environment. A balanced approach that accommodates both housing needs and environmental preservation is vital for the well-being of society as a whole.
+
+
+
 ### Online shopping closing
 > **Prompt:** 
 >
