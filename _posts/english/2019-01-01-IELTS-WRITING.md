@@ -441,3 +441,20 @@ When choosing a vacation destination, it's important to ***take into account*** 
 When evaluating job applicants, the company ***takes into consideration*** not only their qualifications and experience but also their interpersonal skills and cultural fit with the team.
 
 When evaluating job applicants, the company ***takes*** not only their qualifications and experience but also their interpersonal skills and cultural fit with the team ***into consideration***.
+
+
+It turns out there's a ***correlation between*** the presence or absence of vertical migration and the presence or absence of fish that find their prey by sight.
+实验结果表明了垂直移动的出现和消失与通过视觉来捕食的鱼类的出现和消失之间有关联。
+
+Well, while there is an element of luck involved, we have an array of high-tech tools to help us figure out where to concentrate our efforts.
+是的，这里面确实掺杂着一点点运气，我们有一系列高科技的工具来帮助我们找到那些需要集中努力挖掘的地方。
+
+Sometimes restaurants ***go a while*** without changing their menus....
+有时候餐馆很长一段时间都不会改变他们的菜单。
+
+The earliest records from 500 million years ago show that the sediment in river deposits was largely composed of ***coarse*** grain of sand and gravel.
+5亿年以前的最早的记录表明，河流沉积物大部分是由石英颗粒、沙子以及碎石组成的
+
+
+And we also see evidence of a process called ***lateral*** accretion.
+我们也发现了一个被称为横向吸积过程的迹象。
