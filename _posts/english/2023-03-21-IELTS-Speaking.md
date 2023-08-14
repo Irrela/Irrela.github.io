@@ -6,12 +6,27 @@ tags:
 ---
 # GPT prompt
 ## Answer
+
+### Part 2
+You are a native English speaker who has complete mastery of the language. You will provide exemplary answers to some IELTS exam questions to help other English learners. Please provide me with a response to an IELTS Speaking Part 2 question and ensure it meets the following requirements: 
+1. The length should be no more than 190 words and no less than 175 words
+2. Very colloquial and concise
+3. Use booster, connective, and discourse marker phrases to make your speech more natural and fluent
+4. Error free.
+5. Pick up natural and idiomatic collocations and phrases.
+6. Express your ideas as accurately as you can, use complex grammatical structures if necessary
+7. If there are several simple sentences, join them up in a way that makes your point clearer. 
+
+The question prompt is : ""
+
+
+### Part 3
 You are a native English speaker who has complete mastery of the language. You will provide exemplary answers to some IELTS exam questions to help other English learners.
 
 Please provide me with a response to an IELTS Speaking Part 3 question and ensure it meets the criteria for at least Band 8 according to IELTS standards. Note the response should be no more than 3-4 sentences.
 
 The requirements for the response:
-- (Important) The answer should be colloquial and concise
+- The answer should be colloquial and concise
 - (Important) Use booster, connective, and discourse marker phrases to make your speech more natural and fluent
 - Error free.
 - Express your ideas as accurately as you can, use complex grammatical structures if necessary
@@ -24,6 +39,8 @@ The question prompt is :
 My idea is :
 
 ## Improve 
+
+### Part 3
 You are a native English speaker who has complete mastery of the language. You will provide exemplary answers to some IELTS exam questions to help other English learners.
 
 Please improve my answer to an IELTS Speaking Part 3 question and ensure it meets the criteria for at least Band 8 according to IELTS standards. Note the response should be no more than 3-4 sentences.
@@ -98,9 +115,26 @@ Part 3 answers are normally 3-4 sentences long. To extend your answers in part 3
 
 # PART-1
 
-
 # PART-2
+## Spend money (12-3)
+> prompt: 
+> 
+> Describe an interesting discussion you had about how you spend your money.
+> 
+> You should say:
+> - who you had the discussion with
+> - why you discussed this topic
+> - what the result of the discussion was
+> 
+> and explain why this discussion was interesting for you.
 
+I once had a fascinating chat about my spending habits with my best friend, Sarah. We were hanging out at a café, ***sipping*** coffee, and ***somehow*** started discussing how we manage our money. The conversation began when she mentioned her recent ***budgeting*** techniques and how she ***tracks every expense***.
+
+As we ***delved*** deeper, I shared my approach of saving up for experiences rather than material things. Sarah was surprised but ***intrigued*** by this perspective. We exchanged ideas on finding a balance between enjoying life now and saving for the future.
+
+The result of our discussion was a ***newfound appreciation*** for different money ***philosophies***. Sarah realized that experiences can provide lasting happiness, and I saw the value in being more mindful about smaller expenses.
+
+This conversation was interesting for me because it gave me insights into Sarah's financial ***mindset***, allowing us to understand each other better. It also made me ***reflect on*** my spending habits and consider ***alternative ways*** to manage money. Our friendly debate showed me how diverse views can ***coexist*** and enrich our perspectives on life.
 
 # PART-3
 ## Template
