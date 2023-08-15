@@ -116,6 +116,28 @@ Part 3 answers are normally 3-4 sentences long. To extend your answers in part 3
 # PART-1
 
 # PART-2
+## Film actor (12 - 2)
+> prompt: 
+> 
+> Describe a film/movie actor from your country who is very popular. 
+> 
+> You should say:
+> - Who this actor is
+> - What kinds of films/movies he/she acts in
+> - What you know about this actor's life
+> 
+> and explain why this actor is so popular.
+
+I'd like to discuss Leslie Cheung, a highly ***acclaimed*** Chinese actor who has left an ***indelible*** mark on the film industry. He achieved immense popularity through a wide range of films, including romantic dramas, thrilling action movies, and ***thought-provoking*** pieces. His outstanding performance in "Farewell My Concubine" showcased his ability to fully immerse himself in complex characters, captivating the audience with his emotional depth.
+
+Cheung's ***versatility*** extended beyond acting; he was also an ***accomplished*** singer, which contributed to his widespread recognition. His music enriched his performances and ***struck a chord with*** audiences on a deeper level.
+
+Aside from his career accomplishments, Cheung's personal life added to his widespread appeal. He ***courageously(bravely)*** revealed his homosexuality and mental health issues; his openness resonated with many and earned him respect for challenging ***societal norms***.
+
+Tragically, Cheung's life was cut short due to his battle with mental health issues, leading to his untimely suicide. This heartrending event garnered immense attention, showcasing the profound impact he had on people's lives.
+
+Leslie's popularity can be attributed to his extraordinary talent, his ability to emotionally connect with audiences, and his courage in ***addressing*** important issues. His legacy continues to thrive, influencing both the film and music worlds.
+
 ## Spend money (12-3)
 > prompt: 
 > 

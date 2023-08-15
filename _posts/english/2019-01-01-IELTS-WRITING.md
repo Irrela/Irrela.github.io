@@ -460,3 +460,9 @@ And we also see evidence of a process called ***lateral*** accretion.
 
 Professor: Well, part of what Mee's trying to do is ***drive home the point*** that one, theater's always a collaborative effort...
 > 教授：嗯, Mee尝试去解释清楚的是：第一，戏剧从来都需要合作。
+
+It's legitimate to retell an old story in a new way... in a way that's, uh, ***more in line with*** contemporary concerns.
+> 以一种新的方式再创作，使其更符合当代语境，是完全合情合理的。
+
+So, when playwrights reinvent or update an earlier play, it shouldn't be ***construed*** as a lack of imagination or an artistic failure.
+> 因此，当剧作家们对早期的一部戏剧进行翻新或改进的时候，这不应该被视作缺乏想象力或艺术败笔。

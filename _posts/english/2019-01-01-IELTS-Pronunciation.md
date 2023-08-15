@@ -10,6 +10,9 @@ tags:
 - quote
 - borrow
 - literature
+- period
+- legitimate
+- genres
 
 # Unfamiliar words
 - narrator 
