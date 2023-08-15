@@ -116,8 +116,27 @@ Part 3 answers are normally 3-4 sentences long. To extend your answers in part 3
 # PART-1
 
 # PART-2
+## Waiting experience (12-1)
+> Prompt: 
+> 
+> Describe an occasion when you had to wait a long time for someone or something to arrive.
+>
+> You should say:
+> - Who or what you were waiting for
+> - How long you had to wait
+> - Why you had to wait a long time
+> and explain how you felt about waiting a long time.
+
+I'd like to share an experience when I had to wait for my girlfriend at the airport. I was in Beijing for ***a temporary work assignment***, and we had planned a 3-day trip during a public holiday. She was ***flying in***, and I went to the airport to pick her up.
+
+Originally, her flight was scheduled to depart at 8:30 in the morning, with an estimated arrival time of 10 o'clock. I ***left for*** the airport around 9 am since I lived quite far away. ***As I was on my way***, she called to inform me of a flight delay due to uncertain weather conditions, ***pushing the departure time back.*** I assumed it might be a ***minor*** delay of around half an hour or an hour at most, so I continued with our plan.
+
+To my surprise, I ended up waiting at the destination terminal for over 6 hours as her flight didn't take off until 3 pm that afternoon due to **adverse** weather conditions at the departure city. Initially, the lack of accurate delay information made me a bit anxious, unsure if her arrival in Beijing would still be possible that day.
+
+However, the airline eventually provided a new departure time after lunch, which brought me a sense of relief. Once she finally ***boarded the plane***, my worries eased completely. While waiting for her flight to land, I enjoyed a cup of coffee, feeling a mix of ***anticipation*** and ***contentment***.
+
 ## Film actor (12 - 2)
-> prompt: 
+> Prompt: 
 > 
 > Describe a film/movie actor from your country who is very popular. 
 > 
