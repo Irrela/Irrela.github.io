@@ -23,6 +23,14 @@ tags:
 - exposure
 - committee
 - recommended
+- amateur
+- aesthetics
+- commercial
+- commerce
+- illegally
+- woman
+- women
+- royalty
 
 
 

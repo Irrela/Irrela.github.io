@@ -64,7 +64,7 @@ In the contemporary world, a significant portion of individuals is caught up in 
 
 To begin with, The toll it takes on an individual's well-being(health) is a prominent drawback. Prolonged periods of work without ***adequate*** rest can lead to burnout, stress, and even serious health issues. ***Studies have shown that*** individuals who consistently work long hours ***are more prone to*** conditions such as anxiety, depression, and cardiovascular diseases. It's ***imperative*** to recognize(realize) that personal wellness serves as the foundation for ***sustained*** career growth and overall life ***satisfaction(contentment)***.
 
-Moreover, leisure activities play a pivotal role in personal growth and development. Engaging in(Participating in) hobbies, sports, or spending quality time with loved ones fosters creativity, enhances cognitive abilities, and promotes emotional well-being. For instance, someone who ***pursues*** painting in their free time may find that their creativity ***spills over into*** their work, resulting in innovative problem-solving and fresh perspectives.
+Moreover, leisure activities play a pivotal role in personal growth and development. Engaging in(Participating in) hobbies, sports, or spending quality time with loved ones fosters creativity, enhances cognitive abilities, and promotes emotional well-being. For instance, people who ***pursue*** painting in their free time may find that their creativity ***spills over into*** their work, resulting in innovative problem-solving and fresh perspectives.
 
 Furthermore, the misconception that longer working hours ***translate into*** higher career achievements is ***questionable***. Research has shown that excessive work hours can lead to diminishing returns as fatigue ***sets in***, decreasing productivity and ***impeding*** creativity. ***Conversely***, a well-balanced lifestyle encourages individuals to work more efficiently, make better use of their time, and maintain a higher level of engagement and motivation.
 
@@ -461,5 +461,14 @@ Yeah. A lot of my friends complain about the cafeteria, but I figure nothing wil
 Say, were you aware that the university has recently formed a food advisory committee?
 > 你知道学校最近成立了一个食品咨询委员会吗？
 
-Oh, I'm not so sure if I have enough spare time to get that involved.
+Oh, I'm not so sure if I have enough ***spare time*** to ***get that involved***.
 > 哦，我不太确定我是否有足够的空余时间。
+
+And ***to an extent*** that nobody could have foreseen.
+> 而且没有人能预见到会那么喜欢。
+
+And those records didn't even begin to ***account for*** all the tea smuggled into the country illegally to avoid paying taxes.
+> 这些记录甚至没有把为了避税而走私入境的茶叶计算在内。
+
+Tea became ***a staple of everyday life***, part of the common culture, and traditionally considered by many, the very mark of being English.
+> 茶成为日常生活中的必备饮品，是共同文化的一部分，传统上被许多人认为是英国人的标志
