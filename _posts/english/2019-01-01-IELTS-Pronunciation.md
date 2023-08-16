@@ -14,6 +14,13 @@ tags:
 - legitimate
 - genres
 - medium
+- phosphorus
+- wheat
+- crop
+- edge
+- zone 
+
+
 
 # Unfamiliar words
 - narrator 

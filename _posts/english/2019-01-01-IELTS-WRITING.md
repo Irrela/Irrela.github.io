@@ -486,3 +486,9 @@ Professor: Well, yes, but that was ***a bit of*** an exaggeration, I guess.
 
 ***What I meant to say was that*** some filmmakers thought that the way the film sound was actually used was setting the art of filmmaking back.
 > 我的意思是一些制片人认为，在电影中引入声音的方法，会让制作电影这个艺术倒退
+
+Farmers sometimes ***object to*** letting trees grow on land where they might otherwise be cultivating crops.But there's a government program that ***compensates*** them.
+> 农民们有时候反对在陆地上种树，因为他们本可以在这些地方种植农作物。但是有政府有个项目会弥补他们
+
+And it's beginning to ***show some success***.
+> 这项举措开始显示出成效。
