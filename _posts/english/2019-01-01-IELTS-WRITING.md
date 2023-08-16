@@ -9,10 +9,7 @@ https://www.douban.com/doulist/39348933/
 
 # GPT prompt
 ## Task 1
-You are a native English speaker who has complete mastery of the language. You will provide exemplary answers to some IELTS exam questions to help other English learners.
-Please provide me with a response to an IELTS Writing Task 1 question and ensure it meets the criteria for at least Band 8 according to IELTS standards. Note the response should be at least 150 words but no more than 180 words.
-
-The requirements:
+You are a native English speaker who has complete mastery of the language. You will provide exemplary answers to some IELTS exam questions to help other English learners. Please provide me with a response to an IELTS Writing Task 1 question and ensure it meets the following requirements: 
 - Covers all the requirements of the task appropriately, relevantly and sufficiently.
 - All bullet points are clearly presented, and appropriately illustrated or extended.
 - The message can be followed with ease.
@@ -28,10 +25,7 @@ The question prompt is :
 My Points are :
 
 ## Task 2 
-You are a native English speaker who has complete mastery of the language. You will provide exemplary answers to some IELTS exam questions to help other English learners.
-Please provide me with a response to an IELTS Writing Task 2 question and ensure it meets the criteria for at least Band 8 according to IELTS standards. Note the response should be at least 250 words but no more than 280 words.
-
-The requirements for the response are:
+You are a native English speaker who has complete mastery of the language. You will provide exemplary answers to some IELTS exam questions to help other English learners. Please provide me with a response to an IELTS Writing Task 2 question and ensure it meets the following requirements: 
 - (Must) Write at least 250 words but no more than 280 words.
 - The prompt is appropriately and sufficiently addressed.
 - Give 3 reasons that are strongly relevant, fully-supported and well-extended. 
@@ -42,75 +36,40 @@ The requirements for the response are:
 - There is skilful use of uncommon and/or idiomatic items when appropriate, despite occasional inaccuracies in word choice and collocation.
 - A wide range of structures is flexibly and accurately used.
 
-The question prompt is :
-Some governments say how many children a family can have in their country. They may control the number of children someone has through taxes. It is sometimes necessary and right for a government to control the population in this way.
-Do you agree or disagree ? 
-Give reasons for your answer.
+The question prompt is :"
+Many people work long hours, leaving very little time for leisure activities.
+Does this situation have more advantages or more disadvantages?
+
+Give reasons for your answer and include any relevant examples from your own knowledge or experience.
+"
 
 Your points are :
-- This is a violation of individual freedom and personal autonomy
-- Coercive measures are not effective, and sometimes bring unexpected side-effects.
-- Focusing on population control through taxes neglects the root causes of overpopulation
-
-
-# Criteria
-## Target
-### Task1
-1. Task achievement
-- The response covers all the requirements of the task appropriately, relevantly and sufficiently.
-- All bullet points are clearly presented, and appropriately illustrated or extended.
-- There may be occasional omissions or lapses in content.
-
-2. Coherence and cohesion
-- The message can be followed with ease.
-- Information and ideas are logically sequenced, and cohesion is well managed.
-- Occasional lapses in coherence or cohesion may occur.
-- Paragraphing is used sufficiently and appropriately.
-
-3. Lexical resource
-- A wide resource is fluently and flexibly used to convey precise meanings within the scope of the task.
-- There is a skilful use of uncommon and/or idiomatic items when appropriate, despite occasional inaccuracies in word choice and collocation.
-- Occasional errors in spelling and/or word formation may occur, but have minimal impact on communication.
-
-4. Grammatical range and accuracy
-- A wide range of structures within the scope of the task is flexibly and accurately used.
-- The majority of sentences are error-free, and punctuation is well managed.
-- Occasional, non-systematic errors and inappropriacies occur, but have minimal impact on communication.
-
-### Task 2
-1. Task response
-- The prompt is appropriately and sufficiently addressed.
-- A clear and well-developed position is presented in response to the question/s.
-- Ideas are relevant, well extended and supported.
-- There may be occasional omissions or lapses in content.
-
-2. Coherence and cohesion
-- The message can be followed with ease.
-- Information and ideas are logically sequenced, and cohesion is well managed.
-- Occasional lapses in coherence and cohesion may occur.
-- Paragraphing is used sufficiently and appropriately.
-  
-3. Lexical resource
-- A wide resource is fluently and flexibly used to convey precise meanings.
-- There is skilful use of uncommon and/or idiomatic items when appropriate, despite occasional inaccuracies in word choice and collocation.
-- Occasional errors in spelling and/or word formation may occur, but have minimal impact on communication.
-
-4. Grammatical range and accuracy
-- A wide range of structures is flexibly and accurately used.
-- The majority of sentences are error-free, and punctuation is well managed.
-- Occasional, non-systematic errors and inappropriacies occur, but have minimal impact on communication
-
-## How to improve
-- Cover all points
-- Provide supporting ideas and details
-- Logical and clear ordering of ideas
-- Join up separating sentences, using the right connecting devices
-- Accurate vocabulary
-- Produce more complex sentences
+More disadvantages
+- Negative impact to well-being
+- Less time spent with families and friends
+- Not necessarily means more outcome in career
 
 
 # Practice
 ## Type: Agree or not (Opinion)
+
+### Leisure activities & work
+> **Prompt:** 
+> 
+> Many people work long hours, leaving very little time for leisure activities. Does this situation have more advantages or more disadvantages?
+> 
+> Give reasons for your answer and include any relevant examples from your own knowledge or experience.
+
+In the contemporary world, a significant portion of individuals is caught up in the ***vortex*** of long working hours, leaving only ***scant*** time for leisure pursuits. While this phenomenon is often deemed(perceived) as a mark(sign) of commitment(dedication) and ambition, its disadvantages are undoubtedly(unquestionably) more profound and impactful. (While there may be some benefits to extended work hours, the drawbacks are undeniably ***substantial***, making the disadvantages outweigh the advantages.)
+
+To begin with, The toll it takes on an individual's well-being(health) is a prominent drawback. Prolonged periods of work without ***adequate*** rest can lead to burnout, stress, and even serious health issues. ***Studies have shown that*** individuals who consistently work long hours ***are more prone to*** conditions such as anxiety, depression, and cardiovascular diseases. It's ***imperative*** to recognize(realize) that personal wellness serves as the foundation for ***sustained*** career growth and overall life ***satisfaction(contentment)***.
+
+Moreover, leisure activities play a pivotal role in personal growth and development. Engaging in(Participating in) hobbies, sports, or spending quality time with loved ones fosters creativity, enhances cognitive abilities, and promotes emotional well-being. For instance, someone who ***pursues*** painting in their free time may find that their creativity ***spills over into*** their work, resulting in innovative problem-solving and fresh perspectives.
+
+Furthermore, the misconception that longer working hours ***translate into*** higher career achievements is ***questionable***. Research has shown that excessive work hours can lead to diminishing returns as fatigue ***sets in***, decreasing productivity and ***impeding*** creativity. ***Conversely***, a well-balanced lifestyle encourages individuals to work more efficiently, make better use of their time, and maintain a higher level of engagement and motivation.
+
+ It is essential(crucial) for individuals and organizations ***alike*** to realize the importance of work-life balance and prioritize the holistic well-being of employees. Only through a harmonious integration of work and leisure can individuals achieve ***genuine*** satisfaction and contribute meaningfully to their personal and professional ***spheres***.
+
 
 ### Housing requirement & countryside spaces
 > **Prompt:** 
@@ -128,7 +87,6 @@ Secondly, the development of new homes in countryside can be undertaken with res
 Lastly, the establishment of fresh residences in ***rustic areas*** can lead to economic growth and enhanced ***community infrastructure***. The building sector generates jobs and economic activity, benefiting both local economies and national development. Moreover, new housing projects often come with the expansion of essential facilities such as schools, healthcare centers, and transportation networks. This, ***in turn***, improves the overall quality of life in both urban and rural areas.
 
 In conclusion, while the protection of the countryside is a valid concern, the urgent need for new housing should ***take precedence***. Responsible urban planning and sustainable building practices can enable us to meet the housing demand without ***irreparably*** harming the environment. A balanced approach that accommodates both housing needs and environmental preservation is vital for the well-being of society as a whole.
-
 
 
 ### Online shopping closing
@@ -149,8 +107,6 @@ Firstly, physical shops provide a ***tangible*** shopping experience that online
 Additionally, physical stores play a vital role in ***brand loyalty*** and ***customer engagement***. Many ***big brands*** view their stores as key ***touchpoints*** where customers can interact with products and receive ***personalized assistance***. These stores contribute to brand identity and offer a chance for companies to establish strong emotional connections with their customers.
 
 In conclusion, the growth of online shopping will ***undoubtedly*** continue to reshape the retail ***industry***. However, the complete closure of all physical shops in towns and cities is unlikely. The tactile shopping experience, immediate satisfaction, and importance of physical stores for brand loyalty suggest that both online and offline shopping ***avenues*** will ***coexist*** in the future retail landscape.
-
-
 
 
 ### Government Control of Population 
