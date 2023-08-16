@@ -116,6 +116,25 @@ Part 3 answers are normally 3-4 sentences long. To extend your answers in part 3
 # PART-1
 
 # PART-2
+## Helpful website (13-3)
+> Prompt
+> 
+> Describe a website you use that helps you a lot in your work or studies.
+> 
+> You should say:
+> - what the website is
+> - how often you use the website
+> - what information the website gives you
+> 
+> and explain how your work or studies would change if this website didn't exist.
+
+I'd like to discuss YouTube, a globally ***renowned*** online streaming platform that greatly ***aids*** my work and studies. It serves as a hub for diverse content and holds immense significance in my daily routine.
+
+I frequently use YouTube to access videos posted by channels I follow or to explore recommended content based on my interests and preferences, including educational resources, experience sharing, travel vlogs, and some amazing food videos. To me, YouTube is not just a streaming platform; it's more like a ***repository*** of knowledge, inspiration, and possibilities. It has significantly shaped my educational and professional pursuits.
+
+And removing YouTube from the ***equation***, I believe, would indeed be a significant setback, at least for me. Because the absence of learning materials and firsthand accounts from individuals across the globe would limit my exposure to new ideas and perspectives. To be more specific, the lack of programming-related content would have had a ***profound*** impact on my career trajectory. The programming videos I came across(encountered) on YouTube inspired me to explore a field I had never considered before. They ***diverted*** me from my initial path as a nuclear engineering major and guided me towards my current occupation. Currently, I am employed as a programmer at a major game company, and ***I am highly content with*** my current situation. The absence of these videos could have significantly ***limited my exposure to this career shift***.
+
+
 ## Waiting experience (12-1)
 > Prompt: 
 > 
@@ -158,7 +177,7 @@ Tragically, Cheung's life was cut short due to his battle with mental health iss
 Leslie's popularity can be attributed to his extraordinary talent, his ability to emotionally connect with audiences, and his courage in ***addressing*** important issues. His legacy continues to thrive, influencing both the film and music worlds.
 
 ## Spend money (12-3)
-> prompt: 
+> Prompt: 
 > 
 > Describe an interesting discussion you had about how you spend your money.
 > 

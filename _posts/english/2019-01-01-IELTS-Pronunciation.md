@@ -19,6 +19,8 @@ tags:
 - crop
 - edge
 - zone 
+- renowned
+- exposure
 
 
 
