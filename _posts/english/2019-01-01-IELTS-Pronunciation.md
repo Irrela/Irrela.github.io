@@ -13,6 +13,7 @@ tags:
 - period
 - legitimate
 - genres
+- medium
 
 # Unfamiliar words
 - narrator 

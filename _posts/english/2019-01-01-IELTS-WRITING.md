@@ -466,3 +466,23 @@ It's legitimate to retell an old story in a new way... in a way that's, uh, ***m
 
 So, when playwrights reinvent or update an earlier play, it shouldn't be ***construed*** as a lack of imagination or an artistic failure.
 > 因此，当剧作家们对早期的一部戏剧进行翻新或改进的时候，这不应该被视作缺乏想象力或艺术败笔。
+
+And it's not that most people didn't want sound in films; it's just that the technology wasn't available yet.
+> 另外，不是人们不想要声音。而是当时技术还达不到。
+
+But that ***luster wears off***.
+
+
+The name they used for sound films then was "talking films," and that was ***on the mark***, since, well, all they pretty much did was talk. And talk.
+> 当时，人们用“会说话的电影”来称呼有声电影，这个名字还是很切题的，因为，那个时候电影基本上都是在说说说。
+
+
+Professor: Right. Now we can look at this in various ways, but ***let's take it as literally as possible***.
+> 教授：是的。接下来，我们可以多种角度看待这点。但我们还是尽可能地以字面意思对待。
+
+
+Professor: Well, yes, but that was ***a bit of*** an exaggeration, I guess.
+> 教授：这个嘛，我是说过。但是那可能有点夸张在里面。
+
+***What I meant to say was that*** some filmmakers thought that the way the film sound was actually used was setting the art of filmmaking back.
+> 我的意思是一些制片人认为，在电影中引入声音的方法，会让制作电影这个艺术倒退
