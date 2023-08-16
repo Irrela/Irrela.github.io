@@ -472,3 +472,11 @@ And those records didn't even begin to ***account for*** all the tea smuggled in
 
 Tea became ***a staple of everyday life***, part of the common culture, and traditionally considered by many, the very mark of being English.
 > 茶成为日常生活中的必备饮品，是共同文化的一部分，传统上被许多人认为是英国人的标志
+
+Speaking in front of a big crowd makes me all nervous and awkward, which ends up messing with my ability to speak smoothly, and that in turn just makes my nervousness even worse.
+
+Now, if material from Saturn's rings is being lost, and nothing new is added from time to time, the rings would be disappearing, but that's not happening.
+> 现在，如果土星环中的材料失去了，并且没有新材料不断的补充，这些环就会消失，但这并未发生。
+
+I'm sorry, I didn't quite get your question. Could you clarify what you mean by '...'?
+Sorry, I'm not quite sure what you mean by "A."
