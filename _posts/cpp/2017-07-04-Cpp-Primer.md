@@ -604,7 +604,6 @@ class Foo {
 // 直接初始化
 string dots(10, '.');
 string s(dots);
-
 // 拷贝初始化
 string s_2 = dots;
 string null_block = "0-000-000-0000";
@@ -963,6 +962,43 @@ add_test(NAME test_yakuman COMMAND test_yakuman)
 
 
 # Miscellany
+## Keyword
+### explict
+用于修饰类的单参数构造函数（或者带有默认参数的多参数构造函数）。它的作用是 ***禁止隐式的类型转换***，防止编译器在某些情况下自动执行构造函数的调用。
+
+特别是在 ***构造函数参数只有一个***的情况下，编译器可能会自动执行隐式的类型转换，这可能会导致不符合预期的结果。
+
+#### 什么是隐式的类型转换
+考虑以下情况：
+```cpp
+class MyClass {
+public:
+    MyClass(int value) : data(value) {}
+
+    int getData() const {
+        return data;
+    }
+
+private:
+    int data;
+};
+
+int main() {
+    MyClass obj1 = 42;  // 隐式地调用构造函数，将整数转换为 MyClass 对象
+    MyClass obj2(42);   // 直接调用构造函数
+
+    int value = obj2.getData();
+    std::cout << "Value: " << value << std::endl;
+
+    return 0;
+}
+```
+在这个例子中，当构造函数没有被声明为 explicit 时，***编译器会隐式地将整数 42 转换为 MyClass 对象***，这是因为构造函数可以用作从整数到 MyClass 的类型转换。然后，编译器会执行类似于 MyClass obj1 = MyClass(42); 的操作，将整数转换为 MyClass 对象。
+
+如果将构造函数声明为 explicit，编译器将不会执行这种隐式的类型转换，而必须使用直接的构造函数调用来创建对象，如 MyClass obj2(42);。
+
+因此，explicit 关键字的作用就是防止在不经意之间执行隐式类型转换，强制要求使用明确的方式来调用构造函数。这有助于减少代码中的混淆和意外行为。
+
 
 ## Vector
 ### erase
