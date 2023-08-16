@@ -458,8 +458,8 @@ The earliest records from 500 million years ago show that the sediment in river 
 And we also see evidence of a process called ***lateral*** accretion.
 > 我们也发现了一个被称为横向吸积过程的迹象。
 
-Professor: Well, part of what Mee's trying to do is ***drive home the point*** that one, theater's always a collaborative effort...
-> 教授：嗯, Mee尝试去解释清楚的是：第一，戏剧从来都需要合作。
+Well, part of what Mee's trying to do is ***drive home the point*** that one, theater's always a collaborative effort...
+> 嗯, Mee尝试去解释清楚的是：第一，戏剧从来都需要合作。
 
 It's legitimate to retell an old story in a new way... in a way that's, uh, ***more in line with*** contemporary concerns.
 > 以一种新的方式再创作，使其更符合当代语境，是完全合情合理的。
@@ -477,12 +477,12 @@ The name they used for sound films then was "talking films," and that was ***on 
 > 当时，人们用“会说话的电影”来称呼有声电影，这个名字还是很切题的，因为，那个时候电影基本上都是在说说说。
 
 
-Professor: Right. Now we can look at this in various ways, but ***let's take it as literally as possible***.
-> 教授：是的。接下来，我们可以多种角度看待这点。但我们还是尽可能地以字面意思对待。
+Right. Now we can look at this in various ways, but ***let's take it as literally as possible***.
+> 是的。接下来，我们可以多种角度看待这点。但我们还是尽可能地以字面意思对待。
 
 
-Professor: Well, yes, but that was ***a bit of*** an exaggeration, I guess.
-> 教授：这个嘛，我是说过。但是那可能有点夸张在里面。
+Well, yes, but that was ***a bit of*** an exaggeration, I guess.
+> 这个嘛，我是说过。但是那可能有点夸张在里面。
 
 ***What I meant to say was that*** some filmmakers thought that the way the film sound was actually used was setting the art of filmmaking back.
 > 我的意思是一些制片人认为，在电影中引入声音的方法，会让制作电影这个艺术倒退
@@ -492,3 +492,18 @@ Farmers sometimes ***object to*** letting trees grow on land where they might ot
 
 And it's beginning to ***show some success***.
 > 这项举措开始显示出成效。
+
+You know that building is ***way across*** campus.
+> 你知道实验楼在校园的另一端。
+
+And nothing's changed from what I can see.
+> 到现在我也没看到任何改变。
+
+Yeah. A lot of my friends complain about the cafeteria, but I figure nothing will ever be done.
+> 是啊，我的许多朋友也有这样的抱怨，但我想你们不会做出任何改善的。
+
+Say, were you aware that the university has recently formed a food advisory committee?
+> 你知道学校最近成立了一个食品咨询委员会吗？
+
+Oh, I'm not so sure if I have enough spare time to get that involved.
+> 哦，我不太确定我是否有足够的空余时间。
