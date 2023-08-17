@@ -501,3 +501,22 @@ Now, if material from Saturn's rings is being lost, and nothing new is added fro
 
 I'm sorry, I didn't quite get your question. Could you clarify what you mean by '...'?
 Sorry, I'm not quite sure what you mean by "A."
+
+
+I think I'm doing OK. Busy, you know, but other than that...
+> 我想我做的还不错。虽然很忙，你知道的，但除此之外……
+
+I liked how Neruda took things like fruit and vegetables and... socks... and used metaphors and similes to describe them as these wonderful, mysterious things.
+> 我喜欢聂鲁达将水果、蔬菜和袜子一类的东西当作描写对象的方式，并使用隐喻和明喻来将它们描写成奇妙而神秘的东西。
+
+And painters of that period approached still-life painting from a scientific perspective.
+> 那个时期的画家是从科学的角度来创作静物画的。
+
+If it looks ***contrived*** and if it’s obvious a person deliberately arranged everything, it ***takes away from*** the simplicity and the natural feel of the work.
+> 如果它看起来像是人为的、看起来很明显是一个人故意那样摆放所有东西的，这就破坏了这幅画作的简洁性和自然的感觉。
+
+Now, ***what are some ways*** to make sure the ***composition*** of your painting ***is the way you want it to be***?
+> 那么，保证你们的画作构图确实是以你们想要的方式呈现有哪些方法呢？
+
+So I had to ***start over***.
+> 所以我需要重新画。

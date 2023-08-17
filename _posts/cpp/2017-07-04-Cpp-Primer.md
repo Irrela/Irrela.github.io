@@ -642,8 +642,174 @@ int main() {
 }
 ```
 
+### 13.1.2 拷贝赋值运算符
+拷贝赋值运算符（Copy Assignment Operator）是一个类的成员函数，用于将一个已存在的对象的值赋给另一个对象。
+
+拷贝赋值运算符通常在两个对象已经存在的情况下使用，它的目的是将一个对象的内容复制到另一个对象，以达到对象之间数据的同步或复制的目的。
+
+```cpp
+#include <iostream>
+
+class MyClass {
+public:
+    MyClass(int val) : value(val) {}
+
+    // 重载拷贝赋值运算符
+    MyClass& operator=(const MyClass& other) {
+        if (this == &other) {
+            return *this;
+        }
+        value = other.value;
+        return *this;
+    }
+
+    int getValue() const {
+        return value;
+    }
+
+private:
+    int value;
+};
+
+int main() {
+    MyClass obj1(42);
+    MyClass obj2(100);
+
+    std::cout << "obj1 value: " << obj1.getValue() << std::endl;
+    std::cout << "obj2 value: " << obj2.getValue() << std::endl;
+
+    obj2 = obj1;  // 调用拷贝赋值运算符，将 obj1 的值赋给 obj2
+
+    std::cout << "obj1 value: " << obj1.getValue() << std::endl;
+    std::cout << "obj2 value: " << obj2.getValue() << std::endl;
+
+    obj1.value = 31;
+
+    std::cout << "obj1 value: " << obj1.getValue() << std::endl;
+    std::cout << "obj2 value: " << obj2.getValue() << std::endl;
+
+    return 0;
+}
+```
+
+打印结果：
+```cpp
+obj1 value: 42
+obj2 value: 100
+obj1 value: 42
+obj2 value: 42
+obj1 value: 31
+obj2 value: 42
+```
+修改 obj1.value 为 31 后，obj1 的值变为 31，但 obj2 的值不会受到影响，仍为 42。这是因为拷贝赋值运算符创建了一个新的对象副本，而不是共享内部状态。
 
 
+#### 重载运算符 (overloaded operator)
+在C++中，***overloaded operator*** 指的是重载运算符。
+
+C++允许你为自定义的类类型定义一些标准的运算符行为，使得你的类可以像内置类型一样进行操作，例如加法、减法、乘法等。通过重载运算符，你可以定义运算符在自定义类上的行为，使其更加符合你的需求。
+
+例如，你可以为自定义的类类型定义加法运算符，以便能够对类的实例进行相加操作。下面是一个简单的示例，展示如何重载加法运算符：
+```cpp
+#include <iostream>
+
+class MyNumber {
+public:
+    MyNumber(int value) : num(value) {}
+
+    // 重载加法运算符
+    MyNumber operator+(const MyNumber& other) const {
+        return MyNumber(num + other.num);
+    }
+
+    int getValue() const {
+        return num;
+    }
+
+private:
+    int num;
+};
+
+int main() {
+    MyNumber num1(5);
+    MyNumber num2(10);
+
+    MyNumber sum = num1 + num2;  // 使用重载的加法运算符
+
+    std::cout << "Sum: " << sum.getValue() << std::endl;
+
+    return 0;
+}
+```
+
+#### 合成拷贝赋值运算符
+***Synthesized copy-assignment operator***, 下面的例子等价于合成：
+```cpp
+Sale_data& Sale_data::operator=(const Sale_data& rhs)
+{
+    book_no = rhs.book_no;
+    units_sold = rhs.units_sold;
+    revenue = rhs.revenue;
+    return *this;
+}
+```
+
+### 13.1.3 析构函数
+***析构函数（Destructor）***是一个特殊的成员函数，在C++对象被销毁时自动调用。
+
+它的作用是执行一些资源的释放、清理工作，例如释放动态分配的内存、关闭文件、释放网络连接等。析构函数的名字与类名相同，但在函数名前加上一个波浪号（~）作为前缀。
+
+析构函数的语法如下：
+```cpp
+class ClassName {
+public:
+    // 构造函数
+    ClassName() {
+        // 构造过程的初始化工作
+    }
+
+    // 析构函数
+    ~ClassName() {
+        // 清理资源、释放内存等
+    }
+};
+```
+以下是一个简单的示例，展示了析构函数的用法：
+
+```cpp
+#include <iostream>
+
+class MyClass {
+public:
+    MyClass() {
+        std::cout << "Constructor" << std::endl;
+    }
+
+    ~MyClass() {
+        std::cout << "Destructor" << std::endl;
+    }
+};
+
+int main() {
+    {
+        MyClass obj;  // 创建一个 MyClass 对象
+    }  // 对象超出作用域，析构函数被调用
+
+    std::cout << "After scope" << std::endl;
+
+    return 0;
+}
+```
+在这个示例中，当 obj 超出作用域时，它的析构函数被调用，执行清理工作。输出会显示构造函数和析构函数的调用顺序。
+
+#### 在实践中，关于析构函数容易踩的坑包括：
+- 析构函数的函数体不负责销毁成员的任务，这是由 ***隐式的析构部分*** 完成的。
+- ***内置类型***没有析构函数。如果一个对象有普通指针成员，当对象析构销毁时，其成员指针指向的对象不会被销毁。
+- 如果一个对象有智能指针成员，因为智能指针是类类型，有对应的析构函数，因此与普通指针不一样，智能指针的成员会随析构被销毁。
+- 释放资源的顺序：如果一个类使用了多个资源（如内存、文件等），务必在析构函数中按照逆序释放这些资源，以避免资源泄漏。
+- 动态分配内存的释放：如果在构造函数中分配了内存，在析构函数中一定要释放这些内存，否则会导致内存泄漏。
+- 避免抛出异常：析构函数应该尽量避免抛出异常，因为在析构函数期间抛出异常会导致程序行为不可预测。
+- 当指向一个对象的引用或指针离开作用域时，不会触发对象的析构函数执行。
 
 
 
