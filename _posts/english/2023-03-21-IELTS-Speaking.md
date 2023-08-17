@@ -116,6 +116,27 @@ Part 3 answers are normally 3-4 sentences long. To extend your answers in part 3
 # PART-1
 
 # PART-2
+
+## Technological device (13-2)
+> Prompt: 
+> 
+> Describe a time when you started using a new technological device (e.g. a new computer or phone).
+> 
+> You should say:
+> - what device you started using
+> - why you started using this device
+> - how easy or difficult it was to use
+> 
+> and explain how helpful this device was to you.
+
+I'd like to share my firsthand encounter with using a MacBook for the very first time. This experience unfolded during my pursuit of a master's degree in Tokyo. At that juncture, our research lab made available laptops for new students, and given that the MacBook was the sole option boasting a non-Japanese keyboard layout, I readily embraced it.
+
+I must confess that I swiftly grew captivated by this novel device. To begin with, it was remarkably lighter compared to any laptop I had handled before, tipping the scales at around two kilograms. This notably enhanced my daily commute on the subway, significantly alleviating the burden of carrying it. Additionally, the display quality left an indelible mark on me. The high resolution and impeccable color performance significantly enhanced my experience of reading papers and documents. It's easy to see why graphic designers and editors have a penchant for the screen quality of the MacBook.
+
+Naturally, delving into Apple devices brings us to their distinctive operating system. macOS stands in stark contrast to Windows, presenting a bit of a learning curve at the outset. However, once I acclimated, I discovered an array of user-friendly features at my disposal. As a computer science enthusiast, I found macOS to be especially conducive to programming tasks, especially when it came to crafting software and applications for Apple products. The MacBook's widespread popularity among programmers in major tech corporations is a testament to its efficacy. It's safe to assert that Apple has meticulously designed this device to earn its well-deserved acclaim.
+
+In summation, my encounter with the MacBook was overwhelmingly positive. Its featherweight design, superior display, and programmer-friendly OS all synergized to enhance its utility during my academic journey and beyond. Not only did this device streamline my daily tasks, but it also provided an ideal platform to explore novel opportunities in the dynamic realm of technology.
+
 ## Helpful website (13-3)
 > Prompt
 > 
