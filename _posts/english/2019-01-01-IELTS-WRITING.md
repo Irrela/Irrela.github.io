@@ -523,3 +523,7 @@ So I had to ***start over***.
 
 Well, they sell items on consignment.
 > 他们是寄售的。
+
+That's definitely not what was happening at neighboring sites during that time.
+
+毫无疑问，当时在其他附近的城市是不可能做这种事的。
