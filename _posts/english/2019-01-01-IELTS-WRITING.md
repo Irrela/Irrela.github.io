@@ -520,3 +520,6 @@ Now, ***what are some ways*** to make sure the ***composition*** of your paintin
 
 So I had to ***start over***.
 > 所以我需要重新画。
+
+Well, they sell items on consignment.
+> 他们是寄售的。
