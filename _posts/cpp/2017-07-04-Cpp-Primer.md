@@ -872,6 +872,96 @@ public:
 
 ## 13.2 拷贝控制和资源管理
 
+### 13.2.1 行为像值的类
+考虑一个这样的类：
+```cpp
+class HasPtr {
+    public:
+        /* 
+        = std::string()：这是默认参数值的设置。
+        如果在调用构造函数时没有传递实参给参数 s，则构造函数将使用 std::string() 创建一个临时的空字符串对象作为默认参数。
+        换句话说，如果你调用构造函数时不提供任何参数，那么 s 将默认为一个空字符串。 
+        */
+        HasPtr(const std::string &s = std::string()):
+            ps(new std::string(s)), i(0) { }
+
+        HasPtr(const HasPtr &p):
+            ps(new std::string(*p.ps)), i(p.i) { }
+
+        /*
+        在函数声明中，参数名可以省略，只保留参数类型，特别是在你只关心参数类型而不需要在函数声明中指定参数名的情况下。
+        这种情况下，参数类型已经足够指定了函数的参数信息，而参数名可以在函数定义中使用。
+
+        例如，如果在函数声明中指定了参数名，它会变成这样：HasPtr& operator=(const HasPtr &rhs);
+        在这里，rhs 是参数名，而 const HasPtr & 是参数类型。
+        但在函数声明中，如果你不关心参数名，只想声明参数的类型，可以省略参数名，只保留参数类型
+        */
+        HasPtr& operator=(const HasPtr &); 
+        
+        ~HasPtr() {
+            delete ps;
+        }
+
+    private:
+        std::string *ps;
+        int i;
+};
+```
+
+#### 类值拷贝赋值运算符
+```cpp
+class HasPtr {
+    public:
+
+        // ...
+
+        /*
+        rhs = right hand side
+        类值拷贝赋值运算符: 通常组合了析构和构造函数，析构销毁左值，再从右值拷贝数据
+        */
+        HasPtr& HasPtr::operator=(const HasPtr &rhs) {
+            auto new_string = new std::string(*rhs.ps);
+            delete ps;
+            ps = new_string;
+            i = rhs.i;
+
+            /*
+            在类的成员函数中，this 是一个特殊的指针，指向调用该成员函数的对象的地址。
+            通过解引用 this 指针，可以获取当前对象本身。
+            因此，*this 表示当前对象的引用，它可以在成员函数内部使用，就像使用对象本身一样。
+            */
+            return *this;
+        }
+
+    private:
+        std::string *ps;
+        int i;
+};
+```
+
+> 重载赋值运算符时需要尤为注意顺序
+
+以下为错误示范：
+```cpp
+    HasPtr& HasPtr::operator=(const HasPtr &rhs) {
+        delete ps;
+        ps = new std::string(*(rhs.ps));
+        i = rhs.i;
+        return *this;
+    }
+```
+
+### 13.2.2 定义行为像指针的类
+> size_t: std::size_t 是 C++ 标准库中定义的一种数据类型，用于表示对象的大小或索引，通常用于表示容器的大小、数组的索引等。
+> 
+> 这个数据类型的大小在不同平台上可能会有所不同，但它通常被定义为足够大以便能够表示系统中最大的对象大小。因此，通常情况下，std::size_t 是无符号整数类型，并且足够大以适应当前平台上的最大对象。
+> 
+> std::size_t 通常用于循环中的索引、数组大小、容器的大小等情况，因为它能够确保足够大以适应不同系统的需求，从而提高了代码的可移植性。
+
+
+
+
+
 ## 13.3 交换操作
 
 ## 13.4 拷贝控制示例

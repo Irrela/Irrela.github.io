@@ -10,6 +10,7 @@ https://www.douban.com/doulist/39348933/
 # GPT prompt
 ## Task 1
 You are a native English speaker who has complete mastery of the language. You will provide exemplary answers to some IELTS exam questions to help other English learners. Please provide me with a response to an IELTS Writing Task 1 question and ensure it meets the following requirements: 
+- (Must) Write at least 150 words but no more than 180 words.
 - Covers all the requirements of the task appropriately, relevantly and sufficiently.
 - All bullet points are clearly presented, and appropriately illustrated or extended.
 - The message can be followed with ease.
@@ -51,6 +52,34 @@ More disadvantages
 
 
 # Practice
+
+## Task 1
+### Share dormitory
+You live in a room in college which you share with another student. However, there are many problems with this arrangement and you find it very difficult to work.
+
+Write a letter to the accommodation officer at the college. In the letter,
+- describe the situation
+- explain your problems and why it is difficult to work
+- say what kind of accommodation you would prefer
+
+Dear Accommodation Officer,
+
+I hope this message finds you well. I am writing to address the challenges(hurdles) I am facing with my current living situation in the college dormitory. I share a room with a fellow student, and unfortunately, this arrangement ***has proven to be quite problematic for various reasons***.
+
+***To elaborate(To be specific)***, my roommate and I have vastly different schedules. While I prioritize my studies during the evening, my roommate often returns late at night and engages in activities that create noise, making it ***exceedingly*** difficult for me to concentrate. As a result, my productivity has suffered, and I find it increasingly hard to maintain a ***conducive*** environment for academic work.
+
+Furthermore, my roommate's lack of consideration for others has added to the predicament. Frequent loud music and disruptive behavior have hindered not only my work but also my overall well-being. Despite my attempts to address these concerns through open communication, there has been no noticeable improvement.
+
+In light of these challenges, I kindly request a room change. I would greatly appreciate a quieter living environment with a roommate who shares similar study habits. If possible, a room closer to the central library would be highly beneficial for my academic pursuits.
+
+I understand that accommodation options may be limited, and I am open to any suitable arrangement that can enhance my study experience. Your assistance in this matter would be greatly appreciated.
+
+Thank you for your time and consideration. I look forward to your response.
+
+Sincerely,
+[Your Name]
+
+
 ## Type: Agree or not (Opinion)
 
 ### Leisure activities & work
