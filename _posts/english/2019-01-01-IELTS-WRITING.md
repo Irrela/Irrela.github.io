@@ -54,13 +54,73 @@ More disadvantages
 # Practice
 
 ## Task 1
-### Share dormitory
-You live in a room in college which you share with another student. However, there are many problems with this arrangement and you find it very difficult to work.
 
-Write a letter to the accommodation officer at the college. In the letter,
-- describe the situation
-- explain your problems and why it is difficult to work
-- say what kind of accommodation you would prefer
+### Lost item on a train
+You have lost an item of value on a train.
+
+Write a letter to the railway company. In your letter
+
+- describe the item
+- explain where and when you left it
+- say what action you would like the company to take
+
+Dear Sir/Madam,
+
+I hope this letter finds you well. I'm writing to report the loss of my wallet on one of your trains yesterday night. It's a brown, leather wallet, with some blonde decorations on the surface. What's important is my id card and some credit cards are in it, and there might be some cash, I can't tell the exact number but not too much.
+
+Last night, I took train back home after work and fell asleep on it since I was so exhausted. I was waken up by my notification of my smartphone and took off the train in a sudden before I missed the right station, and that's when and where I left my wallet I guess, it might slipped from my jean's pocket and stayed on the seat.
+
+I hope you can help me to locate and return my wallet. The station name and accurate time are included, and I'm willing to complement any additional information to assist in the search, such as more detailed description of the lost items and my contact details.
+
+I would be very grateful if you could take this matter seriously and take action as soon as possible since these lost items are quite needed in daily life. 
+
+Thanks for your attention and time. I'm looking forward to hearing from you soon.
+
+Best regards.
+---- 
+
+I hope this letter finds you in good health. I am writing to inform you about(report you) the loss of my wallet on one of your trains yesterday evening. The wallet is brown leather with brass(silver/gold) decorations on the surface. It contains my ID card, several credit cards, and some cash, although I cannot ***specify the exact amount***.
+
+I believe I left my wallet on the train when I hurriedly(hastily) ***disembarked*** after being ***awakened*** by a notification on my smartphone. This happened at around(approximately) 8:30 PM at the City Central station. I ***suspect(guess)*** the wallet ***slipped out of*** my jeans pocket and was left on the seat.
+
+I ***kindly*** request your assistance in locating and returning my lost wallet. I have provided the station name and the ***exact*** time of the incident. I am more than willing to provide any additional information needed to aid in the search, such as a detailed description of the lost items and my contact information.
+
+I would greatly appreciate it if you could ***treat this matter with urgency***, as the items in the wallet ***are essential for my daily life***. Your ***prompt*** action would be highly valued.
+
+Thank you for your attention to this matter. I eagerly await your response.
+
+
+
+### House-sitting
+> A friend has agreed to look after your house and pet while you are on holiday. Write a letter to your friend.
+
+> In your letter:
+> - give contact details for when you are away
+> - give instructions about how to care for your pet
+> - describe other household duties
+
+
+I hope this letter finds you in good spirits. I am writing to extend my heartfelt ***gratitude for agreeing to*** look after(take care of) my house and care for my beloved cat while I am on holiday(during my upcoming holiday/while I am away). I'd like to provide you with some important information to ***ensure everything goes smoothly***. (your kindless means a lot to me)
+
+To begin with, please don't ***hesitate*** to contact me in case of any urgent matters. You can ***reach me on my mobile at*** [Your Phone Number]. Additionally, if I am unreachable for any reason, you can also get in touch with my wife, whose number I have included. I will also be regularly checking my email, so feel free to send me updates or ***queries***.
+
+As for caring for my cat(Regarding my cat), Kaka, I have left sufficient food and water for her for ***the duration of my absence***. Kindly ensure she ***has access to*** fresh water and food ***at all times***. Kaka is a friendly cat, and if you have some spare moments, playing with her would surely brighten her day.
+
+In terms of household responsibilities, I don't anticipate much upkeep as we have recently conducted a thorough cleaning. Watering the plants every two days would be sufficient to keep them healthy.
+
+Once again, I ***genuinely appreciate your willingness*** to help. I am confident that you will take care of my home and Kaka as if they were your own.(***I trust you with*** my house and pet and know you will take excellent care of them.) Enjoy your time in my house, and I am looking forward to hearing from you soon.
+
+Warm regards,
+Sil
+
+
+### Share dormitory
+> You live in a room in college which you share with another student. However, there are many problems with this arrangement and you find it very difficult to work.
+>
+> Write a letter to the accommodation officer at the college. In the letter,
+> - describe the situation
+> - explain your problems and why it is difficult to work
+> - say what kind of accommodation you would prefer
 
 Dear Accommodation Officer,
 
