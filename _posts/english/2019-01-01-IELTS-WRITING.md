@@ -56,28 +56,12 @@ More disadvantages
 ## Task 1
 
 ### Lost item on a train
-You have lost an item of value on a train.
-
-Write a letter to the railway company. In your letter
-
-- describe the item
-- explain where and when you left it
-- say what action you would like the company to take
-
-Dear Sir/Madam,
-
-I hope this letter finds you well. I'm writing to report the loss of my wallet on one of your trains yesterday night. It's a brown, leather wallet, with some blonde decorations on the surface. What's important is my id card and some credit cards are in it, and there might be some cash, I can't tell the exact number but not too much.
-
-Last night, I took train back home after work and fell asleep on it since I was so exhausted. I was waken up by my notification of my smartphone and took off the train in a sudden before I missed the right station, and that's when and where I left my wallet I guess, it might slipped from my jean's pocket and stayed on the seat.
-
-I hope you can help me to locate and return my wallet. The station name and accurate time are included, and I'm willing to complement any additional information to assist in the search, such as more detailed description of the lost items and my contact details.
-
-I would be very grateful if you could take this matter seriously and take action as soon as possible since these lost items are quite needed in daily life. 
-
-Thanks for your attention and time. I'm looking forward to hearing from you soon.
-
-Best regards.
----- 
+> You have lost an item of value on a train. Write a letter to the railway company. 
+> 
+> In your letter
+> - describe the item
+> - explain where and when you left it
+> - say what action you would like the company to take
 
 I hope this letter finds you in good health. I am writing to inform you about(report you) the loss of my wallet on one of your trains yesterday evening. The wallet is brown leather with brass(silver/gold) decorations on the surface. It contains my ID card, several credit cards, and some cash, although I cannot ***specify the exact amount***.
 
@@ -91,7 +75,7 @@ Thank you for your attention to this matter. I eagerly await your response.
 
 
 
-### House-sitting
+### House> -sitting
 > A friend has agreed to look after your house and pet while you are on holiday. Write a letter to your friend.
 
 > In your letter:
