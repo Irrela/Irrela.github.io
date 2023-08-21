@@ -57,22 +57,51 @@ class HasPtr {
         int i;
 };
 
-
+// 使用引用计数的类
 class HasPtr {
     public:
+        /*
+        构造函数分配新的string和新的计数器，并将计数器置为1
+        */
         HasPtr(const std::string &s = std::string()):
             ps(new std::string(s)), i(0), use(new std::size_t(1)) {}
 
+        /*
+        拷贝构造函数拷贝所有数据成员，并递增计数器
+        */
         HasPtr(const HasPtr &p): 
-            ps(p.ps), i(p.i), use(p.use) {}
+            ps(p.ps), i(p.i), use(p.use) {
+                ++*use;
+            }
 
-        HasPtr& operator=(const HasPtr&);
-        ~HasPtr();
+        /*
+        拷贝赋值运算符
+        */
+        HasPtr& HasPtr::operator=(const HasPtr &rhs) {
+            ++*rhs.use;
+            if (--*use == 0) {
+                delete ps;
+                delete use;
+            }
+
+            ps = rhs.ps;
+            i = rhs.i;
+            use = rhs.use;
+
+            return *this;
+        }
+        
+        ~HasPtr() {
+            if (--*use == 0) { // 当引用计数归零
+                delete ps; // 释放string内存
+                delete use; // 释放技术器内存
+            }
+        };
 
     private:
         std::string *ps;
         int i;
-        std::size_t *use;
+        std::size_t *use; // 记录有多少个对象共享*ps的成员
 };
 
 int main() {

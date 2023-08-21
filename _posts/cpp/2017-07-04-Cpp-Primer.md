@@ -958,9 +958,99 @@ class HasPtr {
 > 
 > std::size_t 通常用于循环中的索引、数组大小、容器的大小等情况，因为它能够确保足够大以适应不同系统的需求，从而提高了代码的可移植性。
 
+当我们谈论“行为像指针的类”时，通常是指类内部包含一个指针，并且重载了一些操作符，使得这个类的行为在很多方面类似于指针。
+
+当拷贝这种类时，拷贝其指针成员而不是指针指向的对象。
+
+最理想的方式是用share_ptr来管理这些成员:
+```cpp
+#include <iostream>
+#include <memory>
+
+class HasPtr {
+public:
+    HasPtr(const std::string &s = std::string()) :
+        ps(std::make_shared<std::string>(s)), i(0) {}
+
+    HasPtr(const HasPtr &p) :
+        ps(p.ps), i(p.i) {}
+
+    HasPtr& operator=(const HasPtr &rhs) {
+        ps = rhs.ps;
+        i = rhs.i;
+        return *this;
+    }
+
+    ~HasPtr() {
+        // 默认的析构函数会自动处理引用计数和资源释放
+    }
+
+private:
+    std::shared_ptr<std::string> ps;
+    int i;
+};
+
+int main() {
+    HasPtr obj1("Hello");
+    HasPtr obj2(obj1);  // 使用拷贝构造函数
+
+    obj2 = obj1;  // 使用拷贝赋值运算符
+
+    return 0;
+}
+```
 
 
+如果不使用智能指针，则用引用计数来手动实现：
 
+```cpp
+// 使用引用计数的类
+class HasPtr {
+    public:
+        /*
+        构造函数分配新的string和新的计数器，并将计数器置为1
+        */
+        HasPtr(const std::string &s = std::string()):
+            ps(new std::string(s)), i(0), use(new std::size_t(1)) {}
+
+        /*
+        拷贝构造函数拷贝所有数据成员，并递增计数器
+        */
+        HasPtr(const HasPtr &p): 
+            ps(p.ps), i(p.i), use(p.use) {
+                ++*use;
+            }
+
+        /*
+        拷贝赋值运算符
+        */
+        HasPtr& HasPtr::operator=(const HasPtr &rhs) {
+            ++*rhs.use;
+            if (--*use == 0) {
+                delete ps;
+                delete use;
+            }
+
+            ps = rhs.ps;
+            i = rhs.i;
+            use = rhs.use;
+
+            return *this;
+        }
+
+        ~HasPtr() {
+            if (--*use == 0) { // 当引用计数归零
+                delete ps; // 释放string内存
+                delete use; // 释放技术器内存
+            }
+        };
+
+    private:
+        std::string *ps;
+        int i;
+        std::size_t *use; // 记录有多少个对象共享*ps的成员
+};
+```
 
 ## 13.3 交换操作
 
