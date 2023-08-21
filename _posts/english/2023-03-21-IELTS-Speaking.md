@@ -117,6 +117,22 @@ Part 3 answers are normally 3-4 sentences long. To extend your answers in part 3
 
 # PART-2
 
+## Founder of a business (13-1)
+> Describe someone you know who has started a business.
+> 
+> You should say:
+> - who this person is
+> - what work this person does
+> - why this person decided to start a business
+> 
+> and explain whether you would like to do the same kind of work as this person.
+
+I would like to introduce a former colleague of mine. We used to work together at a major(sizable) game company ***in our locality***, where I was a server developer and he was responsible for(was tasked with) developing the graphics engine. Around four years ago, he ***took a bold leap*** and left the company to co-found a startup with his college buddies. Their main focus centers around creating an innovative graphics modeling language. 
+
+He told me his drive(motivation) to do so stemmed from finding his previous job ***tedious(boring/monotonous)*** and stifling for(constraining) his talents and capabilities(potential[u]). Their company has flourished(thrived), reportedly securing investments from prominent US venture capitalists. It's quite possible(highly likely) he'll achieve financial independence(freedom) in the near future(in the coming years) I guess.
+
+However, ***I don't foresee myself following in his footsteps.*** While we both ***fall under the broad category of*** programmers, our areas of expertise(skill sets) significantly differ. Nevertheless,  I'm not much of a risk-taker, ***entrepreneurship*** isn't my cup of tea(seems less appealing to me). My preference ***leans towards*** established, stable corporations where career growth translates to better financial rewards(paychecks), So, basically, I'm content(satisfied) with my current job, as long as the work environment, compensation and promotion opportunities for promotion(career growth) align with(meet/match with) my needs, I don't see a compelling reason to leave my current role. 
+
 ## Technological device (13-2)
 > Prompt: 
 > 
