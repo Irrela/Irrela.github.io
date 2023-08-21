@@ -9,15 +9,17 @@ tags:
 > [British spell and US spell](https://zhuanlan.zhihu.com/p/364110560)
 > [A few and just few]()
 
-# IELTS GENERAL TRAINING READING
-In the IELTS General Training Reading test, the number of reading passages varies in each section.
-Section 1: up to 3 short texts
-Section 2: 2 texts
-Section 3: one long text
-# IELTS GENERAL TRAINING WRITING
-In Task 1, you will need to write a formal or informal letter, for example, asking for information or explaining a situation. You will need to write no less than 150 words and, preferably, no more than 250 words in about 20 minutes.
+# Weak Spelling
+- reptile
+- tongue
+- crocodile
+- doze
+- jaw
+- monogamous
+- partner
+- twelve
+- surprise 
 
-In Task 2, you will have to write an essay based on a task on a topic of general interest that will include a point of view, argument or problem which you will need to discuss. You will have to write no less than 250 words and, preferably, no more than 350 words in about 40 minutes.
 
 
 # CAM 5

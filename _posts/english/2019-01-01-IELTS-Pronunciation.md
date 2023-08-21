@@ -57,6 +57,16 @@ tags:
 - ignites
 - compelling
 - lean
+- cotton
+- copper
+- botanic
+- botany
+- fibre
+- pile
+- tongue
+- tone
+- tune
+- partner
 
 
 

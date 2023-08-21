@@ -605,4 +605,15 @@ That's definitely not what was happening at neighboring sites ***during that tim
 I must admit I have ***reservations*** about the uncertainty that ***comes with it***. 
 > 我必须承认，我对随之而来的不确定性持保留态度。
 
- I greatly respect his visionary mindset and dedication to his ideals.
+I greatly respect his visionary mindset and dedication to his ideals.
+
+If I were a parent, I would be more than happy to have my children participate in these activities, as it can help them expand their social circles, broaden their horizons, and potentially nurture hobbies that would benefit them for a lifetime.
+
+Compared to home, school is a more complex and closer-to-real-life environment, which helps children develop various skills and abilities needed for social life, such as maintaining interpersonal relationships. When they graduate and ***enter the society***, this knowledge will ***come into play in*** their daily life and workplace.
+
+Compared to the real society, family relationships are relatively simple and warm(cozy), ***but in a way***, they are also singular and limited(). When we ***interact with*** our family members, we usually have an emotional foundation first, which can influence our perception and thinking, often making it difficult to make ***objective*** judgments.
+
+What are your demands?"
+
+Finally, I'd like to mention another study that ***involved*** collecting data by tracking the lizards.
+> 最后，我想提一下另一项通过追踪蜥蜴来收集数据的研究
