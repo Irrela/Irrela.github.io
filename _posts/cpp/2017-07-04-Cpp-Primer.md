@@ -1000,9 +1000,7 @@ int main() {
 }
 ```
 
-
 如果不使用智能指针，则用引用计数来手动实现：
-
 ```cpp
 // 使用引用计数的类
 class HasPtr {
@@ -1053,6 +1051,54 @@ class HasPtr {
 ```
 
 ## 13.3 交换操作
+> 定义swqp不是必要的，但对于分配了资源的类，这可能是一种很重要的优化手段
+
+```cpp
+// Personalized swap impl
+class HasPtr {
+    public:
+        // friend：访问private的数据成员
+        friend void swap(HasPtr&, HasPtr&);
+    private:
+        std::string *ps;
+        int i;
+};
+
+inline
+void swap(HasPtr &lhs, HasPtr &rhs) {
+    using std::swap;
+    swap(lhs.ps, rhs.ps);
+    swap(lhs.i, rhs.i);
+}
+
+int main() {
+    HasPtr lhs, rhs;
+    swap(lhs.h, rhs.h); // 使用HasPtr的swap
+    std::swap(lhs.h, rhs.h); // 使用标准库的swap
+}
+```
+
+### 在赋值运算符中使用swap
+定义swap的类通常用swap来定义它的赋值运算符。 
+
+这些运算符使用了一种叫 `copy and swap` 的技术：将左侧运算对象与右侧运算对象的一个新副本进行交换。
+
+```cpp
+// rhs按值传递，意味着参数传递时拷贝HasPtr的操作会分配该对象string成员的一个新副本
+HasPtr& HasPtr::operator=(HasPtr rhs) {
+    swap(*this, rhs);
+    return *this;
+}
+```
+> `copy and swap` 的好处在于*** 自动处理了自赋值情况切天然就是异常安全的。
+"Copy and swap" 是一种在实现拷贝赋值运算符时常用的技术，它的核心思想是通过创建一个 ***局部副本***来实现安全的赋值操作，然后利用交换技巧将副本的数据与当前对象的数据交换，最终导致副本在析构时释放原始资源。
+
+这种技术有两个主要优点：
+- ***自动处理自赋值情况***： 在实现拷贝赋值运算符时，我们需要考虑自赋值的情况，即对象试图将自己赋值给自己。这种情况如果不加处理可能会导致资源释放问题。而使用 "Copy and swap" 技术，我们首先创建了一个副本，然后再交换数据。因此，在自赋值的情况下，副本的数据会被复制到当前对象，而不会影响原有资源。
+
+- ***异常安全性***： "Copy and swap" 技术的另一个优点是它天然具有异常安全性。在进行赋值操作的过程中，如果发生异常，副本会在其作用域结束时被销毁，从而自动释放资源。这确保了异常发生时不会出现资源泄漏。
+
+综合来说，"Copy and swap" 技术在实现拷贝赋值运算符时可以简化逻辑，避免了自赋值和异常安全性问题，使得代码更加健壮和可维护。然而，需要注意的是，"Copy and swap" 技术需要额外的资源开销，因为它涉及创建临时副本。
 
 ## 13.4 拷贝控制示例
 

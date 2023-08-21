@@ -90,7 +90,7 @@ class HasPtr {
 
             return *this;
         }
-        
+
         ~HasPtr() {
             if (--*use == 0) { // 当引用计数归零
                 delete ps; // 释放string内存
@@ -104,6 +104,31 @@ class HasPtr {
         std::size_t *use; // 记录有多少个对象共享*ps的成员
 };
 
-int main() {
+// Personalized swap impl
+class HasPtr {
+    public:
+        // friend：访问private的数据成员
+        friend void swap(HasPtr&, HasPtr&);
 
+        HasPtr& HasPtr::operator=(HasPtr rhs) {
+            swap(*this, rhs);
+            return *this;
+        }
+
+    private:
+        std::string *ps;
+        int i;
+};
+
+inline
+void swap(HasPtr &lhs, HasPtr &rhs) {
+    using std::swap;
+    swap(lhs.ps, rhs.ps);
+    swap(lhs.i, rhs.i);
+}
+
+
+
+
+int main() {
 }
