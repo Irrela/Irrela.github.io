@@ -117,6 +117,75 @@ Part 3 answers are normally 3-4 sentences long. To extend your answers in part 3
 
 # PART-2
 
+## Long car journey
+> Describe a long car journey you went on.
+> 
+> You should say:
+> - Where you went
+> - What you did there
+> - Who you went there with
+> 
+> And explain why you went on that journey by car
+
+Well, let me take you on a memorable road trip I had in Hokkaido, Japan. ***It was a few years ago*** when my girlfriend, who is now my wife, and I decided to explore this beautiful island. We flew from(jetted off from) Hong Kong to Sapporo, the capital of Hokkaido, and there our adventure began. (Upon landing in Sapporo, the island's capital, we kicked off our adventure.)
+
+We rented a green Jimny ***off-road*** vehicle(car) locally because we might have to pass through some snowy and muddy roads and require a reliable and sturdy companion. Our plan was to drive from Sapporo all the way to Hakodate, which is the most northern city on the island, tracing the ***stunning*** coastline. It was a long journey, but it remains ***etched*** in my memory.
+
+As we hit the road, we were greeted by Hokkaido's picturesque landscapes. The coastal views were simply breathtaking. We made stops along the way at charming fishing villages, each offering its own unique seafood delicacies. We indulged in fresh sushi, crab, and other delectable treats. (we often pulled over to savor local delicacies in quaint fishing villages.)
+
+One highlight was our visit to the Sapporo Beer Factory and Museum, where we learned about the history of beer making in Japan and, of course, sampled some of their ***finest(exquisite)*** brews. It added a fun and flavorful dimension to our journey.
+
+But more than the ***sights(scenic landscapes)*** and food, it was the quality time spent with my girlfriend, the laughter, and the sense of adventure that made this car journey so special. It brought us closer, and now, whenever we ***reminisce about*** it, we can't help but smile. So, that's why we decided to ***embark on*** this road trip – to create ***lasting(cherished)*** memories together.
+
+## Family event from childhood
+> Describe a happy family event from your childhood, explain why you remember this event.
+
+Let me take you back to a truly special moment from my childhood. It was when my parents decided to take me on a trip to Hokkaido, and that became a truly unforgettable family event.
+
+I remember the excitement ***building up*** as we boarded the plane – it was my first time ***ever*** traveling abroad. The destination was Hokkaido, a place known for its stunning landscapes and ***chilly*** winters. As we arrived in Sapporo, I was amazed by the sight of snow-covered streets and the ***crisp***, fresh air.
+
+The event that ***stands out the most*** was our visit to the Sapporo Beer Factory and Museum. I ***recall*** being fascinated by the brewing process and learning about the history of this famous beer brand. It was a unique experience for a child and ***left a lasting impression on me.***
+
+Additionally, we explored the picturesque campus of Hokkaido University. The blend(fusion) of historical(Western-style) architecture and the beauty(allure) of the natural surroundings was captivating. The trip was a combination of fun, learning, and family bonding that has stayed with me all these years.
+
+This family event is etched in my memory because it was ***a mix of first experiences*** – my first trip abroad, my first encounter with snow, and my first ***exposure*** to different cultures. The joy and ***togetherness*** we shared during that trip are something I'll always treasure(cherish).
+
+### Sapporo Beer
+The Sapporo Beer Factory and Museum is a popular attraction in Sapporo, Hokkaido, Japan. It holds a significant place in Japan's brewing history and offers visitors an engaging and educational experience.
+
+The Sapporo Beer Factory was established in 1876, making it one of the oldest beer brands in Japan. The factory played a pivotal role in introducing Western-style brewing techniques to the country. The museum, built on the original site, takes visitors on a journey through the history of beer production in Japan.
+
+Upon entering the museum, visitors are transported back in time to the 19th century. The old red brick buildings and vintage machinery create an authentic atmosphere. One of the highlights is the guided tour that provides insights into the brewing process. You can learn about the ingredients used, the fermentation methods, and the intricate steps that go into creating Sapporo beer.
+
+The museum also showcases a variety of exhibits, including vintage advertisements, historical photographs, and artifacts related to brewing traditions. Visitors can also explore interactive displays that allow them to understand the science behind brewing and the distinctive flavors of different types of beer.
+
+After the tour, guests have the opportunity to taste freshly brewed Sapporo beer. This experience adds a flavorful touch to the educational visit. The museum also features a restaurant where you can enjoy local cuisine paired with Sapporo's finest brews.
+
+For me, visiting the Sapporo Beer Factory and Museum during the family trip to Hokkaido was an enriching experience. It provided a glimpse into the cultural and historical significance of beer in Japan, and it was fascinating to see how traditional brewing methods have evolved over the years. The combination of history, education, and the chance to savor a well-crafted beverage made the visit to the museum a memorable part of the family event.
+
+### Hokkaido
+Hokkaido is the northernmost and second-largest island of Japan. It's renowned for its stunning natural landscapes, which include vast forests, hot springs, and mountains. Due to its colder climate, Hokkaido experiences heavy snowfall during the winter months, making it a popular destination for winter sports enthusiasts.
+
+Sapporo, on the other hand, is the capital city of Hokkaido and one of Japan's major cities. It's famous for hosting the 1972 Winter Olympics and is known for its well-planned layout, modern infrastructure, and vibrant urban life. Sapporo is also celebrated for its annual Snow Festival, during which large snow and ice sculptures decorate the city, drawing tourists from around the world.
+
+Hokkaido University, located in Sapporo, is one of Japan's oldest and most prestigious institutions. Its campus is a blend of historical and modern architecture, reflecting its rich academic history and the city's contemporary development. The university is renowned for its contributions to research and education, particularly in the fields of agriculture, science, and engineering.
+
+Visiting Hokkaido and Sapporo, especially as a child, was a fascinating experience for me. It introduced me to the beauty of nature in the northern part of Japan and allowed me to explore a different cultural and geographical landscape than what I was used to. The combination of discovering a new place, spending quality family time, and encountering the uniqueness of Hokkaido's environment is why this event remains so vividly etched in my memory.
+
+### Hakodate
+Hakodate is a charming coastal city located in the southern part of Hokkaido, Japan. It holds a special place as one of the first Japanese cities to open its doors to international trade in the mid-19th century. This historical significance is still reflected in the city's unique blend of Japanese and Western cultures.
+
+One of the most iconic attractions in Hakodate is the Goryokaku Fort, a star-shaped fortress that dates back to the 19th century. It offers a glimpse into Japan's history during the end of the samurai era. The Goryokaku Tower provides panoramic views of the fort and its surrounding cherry blossoms in spring and vibrant foliage in autumn.
+
+Hakodate is also famous for its seafood, thanks to its coastal location. The Hakodate Morning Market is a bustling place where visitors can savor fresh seafood delicacies such as squid, crab, and various types of fish. Don't miss the opportunity to try the local specialty, "Hakodate shio ramen," a flavorful noodle dish with a seafood-based broth.
+
+Mount Hakodate is another must-visit attraction. It offers a spectacular view of the city, especially during the evening when the city lights up. The ropeway ride to the mountaintop is an experience in itself.
+
+The city's historical district, Motomachi, features Western-style buildings from the late 19th and early 20th centuries, a testament to its international heritage. The Old Public Hall of Hakodate Ward is a prime example of this architecture and offers insights into the city's past.
+
+Hakodate is a picturesque city that beautifully combines history, culture, and natural beauty. Its distinctive blend of East and West, along with its rich seafood offerings, historical sites, and stunning vistas, make it a memorable destination for travelers seeking a unique Japanese experience.
+
+
 ## Founder of a business (13-1)
 > Describe someone you know who has started a business.
 > 
