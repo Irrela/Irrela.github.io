@@ -617,3 +617,6 @@ What are your demands?"
 
 Finally, I'd like to mention another study that ***involved*** collecting data by tracking the lizards.
 > 最后，我想提一下另一项通过追踪蜥蜴来收集数据的研究
+
+The book "The Old Man and the Sea" easily ***brings to mind*** its author, Ernest Hemingway, himself.
+The book 'The Old Man and the Sea' easily ***reminds us of*** its author, Ernest Hemingway, himself.

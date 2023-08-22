@@ -117,6 +117,44 @@ Part 3 answers are normally 3-4 sentences long. To extend your answers in part 3
 
 # PART-2
 
+## Favorite purchase
+> Describe something you liked very much which you bought for your home.
+>
+> You should say:
+> - what you bought
+> - when and where you bought it
+> - why you chose this particular thing
+> 
+> and explain why you liked it so much.
+
+One of my favorite items that I purchased for my home is a Dyson vacuum cleaner. I remember buying it about a year ago during a major online shopping event. It was a great deal, and I knew it was the right time to invest in a high-quality vacuum cleaner.
+
+I'm a bit of a neat freak, so indoor cleaning is a top priority for me. Plus, I have a cat at home, and if I don't clean the floor regularly, I end up with a lot of dust and hair accumulation. I had been hearing a lot about Dyson vacuum cleaners from friends and colleagues, and their positive reviews intrigued me. Plus, I had the chance to try it out at a friend's house, and I was impressed by its efficiency and sleek design(beautiful look). So, when I saw it on sale, I didn't hesitate to buy one for myself.
+
+What I love about this vacuum cleaner is how effective and user-friendly it is. It's cordless so you don't need to worry about ***tangled*** power cords or searching for ***power outlets*** everywhere. It effortlessly cleans all types of surfaces, from hardwood floors to carpets, with a range of interchangeable heads. Its advanced technology(powerful ***suction***) ensures that even the tiniest specks of dust are picked up. The sleek design and modern aesthetics also add a touch of elegance to my home.
+
+Using the Dyson vacuum cleaner has become a ***breeze***, and it has made the ***chore*** of cleaning much more enjoyable. I appreciate the thought that went into its design and functionality. It's not just a cleaning tool; it's an investment in a cleaner and more comfortable living space. Every time I use it, ***I'm reminded of*** how much I appreciate having such a reliable and efficient appliance in my home.
+
+## Book
+> Describe a book that you enjoyed reading because you had to think a lot.
+> 
+> You should say:
+> - what this book was
+> - why you decided to read it
+> - what reading this book made you think about
+> 
+> and explain why you enjoyed reading this book.
+
+I'd like to talk about a book that truly engaged my mind and left me pondering its deeper meanings – "The Old Man and the Sea" by Ernest Hemingway. I was reading this book back in junior high school(middle school), and life as a boarding student at school was quite dull. I'm not sure where I came across some old novels(I found some old novels from somewhere), but I used them to pass the time, and among them was this book(this book happened to be among them). I had heard of(heard about) Hemingway's reputation as a literary giant and his book long before, and I was curious about the thought-provoking nature of his work.
+
+The decision to read "The Old Man and the Sea" turned out to be quite rewarding. As I delved into the story of an elderly Cuban fisherman's epic struggle with a colossal marlin, I found myself contemplating themes of determination, resilience, and the human spirit. The narrative made me reflect on the significance of challenges and how they shape one's character, reinforcing my belief in the power of unwavering perseverance.
+
+Furthermore, Hemingway's minimalist writing style compelled me to read between the lines, extracting deeper meanings from the text. The symbolic portrayal of the old man's battle echoed Hemingway's own life experiences, particularly his involvement in the Spanish Civil War, adding layers of depth to the story.
+
+What I particularly enjoyed was how the book's open-ended conclusion led me to ponder the interpretation and the ultimate fate of the characters. "The Old Man and the Sea" left me with an ongoing dialogue of introspection and contemplation.
+
+In summary, this book not only enriched my understanding of life's struggles but also sparked intellectual curiosity. The opportunity to explore profound themes and the chance to decipher its symbolism made reading "The Old Man and the Sea" an intellectually rewarding experience that I thoroughly relished.
+
 ## Long car journey
 > Describe a long car journey you went on.
 > 
