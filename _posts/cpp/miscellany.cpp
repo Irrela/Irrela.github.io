@@ -1,6 +1,8 @@
 #include <iostream>
+#include <set>
 
-class HasPtr {
+class HasPtr 
+{
     public:
         /* 
         = std::string()：这是默认参数值的设置。
@@ -58,7 +60,8 @@ class HasPtr {
 };
 
 // 使用引用计数的类
-class HasPtr {
+class HasPtr 
+{
     public:
         /*
         构造函数分配新的string和新的计数器，并将计数器置为1
@@ -105,7 +108,8 @@ class HasPtr {
 };
 
 // Personalized swap impl
-class HasPtr {
+class HasPtr 
+{
     public:
         // friend：访问private的数据成员
         friend void swap(HasPtr&, HasPtr&);
@@ -121,14 +125,125 @@ class HasPtr {
 };
 
 inline
-void swap(HasPtr &lhs, HasPtr &rhs) {
+void swap(HasPtr &lhs, HasPtr &rhs) 
+{
     using std::swap;
     swap(lhs.ps, rhs.ps);
     swap(lhs.i, rhs.i);
 }
 
 
+class Folder 
+{
+public:
+    void remMsg(Message*);
+    void addMsg(Message*);
+};
+
+class Message
+{
+    friend class Folder;
+    friend void swap(Message&, Message&); // 声明 swap 函数为友元函数
+public:
+    explicit Message(const std::string &str="") : 
+        contents(str) {}
+
+    Message(const Message&); // cctor
+    Message& operator=(const Message&); // caop
+    ~Message(); // dtor
+
+    void save(Folder&);
+    void remove(Folder&);
+    // void swap(Message&, Message&);
+private:
+    std::string contents;
+    std::set<Folder*> folders;
+
+    void Message::add_to_Folders(const Message&);
+    void remove_from_Folders();
+};
+
+void Message::save(Folder &f)
+{
+    folders.insert(&f);
+    f.addMsg(this);
+}
+
+void Message::remove(Folder &f)
+{
+    folders.erase(&f);
+    f.remMsg(this);
+}
+
+void Message::add_to_Folders(const Message &msg)
+{
+    for (auto folder : msg.folders) 
+    {
+        folder->addMsg(this);
+    }
+}
+
+void Message::remove_from_Folders()
+{
+    for (auto f : folders)
+    {
+        f->remMsg(this);
+    }
+}
+
+Message::Message(const Message &m):
+        contents(m.contents), folders(m.folders) 
+{
+    add_to_Folders(m);
+}
+
+Message::~Message()
+{
+    remove_from_Folders();
+}
+
+Message& Message::operator=(const Message &rhs)
+{
+    remove_from_Folders();
+
+    contents = rhs.contents;
+    folders = rhs.folders;
+    add_to_Folders(rhs);
+
+    return *this;
+}
+
+void swap(Message &lhs, Message &rhs) 
+{
+    using std::swap;
+
+    for (auto f : lhs.folders) 
+    {
+        f->remMsg(&lhs);
+    }
+
+    for (auto f : rhs.folders)
+    {
+        f->remMsg(&rhs);
+    }
+
+    swap(lhs.folders, rhs.folders);
+    swap(lhs.contents, rhs.contents);
+
+    for (auto f : lhs.folders)
+    {
+        f->addMsg(&lhs);
+    }
+
+    for (auto f : rhs.folders)
+    {
+        f->addMsg(&rhs);
+    }
+
+}
 
 
-int main() {
+
+int main() 
+{
 }
