@@ -21,6 +21,11 @@ tags:
 - surprise 
 - interchangeable
 - replaceable
+- bicycle
+- during the rush hour
+- preferable
+- prioritized
+- museum
 
 
 

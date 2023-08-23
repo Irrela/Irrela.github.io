@@ -618,5 +618,12 @@ What are your demands?"
 Finally, I'd like to mention another study that ***involved*** collecting data by tracking the lizards.
 > 最后，我想提一下另一项通过追踪蜥蜴来收集数据的研究
 
-The book "The Old Man and the Sea" easily ***brings to mind*** its author, Ernest Hemingway, himself.
-The book 'The Old Man and the Sea' easily ***reminds us of*** its author, Ernest Hemingway, himself.
+The book "The Old Man and the Sea" easily ***brings to mind(reminds us of)*** its author, Ernest Hemingway, himself.
+
+You should be able to get something ***reasonable for*** 850 pounds per month. That's what people typically pay. You certainly wouldn't want to pay more than 900 pounds. That doesn't include bills or anything.
+
+Yeah, the train service isn't bad ***during the week***. And they run quite late at night.
+
+***But other than that(Aside from that/Apart from that/Besides that/Excluding that)***, Banford's a great place to live. I've never been happier.
+
+Let me know which train you're ***catching*** and I'll meet you in the cafe outside. You can't miss it. It's opposite the station and next to the museum.
