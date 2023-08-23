@@ -117,6 +117,43 @@ Part 3 answers are normally 3-4 sentences long. To extend your answers in part 3
 
 # PART-2
 
+## Living environment
+
+## Pet
+> Describe a pet that you once had.
+> 
+> You should say:
+> - what kind of animal it was
+> - what type of care it needed
+> - what you liked/didn't like about it
+> 
+> and say whether it is a popular pet to own or not.
+
+I used to have a British Short-hair cat with subtle grey brindles(stripes/streaks) on its tail. 
+Her tail is larger and fluffier than those of other cats of the same breed, as told to me by the pet doctor during her regular check-up,I think it adds to her cuteness. Taking care of her is quite straightforward; Cats are indoor creatures who prefer the comfort of home, which means they don't need to be taken for walks outside like dogs do. Ensuring they have food, water, and spending time playing and petting them daily suffices, along with regular ear cleaning and annual check-ups. (Making sure they have their food and water, spending time with them for play and cuddles every day, and giving their ears a regular cleaning while also scheduling an annual check-up is all you really need to do.)
+
+What I love about my cat is her adorable appearance and friendly nature. She's a quiet companion, perfect to unwind with after a day's work. Cats like mine are quite popular, especially among the younger generation living fast-paced lives in urban areas. They offer emotional support and are relatively low-maintenance, making them an ideal choice for busy lifestyles. Owning a cat is a delightful experience that brings a lot of joy and companionship.
+
+## Studying a new language
+> Describe a thing you did to learn another language
+> 
+> You should say:
+> – What language have you learned?
+> – What you did do?
+> – How does it helps you learn the language?
+> 
+> And how do you feel about it?
+
+I'd like to talk about my journey in learning the Japanese language. I took on this challenge as part of my goal to apply for a master's program at the University of Tokyo. Knowing that Japanese proficiency was a requirement, I embarked on this linguistic adventure.
+
+To kickstart my learning, I scoured the internet for valuable resources, such as test information, practice papers, and study guides. Additionally, I sought guidance from friends who were majoring in Japanese. They recommended textbooks, language apps, and online courses that proved to be immensely helpful.
+
+However, what truly accelerated my learning was the creation of a meticulously planned study routine. With only six months until the application deadline, I designed a schedule that included daily vocabulary drills, grammar exercises. I didn't spend time practicing speaking and writing, unlike English exams like IELTS. The JLPT doesn't test these skills. I'm glad about that because back then, finding a suitable partner to practice speaking with was quite challenging for me. However, this also meant that when I first arrived in Japan, I struggled to communicate with locals. (I can remember that the Japanese I spoke was entirely influenced by mimicking Japanese TV shows and cartoons, which differed significantly from everyday Japanese conversations in work and daily life.")
+
+Each step of this language-learning journey was both challenging and rewarding. The process of memorizing complex characters, understanding grammar intricacies, and grasping the nuances of spoken Japanese was truly enriching. Beyond securing my spot at the university, I gained a deep appreciation for the Japanese culture and people.
+
+In conclusion, my endeavor to learn Japanese was not solely about fulfilling an academic requirement; it was a personal voyage that opened doors to a new world. As I successfully navigated this linguistic terrain, I found myself equipped with a valuable skill that I will carry with me, fostering a sense of accomplishment and excitement for further language exploration.
+
 ## Overcome adversity
 > Describe a very difficult task that you succeeded in doing as part of your work or studies.
 > 
