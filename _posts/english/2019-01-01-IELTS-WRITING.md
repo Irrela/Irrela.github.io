@@ -627,3 +627,14 @@ Yeah, the train service isn't bad ***during the week***. And they run quite late
 ***But other than that(Aside from that/Apart from that/Besides that/Excluding that)***, Banford's a great place to live. I've never been happier.
 
 Let me know which train you're ***catching*** and I'll meet you in the cafe outside. You can't miss it. It's opposite the station and next to the museum.
+
+***Provided*** the conditions are right, of course - only fanatics go out in the wind and rain!
+
+provided the conditions are right, of course - only fanatics go out in the wind and rain!
+
+Obviously there can be significant costs involved.
+> 显然，这可能会花费巨大。
+
+
+One thing you can do to help yourself is to set manageable goals - be realistic and don't push yourself too far.
+> 设定易控制的目标是你可以做的帮助自己的一件事，现实一点，不要太逼自己。

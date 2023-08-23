@@ -88,6 +88,7 @@ tags:
 - fortitude
 - eligible
 - eligibility
+- chance
 
 
 # Unfamiliar words

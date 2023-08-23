@@ -35,6 +35,7 @@ tags:
 - dedication
 - determination
 - subtle
+- setbacks
 
 
 # CAM 5
