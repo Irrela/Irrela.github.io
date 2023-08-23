@@ -79,8 +79,15 @@ tags:
 - decipher
 - contemplate
 - appliance
-
-
+- officer
+- official
+- endeavor
+- junior
+- exceed
+- prior
+- fortitude
+- eligible
+- eligibility
 
 
 # Unfamiliar words

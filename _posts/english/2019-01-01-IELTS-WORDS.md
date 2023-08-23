@@ -29,6 +29,12 @@ tags:
 - institution
 - vehicle
 - negotiate
+- miscellany
+- soldier
+- commitments
+- dedication
+- determination
+  
 
 
 # CAM 5

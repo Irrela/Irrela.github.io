@@ -117,6 +117,24 @@ Part 3 answers are normally 3-4 sentences long. To extend your answers in part 3
 
 # PART-2
 
+## Overcome adversity
+> Describe a very difficult task that you succeeded in doing as part of your work or studies.
+> 
+> You should say:
+> - what task you did
+> - why this task was very difficult
+> - how you worked on this task
+> 
+> and explain how you felt when you had successfully completed this task.
+
+I'd like to share my experience of applying for a master's program at the University of Tokyo. It all began during my junior year's winter break when I traveled to Japan with my girlfriend. (Upon returning) The idea of pursuing further studies there sparked during this trip, prompting me to independently(on my own) apply for the program.
+
+However, the challenge ahead proved even tougher than I anticipated(far exceeded my expectations). The crux of the matter was the tight timeline. With a just(a mere) seven months from concept to submission, I had to assemble(compile) all the application documents, including the JLPT N1 certification – a Japanese language proficiency credential akin to(similar to/resembling/comparable to/quite like) the IELTS for English – despite having no prior experience with the language.(and notably, I had no prior experience with the language.)
+
+My approach began with an ***introductory*** email in English to a potential(prospective) graduate supervisor at the University of Tokyo. Once my eligibility(suitability) was confirmed(affirmed), I embarked on N1 exam preparations. I gathered online information, consulted Japanese language major peers for recommended materials, crafted a comprehensive(meticulously devised) study plan, and scheduled four consecutive exams to secure the best score. (and scheduling four consecutive exams for the best score ***constituted my strategy***.)
+
+I have to confess that ***juggling(Balancing)*** coursework and application requirements(commitments) demanded my full dedication(consumed my energy) at that time. After six months of arduous work, I passed the Japanese language exam and submitted all the essential(required) application materials a week ***ahead of*** the deadline. Receiving the acceptance email left me ecstatic – I was over the moon. This accomplishment remains etched in my memory, continuously fueling my determination and confidence when facing similar challenges ***in the days to come.***.
+
 ## HomeTown
 > Describe your hometown.
 > 

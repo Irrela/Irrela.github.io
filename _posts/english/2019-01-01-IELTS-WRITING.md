@@ -75,7 +75,7 @@ Thank you for your attention to this matter. I eagerly await your response.
 
 
 
-### House> -sitting
+### House-sitting
 > A friend has agreed to look after your house and pet while you are on holiday. Write a letter to your friend.
 
 > In your letter:
