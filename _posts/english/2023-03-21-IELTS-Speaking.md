@@ -117,6 +117,26 @@ Part 3 answers are normally 3-4 sentences long. To extend your answers in part 3
 
 # PART-2
 
+## HomeTown
+> Describe your hometown.
+> 
+> You should say:
+> – where it is located
+> – what people do there
+> – what the climate is like
+> 
+> and explain how you feel about your hometown.
+
+My hometown, Mianyang, is nestled in(located in) the heart of Sichuan province, surrounded by a picturesque landscape of rolling mountains and lush greenery. Benefits from its higher altitude, Mianyang has a sunny and dry climate that is comfortable for the most of a year.
+
+(My hometown is a small city in the southwest of China, In the last century, it was an industrial city mainly focused on the military sector)
+
+Historically, Mianyang was known as a Military-Industrial hub with numerous factories and research institutions. Over time, these facilities have transitioned into civilian roles, producing items like televisions and electric vehicle components(components of electric cars). This has led to a community of skilled workers, engineers, and individuals with military backgrounds,and it deeply shaped the town's character I think.
+
+What I particularly appreciate about my hometown is its tranquil and unhurried(charming) atmosphere(ambience). Similar to other inland western cities, residents here embrace a more relaxed way of living(enjoy a slower, more ***laid-back*** lifestyle). It's common to find locals gathered at traditional tea houses, where they engage in leisurely games of poker or mahjong. These tea houses serve as vibrant social hubs where people bond over games, sip tea, and share stories.
+
+Personally, I have warm feelings towards my hometown; its peaceful ***ambience*** and natural beauty make it a wonderful place to live. 
+
 ## Favorite purchase
 > Describe something you liked very much which you bought for your home.
 >
