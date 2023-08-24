@@ -673,3 +673,39 @@ Theaters may be **better off** being operated as private businesses.
 
 ## Mean
 I think this issue needs to be discussed **on a case-by-case basis**.
+
+# Topic
+
+## Find job
+Out of interest, I studied nuclear physics during my undergraduate years. 
+
+However, when I was in my senior year searching for a job, things didn't go smoothly. 
+
+Many companies related to my major, such as nuclear power plants and energy companies, didn't ***spark much interest in me***. I felt quite frustrated during that period.
+
+Initially, I just wanted to ask him out for dinner and have a chat.
+
+After hearing about my current situation, he suggested, "Have you ever thought about applying for positions in internet companies? It seems like a good option in terms of work environment and income."
+
+***I must say that*** this suggestion greatly changed the course of my career.
+
+In fact, I had also heard about the various benefits of the thriving internet companies these days. I even checked out job postings from some companies. 
+
+However, since I wasn't a computer science major, I realized that I didn't meet the requirements for some of the positions that interested me. As a result, ***I didn't pursue them further.***
+
+But my classmates informed me that the actual recruitment requirements for these specialized backgrounds weren't as rigid as I thought. 
+
+For some companies experiencing rapid growth, the demand for recruitment was quite high. 
+
+They were even open to considering students with non-computer science majors, especially those with backgrounds in foundational sciences like physics or mathematics. 
+
+They believed that these students had strong mathematical foundations and logical thinking skills, which would enable them to quickly grasp programming skills and have better development potential. 
+
+He strongly encouraged me to submit applications and give it a try. As it turned out, his advice was entirely accurate. 
+
+I started self-learning programming while simultaneously applying and attending interviews. Before I graduated, I even received offers from several different companies. 
+
+If it wasn't for that conversation with him, I wouldn't have known this information, and I wouldn't have had the subsequent job opportunities. So, I'm truly grateful to him.
+
+## Living condition
+My place is about a 20-minute drive from the city center.

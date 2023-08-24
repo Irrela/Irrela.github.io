@@ -51,9 +51,21 @@ More disadvantages
 - Not necessarily means more outcome in career
 
 
-# Practice
+# Practice - Task 1
 
 ## Task 1
+
+### New Airport
+You recently discovered that there are plans to build a new airport in your area and you are not happy with it. Write a letter to the local authority. 
+
+In your letter,
+- Say how you found out about the plans
+- Explain what problems your neighborhood will face
+- Suggest some possible solutions to those problems.
+
+Dear 
+I'm writing to express my concerns regarding the newly announced construction plan of airport in our district. After a thorough discussion in community committee, as the representative, I'm going to 
+
 
 ### Lost item on a train
 > You have lost an item of value on a train. Write a letter to the railway company. 
@@ -123,6 +135,7 @@ Thank you for your time and consideration. I look forward to your response.
 Sincerely,
 [Your Name]
 
+# Practice - Task 2
 
 ## Type: Agree or not (Opinion)
 
@@ -635,12 +648,12 @@ provided the conditions are right, of course - only fanatics go out in the wind 
 Obviously there can be significant costs involved.
 > 显然，这可能会花费巨大。
 
-
 One thing you can do to help yourself is to set manageable goals - be realistic and don't push yourself too far.
 > 设定易控制的目标是你可以做的帮助自己的一件事，现实一点，不要太逼自己。
 
-
 Speaking about the current situation of traditional theaters in China, from my observation, they seem to lack resonance among the younger generation. 
+
+They don't ***have*** much ***interest in*** traditional dramas. (They aren't interested in traditional dramas./ They ***have no interest in*** traditional dramas.)
 
 ***Rather than saying that*** young people don't enjoy traditional performances, ***it's more accurate to say that*** many of them don't know how to ***appreciate*** these traditional arts and understand the enjoyment they offer. 
 
@@ -649,6 +662,8 @@ It's noticeable that the government is trying to elevate the status of tradition
 However, I believe ***more needs to be done*** in terms of promoting and popularizing these traditional forms of entertainment.
 
 I believe developers can create a senior mode for their applications, offering features like enlarged fonts, placing ***commonly used*** functions on the homepage, and providing a ***dedicated*** customer service channel for seniors.
+
+
 
 
 
