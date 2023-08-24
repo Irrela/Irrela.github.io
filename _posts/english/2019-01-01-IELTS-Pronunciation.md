@@ -89,6 +89,8 @@ tags:
 - eligible
 - eligibility
 - chance
+- plural
+- trousers
 
 
 # Unfamiliar words

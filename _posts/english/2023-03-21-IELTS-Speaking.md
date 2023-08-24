@@ -709,3 +709,30 @@ If it wasn't for that conversation with him, I wouldn't have known this informat
 
 ## Living condition
 My place is about a 20-minute drive from the city center.
+
+
+## Pending
+James White gave me your number. I hope you don't ***mind*** me calling you.
+
+I didn't do well in my exams at school and I was really worried because I failed Maths. But ***it didn't actually matter*** because I did lots of ***courses*** on the job.
+
+Yes. That sounds good. I took the one on IT skills but I wish I'd done that one instead.
+
+What about the other trainees? How did you ***get on with*** them?
+
+we were all ***around*** the same age
+
+***It seems like*** there are a lot of opportunities there.
+
+Because of its size you can work in ***loads of*** different areas within the organization.
+
+You're given lots of different things to do. I enjoyed it all - I didn't even ***mind*** the studying.
+
+Yes, it's on the 23rd of this month.
+
+***So long as*** you're well prepared there's nothing to worry about. Everyone's very friendly.
+
+I never wear ***jeans[plural]*** to work.
+
+I'll have to practice doing that ***in the mirror***!
+

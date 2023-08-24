@@ -41,6 +41,9 @@ tags:
 - committee
 - representative
 - passenger
+- minimum
+- casual
+- casulty
 
 
 # Grammar
