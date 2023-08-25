@@ -55,6 +55,33 @@ More disadvantages
 
 ## Task 1
 
+### Appreciate Restaurant
+> You and some friends ate a meal at a restaurant to celebrate a special occasion, and you were very pleased with the food and services. Write a letter to the restaurant manager. 
+> 
+> In your letter
+> - Give details of your visit to the restaurant
+> - Explain the reason for the celebration
+> - Say what was good about the food and the services
+
+Dear [Restaurant Manager's Name],
+
+I am writing to ***express my sincere gratitude(appreciation) and admiration*** for the ***exceptional dining experience*** my friends and I had at your restaurant recently. Our visit was to celebrate the graduation of a dear friend, and I must say that your establishment made this occasion truly memorable.
+
+From the moment we entered, we were impressed by the warm and welcoming *ambiance(atmosphere)*. The attentive staff guided us to our table promptly, setting the tone for what was to be an outstanding evening. Our server, Jane, ***deserves special mention for*** her ***professionalism***, attentiveness, and thoughtfulness. She *inquired about* any possible allergies among us and kindly offered suggestions as we *placed our orders*, ensuring that our dining experience would be both enjoyable and safe.
+
+The culinary delights we *savored* were a true *testament to* your restaurant's excellence. The diverse menu *catered to various tastes*, and the dishes(delicacies/plates/culinary delights) were *prepared to perfection*. The flavors were *exquisite*, and each bite was a delightful journey of taste. The presentation of the dishes showcased the chef's mastery, truly adding to the overall dining experience.
+
+Furthermore, the services ***rendered*** were impeccable. The staff's ***knowledge about*** the menu and their recommendations were appreciated. The ***promptness*** in ***serving our courses*** and their willingness to ***accommodate our requests*** contributed significantly to our enjoyment.
+
+In conclusion, our celebration at your restaurant was a ***resounding*** success, largely due to the ***delectable(tasty/delicious)*** food and *outstanding(exceptional/remarkable/extraordinary/unparalleled/incomparable/superb)* services. You and your team have created a haven for culinary enthusiasts, and we are eager to return to indulge in more gastronomic delights.
+
+Once again, thank you for making this special occasion even more memorable. We eagerly look forward to our next visit.
+
+Warm regards,
+
+
+
+
 ### New Airport
 > You recently discovered that there are plans to build a new airport in your area and you are not happy with it. Write a letter to the local authority. 
 >

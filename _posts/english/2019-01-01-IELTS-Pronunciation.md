@@ -94,6 +94,8 @@ tags:
 - propose
 - proximity
 - optimally
+- admiration
+- allergy
 
 
 # Unfamiliar words

@@ -47,6 +47,15 @@ tags:
 - vicinity
 - inhabitant(resident/dweller/citizen)
 - earnest
+- recommendation
+- perfection
+- gratitude
+- atmosphere
+- professionalism
+- exquisite
+- enthusiast
+- enthusiastic
+- enthusiasm[u]
 
 
 # Grammar
