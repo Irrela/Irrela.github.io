@@ -62,6 +62,8 @@ tags:
 - relaxation
 - alleviate
 - dedicated(committed/resolute/devoted/engaged)
+- recipient
+- ample/enough/sufficient
 
 # Grammar
 

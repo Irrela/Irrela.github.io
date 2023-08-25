@@ -55,6 +55,22 @@ More disadvantages
 
 ## Formal feedback & request
 
+###  Sent docs lost
+> You recently sent some documents by post, but they did not arrive. Write a letter to the post manager. In your letter
+>
+> - Give details of the situation
+> - Describe the documents
+> - Say what action you want the post office to take.
+
+I am writing to *address an issue* that has *left me quite concerned*. A recent shipment of documents I sent via post has not yet reached(arrived at) its *intended(designated/proposed/planned/expected)* destination.
+
+The documents were well-packaged and *dispatched* last Wednesday from a local post office. They *consist of* *a set of* legal papers related to my banking business, making them *of significant value* in terms of personal and legal importance. Despite the assurance provided by the postal service, I *regret to* (I am disappointed to) inform you that I have received no confirmation of their safe arrival.
+
+I kindly request that you investigate this matter promptly.(I kindly request a prompt investigation into this matter.) Since the documents are time-sensitive and *hold high significance for both parties involved*, tracing the *whereabouts[u]* of the package and ensuring its swift delivery to its originally intended *recipient* is my *resolute demand*. I would greatly appreciate it if you could *keep me informed about* the *updated status* of my package *during the forthcoming(upcoming/approaching) delivery*.
+
+I trust that my requests will receive serious and immediate attention. Please feel free to *reach out to me* if any further information is needed.
+
+
 ## Improve college cafeteria
 
 > You eat at your college cafeteria every lunchtime. However, you think it needs some improvements. Write a letter to the college magazine. In your letter,
@@ -88,8 +104,7 @@ To address these issues, I suggest implementing a few improvements. Expanding th
 
 In conclusion, the college cafeteria is a fundamental part of our campus life, and with some strategic enhancements, it can further contribute to a positive student experience. I believe these suggestions could bring about positive changes that would benefit the entire student body.
 
-Thank you for considering my input.
-
+*Thank you for considering my input.*ß
 
 ### Share dormitory
 > You live in a room in college which you share with another student. However, there are many problems with this arrangement and you find it very difficult to work. Write a letter to the accommodation officer at the college. In the letter,
