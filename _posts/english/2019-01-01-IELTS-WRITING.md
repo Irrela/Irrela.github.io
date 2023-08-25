@@ -56,29 +56,29 @@ More disadvantages
 ## Task 1
 
 ### New Airport
-You recently discovered that there are plans to build a new airport in your area and you are not happy with it. Write a letter to the local authority. 
-
-In your letter,
-- Say how you found out about the plans
-- Explain what problems your neighborhood will face
-- Suggest some possible solutions to those problems.
+> You recently discovered that there are plans to build a new airport in your area and you are not happy with it. Write a letter to the local authority. 
+>
+> In your letter,
+> - Say how you found out about the plans
+> - Explain what problems your neighborhood will face
+> - Suggest some possible solutions to those problems.
 
 Dear authority,
 
-I am writing to express my deep concerns regarding the recently(newly) announced(proposed) plans for constructing a new airport within our district. 
+I am writing to ***express my deep concerns regarding*** the recently(newly) announced(proposed) plans for constructing a new airport ***within*** our district. 
 
-I came across this information last week while listening to a local radio channel, and I feel compelled to address the potential adverse repercussions that this project might bring to our neighborhood.
+I ***came across*** this information last week while listening to a local radio channel, and I feel ***compelled*** to address the potential ***adverse*** repercussions(***consequences/implications***/impacts) that this project might bring to our neighborhood.
 
-Moreover, the ***extensive*** land allocation for the airport raises questions about the judicious use of valuable space. This land, which could otherwise be utilized for community-enhancing amenities like shopping malls, hospitals, and parks, has the potential to significantly elevate the overall quality of life for local residents and bolster employment opportunities in the vicinity. In contrast, the anticipated benefits of the airport appear limited in comparison to the negative impacts it might generate.
+I believe the airport occupies too much land that ***could have been originally*** used for common purposes, such as a shopping mall, hospital, and park. These amenities have the potential to significantly improve the quality of life for the ***surrounding*** residents and enhance employment opportunities in the locality. When compared to the limited benefits that the airport would bring to us, it becomes apparent that this situation is unjust for the community. 
 
-I believe the airport occupies too much land that could have been originally used for common purposes, such as a shopping mall, hospital, and park. These amenities have the potential to significantly improve the quality of life for the surrounding residents and enhance employment opportunities in the locality. When compared to the limited benefits that the airport would bring to us, it becomes apparent that this situation is unjust for the community.
-(Additionally, the extensive land allocation for the airport raises questions about the judicious use of valuable space. This land, which could otherwise be utilized for community-enhancing amenities like shopping malls, hospitals, and parks, has the potential to significantly elevate the overall quality of life for local residents and bolster employment opportunities in the vicinity. In contrast, the anticipated benefits of the airport appear limited in comparison to the negative impacts it might generate.)
+(Moreover, the ***extensive*** land allocation for the airport ***raises questions about*** the judicious use of valuable space. This land, which could otherwise be utilized for community-enhancing amenities like shopping malls, hospitals, and parks, has the potential to significantly elevate the overall quality of life for local residents and ***bolster*** employment opportunities in the ***vicinity***. ***In contrast***, the ***anticipated*** benefits of the airport ***appear*** limited ***in comparison to*** the negative impacts it might generate.)
 
-I would like to suggest reducing airport's size and relocating it to the far side, thus the noise influence could be well controlled and space at the close side could be developed to mall, which can both serve passengers and local citizens. 
-(I would like to propose an alternative solution that involves downsizing the airport and relocating it to a more remote location. By implementing this approach, the adverse noise effects could be effectively mitigated, while the vacated space in close proximity could be optimally repurposed for the benefit of both passengers and local inhabitants.)
+I would like to suggest reducing airport's size and relocating it ***to the far side***, thus the noise influence could be well controlled and space at the close side could be developed to mall, which can both serve passengers and local citizens. 
+
+(I would like to ***propose*** an alternative solution that ***involves downsizing*** the airport and relocating it to a more remote location. By implementing this approach, the adverse noise effects could be effectively ***mitigated***, while the ***vacated*** space in close ***proximity*** could be ***optimally*** repurposed for the benefit of both ***passengers*** and local ***inhabitants***.)
 
 I would be greatly appreciate it if you could treat this issue seriously, I'm looking forward to hearing from you.
-(I sincerely hope that you will give earnest consideration to this matter. Your thoughtful attention to these concerns would be highly appreciated. I eagerly anticipate your response.)
+(I sincerely hope that you will give ***earnest*** consideration to this matter. Your thoughtful attention to these concerns would be highly appreciated. I eagerly anticipate your response.)
 
 
 

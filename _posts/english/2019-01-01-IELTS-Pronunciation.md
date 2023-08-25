@@ -91,6 +91,9 @@ tags:
 - chance
 - plural
 - trousers
+- propose
+- proximity
+- optimally
 
 
 # Unfamiliar words

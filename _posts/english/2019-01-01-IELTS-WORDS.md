@@ -43,7 +43,10 @@ tags:
 - passenger
 - minimum
 - casual
-- casulty
+- casualty
+- vicinity
+- inhabitant(resident/dweller/citizen)
+- earnest
 
 
 # Grammar
