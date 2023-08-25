@@ -56,7 +56,12 @@ tags:
 - enthusiast
 - enthusiastic
 - enthusiasm[u]
-
+- functionality
+- bicycle
+- designated
+- relaxation
+- alleviate
+- dedicated(committed/resolute/devoted/engaged)
 
 # Grammar
 

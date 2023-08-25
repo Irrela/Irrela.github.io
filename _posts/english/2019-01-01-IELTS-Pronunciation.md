@@ -96,6 +96,8 @@ tags:
 - optimally
 - admiration
 - allergy
+- strategic
+- strategy
 
 
 # Unfamiliar words
