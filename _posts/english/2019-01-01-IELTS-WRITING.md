@@ -53,12 +53,43 @@ More disadvantages
 
 # Practice - Task 1
 
-## Task 1
+## Formal feedback & request
+
+## Improve college cafeteria
+
+> You eat at your college cafeteria every lunchtime. However, you think it needs some improvements. Write a letter to the college magazine. In your letter,
+> 
+> - explain what you like about the cafeteria
+> - Say what is wrong with it
+> - Suggest how it could be improved
+
+### Share dormitory
+> You live in a room in college which you share with another student. However, there are many problems with this arrangement and you find it very difficult to work. Write a letter to the accommodation officer at the college. In the letter,
+>
+> - describe the situation
+> - explain your problems and why it is difficult to work
+> - say what kind of accommodation you would prefer
+
+Dear Accommodation Officer,
+
+I hope this message finds you well. I am writing to address the challenges(hurdles) I am facing with my current living situation in the college dormitory. I share a room with a fellow student, and unfortunately, this arrangement ***has proven to be quite problematic for various reasons***.
+
+***To elaborate(To be specific)***, my roommate and I have vastly different schedules. While I prioritize my studies during the evening, my roommate often returns late at night and engages in activities that create noise, making it ***exceedingly*** difficult for me to concentrate. As a result, my productivity has suffered, and I find it increasingly hard to maintain a ***conducive*** environment for academic work.
+
+Furthermore, my roommate's lack of consideration for others has added to the predicament. Frequent loud music and disruptive behavior have hindered not only my work but also my overall well-being. Despite my attempts to address these concerns through open communication, there has been no noticeable improvement.
+
+In light of these challenges, I kindly request a room change. I would greatly appreciate a quieter living environment with a roommate who shares similar study habits. If possible, a room closer to the central library would be highly beneficial for my academic pursuits.
+
+I understand that accommodation options may be limited, and I am open to any suitable arrangement that can enhance my study experience. Your assistance in this matter would be greatly appreciated.
+
+Thank you for your time and consideration. I look forward to your response.
+
+Sincerely,
+[Your Name]
 
 ### Appreciate Restaurant
-> You and some friends ate a meal at a restaurant to celebrate a special occasion, and you were very pleased with the food and services. Write a letter to the restaurant manager. 
+> You and some friends ate a meal at a restaurant to celebrate a special occasion, and you were very pleased with the food and services. Write a letter to the restaurant manager. In your letter,
 > 
-> In your letter
 > - Give details of your visit to the restaurant
 > - Explain the reason for the celebration
 > - Say what was good about the food and the services
@@ -80,12 +111,9 @@ Once again, thank you for making this special occasion even more memorable. We e
 Warm regards,
 
 
-
-
 ### New Airport
-> You recently discovered that there are plans to build a new airport in your area and you are not happy with it. Write a letter to the local authority. 
->
-> In your letter,
+> You recently discovered that there are plans to build a new airport in your area and you are not happy with it. Write a letter to the local authority. In your letter,
+> 
 > - Say how you found out about the plans
 > - Explain what problems your neighborhood will face
 > - Suggest some possible solutions to those problems.
@@ -107,15 +135,9 @@ I would like to suggest reducing airport's size and relocating it ***to the far 
 I would be greatly appreciate it if you could treat this issue seriously, I'm looking forward to hearing from you.
 (I sincerely hope that you will give ***earnest*** consideration to this matter. Your thoughtful attention to these concerns would be highly appreciated. I eagerly anticipate your response.)
 
-
-
-
-
-
 ### Lost item on a train
-> You have lost an item of value on a train. Write a letter to the railway company. 
+> You have lost an item of value on a train. Write a letter to the railway company. In your letter,
 > 
-> In your letter
 > - describe the item
 > - explain where and when you left it
 > - say what action you would like the company to take
@@ -131,15 +153,14 @@ I would greatly appreciate it if you could ***treat this matter with urgency***,
 Thank you for your attention to this matter. I eagerly await your response.
 
 
+## Friend related
 
 ### House-sitting
-> A friend has agreed to look after your house and pet while you are on holiday. Write a letter to your friend.
-
-> In your letter:
+> A friend has agreed to look after your house and pet while you are on holiday. Write a letter to your friend. In your letter,
+> 
 > - give contact details for when you are away
 > - give instructions about how to care for your pet
 > - describe other household duties
-
 
 I hope this letter finds you in good spirits. I am writing to extend my heartfelt ***gratitude for agreeing to*** look after(take care of) my house and care for my beloved cat while I am on holiday(during my upcoming holiday/while I am away). I'd like to provide you with some important information to ***ensure everything goes smoothly***. (your kindless means a lot to me)
 
@@ -154,31 +175,6 @@ Once again, I ***genuinely appreciate your willingness*** to help. I am confiden
 Warm regards,
 Sil
 
-
-### Share dormitory
-> You live in a room in college which you share with another student. However, there are many problems with this arrangement and you find it very difficult to work.
->
-> Write a letter to the accommodation officer at the college. In the letter,
-> - describe the situation
-> - explain your problems and why it is difficult to work
-> - say what kind of accommodation you would prefer
-
-Dear Accommodation Officer,
-
-I hope this message finds you well. I am writing to address the challenges(hurdles) I am facing with my current living situation in the college dormitory. I share a room with a fellow student, and unfortunately, this arrangement ***has proven to be quite problematic for various reasons***.
-
-***To elaborate(To be specific)***, my roommate and I have vastly different schedules. While I prioritize my studies during the evening, my roommate often returns late at night and engages in activities that create noise, making it ***exceedingly*** difficult for me to concentrate. As a result, my productivity has suffered, and I find it increasingly hard to maintain a ***conducive*** environment for academic work.
-
-Furthermore, my roommate's lack of consideration for others has added to the predicament. Frequent loud music and disruptive behavior have hindered not only my work but also my overall well-being. Despite my attempts to address these concerns through open communication, there has been no noticeable improvement.
-
-In light of these challenges, I kindly request a room change. I would greatly appreciate a quieter living environment with a roommate who shares similar study habits. If possible, a room closer to the central library would be highly beneficial for my academic pursuits.
-
-I understand that accommodation options may be limited, and I am open to any suitable arrangement that can enhance my study experience. Your assistance in this matter would be greatly appreciated.
-
-Thank you for your time and consideration. I look forward to your response.
-
-Sincerely,
-[Your Name]
 
 # Practice - Task 2
 
