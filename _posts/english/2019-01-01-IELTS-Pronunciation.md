@@ -98,6 +98,7 @@ tags:
 - allergy
 - strategic
 - strategy
+- aerobic
 
 
 # Unfamiliar words

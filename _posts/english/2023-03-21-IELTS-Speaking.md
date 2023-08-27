@@ -677,6 +677,14 @@ I think this issue needs to be discussed **on a case-by-case basis**.
 # Topic
 
 ## Find job
+我有一个核物理的本科学位以及一个IT的硕士学位，这种交叉的学科背景在找工作时很有优势。
+
+我今年不久前被晋升成一个小团队的leader，虽然薪酬因此而变得更加丰厚，但随之而来的是更多的工作负担和责任。原先做单纯的开发人员时只需要关注技术方面的问题，现在则要考虑更多的因素。虽然我很快适应了新的工作角色，但不得不承认工作的负担增加不少。经常下班回到家后感觉整个人都burnout。
+
+因为工作的时间变长了，我用于锻炼和休息的时间被侵占，有些时候甚至需要在公司通宵，这一切都影响到了个人健康。
+
+我现在在了解一些work-life balance 的公司的合适职位，这也是我考雅思的一个主要目的，拥有一个语言能力证明能允许我考虑一些外企或者海外工作的职位。
+
 Out of interest, I studied nuclear physics during my undergraduate years. 
 
 However, when I was in my senior year searching for a job, things didn't go smoothly. 
@@ -710,6 +718,13 @@ If it wasn't for that conversation with him, I wouldn't have known this informat
 ## Living condition
 My place is about a 20-minute drive from the city center.
 
+我和我妻子都在广州工作，所以挑选住所时首先考虑的是要离我俩上班的地方都比较近
+
+最近我们有在考虑买车，但开始了解后发现在广州开车也有很多限制，比如核心区域在高峰期限制通行。
+
+最近政府在大力推广新能源汽车，如果购买电车能享受到诸如注册费用，税费上的减免。
+
+
 
 ## Pending
 James White gave me your number. I hope you don't ***mind*** me calling you.
@@ -735,4 +750,29 @@ Yes, it's on the 23rd of this month.
 I never wear ***jeans[plural]*** to work.
 
 I'll have to practice doing that ***in the mirror***!
+
+At the weekend, we have the team relay event, and you're all welcome to join in.
+
+Participation rather than winning is the main focus
+
+Participants are in teams of two to four
+
+For your final expedition, you'll head off to Mount Frenner wearing a pair of special snow shoes which allow you to walk on top of the snow.
+
+Attempts to trace the whereabouts of a man seen leaving the scene of the crime have so far been unsuccessful.
+
+The burglars were careful not to leave any tracks behind them.
+
+Passengers are requested not to walk across the tracks.
+
+The dogs are trained to follow the trail left by the fox.
+
+It's a long ascent, though not too steep
+
+Don't stress about getting back here to the centre in time to catch the airport bus - they'll probably not be running anyway.
+
+regardless of their age or skill
+
+Stony Trail's a good choice once you've got a general idea of the basics.
+
 

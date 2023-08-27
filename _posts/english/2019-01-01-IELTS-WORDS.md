@@ -64,6 +64,10 @@ tags:
 - dedicated(committed/resolute/devoted/engaged)
 - recipient
 - ample/enough/sufficient
+- ski
+- skiing
+- accommodate
+- accommodation
 
 # Grammar
 
