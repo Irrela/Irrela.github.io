@@ -66,13 +66,13 @@ More disadvantages
 > - Describe the documents
 > - Say what action you want the post office to take.
 
-I am writing to *address an issue* that has *left me quite concerned*. A recent shipment of documents I sent via post has not yet reached(arrived at) its *intended(designated/proposed/planned/expected)* destination.
+I am writing to **address an issue** that has **left me quite concerned**. A recent shipment of documents I sent via post has not yet reached(arrived at) its **intended(designated/proposed/planned/expected)** destination.
 
-The documents were well-packaged and *dispatched* last Wednesday from a local post office. They *consist of* *a set of* legal papers related to my banking business, making them *of significant value* in terms of personal and legal importance. Despite the assurance provided by the postal service, I *regret to* (I am disappointed to) inform you that I have received no confirmation of their safe arrival.
+The documents were well-packaged and **dispatched** last Wednesday from a local post office. They **consist of** **a set of** legal papers related to my banking business, making them **of significant value** in terms of personal and legal importance. Despite the assurance provided by the postal service, I **regret to** (I am disappointed to) inform you that I have received no confirmation of their safe arrival.
 
-I kindly request that you investigate this matter promptly.(I kindly request a prompt investigation into this matter.) Since the documents are time-sensitive and *hold high significance for both parties involved*, tracing the *whereabouts[u]* of the package and ensuring its swift delivery to its originally intended *recipient* is my *resolute demand*. I would greatly appreciate it if you could *keep me informed about* the *updated status* of my package *during the forthcoming(upcoming/approaching) delivery*.
+I kindly request that you investigate this matter promptly.(I kindly request a prompt investigation into this matter.) Since the documents are time-sensitive and **hold high significance for both parties involved**, tracing the **whereabouts[u]** of the package and ensuring its swift delivery to its originally intended **recipient** is my **resolute demand**. I would greatly appreciate it if you could **keep me informed about** the **updated status** of my package **during the forthcoming(upcoming/approaching) delivery**.
 
-I trust that my requests will receive serious and immediate attention. Please feel free to *reach out to me* if any further information is needed.
+I trust that my requests will receive serious and immediate attention. Please feel free to **reach out to me** if any further information is needed.
 
 
 ## Improve college cafeteria
@@ -85,11 +85,11 @@ I trust that my requests will receive serious and immediate attention. Please fe
 
 Dear Editor,
 
-I am writing to propose potential improvements(modifications/refinements/enhancements) *for* our college cafeteria. While the cafeteria is already a popular choice among students, I believe a few modifications could *further* elevate its appeal and *functionality*.
+I am writing to propose potential improvements(modifications/refinements/enhancements) **for** our college cafeteria. While the cafeteria is already a popular choice among students, I believe a few modifications could **further** elevate its appeal and **functionality**.
 
-*One of the aspects* that I admire about the cafeteria is its prime location *within* our campus. This central placement makes it convenient for *a multitude of(numerous/a large number of/a wide range of/a variety of)* students, myself included, to enjoy our lunches there. The cozy ambiance created by its warm and well-designed decor enhances the overall dining experience. Additionally, the cafeteria's diverse menu *caters to(appeals to/accommodates)* a wide(extensive/broad) array(range) of tastes, ensuring that there's something for everyone.
+**One of the aspects** that I admire about the cafeteria is its prime location **within** our campus. This central placement makes it convenient for **a multitude of(numerous/a large number of/a wide range of/a variety of)** students, myself included, to enjoy our lunches there. The cozy ambiance created by its warm and well-designed decor enhances the overall dining experience. Additionally, the cafeteria's diverse menu **caters to(appeals to/accommodates)** a wide(extensive/broad) array(range) of tastes, ensuring that there's something for everyone.
 
-However, there are certain aspects(areas/elements) that could be addressed(*It's worth noting* certain factors that could be *worked on*.). Firstly, the cafeteria's *operating hours* are *somewhat* limited. Extending the hours, perhaps until 8 pm, would accommodate students with evening classes and provide a *gathering spot* for those *seeking a coffee* or a light meal after their courses. Secondly, the lack of sufficient parking space for bicycles is a *recurring* issue. I suggest repurposing some of the available area near the *entrance* to create *designated* bike parking spaces.
+However, there are certain aspects(areas/elements) that could be addressed(**It's worth noting** certain factors that could be **worked on**.). Firstly, the cafeteria's **operating hours** are **somewhat** limited. Extending the hours, perhaps until 8 pm, would accommodate students with evening classes and provide a **gathering spot** for those **seeking a coffee** or a light meal after their courses. Secondly, the lack of sufficient parking space for bicycles is a **recurring** issue. I suggest repurposing some of the available area near the **entrance** to create **designated** bike parking spaces.
 
 I hope these suggestions are taken into serious consideration. Your attention to these matters is greatly appreciated, and I look forward to any possible improvements that might enhance our cafeteria experience.
 
@@ -98,17 +98,17 @@ Thank you for your time and consideration.
 ---
 Dear Editor,
 
-I am writing to *share my thoughts about* our college cafeteria, hoping to contribute to the ongoing discussions on improving our campus environment. While the cafeteria serves as a vital hub for students during lunchtime, there are aspects that *warrant* attention for enhancing the overall experience.
+I am writing to **share my thoughts about** our college cafeteria, hoping to contribute to the ongoing discussions on improving our campus environment. While the cafeteria serves as a vital hub for students during lunchtime, there are aspects that **warrant** attention for enhancing the overall experience.
 
-Firstly, I appreciate the convenience and variety offered by the cafeteria's menu. The range of options caters to different(diverse) tastes and *dietary preferences*, making it accessible to a diverse student body. Moreover, the central location of the cafeteria fosters social interactions, allowing students to connect and share their daily experiences.
+Firstly, I appreciate the convenience and variety offered by the cafeteria's menu. The range of options caters to different(diverse) tastes and **dietary preferences**, making it accessible to a diverse student body. Moreover, the central location of the cafeteria fosters social interactions, allowing students to connect and share their daily experiences.
 
-However, there are areas that require attention for improvement. The limited(restricted/constrained/confined) *seating capacity* often results in overcrowding *during peak hours(during the busiest hours/during busy periods/times)*, leading to *discomfort* and reduced relaxation. Additionally, the speed of service can be inconsistent, causing *long waiting times* that *cut into(eat into/diminish/reduce/infringe upon)* our already limited break.
+However, there are areas that require attention for improvement. The limited(restricted/constrained/confined) **seating capacity** often results in overcrowding **during peak hours(during the busiest hours/during busy periods/times)**, leading to **discomfort** and reduced relaxation. Additionally, the speed of service can be inconsistent, causing **long waiting times** that **cut into(eat into/diminish/reduce/infringe upon)** our already limited break.
 
-To address these issues, I suggest implementing a few improvements. Expanding the seating area or creating additional dining spaces would *alleviate* congestion(overcrowding) and provide a more comfortable environment. Moreover, introducing a *pre-order* system through a *dedicated* mobile app could *streamline* service, reducing waiting times and enhancing efficiency.
+To address these issues, I suggest implementing a few improvements. Expanding the seating area or creating additional dining spaces would **alleviate** congestion(overcrowding) and provide a more comfortable environment. Moreover, introducing a **pre-order** system through a **dedicated** mobile app could **streamline** service, reducing waiting times and enhancing efficiency.
 
 In conclusion, the college cafeteria is a fundamental part of our campus life, and with some strategic enhancements, it can further contribute to a positive student experience. I believe these suggestions could bring about positive changes that would benefit the entire student body.
 
-*Thank you for considering my input.*ß
+**Thank you for considering my input.**ß
 
 ### Share dormitory
 > You live in a room in college which you share with another student. However, there are many problems with this arrangement and you find it very difficult to work. Write a letter to the accommodation officer at the college. In the letter,
@@ -332,7 +332,7 @@ In conclusion, children's leisure activities should not be limited to being stri
 > 
 > Why do many working people not get enough exercise? What can be done about this problem?
 
-Insufficient physical activity has become a **prevailing** concern among the *workforce*, leading to a myriad of health issues. This phenomenon is *propelled* by a combination of factors.
+Insufficient physical activity has become a **prevailing** concern among the **workforce**, leading to a myriad of health issues. This phenomenon is **propelled** by a combination of factors.
 
 (With the evolution of contemporary work environments, a growing number of individuals find themselves caught in a cycle of limited physical activity. This transformation is a culmination of various factors, and while the restoration of a more active lifestyle may appear challenging, viable strategies do exist to revitalize physical engagement.)
 
@@ -344,7 +344,7 @@ Although instigating a societal shift towards recognizing the importance of regu
 
 Additionally, leveraging technology for a positive cause is crucial. The promotion of health and fitness applications can raise awareness about the significance of self-monitoring and adhering to scientifically endorsed exercise regimens.
 
-In conclusion, the dearth of exercise among the working population stems from demanding jobs, sedentary leisure preferences, (and limited access to exercise facilities). Tackling this issue necessitates collaborative efforts between employers, governments, and individuals(*a multifaceted approach involving* employers, governments, and individuals is necessary.). Encouraging movement during work hours, promoting outdoor leisure pursuits, and enhancing access to recreational spaces are vital steps towards a healthier and more active society.
+In conclusion, the dearth of exercise among the working population stems from demanding jobs, sedentary leisure preferences, (and limited access to exercise facilities). Tackling this issue necessitates collaborative efforts between employers, governments, and individuals(**a multifaceted approach involving** employers, governments, and individuals is necessary.). Encouraging movement during work hours, promoting outdoor leisure pursuits, and enhancing access to recreational spaces are vital steps towards a healthier and more active society.
 
 
 ### Decline of Family Closeness (and How)
