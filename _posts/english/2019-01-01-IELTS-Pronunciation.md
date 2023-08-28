@@ -105,6 +105,8 @@ tags:
 - simultaneously/ At the same time/ concurrently
 - proximity
 - registration
+- pivotal
+- adhere to
 
 # Unfamiliar words
 - narrator 
