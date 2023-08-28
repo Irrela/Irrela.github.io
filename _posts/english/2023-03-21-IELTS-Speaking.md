@@ -677,21 +677,19 @@ I think this issue needs to be discussed **on a case-by-case basis**.
 # Topic
 
 ## Find job
-我有一个核物理的本科学位以及一个IT的硕士学位，这种交叉的学科背景在找工作时很有优势。
+"I have a bachelor's degree in nuclear physics and a master's degree in IT. This interdisciplinary background gives me a competitive advantage when searching for jobs.
 
-我今年不久前被晋升成一个小团队的leader，虽然薪酬因此而变得更加丰厚，但随之而来的是更多的工作负担和责任。原先做单纯的开发人员时只需要关注技术方面的问题，现在则要考虑更多的因素。虽然我很快适应了新的工作角色，但不得不承认工作的负担增加不少。经常下班回到家后感觉整个人都burnout。
+Recently(Not long ago this year), I was promoted to lead a small team this year. While this brought a more substantial salary increase, it also came with(brought along) additional workload and responsibilities. When I was solely a developer, I only had to focus on technical issues, but now there are many more factors to consider. Although I've been trying to adapt quickly to my new role, I can clearly feel the fatigue. Often, *when I get home after work*, I feel completely burned out."
 
-因为工作的时间变长了，我用于锻炼和休息的时间被侵占，有些时候甚至需要在公司通宵，这一切都影响到了个人健康。
-
-我现在在了解一些work-life balance 的公司的合适职位，这也是我考雅思的一个主要目的，拥有一个语言能力证明能允许我考虑一些外企或者海外工作的职位。
+I'm currently exploring suitable positions in companies that value work-life balance. This is *one of my main purposes for* taking the IELTS, as having a language proficiency certification can to some extent enable me to consider roles in multinational corporations or *overseas* opportunities."
 
 Out of interest, I studied nuclear physics during my undergraduate years. 
 
-However, when I was in my senior year searching for a job, things didn't go smoothly. 
+However, *when I was in my senior year* searching for a job, things didn't go smoothly as expected. 
 
 Many companies related to my major, such as nuclear power plants and energy companies, didn't ***spark much interest in me***. I felt quite frustrated during that period.
 
-Initially, I just wanted to ask him out for dinner and have a chat.
+Initially, I just wanted to ask him out for dinner and have a chat. I was quite distressed.
 
 After hearing about my current situation, he suggested, "Have you ever thought about applying for positions in internet companies? It seems like a good option in terms of work environment and income."
 
@@ -701,28 +699,30 @@ In fact, I had also heard about the various benefits of the thriving internet co
 
 However, since I wasn't a computer science major, I realized that I didn't meet the requirements for some of the positions that interested me. As a result, ***I didn't pursue them further.***
 
-But my classmates informed me that the actual recruitment requirements for these specialized backgrounds weren't as rigid as I thought. 
+For example, they might require you to be familiar with certain programming languages and have around two to three years of programming/coding experience.
+
+But my classmates informed me that the actual *recruitment* requirements for these specialized backgrounds weren't as *rigid* as I thought. 
 
 For some companies experiencing rapid growth, the demand for recruitment was quite high. 
 
-They were even open to considering students with non-computer science majors, especially those with backgrounds in foundational sciences like physics or mathematics. 
+They were even open to considering students with non-computer science majors, especially those with backgrounds in *foundational* sciences like physics or mathematics. 
 
-They believed that these students had strong mathematical foundations and logical thinking skills, which would enable them to quickly grasp programming skills and have better development potential. 
+They believed that these students had strong mathematical foundations and logical thinking skills, which would enable them to quickly grasp programming skills and most importantly, have better development potential. 
 
 He strongly encouraged me to submit applications and give it a try. As it turned out, his advice was entirely accurate. 
 
-I started self-learning programming while simultaneously applying and attending interviews. Before I graduated, I even received offers from several different companies. 
+I started self-learning(self-study/ teach myself) programming while simultaneously applying for positions and attending interviews. Finally, before I graduated, I even received offers from several different companies. 
 
-If it wasn't for that conversation with him, I wouldn't have known this information, and I wouldn't have had the subsequent job opportunities. So, I'm truly grateful to him.
+If *it wasn't for* that conversation with him, I *wouldn't have known* this information, and I wouldn't have had the *subsequent* job opportunities. So, I'm truly grateful to him.
 
 ## Living condition
 My place is about a 20-minute drive from the city center.
 
-我和我妻子都在广州工作，所以挑选住所时首先考虑的是要离我俩上班的地方都比较近
+Both my wife and I work in Guangzhou, so when choosing a place to live, our *primary consideration* is its *proximity* to our workplaces.
 
-最近我们有在考虑买车，但开始了解后发现在广州开车也有很多限制，比如核心区域在高峰期限制通行。
+Lately, we've been *considering/contemplating* buying a car, but *upon further investigation(after delving deeper into the matter/upon taking a more in-depth look)*, we've discovered that there are several restrictions to driving in Guangzhou. These include limitations on access to the *downtown area* during peak hours, parking challenges, and various policy differences between *conventional(traditional/gasoline)* and electric vehicles.
 
-最近政府在大力推广新能源汽车，如果购买电车能享受到诸如注册费用，税费上的减免。
+Recently, the government has been actively promoting electric vehicles. Purchasing an electric car may come with benefits such as reductions in registration fees and taxes."
 
 
 

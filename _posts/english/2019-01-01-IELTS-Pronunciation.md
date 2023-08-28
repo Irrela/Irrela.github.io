@@ -99,7 +99,12 @@ tags:
 - strategic
 - strategy
 - aerobic
-
+- brought
+- fatigue
+- foundational
+- simultaneously/ At the same time/ concurrently
+- proximity
+- registration
 
 # Unfamiliar words
 - narrator 

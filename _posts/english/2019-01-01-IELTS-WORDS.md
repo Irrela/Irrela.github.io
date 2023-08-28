@@ -10,7 +10,7 @@ tags:
 > [A few and just few]()
 
 # Weak Spelling
-- reptile
+- reptile 
 - tongue
 - crocodile
 - doze
@@ -31,14 +31,17 @@ tags:
 - negotiate
 - miscellany
 - soldier
+- commit
 - commitments
+- committee
+- committed
+- dedicated(committed/resolute/devoted/engaged)
 - dedication
 - determination
 - subtle
 - setbacks
 - mathematics
 - mathematic
-- committee
 - representative
 - passenger
 - minimum
@@ -61,13 +64,15 @@ tags:
 - designated
 - relaxation
 - alleviate
-- dedicated(committed/resolute/devoted/engaged)
 - recipient
+- receipt[c]
+- recipe[c]
 - ample/enough/sufficient
 - ski
 - skiing
 - accommodate
 - accommodation
+- substantial
 
 # Grammar
 
