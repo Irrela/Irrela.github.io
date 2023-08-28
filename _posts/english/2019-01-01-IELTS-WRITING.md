@@ -227,6 +227,24 @@ Sil
 
 ## Type: Agree or not (Opinion)
 
+### Keep life tidy (13-3)
+
+> Some people say it is important to keep your home and your workplace tidy, with everything organized and in the correct place. 
+>
+> What is your opinion about this?
+
+In the ongoing discourse surrounding the importance of maintaining a clean and organized living and working environment, my stance strongly advocates for its significance. Although some may perceive such persistance as time-consuming, I firmly believe that the benefits it brings are substantial and **far-reaching**.
+
+First and foremost, upholding a tidy living space greatly contributes to one's **physical and mental well-being**. Regular **upkeep** not only provides residents with a comfortable and enjoyable **habitat** but also alleviates stress. Conversely, an **unkempt** environment fosters the **proliferation** of harmful bacteria and parasites, leading to a host of health **ailments**. Furthermore, residing in a **cluttered** setting over a prolonged period can negatively impact one's mood and mental health.
+
+Moreover, maintaining a well-organized workplace **serves as a testament to** an individual's professionalism. While **it might seem like a stereotype**, there exists a **societal perception** that those who **consistently** place their belongings in designated **spots** are often deemed reliable and **dedicated**. This notion is grounded in practicality, as such behavior **indicates(signifies)** a strong **work ethic** and a **commitment to efficiency**, ***both of which*** are highly valued in any professional setting.
+
+Lastly, the practice of tidiness fosters positive interactions with others. While some individuals might **overlook** personal **hygiene**, most people **appreciate** sharing living or working spaces with those who prioritize **cleanliness**. A **neat** and orderly environment enhances the overall ambiance and fosters **a sense of respect and cooperation** among individuals.
+
+In conclusion, maintaining a clean and organized living and working environment **reaps** numerous benefits. It positively impacts physical health, **signifies** professionalism, and fosters harmonious interactions. Therefore, I firmly believe that the effort invested in ensuring cleanliness is a worthwhile endeavor that contributes to overall well-being and productivity.
+
+
+
 ### Leisure activities & work
 > **Prompt:** 
 > 
