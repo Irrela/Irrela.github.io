@@ -73,6 +73,7 @@ tags:
 - accommodate
 - accommodation
 - substantial
+- contemporary
 
 # Grammar
 
