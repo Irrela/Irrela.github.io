@@ -792,3 +792,73 @@ It often carries a **connotation** of achieving meaningful results or **yielding
 Could you provide two representative examples for each of the words.
 
 Please correct and naturalize this sentence as a native speaker would.
+
+
+## Tidiness
+Part 1: Introduction and Interview
+
+Q: Do you like to keep your home tidy?
+A: Absolutely, I believe in maintaining a clean and organized living space. It not only makes the environment more pleasant but also contributes to a positive mindset.
+
+Q: How do you usually keep your home tidy?
+A: I have a daily routine where I allocate a bit of time for tidying up. I make sure to put things back in their designated places, do regular cleaning, and declutter to avoid unnecessary mess.
+
+Q: How do you feel when your home is messy?
+A: When my home is messy, I feel a bit overwhelmed and stressed. It's like there's a constant distraction in the back of my mind, urging me to tidy up and regain a sense of order.
+
+Part 2: Long Turn (Cue Card)
+
+Q: Describe a time when you helped someone organize or tidy up.
+A: Last year, a close friend of mine was moving to a new apartment, and she was feeling quite stressed about the packing and organizing process. I offered to help her sort through her belongings and pack them efficiently.
+
+I spent an entire weekend with her, going through each room and deciding what to keep, donate, or discard. We labeled the boxes, arranged the items neatly, and made sure everything was ready for the move. By the end of it, she was so relieved and grateful, and her new apartment looked amazing.
+
+Part 3: Discussion
+
+Q: Why do you think some people struggle with keeping their homes tidy?
+A: There can be various reasons for this. Some individuals have busy work schedules that leave them with limited time for household chores. Others might lack organizational skills or simply not prioritize tidiness due to other commitments.
+
+Q: How can employers encourage tidiness in the workplace?
+A: Employers can promote tidiness by providing designated storage spaces for personal belongings, encouraging employees to declutter their workstations regularly, and implementing regular cleaning schedules. By creating a clean and organized workspace, employees are more likely to feel motivated and productive.
+
+Q: Do you think tidiness has an impact on a person's well-being?
+A: Absolutely, there's a strong connection between tidiness and well-being. A clean and organized environment can reduce stress, enhance focus, and create a sense of tranquility. When we're in a tidy space, we can think more clearly and feel more at ease.
+
+## Meeting new people
+Q: Do you enjoy meeting new people?
+A: Yes, I do enjoy meeting new people. It's a great opportunity to learn about different cultures, perspectives, and experiences.
+
+Q: How do you feel when you meet someone for the first time?
+A: When I meet someone for the first time, I usually feel a mix of excitement and a bit of nervousness. I'm curious to get to know them and make a good impression.
+
+Q: What kinds of people do you like to meet?
+A: I like to meet people from diverse backgrounds, those who have interesting stories to share. I also enjoy meeting people who are open-minded and have a positive outlook on life.
+
+Q: How and where do you usually meet new people?
+A: I often meet new people through social events, such as parties, gatherings, and community activities. I've also had the opportunity to meet interesting individuals while traveling or through mutual friends.
+
+Q: What kinds of activities do you enjoy doing with new people?
+A: I enjoy engaging in various activities with new people, such as going to concerts, trying out new restaurants, or participating in outdoor adventures like hiking or cycling. These activities help break the ice and create shared experiences.
+
+Part 2: Long Turn (Cue Card)
+
+Q: Describe a memorable experience of meeting someone new.
+A: I vividly remember the time I attended a networking event for professionals in my field. I had the chance to meet a senior executive from a well-known company. I approached him and started a conversation about his career journey and insights into the industry.
+
+He was remarkably friendly and open to sharing his experiences. We talked for quite a while, and he even offered some valuable advice for advancing in my career. That encounter left a lasting impression on me and motivated me to continue networking and learning from experienced individuals.
+
+Part 3: Discussion
+
+Q: How has technology changed the way people meet new people?
+A: It's quite evident that technology has **revolutionized** how people meet and connect. Social media platforms and dating apps, for example, have made it easier to meet new people virtually and remotely. However, there's also a concern that **excessive screen time** might hinder face-to-face interactions, and this online communication remains **superficial** and cannot foster **long-lasting** and deep friendships as face-to-face interactions do.
+
+Q: Are there any challenges people face when meeting new people?
+A: Yes, there can be challenges. Some individuals might feel shy or anxious in social situations, making it harder for them to initiate conversations. Also, language barriers can sometimes create misunderstandings and hinder effective communication.
+
+Q: What are the benefits of meeting people from different cultures?
+A: Meeting people from different cultures broadens our horizons and fosters a deeper understanding of the world. It helps break stereotypes, enhances tolerance, and promotes cross-cultural collaboration. Such interactions also encourage personal growth and the development of intercultural communication skills.
+
+Q: What challenges might people face when trying to meet new people in a foreign country?
+A: I think the main challenges **come from** language barriers and cultural differences. If you can't communicate proficiently in the local language, it's going to be difficult to **even** have conversations, **let alone** make new friends. Additionally, people from diverse cultural or religious backgrounds sometimes struggle to understand each other. **In such situations**, forming friendships **seems** practically impossible **to** me.
+
+## Gift

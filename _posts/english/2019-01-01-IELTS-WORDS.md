@@ -85,13 +85,165 @@ tags:
 - bacteria
 - parasite
 - ballet
-- fruitful(focus on how successful is the outcome)/ effective(focus on the ability to achieve results)?
+- fruitful(focus on how successful is the outcome)/ effective(focus on the ability to achieve results)
 - stick/ stuck
 - representative
+- look after
+- liaise
+- **arranged for** an officer of the National Theatre
+- The **normal rate** at the hotel
+- rehearsal
+- From talking to you all about your preferences
+- Now I'd just like to **make a few points about**
+- premiere
+- dressy occasion
+- I **gather** it's rather a multimedia production
+- It was **commissioned** to mark a hundred years since the birth in the town of a well-known scientist.
+- I'd better do
+- dignitary
+- mayor
+- host a reception
+- in the **stunning** setting of the old Town Hall
+- The performance marks the fifty years that the lead actor **has been** on stage
 
+You are a native English speaker who has complete mastery of the language. I'm currently preparing for the speaking section of the IELTS General Training exam. Could you assist me by categorizing and providing some commonly used connective phrases by native speakers based on different functional scenarios? It would be really helpful if you could provide example sentences to illustrate their usage.
 
 # Grammar
+## Connective phrase
+1. Adding Information:
 
+"Additionally,"
+"Furthermore,"
+"Moreover,"
+"In addition to that,"
+"What's more,"
+"Besides,"
+"Not to mention,"
+
+2. Contrasting Ideas:
+
+"However,"
+"On the other hand,"
+"In contrast,"
+"Conversely,"
+"Nevertheless,"
+"While,"
+"Although,"
+"Despite that,"
+
+3. Giving Examples:
+
+"For example,"
+"For instance,"
+"Such as,"
+"To illustrate,"
+"As an illustration,"
+"One case in point is,"
+
+4. Sequencing Ideas:
+
+"Firstly,"
+"Secondly,"
+"Thirdly,"
+"Next,"
+"Then,"
+"Afterward(s),"
+"Subsequently,"
+"Finally,"
+
+5. Summarizing or Concluding:
+
+"In conclusion,"
+"To sum up,"
+"All in all,"
+"To recap,"
+"To summarize,"
+"In summary,"
+"Ultimately,"
+
+6. Expressing Cause and Effect:
+
+"As a result,"
+"Therefore,"
+"Because of this,"
+"Due to,"
+"Consequently,"
+"Hence,"
+"For this reason,"
+"In this case,"
+
+7. Expressing Agreement:
+
+"Similarly,"
+"Likewise,"
+"In the same way,"
+"Just like,"
+"Correspondingly,"
+"Equally,"
+
+8. Expressing Disagreement:
+
+"On the contrary,"
+"In opposition to,"
+"In contrast,"
+"I beg to differ,"
+"However, I believe that,"
+
+9. Giving Emphasis:
+
+"Indeed,"
+"Undoubtedly,"
+"Certainly,"
+"Absolutely,"
+"Without a doubt,"
+"It's worth noting that,"
+
+
+## Subjunctive mood
+与事实相反的情况（过去时虚拟）：
+
+    使用 "were" 而不是 "was" 作为第一、第三人称单数的动词形式。
+
+    If I were you, I would study harder.（如果我是你，我会更努力学习。）
+
+假设（未来时虚拟）：
+
+    使用 "would" 或其他情态动词来表达未来的假设情况。
+
+    If he had more time, he would travel around the world.（如果他有更多时间，他会环游世界。）
+
+愿望（过去时虚拟）：
+    
+    使用 "wish" 来表达过去的愿望，后接 "had" 和过去分词。
+
+    I wish I had known about the party.（我希望我当时知道派对。）
+
+愿望（情态动词虚拟）：
+    
+    使用情态动词（如 "could"、"would"、"might"）来表达愿望。
+
+    I wish I could play the piano.（我希望我能弹钢琴。）
+
+对于未来的不可能情况（情态动词虚拟）：
+
+    使用情态动词 "could have" 或 "would have" 来表达对未来不可能情况的虚拟。
+
+    If he had known, he could have helped you.（如果他知道的话，他本可以帮助你。）    
+
+### could have 和 would have
+当使用 "could have" 和 "would have" 来表示虚拟情况时，通常指的是过去的时间点，表达的是在过去某一时刻本应该发生，但实际上并未发生的情况。以下是这两种情态动词的用法和例子：
+
+"could have" 的用法：
+    用于表示在过去本有能力做某事，但最终并未实现的情况。
+
+    She could have passed the exam if she had studied harder.（如果她当时更努力学习，她本可以通过考试。）
+    He could have finished the project on time, but he got sick.（他本可以按时完成这个项目，但他生病了。）
+
+"would have" 的用法：
+    用于表示在过去本应该发生的情况，但由于某些原因未能实现。
+
+    If it hadn't rained, we would have gone to the beach.（如果没有下雨，我们本可以去海滩。）
+    She would have attended the party if she hadn't been busy.（如果她不忙的话，她本会参加派对。）
 
 # CAM 5
 ## Listening 

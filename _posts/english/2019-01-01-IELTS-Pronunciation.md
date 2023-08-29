@@ -108,7 +108,14 @@ tags:
 - pivotal
 - adhere to
 - yield
-  
+- adaptability
+- autonomy / autonomously
+- imagine
+- nervousness
+- executive
+- initiate
+- excessive
+
 
 # Unfamiliar words
 - narrator 
