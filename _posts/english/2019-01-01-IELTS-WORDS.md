@@ -81,6 +81,14 @@ tags:
 - cleanness
 - cleanliness
 - hygiene
+- centenary
+- bacteria
+- parasite
+- ballet
+- fruitful(focus on how successful is the outcome)/ effective(focus on the ability to achieve results)?
+- stick/ stuck
+- representative
+
 
 # Grammar
 

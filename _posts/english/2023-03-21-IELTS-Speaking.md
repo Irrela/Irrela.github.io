@@ -771,8 +771,24 @@ It's a long ascent, though not too steep
 
 Don't stress about getting back here to the centre in time to catch the airport bus - they'll probably not be running anyway.
 
-regardless of their age or skill
+Regardless of their age or skill
 
-Stony Trail's a good choice once you've got a general idea of the basics.
+Stony Trail's a good choice once you've got **a general idea of the basics**.
 
+And the display takes place **on the opposite side of** the river.
 
+I think that'll keep me busy **for the whole of my stay in Kenton**.
+
+I can **get by** when I talk to people, though I'm not terribly accurate.
+
+So what would you advise me to aim at in the paper?
+
+I'll give you the details **in a moment**.
+
+And then you should start looking for suitable articles and books to **draw on**.
+
+It often carries a **connotation** of achieving meaningful results or **yielding valuable benefits over the long term**.
+
+Could you provide two representative examples for each of the words.
+
+Please correct and naturalize this sentence as a native speaker would.

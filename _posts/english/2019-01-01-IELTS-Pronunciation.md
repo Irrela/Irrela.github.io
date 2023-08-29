@@ -107,6 +107,8 @@ tags:
 - registration
 - pivotal
 - adhere to
+- yield
+  
 
 # Unfamiliar words
 - narrator 
