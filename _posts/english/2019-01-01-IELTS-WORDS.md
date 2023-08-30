@@ -105,6 +105,49 @@ tags:
 - host a reception
 - in the **stunning** setting of the old Town Hall
 - The performance marks the fifty years that the lead actor **has been** on stage
+- discipline
+- in-depth
+- expertise
+- privileges
+- inevitably
+- Additionally
+- remarkable
+- evolve
+- evolution
+- imbalanced
+- repercussions(negative impact)
+- pension schemes
+- arises from
+- proportion
+- demographic
+- competitiveness
+- competition
+- competitor
+- declining
+- proportionately
+- disproportionately
+- associated
+- accumulation
+- susceptible/ vulnerable
+- Considerable/ substantial/ extensive/ massive
+- expenses borne by
+- in comparison to
+- hesitate/ hesitant
+- successor
+- enduring/ lasting
+- distribution
+- starting point
+- based on their own circumstances.
+- desired gifts
+- tragedy
+- guarantee
+- recklessness
+- assured
+
+
+
+
+
 
 You are a native English speaker who has complete mastery of the language. I'm currently preparing for the speaking section of the IELTS General Training exam. Could you assist me by categorizing and providing some commonly used connective phrases by native speakers based on different functional scenarios? It would be really helpful if you could provide example sentences to illustrate their usage.
 

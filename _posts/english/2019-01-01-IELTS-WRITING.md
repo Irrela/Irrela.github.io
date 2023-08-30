@@ -225,7 +225,132 @@ Sil
 
 # Practice - Task 2
 
+## Type: Why and stance
+
+### Smart phone (td)
+
+Some children spend hours every day on their smartphones.
+
+Why is this the case? Do you think this is a positive or a negative development?
+
+Give reasons for your answer and include any relevant examples from your own knowledge or experience.
+
+### New products emphasized in Ads (td)
+
+In their advertising, businesses nowadays usually emphasise that their products are new in some way.
+
+Why is this? Do you think it is a positive or negative development?
+
+Give reasons for your answer and include any relevant examples from your own knowledge or experience.
+
 ## Type: Agree or not (Opinion)
+
+### Alternative Medicine td
+
+Nowadays, a growing number of people with health problems are trying alternative medicines and treatments instead of visiting their usual doctor.
+
+Do you think this is a positive or a negative development?
+
+### Taking risks td
+
+It is important for people to take risks, both in their professional lives and their personal lives.
+
+Do you think the advantages of taking risks outweigh the disadvantages?
+
+Give reasons for your answer and include any relevant examples from your own knowledge or experience.
+
+
+
+
+In the ongoing debate about risk-taking, there are differing views on whether this behavioral pattern benefits people in **their daily lives** and workplaces or leads to more negative consequences. My stance leans towards the former for some compelling reasons.
+
+Firstly, **adhering to** one's inherent traits makes life simpler. As a renowned economist once said, a reasonable person naturally avoids taking risks. I believe prudence is a lesson humans have learned through long-term evolution, which **prompts** us **to** protect ourselves **in the face of** appealing but inherently dangerous situations, ensuring our survival in the natural environment.
+
+Additionally, avoiding risks can guarantee steady outcomes **in the long term**. A conservative strategy is widely **employed** in diverse fields, including making military decisions, determining investment **portfolios**, and applying for mutually exclusive positions. This approach **has been proven to be** effective. As a prominent stock market expert **remarked**, selecting a predictable corporation and being patient over time are key.
+
+Lastly, taking risks can easily **transform into** gambling. For the majority, it is challenging to **assess** whether **things are under control**. When **confronted with** games of probability, as **emotional beings**, humans often fail and lose everything due to instincts like fear, anger, and recklessness. The best way to avoid **such a tragedy** is to **refrain from participating**.
+
+In conclusion, while there may be some benefits to being a **bold** decision-maker, maintaining a conservative and prudent attitude toward everything ensures a stable and **assured** life.
+
+### Aging society
+
+> In many countries, people are now living longer than ever before. Some people say an ageing population creates problems for governments. Other people think there are benefits if society has more elderly people.
+>
+> To what extent do the advantages of having an ageing population outweigh the disadvantages?
+>
+> Give reasons for your answer and include any relevant examples from your own knowledge or experience.
+
+In the ongoing debate regarding an aging society, there are differing views on whether it **presents** a wide range of challenges to governments or has some merits due to the existence of older individuals. My perspective leans towards the former for several reasons.
+
+Firstly, a substantial population of elderly people inevitably results in significant societal costs. **From an economic standpoint**, the productivity of senior citizens diminishes, while the **demand for** more resources to **care for** them increases. They are more **susceptible** to diseases and require treatments and nursing services, resulting in substantial medical **expenses borne** by public finances. Moreover, **in comparison to** the youth, the older population **has adapted to** a relatively higher living standard, making it quite expensive to **sustain** their **adjusted** lifestyle.
+
+Additionally, the aging workforce **hampers** the development and **proactiveness** of the younger generation. Many major companies are solely **dominated** by senior members. While these individuals made **noteworthy** contributions to their companies in past years, they are now **hesitant to**  relinquish power and promote younger **successors**. Due to the lack of fresh insights and passion, these renowned corporations are starting to lose their competitive advantages and **market share**, eventually being replaced by those who regularly evolve their decision-making teams.
+
+Lastly, the **enduring** impact of an unhealthy population structure is undeniable. Population evolution is a **gradual** process that is challenging to influence through short-term policies. Correcting an **imbalanced** population structure often requires efforts **spanning** several generations and significant costs from various fields. All of these resources could have been allocated to more meaningful purposes, rather than merely addressing population **distribution**.
+
+In conclusion, while a substantial population of older individuals can contribute their experiences and advice to society, a balanced population distribution seems to offer more benefits in the long run.
+
+---
+
+The increasing longevity of individuals in numerous nations has sparked a debate about the **repercussions** of an ageing population on governments. While some argue that this trend **poses challenges**, others contend that it offers benefits. In my view, the disadvantages of having an ageing population outweigh the advantages due to several compelling reasons.
+
+Firstly, an older population **places a burden on** healthcare systems and pension **schemes**. As people age, they tend to require more **medical attention** and support, **straining** the healthcare infrastructure. Additionally, governments need to allocate **a significant portion of** their budgets to pension payments, **diverting funds from** other crucial areas such as education and infrastructure development.
+
+Moreover, **a decline in** the **workforce** productivity **arises from** an ageing population. With **a smaller proportion of** young people entering the job market, there could be **shortages in** skilled labor, hindering economic growth and innovation. This **demographic** shift could also result in increased dependency ratios, where a smaller working-age population supports a larger elderly population, leading to a potential strain on social services.
+
+Furthermore, an ageing population can lead to **declining** economic competitiveness. Countries with a disproportionately older population might struggle to **keep pace with** rapidly evolving industries and technologies, affecting their ability to remain globally competitive.
+
+In conclusion, **while there may be some benefits to** having an ageing population, such as the accumulation of **wisdom** and experience, the **associated** disadvantages, including economic strain and decreased productivity, are more substantial. Governments should carefully consider the challenges posed by this demographic trend and **formulate policies** to address them effectively.
+
+
+
+### Interdiscipline and time management 
+
+> Some university students want to learn about other subjects in addition to their main subjects. Others believe it is more important to give all their time and attention to studying for a qualification.
+>
+> Give reasons for your answer and include any relevant examples from your own knowledge or experience.
+
+In the ongoing debate over learning stratefy at college, while some advocate for a comprehensive understanding of a wide range of **disciplines**, my stance leans towards focusing **exclusively** on their original subject.
+
+Firstly, **dedicating** more efforts to the designated subject allows for the optimal utilization of academic resources. **Unlike** primary education, university aims to develop(cultivate) one's **in-depth** insights and a critical mindset. Within the  original department and subject, students can **access** renowned professors **in** their **field** and have opportunities to verify their ideas using specific amenities provided by college. Both of which may appear luxurious to those outside the unisversity environment, making it compelling for students to fully utilize these time-limited **privileges**.
+
+Moreover, blindly delving into interdisciplinary studying could lead to unpredictable outcomes. Without the well-devised curriculum and guidence **available** within the main subject, Youngsters are prone to **getting lost** in non-targeted efforts. Additionally, since they don't have a general idea of foundations of other subjects, it is difficult for them to establish a well-structured recognition and determine the order of learning different courses. All of these factors make the studying process struggling and hard to assess outcomes, and eventually results in a lack of achievement.
+
+Lastly, becoming a proficient expert in one's main subject enhances competitiveness as they enter society. In today's world, graduates of higher education **are seen as** a significant source of recruitment for many major companies. These companies offer a variety of positions that demand **expertise** and skills in specific areas. Students with **relevant majors** are more likely to **secure** jobs. If students could anticipate the job market's demands, they would be more motivated to **invest** additional **effort in** obtaining the necessary qualifications.
+
+In conclusion, immersing oneself in specific major courses is a prudent and effective approach for college students, benefiting their personal development and future prospects after graduation.
+
+---
+
+In the ongoing discussion surrounding university education, **there are differing views on whether** students should **diversify** their studies or focus **solely** on their primary subject. My perspective leans towards **the latter** for several reasons.
+
+Firstly, **dedicating** significant **effort to** one's chosen field **maximizes the use of** academic resources. Unlike primary education, where a broad foundation is essential, university aims to cultivate in-depth insights and critical thinking. **Engaging deeply within the department** allows students to access renowned professors, validating ideas using specialized resources. These **privileges** are often seen as luxuries, making their effective utilization imperative.
+
+Additionally, delving into multiple disciplines can be challenging to ensure predictable outcomes. The absence of a well-structured curriculum within the primary subject can lead students **astray** in non-targeted pursuits. Furthermore, lacking a solid foundation in other fields hinders proper recognition and sequencing of courses. This complexity **hampers** effective learning and assessment, **ultimately** results in inadequate achievements.
+
+Lastly, **specialization** enhances **competitiveness** in the job market. In the modern world, higher education graduates **are highly regarded by** major companies. These corporations require expertise in specific areas for various roles. Students with relevant majors are better positioned to secure such positions. If students can anticipate market demands, they can invest more effort in gaining the required qualifications.
+
+In conclusion, while exposure to various subjects has its merits, a focused approach within one's main subject appears more beneficial. This strategy optimizes resources, minimizes learning complications, and increases post-graduation prospects.
+
+
+
+### Urbanization and population moving (td)
+
+In many countries around the world, rural people are moving to cities, so the population in the countryside is decreasing.
+
+Do you think this is a positive or a negative development?
+
+Give reasons for your answer and include any relevant examples from your own knowledge or experience.
+
+### Science's aim (td)
+
+The most important aim of science should be to improve people’s lives. To what extent do you agree or disagree with this statement?
+
+Give reasons for your answer and include any relevant examples from your own knowledge or experience.
+
+
+
+
 
 
 
@@ -410,6 +535,22 @@ In conclusion, the appeal of studying in English-speaking countries ***stems fro
 ## Type: Both side
 
 
+
+### Professional Obligations and Global Mobility (td)
+
+Some people believe that professionals, such as doctors and engineers, should be required to work in the country where they did their training. Others believe they should be free to work in another country if they wish. 
+
+Discuss both these views and give your own opinion. 
+
+Give reasons for your answer and include any relevant examples from your own knowledge or experience."
+
+### Effectiveness of Ads (td)
+
+Some people say that advertising is extremely successful at persuading us to buy things. Other people think that advertising is so common that we no longer pay attention to it.
+
+Discuss both these views and give your own opinion.
+
+Give reasons for your answer and include any relevant examples from your own knowledge or experience.
 
 ### Group activities for children (12-3) 
 
