@@ -235,13 +235,35 @@ Why is this the case? Do you think this is a positive or a negative development?
 
 Give reasons for your answer and include any relevant examples from your own knowledge or experience.
 
+
+
+Nowadays, the youth spend considerable time on their smartphones. In my understanding, this widespread phenomenon can be attributed to human nature's  tendency to seek novel experiences and engaging in interactions with others. Consequently, device producers and apps development teams leverage this inclination to stimulate demand for advanced smartphones and various apps, thereby boosting their sales and revenue.
+
+Turning to the question whether this trend signifies a positive or negative development, my stance leans towards the latter for some compelling reasons.
+
+Firstly, long-time using smartphone can be harmful to children's health. Driven by a wide range of appealing contents available on smartphones, people are prone to be immersed and ignore resting, thereby inadvertently lead to damage to eyes and necks. 
+
+Additionally, excessively depending on smartphones affects youngsters' personal growth. 
+
 ### New products emphasized in Ads (td)
 
-In their advertising, businesses nowadays usually emphasise that their products are new in some way.
+> In their advertising, businesses nowadays usually emphasise that their products are new in some way.
+>
+> Why is this? Do you think it is a positive or negative development?
+>
+> Give reasons for your answer and include any relevant examples from your own knowledge or experience.
 
-Why is this? Do you think it is a positive or negative development?
+In contemporary advertising, businesses often focus on **highlighting** the **newness** of their products. **In my understanding**, this common practice can be attributed to **human nature's tendency** to seek novel experiences and engage in **competitive comparisons**. Consequently, companies leverage this **inclination** to **stimulate demand for** new products, thereby **boosting** their sales and revenue.
 
-Give reasons for your answer and include any relevant examples from your own knowledge or experience.
+**Turning to the question of whether** this trend signifies a positive or negative development, my stance leans towards the latter for several compelling reasons.
+
+Firstly, emphasizing **novelty** often **prompts** customers to acquire unnecessary products and services. Driven by the **allure** of newness, people are prone to ignore their actual needs and **cost a fortune for** features they actually don't need. Furthermore, this inappropriate emphasis impedes the audience's ability to gather sufficient product information from the advertisement, **thereby(thus)** also affecting the shopping experience of users with **genuine** purchasing needs.
+
+Moreover, the **relentless(continuous)** pursuit of turnover can lead to products with shorter **lifespans**. **As companies aim for** customers to upgrade their products periodically, **durability** is no longer a primary consideration in product design and manufacturing. Some even **propose(advocate)** a design concept where products are **intentionally(deliberately)** rendered **obsolete** within a certain **time frame(duration)** to encourage consumers to **switch to the next generation of products.**
+
+Lastly, the continuous introduction of new products and the **discarding** of older ones exacerbates environmental concerns. This cycle **escalates** production, packaging, and **disposal-related** environmental impacts, further **straining** limited resources and polluting ecosystems.
+
+In conclusion, while marketing products as novel may yield short-term gains for businesses, the underlying culture of excessive consumerism bears far-reaching negative consequences. 
 
 ## Type: Agree or not (Opinion)
 
@@ -259,9 +281,6 @@ Do you think the advantages of taking risks outweigh the disadvantages?
 
 Give reasons for your answer and include any relevant examples from your own knowledge or experience.
 
-
-
-
 In the ongoing debate about risk-taking, there are differing views on whether this behavioral pattern benefits people in **their daily lives** and workplaces or leads to more negative consequences. My stance leans towards the former for some compelling reasons.
 
 Firstly, **adhering to** one's inherent traits makes life simpler. As a renowned economist once said, a reasonable person naturally avoids taking risks. I believe prudence is a lesson humans have learned through long-term evolution, which **prompts** us **to** protect ourselves **in the face of** appealing but inherently dangerous situations, ensuring our survival in the natural environment.
@@ -271,6 +290,18 @@ Additionally, avoiding risks can guarantee steady outcomes **in the long term**.
 Lastly, taking risks can easily **transform into** gambling. For the majority, it is challenging to **assess** whether **things are under control**. When **confronted with** games of probability, as **emotional beings**, humans often fail and lose everything due to instincts like fear, anger, and recklessness. The best way to avoid **such a tragedy** is to **refrain from participating**.
 
 In conclusion, while there may be some benefits to being a **bold** decision-maker, maintaining a conservative and prudent attitude toward everything ensures a stable and **assured** life.
+
+---
+
+The debate over the significance of risk-taking in both professional and personal domains is ongoing. While some advocate the potential benefits of **embracing** risk, I believe the drawbacks tend to outweigh the advantages for several reasons.
+
+Firstly, individuals often **underestimate** the potential consequences of failed **ventures**. The **aftermath** of a risk **gone wrong** can be **far-reaching**, affecting not only the individual's well-being but also their **surroundings**. For instance, a business decision to invest heavily in a **speculative** project can lead to financial **turmoil** not only for the entrepreneur but also for their employees and stakeholders.
+
+Secondly, **proven** strategies across diverse fields consistently show that **conservative approaches yield stable returns in the long run**. **Whether** in financial investments, medical treatments, or technological innovations, a **cautious** and **calculated** approach has historically ensured better outcomes. This has been particularly evident **in the case of** sustainable investment practices, where avoiding excessive risk-taking **aligns with** the principle of gradual yet secure growth.
+
+Lastly, **human beings** often struggle to **strike the right balance between** calculated risk and **recklessness**. What begins as a well-calibrated **endeavor** can quickly **devolve into** uncontrollable gambling. This can result in severe **losses**, eroding not just one's resources but also their self-confidence and motivation.
+
+In conclusion, while taking risks may have certain merits, the **potential adverse consequences**, including the underestimation of failure's aftermath and the propensity for risk to **escalate into** uncontrolled gambling, emphasize that the disadvantages of embracing risks tend to **overshadow** the benefits.
 
 ### Aging society
 
@@ -533,6 +564,14 @@ Furthermore, studying in English-speaking countries offers students the opportun
 In conclusion, the appeal of studying in English-speaking countries ***stems from*** English's ***prominent role*** as an international language. ***Its universal application in various sectors***, ***coupled with the advantages of*** cultural exposure and academic excellence, make it an ***indispensable tool*** for those seeking global opportunities and success.
 
 ## Type: Both side
+
+
+
+### Lower ticket price
+
+
+
+Indeed, reducing airfare allows more passengers to travel by plane. However, in order to ensure their own profits, airlines are bound to attempt to lower operational costs in various aspects. When this involves certain safety-related aspects such as reducing staff training time, skipping pre-flight safety checks, or requiring flights to be extended, it can directly lead to various risks(hazards) and even result in tragic aviation accidents.
 
 
 
