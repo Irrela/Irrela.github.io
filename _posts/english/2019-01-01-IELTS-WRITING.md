@@ -227,7 +227,7 @@ Sil
 
 ## Type: Why and stance
 
-### Smart phone (td)
+### Smart phone
 
 > Some children spend hours every day on their smartphones.
 >
@@ -263,7 +263,7 @@ In conclusion, while smartphones allow children to broaden their horizons by exp
 
 
 
-### New products emphasized in Ads (td)
+### New products emphasized in Ads
 
 > In their advertising, businesses nowadays usually emphasise that their products are new in some way.
 >
@@ -291,13 +291,13 @@ Nowadays, a growing number of people with health problems are trying alternative
 
 Do you think this is a positive or a negative development?
 
-### Taking risks td
+### Taking risks
 
-It is important for people to take risks, both in their professional lives and their personal lives.
-
-Do you think the advantages of taking risks outweigh the disadvantages?
-
-Give reasons for your answer and include any relevant examples from your own knowledge or experience.
+> It is important for people to take risks, both in their professional lives and their personal lives.
+>
+> Do you think the advantages of taking risks outweigh the disadvantages?
+>
+> Give reasons for your answer and include any relevant examples from your own knowledge or experience.
 
 In the ongoing debate about risk-taking, there are differing views on whether this behavioral pattern benefits people in **their daily lives** and workplaces or leads to more negative consequences. My stance leans towards the former for some compelling reasons.
 
@@ -350,8 +350,6 @@ Moreover, **a decline in** the **workforce** productivity **arises from** an age
 Furthermore, an ageing population can lead to **declining** economic competitiveness. Countries with a disproportionately older population might struggle to **keep pace with** rapidly evolving industries and technologies, affecting their ability to remain globally competitive.
 
 In conclusion, **while there may be some benefits to** having an ageing population, such as the accumulation of **wisdom** and experience, the **associated** disadvantages, including economic strain and decreased productivity, are more substantial. Governments should carefully consider the challenges posed by this demographic trend and **formulate policies** to address them effectively.
-
-
 
 ### Interdiscipline and time management 
 
