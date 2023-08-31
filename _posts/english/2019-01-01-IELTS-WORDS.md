@@ -143,7 +143,67 @@ tags:
 - guarantee
 - recklessness
 - assured
-
+- speculative
+- aftermath
+- far-reaching
+- turmoil
+- entrepreneur
+- proven
+- cautious
+- conservative
+- controversial/ controversially
+- potential adverse consequences
+- escalate into/ leverage
+- overshadow
+- hinder/ hamper/ impede
+- consumerism
+- inappropriate
+- compromising their durability for immediate appeal
+- inclination
+- revenue
+- emphasis/ emphasize
+- necessary/ unnecessary
+- exaggerate/ exaggeration
+- genuine
+- relentless/ continuous
+- periodically
+- durability/ durable/ durably
+- deliberate/ intentional
+- obsolete/ outdated/ antiquated/ old-fashioned/ old-school
+- abandon/ discard
+- disposal/ discarding
+- considerable/ considerably
+- abusive/ aggressive
+- hierarchy
+- inheritance/ inherent/ natural
+- on the basis that the personality of one is in some way incompatible with that of the other person.
+- optimism/ optimistic/ optimistically/ optimize
+- pessimism/ pessimistic/ pessimistically
+- intolerant/ intolerance
+- look down in behind-the-scenes people
+- chief executives
+- uncover/ reveal 
+- in a high pressure work environment, it's problematic
+- autocratic
+- uncertainty
+- the ideal is to prevent it arising in the first place. 
+- politeness
+- conflict does occur, and can get out of hand
+- in such cases
+- mouthpiece
+- mediator
+- build a clear picture of the situation
+- adolescents
+- criminals
+- detrimental/ harmful/ adversely affect
+- appealing/ captivating
+- prolonged/ extended
+- impairment[u]/ damage[u]
+- myopia
+- immerse/ engross
+- potential/ underlying/ lurking
+- excessive usage/ overuse/ abuse
+- subsequent/ following
 
 
 
@@ -766,7 +826,6 @@ ethnic groups
 
 Globalized world
 
-relentless
 
 bland
 
