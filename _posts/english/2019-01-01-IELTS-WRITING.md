@@ -391,13 +391,19 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 ### Science's aim (td)
 
-The most important aim of science should be to improve people’s lives. To what extent do you agree or disagree with this statement?
+> The most important aim of science should be to improve people’s lives. To what extent do you agree or disagree with this statement?
+>
+> Give reasons for your answer and include any relevant examples from your own knowledge or experience.
 
-Give reasons for your answer and include any relevant examples from your own knowledge or experience.
+**It is widely asserted** that the primary objective of scientific development should the enhancement of overall societal well-being. I completely **endorse** this perspective for several compelling reasons.
 
+Firstly, a considerable portion of public resources is invested into(**channeled into**) scientific research. For example, the majority of academic institutions are more or less sponsored by public funding. Universities can often obtain land **at favorable rates** for educational purposes(**use**), and a **generous** subsidies, borne by governments, is **allocated to** cover living costs of researchers. All of these privileges **are aimed at** building a dedicated environment for for those engaged in scientific endeavors. Consequently, it is justified for society to **expect** **tangible** returns on its enormous investment.
 
+Additionally, improved living standards can, in turn, prompt technological advancements. Humans are **inherently** driven by pursuit of better material conditions. People can **harness** their highest levels of(**maximal**) motivation to **delve into** ways of increasing productivity. This passion, in most cases, continuously leads to remarkable scientific **breakthroughs**.
 
+Lastly, ensuring that scientific explorations are **conducted** for positive purposes **mitigates** underlying hazards. Proven practices across diverse fields consistently **illustrate** that the aftermath of **misuse** of technology and **unethical** research could be extremely devastating. Instances such as the **deployment** of chemical and biological weapons on battlefields and **unregulated** overuse of cloning. Given all these tragedies, it is definitely **warranted** to set the right direction for scientific **inquiry**.
 
+In conclusion, while there might be some advantages to **diversify** the goals of scientific activities, I firmly contend that prioritizing the **amelioration[u]** of living conditions for the majority ultimately leads to an efficient and assured society.
 
 
 
@@ -588,8 +594,6 @@ In conclusion, the appeal of studying in English-speaking countries ***stems fro
 
 
 Indeed, reducing airfare allows more passengers to travel by plane. However, in order to ensure their own profits, airlines are bound to attempt to lower operational costs in various aspects. When this involves certain safety-related aspects such as reducing staff training time, skipping pre-flight safety checks, or requiring flights to be extended, it can directly lead to various risks(hazards) and even result in tragic aviation accidents.
-
-
 
 ### Professional Obligations and Global Mobility 
 

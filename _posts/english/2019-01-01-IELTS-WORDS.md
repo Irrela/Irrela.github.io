@@ -9,6 +9,8 @@ tags:
 > [British spell and US spell](https://zhuanlan.zhihu.com/p/364110560)
 > [A few and just few]()
 
+Fix any error and naturalize the followings as you were a native speaker who masters english and expect to score at lease band 7 in IELTS writing task 2:
+
 # Weak Spelling
 - reptile 
 - tongue
@@ -234,6 +236,13 @@ tags:
 - rigorously/ carefully
 - effectiveness/ outcomes/ efficacy/ performance
 - As technology progresses/develops
+- abrupt
+- develop/ cultivate/ nurture/ train
+- be perceived/ be regarded/ seen as/ viewed as
+- public funding/ public funds/ public finance
+- Unwarranted/ unjustified/ unreasonable/ inappropriate/ unfair
+- collaboration
+- pursuit/ inquiry/
 
 
 
