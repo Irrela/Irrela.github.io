@@ -222,7 +222,18 @@ tags:
 - analyze
 - a series of questions to
 - there'd need to be guides and wardens around
-
+- novelty/ newness/ innovation/ freshness
+- products/ goods/ Merchandise/ Commodities
+- reassess
+- prompt/ persuade(sb. to do)
+- force/ compel
+- disseminate/ deliver/ broadcast/ distribute/ release
+- justified/ well-founded/ reasonable/ plausible/ substantiated/ convincing
+- worldwide/ around the world
+- print media/ billboard
+- rigorously/ carefully
+- effectiveness/ outcomes/ efficacy/ performance
+- As technology progresses/develops
 
 
 

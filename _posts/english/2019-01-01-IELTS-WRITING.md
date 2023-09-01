@@ -599,13 +599,23 @@ Discuss both these views and give your own opinion.
 
 Give reasons for your answer and include any relevant examples from your own knowledge or experience."
 
-### Effectiveness of Ads (td)
+### Effectiveness of Ads
 
-Some people say that advertising is extremely successful at persuading us to buy things. Other people think that advertising is so common that we no longer pay attention to it.
+> Some people say that advertising is extremely successful at persuading us to buy things. Other people think that advertising is so common that we no longer pay attention to it.
+>
+> Discuss both these views and give your own opinion.
+>
+> Give reasons for your answer and include any relevant examples from your own knowledge or experience.
 
-Discuss both these views and give your own opinion.
+In the ongoing debate over effectiveness of current ads, there are differing views on whether it is still a major marketing approach or an outdated promotional strategy due to its overuse. My stance leans towards the former for some compelling reasons.
 
-Give reasons for your answer and include any relevant examples from your own knowledge or experience.
+On one hand, I acknowledge the reality that nowadays **it has become increasingly difficult to** prompt customers to acquire products solely through advertising. No matter how businesses emphasize the novelty of their commodities and services, people have realized the repercussions of excessive consumerism and **have begun to** reassess their genuine purchasing needs. 
+
+On the other hand, **there seems to be** no **alternative** that can replace current advertising approaches yet. Proven practices across diverse fields consistently show that advertisements yield stable and predictable returns in business. Even the most successful corporations **worldwide**, such as Apple and Coca-Cola, cost a fortune in designing, making and distributing advertisements each year. The effectiveness of this investment must have been carefully verified within these major companies, or they **would have no reason to continually bear such substantial expenses.**
+
+In my opinion, the situation forces businesses to improve the quality and delivery of their advertisements. As technology evolves, marketing team is now able to plan more personalized contents for **certain customer groups**, precisely broadcasting promotional information through a wide range of channels. This includes not only traditional media such as TV and radio but also influencers channels. Embracing these changes in advertising can lead to a more efficient and cost-effective marketing investment for most companies.
+
+In conclusion, while both perspectives **on** advertisements **have well-founded arguments**, I contend that an **inclusive** and proactive attitude towards the evolution of the advertising industry would **bring about** more opportunites and innovations.
 
 ### Group activities for children (12-3) 
 
