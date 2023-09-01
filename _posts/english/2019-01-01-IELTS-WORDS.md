@@ -194,9 +194,9 @@ tags:
 - mediator
 - build a clear picture of the situation
 - adolescents
-- criminals
+- criminals/ crime
 - detrimental/ harmful/ adversely affect
-- appealing/ captivating
+- appealing/ captivating/ fascinating
 - prolonged/ extended
 - impairment[u]/ damage[u]
 - myopia
@@ -204,7 +204,24 @@ tags:
 - potential/ underlying/ lurking
 - excessive usage/ overuse/ abuse
 - subsequent/ following
-
+- flourish/ thrive
+- adhere to/ stick to/ abide by
+- new library has all sorts of facilities
+- we've got a much larger section of the library **devoted to** travel books
+- I've done a bit of reading
+- but they might be **a bit** young for that
+- certificates/ certification
+- The hospital **arranges for** someone to come along  
+- cholesterol levels
+- it's free in the evening and at weekends.
+- we'll have to go to the site to do that 
+- oversee/ supervise
+- we have to **establish with** our interviewees whether we can identify them in our case study or whether they want to be anonymous.
+- I wouldn't have thought of that
+- regularities/ patterns
+- analyze
+- a series of questions to
+- there'd need to be guides and wardens around
 
 
 
