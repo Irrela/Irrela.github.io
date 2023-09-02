@@ -268,7 +268,41 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 - probably/ presumably
 - warrant concern for human consumption
 - acquisition of language
-- In the end, it comes down to whether more value is placed on human economic wellbeing or environmental wellbeing.
+- In the end, **it comes down to** whether more value is placed on human economic well-being or environmental well-being.
+- **Taking** Apple Inc.'s business success **as an example**,
+- I can **hardly** believe it
+- Food and clean water are becoming **scarce**. 
+- medicine: preventative medicine; cough medicines/ medical/ 
+- an allergy to wheat
+- advertisements/ adverts[informal]
+- permanent/ temporary
+- I made a complete career change
+- Antact
+- so when I saw you were advertising for tour leaders , I decided to apply.
+- which is proving so popular
+- Would that suit you?/ Would that fit in with your plans/ Would that be possible for you
+- suits/ trousers/ jeans
+- In his misspent youth
+- volunteers/ voluntary
+- a fortnight
+- have some sort of food allergy, so we're always very careful about that.
+- as long as we have enough notice, we can deal with that.
+- Where should I post it to?
+- You're quite a long way from where I live, I will drive over on Mon. / the exam venue is quite far from where I live
+- I have to think about it for a while
+- adaptations
+- they're concerned with issues of the time when the film is made.
+- patriots/ patriotic fervor/ patriotism
+- makes you see what life was like at the time of the play.
+- two feuding families
+- You'd expect it would sound really bizarre, but I found I soon got used to it.
+- there are loads of special effects
+- All show and no substance.
+- That was really innovative, from a stylistic point of view
+- You look **as though(as if)** you've been running a marathon ; It sounds as though it'll be very interesting.
+- I feel like(gather) this is more about the economy.
+- During the summer break of my third year in college, I **secured** an internship at a local company.
+
 
 You are a native English speaker who has complete mastery of the language. I'm currently preparing for the speaking section of the IELTS General Training exam. Could you assist me by categorizing and providing some commonly used connective phrases by native speakers based on different functional scenarios? It would be really helpful if you could provide example sentences to illustrate their usage.
 
