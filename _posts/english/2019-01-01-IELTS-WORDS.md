@@ -300,8 +300,11 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 - All show and no substance.
 - That was really innovative, from a stylistic point of view
 - You look **as though(as if)** you've been running a marathon ; It sounds as though it'll be very interesting.
-- I feel like(gather) this is more about the economy.
+- I feel like(gather) this is more about(concerned with/ related to) the economy.
 - During the summer break of my third year in college, I **secured** an internship at a local company.
+- politic/ wise/ Sensible/ Prudent
+- political
+- politics
 
 
 You are a native English speaker who has complete mastery of the language. I'm currently preparing for the speaking section of the IELTS General Training exam. Could you assist me by categorizing and providing some commonly used connective phrases by native speakers based on different functional scenarios? It would be really helpful if you could provide example sentences to illustrate their usage.
