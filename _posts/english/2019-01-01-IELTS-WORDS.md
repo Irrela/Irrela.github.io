@@ -149,18 +149,19 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 - aftermath
 - far-reaching
 - turmoil
-- entrepreneur
+- entrepreneur/ entrepreneurship
 - proven
 - cautious
 - conservative
 - controversial/ controversially
 - potential adverse consequences
+- Consequently/ As a result/ Accordingly
 - escalate into/ leverage
 - overshadow
 - hinder/ hamper/ impede
 - consumerism
 - inappropriate
-- compromising their durability for immediate appeal
+- **compromising** their durability for immediate appeal
 - inclination
 - revenue
 - emphasis/ emphasize
@@ -242,26 +243,27 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 - public funding/ public funds/ public finance
 - Unwarranted/ unjustified/ unreasonable/ inappropriate/ unfair
 - collaboration
-- pursuit/ inquiry/
-- fierce
+- pursuit/ inquiry(inquiries)/
+- **fierce**
 - one that's increasing steadily year on year
 - one-on-one tuition
 - noticeable
 - thrill
-- like-minded
-- tuition
+- like-minded 
+- tuition[u]
 - excursions
-- consultation
-- clients find that they end up losing much of the stress they've built up in their daily lives
-- it's far preferable to being in a gym
-- We offer one which is tailored to the needs of families
-- Mercury's one of the 120 or so elements
-- thermometers
+- consult/ consultant/ consultation
+- clients find that they **end up losing much of the stress** they've built up **in their daily lives**
+- it's far **preferable** to being in a gym
+- We offer one which **is tailored to the needs of** families
+- Mercury's one of the 120 **or so** elements
+- thermometers 
 - domestic purposes
-- Some of this gets deposited into lakes and rivers
-- it's been known for some time that
-- subtle sub-effects
-- food contaminated with mercury
+- Some of this gets **deposited** into lakes and rivers
+- deposit[noun]/ deposit[verb]
+- **it's been known for some time** that
+- subtle **sub-effects** 
+- food **contaminated** with mercury 
 - they don't have to worry about going out 
 - probably/ presumably
 - warrant concern for human consumption
@@ -271,6 +273,17 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 You are a native English speaker who has complete mastery of the language. I'm currently preparing for the speaking section of the IELTS General Training exam. Could you assist me by categorizing and providing some commonly used connective phrases by native speakers based on different functional scenarios? It would be really helpful if you could provide example sentences to illustrate their usage.
 
 # Grammar
+## specific, special, certain, specified, particular
+Specific（具体）：用来表示某物或某事物明确定义或特定的，没有模糊性。例如："I need specific details about the project."
+
+Special（特殊）：用来表示某物或某事物不同于一般情况或与众不同。例如："Today is a special day for us."
+
+Certain（某种）：用来表示某物或某事物是确定的或某种情况下的。它有时可以表示一种保守的说法，比如不确定但有把握的情况。例如："I have a certain feeling that it will rain."
+
+Specified（特定的）：用来表示某物或某事物经过明确规定或特别指定。例如："The meeting will take place at the specified time and location."
+
+Particular（特别的）：用来表示某物或某事物是特别的，可能与其他事物不同或需要特别关注。例如："She has a particular interest in art."
+
 ## Connective phrase
 1. Adding Information:
 
@@ -1073,4 +1086,3 @@ Here are some synonyms for "advantages and disadvantages":
 provide me a proper synonym of "destinations" in context: 
 
 provide me some synonyms of "foster"
-
