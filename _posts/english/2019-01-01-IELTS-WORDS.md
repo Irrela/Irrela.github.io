@@ -243,8 +243,30 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 - Unwarranted/ unjustified/ unreasonable/ inappropriate/ unfair
 - collaboration
 - pursuit/ inquiry/
-
-
+- fierce
+- one that's increasing steadily year on year
+- one-on-one tuition
+- noticeable
+- thrill
+- like-minded
+- tuition
+- excursions
+- consultation
+- clients find that they end up losing much of the stress they've built up in their daily lives
+- it's far preferable to being in a gym
+- We offer one which is tailored to the needs of families
+- Mercury's one of the 120 or so elements
+- thermometers
+- domestic purposes
+- Some of this gets deposited into lakes and rivers
+- it's been known for some time that
+- subtle sub-effects
+- food contaminated with mercury
+- they don't have to worry about going out 
+- probably/ presumably
+- warrant concern for human consumption
+- acquisition of language
+- In the end, it comes down to whether more value is placed on human economic wellbeing or environmental wellbeing.
 
 You are a native English speaker who has complete mastery of the language. I'm currently preparing for the speaking section of the IELTS General Training exam. Could you assist me by categorizing and providing some commonly used connective phrases by native speakers based on different functional scenarios? It would be really helpful if you could provide example sentences to illustrate their usage.
 
