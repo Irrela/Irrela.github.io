@@ -277,7 +277,7 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 - advertisements/ adverts[informal]
 - permanent/ temporary
 - I made a complete career change
-- Antact
+- Antarctic/ Arctic/ The Antarctic / The Arctic
 - so when I saw you were advertising for tour leaders , I decided to apply.
 - which is proving so popular
 - Would that suit you?/ Would that fit in with your plans/ Would that be possible for you

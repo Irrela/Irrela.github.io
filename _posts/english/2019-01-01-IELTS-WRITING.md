@@ -225,7 +225,17 @@ Sil
 
 # Practice - Task 2
 
+
+
 ## Type: Why and stance
+
+### Template
+
+Nowadays, a significant number of `group` dedicate prolonged hours each day to `topic`. From my persperctive, this phenomenon can be attributed to a combination of factors, including ^^^. 
+
+Turning to the question whether this trend signifies a constructive or destructive development, my stance leans towards the latter for several compelling reasons.
+
+In conclusion, while there may be some benefits to `opinion 1`, `opinion 2` leads to a stable and assured world.
 
 ### Smart phone
 
@@ -284,6 +294,16 @@ Lastly, the continuous introduction of new products and the **discarding** of ol
 In conclusion, while marketing products as novel may yield short-term gains for businesses, the underlying culture of excessive consumerism bears far-reaching negative consequences. 
 
 ## Type: Agree or not (Opinion)
+
+
+
+### Template
+
+In the ongoing debate over `topic`, there are differing views on whether `opinion 1` or `opinion 2`. My stance leans towards the former/latter for several compelling reasons.
+
+`arguments`
+
+In conclusion, while there may be some benefits to `opinion 1`, `opinion 2` leads to a stable and assured world.
 
 ### Alternative Medicine td
 
@@ -524,6 +544,12 @@ From personal experience, my younger brother developed excellent teamwork and le
 In conclusion, children's leisure activities should not be limited to being strictly educational. ***A well-rounded approach*** to leisure pursuits allows children to learn diverse skills, foster personal growth, and ***develop a passion for*** lifelong learning. Striking a balance between education and leisure is vital in shaping well-rounded individuals who can thrive academically, socially, and emotionally.
 
 ## Type: Why (and How)
+
+
+
+### Template
+
+Nowadays, it is quite common to witness `phenomenon`.
 
 ### Insufficient exercise (13-2)
 > Many working people get little or no exercise either during the working day or in their free time, and have health problems as a result.
