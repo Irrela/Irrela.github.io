@@ -57,7 +57,70 @@ More disadvantages
 
 # Practice - Task 1
 
-## Formal feedback & request
+## Suggestion letter
+
+### Improve college cafeteria
+
+> You eat at your college cafeteria every lunchtime. However, you think it needs some improvements. Write a letter to the college magazine. In your letter,
+>
+> - explain what you like about the cafeteria
+> - Say what is wrong with it
+> - Suggest how it could be improved
+
+Dear Editor,
+
+I hope this letter finds you well.  I am writing to propose potential improvements(modifications/refinements/enhancements) **for** our college cafeteria. While the cafeteria is already a popular choice among students, I believe a few modifications could **further** elevate its appeal and **functionality**.
+
+**One of the aspects** that I admire about the cafeteria is its prime location **within** our campus. This central placement makes it convenient for **a multitude of(numerous/a large number of/a wide range of/a variety of)** students, myself included, to enjoy our lunches there. The cozy ambiance created by its warm and well-designed decor enhances the overall dining experience. Additionally, the cafeteria's diverse menu **caters to(appeals to/accommodates)** a wide(extensive/broad) array(range) of tastes, ensuring that there's something for everyone.
+
+However, there are certain aspects(areas/elements) that could be addressed(**It's worth noting** certain factors that could be **worked on**.). Firstly, the cafeteria's **operating hours** are **somewhat** limited. Extending the hours, perhaps until 8 pm, would accommodate students with evening classes and provide a **gathering spot** for those **seeking a coffee** or a light meal after their courses. Secondly, the lack of sufficient parking space for bicycles is a **recurring** issue. I suggest repurposing some of the available area near the **entrance** to create **designated** bike parking spaces.
+
+I hope these suggestions are taken into serious consideration. Your attention to these matters is greatly appreciated, and I look forward to any possible improvements that might enhance our cafeteria experience.
+
+Thank you for your time and consideration.
+
+---
+
+Dear Editor,
+
+I am writing to **share my thoughts about** our college cafeteria, hoping to contribute to the ongoing discussions on improving our campus environment. While the cafeteria serves as a vital hub for students during lunchtime, there are aspects that **warrant** attention for enhancing the overall experience.
+
+Firstly, I appreciate the convenience and variety offered by the cafeteria's menu. The range of options caters to different(diverse) tastes and **dietary preferences**, making it accessible to a diverse student body. Moreover, the central location of the cafeteria fosters social interactions, allowing students to connect and share their daily experiences.
+
+However, there are areas that require attention for improvement. The limited(restricted/constrained/confined) **seating capacity** often results in overcrowding **during peak hours(during the busiest hours/during busy periods/times)**, leading to **discomfort** and reduced relaxation. Additionally, the speed of service can be inconsistent, causing **long waiting times** that **cut into(eat into/diminish/reduce/infringe upon)** our already limited break.
+
+To address these issues, I suggest implementing a few improvements. Expanding the seating area or creating additional dining spaces would **alleviate** congestion(overcrowding) and provide a more comfortable environment. Moreover, introducing a **pre-order** system through a **dedicated** mobile app could **streamline** service, reducing waiting times and enhancing efficiency.
+
+In conclusion, the college cafeteria is a fundamental part of our campus life, and with some strategic enhancements, it can further contribute to a positive student experience. I believe these suggestions could bring about positive changes that would benefit the entire student body.
+
+**Thank you for considering my input.**
+
+### New Airport
+
+> You recently discovered that there are plans to build a new airport in your area and you are not happy with it. Write a letter to the local authority. In your letter,
+>
+> - Say how you found out about the plans
+> - Explain what problems your neighborhood will face
+> - Suggest some possible solutions to those problems.
+
+Dear authority,
+
+I am writing to ***express my deep concern regarding*** the recently(newly) announced(proposed) plans for constructing a new airport ***within*** our district. 
+
+I ***came across*** this information last week while listening to a local radio channel, and I feel ***compelled*** to address the potential ***adverse*** repercussions(***consequences/implications***/impacts) that this project might bring to our neighborhood.
+
+I believe the airport occupies too much land that ***could have been originally*** used for common purposes, such as a shopping mall, hospital, and park. These amenities have the potential to significantly improve the quality of life for the ***surrounding*** residents and enhance employment opportunities in the locality. When compared to the limited benefits that the airport would bring to us, it becomes apparent that this situation is unjust for the community. 
+
+(Moreover, the ***extensive*** land allocation for the airport ***raises questions about*** the judicious use of valuable space. This land, which could otherwise be utilized for community-enhancing amenities like shopping malls, hospitals, and parks, has the potential to significantly elevate the overall quality of life for local residents and ***bolster*** employment opportunities in the ***vicinity***. ***In contrast***, the ***anticipated*** benefits of the airport ***appear*** limited ***in comparison to*** the negative impacts it might generate.)
+
+I would like to suggest reducing airport's size and relocating it ***to the far side***, thus the noise influence could be well controlled and space at the close side could be developed to mall, which can both serve passengers and local citizens. 
+
+(I would like to ***propose*** an alternative solution that ***involves downsizing*** the airport and relocating it to a more remote location. By implementing this approach, the adverse noise effects could be effectively ***mitigated***, while the ***vacated*** space in close ***proximity*** could be ***optimally*** repurposed for the benefit of both ***passengers*** and local ***inhabitants***.)
+
+I would be greatly appreciate it if you could treat this issue seriously, I'm looking forward to hearing from you.
+(I sincerely hope that you will give ***earnest*** consideration to this matter. Your thoughtful attention to these concerns would be highly appreciated. I eagerly anticipate your response.)
+
+## Expressing concern
 
 ###  Sent docs lost
 > You recently sent some documents by post, but they did not arrive. Write a letter to the post manager. In your letter
@@ -73,42 +136,6 @@ The documents were well-packaged and **dispatched** last Wednesday from a local 
 I kindly request that you investigate this matter promptly.(I kindly request a prompt investigation into this matter.) Since the documents are time-sensitive and **hold high significance for both parties involved**, tracing the **whereabouts[u]** of the package and ensuring its swift delivery to its originally intended **recipient** is my **resolute demand**. I would greatly appreciate it if you could **keep me informed about** the **updated status** of my package **during the forthcoming(upcoming/approaching) delivery**.
 
 I trust that my requests will receive serious and immediate attention. Please feel free to **reach out to me** if any further information is needed.
-
-
-## Improve college cafeteria
-
-> You eat at your college cafeteria every lunchtime. However, you think it needs some improvements. Write a letter to the college magazine. In your letter,
-> 
-> - explain what you like about the cafeteria
-> - Say what is wrong with it
-> - Suggest how it could be improved
-
-Dear Editor,
-
-I am writing to propose potential improvements(modifications/refinements/enhancements) **for** our college cafeteria. While the cafeteria is already a popular choice among students, I believe a few modifications could **further** elevate its appeal and **functionality**.
-
-**One of the aspects** that I admire about the cafeteria is its prime location **within** our campus. This central placement makes it convenient for **a multitude of(numerous/a large number of/a wide range of/a variety of)** students, myself included, to enjoy our lunches there. The cozy ambiance created by its warm and well-designed decor enhances the overall dining experience. Additionally, the cafeteria's diverse menu **caters to(appeals to/accommodates)** a wide(extensive/broad) array(range) of tastes, ensuring that there's something for everyone.
-
-However, there are certain aspects(areas/elements) that could be addressed(**It's worth noting** certain factors that could be **worked on**.). Firstly, the cafeteria's **operating hours** are **somewhat** limited. Extending the hours, perhaps until 8 pm, would accommodate students with evening classes and provide a **gathering spot** for those **seeking a coffee** or a light meal after their courses. Secondly, the lack of sufficient parking space for bicycles is a **recurring** issue. I suggest repurposing some of the available area near the **entrance** to create **designated** bike parking spaces.
-
-I hope these suggestions are taken into serious consideration. Your attention to these matters is greatly appreciated, and I look forward to any possible improvements that might enhance our cafeteria experience.
-
-Thank you for your time and consideration.
-
----
-Dear Editor,
-
-I am writing to **share my thoughts about** our college cafeteria, hoping to contribute to the ongoing discussions on improving our campus environment. While the cafeteria serves as a vital hub for students during lunchtime, there are aspects that **warrant** attention for enhancing the overall experience.
-
-Firstly, I appreciate the convenience and variety offered by the cafeteria's menu. The range of options caters to different(diverse) tastes and **dietary preferences**, making it accessible to a diverse student body. Moreover, the central location of the cafeteria fosters social interactions, allowing students to connect and share their daily experiences.
-
-However, there are areas that require attention for improvement. The limited(restricted/constrained/confined) **seating capacity** often results in overcrowding **during peak hours(during the busiest hours/during busy periods/times)**, leading to **discomfort** and reduced relaxation. Additionally, the speed of service can be inconsistent, causing **long waiting times** that **cut into(eat into/diminish/reduce/infringe upon)** our already limited break.
-
-To address these issues, I suggest implementing a few improvements. Expanding the seating area or creating additional dining spaces would **alleviate** congestion(overcrowding) and provide a more comfortable environment. Moreover, introducing a **pre-order** system through a **dedicated** mobile app could **streamline** service, reducing waiting times and enhancing efficiency.
-
-In conclusion, the college cafeteria is a fundamental part of our campus life, and with some strategic enhancements, it can further contribute to a positive student experience. I believe these suggestions could bring about positive changes that would benefit the entire student body.
-
-**Thank you for considering my input.**
 
 ### Share dormitory
 > You live in a room in college which you share with another student. However, there are many problems with this arrangement and you find it very difficult to work. Write a letter to the accommodation officer at the college. In the letter,
@@ -134,9 +161,31 @@ Thank you for your time and consideration. I look forward to your response.
 Sincerely,
 [Your Name]
 
-### Appreciate Restaurant
-> You and some friends ate a meal at a restaurant to celebrate a special occasion, and you were very pleased with the food and services. Write a letter to the restaurant manager. In your letter,
+### Lost item on a train
+> You have lost an item of value on a train. Write a letter to the railway company. In your letter,
 > 
+> - describe the item
+> - explain where and when you left it
+> - say what action you would like the company to take
+
+I hope this letter finds you in good health. I am writing to inform you about(report you) the loss of my wallet on one of your trains yesterday evening. The wallet is brown leather with brass(silver/gold) decorations on the surface. It contains my ID card, several credit cards, and some cash, although I cannot ***specify the exact amount***.
+
+I believe I left my wallet on the train when I hurriedly(hastily) ***disembarked*** after being ***awakened*** by a notification on my smartphone. This happened at around(approximately) 8:30 PM at the City Central station. I ***suspect(guess)*** the wallet ***slipped out of*** my jeans pocket and was left on the seat.
+
+I ***kindly*** request your assistance in locating and returning my lost wallet. I have provided the station name and the ***exact*** time of the incident. I am more than willing to provide any additional information needed to aid in the search, such as a detailed description of the lost items and my contact information.
+
+I would greatly appreciate it if you could ***treat this matter with urgency***, as the items in the wallet ***are essential for my daily life***. Your ***prompt*** action would be highly valued.
+
+Thank you for your attention to this matter. I eagerly await your response.
+
+
+
+## Expressing satisfaction
+
+### Appreciate Restaurant
+
+> You and some friends ate a meal at a restaurant to celebrate a special occasion, and you were very pleased with the food and services. Write a letter to the restaurant manager. In your letter,
+>
 > - Give details of your visit to the restaurant
 > - Explain the reason for the celebration
 > - Say what was good about the food and the services
@@ -157,50 +206,133 @@ Once again, thank you for making this special occasion even more memorable. We e
 
 Warm regards,
 
+## Thank you letter
 
-### New Airport
-> You recently discovered that there are plans to build a new airport in your area and you are not happy with it. Write a letter to the local authority. In your letter,
-> 
-> - Say how you found out about the plans
-> - Explain what problems your neighborhood will face
-> - Suggest some possible solutions to those problems.
+### Getting a desired job td-
 
-Dear authority,
+You recently attended a job interview with XYZ Company and were selected for the position. Write a letter to the hiring manager to express your gratitude for the opportunity and to confirm your acceptance of the job offer.
 
-I am writing to ***express my deep concerns regarding*** the recently(newly) announced(proposed) plans for constructing a new airport ***within*** our district. 
+In your letter, you should:
 
-I ***came across*** this information last week while listening to a local radio channel, and I feel ***compelled*** to address the potential ***adverse*** repercussions(***consequences/implications***/impacts) that this project might bring to our neighborhood.
-
-I believe the airport occupies too much land that ***could have been originally*** used for common purposes, such as a shopping mall, hospital, and park. These amenities have the potential to significantly improve the quality of life for the ***surrounding*** residents and enhance employment opportunities in the locality. When compared to the limited benefits that the airport would bring to us, it becomes apparent that this situation is unjust for the community. 
-
-(Moreover, the ***extensive*** land allocation for the airport ***raises questions about*** the judicious use of valuable space. This land, which could otherwise be utilized for community-enhancing amenities like shopping malls, hospitals, and parks, has the potential to significantly elevate the overall quality of life for local residents and ***bolster*** employment opportunities in the ***vicinity***. ***In contrast***, the ***anticipated*** benefits of the airport ***appear*** limited ***in comparison to*** the negative impacts it might generate.)
-
-I would like to suggest reducing airport's size and relocating it ***to the far side***, thus the noise influence could be well controlled and space at the close side could be developed to mall, which can both serve passengers and local citizens. 
-
-(I would like to ***propose*** an alternative solution that ***involves downsizing*** the airport and relocating it to a more remote location. By implementing this approach, the adverse noise effects could be effectively ***mitigated***, while the ***vacated*** space in close ***proximity*** could be ***optimally*** repurposed for the benefit of both ***passengers*** and local ***inhabitants***.)
-
-I would be greatly appreciate it if you could treat this issue seriously, I'm looking forward to hearing from you.
-(I sincerely hope that you will give ***earnest*** consideration to this matter. Your thoughtful attention to these concerns would be highly appreciated. I eagerly anticipate your response.)
-
-### Lost item on a train
-> You have lost an item of value on a train. Write a letter to the railway company. In your letter,
-> 
-> - describe the item
-> - explain where and when you left it
-> - say what action you would like the company to take
-
-I hope this letter finds you in good health. I am writing to inform you about(report you) the loss of my wallet on one of your trains yesterday evening. The wallet is brown leather with brass(silver/gold) decorations on the surface. It contains my ID card, several credit cards, and some cash, although I cannot ***specify the exact amount***.
-
-I believe I left my wallet on the train when I hurriedly(hastily) ***disembarked*** after being ***awakened*** by a notification on my smartphone. This happened at around(approximately) 8:30 PM at the City Central station. I ***suspect(guess)*** the wallet ***slipped out of*** my jeans pocket and was left on the seat.
-
-I ***kindly*** request your assistance in locating and returning my lost wallet. I have provided the station name and the ***exact*** time of the incident. I am more than willing to provide any additional information needed to aid in the search, such as a detailed description of the lost items and my contact information.
-
-I would greatly appreciate it if you could ***treat this matter with urgency***, as the items in the wallet ***are essential for my daily life***. Your ***prompt*** action would be highly valued.
-
-Thank you for your attention to this matter. I eagerly await your response.
+- Begin by expressing your appreciation for the interview opportunity.
+- Confirm your acceptance of the job offer.
+- Mention your enthusiasm for joining the company and your willingness to start on the agreed-upon date.
+- Provide your contact information for further communication.
 
 
-## Friend related
+
+### Being invited to a party td-
+
+You recently hosted a dinner party at your home for a group of friends. Write a letter to one of your friends, thanking them for attending the party and expressing your appreciation for their presence.
+
+In your letter, you should:
+
+- Begin by expressing your gratitude for their attendance.
+- Mention some specific moments or aspects of the party that you particularly enjoyed.
+- Express your hope to meet up again soon and suggest a future plan or activity.
+
+
+
+## Apologizing letter
+
+
+
+### Cancelation of reserved conference room td-
+
+You had reserved a conference room at a local hotel for a business meeting, but due to unforeseen circumstances, you need to cancel the booking. Write a letter to the hotel manager apologizing for the cancellation and explaining the reasons for it.
+
+In your letter, you should:
+
+- Begin by apologizing for the cancellation and any inconvenience caused.
+- Explain the unforeseen circumstances that have led to the cancellation.
+- Express your hope for understanding and consideration.
+- Request any necessary steps for the cancellation process, such as refund procedures.
+
+
+
+### Damaging borrowed books td-
+
+You borrowed a valuable book from your colleague and accidentally damaged it. Write a letter to your colleague to apologize for the damage and explain what happened.
+
+   In your letter, you should:
+
+- Begin by apologizing for the damage to the book.
+- Explain how the damage occurred.
+- Offer to replace the book or compensate for the damage.
+- Express your hope that your relationship remains good.
+
+**Write at least 150 words.**
+
+## Invitation letter
+
+
+
+### Casual get-together td-
+
+You have recently moved to a new city and made a friend named John. Write a letter to John inviting him to a casual get-together with you and your new neighbors.
+
+In your letter, you should:
+
+- Explain the reason for the get-together.
+- Suggest a date, time, and location for the event.
+- Mention what kind of food or drinks you'll have and if John should bring anything.
+
+
+
+### Family reunion invitation td-
+
+You are organizing a family reunion and need to invite a relative to attend.
+
+Write a letter to your cousin, inviting him/her to the family reunion. In your letter:
+
+- Explain the reason for the reunion.
+- Provide details about the date, time, and location.
+- Mention some activities and events planned for the reunion.
+
+
+
+## Justification letter
+
+### Justify parking in a restricted area td-
+
+You have received a parking ticket for parking in a restricted area. Write a letter to the local traffic authority justifying your actions and requesting the cancellation of the fine.
+
+In your letter, you should:
+
+- Begin by acknowledging the receipt of the parking ticket.
+- Explain the circumstances that led to your parking in the restricted area.
+- Provide any evidence or information that supports your justification.
+- Politely request the cancellation of the fine.
+
+### Jusitfy the request for leave -td
+
+You have recently applied for a two-week leave from your job, but your employer has expressed concerns about approving your leave during a critical project phase. Write a letter to your employer justifying your request for leave and explaining the reasons for your absence.
+
+In your letter, you should:
+
+- Begin by expressing your gratitude for your job and understanding the concerns.
+- Provide a detailed explanation of why you need the leave, including any personal or family circumstances.
+- Explain how your absence can be managed to minimize disruption to the project.
+- Offer reassurance of your commitment to the project and your willingness to assist in any way during your absence.
+
+
+
+## Letter informing someone of something
+
+### Change of Address Notification to Bank td- 
+
+You have recently moved to a new address and need to inform your bank about this change. Write a letter to your bank, informing them of your change of address and requesting that they update their records accordingly.
+
+In your letter, you should:
+
+- Begin by stating your current address and account details.
+- Clearly inform the bank of your new address and the effective date of the change.
+- Request that the bank update their records and send all future correspondence to your new address.
+- Express your appreciation for their prompt attention to this matter.
+
+
+
+## Instruction
 
 ### House-sitting
 > A friend has agreed to look after your house and pet while you are on holiday. Write a letter to your friend. In your letter,
@@ -221,6 +353,34 @@ Once again, I ***genuinely appreciate your willingness*** to help. I am confiden
 
 Warm regards,
 Sil
+
+
+
+## Letter of recommendation
+
+### Recommend a colleague for a new job td-
+
+You have recently worked with a colleague named Sarah who is applying for a new job. Write a letter of recommendation for Sarah, highlighting her qualifications, skills, and work ethic.
+
+In your letter, you should:
+
+- Introduce yourself and your professional background.
+- Provide specific details about Sarah's qualifications, skills, and work performance.
+- Explain why you believe Sarah is an excellent candidate for the new job.
+- Offer your contact information for any further inquiries.
+
+
+
+### Recommend a colleague for a scholarship td-
+
+You have a colleague named Mark who is applying for a scholarship to pursue higher education abroad. Write a letter of recommendation for Mark, highlighting his qualifications, skills, and suitability for the scholarship.
+
+In your letter, you should:
+
+- Introduce yourself and your professional background.
+- Provide specific details about Mark's qualifications, skills, and achievements.
+- Explain why you believe Mark is a deserving candidate for the scholarship.
+- Offer your contact information for any further inquiries.
 
 
 # Practice - Task 2

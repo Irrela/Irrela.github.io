@@ -341,13 +341,60 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 - pay and display car parking spaces on the roadsides
 - have a flat rate
 - attractions 
-- well/ fine/ ?
+- well/ fine/ profound/ ?
 - The Warner Gallery specializes in 19th-century art.
 - high-quality ? high quality
+- shaping an individual's values./ Guiding a person's code of ethics.(moralities)
+- somewhat/ a bit/ slightly/ rather/ kind of/ to some extent/ to a degree
+- potential/ prospective/ possible
+- amelioration[u]/ modifications/ refinements/ enhancements/ changes/ advancements
+- I ***came across*** this information last week 
+- adverse/ negative/ detrimental/ harmful/ damaging/ unfavorable
+- beneficial/ positive/ advantageous/ helpful/ favorable
+- it left me with significant reservations about the potential consequences for our neighborhood.
+- This product has a very specific target audience
+- target audience/ target group
+- customer/ patron/ client/ consumer/ buyer
+- strong/ firm/ robust/ solid
+- initiatives/ approaches/ strategies/ actions
+- plans/ proposals/ ideas/ schemes
 
 You are a native English speaker who has complete mastery of the language. I'm currently preparing for the speaking section of the IELTS General Training exam. Could you assist me by categorizing and providing some commonly used connective phrases by native speakers based on different functional scenarios? It would be really helpful if you could provide example sentences to illustrate their usage.
 
 # Grammar
+## little, few
+Few (几乎没有)：通常用于可数名词（countable nouns），表示数量上的稀缺或缺乏。
+例如，"There are few apples left in the basket" 意味着篮子里剩下很少的苹果。
+
+Little (几乎没有)：通常用于不可数名词（uncountable nouns），表示数量上的稀缺或缺乏。
+例如，"There is little milk left in the bottle" 意味着瓶子里几乎没有牛奶了。
+
+A few (一些，几个)：通常用于可数名词（countable nouns），表示数量上的少量，但是足够多以满足某种需要或期望。
+例如，"I have a few books to read" 意味着我有一些书要阅读，可能不多但足够。
+
+A little (一些，一点点)：通常用于不可数名词（uncountable nouns），表示数量上的少量，但足以满足某种需要或期望。
+例如，"Could you add a little sugar to my tea?" 意味着请给我的茶加一点糖，只需一点点。
+
+## ethical, moral
+Moral (道德的)："Moral" 强调个体或社会中的道德原则和价值观，通常与个人内心的伦理和行为准则有关。"Moral" 更侧重于对权与错、善与恶的判断。例如，我们可以说一个人有 "good moral values"，表示他有良好的道德价值观。
+
+Ethical (伦理的)："Ethical" 通常涉及到道德和伦理规范在特定领域或专业中的应用。它更关注社会和职业上的行为准则，例如在医学、法律、商业等领域的伦理规范。"Ethical" 强调的是在特定环境下遵循的行为准则和规范。例如，我们可以说医生有 "ethical obligations"，指的是医学伦理中的职业道德义务。
+
+## technological, technical
+1. Technical (技术的)：这个词通常用来形容与特定技能、过程或领域相关的事物。它强调了对技术性或专业性问题的关注，可能涉及到技能、方法或程序。例如，你可以说 "He has a technical background" 意思是他有技术方面的背景或专业知识。
+
+2. Technological (科技的)：这个词更侧重于与科技或技术发展相关的事物。它指的是与高级技术、科学和工程有关的东西。例如，你可以说 "Technological advancements have revolutionized our lives" 意思是技术的进步已经彻底改变了我们的生活。
+
+总之，"technical" 更关注具体的技能和方法，而 "technological" 强调与高级科技和工程有关的事物。
+
+## electronic, electric
+Electric (电的)：这个词指的是与电力有关的事物。它通常涉及到电的生成、传输和使用，如电能、电线、电路等。"Electric" 用于描述涉及电的物理属性和过程。 -> `electric car/vehicle`
+
+Electronic (电子的)：这个词指的是与电子技术有关的事物。它包括电子设备、电子电路、计算机、通信设备等，强调了电子技术的应用和电子元件的使用。"Electronic" 用于描述使用电子器件和技术的物品或系统。
+
+总之，"electric" 是与电力本身有关的词，而 "electronic" 是与电子技术和电子器件有关的词。
+
+
 ## specific, special, certain, specified, particular
 Specific（具体）：用来表示某物或某事物明确定义或特定的，没有模糊性。例如："I need specific details about the project."
 
