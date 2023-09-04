@@ -296,7 +296,7 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 - makes you see what life was like at the time of the play.
 - two feuding families
 - You'd expect it would sound really bizarre, but I found I soon got used to it.
-- there are loads of special effects
+- there are loads of special effects/ a plethora of educational and entertainment content
 - All show and no substance.
 - That was really innovative, from a stylistic point of view
 - You look **as though(as if)** you've been running a marathon ; It sounds as though it'll be very interesting.
@@ -305,7 +305,45 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 - politic/ wise/ Sensible/ Prudent
 - political
 - politics
-
+- a plethora of/ numerous/ a wealth of
+- a vast and diverse range of/ a wide array of/ an extensive variety of
+- One major concern is the potential for addiction
+- eye strain and posture problems.
+- aesthetic
+- ancestor
+- offspring[c/u]/ descendants
+- common/ universal
+- desire/ aspiration/ motivation/ hope
+- diary/ dairy
+- To facilitate the realization of these objectives
+- at large
+- provides valuable insights into the cultural and aesthetic preferences
+- Widespread inquiries into
+- exceptional/ very
+- systematically
+- embark on
+- delve into
+- embed/ embedded
+- It is challenging for teenagers to strike a balance between moderate relaxation and obsession/ 
+- the issue of mismatch between school curriculum and the demands of the job market.
+- Students feel that the courses taught in school have little practical relevance once they enter the workforce
+- jewelry[u]
+- pavement cafes/  pedestrians
+- daunting/ tricky/ challenging
+- boring/ tedious/ dull
+- always keep easy-going
+- from all over the world/ worldwide/ around the world
+- built in the 1880s
+- who are passionate about fashion.
+- garments / clothes?
+- technological/ technical
+- electronic/ electric
+- pay and display car parking spaces on the roadsides
+- have a flat rate
+- attractions 
+- well/ fine/ ?
+- The Warner Gallery specializes in 19th-century art.
+- high-quality ? high quality
 
 You are a native English speaker who has complete mastery of the language. I'm currently preparing for the speaking section of the IELTS General Training exam. Could you assist me by categorizing and providing some commonly used connective phrases by native speakers based on different functional scenarios? It would be really helpful if you could provide example sentences to illustrate their usage.
 
