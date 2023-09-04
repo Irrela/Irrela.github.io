@@ -7,7 +7,44 @@ tags:
 
 [toc]
 
+# Model
+## Task 1
+I hope this letter/email/message finds you well. I’m writing to ：
 
+Suggestion:
+- propose several prospective modifications … (share my thoughts about …, hoping to …)
+- To address these issues, I suggest doing(propose an alternative solution that involves doing)
+- I believe these **initiatives** could bring about positive changes that would benefit the entire student body. Your thoughtful consideration to them would be highly appreciated.
+- Thank you for your time and attention to this matter. I look forward to hearing from you.
+
+Concerns:
+- express my deep concern and dissatisfaction regarding the recently proposed plans for doing. (I’m writing to address an issue that has left me quite concerned)
+- To address these issues, I suggest doing(propose an alternative solution that involves doing)
+- I sincerely hope that you would give earnest consideration to this matter. Your thoughtful attention to these concers would be highly appreciated.
+- Thanks you for your time and attention. I look forward to hearing from you.
+
+satisfaction
+- express my sincere admiration for …
+- Once again, thank you for doing. We eagerly look forward to …
+
+Thank you:
+- express my gratitude(appreciation) for …
+- Once again, I genuinely appreciate your willingness to …
+
+Justify:
+- I am writing to acknowledge …; I would like to respectfully explain the circumstances that led to …
+- With this explanation and the supporting medical evidence, I kindly request …
+- Thank you for your attention to this matter. I look forward to your response and hope for a favorable resolution.
+
+Invitation:
+- extend a warm invitation to you for …
+- Please let me know if the suggested date and time work for you. I hope you can join us, and I'm looking forward to seeing you there. Feel free to reach out to me if you have any questions or need further information.
+
+apologizing:
+- express my sincere apologies for …
+- I understand the inconvenience this may cause, and I deeply regret any disruption to your schedule.
+- In light of the cancellation, I kindly request information regarding …
+- Once again, I extend my sincerest apologies for any inconvenience caused by this cancellation. We appreciate your understanding and flexibility in this matter
 
 https://www.douban.com/doulist/39348933/
 
@@ -234,8 +271,6 @@ In your letter, you should:
 
 
 ## Apologizing letter
-
-
 
 ### Cancelation of reserved conference room td-
 

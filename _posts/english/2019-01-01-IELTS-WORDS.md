@@ -342,6 +342,8 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 - have a flat rate
 - attractions 
 - well/ fine/ profound/ ?
+- genuinely/ truly/ deeply/ earnestly/
+- earnest/ diligent
 - The Warner Gallery specializes in 19th-century art.
 - high-quality ? high quality
 - shaping an individual's values./ Guiding a person's code of ethics.(moralities)
@@ -352,16 +354,37 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 - adverse/ negative/ detrimental/ harmful/ damaging/ unfavorable
 - beneficial/ positive/ advantageous/ helpful/ favorable
 - it left me with significant reservations about the potential consequences for our neighborhood.
+- significantly/ substantially/ tremendously/ considerably/ profoundly
 - This product has a very specific target audience
 - target audience/ target group
 - customer/ patron/ client/ consumer/ buyer
 - strong/ firm/ robust/ solid
 - initiatives/ approaches/ strategies/ actions
 - plans/ proposals/ ideas/ schemes
+- attentiveness/ thoughtfulness
+- the services ***rendered*** were impeccable: provided/ delivered/ offered
+- a resounding success
+- succeed
+- outstanding(exceptional/remarkable/extraordinary/unparalleled/incomparable/superb)
+- delectable(tasty/delicious)
+- food/ dishes/ meals/ culinary delights
+- perfect/ impeccable
+- thrilled/ delighted/ excited/ ecstatic
+- be interested in/ be keen on/ be passionate about/ be excited about
+- make an effort/ work hard/ apply yourself/ put in the work
+- basis/ foundation/ ground/ principle
+- fundamental/ essential/ crucial/ pivotal
+- associated fees or charges
+- settle any outstanding matters promptly.
 
 You are a native English speaker who has complete mastery of the language. I'm currently preparing for the speaking section of the IELTS General Training exam. Could you assist me by categorizing and providing some commonly used connective phrases by native speakers based on different functional scenarios? It would be really helpful if you could provide example sentences to illustrate their usage.
 
 # Grammar
+## wake, awaken
+Wake（动词）：通常指从睡眠中醒来或使某人从睡梦中醒来。例如，"I wake up at 7 AM every morning"（我每天早上7点醒来）。
+
+Awaken（动词）：也表示从睡眠中醒来，但它通常用于更正式或文学性的语境中。例如，"The sound of birds singing awakened her/ She is awakened by the sound of birds' singing"（鸟儿的歌声唤醒了她）。
+
 ## little, few
 Few (几乎没有)：通常用于可数名词（countable nouns），表示数量上的稀缺或缺乏。
 例如，"There are few apples left in the basket" 意味着篮子里剩下很少的苹果。
