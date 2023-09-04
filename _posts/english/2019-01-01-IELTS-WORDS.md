@@ -376,6 +376,7 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 - fundamental/ essential/ crucial/ pivotal
 - associated fees or charges
 - settle any outstanding matters promptly.
+- so we've had to postpone installing an elevator
 
 You are a native English speaker who has complete mastery of the language. I'm currently preparing for the speaking section of the IELTS General Training exam. Could you assist me by categorizing and providing some commonly used connective phrases by native speakers based on different functional scenarios? It would be really helpful if you could provide example sentences to illustrate their usage.
 
