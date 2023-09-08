@@ -339,7 +339,7 @@ In your letter, you should:
 - Provide any evidence or information that supports your justification.
 - Politely request the cancellation of the fine.
 
-### Jusitfy the request for leave -td
+### Justify the request for leave td-
 
 You have recently applied for a two-week leave from your job, but your employer has expressed concerns about approving your leave during a critical project phase. Write a letter to your employer justifying your request for leave and explaining the reasons for your absence.
 
@@ -604,7 +604,7 @@ Do you think this is a positive or a negative development?
 
 Give reasons for your answer and include any relevant examples from your own knowledge or experience.
 
-### Science's aim (td)
+### Science's aim
 
 > The most important aim of science should be to improve people’s lives. To what extent do you agree or disagree with this statement?
 >
@@ -752,13 +752,12 @@ In contemporary society, it is increasingly common to observe individuals deeply
 
 ### Tracing residence
 
-In some countries, more and more people are becoming interested in finding out about the history of the house or building they live in.
+> In some countries, more and more people are becoming interested in finding out about the history of the house or building they live in.
 
-What are the reasons for this?
+> What are the reasons for this?
 
-How can people research this?
+> How can people research this?
 
----
 
 In contemporary society, it is increasingly common to observe individuals deeply engrossed in researching the history of their residences. This essay will delve into the underlying reasons behind this phenomenon and propose a range of viable research approaches.
 
