@@ -426,7 +426,7 @@ In your letter, you should:
 
 ### Template
 
-Nowadays, a significant number of `group` dedicate prolonged hours each day to `topic`. From my persperctive, this phenomenon can be attributed to a combination of factors, including ^^^. 
+Nowadays, a significant number of `group` dedicate prolonged hours each day to `topic`. From my perspective, this phenomenon can be attributed to a combination of factors, including ^^^. 
 
 Turning to the question whether this trend signifies a constructive or destructive development, my stance leans towards the latter for several compelling reasons.
 
@@ -470,7 +470,7 @@ In conclusion, while smartphones allow children to broaden their horizons by exp
 
 ### New products emphasized in Ads
 
-> In their advertising, businesses nowadays usually emphasise that their products are new in some way.
+> In their advertising, businesses nowadays usually emphasize that their products are new in some way.
 >
 > Why is this? Do you think it is a positive or negative development?
 >
@@ -566,13 +566,13 @@ Furthermore, an ageing population can lead to **declining** economic competitive
 
 In conclusion, **while there may be some benefits to** having an ageing population, such as the accumulation of **wisdom** and experience, the **associated** disadvantages, including economic strain and decreased productivity, are more substantial. Governments should carefully consider the challenges posed by this demographic trend and **formulate policies** to address them effectively.
 
-### Interdiscipline and time management 
+### Interdisciplinary and time management  
 
 > Some university students want to learn about other subjects in addition to their main subjects. Others believe it is more important to give all their time and attention to studying for a qualification.
 >
 > Give reasons for your answer and include any relevant examples from your own knowledge or experience.
 
-In the ongoing debate over learning stratefy at college, while some advocate for a comprehensive understanding of a wide range of **disciplines**, my stance leans towards focusing **exclusively** on their original subject.
+In the ongoing debate over learning strategy at college, while some advocate for a comprehensive understanding of a wide range of **disciplines**, my stance leans towards focusing **exclusively** on their original subject.
 
 Firstly, **dedicating** more efforts to the designated subject allows for the optimal utilization of academic resources. **Unlike** primary education, university aims to develop(cultivate) one's **in-depth** insights and a critical mindset. Within the  original department and subject, students can **access** renowned professors **in** their **field** and have opportunities to verify their ideas using specific amenities provided by college. Both of which may appear luxurious to those outside the unisversity environment, making it compelling for students to fully utilize these time-limited **privileges**.
 

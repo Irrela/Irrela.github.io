@@ -381,6 +381,15 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 You are a native English speaker who has complete mastery of the language. I'm currently preparing for the speaking section of the IELTS General Training exam. Could you assist me by categorizing and providing some commonly used connective phrases by native speakers based on different functional scenarios? It would be really helpful if you could provide example sentences to illustrate their usage.
 
 # Grammar
+## for me, to me
+In the sentence "Taking photos is a marvelous way of spending a day off to me," both "to me" and "for me" are correct and can be used interchangeably with a slight difference in nuance:
+
+"To me": This suggests a personal preference or opinion. It indicates that you find taking photos to be a wonderful way to spend your day off, and it's something you personally enjoy or appreciate.
+
+"For me": This also implies personal preference but may emphasize more the idea that taking photos is beneficial or suitable for you as an individual. It suggests that, in your case, it works well as an activity for a day off.
+
+Both expressions convey a similar idea, but "to me" places a bit more emphasis on your personal enjoyment, while "for me" may emphasize the suitability or benefit of the activity for you. However, in this context, they are quite interchangeable, and the choice between them is a matter of subtle nuance.
+
 ## wake, awaken
 Wake（动词）：通常指从睡眠中醒来或使某人从睡梦中醒来。例如，"I wake up at 7 AM every morning"（我每天早上7点醒来）。
 
