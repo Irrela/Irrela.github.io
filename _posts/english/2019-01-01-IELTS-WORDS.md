@@ -381,6 +381,39 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 You are a native English speaker who has complete mastery of the language. I'm currently preparing for the speaking section of the IELTS General Training exam. Could you assist me by categorizing and providing some commonly used connective phrases by native speakers based on different functional scenarios? It would be really helpful if you could provide example sentences to illustrate their usage.
 
 # Grammar
+## Luggage, baggage
+Both "luggage" and "baggage" are commonly used terms in English to refer to the personal belongings that a person takes with them when traveling. They are essentially synonymous, and you can use either one in most situations. However, there is a slight difference in usage:
+
+"Luggage" is a more general term and can refer to suitcases, bags, and other containers used for carrying personal items. It's the broader term.
+
+"Baggage" is often used specifically to refer to the bags and suitcases people `bring with them` when traveling. `It's a subset of luggage.`
+
+Here are some examples:
+
+"I packed my luggage for the trip."
+"Please make sure to collect your baggage from the carousel at the airport."
+"I have a lot of luggage to carry."
+## Thesis, paper, essay
+"Essay," "thesis," 和 "paper" 是三种不同类型的学术和文学作品，它们之间的区别如下：
+
+论文 (Thesis):
+一篇长篇研究性作品，通常由研究生在完成学位课程时撰写。
+通常包括对特定主题的深入研究和分析，以及原创性的贡献。
+要求有系统的研究、文献综述、方法学、实验、结果分析和结论等部分。
+最终目标是为了获得学位，如硕士或博士学位。
+
+论文 (Paper):
+一篇短篇或中等篇幅的学术文章，通常发表在学术期刊或会议上。
+旨在传达作者的研究成果、新发现或理论观点。
+有时也可以是综述性的文章，总结领域内的最新进展。
+可能是某个研究项目的一部分，或者是学术界交流的一种方式。
+
+论文 (Essay):
+一篇短篇文章，通常包括作者的观点、观点或解释某一主题。
+通常不像论文或学术论文那样要求严格的研究。
+可以用于学术写作，但也常用于一般文学作品，例如小说评论或个人观点表达。
+这些是这三种学术和文学作品之间的基本区别。要根据具体的上下文和写作目的来选择使用哪种形式。
+
 ## for me, to me
 In the sentence "Taking photos is a marvelous way of spending a day off to me," both "to me" and "for me" are correct and can be used interchangeably with a slight difference in nuance:
 
