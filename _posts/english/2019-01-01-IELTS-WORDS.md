@@ -380,7 +380,37 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 
 You are a native English speaker who has complete mastery of the language. I'm currently preparing for the speaking section of the IELTS General Training exam. Could you assist me by categorizing and providing some commonly used connective phrases by native speakers based on different functional scenarios? It would be really helpful if you could provide example sentences to illustrate their usage.
 
+"The crucial aspect is to address the issue rather than simply expressing emotions, as the latter lacks constructive value."
+
+career-oriented
+
+Considering that ...
+Given that...
+In light of the fact that...
+Taking into account that...
+Bearing in mind that...
+In view of the fact that...
+Owing to the fact that...
+Due to the fact that...
+As a result of...
+In consideration of...
+Thanks to...
+
 # Grammar
+## receptor, recipient
+Receptor:
+A "receptor" is typically a noun that refers to a specialized cell or molecule in an organism that `receives signals, stimuli, or information`. For example, in biology and physiology, receptors are often discussed in the context of sensory organs or cells that respond to specific stimuli, such as photoreceptors in the eyes that detect light.
+
+Recipient:
+"Recipient" is also a noun, but it refers to `a person or entity that receives something`, often `in a broader sense`. It can refer to someone who receives a gift, an award, a message, or any kind of transfer. For example, if you send a letter to someone, that person is the recipient of the letter.
+
+## people's life, people's lives
+The correct phrase depends on the context.
+
+"People's life" is singular and would be used `when talking about the collective life of a group of people or the concept of life in general`. For example: "The preservation of people's life is of utmost importance."
+
+"People's lives" is plural and would be used `when referring to the individual lives of multiple people`. For example: "The pandemic has affected many people's lives."
+
 ## Luggage, baggage
 Both "luggage" and "baggage" are commonly used terms in English to refer to the personal belongings that a person takes with them when traveling. They are essentially synonymous, and you can use either one in most situations. However, there is a slight difference in usage:
 
