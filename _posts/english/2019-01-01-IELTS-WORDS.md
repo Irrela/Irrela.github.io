@@ -397,6 +397,16 @@ In consideration of...
 Thanks to...
 
 # Grammar
+## In the morning, on the morning
+In the Morning:
+
+Use "in the morning" to refer to a general, unspecified time during the morning hours, typically from the time you wake up until around noon.
+Example: "I like to have a cup of coffee in the morning."
+On the Morning:
+
+Use "on the morning" when you want to specify a particular morning, such as a specific date or day.
+Example: "I will see you on the morning of July 15th."
+
 ## receptor, recipient
 Receptor:
 A "receptor" is typically a noun that refers to a specialized cell or molecule in an organism that `receives signals, stimuli, or information`. For example, in biology and physiology, receptors are often discussed in the context of sensory organs or cells that respond to specific stimuli, such as photoreceptors in the eyes that detect light.
