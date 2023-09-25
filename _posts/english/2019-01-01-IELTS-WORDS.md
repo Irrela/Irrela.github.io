@@ -397,6 +397,21 @@ In consideration of...
 Thanks to...
 
 # Grammar
+## Cloth， Clothes, Clothing
+Cloth: 
+"Cloth" refers to a material or fabric that is made from fibers such as cotton, wool, silk, etc. It's the raw material that clothing is typically made from. 
+For example, you might say, "`I spilled coffee on my white cloth napkin`."
+
+Clothes: 
+"Clothes" is the plural form of "clothing." It refers to the garments or items of clothing that people wear to cover their bodies. "Clothes" is used to talk about the things you put on every day, like shirts, pants, dresses, and shoes. 
+For example, "`I need to buy some new clothes for the summer.`"
+
+Clothing: 
+"Clothing" is a more general term that encompasses all types of garments and attire. It's an `uncountable` noun, so you don't use it in the plural form. "Clothing" can refer to a person's entire wardrobe or the general category of items worn to cover the body. 
+For example, "`The store sells a wide range of clothing for men, women, and children.`"
+
+`In summary, while "clothing" can often replace "clothes"`
+
 ## In the morning, on the morning
 In the Morning:
 
