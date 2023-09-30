@@ -5,6 +5,56 @@ tags:
 - English
 ---
 
+# ChatGPT mania may be cooling, but a serious new industry is taking shape
+> Three forces will shape the business of generative AI
+>
+> Sep 21st 2023
+
+The first wave of excitement about generative artificial intelligence (ai) was like nothing else the world had seen. Within two months of its launch in November 2022, Chatgpt had racked up 100m users. Internet searches for “artificial intelligence” surged; more than $40bn in venture capital flowed into ai firms in the first half of this year alone.
+
+The craze for consumer experimentation has since cooled a little: Chatgpt use has fallen and fewer people are Googling “ai”. Son Masayoshi, a Japanese investor notorious for diving into already frothy markets, is thought to be interested in investing in Openai, Chatgpt’s creator. But a second, more serious phase is beginning. An entirely new industry centred on supercharged ai models is taking shape. Three forces will determine what it eventually looks like—and whether Openai stays dominant, or other players prevail.
+
+The first factor is computing power, the cost of which is forcing model-builders to become more efficient. Faced with the eye-watering costs of training and running more powerful models, for instance, Openai is not yet training its next big model, gpt-5, but gpt-4.5 instead, a more efficient version of its current leading product. That could give deep-pocketed rivals such as Google a chance to catch up. Gemini, the tech giant’s soon-to-be-released cutting-edge model, is thought to be more powerful than Openai’s current version.
+
+High computing costs have also encouraged the proliferation of much smaller models, which are trained on specific data to do specific things. Replit, a startup, has trained a model on computer code to help developers write programs, for instance. Open-source models are also making it easier for people and companies to plunge into the world of generative ai. According to a count maintained by Hugging Face, an ai firm, roughly 1,500 versions of such fine-tuned models exist.
+
+All these models are now scrambling for data—the second force shaping the generative-ai industry. The biggest, such as Openai’s and Google’s, are gluttonous: they are trained on more than 1trn words, the equivalent of over 250 English-language Wikipedias. As they grow bigger they will get hungrier. But the internet is close to being exhausted. Many model-makers are therefore signing deals with news and photography agencies. Others are racing to create “synthetic” training data using algorithms; still others are trying to work with new forms of data, such as video. The prize is a model that beats the rivals.
+
+Generative ai’s hunger for data and power makes a third ingredient more important still: money. Many model-makers are already turning away from Chatgpt-style bots for the general public, and looking instead to fee-paying businesses. Openai, which started life in 2015 as a non-profit venture, has been especially energetic in this regard. It has not just licensed its models to Microsoft, but is setting up bespoke tools for companies including Morgan Stanley and Salesforce. Abu Dhabi plans to establish a company to help commercialise applications of Falcon, its open-source ai model.
+
+Another approach is to appeal to software developers, in the hope of getting them addicted to your model and creating the network effects that are so prized in tech. Openai is offering tools to help developers build products using its models; Meta hopes that llama, its open-source model, will help create a loyal community of programmers.
+
+Who will emerge victorious? Firms like Openai, with its vast number of users, and Google, with its deep pockets, have a clear early advantage. But for as long as computing power and data remain constraints, the rewards for clever ways around them will be large. A model-builder with the most efficient approach, the most ingenious method to synthesise data or the most appealing pitch to customers could yet steal the lead. The hype may have cooled. But the drama is just beginning. ■
+
+# Why China’s economy won’t be fixed
+> An increasingly autocratic government is making bad decisions
+>
+> Aug 24th 2023
+
+Whatever has gone wrong? After China rejoined the world economy in 1978, it became the most spectacular growth story in history. Farm reform, industrialisation and rising incomes lifted nearly 800m people out of extreme poverty. Having produced just a tenth as much as America in 1980, China’s economy is now about three-quarters the size. Yet instead of roaring back after the government abandoned its “zero-covid” policy at the end of 2022, it is lurching from one ditch to the next.
+
+The economy grew at an annualised rate of just 3.2% in the second quarter, a disappointment that looks even worse given that, by one prominent estimate, America’s may be growing at almost 6%. House prices have fallen and property developers, who tend to sell houses before they are built, have hit the wall, scaring off buyers. Consumer spending, business investment and exports have all fallen short. And whereas much of the world battles inflation that is too high, China is suffering from the opposite problem: consumer prices fell in the year to July. Some analysts warn that China may enter a deflationary trap like Japan’s in the 1990s .
+
+Yet in some ways Japanification is too mild a diagnosis of China’s ills. A chronic shortfall in growth would be worse in China because its people are poorer. Japan’s living standards were about 60% of America’s by 1990; China’s today are less than 20%. And, unlike Japan, China is also suffering from something more profound than weak demand and heavy debt. Many of its challenges stem from broader failures of its economic policymaking—which are getting worse as President Xi Jinping centralises power.
+
+A decade or so ago China’s technocrats were seen almost as savants. First they presided over an economic marvel. Then China was the only big economy to respond to the global financial crisis of 2007-09 with sufficient stimulatory force—some commentators went as far as to say that China had saved the world economy. In the 2010s, every time the economy wobbled, officials defied predictions of calamity by cheapening credit, building infrastructure or stimulating the property market.
+
+During each episode, however, public and private debts mounted. So did doubts about the sustainability of the housing boom and whether new infrastructure was really needed. Today policymakers are in a bind. Wisely, they do not want more white elephants or to reflate the property bubble. Nor can they do enough of the more desirable kinds of stimulus, such as pension spending and handouts to poor households to boost consumption, because Mr Xi has disavowed “welfarism” and the government seeks an official deficit of only 3% of gdp.
+
+As a result, the response to the slowdown has been lacklustre. Policymakers are not even willing to cut interest rates much. On August 21st they disappointed investors with an underwhelming cut of 0.1 percentage points in the one-year lending rate.
+
+This feeble response to tumbling growth and inflation is the latest in a series of policy errors. China’s foreign-policy swagger and its mercantilist industrial policy have aggravated an economic conflict with America. At home it has failed to deal adequately with incentives to speculate on housing and a system in which developers have such huge obligations that they are systemically important. Starting in 2020 regulators tanked markets by cracking down on successful consumer-technology firms that were deemed too unruly and monopolistic. During the pandemic, officials bought time with lockdowns but failed to use it to vaccinate enough people for a controlled exit, and then were overwhelmed by the highly contagious Omicron variant.
+
+Why does the government keep making mistakes? One reason is that short-term growth is no longer the priority of the Chinese Communist Party (ccp). The signs are that Mr Xi believes China must prepare for sustained economic and, potentially, military conflict with America. Today, therefore, he emphasises China’s pursuit of national greatness, security and resilience. He is willing to make material sacrifices to achieve those goals, and to the extent he wants growth, it must be “high quality”.
+
+Yet even by Mr Xi’s criteria, the ccp’s decisions are flawed. The collapse of the zero-covid policy undermined Mr Xi’s prestige. The attack on tech firms has scared off entrepreneurs. Should China fall into persistent deflation because the authorities refuse to boost consumption, debts will rise in real value and weigh more heavily on the economy. Above all, unless the ccp continues to raise living standards, it will weaken its grip on power and limit its ability to match America.
+
+Mounting policy failures therefore look less like a new, self-sacrificing focus on national security, than plain bad decision-making. They have coincided with Mr Xi’s centralisation of power and his replacement of technocrats with loyalists in top jobs. China used to tolerate debate about its economy, but today it cajoles analysts into fake optimism. Recently it has stopped publishing unflattering data on youth unemployment and consumer confidence. The top ranks of government still contain plenty of talent, but it is naive to expect a bureaucracy to produce rational analysis or inventive ideas when the message from the top is that loyalty matters above all. Instead, decisions are increasingly governed by an ideology that fuses a left-wing suspicion of rich entrepreneurs with a right-wing reluctance to hand money to the idle poor.
+
+The fact that China’s problems start at the top means they will persist. They may even worsen, as clumsy policymakers confront the economy’s mounting challenges. The population is ageing rapidly. America is increasingly hostile, and is trying to choke the parts of China’s economy, like chipmaking, that it sees as strategically significant. The more China catches up with America, the harder the gap will be to close further, because centralised economies are better at emulation than at innovation.
+
+Liberals’ predictions about China have often betrayed wishful thinking. In the 2000s Western leaders mistakenly believed that trade, markets and growth would boost democracy and individual liberty. But China is now testing the reverse relationship: whether more autocracy damages the economy. The evidence is mounting that it does—and that after four decades of fast growth China is entering a period of disappointment. ■
+
 # Is Chinese power about to peak?
 > The country’s historic ascent is levelling off. That need not make it more dangerous
 > 
