@@ -397,6 +397,18 @@ In consideration of...
 Thanks to...
 
 # Grammar
+## Seek, Seek for
+Seek: 
+"Seek" is a verb that means to attempt to find or search for something. It is a more direct and concise way of expressing the act of searching or looking for something. 
+For example:
+"I seek knowledge." (Direct and concise)
+"She seeks happiness." (Direct and concise)
+
+Seek for: 
+"Seek for" is a less common variation of the verb "seek." It also means to search for or look for something, but it is somewhat more formal and less commonly used in everyday speech. It may appear in formal writing or older texts. 
+For example:
+"They sought for answers to their questions." `(Formal or older style)`
+In many cases, you can use "seek" or "seek for" `interchangeably` without a significant difference in meaning. However, as mentioned earlier, `"seek" is the more common and straightforward choice in contemporary English`. So, unless you have a specific reason to use "seek for" for stylistic or formal purposes, it's generally preferable to use "seek" alone.
 ## Cloth， Clothes, Clothing
 Cloth: 
 "Cloth" refers to a material or fabric that is made from fibers such as cotton, wool, silk, etc. It's the raw material that clothing is typically made from. 

@@ -5,6 +5,88 @@ tags:
 - English
 ---
 
+# What’s wrong with the banks
+> Rising interest rates have left banks exposed. Time to fix the system—again
+
+Only ten days ago you might have thought that the banks had been fixed after the nightmare of the financial crisis in 2007-09. Now it is clear that they still have the power to cause a heart-stopping scare. A ferocious run at Silicon Valley Bank on March 9th saw $42bn in deposits flee in a day. svb was just one of three American lenders to collapse in the space of a week. Regulators worked frantically over the weekend to devise a rescue. Even so, customers are asking once again if their money is safe.
+
+Investors have taken fright. Fully $229bn has been wiped off the market value of America’s banks so far this month, a fall of 17%. Treasury yields have tumbled and markets now reckon the Federal Reserve will begin cutting interest rates in the summer. Share prices of banks in Europe and Japan have plunged, too. Credit Suisse, which faces other woes, saw its stock fall by 24% on March 15th and on March 16th it sought liquidity support from the Swiss central bank. Fourteen years since the financial crisis, questions are once again swirling about how fragile banks are, and whether regulators have been caught out.
+
+The high-speed collapse of svb has cast light on an underappreciated risk within [the system](https://www.economist.com/finance-and-economics/2023/03/10/what-does-silicon-valley-banks-collapse-mean-for-the-financial-system). When interest rates were low and asset prices high the Californian bank loaded up on long-term bonds. Then the Fed raised rates at its sharpest pace in four decades, bond prices plunged and the bank was left with huge losses. America’s capital rules do not require most banks to account for the falling price of bonds they plan to hold until they mature. Only very large banks must mark to market all of their bonds that are available to trade. But, as svb discovered, if a bank wobbles and must sell bonds, unrecognised losses become real.
+
+Across America’s banking system, these [unrecognised losses](https://www.economist.com/finance-and-economics/2023/03/16/how-deep-is-the-rot-in-americas-banking-industry) are vast: $620bn at the end of 2022, equivalent to about a third of the combined capital cushions of America’s banks. Fortunately, other banks are much further away from the brink than svb was. But rising interest rates have left the system vulnerable.
+
+The financial crisis of 2007-09 was the result of reckless lending and a housing bust. Post-crisis regulations therefore sought to limit credit risk and ensure that banks hold assets that will reliably have buyers. They encouraged banks to buy government bonds: nobody, after all, is more creditworthy than Uncle Sam and nothing is easier to sell in a crisis than Treasuries.
+
+Many years of low inflation and interest rates meant that few considered how the banks would suffer if the world changed and longer-term bonds fell in value. This vulnerability only worsened during the pandemic, as deposits flooded into banks and the Fed’s stimulus pumped cash into the system. Many banks used the deposits to buy long-term bonds and government-guaranteed mortgage-backed securities.
+
+You might think that unrealised losses don’t matter. One problem is that the bank has bought the bond with someone else’s money, usually a deposit. Holding a bond to maturity requires matching it with deposits and as rates rise, competition for deposits increases. At the largest banks, like JPMorgan Chase or Bank of America, customers are sticky so rising rates tend to boost their earnings, thanks to floating-rate loans. By contrast, the roughly 4,700 small and mid-sized banks with total assets of $10.5trn have to pay depositors more to stop them taking out their money. That squeezes their margins—which helps explain why some banks’ stock prices have plunged.
+
+The other problem affects banks of all sizes. In a crisis once-loyal depositors could flee, forcing the bank to cover deposit outflows by selling assets. If so, the bank’s losses would crystallise. Its capital cushion might look comforting today, but most of its stuffing would suddenly become an accounting fiction.
+
+That alarming prospect explains why the Fed acted so dramatically last weekend. Since March 12th it has stood ready to make loans secured against banks’ bonds. Whereas it used to impose a haircut on the value of the collateral, it will now offer loans up to the bonds’ face value. With some long-term bonds, this can be more than 50% above market value. Given such largesse, it is all but impossible for the unrealised losses on a bank’s bonds to cause a collapse. And that means that the bank’s depositors have no reason to start a run.
+
+The Fed is right to lend against good collateral to stop runs. But such easy terms carry a cost. By creating the expectation that the Fed will assume interest-rate risks in a crisis, they encourage banks to behave recklessly. The emergency programme is supposed to last only for a year but, even after it has expired, banks competing for deposits will search for high returns by taking excessive risks. Some depositors, knowing that the Fed has stepped in once, will not have much reason to discriminate between good risks and bad.
+
+Regulators must therefore use the year ahead to make the system safer. One step is to remove many of the odd exemptions that apply to mid-sized banks, some of which were the result of post-crisis rules being rolled back amid much lobbying in 2018 and 2019. The rescue of depositors in svb demonstrates that policymakers think such banks pose systemic risks. If so, they should face the same accounting and liquidity rules as the megabanks—as they do in Europe—and be required to submit to the Fed plans for their orderly resolution if they fail. In effect, this would force them to increase their safety buffers.
+
+**Buffering, please wait**
+Regulators everywhere must also build a regime that recognises the risks from rising interest rates. A bank with unrealised losses will be at greater risk of failure during a crisis than one without such losses. Yet this disparity is not reflected in capital requirements. One idea is to stress-test what might happen to a bank’s safety cushion were its bond portfolios marked to market, and if rates rose further. Policymakers could then consider whether on this measure the system has enough capital.
+
+Bankers will hate the idea of yet more capital buffers and rulemaking. But the gains from safety are vast. Depositors and taxpayers from Silicon Valley to Switzerland are facing a mighty scare. They should not have to live with the fear and fragility they thought had been consigned to history years ago.ork
+
+# China’s property slump is easing, but the relief will be short-lived
+> Without reforms, the sector is doomed to cycles of boom and bust
+
+The LOVE-HATE relationship goes on. For almost two years China’s leaders cracked down on borrowing to build and bet on property, plunging the market into a crisis. Now that the economy
+ has been weakened by the failures of the “zero-covid” policy, the government is racing to rescue real estate. Ni Hong, China’s housing minister, has said his ambition this year is to restore confidence; a series of measures announced in the past few months seek to make it easier for developers to raise capital. These efforts are reviving the property market. Unfortunately, they leave it just as vulnerable to boom and bust as ever.
+
+The downturn of 2022 was the most severe in recent memory. Sales of floor space plunged more sharply than ever before. Property investment fell for the first time since records began in 1999. Funds raised by developers fell by a quarter. For the past 15 years house prices in China mainly went up. They have spent the past six months sagging like a termite-weakened floor.
+
+One reason for the pain was the government’s attempt to break the country’s addiction to debt-financed property. More than two-thirds of urban households’ wealth is tied up in real estate and the industry underpins a fifth of gdp. Developers have built up huge debts, worth about 33.5trn yuan ($5.2trn) in June 2021. In 2020 the government cut off many firms from capital markets, requiring them to reduce their debts. Dozens defaulted, spreading the pain to lenders and customers. Many new homes went unfinished, although they had been paid for. Borrowers suspended mortgage payments in protest.
+
+Together with President Xi Jinping’s zero-covid policy, the crackdown proved a disaster for the economy. gdp grew by just 3% last year, one of the worst performances in decades. The covid lockdowns also worsened the housing crisis, as fewer prospective buyers were able to visit empty flats and many young people, worried about an uncertain future, put off big purchases.
+
+Now zero-covid is over and policymakers are rushing to revive animal spirits. Limits on how much some developers are allowed to borrow have been suspended. The central government has ordered banks to rescue unfinished projects. Some local authorities are putting up guarantees for developers so that they can raise more debt.
+
+These measures are breathing new life into the market. The number of new homes that are being completed fell by only 6% in the 12 months to December, having plunged by 18% in the year to November. It appears that government funds are being channelled to pre-paid projects that have stalled. As people who have paid for homes finally start to get their hands on the keys, prospective buyers may be reassured and tempted to bid for pads of their own.
+
+Sales of existing homes rose by more than 20% in the first ten days of 2023, compared with a month earlier. Some developers are no longer offering their flats at a discount. And, crucially, a property firm was able to raise dollar debts from foreign investors in mid-January, the first such instance in more than a year.
+
+All this means that the Chinese economy should bounce back more quickly in the near term, helping to propel global growth. The danger now, however, is that China goes too far.
+
+Technocrats tend to respond to crises with lots of liquidity. During the global financial crisis of 2007-09 much of China’s vast stimulus flowed into bricks and mortar. A property downturn in 2014 led to a bout of monetary easing that saw house prices in some places double in less than a year. Elsewhere the result was rampant overbuilding; hence the high-rise ghost cities that loom over parts of China.
+
+Local governments, meanwhile, still rely heavily on land auctions for revenue, so they have an incentive to keep sales going. They are already stepping in to support large developers by guaranteeing their commercial paper. If they have their way, the property market will come roaring back.
+
+A rekindling of such forces would be disastrous for the central government. They would lift home prices to new heights and lead to another build-up of unsustainable debts among developers. Officials would be forced once again to crack down on leverage, repeating a cycle they have already been through several times.
+
+You might think that the recovery would instead offer room for more considered thinking. But China’s leaders have long lacked the will to implement the necessary reforms. A housing tax, for example, has been floated several times. It would curb speculation and generate much-needed income for local governments. But the urban elite, which stores much of its wealth in property, would hate it. So far only a few pilot schemes have been tried out.
+
+And so the funding model for local governments remains unchanged. Local officials will keep trying to pep up sales and prices. But who will live in all the new homes? Morgan Stanley, a bank, estimates there will be 90m new urban households in the next decade. But at its peak, China was adding about 15m homes a year. If supply is to match demand, construction will have to slow dramatically, especially as China’s population shrinks. Today’s bail-out may be reviving Chinese property, but without real reforms the sector will be doomed to boom and bust again. ■
+
+# America risks propping up zombie banks
+> The banking crisis may have calmed, but only because of a government backstop
+
+**F**rom the calm of financial markets, it may seem as if America’s banking crisis is over. No more lenders have failed since March 12th. Banks’ stock prices appear to be settling at about a quarter beneath their level at the end of February. Policymakers are no longer fighting financial fires, but are telling congressional hearings about the lessons to be learned. President Joe Biden says the administration has done “a pretty damn good job”.
+
+Yet America is far from solving the problems in its small and midsize banks. The markets are tranquil mainly because the federal government is backstopping the system. That means the economy could yet face a slower-burning crisis instead.
+
+The underlying problems are plain to see. As of March 15th, banks other than the biggest 25 institutions had lost $141bn of deposits this year, equivalent to nearly 5% of those not covered by federal deposit insurance (which is capped at $250,000 per customer). Banks with nearly $4trn in combined assets have unrealised losses worth more than half of their core equity safety cushions. For smaller banks, losses on commercial-property loans could wipe out still more of the buffer . Some lenders’ losses are probably far worse.
+
+Calm prevails because of generous and indiscriminate support for the banks. By March 22nd the Federal Reserve had lent $164bn via facilities that issue loans worth more than the securities posted as collateral. According to Barclays, the Federal Home Loan Banks, lenders with an implicit government backstop, may have advanced $300bn to banks in a single week.
+
+The Fed and the Treasury have also strongly hinted that they will bail out uninsured depositors should other banks fail, as they did the customers of Silicon Valley Bank (svb). The Federal Deposit Insurance Corporation (fdic) has promised to set out options for expanding its guarantees by May 1st. It expects the bail-out of svb‘s depositors to cost $20bn, a record in cash terms.
+
+These measures have apparently succeeded in slowing deposit flight. But the propping up of banks with unrealised losses brings fresh problems of its own. The danger is that they become zombies which keep capital tied up in unproductive legacy assets—a problem that last struck America in the 1980s, plagued Japan in the 1990s and troubled Europe in the early 2010s. One risk is that zombies try to restore their capital ratios by lending less. Another is that they put off recognising losses that may yet materialise on their loan books as higher interest rates bite. First Citizens Bank is now buying $72bn of svb’s loans at more than a 20% discount, suggesting that it foresees defaults ahead. The consequences of ignoring losses can be severe: in Japan it contributed to a “lost decade” of economic growth.
+
+Avoiding zombification requires quickly recognising losses and infusing banks with fresh capital. When calculating their safety buffers, megabanks must mark to market much of their securities portfolios; smaller banks ought to be required to do the same. Policymakers should use stress tests to work out what would happen to banks’ capital cushions if all their unrealised losses were to crystallise during a run, and if interest rates rose further. Banks that look too risky should be made to recapitalise by suspending dividends, and discouraged from trying to improve their capital ratios by lending less.
+
+All this would hurt shareholders. The danger is therefore that the lobbying of smaller banks stalls the agenda. Nearly 5,000 are spread around the country, and many have the ear of their local congressional representatives. In 2018 Congress watered down the rules governing smaller banks’ minimum liquidity and crisis-planning. Many policymakers argue that smaller banks are vital for their local knowledge and as a source of competition—a sentiment Janet Yellen, the treasury secretary, recently voiced to the American Bankers Association. That is true, but a further reason to avoid looser rules and zombification.
+
+A crucial test will be whether the Fed closes its emergency facility as planned in March 2024. If it is extended, and if Congress expands deposit insurance without trying to fix the underlying problems in the banks, then zombies could proliferate. Worryingly, even with prolonged support in place some banks may not have a route to profitability, and might take big risks to be resurrected, in effect gambling with taxpayer money. Banks are supposed to circulate trillions of dollars of capital around America, but they could yet become a drag on the economy.
+
+
 # ChatGPT mania may be cooling, but a serious new industry is taking shape
 > Three forces will shape the business of generative AI
 >
