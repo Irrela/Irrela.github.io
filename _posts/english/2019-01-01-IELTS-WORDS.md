@@ -421,7 +421,7 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 - Apart from studying the `basics` of acoustics, these people receive very little training `in this area.`
 - If we `acknowledge` this, then we `urgently` need to know what governs it and `how designers can work with it`
 - The way that sound affects our `thought` and feelings?
-- 
+- `There are quite a few people` `advocating for` this campaign
 
 
 You are a native English speaker who has complete mastery of the language. I'm currently preparing for the speaking section of the IELTS General Training exam. Could you assist me by categorizing and providing some commonly used connective phrases by native speakers based on different functional scenarios? It would be really helpful if you could provide example sentences to illustrate their usage.
@@ -443,6 +443,30 @@ In consideration of...
 Thanks to...
 
 # Grammar
+## Impressive, Impressed, Impressing
+Impressive:
+Adjective: "Impressive" is used to describe something that leaves a strong, favorable, or striking impact on others. It suggests that something is remarkable or capable of evoking admiration.
+
+Example sentences:
+"`Her presentation was very impressive`; she covered all the key points."
+"The architecture of `the ancient cathedral is truly impressive`."
+
+Impressed:
+Verb (past tense): "Impressed" is the past tense of the verb "impress." It is used to describe the feeling or state of being affected positively by something or someone. When you are impressed, you are showing that you found something to be noteworthy or admirable.
+
+Example sentences:
+"I was really impressed by his knowledge of the subject."
+"She was impressed with the quality of the artwork."
+
+Impressing:
+Present Participle (Gerund): "Impressing" is the present participle form of the verb "impress." It is used when talking about an ongoing action or process of making a positive impact or gaining admiration from others.
+
+Example sentences:
+"He is constantly impressing us with his dedication to his work."
+"She keeps impressing the judges with her singing talent."
+
+In summary, "impressive" is an adjective used to describe something notable, "impressed" is the past tense of the verb used to convey the feeling of being affected positively, and "impressing" is the present participle used to describe an ongoing action of making a positive impact or gaining admiration.
+
 ## Seek, Seek for
 Seek: 
 "Seek" is a verb that means to attempt to find or search for something. It is a more direct and concise way of expressing the act of searching or looking for something. 
