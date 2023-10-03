@@ -407,6 +407,21 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 - Rations for `fieldwork` `present` an additional problem.
 - `You may be familiar with` coffee processed by `freeze-drying`, which `preserves` the quality of the food product while making a large saving in weight-well
 - I think that being `at the cutting edge of science` has a special `appeal` for everyone
+- As well as that, these records of sound levels `take no account of` the fact that people vary in their perceptions of noise 
+- so someone like me with years of working in acoustics `might be very different from` you `in that regard`.
+- we need rules and regulations because noise can cause `all sorts of problems`.
+- city-dwellers know that things `go on 24 hours a day`, so city-dwellers often suffer from `interrupted sleep`
+- And `there are other problems as well`, for instance if schoolchildren don't have a quiet place to study `their work will suffer`.
+- it doesn't `differentiate between` different types of noise.
+- So maybe researchers `should consider these sorts of sounds` in urban design.
+- Instead, many researchers are using social science `techniques`
+- Some recent interdisciplinary research `has come out with results` that `at first sight` seem `contradictory`
+- city needs to have `a sense of activity`, so it needs to be `lively`, with sounds like the `clack of high heels` on a `pavement` or the `hiss` of a coffee machine, but these mustn't be too `intrusive` because at the same time we need to be able to relax.
+- `One of the major problems` in achieving this will be getting architects and town planners to use the research.
+- Apart from studying the `basics` of acoustics, these people receive very little training `in this area.`
+- If we `acknowledge` this, then we `urgently` need to know what governs it and `how designers can work with it`
+- The way that sound affects our `thought` and feelings?
+- 
 
 
 You are a native English speaker who has complete mastery of the language. I'm currently preparing for the speaking section of the IELTS General Training exam. Could you assist me by categorizing and providing some commonly used connective phrases by native speakers based on different functional scenarios? It would be really helpful if you could provide example sentences to illustrate their usage.
