@@ -423,6 +423,23 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 - The way that sound affects our `thought` and feelings?
 - `There are quite a few people` `advocating for` this campaign
 - I'm just `jotting down` some notes.
+- Let me just check.
+- Now there are just two more apartments `to ask you about`. Um, I can't `read my own writing`!
+- Each room has its own sun terrace and there are shared barbecue `facilities`.
+- I don't think that would be `within our budget`, unfortunately
+- Well, there are forests `all round` and they hide a supermarket just down the road
+- so that's very `useful for all your shopping needs.`
+- 319 at that time, but if you leave it till November `it goes down by 40%.`
+-  why don't I send you a brochure `with full details`, Ms…?
+-  I just wanted to `get an idea` first.
+-  `If you've got a minute`, could I just `check a couple of points` about insurance? 
+-  That's good - of course our holiday `won't even` cost 1,000 together!
+-  Then `I'd better not` take my laptop!
+-  `Not unless` you insure it separately.
+
+
+
+
 
 
 You are a native English speaker who has complete mastery of the language. I'm currently preparing for the speaking section of the IELTS General Training exam. Could you assist me by categorizing and providing some commonly used connective phrases by native speakers based on different functional scenarios? It would be really helpful if you could provide example sentences to illustrate their usage.
