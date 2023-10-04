@@ -422,6 +422,7 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 - If we `acknowledge` this, then we `urgently` need to know what governs it and `how designers can work with it`
 - The way that sound affects our `thought` and feelings?
 - `There are quite a few people` `advocating for` this campaign
+- I'm just `jotting down` some notes.
 
 
 You are a native English speaker who has complete mastery of the language. I'm currently preparing for the speaking section of the IELTS General Training exam. Could you assist me by categorizing and providing some commonly used connective phrases by native speakers based on different functional scenarios? It would be really helpful if you could provide example sentences to illustrate their usage.
