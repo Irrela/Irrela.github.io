@@ -436,7 +436,17 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 -  That's good - of course our holiday `won't even` cost 1,000 together!
 -  Then `I'd better not` take my laptop!
 -  `Not unless` you insure it separately.
-
+-  perhaps you can begin by telling us `a little bit about` `how it all started.`
+-  we didn't `think anything more of it` until I `went on a trip to` a theme park near Birmingham and decided we could do a much better job
+-  they didn't want our `guests` to have a `miserable`, wet visit.
+-  `It soon became clear that` we were onto a winner.
+-  Winridge is one of the most popular `visitor attractions` in the area
+-  Our son, Duncan, has been a stalwart of the park `for the last ten years`, `taking over` from me in the area of construction
+-  and I'll say a little bit more about that `in a moment`
+-  So have you finished your development of the site `for the moment?`
+-  The railway remains `the central feature` and there's now 1.2 kilometres of the line laid but we'd like to lay more.
+-  Again the problem is the geology; we had to level the mounds on the track `for safety reasons.`
+-  We wanted to enable 5-12 year olds to use the `go-karts.`
 
 
 
