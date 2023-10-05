@@ -26,7 +26,7 @@ P125
 ### 6.1.1 局部静态对象
 局部静态对象是在函数内部定义的静态变量，它在程序的整个生命周期内保持其存在，并 ***在首次访问时初始化***。局部静态对象在C++中有各种实际用途，下面是一些常见的使用场景：
 
-#### 延迟初始化：  
+#### 延迟初始化 
 
 如果你需要在函数首次调用时初始化一个对象，但又希望它在后续调用中保持其值，局部静态对象非常有用。它可以避免重复初始化和销毁的开销。
 
@@ -81,7 +81,7 @@ int main() {
 通过使用局部静态对象，你可以在需要时进行延迟初始化，避免了不必要的初始化开销，同时保持了对象在后续调用中的状态。
 
 #### 缓存数据：
-   
+
 局部静态对象可以用于缓存需要长时间计算或获取的数据，以便在后续调用中重复使用，从而提高性能。
 
 ```cpp
@@ -94,7 +94,7 @@ std::string LoadFromFile(const std::string& filename) {
     // Read file, populate fileCache, and return data
 }
 ```
-#### 资源管理： 
+#### 资源管理
 当你需要在函数退出时自动释放资源（如关闭文件、释放内存等），而不是依赖于手动的析构或释放，局部静态对象可以在函数结束时执行必要的清理工作。
 
 让我们以一个打开日志文件并自动关闭的例子来详细说明这一点：
@@ -132,7 +132,7 @@ int main() {
 
 3. 在 main 函数中调用 OpenLogFile("my_log.txt"); 后，文件会在 OpenLogFile 函数退出时自动关闭，而不需要手动调用关闭文件流的操作。
 
-#### 计数器：
+#### 计数器
 局部静态对象可以用于创建计数器，以跟踪函数被调用的次数。
 ```cpp
 int GetFunctionCallCount() {
@@ -141,7 +141,7 @@ int GetFunctionCallCount() {
 }
 ```
 
-#### 状态机：
+#### 状态机
 在一些情况下，你可能需要在函数调用之间保留一些状态，局部静态对象可以用于维护这些状态。
 ```cpp
 void ProcessInput() {
@@ -372,7 +372,7 @@ int main() {
 - `std::ends`: ：输出数据后，会插入一个空字符并刷新缓冲区。
 - `std::flush`：刷新缓冲区，但不插入换行符。
 
-#### unibuf & nounibuf
+#### `unibuf` & `nounibuf`
 如果想每次IO后都刷新缓冲区，使用`unitbuf`。
 ```cpp
 cout << unitbuf; // 所有输出操作都立即刷新缓存区
@@ -446,7 +446,7 @@ int main() {
 即"堆内存"， 用来存储 ***动态分配***的对象， 也即是 ***程序运行时分配的对象***， 其生命周期由程序来控制。
 
 ## 12.1 智能指针
-### 12.1.0 new & delete
+### 12.1.0 `new` & `delete`
 ```cpp
 #include <iostream>
 
@@ -617,7 +617,7 @@ string nines = string(100, '9');
 - 从一个返回类型为非引用类型的函数返回一个对象
 - 用花括号列表初始化一个数组中的元素或一个`聚合类`中的成员
 
-#### 聚合类：
+#### 聚合类
 C++中的聚合类是一种特殊类型的类，它具有一些特定的特征和限制。聚合类通常 ***用于表示简单的数据结构***。聚合类的主要特征是可以使用花括号（大括号）进行直接初始化，并且其成员变量没有用户自定义的构造函数、私有/保护的非静态数据成员、基类、虚函数等。
 
 C++11标准引入了对聚合类的更严格的定义，C++17进一步弱化了对于聚合类的要求。根据C++17的定义，以下条件之一的类被视为聚合类：
@@ -830,10 +830,10 @@ int main() {
 > 需要自定义析构函数的类，几乎肯定也需要自定义拷贝构造函数和拷贝赋值运算
 这句话的核心是基于对象的生命周期和资源管理的观点。如果一个类需要自定义析构函数，通常意味着这个类在对象销毁时需要执行一些特定的清理工作，例如释放动态分配的内存、关闭文件、释放资源等。而这些清理工作在对象被拷贝或赋值时也需要被考虑到，以保证复制或赋值后的对象能够正确地管理资源。
 
-### 13.1.5 使用=default
+### 13.1.5 使用`=default`
 使用`=default`显示要求编译器生成合成的版本。
 
-### 13.1.6 使用=delete
+### 13.1.6 使用`=delete`
 使用`=delete`明确地告诉编译器不要合成该函数。
 ```cpp
 class NonCopyable {
@@ -1052,7 +1052,12 @@ class HasPtr {
 ```
 
 ## 13.3 交换操作
-> 定义swqp不是必要的，但对于分配了资源的类，这可能是一种很重要的优化手段
+
+### 自定义swap 和 std::swap
+
+> 如果一个类定义了自己的swap， 那么算法将使用自定义版本，否则将使用std::swap. （内置类型直接调用std::swap）
+
+> 定义swap不是必要的，但对于分配了资源的类，这可能是一种很重要的优化手段
 
 ```cpp
 // Personalized swap impl
@@ -1080,6 +1085,7 @@ int main() {
 ```
 
 ### 在赋值运算符中使用swap
+
 定义swap的类通常用swap来定义它的赋值运算符。 
 
 这些运算符使用了一种叫 `copy and swap` 的技术：将左侧运算对象与右侧运算对象的一个新副本进行交换。
@@ -1102,6 +1108,72 @@ HasPtr& HasPtr::operator=(HasPtr rhs) {
 综合来说，"Copy and swap" 技术在实现拷贝赋值运算符时可以简化逻辑，避免了自赋值和异常安全性问题，使得代码更加健壮和可维护。然而，需要注意的是，"Copy and swap" 技术需要额外的资源开销，因为它涉及创建临时副本。
 
 ## 13.4 拷贝控制示例
+
+> 什么是簿记操作（bookkeeping operations） -> 指的是跟踪对象的分配和释放内存的操作。这是一种管理动态内存分配的技术，以确保在分配内存后能够及时释放它，以避免内存泄漏和资源浪费
+
+以下是一个典型的簿记操作：
+
+```cpp
+#include <iostream>
+#include <fstream> // 包含文件操作相关的头文件
+
+int main() {
+    // 打开文件
+    std::ifstream inputFile;
+    inputFile.open("example.txt");
+
+    // 检查文件是否成功打开
+    if (!inputFile.is_open()) {
+        std::cerr << "无法打开文件" << std::endl;
+        return 1; // 返回错误代码
+    }
+
+    // 从文件中读取数据并进行处理
+    std::string line;
+    while (std::getline(inputFile, line)) {
+        // 处理文件内容
+        std::cout << line << std::endl;
+    }
+
+    // 关闭文件（簿记操作）
+    inputFile.close();
+
+    // 检查文件是否成功关闭
+    if (inputFile.is_open()) {
+        std::cerr << "文件未能正确关闭" << std::endl;
+        return 2; // 返回错误代码
+    }
+
+    return 0; // 返回成功代码
+}
+```
+
+
+
+```cpp
+class Message
+{
+    friend class Folder;
+    friend void swap(Message&, Message&); // 声明 swap 函数为友元函数
+public:
+    explicit Message(const std::string &str="") : 
+        contents(str) {}
+
+    Message(const Message&); // cctor
+    Message& operator=(const Message&); // caop
+    ~Message(); // dtor
+
+    void save(Folder&);
+    void remove(Folder&);
+    // void swap(Message&, Message&);
+private:
+    std::string contents;
+    std::set<Folder*> folders; // 包含本message的Folder
+
+    void add_to_Folders(const Message&);
+    void remove_from_Folders();
+};
+```
 
 
 
@@ -1205,11 +1277,11 @@ In summary, the main difference between angle brackets and double quotes is the 
     预处理是编译过程的第一个阶段。在预处理阶段，预处理器会处理源代码中的预处理指令，例如 `#include 包含头文件、#define 定义宏`等。预处理器会根据预处理指令展开代码，并生成一个被称为预处理后的文件（通常以 .i 或 .ii 为扩展名）。预处理后的文件是展开了所有宏、包含了所有头文件的源代码文件。
 
 - **编译（Compilation）**：
-    
+  
     编译是预处理后文件的下一阶段。在编译阶段，编译器会将预处理后的文件翻译成汇编代码。这个阶段是将高级语言（C++）翻译成低级语言（汇编语言）的过程。编译器会进行`词法分析、语法分析、语义分析`等操作，并生成汇编代码文件（通常以 .s 为扩展名）。
 
 - **汇编（Assembly）**：
-    
+  
     汇编是编译后生成的汇编代码的下一阶段。在汇编阶段，汇编器将汇编代码翻译成机器代码，即二进制代码。汇编器会根据特定的机器指令集和架构将汇编代码转换成对应的机器码，并生成目标文件（通常以 .o 或 .obj 为扩展名）。
 
 - **链接（Linking）**：
