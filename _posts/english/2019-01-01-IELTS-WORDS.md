@@ -447,6 +447,19 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 -  The railway remains `the central feature` and there's now 1.2 kilometres of the line laid but we'd like to lay more.
 -  Again the problem is the geology; we had to level the mounds on the track `for safety reasons.`
 -  We wanted to enable 5-12 year olds to use the `go-karts.`
+-  Didn't Mr Blake `make a fuss about us` leaving that behind?
+-  It was clear, but I don't think we need `all these details` of ...
+-  so I had to start `all over again.`
+-  But at least I'd got the squared paper `or I'd have had problems` drawing it all to scale. Yes.
+-  OK. I'll make my `amendments` using those, then I can scan it into our report. Great.
+-  or even destroyed by being `smashed` against the rocks.
+-  we `weren't concentrating on` that
+-  But we could ask him which books on our Reading List `might be most helpful.`
+-  But we might not be `all that accurate` as far as `the actual numbers go.`
+-  they were adequate `in this context`
+-  we'd better mention that.
+
+
 
 
 
