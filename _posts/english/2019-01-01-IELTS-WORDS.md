@@ -458,7 +458,18 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 -  But we might not be `all that accurate` as far as `the actual numbers go.`
 -  they were adequate `in this context`
 -  we'd better mention that.
-
+-  how it relates to the people it's built for.
+-  a sort of `metaphor` for the building and the way in which it is used.
+-  The location chosen was a site in a `run-down` district
+-  The whole area `was some distance from` the `high-rise` office blocks
+-  but it was only one kilometre from the `ring road`.
+-  The site itself `was bordered to` the north by a canal which had once been used by boats bringing in raw materials.
+-  Harrison decided to create `pedestrian` access to the building
+-  He wanted to give people a feeling of `suspense` as they see the building first from a distance, and then close-up,
+-  The first side that people see, the southern wall, is just a high, flat wall `uninterrupted by any windows`. 
+-  This might sound `off-putting`, but it supports Harrison's concept of the building that the person approaching is `intrigued` and `wonders` what will be inside.
+-  The acoustics are also adjustable `according to the size of orchestra` and the type of music being played.
+-  `In spite of` Harrison s efforts to use local materials, they criticise the style of the design as being international rather than local,
 
 
 
