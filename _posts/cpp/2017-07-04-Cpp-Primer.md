@@ -4,8 +4,7 @@ categories: Cpp
 tags:
 - Cpp
 ---
-
-* TOC {:toc}
+[toc]
 
 # 3. 字符串，向量和数组
 ## 3.4 迭代器介绍
