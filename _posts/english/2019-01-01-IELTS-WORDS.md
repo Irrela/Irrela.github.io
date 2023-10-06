@@ -470,6 +470,40 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 -  This might sound `off-putting`, but it supports Harrison's concept of the building that the person approaching is `intrigued` and `wonders` what will be inside.
 -  The acoustics are also adjustable `according to the size of orchestra` and the type of music being played.
 -  `In spite of` Harrison s efforts to use local materials, they criticise the style of the design as being international rather than local,
+-  Well, I think `I'm coping well with` statistics, and `I'm never bored by it`.
+-  Oh yes, if possible. It's just that `I'm having difficulty thinking` how I can do that. You see I feel I don't `have sufficient background information`. 
+-  `I'm very weak at` note-taking. My teachers always used to say that.
+-  `It really helps build confidence`, you know, having to present something to others.
+-  Yes, unfortunately `there are only a few places`. But `it's worth looking into`.
+-  Well, yes, `I've never done that before.`
+-  Another thing I always advise is don't just `take your notes` and forget about them. Read everything three times - that'll really `fix them in your mind.`
+-  Oh yes, I completely agree. It's just that `I don't seem to be able to discipline myself`. I need to talk things over.
+-  if you `establish good study skills at this stage` they'll be with you all your life.
+-  Let's see, I can see you `virtually` any time during the week `starting` 22nd January.
+-  Fine, we'll `go for` the 25th then.
+-  Good morning. `In the last few lectures` I've been talking about the history of domestic building construction.
+-  But today I want to `begin looking at` some contemporary, experimental designs for housing.
+-  So the first thing they did was to look for a site. And they found `a disused stone quarry` in a beautiful area.
+-  As it was, the quarry `was an ugly blot on the landscape`, and it wasn't `productive` any longer, either.
+-  They consulted various architects and `looked at` a number of designs before finally deciding on one.
+-  It was built into the earth itself, with two `stories`
+-  There were also `photovoltaic` tiles fixed to the top and bottom of this sloping wall.
+-  And the walls had a layer of `foam` around them too, to increase the `insulation`.
+-  Now, `what is of interest to us` about this project is the features which make the building energy-efficient.
+-  Sunlight `floods in` through the glass wall, and to maximize it there are lots of mirrors and windows inside the house.
+-  In fact, and it's possible that in future the house may even generate an electricity `surplus`, and that the owners will be able to sell some to `the national grid`.
+-  For example, the floors are made of `reclaimed` wood.
+-  And the owners `haven't bought a single` item of new furniture-they just kept what they already had.
+-  So the `occupants` of the house won't pollute the land or use any damaging chemicals.
+-  Mainly because they had to use `massive amounts of` concrete, `one of the biggest sources of` carbon dioxide in manufacturing.
+-  Now that's a `frightening` thought.
+-  However, once the initial '`debt`' has been `cleared` - and it's been `calculated` that this will only `take fifteen years` -
+
+
+
+
+
+
 
 
 
