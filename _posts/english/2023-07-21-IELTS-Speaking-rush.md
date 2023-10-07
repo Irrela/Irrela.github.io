@@ -839,6 +839,8 @@ Precisely
 - 3. Are there any shops selling ice cream near the place where you live?
 - 4. Can you make ice cream by yourself?
 
+"Maybe it sounds strange, but I often find myself eating ice cream more frequently in the winter. This is because, when I was a child, not every vendor in our town had a fridge, so they would usually store ice cream in a large container as insulation to prevent it from melting quickly due to the summer heat. However, when winter arrived, they had no such concerns, allowing them to sell ice cream all day long. That's why winter became my ice cream season."
+
 ### Concentration- M
 
 - 1 Could you stay focused in class when you were a child?
