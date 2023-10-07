@@ -498,11 +498,41 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 -  Mainly because they had to use `massive amounts of` concrete, `one of the biggest sources of` carbon dioxide in manufacturing.
 -  Now that's a `frightening` thought.
 -  However, once the initial '`debt`' has been `cleared` - and it's been `calculated` that this will only `take fifteen years` -
+-  I'd like to know where we can all `register with` a doctor at a Health Centre.
+-  Oh…actually my youngest child is five, so `that wouldn't be any good for us`.
+-  Is there `anywhere` else I could try?
+-  there are usually `some small charges` that doctors `make`.
+-  Let me see `what it says` about the Shore Lane Centre.
+-  If you need to be `vaccinated` before any trips abroad. you won't have to pay for this.
+-  The sports injury treatment service `operates on a paying basis`
+-  Some health centres do offer `alternative therapies` like `homeopathy` as part of their `pay-to-use service`.
+-  Shore Lane are hoping to do this soon-I think they may start with `acupuncture`.
+-  You `might also be interested to know` the Centre is `running a pilot scheme` of talks for patients.
+-  What sort of things?
+-  actually it's at the primary school on Shore Lane. I imagine they're inviting the parents of `pupils` there-it says here 'all welcome.'
+- one giving advice about how to avoid `injuries` while doing exercise.
+- We've just arrived at the holiday flat, but I can't `get the hot water and heating to work.`
+- In the upstairs `cupboard`, you'll find the water heater.
+- It's the main control switch. Make sure `it's in the 'on' position.`
+- The switch itself doesn't `light up`, but the little `square` below will be black if the switch is 'off'.
+- That's probably what's happened-`it's got switched off` by mistake.
+- The middle one of these three controls-you'll see it's slightly larger than the first one-controls the `radiators`.
+- The last of the three controls-the one on the right-is usually on about a number for setting which for the water in the taps is usually quite hot enough.
+- If there isn't enough water in the pipes, sometimes the heater `goes out`.
+- `Hold it in for` about `five seconds` and the heater should `come on again`
+- It sounds complicated…
+- `While you're on the phone`, we `haven't managed to` find `a few things` we need
+- And if you have any trouble with the lamps, you'll find some `spare bulbs` in a large `cardboard` box.
+- I've left you a local map, so you'll be able to `find your way around` easily.
+- It shows the whole area. I put it `in the top drawer of the chest` under the TV in your bedroom.
+- You have to pay to leave your car in `all the car parks` now `I'm afraid`
+- That's where all the best restaurants are.
+- But if you want a `takeaway`, the Italian one does really good pasta and pizzas.
+- They're both good and they'll both `deliver to the flat.`
 
 
 
-
-
+ 
 
 
 
