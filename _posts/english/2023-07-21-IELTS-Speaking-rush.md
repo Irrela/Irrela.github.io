@@ -351,14 +351,15 @@ Precisely
 
     Yes, working in a game company is quite pleasant for me, firstly the atmosphere is more relaxed compared to some traditional companies, and I can find many colleagues who `share the same interest with me`, making `the time at the workplace` `enjoyable`. Moreover, working with code is fulfilling for me because programmers can see the `tangible results` of their work. I really `appreciate the immediate feedback` and sense of accomplishment `when my code runs as expected.`
 6. Is there any kind of technology you use at work?
-    Yes, 
+    "Yes, since programming is closely connected to computers and `automation`, we `utilize any available technological advancements` to `aid our work`, Such as `the newly popular` generative AI models, we have `integrated` them into our toolchain to `assist` us `in` correcting our code and providing constructive advice to guide our work."
 7. Can you manage your time well when you work?
     "`I wouldn't say I'm exceptionally proficient at it,` but I do have some strategies to make my work more efficient and `organized`. I have a habit of making work plans on a daily, weekly, and monthly basis. Additionally, I learned a method for maintaining focus during work or study when I was in college. It's called the `Pomodoro` Technique, which involves dividing your work into 25-minute `intervals` and `dedicating yourself strictly to each timer`. `It has proven to be quite useful` for me."
 8. Who helps you most at work?
-    I think it should be my boss, while I had a mentor who is assigned by company when I just came, he is very busy and has no interest teaching rookies, so 
+    I think it should be my boss, while I was `assigned` a mentor `when I first joined`, but he is a very busy, anxious person and `has no interest teaching rookies`, so `I got very limited guidance` from him. But fortunately, I received some valuable advice from my boss about `work methods` and `attitude`. He was the one who taught me the importance of professionalism `in the early stages of my career`, and I greatly appreciate `the long-lasting impact` of his advice."
+    
+    "I've had some limited formal training, mainly focused on our `work processes`. As a programmer, much of my job involves `self-learning` and `seeking guidance` from experienced colleagues `when it comes to` the `specific tasks` and skills required.”
 
 - Why did you choose to do that type of job?
-    
     "`When I was in high school`, I `had a strong interest in` physics. So, `when it came time for` my undergraduate studies, I `chose to major in` nuclear physics. `During my time at university,` I `stumbled across`/on the IT industry through some `chance encounters`, and I `developed a desire to` work in this field. That's why, `after graduating`, I pursued a master's degree in computer science.”
     
 - "As a Software Development Engineer (SDE), my primary responsibilities `involve` designing software and writing code to implement it. I also need to communicate with product managers to understand their business requirements. "And sometimes I participate in larger projects that require me to `collaborate` with other programmers.”
@@ -381,14 +382,18 @@ Precisely
 
 - "Work is crucial to me because I see it as a `pathway` to `realizing my personal value`. `I've even pondered(considered/thought)` whether I would continue working if I were financially free, and my conclusion is that I would. In such cases, Even if I `didn't` need to work for others for financial reasons, I `would` still pursue some personal projects and ideas by working for myself.”
 
-- "I've had some limited formal training, mainly focused on our `work processes`. As a programmer, much of my job involves `self-learning` and `seeking guidance` from experienced colleagues `when it comes to` the `specific tasks` and skills required.”
-  
 - "My boss is highly professional. He efficiently prioritizes tasks, `delegates assignments` to the most suitable individuals, and `makes decisive decisions`. What I admire most is `his ability to maintain a clear distinction between work and non-work situations`, which makes working with him both relaxed and productive(efficient). `I've learned many valuable qualities` in the workplace from him.”
+
 - "I believe most people generally prefer leadership `in a concise and swift manner` when we are at work
+
 - My colleagues are `predominantly` fellow programmers, and we frequently collaborate on large-scale projects. `They are generally more experienced than I am` and `possess` exceptional technical skills. `I often turn to them for guidance` on technical issues, and they are always friendly and willing to help. `Outside of work`, I `share common interests` such as photography and playing computer games with some of my colleagues. We occasionally get together for dinners and chats, I think this relationship not only fosters a `sense of teamwork` but also makes the workplace enjoyable and comfortable."
+
 - Nobody likes working with `workaholics`
+
 - "I believe my current job is already ideal for me as it offers a good income and a comfortable working environment. `If I were to aim higher`, I'd like to `progress to a more senior position`, which would give me `greater influence` and more resources to pursue my own ideas, rather than solely following orders from leaders.”
+
 - "`If I had the opportunity to` choose a different profession, I would consider becoming a baker and opening(running) my own bakery. I `have a deep passion for the aroma of freshly baked bread`, and `working in such an environment`(in that kind of) would be `stress-free` and bring me a sense of happiness. Moreover, I believe that providing people with healthy and `wholesome` food is a highly meaningful endeavor.”
+
 - People work for various reasons: to earn a living, achieve career goals, or seek a sense of `self-worth`. Personally, I believe those who work for the last reason tend to be the happiest.
 
 ### Hometown - M
