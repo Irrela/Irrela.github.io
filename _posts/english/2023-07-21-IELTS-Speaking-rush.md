@@ -338,34 +338,51 @@ Precisely
 
 ### Work - M
 
-- 1.What work do you do?
-- 2. Why did you choose to do that type of job?
-- 3. Do you like your job?
-- 4. Do you miss being a student?
-- 5. Is it very interesting?
-- 6.Is there any kind of technology you use at work?
-- 7.Can you manage your time well when you work?
-- 8.Who helps you most at work?
+1. What work do you do?
+    "I'm a Software Development Engineer, `or more commonly`, I'm a programmer. I work for a local major game company. My primary responsibilities include writing code for the physics engine used to develop games."
+2. Why did you choose to do that type of job?
+    "`Mostly out of interest I think`, I quite enjoy playing video games, and I hope to create some `prestigious` games like Super Mario or The Legend of Zelda. So, it is very natural for me to consider joining a game company."
+3. Do you like your job?
+   "I'm quite satisfied with my current job. `Most of the time`, working with code is enjoyable because programmers can see the `tangible results` of their work. I really `appreciate the immediate feedback` and sense of accomplishment it offers. Additionally, the `compensation` `for this job` `meets my expectations`, as I `prefer not to` have significant financial pressure in my life. So, overall, `I'm quite content`.”
+4. Do you miss being a student?
+    "Not really. I `attended` a very strict and `demanding` high school and university, and `it took me a lot of effort to graduate`. While I did appreciate what that period `brought` to me, I truly don't want to `go through` that kind of life again."
+5. Is it very interesting?
+    "`I'm not sure if` 'interesting' `is the right word for` that period. I don't dislike my life because I have a very clear objective and remain dedicated all the time. In fact, it's a disciplined and `passionate` lifestyle, but it can also be quite `exhausting`. I often `feel burnt out` after a full day of studying." (study)
+
+    Yes, working in a game company is quite pleasant for me, firstly the atmosphere is more relaxed compared to some traditional companies, and I can find many colleagues who `share the same interest with me`, making `the time at the workplace` `enjoyable`. Moreover, working with code is fulfilling for me because programmers can see the `tangible results` of their work. I really `appreciate the immediate feedback` and sense of accomplishment `when my code runs as expected.`
+6. Is there any kind of technology you use at work?
+    Yes, 
+7. Can you manage your time well when you work?
+    "`I wouldn't say I'm exceptionally proficient at it,` but I do have some strategies to make my work more efficient and `organized`. I have a habit of making work plans on a daily, weekly, and monthly basis. Additionally, I learned a method for maintaining focus during work or study when I was in college. It's called the `Pomodoro` Technique, which involves dividing your work into 25-minute `intervals` and `dedicating yourself strictly to each timer`. `It has proven to be quite useful` for me."
+8. Who helps you most at work?
+    I think it should be my boss, while I had a mentor who is assigned by company when I just came, he is very busy and has no interest teaching rookies, so 
+
 - Why did you choose to do that type of job?
     
     "`When I was in high school`, I `had a strong interest in` physics. So, `when it came time for` my undergraduate studies, I `chose to major in` nuclear physics. `During my time at university,` I `stumbled across`/on the IT industry through some `chance encounters`, and I `developed a desire to` work in this field. That's why, `after graduating`, I pursued a master's degree in computer science.”
     
 - "As a Software Development Engineer (SDE), my primary responsibilities `involve` designing software and writing code to implement it. I also need to communicate with product managers to understand their business requirements. "And sometimes I participate in larger projects that require me to `collaborate` with other programmers.”
+
 - "I work as a software developer. My `main responsibilities` involve collaborating with the product manager to understand and `break down` business requirements. I then `translate` these requirements `into` `design specifications` and code to implement the solutions. For larger projects, I often work closely with other developers, and there are `instances` where I need to coordinate with the testing team to validate and `make necessary code adjustments`.”
+
 - "we need to communicate with product managers, understand and break down business requirements, design software for them, and then implement it using code. Sometimes, we also `have to be involved in` certain aspects of software testing.”
-- Do you like your job? / Is it very interesting?
-"I'm quite satisfied with my current job. `Most of the time`, working with code is enjoyable because programmers can see the `tangible results` of their work. I really `appreciate the immediate feedback` and sense of accomplishment it offers. Additionally, the `compensation` `for this job` `meets my expectations`, as I `prefer not to` have significant financial pressure in my life. So, overall, `I'm quite content`.”
-- Do you miss being a student?
-- Is there any kind of technology you use at work?
-- Can you manage your time well when you work?
+
 - The `job arrangements and benefits` of this position `are acceptable to me`.
+
 - "I have also noticed that there are some `drawbacks` in our industry. For example, some companies have a tendency to require frequent overtime work, certain positions may `exhibit` `age or gender discrimination`, and there are `health risks associated with` prolonged computer screen `exposure` and `extended periods of sitting`.”
+
 - `I have been in this job for` 3 years. I started working right `after my graduation from college in July 2021`
+
 - "Due to the impact of covid, `Job hunting` has been quite challenging over the past three years. `I consider` myself very fortunate `to` have `secured` such a job during that tough period.”
+
 - In the current employment environment, the salary for programmers is somewhat `generous`. I'm someone who prefers(values) a life with less economic pressure(financial stress), so that's the primary reason I chose this profession. Additionally, `I find` the work style and responsibilities of a programmer `to be quite agreeable`(are acceptable to me). `Most of my working hours are spent` interacting with computers and writing code, which is less demanding for me compared to dealing with various people.
+
 - "I find my job quite enjoyable because the work of a programmer `yields very tangible results.` I can see how the programs I write `address real-world needs`, and this immediate positive feedback gives me `a sense of accomplishment` in my work. `This kind of enjoyment` is rather similar to a mathematician solving a challenging problem.”
+
 - "Work is crucial to me because I see it as a `pathway` to `realizing my personal value`. `I've even pondered(considered/thought)` whether I would continue working if I were financially free, and my conclusion is that I would. In such cases, Even if I `didn't` need to work for others for financial reasons, I `would` still pursue some personal projects and ideas by working for myself.”
+
 - "I've had some limited formal training, mainly focused on our `work processes`. As a programmer, much of my job involves `self-learning` and `seeking guidance` from experienced colleagues `when it comes to` the `specific tasks` and skills required.”
+  
 - "My boss is highly professional. He efficiently prioritizes tasks, `delegates assignments` to the most suitable individuals, and `makes decisive decisions`. What I admire most is `his ability to maintain a clear distinction between work and non-work situations`, which makes working with him both relaxed and productive(efficient). `I've learned many valuable qualities` in the workplace from him.”
 - "I believe most people generally prefer leadership `in a concise and swift manner` when we are at work
 - My colleagues are `predominantly` fellow programmers, and we frequently collaborate on large-scale projects. `They are generally more experienced than I am` and `possess` exceptional technical skills. `I often turn to them for guidance` on technical issues, and they are always friendly and willing to help. `Outside of work`, I `share common interests` such as photography and playing computer games with some of my colleagues. We occasionally get together for dinners and chats, I think this relationship not only fosters a `sense of teamwork` but also makes the workplace enjoyable and comfortable."
