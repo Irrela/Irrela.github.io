@@ -43,7 +43,7 @@ I hope this letter/email/message finds you well. I’m writing to ：
 
 ### Satisfaction:
 
-- I'm writing to convey my `contentment`/satisfication `for` what you have done in the last week.
+- I'm writing to convey my `contentment`/`satisfaction` `for` what you have done in the last week.
 - `Once again`, thank you for doing. We `eagerly` look forward to …
 
 ### Thank you:

@@ -16,8 +16,8 @@ tags:
     - [Fishing - M](#fishing---m)
     - [Geography - M](#geography---m)
     - [Cinema - M](#cinema---m)
-    - [****Coffee or tea**** - M](#coffee-or-tea---m)
-    - [****Musical instrument**** - M](#musical-instrument---m)
+    - [Coffee or tea - M](#coffee-or-tea---m)
+    - [Musical instrument - M](#musical-instrument---m)
     - [Robots - M](#robots---m)
     - [Noise - M](#noise---m)
     - [Running- M](#running--m)
@@ -26,7 +26,7 @@ tags:
     - [Map- M](#map--m)
     - [Clothes- M](#clothes--m)
     - [Gifts- M](#gifts--m)
-    - [****Transport****- M](#transport--m)
+    - [Transport - M](#transport---m)
     - [Ice Cream- M](#ice-cream--m)
     - [Concentration- M](#concentration--m)
     - [Fixing things- M](#fixing-things--m)
@@ -679,7 +679,7 @@ Precisely
     "I'm not sure, in fact, `I would agree more with the idea` that friends should `engage in` more conversation when they hang out. And from this perspective, watching movies together doesn’t `seem like` a good option, since they need to stay quiet when `the movie is playing.”`
     
 
-### ****Coffee or tea**** - M
+### Coffee or tea - M
 
 - 1. Do you like to drink coffee or tea?
     
@@ -702,7 +702,7 @@ Precisely
     "This morning, before coming here to `take the exam`, I had a cup of coffee and `a slice of toast`.”
     
 
-### ****Musical instrument**** - M
+### Musical instrument - M
 
 - 1 Do you know how to play a musical instrument?
 - 2 Do you think students should learn to play musical instruments at school?
@@ -804,7 +804,7 @@ Precisely
 - 3 Have you ever given a person a gift you made yourself?
 - 4 What do you consider when choosing a gift?
 
-### ****Transport****- M
+### Transport - M
 
 - 1. How do you go to work/school?
 - 2. Is driving to work popular in your country?
