@@ -529,11 +529,28 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 - That's where all the best restaurants are.
 - But if you want a `takeaway`, the Italian one does really good pasta and pizzas.
 - They're both good and they'll both `deliver to the flat.`
-
+- They `credited me with` two years, which probably made it more difficult for me.
+- On the other hand, you were lucky to be `granted` credits. Is that why you chose the course?
+- People expect you to have problems with the process of reading and writing, but, in fact, `it is more a question of` `altering your viewpoint towards` academic study.
+- Maybe you found them different because you're a more `mature` student now, whereas when you were studying in your country you were younger and not so `assertive`.
+- but sometimes just about something that might really interest them, something they might want to `specialize in.`
+- The lecturers must `set aside certain times` every week when they're available for students.
+- Then in second semester, we had to get experience in hospital `dispensaries`, so `every second day` we went to one of the big hospitals and worked there.
+- And `on top of all that` we had our assignments, which took me a lot of time.
+- because you can be in big trouble if you don't understand what people are saying and `you haven't got time to translate.`
+- as I said before, the biggest problem for me was `a lack of familiarity with` the education system here.
+- two of the group mentioned that they had seen `yet` more sparrow-hawks in their own city centre gardens and `wondered why` they were `turning up` in these gardens `in great numbers. `
+- The first thing we did was to `establish what proportion of` the urban land `is taken up by` private gardens.
+- We estimated that it was about one fifth, and this was `endorsed` by looking at large-scale usage maps in the town land survey office-24% `to be precise.`
+- `ticking off` species they had seen from a pro forma list-and adding the names of any rarer ones.
+- We `deliberately` chose smaller ones because they were by far the most typical in the city.
+- The whole point of the project was to `look at the norm` not the `exception`.
+- because we felt these `gave a good indication of` the processes at work in rural and urban `settings` as a whole.
+- Another factor is the `provision` of nesting places-which is actually better in gardens than the countryside. Hard to believe it, but it's true.
+- `Incidentally`, we discovered that a massive new survey on song thrushes `is about to be launched`, so you should `keep an eye open for` that.
 
 
  
-
 
 
 
