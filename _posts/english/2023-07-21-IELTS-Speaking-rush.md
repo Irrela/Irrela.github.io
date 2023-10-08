@@ -12,7 +12,7 @@ tags:
     - [Work - M](#work---m)
     - [Hometown - M](#hometown---m)
     - [Home - M - i](#home---m---i)
-    - [Weather and climate - M](#weather-and-climate---m)
+    - [Weather and climate - M - i](#weather-and-climate---m---i)
     - [Fishing - M](#fishing---m)
     - [Geography - M](#geography---m)
     - [Cinema - M](#cinema---m)
@@ -546,49 +546,39 @@ Precisely
     "Well, to be honest, I don't have `extensive` interactions with them. But, I have witnessed `some acts of kindness` that may suggest they are friendly. I recall that there was an `incident` where someone found a lost cat and `posted about it` in the `elevator` to help find the owner, it seems the little cat got excellent care, I thought it was a really `considerate` `gesture`, and left me an impression that my neighbors `seem to be` friendly and helpful.
     
 
-### Weather and climate - M
-
-- What type if weather do you like?
-    
-    "I prefer sunny and cool weather. Humid and hot weather tends to `make me sweat a lot`, and I don’t like that feeling. Additionally, such weather is suitable for `drying clothes and bedding.”`
+### Weather and climate - M - i
+- What type of weather do you like?
+    "I prefer sunny and cool weather, it is suitable for `drying clothes and bedding` and outdoor activities. In contrast, a `humid and hot weather tends to` make me `sweat a lot`, and I don’t like that feeling. 
     
 - What type of weather do Chinese people usually like?
-    
-    "Chinese people generally prefer mild and dry weather. `Excessively` humid climates can make clothes difficult to dry and `are associated with concerns about hygiene` and diseases in our traditional culture.”
+    "Chinese people generally prefer mild and dry weather. `Excessively` humid climates can make clothes and bedding difficult to dry and `are associated with concerns about hygiene` and diseases in our traditional culture.”
     
 - Which is your favorite season?
-    
-    "My favorite season is autumn. The weather is `pleasantly` cool, making it great for outdoor activities. And I especially enjoy the sight of `falling leaves.`”
+    "I would say `autumn`. Because the weather is `pleasantly` cool, making it great for outdoor activities and won't make you sweat a lot. And I especially enjoy the sight of `falling leaves.`”
     
 - Which is your least favorite season?
-    
-    My least favorite season `would have to be winter.` In the area where I live, the temperature often drops close to `freezing` during winter, and we don't have `centralized` heating. So, even `indoors` can get quite `chilly`, and (affects daily activities and work)can be quite `limiting for` activities and work.”
+    My least favorite season `would have to be winter.` In the area where I live, the temperature often drops close to `freezing` during winter, and we don't have `centralized` heating. So, even `indoors` can get quite `chilly`, and significantly restrict(constrain) daily activities and work
     
 - Do you do different things in summer and in winter?
-    
-    "Yes, I do `engage in` different activities during summer and winter. During the summer months, I often enjoy activities that `take advantage of` the warm weather, such as going to the beach to `soak up` the sun and swim in the ocean. It's a great time for outdoor barbecues and picnics as well. On the other hand, in winter, I tend to `gravitate towards` cold-weather activities like `skiing` and `relaxing in hot springs`.  So, yes, my activities `do vary depending on the season`, as I like to `make the most of` the unique opportunities each season offers.”
+    "Yes, I like to `make the most of` the unique opportunities each season offers. During the summer months, there are various way to `take advantage of` the warm weather, such as going to the beach to enjoy the sunlight and swim in the ocean. It's a great time for outdoor barbecues and picnics as well. On the other hand, in winter, I tend to do some cold-weather only activities like `skiing` and `relaxing in hot springs`. 
     
 - What do you often do on sunny day
-    
     "On a sunny day, I often enjoy outdoor activities like running or `playing sports`, as long as it's not too hot. Also, it's a great opportunity to do some `household chores` like laundry and `sun-drying` `clothes and bedding`.”
     
 - What do you often do on rainy days
-    
     "On rainy days, I'll try to stay indoors as much as possible because `I don't like the feeling of getting wet`. I like to spend my time playing video games, reading books, or watching movies. It's a great opportunity to `catch up on my favorite novels` or explore new video games.
     
 - What is the `rain distribution` in China?
-    
-    As in many other countries(I believe it follows a pattern similar to many other countries), rainfall in China is higher in `coastal areas` compared to `inland regions`. And the southern parts of China receive more rainfall than the northern regions.”
+    I guess `it follows a pattern similar to` many other countries, rainfall in China is higher in `coastal areas` compared to `inland regions`. And the southern parts of China receive more rainfall than the northern regions.”
     
 - How does rain affect people’s lives?
+    "Well, it can affect our `daily routine` like requiring us to carry `umbrellas`, forcing us to change plans and impacting our outdoor activities and mood. And it can significantly affect `dietary choices and clothing habits` `in a region` as the `agriculture heavily relies on rainfall`. Moreover, sometimes long time heavy rain can cause `flooding` and severely threaten infrastructure and people's well-being
     
-    "Well, `it can have various effects on our lives`, like our `daily routine`. It can require us to carry `umbrellas`, change plans, or `stay indoors`, impacting our outdoor activities and mood. Those `involved in` agriculture `are the most affected group by rainfall` because it plays a crucial role in `crop selection` and `year-round yields`. Additionally, the amount of rainfall can influence `dietary choices` and `clothing habits` `in a region`. Furthermore,some disasters like `flooding` caused by heavy rain could severely threaten infrastructure and people's well-being.”
+    Those `involved in` agriculture `are the most affected group by rainfall` because it plays a crucial role in `crop selection` and `year-round yields`. 
     
 - What is the weather like in your city?
+    "Guangzhou is a southern coastal city with a typically hot and humid climate, with a abundant rainfall `throughout the year`. I must admit that this weather can be a bit challenging for me `at times`.”
     
-    "Guangzhou is a southern coastal city with a typically hot and humid climate, `along with abundant rainfall`. I must admit that this weather can be a bit challenging for me at times.”
-    
-
 ### Fishing - M
 
 - 1. Is fishing popular in your country?
