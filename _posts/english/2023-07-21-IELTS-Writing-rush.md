@@ -74,7 +74,7 @@ I hope this letter/email/message finds you well. I’m writing to ：
 
 ### Opinion
 
-In the ongoing debate over `topic`, there are differing views on whether `opinion 1` or `opinion 2`. My stance leans towards the former/latter for several compelling reasons.
+In the ongoing debate over `topic`, there are differing views on whether `opinion 1` or `opinion 2`. My stance leans towards the `former/latter` for several compelling reasons.
 
 In conclusion, while `exposure to various subjects` has its merits, `op2` appears more beneficial. I firmly contend that `op2` for the majority ultimately leads to an efficient and assured society.
 
@@ -82,8 +82,7 @@ In conclusion, while `exposure to various subjects` has its merits, `op2` appear
 
 1. Nowadays, it is quite common to witness `phenomenon`. This transformation can be attributed to several factors, and while it may seem challenging to address, there are ways to `solute`
     
-    
-    In conclusion, the `phenomenon` among the `certain cohort(specific groups of people)` **stems from(due to/ is linked to/ can be attributed to)** `factors`. To tackle this issue, **a multifaceted(comprehensive/ well-rounded) approach(strategy/ plan) involving** employers, **governments**, and individuals is necessary. By doing so,  we are more likely to cultivate a secure and harmonious society.
+    In conclusion, the `phenomenon` among the `certain cohort(specific groups of people)` stems from(due to/ is linked to/ can be attributed to) `factors`. To tackle this issue, a multifaceted(comprehensive/ well-rounded) approach(strategy/ plan) involving employers, governments, and individuals is necessary. By doing so,  we are more likely to cultivate a secure and harmonious society.
     
     In conclusion, the fervor for researching the histories of residences can be attributed to both personal and societal factors. Although this endeavor may seem daunting, requiring expertise and time, it can be effectively addressed through collaborative efforts within communities. By doing so, we not only `res1` but also `res2`
     
