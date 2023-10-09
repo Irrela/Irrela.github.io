@@ -418,46 +418,59 @@ Precisely
     "I'm from a city called Mianyang in the Sichuan province of China, which is located in the mountainous region `in the western part of` the country. You `might have heard of` another more famous city called Chengdu; we're `approximately` 100 kilometers `away from` there. Also, you may be familiar with pandas; And our region is a major `habitat` for these incredible animals.”
     
 - Tell me about your hometown.
+
     "My hometown `is situated in` a mountainous region with `a relatively high altitude`. The climate there is quite mild, with sunny and cool weather `for most of the year`, making it a very pleasant place to live.  `It used to be primarily focused on` military-related industries, but `over the years`, they `have shifted towards` `civilian enterprises`. Nowadays, it's known for producing components for televisions, electric vehicles, and `various other electronic devices`. The majority of population of the city are mainly ~~`comprised of`~~ skilled `technicians` and `researchers`(The population of the city mainly `consists of` skilled technicians and researchers.), many of them were `relocated` from different parts of the country `during the planned economy era in the previous century`. `Similar to` most areas in Sichuan, people in my hometown `are accustomed to(are used to)` a relaxed(laid-back) `pace of life` and prioritize their quality of life over the `relentless work ethic` often seen in coastal regions like Guangzhou, where I'm currently living. People work so hard here and tend to `overlook` their families and the need to rest. I actually don't think this is a healthy or sustainable way of living. Perhaps people in my hometown know better how to enjoy their lives(`Back in` my hometown, people seem to have a better `grasp` of how to enjoy life.”).”
     
 - What's your favorite thing  in your hometown
+
     "My favorite thing in my hometown is the diverse and flavorful cuisine. It's predominantly Sichuan-style, known for `its widely use of spices(chili pepper) in seasoning dishes` to `enhance the flavors of the dishes.` Additionally, due to the historical immigration `patterns`, people from various regions have brought their own `culinary` styles and insights, making the food here inclusive and comprehensive.”
     
 - What's your favorite place in your hometown
+
     "There is a well-maintained `Riverside avenue` I often visit. It is a perfect place for running and biking as the abundance of plants there provide a fresh air. And it is featured with a variety of public amenities like fitness equipment, sports fields, and open `squares` along with it. It's a `hub` of activity, especially `during the early mornings and evenings` when locals gather here for exercise and leisure activities.
     
     Additionally, `there's a diverse range of` restaurants and tea houses `along the street`. This makes it a perfect spot for `socializing with friends`, `whether it's for` a casual chat or a meal. `I find it` incredibly refreshing `to` spend time there, `taking in the beautiful scenery` and enjoying the `vibrant` atmosphere."
     
 - Tell me about some scenic spots in your hometown
+
     "In my hometown, there's a beautiful place called the Wolong Nature Reserve. It's actually a national park mainly covered in forests, and it `boasts` stunning natural landscapes. It's a perfect destination for those who `love to immerse themselves in nature`. What makes it even more special is that it's the primary habitat for pandas. In fact, it houses the world's largest breeding and research center for these incredible creatures.Every year, visitors from all around the globe come here to `witness` and learn about these lovable animals.”
 
 1. Has your hometown changed much these years?
+
     "Yes, my hometown has changed quite a bit in recent years. I'm not sure if you're aware, but in 2008, Sichuan experienced a major(severe) earthquake. Since then, many buildings and places have been rebuilt, including my old high school. `I went back to` visit a couple of years ago, and the new campus and teaching buildings have become very modern and beautiful.”
 
 2. Is that a big city or a small place?
+
     "It's a big city. I'm currently in Guangzhou, which is one of the largest cities in China, `along with` Beijing and Shanghai. It has a population of over 20 million people and has been a major `metropolitan` area in southern China for centuries.”
 
 3. How long have you been living here?
+
     "I've been living here for nearly two years. I originally moved here for a job opportunity, and I `anticipate` that I'll be here for another year.”
 
 4. How has your area changed in recent years?
+
     In the past, `there was a period where`, due to the boom in the `real estate market(due to the thriving real estate market)`, the entire nation was `vigorously` constructing residential buildings and the `accompanying` infrastructure, with construction sites everywhere, `symbolizing` rapid `urbanization`. However, this trend has significantly slowed down now.
     
     `In the past decade`, `I've had the opportunity to` live in several different cities, but `my stays in each of them` were relatively short, so I didn't personally `witness` significant changes in those areas. However, I do k`eep up with` the news and trends in each place I've lived, and I've `noticed a few general trends` of change in urban areas in recent years.
     
 5. Is there anything you dislike about it?
+
     "Yes, there are a few things `I dislike about` it. Firstly, `it can get` quite crowded here, and the traffic is always congested. Going out for a meal or shopping often involves `waiting in long lines`. I'm not particularly `fond of` crowded places, but I understand that some people enjoy the hustle and bustle, which they refer to as 'vibrancy' or 'a lively atmosphere.' It gives them a sense of being alive.”
 
 6. For you, what benefits are there living in a big city?
+
     "For me, there are `primarily` two benefits to living in a big city. First, it `offers better infrastructure and services`. For instance, `if I were to take the IELTS exam`, there are multiple test centers in Guangzhou, `whereas` my hometown, a smaller city, doesn't have any. Second, it's influenced by employment opportunities. Larger cities tend to have more high-quality companies, which `in turn` provide more and better `job prospects`. Overall, residing in a metropolitan area is more advantageous for personal development.”
 
 7. Where in your country do you live?
+
     "I currently reside in Guangzhou, which is a coastal city `located along the river`. It's `at the heart of` the urban area in southern China and is conveniently close to two other major cities, Shenzhen and Hong Kong, both of which are within a 200-kilometer radius.”
     
 - what are the main places of interest in your hometown
+
     "In my hometown, there are several main places of interest. One of the most renowned attractions is the Wolong National Nature Reserve, famous worldwide for its role as a habitat and research center for giant pandas. Additionally, my hometown holds significant historical importance as it was a vital territory during the famouse Three Kingdoms period `in` Chinese history. As a result, it boasts a plethora of historical sites and ancient architectural treasures from that era. These historical relics continue to attract `a substantial number of` history enthusiasts and tourists from around the globe.”
     
 - Do you like your hometown, Why or why not
+
     Yes, I do like my hometown. the climate in my hometown is quite `livable`. We have mild winters and `pleasant` summers, which make it comfortable to live there `throughout` the year.
     
     The town has a laid-back atmosphere, the pace of life is not as `hectic` as in larger cities, which I find very relaxing and enjoyable.
@@ -467,6 +480,7 @@ Precisely
     However, there are some `downsides`. One of the challenges is that there are relatively few good job opportunities in my hometown, especially `in my field of interest`. This has made me consider exploring different places and experiencing various aspects of life while I'm still young.
     
 - What is the difference between your hometown and Beijing
+
     Well, there are several `notable` differences between my hometown and Beijing.
     
     Firstly, the climate `is a significant contrast`. My hometown has a much milder and more livable climate compared to Beijing, which can get extremely cold and dry in the winter. This weather factor `plays a role in my preference for` staying in my hometown.
@@ -476,191 +490,248 @@ Precisely
     However, the `cost of living`, especially housing, is considerably higher in Beijing. The `property market` in Beijing is quite expensive, and it would be challenging for young people to afford a comfortable living situation in the city.
     
 - What are the people like in your hometown
+
     "In my hometown, the people have a laid-back lifestyle, which means they enjoy `taking things easy` and `savoring` life's simple pleasures. Many of them `are fond of` traditional activities like playing mahjong and `poker`, both of which are popular pastimes that brings communities together.
     
     Moreover, people in my hometown `take great pride(are proud of)` in their local cuisine and culture. Our food is known for its unique flavors and `recipes` that `have been passed down through generations.`
     
 - If you could change one thing about your hometown, what would it be?
+
     "If I could change one thing about my hometown, I would focus on `creating more job prospects`. Currently, many young people, including myself, feel `compelled` to leave our hometowns and migrate to larger cities `in search of` better job opportunities. We all have dreams of working in our fields of interest and expertise, and it would be wonderful if our hometowns could provide those positions.
     
 - What attractive pieces of architecture are there in your hometown
+
     The most `iconic` `landmarks` in Chongqing is the Hongya Cave, a multi-story traditional building complex that beautifully combines modern and ancient architecture. `It's perched on the edge` of the Jialing River, and its `intricate` design and colorful lights make it a popular `tourist attraction`, especially at night.
     
 - Is your hometown a good place for young people to live?
+
     "Not really, my hometown doesn't offer many opportunities for young people. There are limited `job prospects`, and most young individuals tend to seek better positions in coastal areas or larger cities, where there is more economic development and a wider range of choices available.”
     
 - Do you think the area you live in now is suitable for people of all ages?
+
     "No, I don't believe the area I currently reside in is suitable for people of all ages. The climate here is quite `humid` and hot, which can be uncomfortable, especially for older individuals(`the elderly`). Additionally, `there are issues with heavy pollution`, and it tends to be crowded, which can be challenging for both the elderly and young children. Many young adults come here primarily for job opportunities and career prospects, leading to a `somewhat` imbalanced demographic.”
     
 - Do you know any famous people in your area?
+
     Yes, in my area, there's a historical figure known as Sun Yat-sen. He played a crucial role in ending the last dynasty in China and is widely respected as the Father of the Republic. In fact, we have a `prestigious` university named after him, which `reflects` his significant influence on our region's history and education.”
     
 - Where do you like to go in your area?
+
     "`I don't have a fixed pattern for where` I like to go in my area, but I often find myself visiting various restaurants. There's a wide range of `dining options` here, from `cozy` cafes to international cuisines, and I enjoy exploring different flavors and `trying new dishes`. `Besides that`, I also like to visit local parks for a leisurely walk, especially on sunny days. `It's a great way to` unwind and enjoy the natural beauty of the area. Additionally, there are a few `cultural spots` like museums and theaters that I occasionally visit to catch a show or learn something new.”
     
 
 ### Home - M - i
 
 - Are the transport facilities in your city very good?
+
     Yes, they are quite good `in some ways`. We have a `well-developed` public transportation system, including buses, subways, and ferries. most of them are equipped with many user-friendly amenities and signs. These transport options make it convenient to `get around the city`, especially for `daily commuting`. However, the `downside` is that our city `has a very high population density`, which often leads to `overcrowding` during `rush hours`. So, while the transport options themselves are good, `having too many people use them` can make it feel a bit stressful `at times`.”
     
 - 2.Which room does your family spend most of the time in?
+
     "We gather in `the combined dining and living room` for `a significant portion of our home time`. This is where we have our meals, watch television, and have conversations."
     
 - Do you currently live in a house or a flat?
     "I currently live in a rented flat, which is located in a newly built `apartment complex`. The flat itself is quite `spacious`, covering an area of about 70 `square meters`. I choose there as residence for its convenient public transport and quiet environment.
 
 - Can you describe your residence
+
     "Sure, I currently live in a rented flat, which is located in a newly built apartment complex `in a quiet neighborhood`. The flat itself is `well-maintained` and is `equipped` with high-quality `appliances` and furniture. It provides enough space `for two people to live`, there are two bedrooms, and a separate small room that I use as `a home office and study space`. The living room is `cozy` and has a nice view of the surrounding area. Overall, `I'm quite satisfied with` my residence as it meets my needs(expectations) `for both comfort and functionality.`”
 
 - 6.How long have you lived there?
+
     "I've been living there for nearly two years now. I `moved to this city` for a job change `in January of last year.`”
     
 - 4.Do you plan to live here for a long time?
+
     "Well, `I have no plan to live here permanently`. I `guess I would stay here for at most another year.`  The weather here is quite humid and hot, which I find uncomfortable at times, and `considering my job prospects`, I will probably go to Shanghai `in the foreseeable future`
     
 - 5.Do you live alone or with your family?
+
     "I live with my wife and our adorable cat. Our parents live in different cities, and they visit us `from time to time` and `stay for short periods`.”
     
 - 7.What do you usually do in your house/flat/room?
+
     "When `I get back home` after work, I often take a shower and then watch TV series in the living room with my wife. On weekends, I usually stay in the home office, which is a quiet and `dedicated` space `where I can focus`. I play computer games or learn some `career-related knowledge` since technology `evolves` quickly in our industry. We don't cook very frequently, most of the time we eat at workplace, so we only store some snacks, `instant foods` and drinks at home.
     
 - 8.Which is your favorite room in your home?
+
     It should be the home office I think. It's not very big, but it's `wonderfully` quiet and cozy. `I find it to be the perfect place for concentration and focus`, especially when I'm `working on` my projects or studying.
     
 - What main items of furniture or appliances do you have in each room
+
     "`(Let me think for a moment)`, In our home, each room has its specific furniture and appliances. In the bedrooms, we have beds and `wardrobes`, a king-size bed for us and a single one for guests. And in the home office, there is a table, comfortable chairs, a large monitor, and two computers. In the combined living and dining room, we have a TV and a `dining table`. Finally, in the bathroom, we only have a shower, no `bathtub`.”
     
 - Is it a typical house in your city
+
     "No, it's not very typical. Most houses here are newly built apartments with a more western and modern style, and most of them are `one-story` flat. But typical houses are generally more `spacious`, often with `multiple stories`, and have a more traditional decoration, often featuring expensive wooden furniture.”
     
 - 9.What's the difference between where you are living now and where you lived in the past?
+
     "`In terms of` the housing itself, `there isn't a significant difference`. `Since I started working`, `I have always rented flats from the same agency`, which is a `nationwide chain`, which means that the layout and decoration of flats they provide are fairly `consistent` `across different cities`.”
     
 - 10.What can you see `when you look out the window` of your room?
+
     I can see a small river flowing by and two other apartment buildings, as well as some lush greenery, I can't see the main road from my location because `there is still a(some) distance` and it is `obstructed` by the apartment buildings as I mentioned earlier. In fact, most of the time, you have to keep curtains closed(drawn) during the day in Guangzhou since the `sunlight` is quite `intense`.
     
 - 11.Would you be willing to live in the countryside in the future?
+
     "`I'm not certain(sure) (about it) at this moment.` `It may be possible` in the future, if I can achieve `financial independence` and no longer need to `commute to work`. However, `in the foreseeable future`, I `would prefer to` live closer to my workplace to gain myself more time to rest, you know, `by minimizing the the daily commute.`
     
 - What kind of house do you want to live in in the future.
+
     "Actually, `I'm open to` various housing options, such as an flat or `a detached house`. `Size isn't my primary concern`, as long as it offers enough space and functionality. `What matters most to me` is having a `reasonable layout` and well-decorated `interiors` for comfortable living. 
     
 - Do you like the decor in your home? Why or why not
+
     I'm content with the current `decor` in my home. It's simple, modern, and user-friendly, it `aligns with(matches)` my `practical nature`. `I prefer functionality over excessive and complex decoration.` The `minimalist` design not only `makes the space look` clean and `organized` but also creates a relaxing and dedicated atmosphere.
     
 - Will you move to another residence `in the near future`.
+
     Yes, `I do have plans to` move to Shanghai for career prospects. So a relocation is `inevitable` `in the near future`. I've been researching potential housing options for some time to `ensure a smooth transition`.”
     
 - What kind of residence are you going to move into.
+
     I think I will continue renting a flat from my current agency, they are a nationwide chain and offer `consistent` and `reliable` `housing services`, which `have been proven to be suitable for me`.. The only thing I need to consider is finding one that's `close to my future workplace."`
     
 - What are your neighbors like?
+
     "In fact, I don't `have much interaction with` my neighbors because I'm a tenant, and in large cities, `it's quite common for` neighbors to `have limited contact` with each other. `Everyone seems to have busy lives,` and it's not easy to `come across` them frequently. But at least I didn't `encounter` any `disturbances` from them, like noise or anything else, so I assume they are nice people.
     
-- 3 Are people in your area friendly?
+- Are people in your area friendly?
+
     "Well, to be honest, I don't have `extensive` interactions with them. But, I have witnessed `some acts of kindness` that may suggest they are friendly. I recall that there was an `incident` where someone found a lost cat and `posted about it` in the `elevator` to help find the owner, it seems the little cat got excellent care, I thought it was a really `considerate` `gesture`, and left me an impression that my neighbors `seem to be` friendly and helpful.
     
 
 ### Weather and climate - M - i
 - What type of weather do you like?
+
     "I prefer sunny and cool weather, it is suitable for `drying clothes and bedding` and outdoor activities. In contrast, a `humid and hot weather tends to` make me `sweat a lot`, and I don’t like that feeling. 
     
 - What type of weather do Chinese people usually like?
+
     "Chinese people generally prefer mild and dry weather. `Excessively` humid climates can make clothes and bedding difficult to dry and `are associated with concerns about hygiene` and diseases in our traditional culture.”
     
 - Which is your favorite season?
+
     "I would say `autumn`. Because the weather is `pleasantly` cool, making it great for outdoor activities and won't make you sweat a lot. And I especially enjoy the sight of `falling leaves.`”
     
 - Which is your least favorite season?
+
     My least favorite season `would have to be winter.` In the area where I live, the temperature often drops close to `freezing` during winter, and we don't have `centralized` heating. So, even `indoors` can get quite `chilly`, and significantly restrict(constrain) daily activities and work
     
 - Do you do different things in summer and in winter?
+
     "Yes, I like to `make the most of` the unique opportunities each season offers. During the summer months, there are various way to `take advantage of` the warm weather, such as going to the beach to enjoy the sunlight and swim in the ocean. It's a great time for outdoor barbecues and picnics as well. On the other hand, in winter, I tend to do some cold-weather only activities like `skiing` and `relaxing in hot springs`. 
     
 - What do you often do on sunny day
+
     "On a sunny day, I often enjoy outdoor activities like running or `playing sports`, as long as it's not too hot. Also, it's a great opportunity to do some `household chores` like laundry and `sun-drying` `clothes and bedding`.”
     
 - What do you often do on rainy days
+
     "On rainy days, I'll try to stay indoors as much as possible because `I don't like the feeling of getting wet`. I like to spend my time playing video games, reading books, or watching movies. It's a great opportunity to `catch up on my favorite novels` or explore new video games.
     
 - What is the `rain distribution` in China?
+
     I guess `it follows a pattern similar to` many other countries, rainfall in China is higher in `coastal areas` compared to `inland regions`. And the southern parts of China receive more rainfall than the northern regions.”
     
 - How does rain affect people’s lives?
+
     "Well, it can affect our `daily routine` by requiring us to carry umbrellas, forcing us to change our plans as it `impacts` our outdoor activities and mood. And it can significantly affect `dietary choices and clothing habits` `in a region` as the `agriculture heavily relies on rainfall`. Moreover, sometimes long time heavy rain can cause `flooding` and severely threaten infrastructure and people's well-being
     
     Those `involved in` agriculture `are the most affected group by rainfall` because it plays a crucial role in `crop selection` and `year-round yields`. 
     
 - What is the weather like in your city?
+
     "Guangzhou is a southern `coastal` city with a `typically` hot and humid climate, and with an `abundant` rainfall `throughout the year`. I have to say this sort of weather can be uncomfortable for me `at times`.”
     
 ### Fishing - M - i
 - 1. Is fishing popular in your country?
+
     "Yes, fishing is extremely popular in China. In fact, I can find people fishing along almost every `riverbank` in every city `I've been to`. `Even in heavy rain,` you can still see people out there enjoying their time by the water, with their umbrellas. I believe they truly find it enjoyable.”
     
 - 2. Have you ever been to a place where there are lots of fish around you?
+
     "Yes, I have. One time, I visited a bustling seafood market near the waterfront, I live in a `coastal` city ~~that `is situated at the mouth of a major river`~~, with a thriving fishing industry, so the market `was filled with` a wide variety of fish, `some of which I couldn't even name.`
     
 - 3. Have you seen any movies featuring lots of fish?
+
     "Yes, I've watched a movie called 'Finding Nemo', if I remember correctly. It is an adorable `animated film` and tells a story of a clownfish father's journey to find his captured son, Nemo. `Most of the characters` in this movie are `fish`.”
     
 - 4. Why do some people like fishing?
+
     Well, I don't `go fishing` myself, so I can't `speak from direct experience`. But `I guess it can because` it offers a sense of relaxation and `accomplishment` as people spend time `in a peaceful natural setting`, away from the hustle and bustle of daily life. And sometimes they can get some very tangible outcomes from this activity. 
+
 - 5. Do you like eating fish?
+
     "~~`I don't have a strong liking for` eating fish.~~ Not really, in fact, I dislike the `fishy taste` and I find it `bothersome` to deal with `fish bones`. Although I `acknowledge` that fish is a good source of `protein`, `I have a preference for` beef or pork.”
     
 - 6. Where can you see fish?
+
     "As I mentioned earlier, you can find `a wide variety of live fish` in Chinese markets. Furthermore, there is a large `aquarium` in Guangzhou where people can observe `a diverse range of` `marine fish`.”
     
 
 ### Geography - M - i
 - 1 Do you want to be a geography teacher?
+
     "I think I'm willing to become a geography teacher because I `have a strong interest in` this subject. I can recall that when I was in primary school, I could `spend entire afternoons` studying world maps, and I believe `I would be qualified for` this job as I was quite good at geography during my school years.”
     
 - 2 Do you think geography is useful?
+
     "Yes, I think everyone should `have a fundamental understanding of` geography because it helps people `navigate` and `explore the world more effectively`. For instance, `being able to read maps` helps us `find our way` `in unfamiliar places` and `make trip plans`. Additionally, `knowing climate patterns` and `geographic information` can be valuable for `personal safety` and `making informed decisions` when going out.”
     
 - 3 Have you ever studied geography at school?
+
     "Yes, I have. In China, geography is a `compulsory(mandatory)` subject in the `foundational curriculum`. And if students `continue to high school`, they will study advanced geography `for an additional` three years.”
     
 - 4 Do you like geography?
+
     "I have a strong interest in geography, particularly `in the social aspects` of the subject. I enjoy `learning about`  `geographical information` of countries `I've heard of`, because I find understanding `these connected information` often provides a more comprehensive `insight` `into` some historical events, and this learning process is very `intriguing` to me.”
     
 
 ### Cinema - M - i 
 - 1 Did you usually go to the cinema when you were a child?
+
     "I would say yes, my parents are fond of watching movies, so they often `took me along` when they went to cinema, as long as the film `was suitable for children`.”
     
 - 2 Do you often go to the cinema with your friends?
+
     "Not really, `most of the time` I went to cinema alone or with my wife, I can't even remember the last time I went to cinema with friends.
     
 - 3 Do you still like the same kind of movie which you liked when you were a child?
+
     "Not really, `I can't say I had a specific preference` when I was a kid; I watched almost every film I could find. But now, I tend to watch more drama and documentaries.”
     
 - 4. What genres of films do you like?
+
     "I think it would be `drama and documentary` films. I find a `well-crafted` script can `immerse` the audience completely `into` the story. Compared to action or thriller genres, these types can `evoke more emotions` and deep(`profound`) thinking, and that’s why I’m inclined to watch them `over and over again.”`
     
 - 5. Do you think going to the cinema is a good way to spend time with friends?
+
     "I'm not sure, in fact, `I would agree more with the idea` that friends should `engage in` more conversation when they hang out. And from this perspective, watching movies together doesn’t `seem like` a good option, since they need to stay quiet when `the movie is playing.”`
     
 
 ### Coffee or tea - M - i
 - 1. Do you like to drink coffee or tea?
+
     "I prefer coffee because `I developed a habit` of drinking it in the morning since high school. It helps `wake me up` and keeps me warm in the winter. Additionally, `a coffee with sugar and milk` can provide more energy than other drinks for breakfast, making it ideal for `a full day of studying`."
     
 - 2. How often do you drink coffee or tea?
+
     "During the weekdays, I drink coffee almost every two hours, sometimes even more if I feel tired and `unfocused`. Not only for taking in some `caffeine` but also as an excuse to take a break. I drink less on non-working days because there is no need to `stay awake all the time`.”
     
 - 3. Do Chinese people like to drink coffee or tea?
+
     It mostly depends on the age I think, you'll often find that `older people` tend to prefer tea, as it's a `deeply traditional` beverage in China, and coffee is notably popular among the younger generation, especially in urban areas, because young `workforce` there heavily relies on it to stay awake `during work`.”
     
 - 4. Do you prefer to use tea or coffee to serve your guests?
+
     "`I think it would be better to` let them decide, so I always keep both tea and coffee in my home."
 
     It depends on which one they `are used to`(are accustomed to), I keep both tea and coffee `available` in my home. While I personally drink coffee `more often`, it is common in China to serve tea after a meal.”
     
 - 5. When was the last time you drank coffee or tea?
+
     "This morning, before `coming here to take the test`, I had a cup of coffee and a slice of `toast`."
     
 
