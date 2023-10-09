@@ -544,11 +544,43 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 - We estimated that it was about one fifth, and this was `endorsed` by looking at large-scale usage maps in the town land survey office-24% `to be precise.`
 - `ticking off` species they had seen from a pro forma list-and adding the names of any rarer ones.
 - We `deliberately` chose smaller ones because they were by far the most typical in the city.
-- The whole point of the project was to `look at the norm` not the `exception`.
+- `The whole point of` the project was to `look at the norm` not the `exception`.
 - because we felt these `gave a good indication of` the processes at work in rural and urban `settings` as a whole.
 - Another factor is the `provision` of nesting places-which is actually better in gardens than the countryside. Hard to believe it, but it's true.
 - `Incidentally`, we discovered that a massive new survey on song thrushes `is about to be launched`, so you should `keep an eye open for` that.
+- there are several free concerts taking place at different times - one or two in the morning, the majority `at lunchtime`, and a couple in the evening.
+- And they `range from` pop music to Latin American.
+- So it's a good idea to bring `binoculars` if you have them.
+- How long does it take to get there by car from Burnham?
+- Barford has changed a great deal in the last 50 years
+- because the bus companies `concentrate on` just the routes that `attract most passengers`.
+- It's sometimes said that bus fares are too high, but `in relation to` average incomes, fares are not much higher than they were 50 years ago.
+- The centre was recently `closed to traffic` on a `trial basis`, making it much safer for `pedestrians`
+- `Numbers have been falling for several years`, despite efforts to attract `shoppers`, for instance by opening new car parks.
+- Our hospital closed 15 years ago, which means journeys to other towns are `unavoidable`.
+- The number of schools and colleges has increased, making that `the main employment sector`.
+- Instead, the company has bought some `adjoining` land, and this will be used to increase the number of parking spaces.
+- It's become more and more `shabby-looking`, and because of fears about safety, it was threatened with demolition.
+- What will change, though, is that the council will no longer `be in charge of` the area.
+- And the tiger stops `in the middle of` what it's doing when it sees Malcolm `walking past`.
+- That's right, you wanted them to be watching a `carnival procession`, but I thought it would be too crowded. Do you think it works like this?
+- No, `he's been left out of all the fun`, so I'd like him to be crying, that'll `contrast` nicely `with` the next picture, where he's laughing at the clowns in the carnival.
+- Because `they've supposed to be` skating on grass, aren't they?
+- At the moment `it doesn't look quite right.`
+- Mm, `I see what you mean`. I'll `have another go at that.`
+- `How do you feel about` drafting something,
+- I'd be happier if you did it
+- So what `has` it gotten to do with business, you may ask. 
+- They watched how cooks used measuring cups to `measure out` things like sugar and flour.
+- Ethnographic research has also been `carried out` in computer companies.
+- the researcher has to be completely `open-minded`
+- he or she hasn't `thought up` a hypothesis to be tested, `as is the case` in other types of research.
+- the `criteria` `according to` which the participants are chosen may be something as simple as `the age bracket they fall into,`
+- This means that `there's less likelihood of` the researcher `imposing` his or her own ideas `on` the participant.
+- Instead they try to identify a pattern of some sort in all this data, and to `discern` the `meaning behind it`.
+- This can result in some compelling insights that can `in turn` `feed back to` the whole design process
 
+ 
 
 You are a native English speaker who has complete mastery of the language. I'm currently preparing for the speaking section of the IELTS General Training exam. Could you assist me by categorizing and providing some commonly used connective phrases by native speakers based on different functional scenarios? It would be really helpful if you could provide example sentences to illustrate their usage.
 

@@ -339,27 +339,42 @@ Precisely
 ### Work - M
 
 1. What work do you do?
+
     "I'm a Software Development Engineer, `or more commonly`, I'm a programmer. I work for a local major game company. My primary responsibilities include writing code for the physics engine used to develop games."
+
 2. Why did you choose to do that type of job?
+
     "`Mostly out of interest I think`, I quite enjoy playing video games, and I hope to be able to create some `prestigious` games like Super Mario or The Legend of Zelda. So, it is very natural for me to consider joining a game company."
-3. Do you like your job?
+
+4. Do you like your job?
    "I'm quite satisfied with my current job. `Most of the time`, working with code is enjoyable because programmers can see the `tangible results` of their work. I really `appreciate the immediate feedback` and sense of accomplishment it offers. Additionally, the `compensation` `for this job` `meets my expectations`, as I `prefer not to` have significant financial pressure in my life. So, overall, `I'm quite content`.”
-4. Do you miss being a student?
+
+6. Do you miss being a student?
+
     "Not really. I `attended` a very strict and `demanding` high school and university, and `it took me a lot of effort to graduate`. While I did appreciate what that period `brought` to me, I truly don't want to `go through` that kind of life again."
-5. Is it very interesting?
+
+8. Is it very interesting?
+
     "`I'm not sure if` 'interesting' `is the right word for` that period. It was a time when I had a very clear objective and kept dedicated all the time. In fact, it's a disciplined and `passionate` lifestyle, but it was `rewarding` but also quite `exhausting`. I often `felt burnt out` after `a full day of` studying." (study)
 
     Yes, working in a game company is quite pleasant for me, firstly the atmosphere is more relaxed compared to some traditional companies, and I can find many colleagues who `share the same interest with me`, making `the time at the workplace` `enjoyable`. Moreover, working with code is fulfilling for me because programmers can see the `tangible results` of their work. I really `appreciate the immediate feedback` and sense of accomplishment `when my code runs as expected.`
-6. Is there any kind of technology you use at work?
+    
+9. Is there any kind of technology you use at work?
+
     "Yes, since programming is closely connected to computers and `automation`, we `utilize any available technological advancements` to `aid our work`, Such as `the newly popular` generative AI models, we have `integrated` them into our toolchain to `assist` us `in` correcting our code and providing constructive advice to guide our work."
-7. Can you manage your time well when you work?
+
+10. Can you manage your time well when you work?
+
     "`I wouldn't say I'm exceptionally proficient at it,` but I do have some strategies to make my work more efficient and `organized`. I have a habit of making work plans on a daily, weekly, and monthly basis. Additionally, I learned a method for `maintaining focus` during work or study when I was in college. It's called the `Pomodoro` Technique, which involves dividing your work into 25-minute `intervals` and `dedicating yourself strictly to each timer`. `It has proven to be quite useful` for me."
-8. Who helps you most at work?
+
+11. Who helps you most at work?
+
     I think it should be my boss, while I was `assigned` a mentor `when I first joined`, but he is a very busy, anxious person and `has no interest teaching rookies`, so `I got very limited guidance` from him. But fortunately, I received some valuable advice from my boss about `work methods` and `attitude`. He was the one who taught me the importance of professionalism `in the early stages of my career`, and I greatly appreciate `the long-lasting impact` of his advice."
     
     "I've had some limited formal training, mainly focused on our `work processes`. As a programmer, much of my job involves `self-learning` and `seeking guidance` from experienced colleagues `when it comes to` the `specific tasks` and skills required.”
 
 - Why did you choose to do that type of job?
+
     "`When I was in high school`, I `had a strong interest in` physics. So, `when it came time for` my undergraduate studies, I `chose to major in` nuclear physics. `During my time at university,` I `stumbled across`/on the IT industry through some `chance encounters`, and I `developed a desire to` work in this field. That's why, `after graduating`, I pursued a master's degree in computer science.”
     
 - "As a Software Development Engineer (SDE), my primary responsibilities `involve` designing software and writing code to implement it. I also need to communicate with product managers to understand their business requirements. "And sometimes I participate in larger projects that require me to `collaborate` with other programmers.”
@@ -399,16 +414,17 @@ Precisely
 ### Hometown - M
 
 - Where are you from?
-    "I'm from a city called Mianyang in the Sichuan province of China, which is located in the mountainous region `in the western part of` the country. You `might have heard of` another more famous city called Chengdu; we're `approximately` 100 kilometers away from there. Also, you may be familiar with pandas; our region is a major habitat for these incredible animals.”
+
+    "I'm from a city called Mianyang in the Sichuan province of China, which is located in the mountainous region `in the western part of` the country. You `might have heard of` another more famous city called Chengdu; we're `approximately` 100 kilometers `away from` there. Also, you may be familiar with pandas; And our region is a major `habitat` for these incredible animals.”
     
 - Tell me about your hometown.
-    "My hometown `is situated in` a mountainous region with `a relatively high altitude`. The climate there is quite mild, with sunny and cool weather `for most of the year`, making it a very pleasant place to live.  `It used to be primarily focused on` military-related industries, but `over the years`, it `has shifted towards` `civilian enterprises`. Nowadays, it's known for producing components for televisions, electric vehicles, and `various other electronic devices`. The population of the city is mainly `comprised of` skilled `technicians` and `researchers`(The population of the city mainly `consists of` skilled technicians and researchers.), many of whom were `relocated` from different parts of the country `during the planned economy era in the previous century`. `Similar to` most areas in Sichuan, people in my hometown `are accustomed to(are used to)` a relaxed(laid-back) pace of life and prioritize their quality of life over the `relentless work ethic` often seen in coastal regions like Guangzhou, where I'm currently living. People work so hard here and tend to `overlook` their families and the need to rest. I actually don't think this is a healthy or sustainable way of living. Perhaps people in my hometown know better how to enjoy their lives(`Back in` my hometown, people seem to have a better `grasp` of how to enjoy life.”).”
+    "My hometown `is situated in` a mountainous region with `a relatively high altitude`. The climate there is quite mild, with sunny and cool weather `for most of the year`, making it a very pleasant place to live.  `It used to be primarily focused on` military-related industries, but `over the years`, they `have shifted towards` `civilian enterprises`. Nowadays, it's known for producing components for televisions, electric vehicles, and `various other electronic devices`. The majority of population of the city are mainly ~~`comprised of`~~ skilled `technicians` and `researchers`(The population of the city mainly `consists of` skilled technicians and researchers.), many of them were `relocated` from different parts of the country `during the planned economy era in the previous century`. `Similar to` most areas in Sichuan, people in my hometown `are accustomed to(are used to)` a relaxed(laid-back) `pace of life` and prioritize their quality of life over the `relentless work ethic` often seen in coastal regions like Guangzhou, where I'm currently living. People work so hard here and tend to `overlook` their families and the need to rest. I actually don't think this is a healthy or sustainable way of living. Perhaps people in my hometown know better how to enjoy their lives(`Back in` my hometown, people seem to have a better `grasp` of how to enjoy life.”).”
     
 - What's your favorite thing  in your hometown
-    "My favorite thing in my hometown is the diverse and flavorful cuisine. It's predominantly Sichuan-style, known for `its widely use of spices(chili pepper)` to `enhance the flavors of the dishes.` Additionally, due to the historical immigration `patterns`, people from various regions have brought their `culinary` styles, making the food here inclusive and diverse.”
+    "My favorite thing in my hometown is the diverse and flavorful cuisine. It's predominantly Sichuan-style, known for `its widely use of spices(chili pepper) in seasoning dishes` to `enhance the flavors of the dishes.` Additionally, due to the historical immigration `patterns`, people from various regions have brought their own `culinary` styles and insights, making the food here inclusive and comprehensive.”
     
 - What's your favorite place in your hometown
-    "My favorite place in my hometown is the `Riverside Boulevard`. This `scenic` road is lined with lush `greenery` and offers a `breathtaking` view of the river. `What makes it special` is `the abundance of` public amenities like fitness equipment, sports fields, and open `squares`. It's a `hub` of activity, especially `during the early mornings and evenings` when locals gather here for exercise and leisure activities.
+    "There is a well-maintained `Riverside avenue` I often visit. It is a perfect place for running and biking as the abundance of plants there provide a fresh air. And it is featured with a variety of public amenities like fitness equipment, sports fields, and open `squares` along with it. It's a `hub` of activity, especially `during the early mornings and evenings` when locals gather here for exercise and leisure activities.
     
     Additionally, `there's a diverse range of` restaurants and tea houses `along the street`. This makes it a perfect spot for `socializing with friends`, `whether it's for` a casual chat or a meal. `I find it` incredibly refreshing `to` spend time there, `taking in the beautiful scenery` and enjoying the `vibrant` atmosphere."
     
