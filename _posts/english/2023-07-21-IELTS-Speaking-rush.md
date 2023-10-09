@@ -13,10 +13,10 @@ tags:
     - [Hometown - M](#hometown---m)
     - [Home - M - i](#home---m---i)
     - [Weather and climate - M - i](#weather-and-climate---m---i)
-    - [Fishing - M](#fishing---m)
-    - [Geography - M](#geography---m)
-    - [Cinema - M](#cinema---m)
-    - [Coffee or tea - M](#coffee-or-tea---m)
+    - [Fishing - M - i](#fishing---m---i)
+    - [Geography - M - i](#geography---m---i)
+    - [Cinema - M - i](#cinema---m---i)
+    - [Coffee or tea - M - i](#coffee-or-tea---m---i)
     - [Musical instrument - M](#musical-instrument---m)
     - [Robots - M](#robots---m)
     - [Noise - M](#noise---m)
@@ -572,104 +572,80 @@ Precisely
     I guess `it follows a pattern similar to` many other countries, rainfall in China is higher in `coastal areas` compared to `inland regions`. And the southern parts of China receive more rainfall than the northern regions.”
     
 - How does rain affect people’s lives?
-    "Well, it can affect our `daily routine` like requiring us to carry `umbrellas`, forcing us to change plans and impacting our outdoor activities and mood. And it can significantly affect `dietary choices and clothing habits` `in a region` as the `agriculture heavily relies on rainfall`. Moreover, sometimes long time heavy rain can cause `flooding` and severely threaten infrastructure and people's well-being
+    "Well, it can affect our `daily routine` by requiring us to carry umbrellas, forcing us to change our plans as it `impacts` our outdoor activities and mood. And it can significantly affect `dietary choices and clothing habits` `in a region` as the `agriculture heavily relies on rainfall`. Moreover, sometimes long time heavy rain can cause `flooding` and severely threaten infrastructure and people's well-being
     
     Those `involved in` agriculture `are the most affected group by rainfall` because it plays a crucial role in `crop selection` and `year-round yields`. 
     
 - What is the weather like in your city?
-    "Guangzhou is a southern coastal city with a typically hot and humid climate, with a abundant rainfall `throughout the year`. I must admit that this weather can be a bit challenging for me `at times`.”
+    "Guangzhou is a southern `coastal` city with a `typically` hot and humid climate, and with an `abundant` rainfall `throughout the year`. I have to say this sort of weather can be uncomfortable for me `at times`.”
     
-### Fishing - M
-
+### Fishing - M - i
 - 1. Is fishing popular in your country?
-    
-    "Yes, fishing is extremely popular in my country. In fact, I can find people fishing along almost every `riverbank` in every city `I've been to`. Even under heavy rain, you'll see people out there with their umbrellas, enjoying their time by the water. I believe they truly find it enjoyable.”
+    "Yes, fishing is extremely popular in China. In fact, I can find people fishing along almost every `riverbank` in every city `I've been to`. `Even in heavy rain,` you can still see people out there enjoying their time by the water, with their umbrellas. I believe they truly find it enjoyable.”
     
 - 2. Have you ever been to a place where there are lots of fish around you?
-    
-    "Yes, I have. One time, I visited a bustling seafood market near the waterfront, I live in a city that `is situated at the mouth of a major river`, and has a thriving fishing industry, The market `was teeming with` a wide variety of fish, `some of which I couldn't even name.`
+    "Yes, I have. One time, I visited a bustling seafood market near the waterfront, I live in a `coastal` city ~~that `is situated at the mouth of a major river`~~, with a thriving fishing industry, so the market `was filled with` a wide variety of fish, `some of which I couldn't even name.`
     
 - 3. Have you seen any movies featuring lots of fish?
-    
-    "I can't recall any specific movies that feature lots of fish, `but if I had to choose one`, 'Jaws' might be a candidate, as it `prominently` includes a great white shark.”
-    "Yes, I've seen a movie called 'Finding Nemo,' which is an adorable `animated film`. It tells the story of a clownfish father's journey to find his captured son, Nemo. `Many of the characters` in this movie are `fish`.”
+    "Yes, I've watched a movie called 'Finding Nemo', if I remember correctly. It is an adorable `animated film` and tells a story of a clownfish father's journey to find his captured son, Nemo. `Most of the characters` in this movie are `fish`.”
     
 - 4. Why do some people like fishing?
-    
-    Well, I personally don't `go fishing`, so I can't `speak from direct experience`. But `I guess it is because` it offers a sense of relaxation and `tranquility` as they spend time `in a peaceful natural setting`, away from the hustle and bustle of daily life. It's also about the thrill of the catch itself and the satisfaction of providing their own food.”
-    
+    Well, I don't `go fishing` myself, so I can't `speak from direct experience`. But `I guess it can because` it offers a sense of relaxation and `accomplishment` as people spend time `in a peaceful natural setting`, away from the hustle and bustle of daily life. And sometimes they can get some very tangible outcomes from this activity. 
 - 5. Do you like eating fish?
-    
-    "`I don't have a strong liking for` eating fish. I dislike the `fishy taste` and I find it `bothersome` to deal with fish bones. Although I `acknowledge` that fish is a good source of `protein`, `I have a preference for` beef or pork.”
+    "~~`I don't have a strong liking for` eating fish.~~ Not really, in fact, I dislike the `fishy taste` and I find it `bothersome` to deal with `fish bones`. Although I `acknowledge` that fish is a good source of `protein`, `I have a preference for` beef or pork.”
     
 - 6. Where can you see fish?
-    
     "As I mentioned earlier, you can find `a wide variety of live fish` in Chinese markets. Furthermore, there is a large `aquarium` in Guangzhou where people can observe `a diverse range of` `marine fish`.”
     
 
-### Geography - M
-
+### Geography - M - i
 - 1 Do you want to be a geography teacher?
-    
-    "I think I'm willing to become a geography teacher because I `have a strong interest in` this subject. I can recall that when I was in primary school, I could `spend entire afternoons` studying world maps, and I believe I would be qualified for this job as I was quite good at geography during my school years.”
+    "I think I'm willing to become a geography teacher because I `have a strong interest in` this subject. I can recall that when I was in primary school, I could `spend entire afternoons` studying world maps, and I believe `I would be qualified for` this job as I was quite good at geography during my school years.”
     
 - 2 Do you think geography is useful?
-    
     "Yes, I think everyone should `have a fundamental understanding of` geography because it helps people `navigate` and `explore the world more effectively`. For instance, `being able to read maps` helps us `find our way` `in unfamiliar places` and `make trip plans`. Additionally, `knowing climate patterns` and `geographic information` can be valuable for `personal safety` and `making informed decisions` when going out.”
     
 - 3 Have you ever studied geography at school?
-    
     "Yes, I have. In China, geography is a `compulsory(mandatory)` subject in the `foundational curriculum`. And if students `continue to high school`, they will study advanced geography `for an additional` three years.”
     
 - 4 Do you like geography?
-    
-    "I have a strong interest in geography, particularly `in the social aspects` of the subject. I enjoy `learning about`  `geographic information` of countries `I've heard of`, because I find understanding `the connected geographic information` often provides a more comprehensive `insight` `into` some historical events, and this learning process is very `intriguing` to me.”
+    "I have a strong interest in geography, particularly `in the social aspects` of the subject. I enjoy `learning about`  `geographical information` of countries `I've heard of`, because I find understanding `these connected information` often provides a more comprehensive `insight` `into` some historical events, and this learning process is very `intriguing` to me.”
     
 
-### Cinema - M
-
+### Cinema - M - i 
 - 1 Did you usually go to the cinema when you were a child?
-    
-    "I would say yes, my parents are fond of watching movies, so they often `took me along`, as long as the film `was suitable for children`.”
+    "I would say yes, my parents are fond of watching movies, so they often `took me along` when they went to cinema, as long as the film `was suitable for children`.”
     
 - 2 Do you often go to the cinema with your friends?
-    
-    "Not really, I watched a lot of movies during college years, and most of the time I went to cinema with my wife, of course, she was still my girl friend at that time.
+    "Not really, `most of the time` I went to cinema alone or with my wife, I can't even remember the last time I went to cinema with friends.
     
 - 3 Do you still like the same kind of movie which you liked when you were a child?
-    
     "Not really, `I can't say I had a specific preference` when I was a kid; I watched almost every film I could find. But now, I tend to watch more drama and documentaries.”
     
 - 4. What genres of films do you like?
-    
-    "I think it would be `drama and documentary` films. I find a well-crafted script can `immerse` the audience completely `into` the story. Compared to action or thriller genres, these genres can `evoke more emotions` and deep(`profound`) thinking, and that’s why I’m inclined to watch them `over and over again.”`
+    "I think it would be `drama and documentary` films. I find a `well-crafted` script can `immerse` the audience completely `into` the story. Compared to action or thriller genres, these types can `evoke more emotions` and deep(`profound`) thinking, and that’s why I’m inclined to watch them `over and over again.”`
     
 - 5. Do you think going to the cinema is a good way to spend time with friends?
-    
     "I'm not sure, in fact, `I would agree more with the idea` that friends should `engage in` more conversation when they hang out. And from this perspective, watching movies together doesn’t `seem like` a good option, since they need to stay quiet when `the movie is playing.”`
     
 
-### Coffee or tea - M
-
+### Coffee or tea - M - i
 - 1. Do you like to drink coffee or tea?
+    "I prefer coffee because `I developed a habit` of drinking it in the morning since high school. It helps `wake me up` and keeps me warm in the winter. Additionally, `a coffee with sugar and milk` can provide more energy than other drinks for breakfast, making it ideal for `a full day of studying`."
     
-    "I prefer coffee because `I developed a habit` of drinking it in the morning since high school. It helps `wake me up` and keeps me warm in the winter. Additionally, `a coffee with sugar and milk` typically contains more energy than other drinks, `making it a good choice for breakfast`.”
-    
-- 2. How often do drink coffee or tea?
-    
+- 2. How often do you drink coffee or tea?
     "During the weekdays, I drink coffee almost every two hours, sometimes even more if I feel tired and `unfocused`. Not only for taking in some `caffeine` but also as an excuse to take a break. I drink less on non-working days because there is no need to `stay awake all the time`.”
     
 - 3. Do Chinese people like to drink coffee or tea?
-    
-    It mostly depends on the age I think, you'll often find that `older people` tend to prefer tea, as it's a `deeply traditional` beverage in China, and coffee is notably popular among the younger generation, especially in urban areas, because there is a large number of young `workforce` who rely on it to stay awake `during work`.”
+    It mostly depends on the age I think, you'll often find that `older people` tend to prefer tea, as it's a `deeply traditional` beverage in China, and coffee is notably popular among the younger generation, especially in urban areas, because young `workforce` there heavily relies on it to stay awake `during work`.”
     
 - 4. Do you prefer to use tea or coffee to serve your guests?
-    
-    It depends on which one they `are used to`(are accustomed to), I keep both tea and coffee `available` in my home. While I personally drink coffee more often, it is common in China to serve tea after a meal.”
+    "`I think it would be better to` let them decide, so I always keep both tea and coffee in my home."
+
+    It depends on which one they `are used to`(are accustomed to), I keep both tea and coffee `available` in my home. While I personally drink coffee `more often`, it is common in China to serve tea after a meal.”
     
 - 5. When was the last time you drank coffee or tea?
-    
-    "This morning, before coming here to `take the exam`, I had a cup of coffee and `a slice of toast`.”
+    "This morning, before `coming here to take the test`, I had a cup of coffee and a slice of `toast`."
     
 
 ### Musical instrument - M
