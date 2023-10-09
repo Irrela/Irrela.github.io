@@ -341,19 +341,19 @@ Precisely
 1. What work do you do?
     "I'm a Software Development Engineer, `or more commonly`, I'm a programmer. I work for a local major game company. My primary responsibilities include writing code for the physics engine used to develop games."
 2. Why did you choose to do that type of job?
-    "`Mostly out of interest I think`, I quite enjoy playing video games, and I hope to create some `prestigious` games like Super Mario or The Legend of Zelda. So, it is very natural for me to consider joining a game company."
+    "`Mostly out of interest I think`, I quite enjoy playing video games, and I hope to be able to create some `prestigious` games like Super Mario or The Legend of Zelda. So, it is very natural for me to consider joining a game company."
 3. Do you like your job?
    "I'm quite satisfied with my current job. `Most of the time`, working with code is enjoyable because programmers can see the `tangible results` of their work. I really `appreciate the immediate feedback` and sense of accomplishment it offers. Additionally, the `compensation` `for this job` `meets my expectations`, as I `prefer not to` have significant financial pressure in my life. So, overall, `I'm quite content`.”
 4. Do you miss being a student?
     "Not really. I `attended` a very strict and `demanding` high school and university, and `it took me a lot of effort to graduate`. While I did appreciate what that period `brought` to me, I truly don't want to `go through` that kind of life again."
 5. Is it very interesting?
-    "`I'm not sure if` 'interesting' `is the right word for` that period. I don't dislike my life because I have a very clear objective and remain dedicated all the time. In fact, it's a disciplined and `passionate` lifestyle, but it can also be quite `exhausting`. I often `feel burnt out` after a full day of studying." (study)
+    "`I'm not sure if` 'interesting' `is the right word for` that period. It was a time when I had a very clear objective and kept dedicated all the time. In fact, it's a disciplined and `passionate` lifestyle, but it was `rewarding` but also quite `exhausting`. I often `felt burnt out` after `a full day of` studying." (study)
 
     Yes, working in a game company is quite pleasant for me, firstly the atmosphere is more relaxed compared to some traditional companies, and I can find many colleagues who `share the same interest with me`, making `the time at the workplace` `enjoyable`. Moreover, working with code is fulfilling for me because programmers can see the `tangible results` of their work. I really `appreciate the immediate feedback` and sense of accomplishment `when my code runs as expected.`
 6. Is there any kind of technology you use at work?
     "Yes, since programming is closely connected to computers and `automation`, we `utilize any available technological advancements` to `aid our work`, Such as `the newly popular` generative AI models, we have `integrated` them into our toolchain to `assist` us `in` correcting our code and providing constructive advice to guide our work."
 7. Can you manage your time well when you work?
-    "`I wouldn't say I'm exceptionally proficient at it,` but I do have some strategies to make my work more efficient and `organized`. I have a habit of making work plans on a daily, weekly, and monthly basis. Additionally, I learned a method for maintaining focus during work or study when I was in college. It's called the `Pomodoro` Technique, which involves dividing your work into 25-minute `intervals` and `dedicating yourself strictly to each timer`. `It has proven to be quite useful` for me."
+    "`I wouldn't say I'm exceptionally proficient at it,` but I do have some strategies to make my work more efficient and `organized`. I have a habit of making work plans on a daily, weekly, and monthly basis. Additionally, I learned a method for `maintaining focus` during work or study when I was in college. It's called the `Pomodoro` Technique, which involves dividing your work into 25-minute `intervals` and `dedicating yourself strictly to each timer`. `It has proven to be quite useful` for me."
 8. Who helps you most at work?
     I think it should be my boss, while I was `assigned` a mentor `when I first joined`, but he is a very busy, anxious person and `has no interest teaching rookies`, so `I got very limited guidance` from him. But fortunately, I received some valuable advice from my boss about `work methods` and `attitude`. He was the one who taught me the importance of professionalism `in the early stages of my career`, and I greatly appreciate `the long-lasting impact` of his advice."
     
@@ -516,7 +516,7 @@ Precisely
     "`(Let me think for a moment)`, In our home, each room has its specific furniture and appliances. In the bedrooms, we have beds and `wardrobes`, a king-size bed for us and a single one for guests. And in the home office, there is a table, comfortable chairs, a large monitor, and two computers. In the combined living and dining room, we have a TV and a `dining table`. Finally, in the bathroom, we only have a shower, no `bathtub`.”
     
 - Is it a typical house in your city
-    "No, it's very typical. Most houses here are newly built apartments with a more western and modern style, and most of them are `one-story` flat. But typical houses are generally more `spacious`, often with `multiple stories`, and have a more traditional decoration, often featuring expensive wooden furniture.”
+    "No, it's not very typical. Most houses here are newly built apartments with a more western and modern style, and most of them are `one-story` flat. But typical houses are generally more `spacious`, often with `multiple stories`, and have a more traditional decoration, often featuring expensive wooden furniture.”
     
 - 9.What's the difference between where you are living now and where you lived in the past?
     "`In terms of` the housing itself, `there isn't a significant difference`. `Since I started working`, `I have always rented flats from the same agency`, which is a `nationwide chain`, which means that the layout and decoration of flats they provide are fairly `consistent` `across different cities`.”
