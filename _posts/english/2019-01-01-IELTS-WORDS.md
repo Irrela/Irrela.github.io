@@ -579,6 +579,8 @@ Fix any error and naturalize the followings as you were a native speaker who mas
 - This means that `there's less likelihood of` the researcher `imposing` his or her own ideas `on` the participant.
 - Instead they try to identify a pattern of some sort in all this data, and to `discern` the `meaning behind it`.
 - This can result in some compelling insights that can `in turn` `feed back to` the whole design process
+- "The ecosystem suffered `unrecoverable` harm when the species went extinct."
+
 
  
 
