@@ -114,7 +114,7 @@ tags:
     - [Exciting activities](#exciting-activities)
     - [Face Challenges, rewards](#face-challenges-rewards)
     - [Waiting](#waiting)
-  - [Grammer and Phrases](#grammer-and-phrases)
+  - [Grammar and Phrases](#grammar-and-phrases)
 - [END](#end)
 
 
@@ -1969,7 +1969,7 @@ Yes, I believe that rich people `can be considered successful`, especially if `t
 
 
 
-## Grammer and Phrases
+## Grammar and Phrases
 
 1. Uncountable 
 
