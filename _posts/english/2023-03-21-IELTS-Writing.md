@@ -20,10 +20,10 @@ tags:
   - [Expressing satisfaction](#expressing-satisfaction)
     - [Appreciate Restaurant](#appreciate-restaurant)
   - [Thank you letter](#thank-you-letter)
-    - [Getting a desired job td-](#getting-a-desired-job-td-)
+    - [Getting a desired job](#getting-a-desired-job)
     - [Being invited to a party td-](#being-invited-to-a-party-td-)
   - [Apologizing letter](#apologizing-letter)
-    - [Cancelation of reserved conference room td-](#cancelation-of-reserved-conference-room-td-)
+    - [Cancellation of reserved conference room td-](#cancellation-of-reserved-conference-room-td-)
     - [Damaging borrowed books td-](#damaging-borrowed-books-td-)
   - [Invitation letter](#invitation-letter)
     - [Casual get-together td-](#casual-get-together-td-)
@@ -256,8 +256,6 @@ I would greatly appreciate it if you could ***treat this matter with urgency***,
 
 Thank you for your attention to this matter. I eagerly await your response.
 
-
-
 ## Expressing satisfaction
 
 ### Appreciate Restaurant
@@ -286,16 +284,29 @@ Warm regards,
 
 ## Thank you letter
 
-### Getting a desired job td-
+### Getting a desired job
 
-You recently attended a job interview with XYZ Company and were selected for the position. Write a letter to the hiring manager to express your gratitude for the opportunity and to confirm your acceptance of the job offer.
+> You recently attended a job interview with XYZ Company and were selected for the position. Write a letter to the hiring manager to express your gratitude for the opportunity and to confirm your acceptance of the job offer.
+> 
+> In your letter, you should:
+>
+> - Begin by expressing your appreciation for the interview opportunity.
+> - Confirm your acceptance of the job offer.
+> - Mention your enthusiasm for joining the company and your willingness to start on the `agreed-upon` date.
+> - Provide your contact information for further communication.
 
-In your letter, you should:
+Dear hiring manager,
 
-- Begin by expressing your appreciation for the interview opportunity.
-- Confirm your acceptance of the job offer.
-- Mention your enthusiasm for joining the company and your willingness to start on the agreed-upon date.
-- Provide your contact information for further communication.
+I hope this letter finds you well. I'm writing to extend heartfelt `gratitude(appreciation)` for the opportunity to interview with XYZ Company and to confirm my acceptance of the job offer.
+
+Receiving the `email` containing the job offer this morning was truly a moment of surprise and joy for me. `I couldn't help but` `double-check` to ensure I wasn't dreaming, as this position aligns perfectly with my `career aspirations`, and I am genuinely `excited about` the prospect of joining your `esteemed` company. I want to assure you that the discussed start date is entirely `feasible for` me, and I will be ready to `commence my role on that day`.
+
+`Regarding` my contact information, I have already updated my current address and phone number in the company's employee system. I have also `attached these details` `for your convenience`. Please feel free to contact me(`reach out`) if any additional information is needed.
+
+Once again, thanks for your attention(consideration) and time `throughout` the `recruitment process`. I am eagerly looking forward to `becoming a part of the XYZ Company team` and `contributing my best to` its success.
+
+Best regards,
+Employee
 
 
 
@@ -313,9 +324,9 @@ In your letter, you should:
 
 ## Apologizing letter
 
-### Cancelation of reserved conference room td-
+### Cancellation of reserved conference room td-
 
-You had reserved a conference room at a local hotel for a business meeting, but due to unforeseen circumstances, you need to cancel the booking. Write a letter to the hotel manager apologizing for the cancellation and explaining the reasons for it.
+You had reserved a conference room at a local hotel for a business meeting, but due to `unforeseen circumstances`, you need to cancel the booking. Write a letter to the hotel manager apologizing for the cancellation and explaining the reasons for it.
 
 In your letter, you should:
 
@@ -323,6 +334,18 @@ In your letter, you should:
 - Explain the unforeseen circumstances that have led to the cancellation.
 - Express your hope for understanding and consideration.
 - Request any necessary steps for the cancellation process, such as refund procedures.
+
+`To whom it may concern,`
+
+We hope this letter finds you well. I am writing to sincerely apologize for the cancellation of our reservation `for` the conference room and `any inconvenience this may have caused.`
+
+Regrettably, unforeseen circumstances have arisen that necessitate this cancellation. Due to the adverse weather conditions, our clients `have become stranded` `at the departure airport` and have just informed us that `they won't be able to make it to the meeting`. `Consequently`, we have decided to `shift to an online format for the reference`. Given this change in plans, we `no longer` require the reserved meeting space.
+
+We acknowledge that this cancellation is very abrupt and sudden, `may result in costs as per our agreement`. We kindly request you to provide us with `specific instructions` regarding the cancellation process. This should include `details on` whom we should contact, the procedure for requesting a refund, and `any relevant forms or documentation.`
+
+Once again, `please accept our sincerest apologies for` any `disruptions` caused by this cancellation. We truly appreciate your understanding and consideration `in this matter.`
+
+Best regards,
 
 
 

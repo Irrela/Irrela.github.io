@@ -5,6 +5,7 @@ tags:
 - English
 ---
 
+- [Are free markets history?](#are-free-markets-history)
 - [What’s wrong with the banks](#whats-wrong-with-the-banks)
 - [China’s property slump is easing, but the relief will be short-lived](#chinas-property-slump-is-easing-but-the-relief-will-be-short-lived)
 - [America risks propping up zombie banks](#america-risks-propping-up-zombie-banks)
@@ -36,6 +37,14 @@ tags:
 - [“For Profit” offers thrilling tales of commercial endeavour](#for-profit-offers-thrilling-tales-of-commercial-endeavour)
 - [Winnie amends the Vietnamese Dream](#winnie-amends-the-vietnamese-dream)
 - [Vietnam’s steampunk covid response](#vietnams-steampunk-covid-response)
+
+
+
+# Are free markets history?
+> Governments are jettisoning the principles that made the world rich
+> Oct 5th 2023
+
+
 
 
 # What’s wrong with the banks
