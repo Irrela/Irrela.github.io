@@ -6,7 +6,7 @@ class Message
 {
     friend class Folder;
     friend void swap(Message&, Message&); // 声明 swap 函数为友元函数
-
+    
 public:
   	// 构造函数接受一个string参数，将其拷贝给contents。folders被隐式初始化为空集
     explicit Message(const std::string &str="") : 
@@ -100,7 +100,7 @@ void Message::remove_from_Folders()
 // 基于公共函数的拷贝控制成员实现
 /**
  * @brief 拷贝构造函数：从给定的 Message 对象 m 复制内容和关联的文件夹
-*/
+ */
 Message::Message(const Message &m):
         contents(m.contents), folders(m.folders) 
 {
@@ -109,7 +109,7 @@ Message::Message(const Message &m):
 
 /**
  * @brief 析构函数：用于释放资源并从关联的 folders 中删除消息
-*/
+ */
 Message::~Message()
 {
     remove_from_Folders();
