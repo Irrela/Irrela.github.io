@@ -2,6 +2,8 @@
 #include <string>
 #include <set>
 
+class Folder;
+
 class Message
 {
     friend class Folder;
@@ -27,75 +29,10 @@ private:
   	// Best Practices中所说的公共工作由下方的工具函数们
     void add_to_Folders(const Message&); // 将本 Message 添加到给定消息的所有 Folder 中
     void remove_from_Folders(); // 从folders中每个Folder中删除本Message
+
+    void addFolder(Folder*);
+    void remFolder(Folder*);
 };
-
-class Folder 
-{
-    friend class Message;
-    friend void swap(Folder &, Folder &);
-
-public:
-	  // 控制拷贝成员
-    Folder() = default; // 定义了自定义构造函数之后，您仍然希望保留默认构造函数，以便能够创建未经初始化的对象
-    Folder(const Folder &); // 自定义构造函数
-    Folder& operator=(const Folder &);
-    ~Folder();
-
-private:
-    std::set<Message*> msgs;
-
-    void add_to_Message(const Folder&);
-    void remove_from_Message();
-
-    void addMsg(Message*); // 将Message添加到msgs中
-    void remMsg(Message*); // 将Message从msgs中删除
-};
-
-
-// Message的成员方法实现
-void Message::save(Folder &f)
-{
-    folders.insert(&f); // folders添加指定Folder
-    f.addMsg(this); // 指定Folder添加Message
-}
-
-void Message::remove(Folder &f)
-{
-    folders.erase(&f); // folders删除指定Folder
-    f.remMsg(this);	// 指定Folder删除Message
-}
-
-
-// Message的公共操作工具函数实现
-/**
- * @brief 将本 Message 添加到它的所有 Folder 中
- * 
- * 此方法用于将当前 Message 对象添加到它的所有 Folder 对象中。
- * 它遍历自己的folders，然后将当前 Message 添加到每个 Folder 中。
- * 
- * @param msg 要添加到的消息
- */
-void Message::add_to_Folders(const Message &msg)
-{
-    for (auto folder : msg.folders) 
-    {
-        folder->addMsg(this);
-    }
-}
-
-/**
- * @brief 从关联的folders中删除本消息
- * 
- * 该方法遍历消息所关联的folders，从每个Folder中删除本消息。
- * 这个方法用于维护消息与文件夹之间的一致性。
- */
-void Message::remove_from_Folders()
-{
-    for (auto f : folders)
-    {
-        f->remMsg(this);
-    }
-}
 
 // 基于公共函数的拷贝控制成员实现
 /**
@@ -127,12 +64,66 @@ Message::~Message()
 Message& Message::operator=(const Message &rhs)
 {
     remove_from_Folders();
-
     contents = rhs.contents;
     folders = rhs.folders;
     add_to_Folders(rhs);
 
     return *this;
+}
+
+// Message的成员方法实现
+void Message::save(Folder &f)
+{
+    folders.insert(&f); // folders添加指定Folder
+    f.addMsg(this); // 指定Folder添加Message
+}
+
+void Message::remove(Folder &f)
+{
+    folders.erase(&f); // folders删除指定Folder
+    f.remMsg(this);	// 指定Folder删除Message
+}
+
+
+// Message的公共操作工具函数实现
+/**
+ * @brief 将本 Message 添加到它的所有 Folder 中
+ *
+ * 此方法用于将当前 Message 对象添加到它的所有 Folder 对象中。
+ * 它遍历自己的folders，然后将当前 Message 添加到每个 Folder 中。
+ *
+ * @param msg 要添加到的消息
+ */
+void Message::add_to_Folders(const Message &msg)
+{
+    for (auto folder : msg.folders)
+    {
+        folder->addMsg(this);
+    }
+}
+
+/**
+ * @brief 从关联的folders中删除本消息
+ *
+ * 该方法遍历消息所关联的folders，从每个Folder中删除本消息。
+ * 这个方法用于维护消息与文件夹之间的一致性。
+ */
+void Message::remove_from_Folders()
+{
+    for (auto f : folders)
+    {
+        f->remMsg(this);
+    }
+}
+
+void Message::addFolder(Folder *folder)
+{
+    folders.insert(folder);
+}
+
+void Message::remFolder(Folder *folder)
+{
+    folders.erase(folder);
 }
 
 void swap(Message &lhs, Message &rhs) 
@@ -164,6 +155,71 @@ void swap(Message &lhs, Message &rhs)
 
 }
 
+
+class Folder
+{
+    friend class Message;
+    friend void swap(Folder &, Folder &);
+
+public:
+    // 控制拷贝成员
+    Folder() = default; // 定义了自定义构造函数之后，您仍然希望保留默认构造函数，以便能够创建未经初始化的对象
+    Folder(const Folder &); // 自定义构造函数
+    Folder& operator=(const Folder &);
+    ~Folder();
+
+private:
+    std::set<Message*> msgs;
+
+    void add_to_Message(const Folder&);
+    void remove_from_Message();
+
+    void addMsg(Message*); // 将Message添加到msgs中
+    void remMsg(Message*); // 将Message从msgs中删除
+};
+
+// Folder Implementation
+Folder::Folder(const Folder &f)
+        : msgs(f.msgs)
+{
+    add_to_Message(f);
+}
+
+Folder &Folder::operator=(const Folder &rhs)
+{
+    remove_from_Message();
+    msgs = rhs.msgs;
+    add_to_Message(rhs);
+    return *this;
+}
+
+Folder::~Folder()
+{
+    remove_from_Message();
+}
+
+
+void Folder::add_to_Message(const Folder &f)
+{
+    for (auto m : f.msgs)
+        m->addFolder(this);
+}
+
+void Folder::remove_from_Message()
+{
+    for (auto m : msgs)
+        m->remFolder(this);
+}
+
+void Folder::addMsg(Message *msg)
+{
+    msgs.insert(msg);
+}
+
+void Folder::remMsg(Message *msg)
+{
+    msgs.erase(msg);
+}
 
 
 int main() 

@@ -77,18 +77,6 @@ tags:
   - [类模板，函数模版](#类模板函数模版)
   - [about include](#about-include)
   - [构建](#构建)
-- [Project Dev](#project-dev)
-  - [Cmake](#cmake)
-    - [CMakeLists.txt](#cmakeliststxt)
-  - [Pkg management - brew](#pkg-management---brew)
-  - [Pkg management - vcpkg](#pkg-management---vcpkg)
-    - [install error "pkg-config"](#install-error-pkg-config)
-    - [Clion 配置](#clion-配置)
-    - [以Gtest为例](#以gtest为例)
-    - [用vcpkg下载boost的时候报错](#用vcpkg下载boost的时候报错)
-  - [Pkg management - Conan](#pkg-management---conan)
-  - [Gtest](#gtest)
-    - [FetchContent](#fetchcontent)
 - [Miscellany](#miscellany)
   - [Keyword](#keyword)
     - [explict](#explict)
@@ -1255,6 +1243,10 @@ Folder: 消息目录
 
 > Best Practices: 拷贝赋值运算符(caop)通常执行拷贝构造函数(cctor)和析构函数(dtor)也要做的工作。这种情况下，`公共的工作`应该放在private的`工具函数`中完成
 
+> 为什么save函数的入参是Folder& f: void Message::save(Folder &f)
+> 1. **需要修改 Message 对象内部状态**: 函数中使用了 folders.insert(&f)，它将 Folder 对象的指针插入到 Message 对象的 folders 集合中。这意味着函数需要修改 Message 对象的内部状态，以便维护与相关文件夹的关联。如果参数是 const Folder&，则无法在函数内部修改 Message 对象。
+> 2. **避免复制开销**: 如果你传递 Folder 对象而不是引用，那么会触发拷贝构造函数，导致 Folder 的副本被创建。这可能会产生不必要的复制开销，尤其是如果 Folder 对象很大或复杂。
+> 3. **反映操作的性质**: 将 Folder& 作为参数传递更清晰地表示了函数是在给定的 Folder 上执行操作，而不是在创建一个新的 Folder 副本或者不修改它。
 ```cpp
 class Message
 {
