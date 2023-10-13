@@ -23,7 +23,7 @@ tags:
     - [Getting a desired job](#getting-a-desired-job)
     - [Being invited to a party td-](#being-invited-to-a-party-td-)
   - [Apologizing letter](#apologizing-letter)
-    - [Cancellation of reserved conference room td-](#cancellation-of-reserved-conference-room-td-)
+    - [Cancellation of reserved conference room](#cancellation-of-reserved-conference-room)
     - [Damaging borrowed books td-](#damaging-borrowed-books-td-)
   - [Invitation letter](#invitation-letter)
     - [Casual get-together td-](#casual-get-together-td-)
@@ -324,7 +324,7 @@ In your letter, you should:
 
 ## Apologizing letter
 
-### Cancellation of reserved conference room td-
+### Cancellation of reserved conference room
 
 You had reserved a conference room at a local hotel for a business meeting, but due to `unforeseen circumstances`, you need to cancel the booking. Write a letter to the hotel manager apologizing for the cancellation and explaining the reasons for it.
 
