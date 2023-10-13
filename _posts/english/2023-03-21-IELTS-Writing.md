@@ -323,7 +323,6 @@ In your letter, you should:
 
 
 ## Apologizing letter
-
 ### Cancellation of reserved conference room
 
 You had reserved a conference room at a local hotel for a business meeting, but due to `unforeseen circumstances`, you need to cancel the booking. Write a letter to the hotel manager apologizing for the cancellation and explaining the reasons for it.
@@ -363,9 +362,6 @@ You borrowed a valuable book from your colleague and accidentally damaged it. Wr
 **Write at least 150 words.**
 
 ## Invitation letter
-
-
-
 ### Casual get-together td-
 
 You have recently moved to a new city and made a friend named John. Write a letter to John inviting him to a casual get-together with you and your new neighbors.
@@ -510,9 +506,9 @@ Turning to the question whether this trend signifies a positive or negative deve
 
 Firstly, excessive smartphone use can adversely affect children's physical health. **Prolonged screen time** **is linked to** visual **impairment** and **posture-related issues** like **neck strain**. For instance, **studies have shown** a rise in **myopia** among children who spend **substantial** time **engrossed** in smartphone activities.
 
-Furthermore, the **immersion** in smartphones hinders **educational and personal development**. **Valuable time that could be dedicated to** learning or engaging in physical activities **is diverted towards** endless scrolling and virtual interactions. This can hinder cognitive development and limit real-world experiences essential for well-rounded growth.
+Furthermore, the **immersion** in smartphones hinders **educational and personal development**. **Valuable time that could be dedicated to** learning or engaging in physical activities **is diverted towards** endless **scrolling** and virtual interactions. This can **hinder** cognitive development and limit real-world experiences essential for well-rounded growth.
 
-Additionally, the prevalence of social media apps on smartphones **exposes** children **to** potential online dangers. Cyberbullying, identity theft, and inappropriate content are **lurking** threats that can negatively impact their mental well-being and emotional development.
+Additionally, the **prevalence** of social media apps on smartphones **exposes** children **to** potential online dangers. Cyberbullying, identity theft, and inappropriate content are **lurking** threats that can negatively impact their mental well-being and emotional development.
 
 In conclusion, while smartphones offer undeniable conveniences, the excessive **usage** among children poses significant challenges. The **adverse** effects on health, education, and **safety** make it clear that this trend **is more of a negative development than a positive one**.
 

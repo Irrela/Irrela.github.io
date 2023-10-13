@@ -540,19 +540,19 @@ Precisely
 
     "Sure, I currently live in a rented flat, which is located in a newly built apartment complex `in a quiet neighborhood`. The flat itself is `well-maintained` and is `equipped` with high-quality `appliances` and furniture. It provides enough space `for two people to live`, there are two bedrooms, and a separate small room that I use as `a home office and study space`. The living room is `cozy` and has a nice view of the surrounding area. Overall, `I'm quite satisfied with` my residence as it meets my needs(expectations) `for both comfort and functionality.`”
 
--How long have you lived there?
+- ***How long have you lived there?***
 
     "I've been living there for nearly two years now. I `moved to this city` for a job change `in January of last year.`”
     
--Do you plan to live here for a long time?
+- ***Do you plan to live here for a long time?***
 
     "Well, `I have no plan to live here permanently`. I `guess I would stay here for at most another year.`  The weather here is quite humid and hot, which I find uncomfortable at times, and `considering my job prospects`, I will probably go to Shanghai `in the foreseeable future`
     
--Do you live alone or with your family?
+- ***Do you live alone or with your family?***
 
     "I live with my wife and our adorable cat. Our parents live in different cities, and they visit us `from time to time` and `stay for short periods`.”
     
--What do you usually do in your house/flat/room?
+- ***What do you usually do in your house/flat/room?***
 
     "When `I get back home` after work, I often take a shower and then watch TV series in the living room with my wife. On weekends, I usually stay in the home office, which is a quiet and `dedicated` space `where I can focus`. I play computer games or learn some `career-related knowledge` since technology `evolves` quickly in our industry. We don't cook very frequently, most of the time we eat at workplace, so we only store some snacks, `instant foods` and drinks at home.
     
@@ -741,10 +741,24 @@ Precisely
 ### Musical instrument  (M)
 
 - ***Do you know how to play a musical instrument?***
+    
+    No, I can't play any instruments. I did learn the violin `for a short time`, but I `didn't stick with` it, and I've almost `forgotten everything about it`.
+
 - ***Do you think students should learn to play musical instruments at school?***
+    
+    Yes, I completely agree with this `proposal`. Firstly, I believe it offers `a practical approach to music and aesthetic education`. Developing a good taste in music can bring children `a great deal of joy` in their future lives. Furthermore, practicing musical instruments can also enhance children's ability to `coordinate their bodies`.
+
 - ***Have you taken any classes on musical instruments in school?***
+    
+    Yes, I have. In fact, a music course is `mandatory` in the Chinese foundational education curriculum. To help students better understand music, we are often taught how to play the Chinese flute, which is made by wood but metal.
+
 - ***Which musical instrument do you like?***
+
+    When it comes to the `listening experience` and acting style, I prefer the `trumpet`. As you know, it's a crucial instrument in `blues music`, a genre I quite enjoy
+
 - ***How easy would it be to learn to play a musical instrument without a teacher?***
+
+    Personally, I find it quite challenging because `I have experience learning the violin`, and I fully acknowledge that a teacher can `promptly` and accurately correct your `mistakes`. This correction is crucial in the learning process, as beginners often struggle to identify these errors and can easily develop bad habits without proper guidance.
 
 ### Robots  (M)
 
@@ -772,20 +786,32 @@ Precisely
 ### Noise  (M)
 
 - ***Do you like to stay in a noisy place?***
+
+    "Absolutely no, I dislike noisy and crowded environments; they can make me `feel stressed` and anxious. I prefer `staying in` a quiet and dedicated place to `do my own stuff`."
+
 - ***Are there any quiet places in your city?***
+
+    Yes, `apart from my own residence`, I find some libraries and cafes to be very `tranquil`, where you can find many people `focused on their work and studies`. I quite like that atmosphere.
+
 - ***Do people have the right to make noise?***
+
+    `It really depends on the circumstances`, I think. For example, if you are `participating in` celebrations, `rock concerts` or something like that, of course, you have the right to be loud. But in most public places, `it's good manners to` keep quiet and not `disturb others`
+
 - ***Do you like loud music?***
+
+    I would say yes, I also `include` some rock music `in my playlist` when I'm working out, like when I'm running or `doing equipment exercises`. They are loud and fast-paced, and I find that this music `motivates` and `energizes` me.
+
 - ***Is it noisy around the area where you live***
     
-    "No, it's actually quite peaceful where I live. It's a purely residential area with no factories `nearby`, `and it's far from the main street`. In fact, it is exactly one of the primary reasons I chose to live here.
+    No, it's quite `tranquil` where I live. It's a purely residential area `with no factories nearby`, and `it's far from the main street`, so `you are hardly disturbed by` the noise of vehicles. In fact, that is one of the primary reasons I chose to live here.
     
 - ***What do you think can be done to control noise***
     
-    "Well, I think individuals can choose to live in quieter neighborhoods or residences `away from` noise sources like `construction sites or busy roads`. Secondly, it's important to `implement(introduce) regulations` that limit `noisy activities` during `certain hours`, especially in residential areas. ~~For example, construction sites could `be restricted from operating` during late hours to reduce `disturbance`.~~ Additionally, planting more trees and greenery in urban areas is known to help `absorb and reduce noise pollution.` So, `these are a few steps` that can be taken to `tackle the issue of noise pollution effectively."`
+    "Well, I think individuals can choose to live in quieter neighborhoods or residences `away from` noise sources like `construction sites or busy roads`. Secondly, it's important to `implement(introduce) regulations` that limit `noisy activities` during `certain hours`, especially in residential and educational areas. For example, construction sites could `be restricted from operating` during late hours to reduce `disturbance`. Additionally, planting more trees and greenery is known to help `absorb and reduce noise pollution.` So, `these are a few steps` that can be taken to `tackle the issue of noise pollution effectively."`
     
 - ***How does noise affect people’s life and work***
     
-    It can be highly `distracting` when people are trying to concentrate on their tasks, making it difficult to `maintain focus and productivity.` Moreover, `prolonged exposure to loud noises` can have `detrimental effects` `on both physical and mental health,` potentially leading to stress, sleep `disturbances`, and other health issues
+    It can be highly `distracting` when people are trying to concentrate on their tasks, making it difficult to `maintain focus and productivity.` Moreover, `prolonged exposure to loud noises` can have `detrimental effects` `on both physical and mental health,` potentially leading to stress, `sleep disturbances`, and other health issues
     
 
 ### Running (M)
