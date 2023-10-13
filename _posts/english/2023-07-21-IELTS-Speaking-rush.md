@@ -1519,14 +1519,16 @@ Precisely
     "`I think they are to some extent relevant`, but it's not `an absolute guarantee`, because we often see that some students `may not perform very well in their studies` but `still` `achieve great success` `through` their individual talents, personalities, `and the opportunities they encounter`. Of course, it's commonly believed that doing well in academic studies certainly `provides a strong foundation` and can open doors, `but it doesn't mean this is the only path` to success.”
     
 - ***Do you think rich people are successful?***
-Yes, I believe that rich people `can be considered successful`, especially if `they have earned their wealth` through hard work and dedication. In my opinion, `wealth can be viewed as one of the metrics of success` because I am personally familiar with `the effort it takes to earn a substantial income`. `But I'm not saying that` wealth is the only metirc; there are various forms of success in the world, and wealth `happens to be a commonly recognized one of them`.”
+- 
+    Yes, I believe that rich people `can be considered successful`, especially if `they have earned their wealth` through hard work and dedication. In my opinion, `wealth can be viewed as one of the metrics of success` because I am personally familiar with `the effort it takes to earn a substantial income`. `But I'm not saying that` wealth is the only metric; there are various forms of success in the world, and wealth `happens to be a commonly recognized one of them`.”
+
 - ***Do you think it is easier for people to become successful nowadays than in the past?***
     
     Generally speaking, my answer is yes, because nowadays, people can access `a wealth of` information that `used to be limited to a privileged group`. This `brings about more knowledge` and possibilities for success. Additionally, as you know(`as you may be aware`), `the pace of life` in our modern society is much faster `than in the past`, `constant advancements and innovations are happening` `all the time`, and I think this more `dynamic environment` offers people more `chances` to `start their own businesses` and pursue their goals.
     
 - ***What do people need to sacrifice in order to be successful?***
     
-    `It can vary from person to person`, but `for the most part`, it involves time spent with families, pursuinng personal interests, and rest. In most cases, Achieving one's goals demands a significant amount of effort and time, `which is limited to everyone`. If you spend more time `on work` then you have less left to your personal life and leisure activities
+    `It can vary from person to person`, but `for the most part`, it involves time spent with families, pursuing personal interests, and rest. In most cases, Achieving one's goals demands a significant amount of effort and time, `which is limited to everyone`. If you spend more time `on work` then you have less left to your personal life and leisure activities
     
 - ***Are there many family businesses in your country?***
     
@@ -1921,7 +1923,7 @@ Yes, I believe that rich people `can be considered successful`, especially if `t
 ### Celebrate festivals
 
 - ***Are there any festivals that have already disappeared in your country?***
-- ***Why do you think some traditional festivals are still celebrated by people (while others ***already disappeared)?
+- ***Why do you think some traditional festivals are still celebrated by people (while others already disappeared)?***
 - ***Why should children learn about traditions?***
 - ***Are there any special music and food involved when people celebrate traditional festivals?***
 
@@ -1968,7 +1970,7 @@ Yes, I believe that rich people `can be considered successful`, especially if `t
 
 ### Parties
 
-- ***What will you do if you are disturbed by your neighbour’s party?***
+- ***What will you do if you are disturbed by your neighbor’s party?***
 - ***Why do some people like parties while others don’t?***
 - ***Do you think music and dance are a must at a party?***
 - ***Do people in China like to hold parties at home or in public places?***
