@@ -465,6 +465,204 @@ fn main() {
 > 访问越界: 如果我们访问数组结尾之后的元素时，导致 `运行时 错误(panic)`。程序带着错误信息退出
 
 
+## 3.2 函数
+
+函数拥有 `参数（parameters）（形参）`的函数，参数是特殊变量，是函数签名的一部分
+为这些参数提供具体的`值（实参）`。技术上讲，这些具体值被称为参数（arguments），
+
+
+在函数签名中，`必须声明每个参数的类型`。这是 Rust 设计中一个经过慎重考虑的决定：要求在函数定义中提供类型注解，意味着编译器再也不需要你在代码的其他地方注明类型来指出你的意图。
+
+### 
+
+`语句（Statements）`是执行一些操作但不返回值的指令:
+- `let y = 6;` 是一个语句。
+- `语句`不返回值。因此，不能把 let 语句赋值给另一个变量
+
+`表达式（Expressions）`计算并产生一个值:
+- 语句 `let y = 6; `中的 `6` 是一个表达式
+- 用大括号创建的一个新的块作用域也是一个表达式，例如：
+   ```rust
+   let y = {
+        let x = 3;
+
+        // 注意 x+1 这一行在结尾没有分号，与你见过的大部分代码行不同。
+        // 如果在表达式的结尾加上分号，它就变成了语句，而语句不会返回值
+        x + 1 
+    };
+   ```
+   y的值是 4
+
+
+
+### 具有返回值的函数
+
+在 Rust 中，函数的返回值等同于函数体`最后一个表达式`的值。
+```rust
+fn five() -> i32 {
+    5
+}
+```
+
+使用 `return` 关键字和指定值，可从函数中提前返回
+
+> 用最后一个表达式返回值时不要加`分号`
+
+
+## 3.4 注释
+
+用双斜杠` // `注释 Rust 代码
+
+文档注释使用三斜杠 `///` 而以支持 Markdown 注解来格式化文本。
+```rust 
+/// Adds one to the number given.
+///
+/// # Examples
+///
+/// ```
+/// let arg = 5;
+/// let answer = my_crate::add_one(arg);
+///
+/// assert_eq!(6, answer);
+/// ```
+pub fn add_one(x: i32) -> i32 {
+    x + 1
+}
+```
+
+
+## 3.5 控制流
+
+### if
+
+```rust
+fn main() {
+    let number = 3;
+
+    if number < 5 {
+        println!("condition was true");
+    } else {
+        println!("condition was false");
+    }
+}
+```
+> 不像 Ruby 或 JavaScript 这样的语言，Rust 并不会尝试自动地将非布尔值转换为布尔值。必须总是`显式地使用布尔值`作为 if 的条件。
+
+
+### else if
+```rust
+fn main() {
+    let number = 6;
+
+    if number % 4 == 0 {
+        println!("number is divisible by 4");
+    } else if number % 3 == 0 {
+        println!("number is divisible by 3");
+    } else if number % 2 == 0 {
+        println!("number is divisible by 2");
+    } else {
+        println!("number is not divisible by 4, 3, or 2");
+    }
+
+    // 在 let 语句中使用 if
+    let number = if condition { 5 } else { 6 };
+}
+```
+> 使用过多的 else if 表达式会使代码显得杂乱无章，所以如果有多于一个 else if 表达式，最好重构代码。为此，第六章会介绍一个强大的 Rust 分支结构（branching construct），叫做 `match`。
+
+
+### loop、while 和 for
+#### loop
+```rust
+// loop
+fn main() {
+    let mut counter = 0;
+    
+    // 赋值给 result 
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            // 使用 break 关键字返回值 counter * 2
+            break counter * 2;
+        }
+    };
+
+    println!("The result is {result}");
+}
+```
+#### 循环标签：在多个循环之间消除歧义
+如果存在嵌套循环，break 和 continue 应用于此时`最内层的循环`。
+你可以选择在一个循环上指定一个 `循环标签（loop label）`，然后将标签与 break 或 continue 一起使用，使这些关键字应用于已标记的循环而不是最内层的循环。
+
+```rust
+// loop
+fn main() {
+    let mut count = 0;
+
+    // 标签 counting_up
+    'counting_up: loop {
+        println!("count = {count}");
+        let mut remaining = 10;
+
+        loop {
+            println!("remaining = {remaining}");
+            if remaining == 9 {
+                break;
+            }
+            if count == 2 {
+                break 'counting_up;
+            }
+            remaining -= 1;
+        }
+
+        count += 1;
+    }
+    println!("End count = {count}");
+}
+```
+
+
+#### while
+```rust
+fn main() {
+    let mut number = 3;
+
+    while number != 0 {
+        println!("{number}!");
+
+        number -= 1;
+    }
+
+    println!("LIFTOFF!!!");
+}
+```
+
+
+#### for
+```rust
+fn main() {
+    let a = [10, 20, 30, 40, 50];
+
+    for element in a {
+        println!("the value is: {element}");
+    }
+
+    // 使用 for 循环来倒计时
+    // rev，用来反转 range
+    for number in (1..4).rev() {
+        println!("{number}!");
+    }
+    println!("LIFTOFF!!!");
+}
+```
+
+# 4. Understanding Ownership
+所有权（系统）是 Rust 最为与众不同的特性，对语言的其他部分有着深刻含义。它让 Rust 无需垃圾回收（garbage collector）即可保障内存安全.
+
+# 4.1 什么是所有权？
+> Rust 则选择了第三种方式：通过所有权系统管理内存，编译器在编译时会根据一系列的规则进行检查。如果违反了任何这些规则，程序都不能编译。在运行时，所有权系统的任何功能都不会减慢程序。
+
 # Warning and Error
 
 - Cargo更新下载慢
