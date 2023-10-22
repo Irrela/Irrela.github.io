@@ -1,3 +1,5 @@
+mod file_io;
+
 use std::env;
 
 fn main() {
@@ -8,5 +10,8 @@ fn main() {
     let query = &args[1];
     let filename = &args[2];
 
+    file_io::read_file(filename);
+
     println!("{:?}", args);
+
 }
