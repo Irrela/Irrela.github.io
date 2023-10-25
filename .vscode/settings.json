@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "transformative"
-    ]
+    ],
+    "cmake.configureOnOpen": false
 }
