@@ -35,7 +35,7 @@ pub struct Config {
 }
 
 impl Config {
-    pub fn new(args: &[String]) -> Result<Config, &str> {
+    pub fn new(args: &[String]) -> Result<Config, &'static str> {
         if args.len() < 3 {
             // panic!("not enough arguments");
 
@@ -55,6 +55,29 @@ impl Config {
             }
         )
     }
+
+    // c13用迭代器优化后版本
+    // 因为我们拥有 args 的所有权，并且将通过对其进行迭代来改变 args，所以我们可以将 mut 关键字添加到 args 参数的规范中以使其可变。
+    pub fn new_with_iterator(mut args: std::env::Args) -> Result<Config, &'static str> {
+        // 程序的名称占据了 vector 的第一个值 args[0]
+        args.next();
+
+        let query = match args.next() {
+            Some(arg) => arg,
+            None => return Err("Didn't get a query string"),
+        };
+
+        let filename = match args.next() {
+            Some(arg) => arg,
+            None => return Err("Didn't get a file name"),
+        };
+
+        Ok(Config{
+            query,
+            filename,
+            case_sensitive: env::var("CASE_INSENSITIVE").is_err(),
+        })
+    }
 }
 
 // 'a 用于 contents 参数和返回值
@@ -71,6 +94,12 @@ pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     res
 }
 
+pub fn search_with_filter<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
+    contents.lines()
+        .filter(|line| line.contains(query))
+        .collect()
+}
+
 pub fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     let mut res = vec![];
     // 注意 query 现在是一个 String 而不是字符串 slice，因为调用 to_lowercase 是在创建新数据
@@ -83,6 +112,15 @@ pub fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a st
     }
 
     res
+}
+
+pub fn search_case_insensitive_with_filter<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
+    // 注意 query 现在是一个 String 而不是字符串 slice，因为调用 to_lowercase 是在创建新数据
+    let query = query.to_lowercase();
+
+    contents.lines()
+        .filter(|line| line.contains(query))
+        .collect()
 }
 
 

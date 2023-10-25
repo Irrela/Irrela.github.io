@@ -1,9 +1,20 @@
 use std::{env, process};
 use minigrep::Config;
 
+
 fn main() {
+
+    let config = Config::new_with_iterator(env::args()).unwrap_or_else(|err| {
+        println!("Problem parsing arguments: {}", err);
+        // process::exit 会立即停止程序并将传递给它的数字作为退出状态码
+        process::exit(1);
+    });
+}
+
+fn main_before_c13_opt() {
     // 读取任何传递给 minigrep 的命令行参数并将其收集到一个 vector 中
     let args: Vec<String> = env::args().collect();
+
     println!("{:?}", args);
 
     // 使用 unwrap_or_else 可以进行一些自定义的非 panic! 的错误处理。
