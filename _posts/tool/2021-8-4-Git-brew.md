@@ -195,8 +195,8 @@ https://stackoverflow.com/questions/5834014/lf-will-be-replaced-by-crlf-in-git-w
 > git config --global core.safecrlf false // 禁用警告并保持它的功能
 
 
-### 撤销最近一次commit
-#### reset
+## 撤销最近一次commit
+### reset
 使用 `git reset` 将提交从分支历史中完全移除, 即删除提交及其更改。
 有三种主要的模式可以选择：
 
@@ -215,14 +215,14 @@ git reset --mixed HEAD~1
 git reset --hard HEAD~1
 ```
 
-#### git revert
+### git revert
 如果你想要保留提交历史，同时创建一个新的提交来撤销之前的提交，你可以使用 `git revert` 命令。
 这种方法更安全，因为它不会修改已有的提交历史。
 ```bash
 git revert HEAD
 ```
 
-#### 推送remote
+### 推送remote
 如果你在本地已经撤销了一个提交，然后希望将这些更改推送到远程仓库，你需要谨慎处理，因为你会改变分支的历史。推送更改到远程仓库需要使用 `--force` 选项，这将覆盖远程分支的历史。
 
 1. 如果你使用了 `git reset` 撤销了提交，你需要强制推送到远程分支。首先，确保你在本地分支上已经执行了 `git reset`，然后运行以下命令：
