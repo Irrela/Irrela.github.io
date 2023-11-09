@@ -5,6 +5,9 @@ tags:
 - English
 ---
 
+- [The world economy is defying gravity. That cannot last](#the-world-economy-is-defying-gravity-that-cannot-last)
+- [How scary is China?](#how-scary-is-china)
+- [How to be a better boss](#how-to-be-a-better-boss)
 - [Israel's agony](#israels-agony)
 - [Are free markets history?](#are-free-markets-history)
 - [What’s wrong with the banks](#whats-wrong-with-the-banks)
@@ -40,12 +43,91 @@ tags:
 - [Vietnam’s steampunk covid response](#vietnams-steampunk-covid-response)
 
 
+# The world economy is defying gravity. That cannot last
+> Threats abound, including higher-for-longer interest rates
+> Nov 2nd 2023
 
+Even as wars rage and the geopolitical climate darkens, the world economy has been an irrepressible source of cheer. Only a year ago everyone agreed that high interest rates would soon bring about a recession. Now even the optimists have been confounded. America’s economy roared in the third quarter, growing at a stunning annualised pace of 4.9%. Around the world, inflation is falling, unemployment has mostly stayed low and the big central banks may have stopped their monetary tightening. China, stricken by a property crisis, looks likely to benefit from a modest stimulus. Unfortunately, however, this good cheer cannot last. The foundations for today’s growth look unstable. Peer ahead, and threats abound.
+
+The irrepressible economy has encouraged bets that interest rates, though no longer rising rapidly, will not fall by much. Over the past week the European Central Bank and Federal Reserve have held rates steady; the Bank of England was expected to follow suit shortly after we published this on November 2nd. Long-term bond yields have accordingly risen sharply. America’s government must now pay 5% to borrow for 30 years, up from just 1.2% in the depths of the pandemic recession. Even economies known for low rates have seen sharp increases. Not long ago Germany’s borrowing costs were negative; now its ten-year bond yield is nearly 3%. The Bank of Japan has all but given up on its promise to peg ten-year borrowing costs at 1%.
+
+Some people, including Janet Yellen, America’s treasury secretary, say these higher interest rates are a good thing—a reflection of a world economy in the rudest of health. In fact, they are a source of danger. Because higher rates are likely to persist, today’s economic policies will fail and so will the growth they have fostered.
+
+To see why today’s benign conditions cannot continue, consider one reason why America’s economy in particular has fared better than expected. Its consumers have been spending the cash they accumulated during the pandemic from handouts and staying at home. Those excess savings were expected to have been depleted by now. But recent data suggest households still have $1trn left, which explains why they can get away with saving less out of their incomes than at any point in the 2010s.
+
+When those excess savings buffers have been run down, high interest rates will start to bite, forcing consumers to spend less freely. And, as our Briefing explains, trouble will start to emerge across the world economy if rates stay higher for longer. In Europe and America business bankruptcies are already rising; even companies that locked in low rates by issuing long-term debt will in time have to face higher financing costs. House prices will fall, at least in inflation-adjusted terms, as they respond to dearer mortgages. And banks holding long-term securities—which have been supported by short-term loans, including from the Fed—will have to raise capital or merge to plug the holes blown in their balance-sheets by higher rates.
+
+Fiscal largesse has added to the world economy’s sugar rush. In a higher-for-longer world, it too looks unsustainable. According to the imf, Britain, France, Italy and Japan are all likely to run deficits in the region of 5% of gdp in 2023. In the 12 months to September America’s deficit was a staggering $2trn, or 7.5% of gdp after adjusting for accounting distortions—about double what was expected in mid-2022. At a time of low unemployment, such borrowing is jaw-droppingly reckless. All told, government debt in the rich world is now higher, as a share of gdp, than at any time since after the Napoleonic wars.
+
+When interest rates were low, even towering debts were manageable. Now that rates have risen, interest bills are draining budgets. Higher-for-longer therefore threatens to pit governments against inflation-targeting central bankers. Already, Ms Yellen has felt obliged to argue that Treasuries carry no risk premium, and Jerome Powell, the Fed’s chairman, has insisted that his bank would never cut rates and let inflation rip to ease pressure on the government’s budget.
+
+Whatever Mr Powell says, a higher-for-longer era would lead investors to question governments’ promises both to keep inflation low and also to pay their debts. The ecb’s bondholdings are already becoming skewed towards the Italian government debt that it tacitly backstops—a task that has become far harder in a high-rate world. Even when Japanese government-bond yields were a paltry 0.8% last year, 8% of Japan’s budget went on interest payments. Imagine the strain if yields reached even Germany’s relatively modest levels. Some governments would go on to tighten their belts as a result. But doing so may bring economic pain.
+
+These strains make it hard to see how the world economy could possibly accomplish the many things that markets currently expect of it: a dodged recession, low inflation, mighty debts and high interest rates all at the same time. It is more likely that the higher-for-longer era kills itself off, by bringing about economic weakness that lets central bankers cut rates without inflation soaring.
+
+A more hopeful possibility is that productivity growth soars, perhaps thanks to generative artificial intelligence (ai). The resulting boost to incomes and revenues would make higher rates bearable. Indeed, figures published on November 2nd are expected to show that America’s measured productivity surged in the third quarter. The potential of ai to unleash further productivity gains may explain why higher-for-longer has so far not punctured stockmarkets. Were it not for the rising valuations of seven tech firms, including Microsoft and Nvidia, the s&p 500 index of American stocks would have fallen this year.
+
+Don’t look down
+Set against that hope, though, is a world stalked by threats to productivity growth. Donald Trump vows swingeing new tariffs should he return to the White House. Governments are increasingly distorting markets with industrial policy. State spending is growing as a share of the economy as populations age, the green-energy transition beckons and conflicts around the world require more spending on defence. In the face of all this, anyone betting that the world economy can just keep carrying on is taking a huge gamble. 
+
+
+# How scary is China?
+> America must understand China’s weaknesses as well as its strengths
+> Nov 9th 2023
+
+When joe biden meets Xi Jinping in San Francisco next week, the stakes will be high. Fighting in the Middle East threatens to become another theatre for great-power rivalry, with America backing Israel, and China (along with Russia) deepening links to Iran. In the South China Sea, China is harassing Philippine ships and flying its planes dangerously close to American ones. Next year will test Sino-American relations even more. In January a candidate despised by Beijing may win Taiwan’s presidential election. For most of the year, the race for the White House will be a cacophony of China-bashing.
+
+America’s anti-China fervour is partly an overcorrection for its previous complacency about the economic, military and ideological threat the autocratic giant poses. The danger from China is real, and there are many areas where Mr Biden’s administration should stand up to its Communist rulers. But there is also a risk that America’s view of Chinese power slides into caricature, triggering confrontations and, at worst, an avoidable conflict. Even without war, that rush would incur huge economic costs, split America from its allies and undermine the values that make it strong. Instead, America needs a sober assessment not just of China’s strengths, but also of its weaknesses.
+
+What are those weaknesses? Among the least understood are its military shortcomings, which we describe in a special report on the People’s Liberation Army (pla). After decades of modernisation, it is formidable—terrifying, even. With 2m personnel and an annual budget of $225bn, it has the world’s biggest army and navy and a vast missile force. By 2030 it could have 1,000 nuclear warheads. Mr Xi has ordered it to be capable of invading Taiwan by 2027, say America’s spies. And the pla projects force more widely, too. It intimidates China’s neighbours in the South China Sea and skirmishes with India. It has a base in Africa and is seeking one in the Middle East.
+
+Yet look more closely and the problems leap out. Drilled for decades on Soviet and then Russian military dogma, the pla is trying to absorb the lessons from Ukraine and to co-ordinate “joint” operations between services, which would be key to any successful invasion of Taiwan. Recruitment is hard. Despite the efforts of films such as “Wolf Warrior” to glamorise dreary military careers with mediocre pay, the pla struggles to hire skilled people, from fighter pilots to engineers. It has almost no experience of combat—Mr Xi calls this “the peace disease”. Its most deadly engagement in the past four decades or so was massacring its own citizens around Tiananmen Square in 1989.
+
+Although China has made technological leaps, from hypersonic missiles to stealth fighters, its military-industrial complex trails behind in areas such as engines for aircraft and ships, and still relies on some foreign parts. American embargoes on semiconductors and components could make it harder to catch up with the global technological frontier. Despite Mr Xi’s endless purges, corruption appears to be pervasive. It may explain why General Li Shangfu was sacked as China’s defence minister this year after only a few months in the job.
+
+China’s military frailties exist alongside its better-known economic ones. A property crunch and the Communist Party’s growing hostility towards the private sector and foreign capital are impeding growth. China’s gdp will increase by 5.4% this year and by only 3.5% in 2028, says the imf. Investment by multinational firms into China turned negative in the third quarter, for the first time since records began in 1998. China’s $18trn economy is big. But despite its much larger population, its gdp is unlikely to exceed America’s by much or at all by mid-century.
+
+Behind China’s military and economic weaknesses lies a third, and deeper problem: Mr Xi’s dominance of an authoritarian system that no longer allows serious internal policy debate. Decision-making is deteriorating as a result. Economic technocrats have been sidelined by loyalists. By one estimate, pla troops spend a quarter of their time on political education, poring over such inspiring works as “Xi Jinping Thought on Strengthening the Military”. Mr Xi’s ideology is that the party, led by him, should command all things, always.
+
+Personalised rule is bad for China—and perilous for the world. Lacking sound advice, Mr Xi might miscalculate, as Vladimir Putin did on Ukraine. However, he may be deterred by the knowledge that if he invades Taiwan but fails to conquer it, he could lose power. One thing is clear: despite periodic and welcome bouts of constructive diplomacy, such as recently resumed ministerial contacts with America, Mr Xi’s commitment to undermining liberal values globally will not diminish.
+
+How should America respond? Judiciously. Trying to cripple China’s economy by isolating it could cut global gdp by 7%, reckons the imf. Closing America’s borders to Chinese talent would count as self-sabotage. Any excessively hawkish policy risks dividing America’s network of alliances. Worst of all, too rapid an American military escalation could provoke a disastrous war if Mr Xi mistakes it for the prelude to American aggression, or worries that unifying Taiwan with the mainland—peacefully or by force—will only grow harder should he continue to bide his time.
+
+From complacency to confrontation to calibration
+Instead, America needs to calibrate its China policy for the long run. Regarding the economy, that means openness, not isolation. The Economist supports limited controls on exports of technology with possible military applications, but not the broad embrace of tariffs and industrial policy that began under President Donald Trump and has continued under Mr Biden. To maintain its economic and technological edge, America should stay open for business—unlike China.
+
+Militarily, America should seek deterrence but not domination. The Biden administration has rightly sold more arms to Taiwan, built up forces in Asia and renewed defence alliances there. But America should avoid a nuclear arms race or being seen to support formal independence for Taiwan. Dealing with China requires a realistic view of its capabilities. The good news is that its weaknesses and Mr Xi’s mistakes give the West time to counter the threat it poses.
+
+
+# How to be a better boss
+> Tips from “Boss Class”, our new podcast
+> Oct 26th 2023
+
+Workplaces have changed dramatically over the past four years, let alone the past 40. Teams have become more dispersed, thanks to remote work, as well as more diverse. Technology has brought with it great benefits but also constant interruptions, from endless Zoom calls to the ping of another message on Slack. After globalization spread customers and suppliers around the world, geopolitical tension has made distant relationships seem like a new source of risk.
+
+With each of these shifts, the job of the manager—the person tasked with getting workers with disparate interests to achieve a common goal—has become harder still. There was a time when managers could cope simply by being technical experts. Now they say they are juggling more tasks and have more activities to co-ordinate. Many report feeling burnt-out, overloaded and confused.
+
+Bosses are rarely the objects of sympathy. In fiction, they are portrayed as cold-hearted (think Ebenezer Scrooge) or weaselly (“If at first you don’t succeed, remove all evidence you ever tried,” advises David Brent in “The Office”). Yet in real life everyone suffers when management is bad and benefits when it is good. Far more effort is needed to make it better.
+
+Start with how managers affect workers. Roughly a fifth of corporate employees in America are managers, and almost everyone has one. In a survey in ten rich countries, 69% of workers said their boss influenced their mental health as much as their spouse did. Half of Americans who have left a job said they did so because of a bad manager, as did nearly a third of British job-leavers.
+
+Better management does not just mean happier staff. It means better-performing companies, too. Research based on a long-running survey of management techniques across countries has found that well-managed firms tend to be more productive. They also export more and spend more on research and development. Such findings are not mere correlation: a randomized controlled trial in India, for instance, found that increases in management quality caused productivity to rise. And the effect is large. Research by Nicholas Bloom of Stanford University and others concluded that differences in management practices account for a third of the gap in economy-wide productivity between America and the rest of the world.
+
+The prize for better management, then, is big. But how to obtain it? Read enough management books and you might conclude that managers need full-on personality transplants, becoming either Machiavelli’s prince or a Marvel superhero. Study successful managers, though, and the lessons are more prosaic. They are also far more useful—as “Boss Class”, our new podcast, discovers. Over seven episodes starting this week it will take a wry but practical look at problems facing the modern manager, from meeting etiquette to hiring strategy, while bringing together tips from experts and practitioners alike.
+
+This approach yields several lessons. One is to be explicit about a firm’s processes. Managers should make clear the purpose of a team, what a meeting should achieve and who will take a decision. Meeting agendas at gsk, a British drugs firm, clearly say whether an item is for awareness, to gather participants’ input or intended to yield a decision. Moderna, another drugmaker, lists 12 “mindsets” that define its corporate culture and seeks job applicants with at least some of them. Such clarity means that everyone knows what they are doing, and why.
+
+Yet management isn’t all about accumulating tasks, meetings or processes. A second lesson is that managers can add value by subtracting. Sparing workers from pointless meetings, emails and projects frees them to concentrate on the work that fattens the bottom line. At the start of the year Shopify, an e-commerce firm, deleted 12,000 recurring meetings from its employees’ calendars. The useful ones were eventually added back. But the firm says that meetings are down by 14% since the mass deletion. Productivity has gone up by a similar amount.
+
+Good management is a skill. There are too many accidental managers, promoted because they were good at what they did, rather than because they were suited to what lay ahead. Fully 82% of managers told a survey in Britain that they had no proper management skills or training. Providing that training is one way for companies to fill the gap.
+
+Another is to establish two-track promotion systems that offer a way to rise through the ranks without going into management, as Google and Shopify do already. That gives people who either can’t or don’t want to manage a way to progress. Management should not be something people fall into simply by dint of seniority. The stakes are too high. 
 
 
 # Israel's agony
 > And its retribution
 > Oct 14th 2023
+
 In a static decades-long conflict that has rotted for the past 20 years, it can be hard to believe that real change is possible. Be in no doubt, however, that Hamas's murderous assault has blown up the status quo between Israel and the Palestinians. The coming weeks will determine whether war in Gaza sinks the Middle East deeper into chaos or whether, despite Hamas's atrocities, Israel can begin to create the foundations for regional stability-and, one day, peace.
 
 Change is inevitable because of the gravity of Hamas's crimes(see Briefing). More than 1,200 Israelis, most of them civilians, many of those women and children, were murdered in their homes, on the street, in kibbutzim, at a music festival. Perhaps 150 more have been dragged to Gaza and shut in makeshift dungeons.Israel's belief that it could indefinitely manage Palestinian hostility with money and air strikes crumpled early on October 7th, as the first Hamas bulldozer breached the security fence. Hamas has chosen mass murder and there is no going back. 
