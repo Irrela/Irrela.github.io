@@ -37,6 +37,8 @@ tags:
       - [Defining a Dictionary](#defining-a-dictionary)
       - [Operators and Built-in Functions](#operators-and-built-in-functions)
       - [关于dict中元素排列顺序](#关于dict中元素排列顺序)
+    - [bytes 类型](#bytes-类型)
+    - [一些类型转换方法](#一些类型转换方法)
   - [控制流](#控制流)
   - [数据结构](#数据结构)
   - [函数](#函数)
@@ -509,7 +511,6 @@ d2 = {'b': 200, 'd': 400}
 d1.update(d2)
 # {'a': 10, 'b': 200, 'c': 30, 'd': 400}
 d1
-
 ```
 
 #### 关于dict中元素排列顺序
@@ -520,6 +521,46 @@ d1
 你只能在最近才能指望这种秩序的维持。
 它是作为3.7版中的Python语言规范的一部分添加的。
 然而，在3.6版中也是如此--作为实现的结果，这是偶然的，但语言规范不能保证。
+
+
+### bytes 类型
+在 Python3 中，bytes 类型表示的是不可变的二进制序列（byte sequence）。
+
+bytes 类型通常用于处理二进制数据，比如图像文件、音频文件、视频文件等等。在网络编程中，也经常使用 bytes 类型来传输二进制数据。
+
+```py
+# 创建bytes对象
+x = b"hello"
+x = bytes("hello", encoding="utf-8")
+
+# bytes 类型支持切片、拼接、查找、替换
+# 切片操作，得到 b"el"
+y = x[1:3]  
+# 拼接操作，得到 b"helloworld"
+z = x + b"world"  
+```
+
+### 一些类型转换方法
+```py
+# 转换为一个整数
+# 3
+int(3.6)
+# 带参数base的话，12要以字符串的形式进行输入，12 为 16进制
+# 18
+int('12',16)
+
+# 将x转换到一个浮点数
+float(x)
+
+# 将对象 x 转换为字符串
+str(x)
+
+# 将一个整数转换为一个字符
+chr(x)
+
+# 将一个字符转换为它的整数值
+ord(x)
+```
 
 ## 控制流
 
