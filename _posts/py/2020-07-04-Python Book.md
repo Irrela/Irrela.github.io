@@ -38,6 +38,15 @@ tags:
   - [函数](#函数)
   - [代码风格](#代码风格)
     - [Naming Conventions](#naming-conventions)
+      - [Package and Module Names](#package-and-module-names)
+      - [Class Names](#class-names)
+      - [Type Variable Names](#type-variable-names)
+      - [Exception Names](#exception-names)
+      - [Function and Variable Names](#function-and-variable-names)
+      - [Function and Method Arguments](#function-and-method-arguments)
+      - [Method Names and Instance Variables](#method-names-and-instance-variables)
+      - [Constants](#constants)
+      - [Global Variable Names](#global-variable-names)
   - [模块](#模块)
   - [输入输出](#输入输出)
   - [错误和异常](#错误和异常)
@@ -254,10 +263,12 @@ x = {'foo', 'bar', 'baz'}
 
 len(x)
 
+# Adds an element to a set.
 x.add('qux')
 
-# raises an exception if <elem> is not in x
-x.rem
+# Removes an element from a set.
+# Raises an exception if <elem> is not in x
+x.remove('baz')
 
 # if <elem> is not in x, this method quietly does nothing
 x.discard('baz')
@@ -365,42 +376,42 @@ x1 > x2
 
 ### Naming Conventions
 
-**Package and Module Names**
+#### Package and Module Names
 模块的名称应该是全小写的短名称。
 如果提高了可读性，则可以在模块名称中使用下划线。
 尽管不鼓励使用下划线，但Python包也应该具有全小写的短名称。
 
 当用C或C++编写的扩展模块具有附带的提供更高级别(例如，更面向对象的)接口的Python模块时，C/C++模块具有前导下划线(e.g. _socket)
 
-**Class Names**
+#### Class Names
 类名通常应该使用CapWords约定。
 
-**Type Variable Names**
+#### Type Variable Names
 PEP 484中引入的`类型变量的名称`通常应该使用CapWords，而不是短名称：`T、AnyStr、Num`。
 建议在用于声明协变或逆变行为的变量中相应地添加后缀`_co` or `_contra`：
 
-**Exception Names**
+#### Exception Names
 因为异常应该是类，所以类命名约定在这里适用。
 但是，您应该在异常名称上使用“`Error`”后缀(如果异常实际上是一个错误)。
 
-**Function and Variable Names**
+#### Function and Variable Names
 函数名称应为小写，并根据需要使用下划线分隔单词，以提高可读性。
 变量名遵循与函数名相同的约定。
 
-**Function and Method Arguments**
+#### Function and Method Arguments
 始终使用`self`作为实例化方法的第一个参数。
 始终使用`cls`作为类方法的第一个参数。
 如果函数参数的名称与保留关键字冲突，通常最好在后面加上一个下划线，而不是使用缩写或拼写错误。
 
-**Method Names and Instance Variables**
+#### Method Names and Instance Variables
 根据需要使用函数命名规则：小写，单词之间用下划线分隔，以提高可读性。
 仅对非公共方法和实例变量使用一个前导下划线。
 为了避免与子类的名称冲突，请使用两个前导下划线来调用Python的名称损坏规则。
 
-**Constants**
+#### Constants
 常量通常是在模块级别上定义的，并且全部用大写字母书写，单词之间用下划线分隔。例如`MAX_OVERFLOW`和`TOTAL`。
 
-**Global Variable Names**
+#### Global Variable Names
 与函数的约定大致相同。
 Modules that are designed for use via `from M import *` should use the `__all__` mechanism to prevent exporting globals
 
