@@ -49,6 +49,9 @@ tags:
     - [pass](#pass)
   - [数据结构](#数据结构)
   - [函数](#函数)
+    - [定义函数](#定义函数)
+    - [默认值参数](#默认值参数)
+    - [\*name, \*\*name形参](#name-name形参)
   - [代码风格](#代码风格)
     - [Naming Conventions](#naming-conventions)
       - [Package and Module Names](#package-and-module-names)
@@ -658,6 +661,73 @@ while 1:
 ## 数据结构
 
 ## 函数
+
+### 定义函数
+```py
+# write Fibonacci series up to n
+def fib(n): 
+    """Return a list containing the Fibonacci series up to n."""
+    result = []
+    a, b = 0, 1
+    while a < n:
+        result.append(a)
+        a, b = b, a+b
+    return result
+```
+
+### 默认值参数
+为参数指定默认值是非常有用的方式。
+调用函数时，可以使用比定义时更少的参数，例如：
+```py
+def ask_ok(prompt, retries=4, reminder='Please try again!'):
+    while True:
+        ok = input(prompt)
+        if ok in ('y', 'ye', 'yes'):
+            return True
+        if ok in ('n', 'no', 'nop', 'nope'):
+            return False
+        retries = retries - 1
+        if retries < 0:
+            raise ValueError('invalid user response')
+        print(reminder)
+```
+该函数可以用以下方式调用：
+```py
+# 只给出必选实参：
+ask_ok('Do you really want to quit?')
+
+# 给出一个可选实参：
+ask_ok('OK to overwrite the file?', 2)
+
+# 给出所有实参：
+ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!')
+
+# 或使用关键字参数调用
+ask_ok(prompt='OK to overwrite the file?', retries=2, reminder='Come on, only yes or no!')
+```
+
+### *name, **name形参
+最后一个形参为 **name 形式时，接收一个字典
+*name 形参接收一个 元组
+例如，可以定义下面这样的函数：
+```py
+def cheeseshop(kind, *arguments, **keywords):
+    print("-- Do you have any", kind, "?")
+    print("-- I'm sorry, we're all out of", kind)
+    for arg in arguments:
+        print(arg)
+    print("-" * 40)
+    for kw in keywords:
+        print(kw, ":", keywords[kw])
+```
+该函数可以用如下方式调用：
+```py
+cheeseshop("Limburger", "It's very runny, sir.",
+           "It's really very, VERY runny, sir.",
+           shopkeeper="Michael Palin",
+           client="John Cleese",
+           sketch="Cheese Shop Sketch")
+```
 
 ## 代码风格
 
