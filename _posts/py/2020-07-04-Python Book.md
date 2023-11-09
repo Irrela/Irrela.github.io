@@ -33,6 +33,10 @@ tags:
       - [空集合创建](#空集合创建)
       - [单集合操作](#单集合操作)
       - [复数集合操作](#复数集合操作)
+    - [Dictionary](#dictionary)
+      - [Defining a Dictionary](#defining-a-dictionary)
+      - [Operators and Built-in Functions](#operators-and-built-in-functions)
+      - [关于dict中元素排列顺序](#关于dict中元素排列顺序)
   - [控制流](#控制流)
   - [数据结构](#数据结构)
   - [函数](#函数)
@@ -365,6 +369,157 @@ x1 >= x2
 x1 > x2
 ```
 
+### Dictionary
+- 字典用 `{ }` 标识。
+- 键(key)必须使用不可变类型(更准确地说，对象必须是可散列的)。
+- 在同一个字典中，键(key)必须是唯一的。
+- 字典中的键不需要是同一类型，值也不需要是同一类型
+
+#### Defining a Dictionary
+```py
+# With {}
+d = {
+    <key>: <value>,
+    <key>: <value>,
+      .
+      .
+      .
+    <key>: <value>
+}
+
+# With built-in dict()
+d = dict([
+    (<key>, <value>),
+    (<key>, <value),
+      .
+      .
+      .
+    (<key>, <value>)
+])
+
+
+# Note: 创建空dict
+person = {}
+```
+> 如果键值是简单字符串，则可以将它们指定为关键字参数
+
+```py
+# 下面两种声明方式等价
+MLB_team = dict([
+    ('Colorado', 'Rockies'),
+    ('Boston', 'Red Sox'),
+    ('Minnesota', 'Twins'),
+    ('Milwaukee', 'Brewers'),
+    ('Seattle', 'Mariners')
+])
+
+MLB_team = dict(
+    Colorado='Rockies',
+    Boston='Red Sox',
+    Minnesota='Twins',
+    Milwaukee='Brewers',
+    Seattle='Mariners'
+)
+
+```
+
+#### Operators and Built-in Functions
+
+> 字典元素不能通过数字索引访问: dict[0] is invalid
+
+```py
+MLB_team = {
+    'Colorado' : 'Rockies',
+    'Boston'   : 'Red Sox',
+    'Minnesota': 'Twins',
+    'Milwaukee': 'Brewers',
+    'Seattle'  : 'Mariners'
+}
+
+# In和Not In运算符根据指定的操作数是否在字典中作为键出现而返回True或False
+# True
+'Milwaukee' in MLB_team 
+# False
+'Toronto' not in MLB_team
+
+# 返回字典中的键-值对的数量
+len(MLB_team)
+
+# Get value by key
+# 引用的键不在字典中，则Python会引发异常
+MLB_team['Minnesota']
+# 如果找到关联值，则返回该关联值。如果未找到<key>，则返回None
+MLB_team.get('Minnesota')
+# 如果未找到<key>并且指定了可选的<default>参数，则返回该值而不是None
+MLB_team.get('Minnesota', 'Twins')
+
+# 新增或覆盖键值对
+MLB_team['Kansas City'] = 'Royals'
+
+# 删除键值对
+del MLB_team['Seattle']
+```
+
+```py
+d = {'a': 10, 'b': 20, 'c': 30}
+
+# 清空字典中的所有键-值对
+d.clear()
+
+# 返回包含d中的键-值对的元组列表。每个元组中的第一项是键，第二项是键的值
+# dict_items([('a', 10), ('b', 20), ('c', 30)])
+d.items()
+# 可以用list包裹以便读取使用
+# [('a', 10), ('b', 20), ('c', 30)]
+list(d.items())
+
+# 返回d中所有键的列表
+# dict_keys(['a', 'b', 'c'])
+d.keys()
+# 可以用list包裹以便读取使用
+# ['a', 'b', 'c']
+list(d.keys())
+
+# 返回d中所有值的列表
+# dict_values([10, 20, 30])
+d.values()
+# 可以用list包裹以便读取使用
+# [10, 10, 10]
+list(d.values())
+
+
+# 从字典中删除键(如果存在)，并返回其值。
+# 如果<key>不在d中，则引发KeyError异常：
+d.pop('b')
+# 如果<key>不在d中，并且指定了可选的<default>参数，则返回该值，并且不会引发异常：
+d.pop('z', -1)
+
+# 从字典中删除键-值对。
+# 从d中删除添加的最后一个键-值对，并将其作为元组返回：
+# 如果d为空，d.popItem()将引发KeyError异常：
+# ('c', 30)
+d.popitem()
+
+# 将字典与另一个字典或与可迭代的键-值对合并。
+# 如果<obj>是一个词典，则d.update(<obj>)将<obj>中的条目合并到d.中。对于<obj>中的每个键：
+# - 如果d中不存在键，则将<obj>中的键-值对添加到d中。
+# - 如果键已存在于d中，则该键在d中的相应值将更新为<obj>的值。
+d1 = {'a': 10, 'b': 20, 'c': 30}
+d2 = {'b': 200, 'd': 400}
+d1.update(d2)
+# {'a': 10, 'b': 200, 'c': 30, 'd': 400}
+d1
+
+```
+
+#### 关于dict中元素排列顺序
+尽管对字典中项的访问不依赖于顺序，但Python确实保证字典中项的顺序保持不变。
+显示时，项将按其定义的顺序显示，键的迭代也将按该顺序进行。添加到词典中的条目添加到末尾。
+如果删除项目，则保留其余项目的顺序。
+
+你只能在最近才能指望这种秩序的维持。
+它是作为3.7版中的Python语言规范的一部分添加的。
+然而，在3.6版中也是如此--作为实现的结果，这是偶然的，但语言规范不能保证。
 
 ## 控制流
 
