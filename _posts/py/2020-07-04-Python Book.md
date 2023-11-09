@@ -40,6 +40,13 @@ tags:
     - [bytes 类型](#bytes-类型)
     - [一些类型转换方法](#一些类型转换方法)
   - [控制流](#控制流)
+    - [if](#if)
+    - [match...case (Python 3.10^)](#matchcase-python-310)
+    - [while](#while)
+    - [for](#for)
+      - [range()](#range)
+    - [break, continue](#break-continue)
+    - [pass](#pass)
   - [数据结构](#数据结构)
   - [函数](#函数)
   - [代码风格](#代码风格)
@@ -563,6 +570,90 @@ ord(x)
 ```
 
 ## 控制流
+
+### if
+```py
+if condition_1:
+    statement_block_1
+elif condition_2:
+    statement_block_2
+else:
+    statement_block_3
+```
+
+### match...case (Python 3.10^)
+```py
+match subject:
+    case <pattern_1>:
+        <action_1>
+    case <pattern_2>:
+        <action_2>
+    case <pattern_3>:
+        <action_3>
+    # 类似于 C 和 Java 中的 default:，当其他 case 都无法匹配时，匹配这条，保证永远会匹配成功。
+    case _:
+        <action_wildcard>
+```
+
+### while
+```py
+while condition：
+    statements
+
+# 循环结束后执行additional_statements
+while condition：:
+    statements
+else:
+    additional_statements
+```
+
+### for
+```py
+for variable in sequence:
+    statements
+else:
+    statements
+
+# Iterate
+sites = ["Baidu", "Google","Runoob","Taobao"]
+for site in sites:
+    print(site)
+
+# 配合range()
+for number in range(1, 6):
+    print(number)
+
+# for ... else
+for item in iterable:
+    # 循环主体
+else:
+    # 循环结束后执行的代码
+```
+#### range()
+如果你需要遍历数字序列，可以使用内置 range() 函数。它会生成数列，例如:
+```py
+# range(0, 5)
+x = range(5)
+
+# [0, 1, 2, 3, 4]
+list_x = list(x)
+```
+
+### break, continue
+`break` 语句可以跳出 for 和 while 的循环体。
+如果你从 for 或 while 循环中终止，任何对应的循环 else 块将不执行。
+
+`continue` 语句被用来告诉 Python 跳过当前循环块中的剩余语句，然后继续进行下一轮循环。
+
+### pass
+Python pass是空语句，是为了保持程序结构的完整性。
+
+pass 不做任何事情，一般用做占位语句，如下实例
+```py
+while 1:
+    # 等待键盘中断 (Ctrl+C)
+    pass 
+```
 
 ## 数据结构
 
