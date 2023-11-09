@@ -5,6 +5,47 @@ tags:
 - Miscellany
 ---
 
+- [官方教程](#官方教程)
+  - [数据类型](#数据类型)
+    - [相关方法](#相关方法)
+      - [type(obj)](#typeobj)
+      - [isinstance(obj, type)](#isinstanceobj-type)
+      - [issubclass(subObj, obj)](#issubclasssubobj-obj)
+      - [is](#is)
+    - [Number](#number)
+      - [数值运算](#数值运算)
+      - [Complex](#complex)
+    - [String](#string)
+      - [字符串的截取](#字符串的截取)
+      - [toCharArray](#tochararray)
+      - [\\ 转义](#-转义)
+      - [... (toconfirm)](#-toconfirm)
+      - [char](#char)
+    - [bool](#bool)
+    - [List](#list)
+      - [List索引和截取](#list索引和截取)
+      - [步长截取\[ : : \]](#步长截取---)
+      - [允许索引修改](#允许索引修改)
+    - [Tuple](#tuple)
+      - [可以包含可变的对象](#可以包含可变的对象)
+      - [空元组](#空元组)
+    - [Set](#set)
+      - [空集合创建](#空集合创建)
+      - [单集合操作](#单集合操作)
+      - [复数集合操作](#复数集合操作)
+  - [控制流](#控制流)
+  - [数据结构](#数据结构)
+  - [函数](#函数)
+  - [代码风格](#代码风格)
+    - [Naming Conventions](#naming-conventions)
+  - [模块](#模块)
+  - [输入输出](#输入输出)
+  - [错误和异常](#错误和异常)
+  - [类](#类)
+  - [标准库](#标准库)
+  - [](#)
+
+
 # 官方教程
 ## 数据类型
 Python3 的六个标准数据类型中：
