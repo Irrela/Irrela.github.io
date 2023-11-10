@@ -19,13 +19,14 @@ tags:
       - [字符串的截取](#字符串的截取)
       - [toCharArray](#tochararray)
       - [\\ 转义](#-转义)
-      - [... (toconfirm)](#-toconfirm)
+      - [\\ 和 ...](#-和-)
       - [char](#char)
     - [bool](#bool)
     - [List](#list)
       - [List索引和截取](#list索引和截取)
       - [步长截取\[ : : \]](#步长截取---)
       - [允许索引修改](#允许索引修改)
+      - [List相关方法](#list相关方法)
     - [Tuple](#tuple)
       - [可以包含可变的对象](#可以包含可变的对象)
       - [空元组](#空元组)
@@ -47,11 +48,13 @@ tags:
       - [range()](#range)
     - [break, continue](#break-continue)
     - [pass](#pass)
+    - [lambda表达式](#lambda表达式)
+    - [函数注解](#函数注解)
   - [数据结构](#数据结构)
   - [函数](#函数)
     - [定义函数](#定义函数)
     - [默认值参数](#默认值参数)
-    - [\*name, \*\*name形参](#name-name形参)
+    - [\*args, \*\*kwargs](#args-kwargs)
   - [代码风格](#代码风格)
     - [Naming Conventions](#naming-conventions)
       - [Package and Module Names](#package-and-module-names)
@@ -167,8 +170,41 @@ Ru\noob
 >>>
 ```
 
-#### ... (toconfirm)
-反斜杠(\)可以作为续行符，表示下一行是上一行的延续。也可以使用 """...""" 或者 '''...''' 跨越多行
+#### \ 和 ... 
+反斜杠(\)可以作为续行符，表示下一行是上一行的延续。
+```py
+total = 10 + \
+        20 + \
+        30
+```
+另外，在括号、方括号或花括号中的表达式，Python允许在这些容器内的表达式不使用反斜杠进行换行，因为容器自身的存在就表示行的延续。
+
+```py
+# [] 中表达式无需x续行符
+my_list = [
+    1,
+    2,
+    3
+]
+
+```
+
+在`Python解释器`中，`...`（三个点）通常被称为"Ellipsis"。
+主要作用是指示解释器当前输入的代码块还没有结束。
+这通常发生在多行语句或多行表达式中，表示你可以继续输入更多的代码。当你在交互式环境中输入一个多行语句时，解释器可能会用 ... 提示你可以继续输入。
+当你输入`回车键`时，解释器将理解你已经完成了代码块。
+```py
+>>> def my_function():
+...     print("This is part of the function.")
+...
+...     # You can continue typing more code here
+...     x = 10
+...     print("This is another part of the function.")
+...
+>>> my_function()
+This is part of the function.
+This is another part of the function.
+```
 
 #### char
 注意，Python 没有单独的`char`字符类型，一个字符就是长度为1的字符串。
@@ -235,6 +271,53 @@ print(letters[1:4:2])
 >>> a[2:5] = []   # 将对应的元素值设置为 [] 
 >>> a
 [9, 2, 6]
+```
+
+#### List相关方法
+
+```py
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+
+# len()
+len(list1)
+
+# count(x)： 返回列表中值为 x 的元素的数量。
+list1.count(1)
+
+# append(x)： 在列表末尾添加元素 x
+list1.append(4)
+
+# extend(iterable)： 将可迭代对象（通常是另一个列表）中的元素追加到当前列表的末尾。
+list1.extend(list2)
+
+# insert(i, x)： 在指定位置 i 插入元素 x。
+list1.insert(1, 4)
+
+# remove(x)： 移除列表中第一个值为 x 的元素。
+list1.remove(2)
+
+# pop([i])： 移除并返回列表中指定位置 i 的元素。
+# 如果没有指定位置，默认移除并返回最后一个元素。
+list1.pop(-1)
+list1.pop()
+
+# index(x, start, end)： 返回列表中第一个值为 x 的元素的索引。
+# 可选参数 start 和 end 用于指定搜索范围。
+index = list1.index(2, 2)       # 从索引2开始查找值为2的元素的索引
+index = list1.index(6, 0, 3)    # 在索引0到3的范围内查找值为6的元素的索引
+
+# sort(key=None, reverse=False)： 对列表进行排序。
+# 可选参数 key 用于指定一个用于排序比较的函数，reverse 用于指定是否降序排序。
+my_list.sort()
+my_list.sort(my_sort_pattern, True)
+
+# reverse()： 将列表中的元素反转。
+list1.reverse()
+
+# clear()： 移除列表中的所有元素，等效于 del my_list[:]。
+list1.clear()
+
 ```
 
 ### Tuple
@@ -468,6 +551,11 @@ MLB_team.get('Minnesota', 'Twins')
 # 新增或覆盖键值对
 MLB_team['Kansas City'] = 'Royals'
 
+# 如果字典存在键 key ，返回它的值。
+# 如果不存在，插入值为 default 的键 key ，并返回 default 。 
+# default 默认为 None。
+MLB_team.setdefault(key, ...default)
+
 # 删除键值对
 del MLB_team['Seattle']
 ```
@@ -477,6 +565,10 @@ d = {'a': 10, 'b': 20, 'c': 30}
 
 # 清空字典中的所有键-值对
 d.clear()
+
+# 返回原字典的浅拷贝。
+d.copy()
+
 
 # 返回包含d中的键-值对的元组列表。每个元组中的第一项是键，第二项是键的值
 # dict_items([('a', 10), ('b', 20), ('c', 30)])
@@ -491,6 +583,12 @@ d.keys()
 # 可以用list包裹以便读取使用
 # ['a', 'b', 'c']
 list(d.keys())
+# 返回字典 d 中使用的所有键的列表。
+# 和list(d.keys())等效
+list(d)
+# 返回一个逆序获取字典键的迭代器。 
+# 这是 reversed(d.keys()) 的快捷方式。
+reversed(d)
 
 # 返回d中所有值的列表
 # dict_values([10, 20, 30])
@@ -518,9 +616,10 @@ d.popitem()
 # - 如果键已存在于d中，则该键在d中的相应值将更新为<obj>的值。
 d1 = {'a': 10, 'b': 20, 'c': 30}
 d2 = {'b': 200, 'd': 400}
+# 合并d2
 d1.update(d2)
-# {'a': 10, 'b': 200, 'c': 30, 'd': 400}
-d1
+# 如果给出了关键字参数，则会以其所指定的键/值对更新字典
+d1.update(e=200, f=-1)
 ```
 
 #### 关于dict中元素排列顺序
@@ -658,6 +757,41 @@ while 1:
     pass 
 ```
 
+### lambda表达式
+一种创建匿名函数的方式。它的基本语法是：
+```py
+lambda arguments: expression
+```
+
+```py
+# 使用lambda定义一个简单的加法函数
+add = lambda x, y: x + y
+
+# 调用lambda函数
+result = add(3, 5)
+print(result)  # 输出 8
+```
+
+### 函数注解
+在Python中，函数注解是一种可选的功能，它允许你为函数的参数和返回值添加元数据。
+这些注解并不会影响函数的实际行为，它们只是提供了一种方式来描述函数的预期用法。
+
+```py
+def add_numbers(x: int, y: int) -> int:
+    """
+    This function adds two numbers and returns the result.
+    
+    :param x: The first number.
+    :param y: The second number.
+    :return: The sum of x and y.
+    """
+    return x + y
+```
+
+> 在默认情况下，Python 解释器对函数注解不进行类型检查，因此如果你传入不符合注解的参数，解释器不会抛出错误。
+> 如果你不使用类型检查工具，你可以选择是否在函数中添加注解。
+
+
 ## 数据结构
 
 ## 函数
@@ -706,27 +840,28 @@ ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!')
 ask_ok(prompt='OK to overwrite the file?', retries=2, reminder='Come on, only yes or no!')
 ```
 
-### *name, **name形参
-最后一个形参为 **name 形式时，接收一个字典
-*name 形参接收一个 元组
-例如，可以定义下面这样的函数：
+### *args, **kwargs
+`*args`：用于传递任意数量的位置参数（Positional Arguments）。
+这将允许函数`接受任意数量的位置参数`，这些参数`将被收集到一个元组中`。
+你可以使用任何名称代替`args`，但通常约定俗成使用`args`。
+
 ```py
-def cheeseshop(kind, *arguments, **keywords):
-    print("-- Do you have any", kind, "?")
-    print("-- I'm sorry, we're all out of", kind)
-    for arg in arguments:
+def example_function(*args):
+    for arg in args:
         print(arg)
-    print("-" * 40)
-    for kw in keywords:
-        print(kw, ":", keywords[kw])
+
+example_function(1, 2, 3)  # 输出: 1 2 3
 ```
-该函数可以用如下方式调用：
+
+`**kwargs`：用于`传递任意数量的关键字参数`（Keyword Arguments）。
+这将允许函数接受任意数量的关键字参数，`这些参数将被收集到一个字典中`。
+同样，你可以使用任何名称代替`kwargs`。
 ```py
-cheeseshop("Limburger", "It's very runny, sir.",
-           "It's really very, VERY runny, sir.",
-           shopkeeper="Michael Palin",
-           client="John Cleese",
-           sketch="Cheese Shop Sketch")
+def example_function(**kwargs):
+    for key, value in kwargs.items():
+        print(key, value)
+
+example_function(a=1, b=2, c=3)  # 输出: a 1   b 2   c 3
 ```
 
 ## 代码风格
