@@ -70,9 +70,15 @@ tags:
       - [Constants](#constants)
       - [Global Variable Names](#global-variable-names)
   - [模块](#模块)
+    - [模块导入](#模块导入)
+    - [dir()](#dir)
+    - [包(package)](#包package)
+    - [相对导入](#相对导入)
   - [输入输出](#输入输出)
   - [错误和异常](#错误和异常)
   - [类](#类)
+    - [类的定义与实例创建](#类的定义与实例创建)
+    - [类的继承](#类的继承)
   - [标准库](#标准库)
   - [](#)
 
@@ -980,11 +986,140 @@ Modules that are designed for use via `from M import *` should use the `__all__`
 
 ## 模块
 
+随着程序越来越长，为了方便维护，最好把脚本拆分成多个文件。
+编写脚本还一个好处，不同程序调用同一个函数时，不用把函数定义复制到各个程序。
+
+为实现这些需求，Python 把各种定义存入一个文件，在脚本或解释器的交互式实例中使用。这个文件就是 `模块`
+模块是包含 Python 定义和语句的文件。其文件名是模块名加后缀名 `.py` 。
+在模块内部，通过全局变量 `__name__` 可以获取模块名（即字符串）。
+
+```py
+# Assume we have a fibo.py
+import fibo
+
+print(fibo.__name__)
+```
+### 模块导入
+编写一个`fibo.py`模块
+```py
+# Fibonacci numbers module
+def fib(n):    # write Fibonacci series up to n
+    a, b = 0, 1
+    while a < n:
+        print(a, end=' ')
+        a, b = b, a+b
+    print()
+
+def fib2(n):   # return Fibonacci series up to n
+    result = []
+    a, b = 0, 1
+    while a < n:
+        result.append(a)
+        a, b = b, a+b
+    return result
+```
+
+导入整个模块
+```py
+import fibo
+fibo.fib(10)
+
+# 把 as 后的名称与导入模块绑定
+import fibo as my_fib
+my_fib(10)
+```
+
+导入方法
+```py
+from fibo import fib
+
+fib(10)
+```
+
+### dir()
+dir() 函数用于查找`对象的所有属性（包括方法）`。
+```py
+import fibo
+
+dir(fibo)    # ['__name__', 'fib', 'fib2']
+```
+
+> 在没有参数的情况下调用 dir()，它会返回当前作用域的名称列表。这包括所有已定义的变量、函数、模块等。
+ 
+### 包(package)
+包是一个`包含模块和子包`的文件夹，必须包含一个特殊的 `__init__.py` 文件，这个文件可以是空的
+
+包提供了一种将相关的模块组织在一起的方式，使得项目更加模块化和易于维护。
+```bash
+utils/
+|-- __init__.py
+|-- module1.py
+|-- module2.py
+```
+
+- `utils` 是一个包，因为它包含了 `__init__.py` 文件。
+- `module1.py` 和 `module2.py` 是模块，因为它们是包含 Python 代码的文件。
+
+### 相对导入
+相对导入`只能在包内部`使用，而不能在脚本文件中使用。
+在脚本文件中，应该使用`绝对导入`。
+```py
+# module3.py
+
+# 相对导入同一包下的模块
+from . import module1
+
+# 相对导入上一级包中的模块
+from .. import module2
+```
+
+> 在相对导入中，点号 `.` 的数量表示相对路径的深度。
+> 通常情况下，使用两个点号 `..` 就足够了，因为这通常能够满足项目的组织结构。在实际应用中，过多的相对导入可能会使代码更难阅读和理解，因此应该慎重使用。
+
 ## 输入输出
 
 ## 错误和异常
 
 ## 类
+类提供了把数据和功能绑定在一起的方法。
+支持面向对象编程（OOP）的所有标准特性：
+- 多重继承
+- 方法重写
+- 类的方法能调用基类中的同名方法。
+- 对象可包含任意数量和类型的数据
+
+
+### 类的定义与实例创建
+```py
+class Dog:
+    # class variable 由所有实例共享
+    kind = 'canine'        
+  
+    def __init__(self, name):
+        # 每个实例唯一的instance variable
+        # 在此声明类的成员属性
+        self.name = name
+
+    def bark(self):
+        print(f"{self.name} is barking!")
+
+# 创建 Dog 类的实例
+my_dog = Dog("Buddy")
+
+# 调用对象的方法
+my_dog.bark()  # 输出: Buddy is barking!
+
+```
+
+`属性（Attributes）`： 类的属性是描述对象特征的变量。
+- `类属性`是属于类的变量，在所有类的实例之间共享。通常在类的定义中，在方法之外声明
+- 可以在类中使用`__init__`方法初始化对象的`成员属性`
+
+`方法（Methods）`： 类的方法是与对象相关的函数。
+方法在类中定义，并使用`self`作为第一个参数，表示对象本身
+
+
+### 类的继承
 
 ## 标准库
 
