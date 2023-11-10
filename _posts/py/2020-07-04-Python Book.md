@@ -27,6 +27,8 @@ tags:
       - [步长截取\[ : : \]](#步长截取---)
       - [允许索引修改](#允许索引修改)
       - [List相关方法](#list相关方法)
+      - [列表作为堆栈使用](#列表作为堆栈使用)
+      - [创建列表: 列表推导式](#创建列表-列表推导式)
     - [Tuple](#tuple)
       - [可以包含可变的对象](#可以包含可变的对象)
       - [空元组](#空元组)
@@ -54,6 +56,7 @@ tags:
   - [函数](#函数)
     - [定义函数](#定义函数)
     - [默认值参数](#默认值参数)
+    - [\*, /](#-)
     - [\*args, \*\*kwargs](#args-kwargs)
   - [代码风格](#代码风格)
     - [Naming Conventions](#naming-conventions)
@@ -307,10 +310,10 @@ list1.pop()
 index = list1.index(2, 2)       # 从索引2开始查找值为2的元素的索引
 index = list1.index(6, 0, 3)    # 在索引0到3的范围内查找值为6的元素的索引
 
-# sort(key=None, reverse=False)： 对列表进行排序。
+# list.sort(*, key=None, reverse=False)： 对列表进行排序。
 # 可选参数 key 用于指定一个用于排序比较的函数，reverse 用于指定是否降序排序。
 my_list.sort()
-my_list.sort(my_sort_pattern, True)
+my_list.sort(key=lambda x: x % 3, True)
 
 # reverse()： 将列表中的元素反转。
 list1.reverse()
@@ -318,6 +321,46 @@ list1.reverse()
 # clear()： 移除列表中的所有元素，等效于 del my_list[:]。
 list1.clear()
 
+# copy(): 返回列表的浅拷贝
+list1.copy()
+list1[:]
+```
+
+#### 列表作为堆栈使用
+`list` 天然适用于栈的用途。
+```py
+stack = []  # 创建一个空列表，表示一个空栈
+
+stack.append(1)  # 入栈
+stack.append(2)  # 入栈
+stack.append(3)  # 入栈
+
+print(stack)     # 输出: [1, 2, 3]
+
+top_element = stack.pop()  # 出栈
+print(top_element)         # 输出: 3
+print(stack)               # 输出: [1, 2]
+```
+
+#### 创建列表: 列表推导式
+列表推导式是一种简洁的语法结构，允许你通过一行代码生成一个新的列表，而无需使用传统的循环语句。
+列表推导式的一般形式如下：
+```py
+new_list = [expression for item in iterable if condition]
+```
+```py
+# 创建一个包含 1 到 10 中偶数的平方的列表
+even_squares = [x**2 for x in range(1, 11) if x % 2 == 0]
+print(even_squares) # [4, 16, 36, 64, 100]
+
+# [(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]
+[(x, y) for x in [1,2,3] for y in [3,1,4] if x != y]
+# 等价于
+result = []
+for x in [1, 2, 3]:
+    for y in [3, 1, 4]:
+        if x != y:
+            result.append((x, y))
 ```
 
 ### Tuple
@@ -838,6 +881,32 @@ ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!')
 
 # 或使用关键字参数调用
 ask_ok(prompt='OK to overwrite the file?', retries=2, reminder='Come on, only yes or no!')
+```
+
+### *, /
+在Python的函数参数列表中，星号` * `表示`其后的参数`只能通过关键字传递，而不能通过位置传递。
+这被称为"`keyword-only argument`"（仅关键字参数）。
+```py
+# list.sort(*, key=None, reverse=False)
+# 正确的使用方式
+my_list.sort(key=lambda x: x % 3)  # key 是关键字参数
+print(my_list)
+
+# 错误的使用方式，因为 key 参数只能通过关键字传递
+my_list.sort(lambda x: x % 3)
+```
+
+斜杠 `/` 在函数参数列表中表示`其前面的参数`只能通过位置传递，而不能通过关键字传递。
+这也被称为"`positional-only argument`"（仅位置参数）。
+```py
+def example_function(arg1, arg2, /, arg3, arg4, *, arg5, arg6):
+    print(arg1, arg2, arg3, arg4, arg5, arg6)
+
+# 正确的使用方式，所有参数按照位置传递
+example_function(1, 2, 3, 4, arg5=5, arg6=6)
+
+# 错误的使用方式，arg1和arg2必须通过位置传递
+example_function(arg1=1, arg2=2, 3, 4, arg5=5, arg6=6)
 ```
 
 ### *args, **kwargs
