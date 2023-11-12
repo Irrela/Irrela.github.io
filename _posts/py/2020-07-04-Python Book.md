@@ -79,6 +79,13 @@ tags:
   - [类](#类)
     - [类的定义与实例创建](#类的定义与实例创建)
     - [类的继承](#类的继承)
+      - [使用继承](#使用继承)
+      - [magic methods](#magic-methods)
+      - [super()](#super)
+      - [成员访问权限](#成员访问权限)
+      - [issubclass()](#issubclass)
+      - [多重继承](#多重继承)
+      - [注解 @dataclass (3.7 ^)](#注解-dataclass-37-)
   - [标准库](#标准库)
   - [](#)
 
@@ -1120,6 +1127,157 @@ my_dog.bark()  # 输出: Buddy is barking!
 
 
 ### 类的继承
+#### 使用继承
+继承语法为：`class Child(Parent):`
+
+```py
+# 定义一个简单的父类
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def make_sound(self):
+        pass
+
+# 定义一个继承自 Animal 的子类
+class Dog(Animal):
+    def make_sound(self):
+        return "Woof!"
+
+# 创建一个 Animal 对象
+generic_animal = Animal("Generic Animal")
+print(generic_animal.name)  # 输出: Generic Animal
+generic_animal.make_sound()  # 这里什么都不做，因为 make_sound 方法在 Animal 类中被定义为 pass
+
+# 创建一个 Dog 对象
+my_dog = Dog("Buddy")
+print(my_dog.name)  # 输出: Buddy
+print(my_dog.make_sound())  # 输出: Woof!
+
+```
+
+#### magic methods
+带有双下划线（underscore）开头和结尾的方法，比如`__init__()`，是特殊方法或者叫做魔法方法（magic methods）或者双下方法（dunder methods）。
+
+这些方法在类中有特殊的用途，`它们被 Python 解释器调用`，而不是由你手动调用。一些常见的魔法方法包括：
+- `__init__(self, ...)`: 初始化方法，在创建对象时调用，用于设置对象的初始状态。
+- `__str__(self)`: 返回一个描述对象的字符串，通常由print()函数调用。
+- `__repr__(self)`: 返回一个包含对象信息的字符串，通常由repr()函数调用。
+
+#### super()
+想在子类中使用父类的方法，可以通过调用 `super()` 来实现。
+
+> 如果没有重写父类的方法，则默认使用父类的方法
+
+```py
+# 定义一个父类
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def make_sound(self):
+        return "Generic animal sound"
+
+# 定义一个继承自 Animal 的子类
+class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name)
+        self.breed = breed
+
+    # 重写 make_sound 方法
+    def make_sound(self):
+        # 使用父类的 make_sound 方法并添加一些额外信息
+        return super().make_sound() + f" - Woof! (Breed: {self.breed})"
+
+# 创建一个 Dog 对象
+my_dog = Dog("Buddy", "Golden Retriever")
+
+# 调用子类的 make_sound 方法
+print(my_dog.make_sound())
+```
+
+#### 成员访问权限
+`非公有成员 (Non-Public)`:
+- 表示通常使用一个下划线 `_` 开头表示，例如 `_variable` 或 `_method()`。
+- `可以从外部访问`，但被视为一种`不鼓励`的做法。程序员应该将其视为类的内部实现的一部分，而不是公共API的一部分。虽然可以访问，但可能会在后续版本中发生变化，不建议在外部直接依赖它们。
+
+`私有成员 (Private)` :
+- 使用两个下划线 `__` 开头表示，例如 `__variable` 或 `__method()`。
+- 被认为是类的私有成员，`不可以在类的外部直接访问`。Python 解释器会修改这样的名称，以防止在子类中意外重写基类的私有成员。可以通过名称修饰的方式来间接访问。
+
+> 任何形式为 `__spam` 的标识符（至少带有两个前缀下划线，至多一个后缀下划线）的文本将被替换为` _classname__spam`，其中 `classname` 为去除了前缀下划线的当前类名称。
+
+#### issubclass()
+`issubclass` 是 Python 的内置函数之一。它用于检查一个类是否是另一个类的子类。
+```py
+class Animal:
+    pass
+
+class Dog(Animal):
+    pass
+
+# 检查 Dog 是否是 Animal 的子类
+result = issubclass(Dog, Animal)
+print(result)  # 输出: True
+
+```
+
+#### 多重继承
+多重继承是指一个类可以从多个父类中继承属性和方法。
+这意味着一个子类可以继承来自多个父类的特性。
+
+多重继承的语法形式如下：
+```py
+class ChildClass(ParentClass1, ParentClass2, ...):
+    # 子类的定义
+    # ...
+```
+
+当你创建一个类的实例时，该实例将继承所有父类的属性和方法。
+考虑以下的代码：
+```py
+class Animal:
+    def speak(self):
+        print("Animal speaks")
+
+class Mammal:
+    def run(self):
+        print("Mammal runs")
+
+class Dog(Animal, Mammal):
+    def bark(self):
+        print("Dog barks")
+
+# 创建一个 Dog 实例
+my_dog = Dog()
+
+# 调用继承自 Animal 类的方法
+my_dog.speak()
+
+# 调用继承自 Mammal 类的方法
+my_dog.run()
+
+# 调用自身定义的方法
+my_dog.bark()
+```
+
+#### 注解 @dataclass (3.7 ^)
+有时具有类似于`C "struct" `的数据类型是很有用的，将一些带名称的数据项捆绑在一起。
+
+`@dataclass` 是 Python 3.7 引入的一个装饰器，用于简化创建类并自动添加一些常见特殊方法
+
+在没有 `@dataclass` 的情况下，你可能需要手动编写 `__init__`、`__repr__`、`__eq__` 等方法，但使用 `@dataclass` 后，这些方法会被自动生成。
+
+```py
+from dataclasses import dataclass
+
+@dataclass
+class Employee:
+    name: str
+    dept: str
+    salary: int
+```
+
 
 ## 标准库
 
