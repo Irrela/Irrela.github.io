@@ -116,13 +116,30 @@ git checkout --\『file』
 本质是用版本库中的文件替代工作区
 
 ## 远程（remote）相关
-### 关联remote库
+### 本地仓库关联到一个新的远程仓库
+`git remote add` 用于添加一个新的远程仓库连接。
 
-> $ git remote add origin git@server-name:path/repo-name.git
+当你想要将本地仓库关联到一个新的远程仓库时，使用这个命令。它会添加一个新的远程仓库连接，并指定连接的名称（例如，upstream）和URL。
 
-> $ git remote add origin git@github.com:michaelliao/learngit.git
+```bash
+git remote add upstream https://github.com/upstream-username/upstream-repository.git
+```
 
-origin 是 远程库的默认命名，可以修改但之后push要一致
+### 更改远程仓库的URL
+`git remote set-url` 用于修改已存在的远程仓库的URL。
+
+`当你的本地仓库已经关联了一个远程仓库`，但你需要更改远程仓库的URL时，可以使用这个命令。它只修改现有远程仓库的URL。
+
+```bash
+git remote set-url origin https://github.com/your-username/your-repository.git
+```
+
+### 关于origin
+通常情况下，"`origin`" 是Git中默认的远程仓库的名称。
+当你使用 `git clone` 克隆一个远程仓库时，Git会自动为该远程仓库设置一个默认的名称 "`origin`"。
+这个默认的远程仓库通常指向你克隆项目的原始仓库，它是你从中克隆项目的位置。
+
+> 因此如果是本地新建仓库
 
 ### 解除关联
 
