@@ -211,7 +211,7 @@ kubectl expose deployment hello-node --type=LoadBalancer --port=8080
 kubectl get services
 ```
 
-3.访问 service
+***3.访问 service***
 在支持负载均衡器的云提供商上，将提供外部IP地址来访问该服务。
 
 minikube上，LoadBalancer类型使服务可以通过 `minikube service` 命令进行访问。
@@ -743,3 +743,158 @@ kubectl get deployments
 kubectl get pods -o wide
 ```
 这证实了2个Pod被终止。
+
+## Performing a Rolling Update (滚动更新)
+### Updating an application
+
+> 滚动更新通过使用新实例递增地更新Pods实例，使部署的更新可以在零停机时间内进行。
+
+用户希望应用程序随时可用，开发人员预计每天要部署几次新版本的应用程序。
+在Kubernetes中，这是通过滚动更新来实现的。
+滚动更新通过使用新实例递增地更新Pods实例，使部署的更新可以在零停机时间内进行。
+新的Pod将在具有可用资源的节点上进行调度。
+
+在上一个模块中，我们扩展了应用程序以运行多个实例。
+这是在不影响应用程序可用性的情况下执行更新的要求。
+默认情况下，更新期间不可用的最大Pod数和可以创建的新Pod的最大数为1。
+这两个选项都可以配置为数字或百分比(Pod)。
+在Kubernetes中，更新是版本化的，任何部署更新都可以恢复到以前的(稳定)版本。
+
+### Rolling updates
+
+> 如果 Deployment 公开，服务将在更新期间仅对可用Pod的流量进行负载均衡。
+
+`可用Pod`是可供应用程序用户使用的实例。
+
+滚动更新允许执行以下操作：
+- 将应用程序从一个环境升级到另一个环境(通过容器镜像更新)
+- 回滚到以前的版本
+- 持续集成和持续交付零宕机的应用程序
+
+在接下来的交互式教程中，我们将把应用程序更新到新版本，并执行回滚。
+
+### Update the version of the app
+要查看该应用程序的当前 `image` 版本，请运行`Describe Pods`子命令并查找 `Image` 字段：
+```bash
+kubectl describe pods
+```
+
+要将应用程序的映像更新到版本2，请使用`set Image`子命令，后跟`部署名称`和`新的Image版本`：
+```bash
+kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v2
+
+# Domestic Image
+
+```
+该命令通知 `Deployment` 为您的应用程序使用不同的 `Image` ，并启动滚动更新。
+检查新Pod的状态，并查看使用`Get Pods`子命令终止的旧Pod：
+```bash
+kubectl get pods
+```
+
+### Step 2: Verify an update
+
+首先，检查应用程序是否正在运行。
+要查找暴露的IP地址和端口，请运行`Describe`服务命令：
+```bash
+kubectl describe services/kubernetes-bootcamp
+```
+> 如果kubernetes-bootcamp没有创建Service，先创建Service
+> `kubectl expose deployment kubernetes-bootcamp --type=LoadBalancer --port=8080`
+
+尝试`curl`服务：
+```bash
+minikube service kubernetes-bootcamp --url
+
+curl <the endpoint returned by the above> # e.g. http://127.0.0.1:59500
+```
+
+确认更新结果：
+```bash
+kubectl rollout status deployments/kubernetes-bootcamp
+```
+
+### Roll back an update
+
+让我们执行另一次更新，并尝试部署一个标记为V10的镜像：
+```bash
+kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=gcr.io/google-samples/kubernetes-bootcamp:v10
+
+# Domestic Image
+kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=registry.cn-beijing.aliyuncs.com/typ/kubernetes-bootcamp:v10
+```
+
+注意到上述更新会因为 `ImagePullBackOff` 失败, 我们要回滚到上一个可以工作的版本：
+```bash
+kubectl rollout undo deployments/kubernetes-bootcamp
+```
+ `rollout undo` 命令可将 `Deployment` 恢复到以前的已知状态(image的v2)。
+ 更新是版本化的，您可以恢复到任何以前已知的 `Deployment` 状态。
+
+如果想要回滚到指定版本，使用 `set image`:
+```bash
+kubectl set image deployment/kubernetes-bootcamp kubernetes-bootcamp=gcr.io/google-samples/kubernetes-bootcamp:v2
+```
+
+
+## Certification
+
+### App Dev
+
+应用程序设计和构建–20%
+
+- 定义、构建和修改容器鏡像
+
+- 了解Jobs 和 CronJobs
+
+- 了解多容器Pod设计模式(例如sidecar, init等)
+
+- 使用持久卷和临时卷
+
+
+应用部署 - 20％
+
+- 使用Kubernetes原语来实现通用的部署策略(例如，蓝绿部署或金丝雀部署)
+
+- 理解部署和如何执行滚动更新
+
+- 使用Helm包管理器部署现有的包
+
+ 
+应用观察和维护 - 15％
+
+- 理解API的用法
+
+- 实现探测和运行状况检查
+
+- 使用提供的工具来监视Kubernetes应用程序
+
+- 利用容器日志
+
+- 在Kubernetes中调试
+
+ 
+应用环境、配置与安全 - 25％
+
+- 发现并使用扩展Kubernetes (CRD)的资源
+
+- 了解身份验证、授权和准入控制
+
+- 了解和定义资源需求、限制和配额
+
+- 了解ConfigMaps
+
+- 创造并使用Secrets
+
+- 了解ServiceAccounts
+
+- 了解SecurityContexts
+
+ 
+服务与网络 - 20％
+
+- 对网络策略有基本的了解
+
+- 通过服务提供对应用程序的访问并排除故障
+
+- 使用Ingress规则公开应用程序
