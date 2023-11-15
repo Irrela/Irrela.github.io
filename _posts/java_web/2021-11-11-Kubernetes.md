@@ -340,7 +340,7 @@ kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kube
 `Kubectl Proxy`命令可以创建一个代理，该代理将通信转发到群集范围的专用网络。
 可以通过按Ctrl-C来终止代理，并且在其运行时不会显示任何输出。
 
-新建一个terminal窗口运行: `kubectl proxy`
+新建一个terminal窗口运行: `kubectl proxy`。(ctrl + c即可关闭该命令创建的代理)
 
 现在，我们已经在主机(终端)和Kubernetes集群之间建立了连接。代理允许从这些终端直接访问API。
 
@@ -408,11 +408,234 @@ Pod始终在 `node` 上运行。
 
 ## Using a Service to Expose Your App
 
+### Obj
+- Service
+- How labels and selectors relate to a Service
+- `Expose` an application outside a Kubernetes cluster using a Service
+
+
+### Kubernetes Services
+
+Kubernetes Pod是 mortal 的。`Pods` 有生命周期。
+当一个worker `node` 死亡时，在该 `node` 上运行的Pod也会丢失。
+然后，ReplicaSet可以通过创建新的Pod来动态地将集群驱动回所需的状态，以保持应用程序的运行。
+作为另一个示例，考虑具有3个副本的图像处理后端。
+这些副本是可交换的;前端系统不应该关心后端副本，即使Pod丢失并重新创建。
+也就是说，`Kubernetes集群中的每个Pod都有一个唯一的IP地址`，即使是同一个Node上的Pod也是如此，因此需要一种方法来自动协调Pod之间的更改，以便您的应用程序继续运行。
+
+Kubernetes中的Service是一个抽象，`它定义了一组逻辑Pod以及访问它们的策略`。
+ `Service` 支持依赖Pod之间的松散耦合。
+ `Service` 使用YAML或JSON定义，就像所有Kubernetes对象清单一样。
+ `Service` 所针对的Pod集合通常由标签选择器决定（请参阅下文了解为什么您可能需要一个不包含选择器的Service）。
+
+虽然每个Pod都有一个唯一的IP地址，但如果没有Service，这些IP不会暴露在集群之外。
+ `Service` 允许您的应用程序接收流量。
+通过在 `Service` 的规范中指定类型，可以以不同的方式公开 `Service` :
+- `Cluster IP`（默认）-在集群中的内部IP上公开 `Service` 。此类型使 `Service` 只能从集群内访问。
+
+- `NodePort` -使用NAT在群集中每个选定 `node` 的同一端口上公开 `Service` 。使用：使 `Service` 可从群集外部访问`<NodeIP>:<NodePort>`。IP的超集。
+
+- `LoadBalancer` -在当前云中创建外部负载均衡器（如果支持），并为 `Service` 分配固定的外部IP。NodePort的超集。
+
+- `ExternalName` -通过返回带有其值的CNAME记录，将 `Service` 映射到externalName字段的内容（例如foo.bar.example.com）。不设置任何类型的限制。此类型需要kube-dns v1.7或更高版本，或CoreDNS 0.0.8或更高版本。
+
+
+此外，请注意， `Service` 中有一些用例涉及在规范中不定义选择器。
+在没有选择器的情况下创建的 `Service` 也不会创建相应的终结点对象。
+这允许用户手动将 `Service` 映射到特定终端。没有选择器的另一个可能原因是您严格使用了类型：ExternalName。
+
+### Services and Labels
+ `Service` 通过一组Pod来路由流量。
+ `Service` 是一种抽象，它允许Pod在Kubernetes中死亡和复制，而不会影响您的应用程序。
+依赖Pod(如应用程序中的前端和后端组件)之间的发现和路由由Kubernetes `Service` 处理。
+
+ `Service` 使用 `Label` 和选择器匹配一组Pod，这是一种分组原语，允许对Kubernetes中的对象进行逻辑操作。
+ `Label` 是附加到对象的键/值对，可以以任意数量的方式使用：
+- 指定开发、测试和生产对象
+
+- 嵌入版本 `Label` 
+
+-使用 `Label` 对对象进行分类
+
+ `Label` 可以在创建时或以后附着到对象。
+它们可以随时修改。
+现在让我们使用服务公开我们的应用程序并应用一些 `Label` 。
+
+### Create a new Service
+
+> 如果已经关闭上一个教程章节的应用，重启：打开docker -> minikube start -> minikube dashboard
+> 之前的应用应该会自动重启
+
+运行`kubectl get services`, 当前显示：
+```bash
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   2d3h
+```
+我们有一个名为Kubernetes的 `Service` ，它是在minikube启动集群时默认创建的。
+要创建新服务并将其公开给外部流量，我们将使用带有NodePort参数的expose命令。
+```bash
+kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
+```
+运行完后显示：
+```bash
+NAME                  TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+kubernetes            ClusterIP   10.96.0.1        <none>        443/TCP          2d3h
+kubernetes-bootcamp   NodePort    10.111.121.169   <none>        8080:31846/TCP   3s
+```
+
+要找出外部打开了哪个端口(对于类型：NodePort Service)，我们将运行`Describe Service`子命令：
+```bash
+kubectl describe services/kubernetes-bootcamp
+```
+显示：
+```bash
+Name:                     kubernetes-bootcamp
+Namespace:                default
+Labels:                   app=kubernetes-bootcamp
+Annotations:              <none>
+Selector:                 app=kubernetes-bootcamp
+Type:                     NodePort
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.111.121.169
+IPs:                      10.111.121.169
+Port:                     <unset>  8080/TCP
+TargetPort:               8080/TCP
+NodePort:                 <unset>  31846/TCP
+Endpoints:                10.244.0.21:8080
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+```
+可以看到`NodePort: 31846/TCP`
+创建一个名为 `NODE_PORT` 的环境变量，并为其分配Node端口值：
+```bash
+export NODE_PORT="$(kubectl get services/kubernetes-bootcamp -o go-template='{{(index .spec.ports 0).nodePort}}')"
+echo "NODE_PORT=$NODE_PORT"
+```
+
+现在，我们可以使用 `curl` 、 `node` 的IP地址和外部暴露的端口来测试应用程序是否暴露在集群外部：
+```bash
+curl http://"$(minikube ip):$NODE_PORT"
+```
+
+> Note: 如果您使用Docker Desktop作为容器驱动程序来运行mini kube，则需要一条mini kube隧道。
+> 这是因为Docker Desktop中的容器与您的主机隔离。
+> 在单独的终端窗口中，执行：`minikube service kubernetes-bootcamp --url`
+这会返回：
+```bash
+http://127.0.0.1:58476
+❗  因为你正在使用 darwin 上的 Docker 驱动程序，所以需要打开终端才能运行它。
+```
+
+然后就可以`curl`: `curl http://127.0.0.1:58476`，你应该能得到一个如下的返回：
+```bash
+Hello Kubernetes bootcamp! | Running on: kubernetes-bootcamp-79b64c5769-4fdkp | v=1
+```
+说明我们的 `Service` 已经暴露到公开。
+
+### Step 2: Using labels
+
+`Label` 是一个非常重要的概念，可以用于选择性地标记和选择对象，包括 `Pods` 和 `Services`
+
+`Service` 的 `Selector` 主要用于选择与其关联的 `Pods`。
+在 `Service` 的定义中，你可以指定一个或多个 Label，用于标识属于这个 `Service` 的 `Pods`。`Service` 将使用这个 Label `Selector` 来确定哪些 `Pods` 将被关联到这个 `Service`。
+
+`Service` 的 Label：
+尽管 `Service` 的主要作用是关联到 `Pods`，但你也可以为 `Service` 自身定义一个 Label。这个 Label 可以用于组织、管理和标识 `Service`。它不会影响到选择哪些 `Pods`，但可以作为额外的元数据存在。
+
+
+部署会自动为我们的Pod创建一个标签。
+使用`kubectl describe deployment`命令，
+您可以看到该标签的名称(键)：`Labels:  app=kubernetes-bootcamp`
+```bash
+Name:                   kubernetes-bootcamp
+Namespace:              default
+CreationTimestamp:      Wed, 15 Nov 2023 00:01:26 +0800
+Labels:                 app=kubernetes-bootcamp
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               app=kubernetes-bootcamp
+Replicas:               1 desired | 1 updated | 1 total | 1 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=kubernetes-bootcamp
+  Containers:
+   kubernetes-bootcamp:
+    Image:        registry.cn-beijing.aliyuncs.com/typ/kubernetes-bootcamp:v1
+    Port:         <none>
+    Host Port:    <none>
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    NewReplicaSetAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   kubernetes-bootcamp-79b64c5769 (1/1 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  18h   deployment-controller  Scaled up replica set kubernetes-bootcamp-79b64c5769 to 1
+```
+
+让我们使用这个标签来查询我们的Pod列表。我们将使用带有`-L`作为参数的`kubectl get pods`命令，后跟标签值：
+```bash
+kubectl get pods -l app=kubernetes-bootcamp
+```
+返回：
+```bash
+NAME                                   READY   STATUS    RESTARTS      AGE
+kubernetes-bootcamp-79b64c5769-4fdkp   1/1     Running   1 (36m ago)   18h
+```
+
+获取Pod的名称并将其存储在POD_NAME环境变量中：
+```bash
+export POD_NAME="$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')"
+echo "Name of the Pod: $POD_NAME"
+```
+
+`要应用新标签`，我们使用 `label` 子命令，后跟对象类型、对象名称和新标签`version=v1`：
+```bash
+kubectl label pods "$POD_NAME" version=v1
+```
+这将向我们的Pod应用一个新标签(我们将应用程序版本固定到Pod)，我们可以使用`Describe Pod`命令进行检查：
+```bash
+kubectl describe pods "$POD_NAME"
+```
+我们在这里看到标签现在贴在我们的Pod上。现在我们可以使用新标签查询pod列表：
+```bash
+kubectl get pods -l version=v1
+```
+我们会看到返回是我们的pod
+
+### Deleting a service
+```bash
+# 根据label删除服务
+kubectl delete service -l app=kubernetes-bootcamp
+```
+
+我们的服务已被移除。要确认路由不再公开，您可以 `curl` 之前公开的IP和端口：
+```bash
+curl http://"$(minikube ip):$NODE_PORT"
+# With Docker desktop
+minikube service kubernetes-bootcamp --url 
+curl http://127.0.0.1:58476  # 上一个command的返回值
+```
+会发现无返回并超时, 这证明不能再从集群外部访问该应用程序。
+
+你可以从Pod内部确认应用程序仍在运行:
+```bash
+kubectl exec -ti $POD_NAME -- curl http://localhost:8080
+```
 
 ## Running Multiple Instances of Your App
 
 ### Scaling an application
-之前，我们创建了一个部署，然后通过服务公开了它。该部署只创建了一个用于运行我们的应用程序的Pod。当流量增加时，我们将需要扩展应用程序以跟上用户需求。
+之前，我们创建了一个部署，然后通过 `Service` 公开了它。该部署只创建了一个用于运行我们的应用程序的Pod。当流量增加时，我们将需要扩展应用程序以跟上用户需求。
 
 如果您还没有学习前面的部分，那么可以从使用Minikube创建集群开始。
 
@@ -520,5 +743,3 @@ kubectl get deployments
 kubectl get pods -o wide
 ```
 这证实了2个Pod被终止。
-
-
