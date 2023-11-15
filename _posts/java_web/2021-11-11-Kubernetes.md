@@ -5,9 +5,58 @@ tags:
 - Web
 ---
 
+- [Learn Kubernetes Basics](#learn-kubernetes-basics)
+  - [一些概念](#一些概念)
+    - [Pod（容器组）](#pod容器组)
+    - [Deployment](#deployment)
+    - [Service](#service)
+  - [Objective](#objective)
+  - [What can Kubernetes do for you?](#what-can-kubernetes-do-for-you)
+  - [Create a Cluster](#create-a-cluster)
+    - [Kubernetes Clusters](#kubernetes-clusters)
+    - [Cluster Diagram](#cluster-diagram)
+    - [Hello Minikube (Optional)](#hello-minikube-optional)
+      - [Objectives](#objectives)
+      - [Installation](#installation)
+      - [Interact](#interact)
+      - [Create a Deployment](#create-a-deployment)
+      - [Create a Service](#create-a-service)
+      - [Enable addons](#enable-addons)
+      - [清理](#清理)
+  - [使用 kubectl 创建 Deployment](#使用-kubectl-创建-deployment)
+    - [Objectives](#objectives-1)
+    - [Kubernetes Deployments](#kubernetes-deployments)
+    - [Deploying your first app on Kubernetes](#deploying-your-first-app-on-kubernetes)
+      - [Deploy an app](#deploy-an-app)
+      - [View the app](#view-the-app)
+  - [Viewing Pods and Nodes](#viewing-pods-and-nodes)
+    - [Objectives](#objectives-2)
+    - [Kubernetes Pods](#kubernetes-pods)
+    - [Nodes](#nodes)
+    - [使用kubectl进行故障排除(Troubleshooting)](#使用kubectl进行故障排除troubleshooting)
+  - [Using a Service to Expose Your App](#using-a-service-to-expose-your-app)
+    - [Obj](#obj)
+    - [Kubernetes Services](#kubernetes-services)
+    - [Services and Labels](#services-and-labels)
+    - [Create a new Service](#create-a-new-service)
+    - [Step 2: Using labels](#step-2-using-labels)
+    - [Deleting a service](#deleting-a-service)
+  - [Running Multiple Instances of Your App](#running-multiple-instances-of-your-app)
+    - [Scaling an application](#scaling-an-application)
+    - [Scaling a Deployment](#scaling-a-deployment)
+    - [Load Balancing](#load-balancing)
+    - [Scale Down](#scale-down)
+  - [Performing a Rolling Update (滚动更新)](#performing-a-rolling-update-滚动更新)
+    - [Updating an application](#updating-an-application)
+    - [Rolling updates](#rolling-updates)
+    - [Update the version of the app](#update-the-version-of-the-app)
+    - [Step 2: Verify an update](#step-2-verify-an-update)
+    - [Roll back an update](#roll-back-an-update)
+  - [Certification](#certification)
+    - [App Dev](#app-dev)
+
+
 # Learn Kubernetes Basics
-
-
 ## 一些概念
 
 在 Kubernetes（k8s）中，`Deployment`、`Pod` 和 `Service` 是构建和管理容器化应用的关键组件。
