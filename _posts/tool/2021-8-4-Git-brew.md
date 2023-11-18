@@ -5,6 +5,60 @@ categories: Tool
 tags:
 - Tool
 ---
+
+- [Git](#git)
+  - [Definition of Concepts](#definition-of-concepts)
+    - [Fork \& clone](#fork--clone)
+  - [Submodule](#submodule)
+  - [Proxy设置](#proxy设置)
+  - [版本相关](#版本相关)
+    - [git log](#git-log)
+    - [git reset --hard(opt) \\「version」](#git-reset---hardopt-version)
+    - [git add \\『file』](#git-add-file)
+    - [git commit-m \<desc words\>](#git-commit-m-desc-words)
+    - [git status](#git-status)
+    - [git diff \\「version」 -- \\『file』](#git-diff-version----file)
+  - [撤销](#撤销)
+    - [git checkout -- \\『file』](#git-checkout----file)
+    - [git reset HEAD \\『file』](#git-reset-head-file)
+  - [删除与取消删除](#删除与取消删除)
+    - [git rm \\『file』](#git-rm-file)
+    - [误删除恢复](#误删除恢复)
+  - [远程（remote）相关](#远程remote相关)
+    - [本地仓库关联到一个新的远程仓库](#本地仓库关联到一个新的远程仓库)
+    - [更改远程仓库的URL](#更改远程仓库的url)
+    - [关于origin](#关于origin)
+    - [解除关联](#解除关联)
+    - [git push -u origin \<branch\>](#git-push--u-origin-branch)
+  - [分支操作](#分支操作)
+    - [git branch \<branch\>](#git-branch-branch)
+    - [git checkout \<branch\>](#git-checkout-branch)
+    - [git checkout -b \<branch\>](#git-checkout--b-branch)
+    - [git branch](#git-branch)
+    - [git merge \<branch\>](#git-merge-branch)
+    - [git branch -d \<branch\>](#git-branch--d-branch)
+    - [git switch (-c) \<branch\>](#git-switch--c-branch)
+  - [分支冲突](#分支冲突)
+    - [git status](#git-status-1)
+    - [git log --graph](#git-log---graph)
+  - [保存现场与读取](#保存现场与读取)
+    - [git stash](#git-stash)
+    - [git stash list](#git-stash-list)
+    - [git stash apply \<stash@{...}\>](#git-stash-apply-stash)
+    - [git stash pop](#git-stash-pop)
+    - [git cherry-pick \<commit-id\>](#git-cherry-pick-commit-id)
+    - [git branch -D \<name\>](#git-branch--d-name)
+  - [其他](#其他)
+    - [git pull 与 fetch](#git-pull-与-fetch)
+    - [在windows上出现LF替换](#在windows上出现lf替换)
+  - [撤销最近一次commit](#撤销最近一次commit)
+    - [reset](#reset)
+    - [git revert](#git-revert)
+    - [推送remote](#推送remote)
+- [Brew](#brew)
+  - [Command](#command)
+
+
 # Git
 ## Definition of Concepts
 ### Fork & clone
@@ -61,7 +115,7 @@ git config --global --unset http.proxy
 git config --global --unset https.proxy
 ```
 > 看看host里是否绑了不合适的github.com ip，直接删掉即可
-> sudo code /etc/hosts
+> sudo vim /etc/hosts
 
 ## 版本相关
 ### git log
@@ -143,9 +197,13 @@ git remote set-url origin https://github.com/your-username/your-repository.git
 
 ### 解除关联
 
-> $ git remote rm origin
+```bash
+git remote remove <remote-name>
+```
 
-解除了本地和远程的绑定关系，并不是物理上删除了远程库
+如果不知道 `<remote-name>` ，运行 `git remote -v` 查看
+
+> 解除了本地和远程的绑定关系，并不是物理上删除了远程库
 
 ### git push -u origin \<branch>
 当远程库没有branch时，在远端创建branch并关联
