@@ -29,32 +29,25 @@ tags:
     - [更改远程仓库的URL](#更改远程仓库的url)
     - [关于origin](#关于origin)
     - [解除关联](#解除关联)
-    - [git push -u origin \<branch\>](#git-push--u-origin-branch)
   - [分支操作](#分支操作)
-    - [git branch \<branch\>](#git-branch-branch)
-    - [git checkout \<branch\>](#git-checkout-branch)
-    - [git checkout -b \<branch\>](#git-checkout--b-branch)
-    - [git branch](#git-branch)
-    - [git merge \<branch\>](#git-merge-branch)
-    - [git branch -d \<branch\>](#git-branch--d-branch)
-    - [git switch (-c) \<branch\>](#git-switch--c-branch)
+    - [创建branch](#创建branch)
+    - [切换到branch](#切换到branch)
+    - [创建并切换到branch](#创建并切换到branch)
+    - [查看所有branch，表示当前选择的分支](#查看所有branch表示当前选择的分支)
+    - [合并branch到当前分支](#合并branch到当前分支)
+    - [删除branch](#删除branch)
   - [分支冲突](#分支冲突)
     - [git status](#git-status-1)
-    - [git log --graph](#git-log---graph)
+    - [看分支合并图](#看分支合并图)
   - [保存现场与读取](#保存现场与读取)
-    - [git stash](#git-stash)
-    - [git stash list](#git-stash-list)
-    - [git stash apply \<stash@{...}\>](#git-stash-apply-stash)
-    - [git stash pop](#git-stash-pop)
-    - [git cherry-pick \<commit-id\>](#git-cherry-pick-commit-id)
-    - [git branch -D \<name\>](#git-branch--d-name)
+    - [保存工作区](#保存工作区)
+    - [查看保存的工作区列表](#查看保存的工作区列表)
   - [其他](#其他)
     - [git pull 与 fetch](#git-pull-与-fetch)
     - [在windows上出现LF替换](#在windows上出现lf替换)
   - [撤销最近一次commit](#撤销最近一次commit)
     - [reset](#reset)
     - [git revert](#git-revert)
-    - [推送remote](#推送remote)
 - [Brew](#brew)
   - [Command](#command)
 
@@ -173,10 +166,10 @@ git checkout --\『file』
 ### 本地仓库关联到一个新的远程仓库
 `git remote add` 用于添加一个新的远程仓库连接。
 
-当你想要将本地仓库关联到一个新的远程仓库时，使用这个命令。它会添加一个新的远程仓库连接，并指定连接的名称（例如，upstream）和URL。
+当你想要将本地仓库关联到一个新的远程仓库时，使用这个命令。它会添加一个新的远程仓库连接，并指定连接的名称（一般用origin就好）和URL。
 
 ```bash
-git remote add upstream https://github.com/upstream-username/upstream-repository.git
+git remote add origin https://github.com/github-username/remote-repository.git
 ```
 
 ### 更改远程仓库的URL
@@ -200,37 +193,47 @@ git remote set-url origin https://github.com/your-username/your-repository.git
 ```bash
 git remote remove <remote-name>
 ```
-
 如果不知道 `<remote-name>` ，运行 `git remote -v` 查看
 
 > 解除了本地和远程的绑定关系，并不是物理上删除了远程库
 
-### git push -u origin \<branch>
-当远程库没有branch时，在远端创建branch并关联
+
+
 
 ## 分支操作
-### git branch \<branch>
-创建branch
+### 创建branch
+```bash
+git branch <branch>
+```
 
-### git checkout \<branch>
-切换到branch
+### 切换到branch
+```bash
+git checkout <branch>
+```
+### 创建并切换到branch
+```bash
+git checkout -b <branch>
 
-### git checkout -b \<branch>
-== git branch <branch> + git checkout \<branch>
-创建并切换到branch
-
-### git branch
-查看所有branch，表示当前选择的分支
-
-### git merge \<branch>
-合并branch到当前分支
+# 等价于 
+git branch <branch> 
+git checkout <branch>
+```
+### 查看所有branch，表示当前选择的分支
+```bash
+git branch
+```
+### 合并branch到当前分支
+```bash
+# 在当前branch-a下
+# 将branch-b合并到branch-a
+git merge <branch-b>
+```
 -> fast-forward是一种合并方式，直接把branch指向当前分支
 
-### git branch -d \<branch>
-合并完成之后，删除branch
-
-### git switch (-c) \<branch>
-和checkout切换分支效果一致，-c是创建并切换
+### 删除branch
+```bash
+git branch -d <branch>
+```
 
 ## 分支冲突
 当两个分支有不同的commit时，有可能出现冲突，执行merge会提示fix conflict，手动选择保留哪一分支的内容
@@ -238,27 +241,26 @@ git remote remove <remote-name>
 ### git status
 可以看到冲突细节
 
-### git log --graph
-可以看到分支的合并图
+### 看分支合并图
+```bash
+git log --graph
+```
+
 
 ## 保存现场与读取
-### git stash
-保存工作区
+### 保存工作区
+```bash
+git stash
+```
 
-### git stash list
-查看保存的工作区列表，stash@{...} 可用于指定取回
+### 查看保存的工作区列表
+```bash
+git stash list
+```
+> stash@{...} 可用于指定取回
 
-### git stash apply \<stash@{...}>
-取回暂存工作区，但不从list中删除
 
-### git stash pop
-取回最顶层的暂存工作区，从list中删除
 
-### git cherry-pick \<commit-id>
-在当前分支上重放指定commit的修改。
-
-### git branch -D \<name>
-如果要丢弃一个没有被合并过的分支，可以通过此命令强行删除。
 
 ## 其他
 ### git pull 与 fetch
@@ -297,26 +299,14 @@ git reset --hard HEAD~1
 git revert HEAD
 ```
 
-### 推送remote
-如果你在本地已经撤销了一个提交，然后希望将这些更改推送到远程仓库，你需要谨慎处理，因为你会改变分支的历史。推送更改到远程仓库需要使用 `--force` 选项，这将覆盖远程分支的历史。
-
-1. 如果你使用了 `git reset` 撤销了提交，你需要强制推送到远程分支。首先，确保你在本地分支上已经执行了 `git reset`，然后运行以下命令：
-```bash
-git push origin <branch-name> --force
-```
-2. 如果你使用了 `git revert` 撤销了提交，你只需正常地推送更改到远程仓库：
-```bash
-git push origin <branch-name>
-```
-    这将创建一个新的提交，该提交撤销了之前的提交，而不会修改分支的历史。这种方式更安全，通常不需要使用 --force 选项。
 
 
 # Brew
 ## Command
-```
-// 查看pkg信息
+```bash
+# 查看pkg信息
 brew info <pkg-name>
 
-// pkg所在文件夹路径
+# pkg所在文件夹路径
 brew --prefix <pkg-name>
 ```
