@@ -7,22 +7,122 @@ tags:
 
 # Annotation
 
-## @RequestParam & @RequestBody
-### @RequestParam
-@RequestParam可以接受简单类型的属性，也可以接受对象类型。
+## @Autowired 和 @Resource
+都是在Spring中用于注入依赖的注解。
 
-@RequestParam有三个配置参数：
+***@Autowired*** 
+- 是Spring提供的注解，
+- 按照类型（by type）进行匹配的。如果有多个相同类型的Bean，Spring会尝试找到最合适的进行注入。
+- 默认要求依赖是必须的，如果找不到匹配的Bean，会抛出异常。你可以通过required属性设置为false，使依赖变成可选的。
+- 支持构造函数、setter方法、字段和方法的注入。
+- 是Spring框架提供的注解，因此在使用Spring框架的项目中常常使用它。
+
+***@Resource ***
+- 是Java EE的标准注解，它由Java EE提供。
+- 按照名称（by name）进行匹配的。你可以通过name属性指定要注入的Bean的名称，如果没有指定名称，它会按照字段名或者属性名进行匹配。
+- 如果找不到匹配的Bean，会尝试按照类型进行匹配。如果还找不到，会抛出异常。你可以通过name属性指定名称，也可以通过type属性指定类型。
+- 主要用于字段和方法的注入。
+- 是Java EE的一部分，因此在Java EE环境中使用它更为常见。
+
+### @Autowired 和 `Field injection is not recommended`
+
+
+
+## @RequestParam, @PathVariable, @RequestBody
+***@RequestParam***
+`@RequestParam` 可以接受简单类型的属性，也可以接受对象类型。
+
+`@RequestParam` 有三个配置参数：
 - required 表示是否必须，默认为 true，必须。
 - defaultValue 可设置请求参数的默认值。
 - value 为接收url的参数名（相当于key值）。
 
-@RequestParam用来处理*Content-Type*为*application/x-www-form-urlencoded*编码的内容，Content-Type默认为该属性，也可以接收​​​​​​​application/json。
+- 用于从请求中提取查询参数，通常用于处理 GET 请求的参数。
+- 参数是通过 URL 查询字符串（例如 ?name=value）传递的。
+- 在控制器方法的参数中使用 @RequestParam 注解，指定参数的名称。
 
-@RequestParam也可用于其它类型的请求，例如：POST、DELETE等请求。
+
+```java
+@GetMapping("/example")
+public String exampleMethod(@RequestParam String name) {
+    // 方法体
+}
+// 在上述例子中，假设请求为 /example?name=John，name 参数的值将被映射到 name 参数上。
+```
+***@PathVariable***
+用途： 用于从 URI 中提取模板变量，通常用于 RESTful 风格的请求。
+
+示例：
+```java
+@GetMapping("/example/{id}")
+public String exampleMethod(@PathVariable Long id) {
+    // 方法体
+}
+// 在这个例子中，如果请求的 URL 是 /example/123，那么 id 将被映射到方法的参数上，值为 123。
+```
+
+
+***@RequestBody***
+- 用于从请求体中提取参数，通常用于处理 POST 请求的参数。
+- 参数是通过请求的 body 部分传递的，通常是 JSON 或 XML 格式的数据。
+- 在控制器方法的参数中使用 @RequestBody 注解。
+```java
+@PostMapping("/example")
+public String exampleMethod(@RequestBody User user) {
+    // 方法体
+}
+// 在上述例子中，假设请求是一个 POST 请求，请求体包含一个表示用户的 JSON 数据。User 对象将从请求体中反序列化。
+```
+
+
+`@RequestParam` 用来处理*Content-Type*为*application/x-www-form-urlencoded*编码的内容，Content-Type默认为该属性，也可以接收​​​​​​​application/json。
+
+`@RequestParam` 也可用于其它类型的请求，例如：POST、DELETE等请求。
 
 所以在postman中，要选择body的类型为*x-www-form-urlencoded*，这样在headers中就自动变为了 Content-Type : application/x-www-form-urlencoded 编码格式。
 
-### @RequestBody
+## @ResponseBody 和 ResponseEntity
+
+都是在Spring MVC中处理HTTP响应的方式.
+
+***@ResponseBody：***
+@ResponseBody 注解通常用于将方法的返回值直接作为 HTTP 响应的主体部分。这意味着返回的对象将被转换为响应的主体，并通过适当的消息转换器进行序列化。这个注解通常用于RESTful服务，尤其是返回JSON或XML格式的数据。
+
+示例：
+```java
+@RestController
+@RequestMapping("/api")
+public class MyController {
+
+    @GetMapping("/data")
+    @ResponseBody
+    public MyData getData() {
+        // 返回的MyData对象将被转换成JSON或XML
+        return new MyData("Hello, World!");
+    }
+}
+```
+
+***ResponseEntity：***
+ResponseEntity 是一个更加灵活的类，它允许你完全掌控响应的各个方面，包括状态码、头部信息以及响应体。你可以使用它来构建一个更加定制化的 HTTP 响应。
+```java
+@RestController
+@RequestMapping("/api")
+public class MyController {
+
+    @GetMapping("/data")
+    public ResponseEntity<MyData> getData() {
+        MyData myData = new MyData("Hello, World!");
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Custom-Header", "SomeValue");
+
+        // 可以设置状态码、头部信息等
+        return new ResponseEntity<>(myData, headers, HttpStatus.OK);
+    }
+}
+
+```
 
 # Demo
 
@@ -301,3 +401,103 @@ public class TestUserDao {
 ```
 
 截至目前已经可以完成测试。
+
+# 处理持久层的框架
+
+## Spring Data JPA、MyBatis 和 Hibernate
+
+## dao还是repository
+
+`repository` 目录通常用于Spring Data JPA的项目结构，而 `dao` 目录则可能在使用其他持久化框架（例如MyBatis）或者不使用特定的ORM框架的项目中出现。
+这两者并不一定冲突，而是反映了在不同的技术栈中对于数据访问层的不同命名习惯。
+
+***Spring Data JPA***： Spring Data JPA 提供了一种简化数据访问的方式，通常使用 `repository` 来表示数据访问层。在这种情况下，`repository` 包含了通过接口来定义数据操作的方式，而不再需要手动编写 SQL。
+```txt
+|-- src
+|   |-- main
+|       |-- java
+|           |-- com
+|               |-- yourcompany
+|                   |-- yourproject
+|                       |-- repository
+|                           |-- UserRepository.java
+
+```
+
+***dao 目录***：
+传统数据访问： 如果你使用的是传统的JDBC、Hibernate、MyBatis等，那么 dao 目录可能更为常见。在这里，dao 表示数据访问对象，通常包含了对数据库的底层操作，手动编写 SQL 或者使用框架提供的方式。
+```txt
+|-- src
+|   |-- main
+|       |-- java
+|           |-- com
+|               |-- yourcompany
+|                   |-- yourproject
+|                       |-- dao
+|                           |-- UserDao.java
+
+```
+
+
+## Mybatis
+### MyBatis 的映射器（Mapper）
+
+MyBatis 提供了两种方式来配置和定义 Mapper，即`注解`和 `XML`。
+
+***1. XML方式：***
+```xml
+<!-- UserDao.xml -->
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seiro.demo.dao.UserDao">
+    <select id="findAll" resultType="com.seiro.demo.entity.User">
+        select * from t_user
+    </select>
+</mapper>
+```
+
+***2. 注解方式：***
+```java
+// UserDao.java
+@Mapper
+public interface UserDao {
+
+    @Select("select * from t_user")
+    List<User> findAll();
+}
+
+```
+
+***3. 映射器方法命名规则***
+
+没看到有注解，也没有mapper.xml文件，MyBatis还可以通过`方法名来推断sql语句`
+方法名 `getMessagesByConversationId` 可以被 MyBatis 推断为一条查询语句。具体推断规则如下：
+
+方法名开头的单词：
+- get 或 find：被推断为查询操作。
+- insert：被推断为插入操作。
+- update：被推断为更新操作。
+- delete：被推断为删除操作。
+
+方法名后面的单词：
+除了前缀（如 get、find、insert）之外的其余部分将被用于推断 SQL 语句中的表名或条件。
+
+在你的例子中，`getMessagesByConversationId` 被推断为一条查询语句，MyBatis 将会根据这个方法名生成类似以下的 SQL 语句：
+```sql
+SELECT * FROM chat_message WHERE conversation_id = #{conversationId}
+```
+
+# Hole
+
+## 初次启动`This application has no explicit mapping for /error`
+找不到一个controller可以map到`/`, 随便写一个类似于：
+```java
+@RestController
+public class ChatController {
+
+    @RequestMapping("/")
+    public String home(){
+        return "Hello World!";
+    }
+}
+```
