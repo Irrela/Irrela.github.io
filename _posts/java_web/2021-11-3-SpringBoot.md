@@ -5,6 +5,46 @@ tags:
 - Java
 ---
 
+- [Annotation](#annotation)
+  - [@Autowired 和 @Resource](#autowired-和-resource)
+    - [@Autowired 和 `Field injection is not recommended`](#autowired-和-field-injection-is-not-recommended)
+      - [解决方式](#解决方式)
+  - [@RequestParam, @PathVariable, @RequestBody](#requestparam-pathvariable-requestbody)
+  - [@ResponseBody 和 ResponseEntity](#responsebody-和-responseentity)
+- [Demo](#demo)
+  - [原址](#原址)
+  - [新建项目](#新建项目)
+  - [编写SpringBoot启动类](#编写springboot启动类)
+  - [编写application配置文件](#编写application配置文件)
+  - [编写UserController](#编写usercontroller)
+  - [集成Mybatis](#集成mybatis)
+    - [库表准备](#库表准备)
+    - [实体类准备](#实体类准备)
+    - [创建mapper相关](#创建mapper相关)
+    - [导入Mybatis相关依赖](#导入mybatis相关依赖)
+    - [配置application中Mybatis相关配置](#配置application中mybatis相关配置)
+    - [在启动类上添加扫描dao接口的注解](#在启动类上添加扫描dao接口的注解)
+    - [开发dao接口以及Mapper](#开发dao接口以及mapper)
+      - [新建dao接口。](#新建dao接口)
+      - [新建mapper文件UserMapper.xml](#新建mapper文件usermapperxml)
+  - [测试](#测试)
+    - [引入测试依赖](#引入测试依赖)
+    - [编写测试类](#编写测试类)
+- [处理持久层的框架](#处理持久层的框架)
+  - [Spring Data JPA、MyBatis 和 Hibernate](#spring-data-jpamybatis-和-hibernate)
+  - [dao还是repository](#dao还是repository)
+  - [Mybatis](#mybatis)
+    - [MyBatis 的映射器（Mapper）](#mybatis-的映射器mapper)
+- [Spring配置文件](#spring配置文件)
+  - [多环境配置](#多环境配置)
+    - [配置文件命名规则](#配置文件命名规则)
+    - [创建不同环境的配置文件](#创建不同环境的配置文件)
+    - [激活配置文件](#激活配置文件)
+    - [在代码中精细选择配置文件](#在代码中精细选择配置文件)
+- [Hole](#hole)
+  - [初次启动`This application has no explicit mapping for /error`](#初次启动this-application-has-no-explicit-mapping-for-error)
+
+
 # Annotation
 
 ## @Autowired 和 @Resource
@@ -26,6 +66,57 @@ tags:
 
 ### @Autowired 和 `Field injection is not recommended`
 
+`"Field injection is not recommended"` 意味着在类的字段上使用依赖注入（通常是通过 @Autowired 或类似的注解）并不是一种推荐的做法。
+
+这样的建议通常基于以下几个理由：
+
+***可测试性（Testability）***：使用字段注入的类在进行单元测试时可能会更难以处理。如果你使用构造函数注入，你可以在构造对象时传递模拟的依赖，这使得测试更容易进行。
+
+***依赖性的清晰性（Clarity of Dependencies）***：构造函数注入通常更明确地显示了一个类依赖于哪些其他类。这对于阅读和理解代码是有帮助的。字段注入可能隐藏了类的实际依赖，因为它们可以在类的任何地方进行注入。
+
+***循环依赖问题（Circular Dependency Issues）***：如果两个类相互依赖，使用字段注入可能会导致循环依赖的问题。构造函数注入通常更容易处理这样的情况。
+
+***不可变性（Immutability）***：如果你的类是不可变的，那么通过构造函数注入依赖通常更为合适，因为在对象创建后，其状态不能被改变。
+
+
+#### 解决方式
+1. 用构造函数注入
+```java
+// 不推荐的方式：字段注入
+@Service
+public class MyService {
+    @Autowired
+    private MyRepository repository;
+    // other methods...
+}
+
+// 推荐的方式：构造函数注入
+@Service
+public class MyService {
+    private final MyRepository repository;
+
+    @Autowired
+    public MyService(MyRepository repository) {
+        this.repository = repository;
+    }
+    // other methods...
+}
+```
+
+2. 换用@Resource
+```java
+import jakarta.annotation.Resource;
+
+// 在使用 @Resource 时，你可以通过 name 属性指定要注入的 Bean 的名称，这就消除了一些可能出现的歧义。
+@Resource(name = "myRepository")
+private MyRepository repository;
+
+```
+虽然 `@Resource` 有一些优势，但在使用时仍然需要注意一些问题，比如在没有指定 name 属性的情况下，它仍然按照类型进行匹配。此外，如果在一个类中有多个相同类型的 Bean，它可能会遇到与 @Autowired 相似的歧义问题。
+
+总体而言，选择使用 `@Resource` 还是 @Autowired 取决于项目的具体情况和个人或团队的偏好。在 Spring 项目中，@Autowired 是更为常见和推荐的选择。在 Java EE 或 Jakarta EE 环境中，或者在与这些标准集成的项目中，`@Resource` 可能更为适用。
+
+> 关于 jakarta.annotation.Resource: javax.annotation.Resource是Java EE, 前者是 Jakarta EE, Jakarta EE是开源而且社区更活跃，用就可以了
 
 
 ## @RequestParam, @PathVariable, @RequestBody
@@ -486,6 +577,57 @@ public interface UserDao {
 ```sql
 SELECT * FROM chat_message WHERE conversation_id = #{conversationId}
 ```
+
+# Spring配置文件
+## 多环境配置
+### 配置文件命名规则
+- `application.properties`: 默认配置文件，总是会加载。
+- `application-{profile}.properties`: profile是你激活的环境（例如，application-dev.properties）。
+- `application-{profile}.yml`: 与.properties相似，但使用YAML格式。
+
+### 创建不同环境的配置文件
+在你的 `src/main/resources` 目录下，创建以下文件：
+- `application.properties`：通用的配置
+- `application-dev.properties`：开发环境配置
+- `application-prod.properties`：生产环境配置
+
+### 激活配置文件
+在`application.properties`中使用`spring.profiles.active`属性指定你要激活的环境。
+```bash
+# application.properties
+spring.profiles.active=dev
+```
+或者，你可以`通过命令行参数或者环境变量来激活不同的配置文件`。例如，在启动应用程序时使用以下命令：
+```bash
+java -jar your-application.jar --spring.profiles.active=prods
+```
+
+### 在代码中精细选择配置文件
+在你的代码中，你可以通过`@Value`注解或`Environment`对象来读取配置值。
+```bash
+@RestController
+public class MyController {
+
+    @Value("${your.property}")
+    private String yourProperty;
+
+    @Autowired
+    private Environment environment;
+
+    @GetMapping("/property")
+    public String getProperty() {
+        // 通过 @Value 注解读取配置值
+        String property1 = yourProperty;
+
+        // 通过 Environment 读取配置值
+        String property2 = environment.getProperty("your.property");
+
+        return "Property 1: " + property1 + ", Property 2: " + property2;
+    }
+}
+```
+
+
 
 # Hole
 
