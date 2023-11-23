@@ -42,7 +42,11 @@ tags:
     - [激活配置文件](#激活配置文件)
     - [在代码中精细选择配置文件](#在代码中精细选择配置文件)
 - [Hole](#hole)
-  - [初次启动`This application has no explicit mapping for /error`](#初次启动this-application-has-no-explicit-mapping-for-error)
+  - [Spring boot](#spring-boot)
+    - [初次启动`This application has no explicit mapping for /error`](#初次启动this-application-has-no-explicit-mapping-for-error)
+  - [数据库](#数据库)
+    - [`Property 'sqlSessionFactory' or 'sqlSessionTemplate' are required`](#property-sqlsessionfactory-or-sqlsessiontemplate-are-required)
+    - [文档根元素 "mapper" 必须匹配 DOCTYPE 根 "null](#文档根元素-mapper-必须匹配-doctype-根-null)
 
 
 # Annotation
@@ -631,7 +635,8 @@ public class MyController {
 
 # Hole
 
-## 初次启动`This application has no explicit mapping for /error`
+## Spring boot
+### 初次启动`This application has no explicit mapping for /error`
 找不到一个controller可以map到`/`, 随便写一个类似于：
 ```java
 @RestController
@@ -642,4 +647,24 @@ public class ChatController {
         return "Hello World!";
     }
 }
+```
+
+## 数据库
+### `Property 'sqlSessionFactory' or 'sqlSessionTemplate' are required`
+将`mybatis-spring-boot-starter` 版本更新到 `3.0.1` (适配java17)
+```xml
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+<!--            <version>1.3.2</version>-->
+            <version>3.0.1</version>
+        </dependency>
+```
+
+### 文档根元素 "mapper" 必须匹配 DOCTYPE 根 "null
+对应mapper.xml文件未写：
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 ```

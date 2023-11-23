@@ -8,22 +8,22 @@ tags:
 
 - [Git](#git)
   - [Definition of Concepts](#definition-of-concepts)
+    - [暂存区（Staging Area）](#暂存区staging-area)
+    - [版本库（Repository）](#版本库repository)
+    - [工作目录（Working Directory）](#工作目录working-directory)
     - [Fork \& clone](#fork--clone)
   - [Submodule](#submodule)
   - [Proxy设置](#proxy设置)
   - [版本相关](#版本相关)
-    - [git log](#git-log)
-    - [git reset --hard(opt) \\「version」](#git-reset---hardopt-version)
-    - [git add \\『file』](#git-add-file)
-    - [git commit-m \<desc words\>](#git-commit-m-desc-words)
+    - [查看commit历史](#查看commit历史)
+    - [版本回退](#版本回退)
+      - [reset 和 revert的选择](#reset-和-revert的选择)
+      - [reset 的 三种模式](#reset-的-三种模式)
+      - [回退到上一个commit](#回退到上一个commit)
+      - [回退到指定版本](#回退到指定版本)
     - [git status](#git-status)
-    - [git diff \\「version」 -- \\『file』](#git-diff-version----file)
-  - [撤销](#撤销)
-    - [git checkout -- \\『file』](#git-checkout----file)
-    - [git reset HEAD \\『file』](#git-reset-head-file)
+    - [git diff  --](#git-diff----)
   - [删除与取消删除](#删除与取消删除)
-    - [git rm \\『file』](#git-rm-file)
-    - [误删除恢复](#误删除恢复)
   - [远程（remote）相关](#远程remote相关)
     - [本地仓库关联到一个新的远程仓库](#本地仓库关联到一个新的远程仓库)
     - [更改远程仓库的URL](#更改远程仓库的url)
@@ -54,6 +54,20 @@ tags:
 
 # Git
 ## Definition of Concepts
+### 暂存区（Staging Area）
+暂存区是一个临时的区域，用于存储即将提交到版本库的更改。
+在 `commit` 之前，你需要使用 `git add` 命令将工作目录中的文件的更改添加到暂存区。
+这相当于将更改标记为将要包含在下一次提交中的内容。
+
+### 版本库（Repository）
+版本库是 Git 存储项目的地方，包含了项目的所有历史记录。
+在版本库中，有一个称为 `HEAD` 的特殊指针，指向当前所在的分支的最新提交。
+当你进行 `commit` 时，版本库中的历史记录会更新。
+
+### 工作目录（Working Directory）
+工作目录是你在电脑文件系统中看到的项目目录，其中包含着项目的实际文件。
+当你在编辑文件时，你是在修改工作目录中的文件。
+
 ### Fork & clone
 在 GitHub 中，"fork"（分叉）是指将别人的仓库复制到你自己的 GitHub 账号下，从而在你的账号中创建了一个与原始仓库相同的副本。这个副本是独立的，并且你可以在自己的副本中进行修改和提交。
 
@@ -111,56 +125,102 @@ git config --global --unset https.proxy
 > sudo vim /etc/hosts
 
 ## 版本相关
-### git log
-看commit历史，head表示当前version
-注意：只能看到当前version及以前的历史，假如从v10回退到v8则只能看到v0到v8的历史
-如果想要再回到v9或v10，使用git reflog查看所有命令。
+### 查看commit历史
+```bash
+# 看commit历史，head表示当前version
+# 注意：只能看到当前version及以前的历史，假如从v10回退到v8则只能看到v0到v8的历史
+git log
 
-### git reset --hard(opt) \「version」
-`git reset HEAD^`  ==  回退到上一个版本
+# 如果想要再回到v9或v10，使用`git reflog`查看所有命令。
+git reflog
 
-「version」的写法
-1. 当前版本的相对值
-HEAD^
-HEAD^^
-HEAD~100
+```
 
-2. commit id
+### 版本回退
+`git reset` 是 Git 版本控制系统中的一个命令，用于将当前分支的 HEAD 移动到指定的提交或撤销之前的一些更改。
 
-### git add \『file』
-将新建或者修改提交到stage
+#### reset 和 revert的选择
+`git reset` 是 Git 版本控制系统中的一个命令，用于将当前分支的 HEAD 移动到指定的提交或撤销之前的一些更改。
+`git revert` 是通过`新建一个提交并在其中逆操作上一个提交`来将版本库内容复原到上一个提交前的状态。
 
-### git commit-m \<desc words>
-将stage的修改提交到分支
+假如有两次提交： a -> b(HEAD)
+执行`git revert HEAD` 后， 会在b之后新建一个提交： a -> b -> c(HEAD), 这提交的内容是提交b内容的逆操作，使得版本库实际上回到了提交a的状态，但整个提交历史得以保留。
+
+假如有两次提交：`a -> b(HEAD)`，然后执行 `git revert HEAD` 会在 b 之后创建一个新的提交 c(HEAD)，这个提交的内容是 b 的逆操作。
+这样整个提交历史看起来就像是 `a -> b -> c(HEAD)`。提交 c 的作用是撤销了 b 的更改，***使得项目的状态回到了提交 a 的状态***。
+
+通过使用 git revert，你能够安全地撤销先前的提交，同时保留了完整的提交历史。这对于协同开发和维护清晰的项目历史非常有用。
+
+#### reset 的 三种模式
+***Soft 模式***:
+```bash
+# Soft
+# 将 HEAD 移动到指定的提交，但是保留暂存区(即保留上一次git add的结果)和工作目录的更改。
+git reset --soft <commit> 
+
+# Mixed (Default)
+# 将 HEAD 移动到指定的提交，同时重置暂存区，但保留工作目录的更改。
+# 因为是默认模式，可以不用显式指定
+git reset <commit>
+
+# Hard
+# 最彻底的重置，会将 HEAD 移动到指定的提交，并重置暂存区和工作目录，丢弃所有的更改。
+# !!! 慎用这个模式，因为它会永久性地删除你工作目录中的未提交更改。
+git reset --hard <commit>
+```
+
+关于<commit>的表示， 可以用 ***HEAD的相对值*** 表示：
+- HEAD^ : 上一次提交
+- HEAD^^ : 上上次提交
+- HEAD~100 : 前第100次提交
+
+> 更推荐直接用 `commit-id` 指定, 通过 `git log` 查看要选择的 `commit-id`。
+
+#### 回退到上一个commit
+```bash
+# 取消最近一次的提交
+# 实现方式：将当前分支的 HEAD 移动到它的上一个提交（即父提交），同时将暂存区重置为上一个提交的状态
+# Note! 默认的工作模式是mixed，所以工作目录的修改并不会重置
+# 在执行这个命令后，你可以重新编辑工作目录中的文件，然后使用 git add 和 git commit 将它们再次提交
+git reset HEAD^
+```
+> 在 Git 中，`HEAD` 是一个指针，它指向当前所在的本地分支的最新提交（commit）
+
+***如果你希望彻底删除最新的提交，并丢弃工作目录中的更改***, 可以指定模式为 `hard`
+```bash
+# !!! 要小心使用，因为它会永久删除你工作目录中的未提交更改
+git reset --hard HEAD^
+```
+
+#### 回退到指定版本
+```bash
+
+```
+
+
 
 ### git status
-查看当前状态
+显示当前工作目录和暂存区的状态。运行 git status 可以帮助你了解当前仓库的状态，包括有关未提交的更改、未跟踪的文件以及暂存区的情况。
 
 *untracked files*：有新建的，还未add的文件
 
 *changes not staged for commit*: 对已有文件进行了修改，还未add
 
-### git diff \「version」 -- \『file』
+### git diff <commit-id> --<file>
 查看file在工作区（非stage）与指定版本库中的区别
 
-## 撤销
-### git checkout -- \『file』
-将工作区回撤到最近一次add或commit时的状态
-
-### git reset HEAD \『file』
-回退到当前版本库，并**清空stage**
-
-再配合`git checkout -- .`清空工作区
 
 ## 删除与取消删除
-### git rm \『file』
-手动删除文件后，此命令用于删除版本库中对应文件
+```bash
+# 手动删除文件后，此命令用于删除版本库中对应文件
+# 需要commit
+git rm <file>
 
--> 需要commit
+# 误删除恢复
+# 本质是用版本库中的文件替代工作区
+git checkout -- <file>
+```
 
-### 误删除恢复
-git checkout --\『file』
-本质是用版本库中的文件替代工作区
 
 ## 远程（remote）相关
 ### 本地仓库关联到一个新的远程仓库
