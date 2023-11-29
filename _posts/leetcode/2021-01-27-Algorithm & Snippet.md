@@ -19,6 +19,7 @@ tags:
   - [第一个严格大于 给定值](#第一个严格大于-给定值)
   - [第一个严格小于给定值](#第一个严格小于给定值)
   - [第一个大于等于给定值的元素](#第一个大于等于给定值的元素)
+  - [最后一个小于等于](#最后一个小于等于)
 - [双指针](#双指针)
 - [BFS](#bfs)
   - [基于树](#基于树)
@@ -263,10 +264,10 @@ int basicBinSearch(int[] array, int target) {
     int high = array.length - 1;
     while (low <= high) {
         int mid = low + (high - low) / 2;
-        if (array[mid] > target) {
-            high = mid - 1;
-        } else if (array[mid] < target) {
+        if (array[mid] < target) {
             low = mid + 1;
+        } else if (array[mid] > target) {
+            high = mid - 1;
         } else {
             // 找到目标，返回索引
             return mid;
@@ -353,25 +354,26 @@ int binarySearchLastEqual(int[] array, int target) {
 
 ## 第一个严格小于给定值
 ```java
-static int binarySearchLastLessOrEqual(int[] array, int target) {
-    int low = 0, high = array.length - 1;
+    static int binarySearchLastStrictlyLess(int[] array, int target) {
+        int low = 0, high = array.length - 1;
 
-    while (low <= high) {
-        int mid = low + (high - low) / 2;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
 
-        if (array[mid] < target) {
-            low = mid + 1;
-        } else if (array[mid] > target) {
-            high = mid - 1;
-        } else {
-            // 找到了相等的元素，继续向右搜索
-            low = mid + 1;
+
+            if (array[mid] < target) {
+                low = mid + 1;
+            } else if (array[mid] > target) {
+                high = mid - 1;
+            } else {
+                // 找到了相等的元素，继续向左搜索
+                high = mid - 1;
+            }
         }
-    }
 
-    // 此时high即为最后一个小于等于target的元素的位置
-    return high >= 0 ? high : -1;
-}
+        // 如果high没有超出左边界，此时high即为最后一个严格小于target的元素的位置
+        return high >= 0 ? high : -1;
+    }
 ```
 
 ## 第一个大于等于给定值的元素
@@ -394,6 +396,29 @@ static int binarySearchFirstGreaterOrEqual(int[] array, int target) {
 
     // 此时low即为第一个大于等于target的元素的位置
     return low < array.length ? low : -1;
+}
+```
+
+## 最后一个小于等于
+```java
+static int binarySearchLastLessOrEqual(int[] array, int target) {
+    int low = 0, high = array.length - 1;
+
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+
+        if (array[mid] < target) {
+            low = mid + 1;
+        } else if (array[mid] > target) {
+            high = mid - 1;
+        } else {
+            // 找到了相等的元素，继续向右搜索
+            low = mid + 1;
+        }
+    }
+
+    // 此时high即为最后一个小于等于target的元素的位置
+    return high >= 0 ? high : -1;
 }
 ```
 
