@@ -32,42 +32,110 @@ tags:
 > 稳定的排序：冒泡，插入，归并，计数，基数
 
 ```java
-private void quickSort(int[] arr, int low, int high) {
-    // 当排序范围为空或仅包含一个元素时，无需排序
-    if (low >= high) {
-        return ;
+    private static void quickSort(int[] arr, int low, int high) {
+        // 当排序范围为空或仅包含一个元素时，无需排序
+        if (low >= high) {
+            return;
+        }
+
+        int i = low, j = high;
+
+        // 使用 arr[low] 作为基准元素进行划分
+        int pivotIndex = low;
+        while (i < j) {
+            // 从右向左找到第一个严格小于基准的元素
+            while (i < j && arr[j] >= arr[pivotIndex]) {
+                j--;
+            }
+            // 从左向右找到第一个严格大于基准的元素
+            while (i < j && arr[i] <= arr[pivotIndex]) {
+                i++;
+            }
+            // 交换找到的元素，使得小于基准的元素在左，大于基准的元素在右
+            swap(arr, i, j);
+        }
+
+        // i 左边的元素都不大于基准元素
+        // j 右边的元素都不小于基准元素
+        // 将基准元素交换到正确的位置
+        swap(arr, pivotIndex, i);
+
+        // 递归排序左右两个子数组
+        quickSort(arr, low, i - 1);
+        quickSort(arr, i + 1, high);
     }
 
-    int i = low, j = high;
+    private static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+```
 
-    // 使用arr[low]作为基准元素进行划分
+> Note: 我在这里每次固定选择了区间左边界low索引的值作为基准值
+> 理论上使用区间内的随机值更好，可以避免出现本身有序这种极端恶劣情况
+
+```java
+private static int getRandomPivotIndex(int low, int high) {
+    // new Random(): 创建一个新的 Random 对象，这是 Java 中用于生成伪随机数的类。
+    // Random 对象的 nextInt 方法，该方法生成一个介于 0（包括）和参数之间的随机整数。在这里，参数是 high - low + 1，即闭区间 [0, high - low]。
+    return new Random().nextInt(high - low + 1) + low;
+}
+```
+
+## 快速选择
+快速选择（QuickSelect）是一种基于快速排序思想的算法，用于从`无序列表中选择第 k 小或第 k 大的元素`。
+其核心思想是通过每次选取一个基准元素，将列表分为两部分，然后根据基准元素的位置来决定继续在左侧还是右侧进行查找。
+
+> 选取基准值（选取low，也可以加一个random选取），做一次快排把基准值移动到全局有序的位置
+> 根据已经在有序位置的基准值索引与K比较，决定在基准值的哪一边递归
+> 可以在整体完成快排前找到K，当然运气不好也会出现最后一个找到，实际上做了整个快排
+
+
+```java
+private static int quickSelect(int[] arr, int low, int high, int k) {
+    if (low >= high) {
+        return arr[low];
+    }
+
+    int pivotIndex = partition(arr, low, high);
+
+    // 找到k，返回k索引的值
+    // Note: 此时返回的值是索引为K的值, 如果是做TOP K（第K大）， 这里的k在传入前要处理成 len - K
+    if (k == pivotIndex) {
+        return arr[k];
+    } else if (k < pivotIndex) {
+        return quickSelect(arr, low, pivotIndex - 1, k);
+    } else {
+        return quickSelect(arr, pivotIndex + 1, high, k);
+    }
+}
+
+// 以当前low索引的值作为基准值，做快排
+// 返回快排后的基准值索引（此时该值已被移动到他全局有序的位置）
+private static int partition(int[] arr, int low, int high) {
+    int pivotIndex = low;
+    int i = low;
+    int j = high;
+
     while (i < j) {
-        // 从右向左找到第一个严格小于基准的元素
-        while (i < j && arr[j] >= arr[low]) {
-        j--;
+        while (i < j && arr[j] >= arr[pivotIndex]) {
+            j--;
         }
-        // 从左向右找到第一个严格大于基准的元素
-        while (i < j && arr[i] <= arr[low]) {
-        i++;
+
+        while (i < j && arr[i] <= arr[pivotIndex]) {
+            i++;
         }
-        // 交换找到的元素，使得小于基准的元素在左，大于基准的元素在右
+
         swap(arr, i, j);
     }
 
-    swap(arr, low, i);
+    swap(arr, pivotIndex, i);
 
-    quickSort(arr, low, i - 1);
-    quickSort(arr, i + 1, high);
+    return i;
 }
 
-/**
- * 交换数组中两个元素的位置
- * 
- * @param arr 数组
- * @param i 第一个元素的索引
- * @param j 第二个元素的索引
- */
-private void swap(int[] arr, int i, int j) {
+private static void swap(int[] arr, int i, int j) {
     int temp = arr[i];
     arr[i] = arr[j];
     arr[j] = temp;
@@ -83,6 +151,9 @@ private void swap(int[] arr, int i, int j) {
 
 3. 合并： 将两个有序的子数组合并成一个更大的有序数组。这一步是归并排序的核心。合并操作的关键在于 ***如何将两个有序的子数组合并成一个有序数组*** 。这通常涉及创建一个临时数组，然后依次比较两个子数组中的元素，将较小的元素放入临时数组中，直到其中一个子数组的元素全部放入临时数组。接着，将剩余的子数组的元素直接放入临时数组。
 
+时间复杂度任何情况下都是 `n log n`
+空间复杂度都是 `n`
+稳定
 
 ```java
 // 主要的归并排序方法
@@ -146,7 +217,6 @@ public static void merge(int[] arr, int low, int mid, int high) {
 }
 ```
 
-## 快速选择
 
 # 链表
 
@@ -155,6 +225,148 @@ public static void merge(int[] arr, int low, int mid, int high) {
 # 堆，栈，队列，哈希表
 
 # 二分法
+## 基本二分查找
+查找一个等于给定值的元素。
+当存在连续多个给定值时，不能保证返回其中特定哪一个，有就返回。
+```java
+int basicBinSearch(int[] array, int target) {
+    int low = 0;
+    int high = array.length - 1;
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (array[mid] > target) {
+            high = mid - 1;
+        } else if (array[mid] < target) {
+            low = mid + 1;
+        } else {
+            // 找到目标，返回索引
+            return mid;
+        }
+    }
+    // 如果循环结束仍未找到目标值，返回 -1 或者其他表示不存在的值
+    return -1;
+}
+```
+
+## 查找第一个等于给定值的元素
+当存在连续多个给定值时，返回第一个。
+当 `array[mid] == target` 时，不直接返回，而是将右边界缩小为 `mid - 1`，继续寻找左半部分。
+```java
+int binarySearchFirstEqual(int[] array, int target) {
+    int low = 0, high = array.length - 1;
+    
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        
+        if (array[mid] < target) {
+            low = mid + 1;
+        } else if (array[mid] > target) {
+            high = mid - 1;
+        } else {
+            // 找到了相等的元素，继续向左搜索
+            high = mid - 1;
+        }
+    }
+    
+    // 如果存在等于target的元素，返回其位置；否则返回-1
+    return (low < array.length && array[low] == target) ? low : -1;
+}
+```
+
+## 查找最后一个等于给定值的元素
+当存在连续多个给定值时，返回最后一个。
+当 `array[mid] == target` 时，不直接返回，而是将左边界缩小为 `mid + 1`，继续寻找右半部分。
+```java
+int binarySearchLastEqual(int[] array, int target) {
+    int low = 0, high = array.length - 1;
+    
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        
+        if (array[mid] < target) {
+            low = mid + 1;
+        } else if (array[mid] > target) {
+            high = mid - 1;
+        } else {
+            // 找到了相等的元素，继续向右搜索
+            low = mid + 1;
+        }
+    }
+    
+    // 如果存在等于target的元素，返回其位置；否则返回-1
+    return (high >= 0 && array[high] == target) ? high : -1;
+}
+```
+
+ 
+## 第一个严格大于 给定值
+```java
+    static int binarySearchFirstStrictlyGreater(int[] array, int target) {
+        int low = 0, high = array.length - 1;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (array[mid] < target) {
+                low = mid + 1;
+            } else if (array[mid] > target) {
+                high = mid - 1;
+            } else {
+                // 找到了相等的元素，继续向右搜索
+                low = mid + 1;
+            }
+        }
+
+        // 如果low没有超出右边界，此时low即为第一个严格大于target的元素的位置
+        return low < array.length ? low : -1;
+    }
+```
+
+## 第一个严格小于给定值
+```java
+static int binarySearchLastLessOrEqual(int[] array, int target) {
+    int low = 0, high = array.length - 1;
+
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+
+        if (array[mid] < target) {
+            low = mid + 1;
+        } else if (array[mid] > target) {
+            high = mid - 1;
+        } else {
+            // 找到了相等的元素，继续向右搜索
+            low = mid + 1;
+        }
+    }
+
+    // 此时high即为最后一个小于等于target的元素的位置
+    return high >= 0 ? high : -1;
+}
+```
+
+## 第一个大于等于给定值的元素
+```java
+static int binarySearchFirstGreaterOrEqual(int[] array, int target) {
+    int low = 0, high = array.length - 1;
+
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+
+        if (array[mid] < target) {
+            low = mid + 1;
+        } else if (array[mid] > target) {
+            high = mid - 1;
+        } else {
+            // 找到了相等的元素，继续向左搜索
+            high = mid - 1;
+        }
+    }
+
+    // 此时low即为第一个大于等于target的元素的位置
+    return low < array.length ? low : -1;
+}
+```
 
 # 双指针
 
