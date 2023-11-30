@@ -16,6 +16,10 @@ tags:
     - [快慢指针找中点（或者 1/n 点）](#快慢指针找中点或者-1n-点)
     - [判断是否有环，找环的起始点](#判断是否有环找环的起始点)
 - [堆，栈，队列，哈希表](#堆栈队列哈希表)
+  - [栈](#栈)
+    - [232. Implement Queue using Stacks](#232-implement-queue-using-stacks)
+  - [队列](#队列)
+    - [225. Implement Stack using Queues](#225-implement-stack-using-queues)
 - [二分法](#二分法)
   - [基本二分查找](#基本二分查找)
   - [查找第一个等于给定值的元素](#查找第一个等于给定值的元素)
@@ -352,6 +356,134 @@ static void deleteNodeInPlace(ListNode node, int targetVal) {
 
 
 # 堆，栈，队列，哈希表
+
+## 栈
+### 232. Implement Queue using Stacks
+1. 入队（push）：将元素压入入队栈。
+
+2. 出队（pop）：
+   - 如果出队栈不为空，直接从出队栈弹出元素。
+   - 如果出队栈为空，将入队栈的所有元素逐个弹出并压入出队栈，然后从出队栈弹出元素。
+
+3. 查看队头元素（peek）：
+   - 如果出队栈不为空，直接返回出队栈的栈顶元素。
+   - 如果出队栈为空，将入队栈的所有元素逐个弹出并压入出队栈，然后返回出队栈的栈顶元素。
+
+4. 判空（empty）：当入队栈和出队栈均为空时，队列为空
+
+```java
+class MyQueue {
+
+    Deque<Integer> in;
+    Deque<Integer> out;
+
+    public MyQueue() {
+        in = new ArrayDeque<>();
+        out = new ArrayDeque<>();    
+    }
+    
+    public void push(int x) {
+        in.offerLast(x);
+    }
+    
+    public int pop() {
+        if (out.isEmpty()) {
+            while (!in.isEmpty()) {
+                out.offerLast(in.pollLast());
+            }
+        }
+
+        if (out.isEmpty()) {
+            return -1;
+        }
+        return out.pollLast();
+    }
+    
+    public int peek() {
+        if (out.isEmpty()) {
+            while (!in.isEmpty()) {
+                out.offerLast(in.pollLast());
+            }
+        }
+
+        if (out.isEmpty()) {
+            return -1;
+        }
+        return out.peekLast();
+    }
+    
+    public boolean empty() {
+        return in.isEmpty() && out.isEmpty();
+    }
+}
+```
+
+## 队列
+### 225. Implement Stack using Queues
+1. Push 操作： 将新元素放入其中一个队列（可以选择任意一个）。
+2. Pop 操作： 将非空队列的前 n-1 个元素重新放回另一个空队列，然后弹出最后一个元素。这样，原先队列中的最后一个元素就成了栈的顶部元素，实现了后进先出的效果。
+3. Top 操作： 类似于 Pop 操作，但是不弹出元素，而是直接返回非空队列的最后一个元素。
+4. Empty 操作： 检查两个队列是否都为空。
+
+----
+
+> 两个queue一定有一个保持空 
+> offer的时候，push到不为空的那个
+> poll和peek的时候，把不为空的弹出并压入另一个，直到剩一个。
+
+```java
+class MyStack {
+
+    private Deque<Integer> in;
+    private Deque<Integer> out;
+
+    public MyStack() {
+        in = new ArrayDeque<>();
+        out = new ArrayDeque<>();
+    }
+
+    public void push(int x) {
+        // 将新元素放入非空队列
+        if (!in.isEmpty()) {
+            in.offerLast(x);
+        } else {
+            out.offerLast(x);
+        }
+    }
+
+    public int pop() {
+        // 选择非空队列，将前 n-1 个元素放入另一个队列
+        Deque<Integer> nonEmptyQueue = in.isEmpty() ? out : in;
+        Deque<Integer> emptyQueue = in.isEmpty() ? in : out;
+
+        while (nonEmptyQueue.size() > 1) {
+            emptyQueue.offerLast(nonEmptyQueue.pollFirst());
+        }
+
+        // 弹出最后一个元素，即栈顶元素
+        return nonEmptyQueue.pollFirst();
+    }
+
+    public int top() {
+        // 类似于 Pop 操作，但不弹出元素
+        Deque<Integer> nonEmptyQueue = in.isEmpty() ? out : in;
+        Deque<Integer> emptyQueue = in.isEmpty() ? in : out;
+
+        while (nonEmptyQueue.size() > 1) {
+            emptyQueue.offerLast(nonEmptyQueue.pollFirst());
+        }
+
+        // 获取最后一个元素，即栈顶元素
+        int top = nonEmptyQueue.peekFirst();
+        emptyQueue.offerLast(nonEmptyQueue.pollFirst());
+        return top;
+    }
+
+    public boolean empty() {
+        return in.isEmpty() && out.isEmpty();
+    }
+}
+```
 
 # 二分法
 > 感想：掌握基本，第一个等于和最后一个等于即可，其他变种可通过后两个调整返回值获得；
