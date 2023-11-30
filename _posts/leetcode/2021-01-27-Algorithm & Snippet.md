@@ -15,11 +15,16 @@ tags:
   - [快慢指针](#快慢指针)
     - [快慢指针找中点（或者 1/n 点）](#快慢指针找中点或者-1n-点)
     - [判断是否有环，找环的起始点](#判断是否有环找环的起始点)
+      - [141. Linked List Cycle](#141-linked-list-cycle)
+      - [142. Linked List Cycle II](#142-linked-list-cycle-ii)
 - [堆，栈，队列，哈希表](#堆栈队列哈希表)
   - [栈](#栈)
+    - [20. Valid Parentheses](#20-valid-parentheses)
     - [232. Implement Queue using Stacks](#232-implement-queue-using-stacks)
   - [队列](#队列)
     - [225. Implement Stack using Queues](#225-implement-stack-using-queues)
+  - [单调队列，单调栈](#单调队列单调栈)
+    - [155. Min Stack](#155-min-stack)
 - [二分法](#二分法)
   - [基本二分查找](#基本二分查找)
   - [查找第一个等于给定值的元素](#查找第一个等于给定值的元素)
@@ -213,7 +218,7 @@ private static void swap(int[] arr, int i, int j) {
 public static void mergeSort(int[] arr, int low, int high) {
     if (low < high) {
         // 找到数组中点
-        int mid = (low + high) / 2;
+        int mid = low + (high - low) / 2;
 
         // 递归地对左右两半进行排序
         mergeSort(arr, low, mid);
@@ -353,11 +358,107 @@ static void deleteNodeInPlace(ListNode node, int targetVal) {
 1. 使用两个指针，一个快指针每次移动两步，一个慢指针每次移动一步。
 2. 如果链表中有环，快指针最终会追上慢指针，如果没有环，快指针会先到达链表尾部。
 
+#### 141. Linked List Cycle
+给定Head，即链表的头，确定该链表中是否有循环。
+
+1. 快慢指针
+2. 如果链表中没有环，快指针最终会到达链表的末尾，这时我们可以判断链表没有环
+3. 如果链表中有环，快指针最终会追上慢指针，两者会相遇。
+
+
+```java
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        if (head == null || head.next == null) {
+            return false;  // 没有节点或者只有一个节点，肯定没有环
+        }
+
+        ListNode slow = head;
+        ListNode fast = head.next;
+
+        while (slow != fast) {
+            if (fast == null || fast.next == null) {
+                return false;  // 如果快指针到达链表末尾，说明没有环
+            }
+
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return true;  // 如果在遍历过程中相遇，说明链表有环
+    }
+}
+
+```
+
+#### 142. Linked List Cycle II
+给定链表的头，返回循环开始的节点。如果没有循环，则返回null。
+
+```java
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+
+        // 判断是否有循环
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) {
+                // 有循环，引入新指针从头开始找循环起点
+                ListNode newPointer = head;
+                while (newPointer != slow) {
+                    newPointer = newPointer.next;
+                    slow = slow.next;
+                }
+                return newPointer; // 返回循环的起点
+            }
+        }
+
+        return null; // 没有循环
+    }
+}
+
+```
 
 
 # 堆，栈，队列，哈希表
 
 ## 栈
+### 20. Valid Parentheses
+1. 遍历输入的字符串。
+2. 如果当前字符是左括号（'('，'{'，'['），则将其推入栈。
+3. 如果当前字符是右括号（')'，'}'，']'），则检查栈是否为空。
+   1. 如果为空，说明没有匹配的左括号，直接返回 false
+   2. 否则，从栈中弹出一个左括号，检查它与当前右括号是否匹配。如果不匹配，返回 false
+4. 遍历完整个字符串后，检查栈是否为空.如果为空，说明所有的括号都有匹配，返回 true
+```java
+public class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+
+        for (char c : s.toCharArray()) {
+            if (c == '(' || c == '{' || c == '[') {
+                stack.push(c);
+            } else {
+                if (stack.isEmpty()) {
+                    return false; // 没有匹配的左括号
+                }
+
+                char top = stack.pop();
+                if (c == ')' && top != '(' || c == '}' && top != '{' || c == ']' && top != '[') {
+                    return false; // 括号不匹配
+                }
+            }
+        }
+
+        return stack.isEmpty(); // 检查是否还有未匹配的左括号
+    }
+}
+
+```
+
 ### 232. Implement Queue using Stacks
 1. 入队（push）：将元素压入入队栈。
 
@@ -481,6 +582,45 @@ class MyStack {
 
     public boolean empty() {
         return in.isEmpty() && out.isEmpty();
+    }
+}
+```
+## 单调队列，单调栈
+### 155. Min Stack
+```java
+class MinStack {
+    Deque<Integer> stack;
+    Deque<Integer> mono;
+    
+    public MinStack() {
+        stack = new ArrayDeque<>();    
+        mono = new ArrayDeque<>();    
+    }
+    
+    public void push(int val) {
+        stack.offerLast(val);
+        if(mono.isEmpty() || val <= mono.peekLast()) {
+            mono.offerLast(val);
+        }
+    }
+    
+    public void pop() {
+        if(stack.isEmpty()) {
+            return;
+        }
+
+        if(mono.peekLast().equals(stack.pollLast())) {
+            mono.pollLast();
+        }
+    }
+    
+    public int top() {
+        return stack.peekLast();
+    }
+    
+    public int getMin() {
+        return mono.peekLast();
+
     }
 }
 ```
