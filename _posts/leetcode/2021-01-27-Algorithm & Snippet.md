@@ -39,6 +39,13 @@ tags:
 - [DFS](#dfs)
   - [回溯](#回溯)
   - [分治](#分治)
+    - [226 Invert Binary Tree](#226-invert-binary-tree)
+    - [101. Symmetric Tree](#101-symmetric-tree)
+  - [给定二叉树的根，检查它是否是自身的镜像(即围绕其中心对称)。](#给定二叉树的根检查它是否是自身的镜像即围绕其中心对称)
+    - [543. Diameter of Binary Tree](#543-diameter-of-binary-tree)
+  - [两个节点之间的路径长度由它们之间的边数表示。](#两个节点之间的路径长度由它们之间的边数表示)
+    - [124. Binary Tree Maximum Path Sum](#124-binary-tree-maximum-path-sum)
+  - [给定二叉树的根，返回任何非空路径的最大路径和。](#给定二叉树的根返回任何非空路径的最大路径和)
   - [基于树](#基于树-1)
   - [基于 BST](#基于-bst)
   - [基于图](#基于图-1)
@@ -731,6 +738,189 @@ class Solution {
 ## 回溯
 
 ## 分治
+
+### 226 Invert Binary Tree
+请完成一个函数，输入一个二叉树，该函数输出它的镜像。
+```text
+例如输入：
+
+     4
+   /   \
+  2     7
+ / \   / \
+1   3 6   9
+镜像输出：
+
+     4
+   /   \
+  7     2
+ / \   / \
+9   6 3   1
+```
+
+----
+
+> 标准DFS分治
+
+```java
+class Solution {
+    public TreeNode invertTree(TreeNode root) {
+        dfs(root);
+        return root;
+    }
+
+    void dfs(TreeNode node) {
+        if (null == node) {
+            return;
+        }
+
+        TreeNode temp = node.left;
+        node.left = node.right;
+        node.right = temp;
+
+        dfs(node.left);
+        dfs(node.right);
+    }
+}
+```
+
+
+### 101. Symmetric Tree
+给定二叉树的根，检查它是否是自身的镜像(即围绕其中心对称)。
+----
+
+> 标准DFS分治
+> dfs 参数为左右子节点的情况
+
+```java
+class Solution {
+    public boolean isSymmetric(TreeNode root) {
+        if (null == root) {
+            return true;
+        }
+
+        return dfs(root.left, root.right);
+    }
+
+    boolean dfs(TreeNode leftChild, TreeNode rightChild) {
+        if (null == leftChild && null == rightChild) {
+            return true;
+        }
+
+        if (null == leftChild || null == rightChild) {
+            return false;
+        }
+
+        if (leftChild.val != rightChild.val) {
+            return false;
+        }
+
+        boolean outerSymmetric = dfs(leftChild.left, rightChild.right);
+        boolean innerSymmetric = dfs(leftChild.right, rightChild.left);
+
+        return outerSymmetric && innerSymmetric;
+    }
+}
+```
+
+
+
+### 543. Diameter of Binary Tree
+给定二叉树的根，返回该树直径的长度。
+
+***二叉树的直径***是树中任意两个节点之间最长路径的长度。
+此路径可能通过根，也可能不通过。
+
+两个节点之间的路径长度由它们之间的边数表示。
+----
+
+> 核心！！！：最大 Diameter 一定是某一个节点的 ***左右子树深度之和***
+> 使用DFS来遍历二叉树的每个节点，并在遍历的过程中计算每个节点的左子树深度和右子树深度之和。在这个过程中，你可以更新一个全局变量，用于保存当前找到的最大直径。
+
+1. 创建一个全局变量 maxDiameter，用于保存最大直径。
+2. 编写一个辅助函数 dfs，***该函数接受一个节点作为参数，返回以该节点为根的子树的深度***。
+3. 在 dfs 函数中，递归计算左子树和右子树的深度。然后比较左右子树深度和（该节点的diameter）与全局diameter，更新全局diameter。
+4. 在递归的过程中，更新 maxDiameter，计算以当前节点为根的子树的直径（左子树深度 + 右子树深度）。
+5. 返回当前节点为根的子树的深度（左右子树深度的最大值 + 1）。
+
+```java
+public class Solution {
+    private int maxDiameter = 0;
+
+    public int diameterOfBinaryTree(TreeNode root) {
+        dfs(root);
+        return maxDiameter;
+    }
+
+    private int dfs(TreeNode node) {
+        // 边界情况
+        if (node == null) {
+            return 0;
+        }
+
+        // 递归计算左右子树深度
+        int leftDepth = dfs(node.left);
+        int rightDepth = dfs(node.right);
+
+        // 比较当前节点的直径和最大直径。更新最大直径 （副作用操作全局变量）
+        maxDiameter = Math.max(maxDiameter, leftDepth + rightDepth);
+
+        // 返回当前节点为根的子树深度
+        return Math.max(leftDepth, rightDepth) + 1;
+    }
+}
+
+```
+
+
+### 124. Binary Tree Maximum Path Sum
+二叉树中的 ***路径*** 是一系列节点，其中该序列中的每一对相邻节点都有一条边连接它们。
+一个节点最多只能在序列中出现一次。
+请注意，该路径不需要经过根。
+
+Path Sum是路径中节点的值之和。
+
+给定二叉树的根，返回任何非空路径的最大路径和。
+----
+
+> 和diameter类似
+> 最大 Path Sum 一定是某一个节点上的 ***左右子树的贡献和 + 该节点本身***
+> DFS返回节点的贡献，并通过副作用更新最大 Path Sum
+> Note: 节点的贡献和在该节点上的最大 Path Sum不同
+> 节点贡献： 节点val + 左右子树贡献更大的一方
+> 当前节点能获得的最大Path Sum：节点val + 左右子树贡献之和
+
+```java
+class Solution {
+    int maxSum = Integer.MIN_VALUE;
+
+    public int maxPathSum(TreeNode root) {
+        maxGain(root);
+        return maxSum;
+    }
+
+    public int maxGain(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+        
+        // 递归计算左右子节点的最大贡献值
+        // 只有在最大贡献值大于 0 时，才会选取对应子节点
+        int leftGain = Math.max(maxGain(node.left), 0);
+        int rightGain = Math.max(maxGain(node.right), 0);
+
+        // 节点的最大路径和取决于该节点的值与该节点的左右子节点的最大贡献值
+        int priceNewpath = node.val + leftGain + rightGain;
+
+        // 更新答案
+        maxSum = Math.max(maxSum, priceNewpath);
+
+        // 返回节点的最大贡献值
+        return node.val + Math.max(leftGain, rightGain);
+    }
+}
+```
+
 
 ## 基于树
 
