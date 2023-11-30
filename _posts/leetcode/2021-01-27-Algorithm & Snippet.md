@@ -11,6 +11,7 @@ tags:
   - [归并排序](#归并排序)
 - [链表](#链表)
   - [原地翻转](#原地翻转)
+  - [原地删除节点](#原地删除节点)
   - [快慢指针](#快慢指针)
     - [快慢指针找中点（或者 1/n 点）](#快慢指针找中点或者-1n-点)
     - [判断是否有环，找环的起始点](#判断是否有环找环的起始点)
@@ -24,8 +25,16 @@ tags:
   - [第一个大于等于给定值的元素](#第一个大于等于给定值的元素)
   - [最后一个小于等于](#最后一个小于等于)
 - [双指针](#双指针)
+  - [同向双指针](#同向双指针)
+    - [283. Move Zeroes](#283-move-zeroes)
+  - [背向双指针](#背向双指针)
+    - [5. Longest Palindromic Substring](#5-longest-palindromic-substring)
+  - [相向双指针](#相向双指针)
+    - [167. Two Sum II - Input Array Is Sorted](#167-two-sum-ii---input-array-is-sorted)
 - [BFS](#bfs)
   - [基于树](#基于树)
+    - [102. Binary Tree Level Order Traversal](#102-binary-tree-level-order-traversal)
+    - [103. Binary Tree Zigzag Level Order Traversal](#103-binary-tree-zigzag-level-order-traversal)
   - [基于图](#基于图)
 - [DFS](#dfs)
   - [回溯](#回溯)
@@ -276,6 +285,34 @@ static ListNode reverseList(ListNode node) {
 }
 ```
 
+## 原地删除节点
+
+```java
+// 移除所有符合的节点而非仅第一个
+static void deleteNodeInPlace(ListNode node, int targetVal) {
+    if (null == node) {
+        return;
+    }
+
+    ListNode curr = node;
+    ListNode prev = null;
+
+    while (null != curr) {
+        ListNode nextNode = curr.next;
+
+        if (curr.val == targetVal) {
+            prev.next = nextNode;
+            // 如果仅移除第一个，在这里操作return即可
+        }
+
+        prev = curr;
+        curr = nextNode;
+
+    }
+
+}
+```
+
 ## 快慢指针
 快慢指针是一种常见的算法技巧，通常用于链表操作和数组遍历。
 
@@ -408,7 +445,8 @@ int binarySearchLastEqual(int[] array, int target) {
 
         // 如果low没有超出右边界，此时low即为第一个严格大于target的元素的位置
         return low < array.length ? low : -1;
-    }
+    }+
+
 ```
 
 ## 第一个严格小于给定值
@@ -482,10 +520,209 @@ static int binarySearchLastLessOrEqual(int[] array, int target) {
 ```
 
 # 双指针
+## 同向双指针
+
+### 283. Move Zeroes
+
+> 维护两个从0开始的指针，curr用来遍历，nonZero指针左边区间不含任何0
+> curr遍历到非0元素就和当前nonZero交换值，然后nonZero索引++
+
+```java
+class Solution {
+    public void moveZeroes(int[] arr) {
+        int nonZero = 0;
+        int curr = 0;
+
+        for (; curr < arr.length; curr++) {
+            if (arr[curr] != 0) {
+                swap(arr, curr, nonZero);
+            }
+        }
+    }
+
+    void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}
+```
+
+## 背向双指针
+很多回文相关的题
+
+### 5. Longest Palindromic Substring
+
+> 分两个变体：返回最长长度，或者子字符串。后者在记录start和end上需要一点技巧
+
+```java
+class Solution {
+    public String longestPalindrome(String s) {
+        if (s == null || s.length() < 1) return "";
+        
+        int start = 0, end = 0;
+        
+        for (int i = 0; i < s.length(); i++) {
+            int len1 = expandAroundCenter(s, i, i); // 以单个字符为中心
+            int len2 = expandAroundCenter(s, i, i + 1); // 以两个字符为中心
+            int len = Math.max(len1, len2);
+            
+            if (len > end - start) {
+                // Note: 回文子串可能是奇数长度也可能是偶数长度，
+                // 所以我们使用 (len - 1) / 2 来找到回文子串的起始位置。
+                start = i - (len - 1) / 2;
+                //  i + len / 2 计算回文子串的右中心位置。
+                end = i + len / 2;
+            }
+        }
+        
+        return s.substring(start, end + 1);
+    }
+
+    private int expandAroundCenter(String s, int left, int right) {
+        
+        // Note: 一定要先判断边界，否则== exp可能会OFI
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            left--;
+            right++;
+        }
+        return right - left - 1;
+    }
+}
+```
+
+## 相向双指针
+
+### 167. Two Sum II - Input Array Is Sorted
+
+> 相比 Leetcode 1. Two Sum, 有序情况比较适合双指针。当然都可以用hashmap做。
+
+```java
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        int begin = 0;
+        int end = numbers.length - 1;
+
+        while (begin < end) {
+            int sum = numbers[begin] + numbers[end];
+            if (sum == target) {
+                // 这里都加一是因为题目要求
+                // Return the indices of the two numbers, index1 and index2, 
+                // !!added by one!! as an integer array [index1, index2] of length 2.
+                return new int[] {begin + 1, end + 1};
+            }
+
+            if (sum > target) {
+                end--;
+            } else {
+                begin++;
+            }
+        }
+
+        return null;
+    }
+}
+```
 
 # BFS
 
 ## 基于树
+不需要专门一个set来记录访问过的节点
+
+### 102. Binary Tree Level Order Traversal
+
+Input: root = [3,9,20,null,null,15,7]
+Output: [[3],[9,20],[15,7]]
+
+> 用queue做BFS, 因为这题要求List<List<Integer>>输出，所以存在一个每层输出
+> 需要用queueSize辅助，Note: 要用变量先保存queue.size()，如果for循环直接用queue.size()会出问题：每次遍历完queue.size()其实会变小
+
+```java
+class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        if (null == root) {
+            return new ArrayList<List<Integer>>();
+        }
+        
+        Deque<TreeNode> queue = new ArrayDeque<>();
+        List<List<Integer>> result = new ArrayList<>();
+        queue.offerLast(root);
+
+        while (!queue.isEmpty()) {
+            int queueSize = queue.size();
+            List<Integer> row = new ArrayList<>();
+
+            for (int i = 0; i < queueSize; i++) {
+                TreeNode node = queue.pollFirst();
+
+                row.add(node.val);
+
+                if (null != node.left) {
+                    queue.offerLast(node.left);
+                }
+                if (null != node.right) {
+                    queue.offerLast(node.right);
+                }
+            }
+
+            result.add(row);
+        }
+
+        return result;
+    }
+}
+```
+
+### 103. Binary Tree Zigzag Level Order Traversal
+102变体：之字形打印
+Input: root = [3,9,20,null,null,15,7]
+Output: [[3],[20,9],[15,7]]
+
+> 在 102 基础上增加一个 boolean leftToRight 解决
+> 对队首出队的node，如果 leftToRight == true 就添加到List尾
+> 如果 leftToRight == false 就添加到List首 `row.add(0, node.val)`
+
+```java
+class Solution {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        if (null == root) {
+            return new ArrayList<List<Integer>>();
+        }
+
+        Deque<TreeNode> queue = new ArrayDeque<>();
+        List<List<Integer>> result = new ArrayList<>();
+        queue.offerLast(root);
+        boolean leftToRight = true;
+
+        while (!queue.isEmpty()) {
+            int queueSize = queue.size();
+            List<Integer> row = new ArrayList<>();
+
+            for (int i = 0; i < queueSize; i++) {
+                TreeNode node = queue.pollFirst();
+                if (leftToRight) {
+                    row.add(node.val);
+                } else {
+
+                    row.add(0, node.val);
+                }
+                
+                if (null != node.left) {
+                    queue.offerLast(node.left);
+                }
+                if (null != node.right) {
+                    queue.offerLast(node.right);
+                }
+            }
+
+            leftToRight = !leftToRight;
+            result.add(row);
+        }
+
+        return result;
+    }
+}
+```
 
 ## 基于图
 
