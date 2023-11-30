@@ -10,7 +10,10 @@ tags:
   - [快速选择](#快速选择)
   - [归并排序](#归并排序)
 - [链表](#链表)
+  - [原地翻转](#原地翻转)
   - [快慢指针](#快慢指针)
+    - [快慢指针找中点（或者 1/n 点）](#快慢指针找中点或者-1n-点)
+    - [判断是否有环，找环的起始点](#判断是否有环找环的起始点)
 - [堆，栈，队列，哈希表](#堆栈队列哈希表)
 - [二分法](#二分法)
   - [基本二分查找](#基本二分查找)
@@ -249,12 +252,68 @@ public static void merge(int[] arr, int low, int mid, int high) {
 
 
 # 链表
+## 原地翻转
+```java
+static ListNode reverseList(ListNode node) {
+    if (null == node) {
+        return null;
+    }
+
+    ListNode prev = null;
+    // 让node还是指向头，避免副作用，万一调用外部对head还有操作
+    ListNode curr = node;
+    while (null != curr) {
+        // 暂存next节点
+        ListNode nextNode = curr.next;
+        // next指针反转方向
+        curr.next = prev;
+        // 更新prev， 更新curr
+        prev = curr;
+        curr = nextNode;
+    }
+
+    return prev;
+}
+```
 
 ## 快慢指针
+快慢指针是一种常见的算法技巧，通常用于链表操作和数组遍历。
+
+### 快慢指针找中点（或者 1/n 点）
+循环结束后, `slow`会指向链表的中间节点（有两种变体，当奇数个节点时都指向中间，偶数节点时分别指向靠左和靠右）
+
+> 大多数时候都是指向靠左更好，因为是单向列表，靠左操作空间更大。
+
+```java
+    ListNode slow = head;
+    ListNode fast = head;
+
+    // 偶数时，slow停在靠左
+    while (fast.next != null && fast.next.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    // 偶数时，slow停在靠右
+    while (null != fast && null != fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+```
+
+### 判断是否有环，找环的起始点
+***判断是否有环：***
+1. 使用两个指针，一个快指针每次移动两步，一个慢指针每次移动一步。
+2. 如果链表中有环，快指针最终会追上慢指针，如果没有环，快指针会先到达链表尾部。
+
+
 
 # 堆，栈，队列，哈希表
 
 # 二分法
+> 感想：掌握基本，第一个等于和最后一个等于即可，其他变种可通过后两个调整返回值获得；
+> 第一个等于：等于时向左继续搜索，动high，返回low
+> 最后一个等于：等于时向右继续搜索，动low，返回high
+
 ## 基本二分查找
 查找一个等于给定值的元素。
 当存在连续多个给定值时，不能保证返回其中特定哪一个，有就返回。
