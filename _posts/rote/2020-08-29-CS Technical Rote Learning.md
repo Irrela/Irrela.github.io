@@ -214,6 +214,13 @@ tags:
   - [装饰者模式（Decorator Pattern）：](#装饰者模式decorator-pattern)
   - [单例模式（Singleton Pattern）：](#单例模式singleton-pattern)
     - [Spring的单例实现](#spring的单例实现)
+- [Java泛型](#java泛型)
+  - [定义一个和创建泛型类](#定义一个和创建泛型类)
+  - [泛型方法](#泛型方法)
+  - [泛型接口](#泛型接口)
+  - [泛型通配符](#泛型通配符)
+    - [上界通配符](#上界通配符)
+    - [下界通配符](#下界通配符)
 
 
 # 概念
@@ -1947,3 +1954,120 @@ couponChain.handleRequest(request);
 在使用Spring这样的现代Java框架时，Spring容器会负责管理和创建单例对象，因此你通常不需要手动实现单例模式。
 Spring中的单例模式是通过默认的Bean Scope（作用域）来实现的。***默认情况下，Spring中的Bean是单例的***，即在整个应用程序上下文中只存在一个实例。
 当你定义一个Bean时，Spring容器会负责创建和管理这个Bean的单一实例。
+
+
+# Java泛型
+泛型是 Java 编程语言的一个重要特性，它提供了 ***在编译时期对类型进行参数化的能力***，以增强代码的灵活性和重用性。
+
+使用泛型可以：
+- 在编译时捕获一些潜在的类型错误，提高代码的类型安全性
+- 减少类型转换
+- 增加代码的可读性和可维护性
+- 编写更通用的代码，减少代码的冗余
+
+场景：
+- 集合框架： Java 的集合框架（如 List、Set、Map 等）都使用了泛型，以便在编译时提供类型安全。
+- 算法： 在编写泛型算法时，你可以编写一次通用的代码，用于处理各种类型的数据。
+- API 设计： 在设计 API 时，使用泛型可以增强 API 的灵活性和可重用性。
+
+
+## 定义一个和创建泛型类
+```java
+// T 代表类型参数
+public class Box<T> {
+    private T value;
+
+    public void setValue(T value) {
+        this.value = value;
+    }
+
+    public T getValue() {
+        return value;
+    }
+}
+
+public static void main() {
+    // 通过在类名后面 <> 中加上具体类型参数来定义泛型类
+    Box<String> stringBox = new Box<>();
+    Box<Integer> intBox = new Box<>();
+}
+```
+
+## 泛型方法
+泛型方法可以用 泛型参数指代 ***args*** 和 ***返回值*** 的类型
+泛型方法可以在普通类中定义，也可以在泛型类中定义。
+```java
+// Note: <T> 是格式，声明要用的泛型参数，如 T, K
+// 下列方法 其实指定了 入参类型和返回值类型一致即可
+public <T> T genericMethod(T value) {
+    // 方法实现
+    return value;
+}
+
+// 泛型方法：打印任意类型的列表
+public static <T> void printList(List<T> list) {
+    for (T element : list) {
+        System.out.println(element);
+    }
+}
+```
+
+## 泛型接口
+```java
+public interface MyInterface<T> {
+    T process(T input);
+}
+
+// 泛型接口：定义一个比较器
+interface MyComparator<T> {
+    int compare(T o1, T o2);
+}
+
+```
+
+## 泛型通配符
+泛型通配符用于表示未知类型。
+通配符有上界通配符和下界通配符：上界通配符（`? extends T`）和下界通配符（`? super T`）
+
+例如：
+```java
+public void processList(List<? extends Number> list) {
+    // 处理 Number 或其子类的列表
+}
+```
+### 上界通配符
+上界通配符表示通配符可以匹配 T 或 T 的子类。
+在集合中使用上界通配符允许你读取元素，但不能修改集合。这是因为你不能确定通配符实际表示的具体类型。
+```java
+public static double sumOfList(List<? extends Number> list) {
+    double sum = 0.0;
+    for (Number number : list) {
+        sum += number.doubleValue();
+    }
+    return sum;
+}
+
+List<Integer> integers = Arrays.asList(1, 2, 3);
+List<Double> doubles = Arrays.asList(1.5, 2.5, 3.5);
+
+System.out.println("Sum of integers: " + sumOfList(integers)); // OK
+System.out.println("Sum of doubles: " + sumOfList(doubles));    // OK
+```
+### 下界通配符
+下界通配符表示通配符可以匹配 T 或 T 的父类。
+在集合中使用下界通配符允许你修改集合，但读取出的元素类型是不确定的。
+```java
+public static void addNumbers(List<? super Integer> list) {
+    list.add(10);
+    list.add(20);
+}
+
+List<Number> numbers = new ArrayList<>();
+addNumbers(numbers);
+System.out.println("List of numbers: " + numbers);  // [10, 20]
+
+List<Object> objects = new ArrayList<>();
+addNumbers(objects);
+System.out.println("List of objects: " + objects);  // [10, 20]
+
+```
