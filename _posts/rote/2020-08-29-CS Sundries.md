@@ -1,8 +1,8 @@
 ---
-title: Computer Science Miscellanies
-categories: Eightlegged
+title: Computer Science Technical Rote Learning
+categories: Rote Learning
 tags:
-- Eight-legged
+- Rote Learning
 ---
 
 - [数据结构](#数据结构)
