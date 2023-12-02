@@ -1,8 +1,8 @@
 ---
 title: Internet
-categories: Eightlegged
+categories: Rote Learning
 tags:
-- Eight-legged
+- Rote Learning
 ---
 
 # HTTP 超文本传输​​协议
