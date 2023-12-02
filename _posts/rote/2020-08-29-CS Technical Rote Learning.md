@@ -182,7 +182,7 @@ tags:
       - [双亲委派模型](#双亲委派模型)
 - [Spring](#spring)
     - [AOP](#aop)
-- [Pending](#pending)
+- [缓存](#缓存)
   - [本地缓存](#本地缓存)
     - [Java技术栈实践](#java技术栈实践)
       - [Caffeine](#caffeine)
@@ -203,6 +203,17 @@ tags:
     - [使用分布式锁](#使用分布式锁)
     - [分层缓存：](#分层缓存)
     - [数据预热](#数据预热)
+- [设计模式](#设计模式-1)
+  - [责任链模式（Chain of Responsibility Pattern）：](#责任链模式chain-of-responsibility-pattern)
+    - [链式调用或注入（体感不如配置明确清晰）](#链式调用或注入体感不如配置明确清晰)
+    - [通过配置文件或配置对象](#通过配置文件或配置对象)
+  - [观察者模式（Observer Pattern）：](#观察者模式observer-pattern)
+  - [策略模式（Strategy Pattern）：](#策略模式strategy-pattern)
+  - [代理模式（Proxy Pattern）：](#代理模式proxy-pattern)
+  - [享元模式（Flyweight Pattern）：](#享元模式flyweight-pattern)
+  - [装饰者模式（Decorator Pattern）：](#装饰者模式decorator-pattern)
+  - [单例模式（Singleton Pattern）：](#单例模式singleton-pattern)
+    - [Spring的单例实现](#spring的单例实现)
 
 
 # 概念
@@ -1692,7 +1703,7 @@ public class MyAspectLog {
 当我们创建UserDao的对象userDao调用addUser方法的时候会打印“添加用户”，“记录日志”很神奇吧,究竟发生了什么？明明addUser方法里面只有打印”添加用户”啊这就是Spring AOP的强大之处，在运行时通过动态代理技术对UserDao的addUser方法进行了增强，添加了记录日志的功能。动态代理其实就是在运行时动态的生成目标对象的代理对象，在代理对象中对目标对象的方法进行增强，关于动态代理技术我会在另一篇文章中详细介绍，现在先来看一下AOP中几个重要的概念：
 
 
-# Pending
+# 缓存
 
 ## 本地缓存
 在后端开发中，本地缓存指的是将数据 ***暂时存储在应用程序运行的服务器或服务的内存*** 中，以便在后续请求中更快地获取这些数据，而无需再次访问数据库或其他远程数据源。
@@ -1782,7 +1793,7 @@ Redis 的事务是 ***基于乐观锁*** 的，它不提供`隔离性`和`回滚
 另外，二级缓存的选择应该考虑到数据更新的频率以及缓存的命中率等因素。
 
 ### 使用适当的缓存策略
-根据应用场景选择合适的缓存策略，可以提高缓存命中率。todeep
+根据应用场景选择合适的缓存策略，可以提高缓存命中率。
 
 #### 常见缓存策略
 ***FIFO (First-In-First-Out):***
@@ -1845,3 +1856,94 @@ Redis 的事务是 ***基于乐观锁*** 的，它不提供`隔离性`和`回滚
 ### 数据预热
 在系统启动时，提前加载一些核心数据到缓存中，避免冷启动时大量请求落到数据库上。
 这可以通过定时任务或系统初始化阶段实现。
+
+
+# 设计模式
+
+## 责任链模式（Chain of Responsibility Pattern）：
+- 当有多个对象可以处理一个请求，但具体哪个对象处理取决于运行时的条件时，可以使用责任链模式。
+- 使用责任链模式的好处在于它能够动态地组织处理者的顺序，也可以轻松地增加或修改判断条件
+- 当希望请求发送者和接收者解耦时，可以使用责任链模式。
+
+### 链式调用或注入（体感不如配置明确清晰）
+处理者可以通过链式调用或者注入的方式在运行时确定其后继处理者。这样，你可以根据具体的条件动态地决定将哪些处理者链接在一起。
+
+```java
+public class CouponRequest {
+    // 请求的一些信息
+}
+
+public interface CouponHandler {
+    void handleRequest(CouponRequest request);
+    CouponHandler setNextHandler(CouponHandler nextHandler);
+}
+
+public class AmountHandler implements CouponHandler {
+    private CouponHandler nextHandler;
+
+    @Override
+    public void handleRequest(CouponRequest request) {
+        // 处理金额条件判断逻辑
+        if (/* 判断条件 */) {
+            // 处理请求逻辑
+        } else if (nextHandler != null) {
+            // 传递给下一个处理者
+            nextHandler.handleRequest(request);
+        }
+    }
+
+    @Override
+    public CouponHandler setNextHandler(CouponHandler nextHandler) {
+        this.nextHandler = nextHandler;
+        return nextHandler;
+    }
+}
+
+public class TimesHandler implements CouponHandler {
+    // TimesHandler 的实现，类似于 AmountHandler
+}
+
+// 在客户端代码中动态构建责任链
+CouponHandler couponChain = new AmountHandler();
+couponChain.setNextHandler(new TimesHandler());
+// 可以继续添加其他处理者
+
+// 在运行时触发请求
+CouponRequest request = new CouponRequest();
+couponChain.handleRequest(request);
+
+```
+
+### 通过配置文件或配置对象
+在应用程序启动时，可以通过读取配置文件或者配置对象来确定责任链中处理者的顺序。
+这样，你可以根据配置来动态地构建责任链。修改配置而不修改代码，使得责任链的顺序可以灵活调整。
+
+
+
+## 观察者模式（Observer Pattern）：
+在处理订单状态、库存变化等时，使用观察者模式可以让相关对象自动获得状态更新，从而及时做出相应的处理。todeep
+
+## 策略模式（Strategy Pattern）：
+对于涉及到不同的价格计算策略、促销策略等，使用策略模式可以动态切换不同的算法，使得系统更加灵活。todeep
+
+## 代理模式（Proxy Pattern）：
+- 控制对一个对象的访问，以及在访问该对象时添加一些额外的功能。
+- 当直接访问一个对象可能存在一些问题时，可以通过代理来间接访问，例如延迟加载、权限控制等。
+
+对于一些开销较大的操作，可以考虑使用代理模式，延迟加载或者在需要时加载。例如，延迟加载商品的详细信息。
+
+在电商系统中，商品详情页面的图片可能较大，为了提高加载速度，可以使用代理模式实现图片的延迟加载。在页面初始化时，只加载显示在可视区域内的图片，其他图片在需要显示时再进行加载。
+
+
+## 享元模式（Flyweight Pattern）：
+在处理大量相似对象时，使用享元模式可以节省内存。例如，处理大量相似的商品属性。
+
+## 装饰者模式（Decorator Pattern）：
+如果需要动态地为商品添加新的属性或功能，可以使用装饰者模式。例如，商品价格的装饰可以考虑使用这个模式。
+
+## 单例模式（Singleton Pattern）：
+对于一些需要全局唯一访问的对象，如配置管理器、数据库连接池等，可以使用单例模式确保系统中只有一个实例。
+### Spring的单例实现
+在使用Spring这样的现代Java框架时，Spring容器会负责管理和创建单例对象，因此你通常不需要手动实现单例模式。
+Spring中的单例模式是通过默认的Bean Scope（作用域）来实现的。***默认情况下，Spring中的Bean是单例的***，即在整个应用程序上下文中只存在一个实例。
+当你定义一个Bean时，Spring容器会负责创建和管理这个Bean的单一实例。
