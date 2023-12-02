@@ -12,12 +12,17 @@ tags:
     - [值传递，引用传递](#值传递引用传递)
     - [四种引用（JVM概念）](#四种引用jvm概念)
 - [数据结构](#数据结构)
-    - [八大排序](#八大排序)
-    - [Tree](#tree)
-      - [满二叉树和完全二叉树](#满二叉树和完全二叉树)
-      - [BST 和 AVL](#bst-和-avl)
-      - [红黑树](#红黑树)
-      - [HashSet、LinkedHashSet和TreeSet三者区别与联系](#hashsetlinkedhashset和treeset三者区别与联系)
+  - [八大排序](#八大排序)
+  - [Tree](#tree)
+    - [满二叉树和完全二叉树](#满二叉树和完全二叉树)
+    - [BST 和 AVL](#bst-和-avl)
+    - [红黑树](#红黑树)
+  - [Hash](#hash)
+    - [HashSet、LinkedHashSet和TreeSet三者区别与联系](#hashsetlinkedhashset和treeset三者区别与联系)
+  - [hash函数](#hash函数)
+    - [hashCode() 方法](#hashcode-方法)
+      - [hashCode() 和 equals()](#hashcode-和-equals)
+      - [equals() 和 `==`](#equals-和-)
 - [操作系统](#操作系统)
     - [死锁](#死锁)
       - [预防](#预防)
@@ -215,6 +220,7 @@ tags:
   - [单例模式（Singleton Pattern）：](#单例模式singleton-pattern)
     - [Spring的单例实现](#spring的单例实现)
 - [Java泛型](#java泛型)
+  - [类型擦除](#类型擦除)
   - [定义一个和创建泛型类](#定义一个和创建泛型类)
   - [泛型方法](#泛型方法)
   - [泛型接口](#泛型接口)
@@ -262,12 +268,12 @@ Java 总是值传递，但我们可以用sort（int[] arr,...） 的方式来改
 
 # 数据结构
 
-### 八大排序
+## 八大排序
 
-### Tree
-#### 满二叉树和完全二叉树
+## Tree
+### 满二叉树和完全二叉树
 
-#### BST 和 AVL
+### BST 和 AVL
 平衡二叉树（Balanced BinaryTree）又被称为AVL树。 
 它具有以下性质：
 - 它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，
@@ -275,7 +281,7 @@ Java 总是值传递，但我们可以用sort（int[] arr,...） 的方式来改
 
 平衡二叉树一般是一个有序树，它具有二叉树的所有性质，其遍历操作和二叉树的遍历操作相同。
 
-#### 红黑树
+### 红黑树
 红黑树是每个节点都带有颜色属性的二叉查找树，颜色为红色或黑色。在二叉查找树强制一般要求以外，对于任何有效的红黑树我们增加了如下的额外要求：
 - Root是黑色。
 - Node是红色 or 黑色。
@@ -286,10 +292,65 @@ Java 总是值传递，但我们可以用sort（int[] arr,...） 的方式来改
 这些约束确保了红黑树的关键特性：`从根到叶子的最长的可能路径不多于最短的可能路径的两倍长。`
 
 
-#### HashSet、LinkedHashSet和TreeSet三者区别与联系
+## Hash
+### HashSet、LinkedHashSet和TreeSet三者区别与联系
 - HashSet无序， 可以有一个Null元素
 - LinkedHashSet按照放入的顺序排列，可以有一个Null元素， 底层哈希表和链表组成， 添加、删除操作时间复杂度都是O(1)。
 - TreeSet元素的自然顺序进行排序，不允许Null元素， 底层红黑树， 添加、删除操作时间复杂度都是O(log(n))
+
+## hash函数
+哈希函数是一种将输入数据映射为固定长度散列值的算法。
+
+### hashCode() 方法
+在 Java 中，`Object` 类中定义了 `hashCode()` 方法，用于返回对象的哈希码值（32 位整数）。
+
+默认的 `hashCode()` 方法是根据对象的内存地址计算的，但 ***在实际使用中，我们经常会重写这个方法***，以便根据对象的内容生成哈希码，确保生成的哈希码在可能的情况下分散均匀。
+以下是一个常见的实现模式：
+```java
+@Override
+public int hashCode() {
+    final int prime = 31; // 选择一个质数，用于哈希码的计算
+    int result = 1; // 初始化结果
+
+    // 将对象的每个属性的哈希码累加到结果中
+    result = prime * result + ((field1 == null) ? 0 : field1.hashCode());
+    result = prime * result + ((field2 == null) ? 0 : field2.hashCode());
+    // ...
+
+    return result;
+}
+```
+
+> 确保在计算哈希码时考虑到你认为重要的属性，同时尽量避免碰撞（即不同对象产生相同的哈希码）。这有助于提高哈希表的性能，因为它减少了哈希冲突的可能性。
+
+> 如果你使用 IntelliJ IDEA 等现代 IDE，它们通常可以自动生成 hashCode() 和 equals() 方法的实现，从而减少手动编写的工作。
+
+#### hashCode() 和 equals()
+hashCode() 和 equals() 方法是 Java 中用于 ***处理对象相等性***的两个重要方法。
+它们通常一起被重写，以确保在使用对象的集合类（如 HashMap、HashSet 等）时能够正确地比较和定位对象。
+
+> 如果两个对象通过 equals() 方法判断为相等，那么它们的 hashCode() 应该返回相同的值。
+
+> 如果两个对象通过 equals() 方法判断为不相等，那么它们的 hashCode() 不一定要返回不同的值，但是最好能够返回不同的值，以提高哈希表的性能。
+
+
+hashCode() 方法用于返回对象的哈希码。哈希码是一个用于提高数据检索效率的整数值。
+在重写 hashCode() 方法时，应该考虑以下原则：
+- ***一致性***： 如果对象的属性没有发生变化，多次调用 hashCode() 应该返回相同的值。
+- ***相等对象哈希码相等***： 如果两个对象通过 equals() 方法判断为相等，它们的哈希码应该相等。
+- ***不相等对象尽量不等***： 对于不相等的对象，它们的哈希码应该尽量不相等，以提高哈希表的性能。
+
+equals() 方法用于判断两个对象是否相等。
+
+#### equals() 和 `==`
+`==` 运算符用于比较两个对象的引用（对象在内存中的地址），即判断两个对象是否是同一个对象实例。
+
+equals() 方法被设计用于比较对象的内容（值），而不是比较对象的引用。
+因此，你可以通过重写 equals() 方法来定义两个对象在内容上是否相等。
+
+
+> 在 Object 类中，equals() 方法默认是使用 == 运算符进行引用比较的。如果你不重写 equals() 方法，它将与 == 具有相同的行为。
+
 
 # 操作系统
 <https://www.cnblogs.com/cxuanBlog/p/13297199.html>
@@ -1971,6 +2032,33 @@ Spring中的单例模式是通过默认的Bean Scope（作用域）来实现的�
 - API 设计： 在设计 API 时，使用泛型可以增强 API 的灵活性和可重用性。
 
 
+## 类型擦除
+Java 泛型的类型擦除是指 ***在编译时期泛型类型信息被擦除（Erasure）掉，而在运行时期，泛型类型的实例被当作其上界（upper bound）的类型处理***。这是为了向后兼容原始的非泛型 Java 代码。
+
+```java
+public class Box<T> {
+    private T value;
+
+    public void setValue(T value) {
+        this.value = value;
+    }
+
+    public T getValue() {
+        return value;
+    }
+}
+```
+在这个例子中，Box<T> 是一个泛型类，T 是类型参数。
+
+然而，编译器在编译时会擦除类型参数 T，***这意味着在运行时，Box<T> 类的实例将被视为 Box<Object>。***
+这是为了确保 Java 泛型的兼容性，因为在引入泛型之前的代码可能不包含泛型信息，编译器需要保持与这些代码的兼容性。
+
+擦除的结果是，泛型类型的实例在运行时无法获取其实际类型参数的信息.例如，下面的代码：
+```java
+Box<Integer> integerBox = new Box<>();
+```
+在运行时，integerBox 的实际类型将是 Box<Object>，而无法知道原始的 T 是 Integer。这种情况下，泛型信息被擦除了。
+
 ## 定义一个和创建泛型类
 ```java
 // T 代表类型参数
@@ -2071,3 +2159,4 @@ addNumbers(objects);
 System.out.println("List of objects: " + objects);  // [10, 20]
 
 ```
+
