@@ -32,4 +32,7 @@
     }, 100));
 
   });
+
+  $tocContainer.css('overflow-y', 'auto');
+
 })();
