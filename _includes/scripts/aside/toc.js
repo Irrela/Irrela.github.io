@@ -33,6 +33,6 @@
 
   });
 
-  $tocContainer.css('overflow-y', 'auto');
+  $tocRoot.css('overflow-y', 'auto');
 
 })();
