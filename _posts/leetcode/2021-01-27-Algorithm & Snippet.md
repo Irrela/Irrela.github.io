@@ -21,6 +21,8 @@ tags:
   - [栈](#栈)
     - [20. Valid Parentheses](#20-valid-parentheses)
     - [232. Implement Queue using Stacks](#232-implement-queue-using-stacks)
+  - [堆](#堆)
+    - [双堆法获取中位数](#双堆法获取中位数)
   - [队列](#队列)
     - [225. Implement Stack using Queues](#225-implement-stack-using-queues)
   - [单调队列，单调栈](#单调队列单调栈)
@@ -517,6 +519,40 @@ class MyQueue {
         return in.isEmpty() && out.isEmpty();
     }
 }
+```
+
+## 堆
+### 双堆法获取中位数
+双堆结构：维护一个最大堆和一个最小堆，它们的大小分别是 k/2 和 (k+1)/2。这样可以确保最大堆包含较小的一半元素，最小堆包含较大的一半元素。
+
+维护平衡：保持最大堆的大小等于或比最小堆大 1。这样，中位数就可以从最大堆的堆顶取得。
+
+插入一个元素到最大堆或最小堆中（O(log k) 的复杂度）。
+
+
+```java
+double getMedian(int[] arr) {
+    var maxHeap = new PriorityQueue<Integer>(Collections.reverseOrder());
+    var minHeap = new PriorityQueue<Integer>();
+
+    for (int i = 0; i < arr.length; i++) {
+        if (!maxHeap.isEmpty() && arr[i] <= maxHeap.peek()) 
+            maxHeap.offer(arr[i]);
+        else 
+            minHeap.offer(arr[i]);
+        
+        // Balance the heaps
+        while (maxHeap.size() > (k + 1) / 2)
+            minHeap.offer(maxHeap.poll());
+        
+
+        while (minHeap.size() > k / 2) 
+            maxHeap.offer(minHeap.poll());
+    }
+
+    return maxHeap.peek();
+}
+
 ```
 
 ## 队列
