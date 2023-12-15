@@ -65,12 +65,16 @@ tags:
     - [Backtracking](#backtracking)
       - [78. Subsets](#78-subsets)
       - [90. Subsets II](#90-subsets-ii)
-      - [17. Letter Combinations of a Phone Number](#17-letter-combinations-of-a-phone-number)
       - [39. Combination Sum](#39-combination-sum)
       - [40. Combination Sum II](#40-combination-sum-ii)
       - [131. Palindrome Partitioning](#131-palindrome-partitioning)
+      - [22. Generate Parentheses](#22-generate-parentheses)
+      - [17. Letter Combinations of a Phone Number](#17-letter-combinations-of-a-phone-number)
+      - [1079. Letter Tile Possibilities](#1079-letter-tile-possibilities)
     - [Greedy](#greedy)
       - [455. Assign Cookies](#455-assign-cookies)
+    - [DFS](#dfs)
+      - [1079. Letter Tile Possibilities](#1079-letter-tile-possibilities-1)
 
 
 
@@ -2358,148 +2362,6 @@ class Solution {
 }
 ```
 
-#### 17. Letter Combinations of a Phone Number
-给定一个包含2-9（包括2和9）数字的字符串，返回该数字可能表示的所有可能的字母组合。
-按任意顺序返回答案。
-
-下面给出了数字到字母的映射（就像电话按键一样）。请注意，1不映射到任何字母。
-```txt
-1 - null
-2 - abc
-3 - def
-4 - ghi
-5 - jkl
-6 - mno
-7 - pqrs
-8 - tuv
-9 - wxyz
-```
-----
-
-- 递归回溯法
-
-```java
-class Solution {
-
-    private static final Map<Character, char[]> digitMap = new HashMap<>();
-
-    static {
-        digitMap.put('2', new char[]{'a', 'b', 'c'});
-        digitMap.put('3', new char[]{'d', 'e', 'f'});
-        digitMap.put('4', new char[]{'g', 'h', 'i'});
-        digitMap.put('5', new char[]{'j', 'k', 'l'});
-        digitMap.put('6', new char[]{'m', 'n', 'o'});
-        digitMap.put('7', new char[]{'p', 'q', 'r', 's'});
-        digitMap.put('8', new char[]{'t', 'u', 'v'});
-        digitMap.put('9', new char[]{'w', 'x', 'y', 'z'});
-    }
-
-    public List<String> letterCombinations(String digits) {
-
-        List<String> result = new ArrayList<>();
-
-        if (null == digits || digits.length() == 0)
-            return result;
-
-        backtrack(new StringBuilder(), digits, result);
-
-        return result;
-    }
-
-    private void backtrack(
-        StringBuilder combination, 
-        String nextDigits, 
-        List<String> result
-    ) {
-        // 如果没有下一个数字了，说明当前组合已经完成
-        if (nextDigits.length() == 0) {
-            result.add(combination.toString());
-            return;
-        }
-        // 获取当前数字对应的字母数组
-        char digit = nextDigits.charAt(0);
-        char[] letters = digitMap.get(digit);        
-
-        // 遍历字母数组，递归调用
-        for (char letter : letters) {
-            combination.append(letter);
-
-            /*
-            nextDigits.substring(1) 表示取 nextDigits 字符串的子字符串，从索引 1 开始一直到字符串的末尾。这是因为字符串的索引是从 0 开始的。
-
-            举个例子，如果 nextDigits 是 "234"，那么 nextDigits.substring(1) 就是 "34"。这是一个常见的操作，用来在递归中去掉当前处理的数字，以便处理下一个数字。
-            */
-            backtrack(combination, nextDigits.substring(1), result);
-            
-            // 回溯，移除最后一个字符
-            combination.deleteCharAt(combination.length() - 1); 
-        }
-    }
-}
-```
-
-对于 nextDigits 的处理，目前的实现在每次递归调用中使用 nextDigits.substring(1) 来获取剩余的数字串。这是一种比较简单的方式，但在处理大量数据时可能会有性能开销。
-
-一种优化的方式是不使用 substring，而是传递当前处理的位置索引。这样可以减少创建字符串对象的开销。
-
-```java
-// 采用传index的版本
-class Solution {
-
-    private static final Map<Character, char[]> digitMap = new HashMap<>();
-
-    static {
-        digitMap.put('2', new char[]{'a', 'b', 'c'});
-        digitMap.put('3', new char[]{'d', 'e', 'f'});
-        digitMap.put('4', new char[]{'g', 'h', 'i'});
-        digitMap.put('5', new char[]{'j', 'k', 'l'});
-        digitMap.put('6', new char[]{'m', 'n', 'o'});
-        digitMap.put('7', new char[]{'p', 'q', 'r', 's'});
-        digitMap.put('8', new char[]{'t', 'u', 'v'});
-        digitMap.put('9', new char[]{'w', 'x', 'y', 'z'});
-    }
-
-    public List<String> letterCombinations(String digits) {
-
-        List<String> result = new ArrayList<>();
-
-        if (null == digits || digits.length() == 0)
-            return result;
-
-        // index和digits代替nextDigits
-        backtrack(new StringBuilder(), digits.toCharArray(), 0, result);
-
-        return result;
-    }
-
-    private void backtrack(
-        StringBuilder combination, 
-        char[] digits,
-        int index,
-        List<String> result
-    ) {
-        // 如果当前索引越界，说明当前组合已经完成
-        if (index == digits.length) {
-            result.add(combination.toString());
-            return;
-        }
-        
-        // 获取当前数字对应的字母数组
-        char digit = digits[index];
-        char[] letters = digitMap.get(digit);        
-
-        // 遍历字母数组，递归调用
-        for (char letter : letters) {
-            combination.append(letter);
-
-            backtrack(combination, digits, index + 1, result);
-            
-            // 回溯，移除最后一个字符
-            combination.deleteCharAt(combination.length() - 1); 
-        }
-    }
-}
-```
 
 #### 39. Combination Sum
 给定一个 ***不同*** 的整数候选数组和一个目标整数目标，返回所选数字与目标之和的所有唯一候选组合的列表。
@@ -2698,7 +2560,260 @@ class Solution {
 }
 ```
 
+#### 22. Generate Parentheses
+在给定n对圆括号的情况下，编写一个函数来生成格式良好的圆括号的所有组合。
 
+```txt
+Example 1:
+
+Input: n = 3
+Output: ["((()))","(()())","(())()","()(())","()()()"]
+```
+
+---- 
+- 回溯获得全部组合
+- 用open，close记录当前current使用开闭括号数量
+- 添加到结果并return的条件式长度达到2n
+- well formed判断
+  - 左括号数量小于n
+  - 右括号数量小于左括号数量
+
+```java
+class Solution {
+    public List<String> generateParenthesis(int n) {
+        List<String> result = new ArrayList<>();
+        backtrack(result, new StringBuilder(), 0, 0, n);
+        return result;        
+    }
+
+    private void backtrack(
+        List<String> result, 
+        StringBuilder current, 
+        int open, 
+        int close, 
+        int max
+    ) {
+        // 如果当前字符串的长度等于2 * n，表示找到一个合法的组合        
+        if (current.length() == 2*max) {
+            result.add(new String(current));
+            return;
+        } 
+
+        // 如果左括号数量小于 n，可以添加左括号
+        if (open < max) {
+            current.append('(');
+            backtrack(result, current, open + 1, close, max);
+            current.deleteCharAt(current.length()-1);
+        }
+
+        // 如果右括号数量小于左括号数量，可以添加右括号
+        if (close < open) {
+            current.append(')');
+            backtrack(result, current, open, close + 1, max);
+            current.deleteCharAt(current.length()-1);            
+        }
+    }
+}
+```
+
+#### 17. Letter Combinations of a Phone Number
+给定一个包含2-9（包括2和9）数字的字符串，返回该数字可能表示的所有可能的字母组合。
+按任意顺序返回答案。
+
+下面给出了数字到字母的映射（就像电话按键一样）。请注意，1不映射到任何字母。
+```txt
+1 - null
+2 - abc
+3 - def
+4 - ghi
+5 - jkl
+6 - mno
+7 - pqrs
+8 - tuv
+9 - wxyz
+```
+----
+
+- 递归回溯法
+
+```java
+class Solution {
+
+    private static final Map<Character, char[]> digitMap = new HashMap<>();
+
+    static {
+        digitMap.put('2', new char[]{'a', 'b', 'c'});
+        digitMap.put('3', new char[]{'d', 'e', 'f'});
+        digitMap.put('4', new char[]{'g', 'h', 'i'});
+        digitMap.put('5', new char[]{'j', 'k', 'l'});
+        digitMap.put('6', new char[]{'m', 'n', 'o'});
+        digitMap.put('7', new char[]{'p', 'q', 'r', 's'});
+        digitMap.put('8', new char[]{'t', 'u', 'v'});
+        digitMap.put('9', new char[]{'w', 'x', 'y', 'z'});
+    }
+
+    public List<String> letterCombinations(String digits) {
+
+        List<String> result = new ArrayList<>();
+
+        if (null == digits || digits.length() == 0)
+            return result;
+
+        backtrack(new StringBuilder(), digits, result);
+
+        return result;
+    }
+
+    private void backtrack(
+        StringBuilder combination, 
+        String nextDigits, 
+        List<String> result
+    ) {
+        // 如果没有下一个数字了，说明当前组合已经完成
+        if (nextDigits.length() == 0) {
+            result.add(combination.toString());
+            return;
+        }
+        // 获取当前数字对应的字母数组
+        char digit = nextDigits.charAt(0);
+        char[] letters = digitMap.get(digit);        
+
+        // 遍历字母数组，递归调用
+        for (char letter : letters) {
+            combination.append(letter);
+
+            /*
+            nextDigits.substring(1) 表示取 nextDigits 字符串的子字符串，从索引 1 开始一直到字符串的末尾。这是因为字符串的索引是从 0 开始的。
+
+            举个例子，如果 nextDigits 是 "234"，那么 nextDigits.substring(1) 就是 "34"。这是一个常见的操作，用来在递归中去掉当前处理的数字，以便处理下一个数字。
+            */
+            backtrack(combination, nextDigits.substring(1), result);
+            
+            // 回溯，移除最后一个字符
+            combination.deleteCharAt(combination.length() - 1); 
+        }
+    }
+}
+```
+
+对于 nextDigits 的处理，目前的实现在每次递归调用中使用 nextDigits.substring(1) 来获取剩余的数字串。这是一种比较简单的方式，但在处理大量数据时可能会有性能开销。
+
+一种优化的方式是不使用 substring，而是传递当前处理的位置索引。这样可以减少创建字符串对象的开销。
+
+```java
+// 采用传index的版本
+class Solution {
+
+    private static final Map<Character, char[]> digitMap = new HashMap<>();
+
+    static {
+        digitMap.put('2', new char[]{'a', 'b', 'c'});
+        digitMap.put('3', new char[]{'d', 'e', 'f'});
+        digitMap.put('4', new char[]{'g', 'h', 'i'});
+        digitMap.put('5', new char[]{'j', 'k', 'l'});
+        digitMap.put('6', new char[]{'m', 'n', 'o'});
+        digitMap.put('7', new char[]{'p', 'q', 'r', 's'});
+        digitMap.put('8', new char[]{'t', 'u', 'v'});
+        digitMap.put('9', new char[]{'w', 'x', 'y', 'z'});
+    }
+
+    public List<String> letterCombinations(String digits) {
+
+        List<String> result = new ArrayList<>();
+
+        if (null == digits || digits.length() == 0)
+            return result;
+
+        // index和digits代替nextDigits
+        backtrack(new StringBuilder(), digits.toCharArray(), 0, result);
+
+        return result;
+    }
+
+    private void backtrack(
+        StringBuilder combination, 
+        char[] digits,
+        int index,
+        List<String> result
+    ) {
+        // 如果当前索引越界，说明当前组合已经完成
+        if (index == digits.length) {
+            result.add(combination.toString());
+            return;
+        }
+        
+        // 获取当前数字对应的字母数组
+        char digit = digits[index];
+        char[] letters = digitMap.get(digit);        
+
+        // 遍历字母数组，递归调用
+        for (char letter : letters) {
+            combination.append(letter);
+
+            backtrack(combination, digits, index + 1, result);
+            
+            // 回溯，移除最后一个字符
+            combination.deleteCharAt(combination.length() - 1); 
+        }
+    }
+}
+```
+
+
+#### 1079. Letter Tile Possibilities
+您有n个瓷砖，每个瓷砖上印有一个字母瓷砖[i]。
+
+返回您可以使用这些瓷砖上打印的字母组成的可能的非空字母序列的数量。
+
+```txt
+Example 1:
+
+Input: tiles = "AAB"
+Output: 8
+Explanation: The possible sequences are "A", "B", "AA", "AB", "BA", "AAB", "ABA", "BAA".
+```
+
+----
+
+- 回溯
+- 跳过重复的判断要考虑前一个char是否也未被使用
+
+```java
+class Solution {
+
+    int ans;            // 记录最终的答案
+    boolean[] visited;  // 记录字符是否已经被访问过
+
+    public int numTilePossibilities(String tiles) {
+        char[] arr = tiles.toCharArray();
+        Arrays.sort(arr);   // 将字符数组排序，以便处理相同字符的重复情况
+
+        visited = new boolean[arr.length];
+
+        backtrack(arr, 0);  // 开始深度优先搜索
+
+        return ans;
+    }
+
+    private void backtrack(char[] arr, int len) {
+        if (len == arr.length)
+            return;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (visited[i])
+                continue;
+            if (i > 0 && arr[i] == arr[i - 1] && !visited[i - 1])
+                continue;  // 处理相同字符的情况，避免重复
+
+            ans++;  // 每次选择一个字符，答案加一
+
+            visited[i] = true;    // 标记当前字符已被访问
+            backtrack(arr, len + 1);    // 递归调用深度优先搜索
+            visited[i] = false;   // 回溯，取消当前字符的访问标记
+        }
+    }
+}
+```
 
 
 ### Greedy
@@ -2730,4 +2845,54 @@ public class CookieProblem {
     }
 }
 
+```
+
+
+### DFS
+
+#### 1079. Letter Tile Possibilities
+您有n个瓷砖，每个瓷砖上印有一个字母瓷砖[i]。
+
+返回您可以使用这些瓷砖上打印的字母组成的可能的非空字母序列的数量。
+
+```txt
+Example 1:
+
+Input: tiles = "AAB"
+Output: 8
+Explanation: The possible sequences are "A", "B", "AA", "AB", "BA", "AAB", "ABA", "BAA".
+```
+
+----
+
+- DFS
+
+```java
+class Solution {
+    public int numTilePossibilities(String tiles) {
+        // 记录每个字母的出现次数
+        int[] letterCount = new int[26];
+        for (char c : tiles.toCharArray()) {
+            letterCount[c - 'A']++;
+        }
+
+        // 从第一个字母开始深度优先搜索
+        return dfs(letterCount);
+    }
+
+    private int dfs(int[] letterCount) {
+        int sum = 0;
+        for (int i = 0; i < 26; i++) {
+            if (letterCount[i] > 0) {
+                // 选择一个字母
+                letterCount[i]--;
+                // 递归调用深度优先搜索
+                sum += 1 + dfs(letterCount);
+                // 恢复状态，回溯
+                letterCount[i]++;
+            }
+        }
+        return sum;
+    }
+}
 ```
