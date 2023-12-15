@@ -41,6 +41,7 @@ tags:
   - [背向双指针](#背向双指针)
     - [5. Longest Palindromic Substring](#5-longest-palindromic-substring)
   - [相向双指针](#相向双指针)
+    - [相向双指针判断回文](#相向双指针判断回文)
     - [167. Two Sum II - Input Array Is Sorted](#167-two-sum-ii---input-array-is-sorted)
 - [BFS](#bfs)
   - [基于树](#基于树)
@@ -907,6 +908,19 @@ class Solution {
 ```
 
 ## 相向双指针
+
+### 相向双指针判断回文
+
+```java
+private boolean isPalindrome(String s, int low, int high) {
+    while (low < high) {
+        if (s.charAt(low++) != s.charAt(high--)) {
+            return false;
+        }
+    }
+    return true;
+}   
+```
 
 ### 167. Two Sum II - Input Array Is Sorted
 
