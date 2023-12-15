@@ -5,6 +5,11 @@ tags:
   - Leetcode
 ---
 
+- [Common Snippet](#common-snippet)
+  - [Stack, Queue, Heap](#stack-queue-heap)
+  - [Reverse Linked List](#reverse-linked-list)
+  - [交错合并两个链表(长度无限制)](#交错合并两个链表长度无限制)
+  - [交错合并两个链表(数量最多相差1)](#交错合并两个链表数量最多相差1)
 - [排序和选择](#排序和选择)
   - [快速排序](#快速排序)
   - [快速选择](#快速选择)
@@ -64,6 +69,94 @@ tags:
   - [基于排列组合](#基于排列组合)
   - [记忆化搜索](#记忆化搜索)
 - [前缀和](#前缀和)
+
+
+
+# Common Snippet
+## Stack, Queue, Heap
+
+```java
+// Stack
+Deque<Integer> stack = new ArrayDeque<>();
+stack.offer(1);
+stack.peek();
+stack.isEmpty();
+stack.poll();
+
+// Queue
+Deque<Integer> queue = new ArrayDeque<>();
+
+// 在队列尾部插入元素
+queue.offerLast(1); // -> offer
+// 在队列头部插入元素
+queue.offerFirst(0);
+
+queue.peekFirst();
+queue.peekLast();
+
+queue.pollFirst();
+queue.pollLast(); // -> poll
+
+queue.isEmpty();
+
+// Heap
+PriorityQueue<Integer> minHeap = new PriorityQueue<>(k);
+PriorityQueue<Integer> maxHeap = new PriorityQueue<>(k, (a, b) -> b - a);
+
+minHeap.offer(1);
+minHeap.isEmpty();
+minHeap.peek(); // 看堆顶
+minHeap.poll(); // 弹出堆顶
+
+```
+## Reverse Linked List
+```java
+    private ListNode reverseList(ListNode node) { // Side-effect change node's list
+        ListNode prev = null;
+
+        while (node != null) {
+            ListNode nextNode = node.next;
+            node.next = prev;
+            prev = node;
+            node = nextNode;
+        }
+
+        return prev;
+    }
+```
+
+## 交错合并两个链表(长度无限制)
+```java
+    public static ListNode mergeAlternately(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(0);
+        ListNode current = dummy;
+
+        while (l1 != null && l2 != null) {
+            // Link a node from the first list
+            current.next = l1;
+            l1 = l1.next;
+            current = current.next;
+
+            // Link a node from the second list
+            current.next = l2;
+            l2 = l2.next;
+            current = current.next;
+        }
+
+        // If one list is longer than the other, link the remaining nodes
+        if (l1 != null) {
+            current.next = l1;
+        }
+        if (l2 != null) {
+            current.next = l2;
+        }
+
+        return dummy.next;
+    }
+```
+
+## 交错合并两个链表(数量最多相差1)
+
 
 
 # 排序和选择
