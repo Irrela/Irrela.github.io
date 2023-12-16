@@ -71,10 +71,14 @@ tags:
       - [22. Generate Parentheses](#22-generate-parentheses)
       - [17. Letter Combinations of a Phone Number](#17-letter-combinations-of-a-phone-number)
       - [1079. Letter Tile Possibilities](#1079-letter-tile-possibilities)
+      - [79. Word Search](#79-word-search)
     - [Greedy](#greedy)
       - [455. Assign Cookies](#455-assign-cookies)
     - [DFS](#dfs)
       - [1079. Letter Tile Possibilities](#1079-letter-tile-possibilities-1)
+      - [104. Maximum Depth of Binary Tree](#104-maximum-depth-of-binary-tree)
+      - [94. Binary Tree Inorder Traversal](#94-binary-tree-inorder-traversal)
+      - [207. Course Schedule](#207-course-schedule)
 
 
 
@@ -1863,7 +1867,7 @@ Result: "abcabc"
 The same letters are at least distance 3 from each other.
 ```
 
-----
+---
 - 贪心算法和大根堆
 - int[] 存储char和出现次数
 - 大根堆，堆顶是出现频率最高的字符
@@ -1985,7 +1989,7 @@ class Solution {
 
 返回原始数组中每个窗口的`median` 的array。在实际值的10-5以内的答案将被接受。
 
----- 
+--- 
 
 - 双堆获取中位数
 
@@ -2172,7 +2176,7 @@ public double findMedianSortedArrays(int[] nums1, int[] nums2) {
 
 您必须找到内存复杂度优于O(N2)的解决方案。
 
-----
+---
 ##### 大根堆
 
 ```java
@@ -2265,7 +2269,7 @@ Example 1:
 Input: nums = [1,2,3]
 Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
 ```
-----
+---
 
 - 回溯法（backtracking）
 - 递归回溯法： 对于每个元素，你有两个选择，要么包含它，要么不包含它。通过递归，你可以生成所有的组合。
@@ -2311,7 +2315,7 @@ Input: nums = [1,2,2]
 Output: [[],[1],[1,2],[1,2,2],[2],[2,2]]
 ```
 
-----
+---
 
 - 和subsets的差异在于 可能包含重复项
 - 排序数组，方便后面进行跳过
@@ -2383,7 +2387,7 @@ Explanation:
 These are the only two combinations.
 ```
 
-----
+---
 
 - 回溯
 - 判断添加到res的条件与target相关
@@ -2447,7 +2451,7 @@ Output:
 ]
 ```
 
-----
+---
 
 - 回溯
 - 不能包含重复的组合： 排序并跳过
@@ -2512,7 +2516,7 @@ Example 1:
 Input: s = "aab"
 Output: [["a","a","b"],["aa","b"]]
 ```
-----
+---
 
 - 回溯
 - 添加到结果并退出的条件是index到s最后一位
@@ -2570,7 +2574,7 @@ Input: n = 3
 Output: ["((()))","(()())","(())()","()(())","()()()"]
 ```
 
----- 
+--- 
 - 回溯获得全部组合
 - 用open，close记录当前current使用开闭括号数量
 - 添加到结果并return的条件式长度达到2n
@@ -2632,7 +2636,7 @@ class Solution {
 8 - tuv
 9 - wxyz
 ```
-----
+---
 
 - 递归回溯法
 
@@ -2773,7 +2777,7 @@ Output: 8
 Explanation: The possible sequences are "A", "B", "AA", "AB", "BA", "AAB", "ABA", "BAA".
 ```
 
-----
+---
 
 - 回溯
 - 跳过重复的判断要考虑前一个char是否也未被使用
@@ -2814,6 +2818,111 @@ class Solution {
     }
 }
 ```
+
+#### 79. Word Search
+> 给定一个`m x n`网格的字符板和一个字符串单词，如果网格中存在单词，则返回TRUE。
+> 
+> 该单词可以由连续相邻单元格的字母构成，其中相邻单元格水平或垂直相邻。同一字母单元不能多次使用。
+
+```txt
+Input: 
+board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
+
+Output: true
+```
+
+---
+
+- 回溯
+- 主方法里需要遍历每个grid调用backtrack，因为每一个grid都可以作为开头
+- 可选优化1：统计char freq，筛除不够组成word的board
+- 可选优化2：翻转wordArray，如果尾字符频率高于首字符频率
+
+```java
+class Solution {
+
+    boolean[][] used;
+
+    public boolean exist(char[][] board, String word) {
+
+        int rows = board.length; 
+        int cols = board[0].length;
+
+        used = new boolean[rows][cols];
+        char[] wordArr = word.toCharArray();
+
+        // 统计字符在board中的出现次数
+        int[] boardCharFrequency = new int[52];
+        for (int i = 0; i < rows; ++i) {
+            for (int j = 0; j < cols; ++j) {
+                ++boardCharFrequency[board[i][j]];
+            }
+        }
+
+        // 检查单词字符是否超过在board中的出现次数
+        for (char ch : wordArray) {
+            if (--boardCharFrequency[ch] < 0) {
+                return false;
+            }
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (backtrack(board, wordArr, 0, i, j))
+                    return true; 
+            }
+        }
+
+        return false;
+    }
+
+    private boolean backtrack(
+        char[][] board,
+        char[] wordArr,
+        int index,
+        int x,
+        int y
+    ) {
+        if (!withinBoundary(board, x, y)) {
+            return false;
+        }
+
+        if (used[x][y]) {
+            return false;
+        }
+
+        if (board[x][y] != wordArr[index]) {
+            return false;
+        }
+
+        if (index == wordArr.length-1) {
+            return true;
+        }
+
+        used[x][y] = true;
+        if (backtrack(board, wordArr, index+1, x+1, y) 
+            || backtrack(board, wordArr, index+1, x-1, y)
+            || backtrack(board, wordArr, index+1, x, y+1)
+            || backtrack(board, wordArr, index+1, x, y-1)
+        )
+            return true;
+
+        used[x][y] = false;
+        return false;
+    }
+
+    private boolean withinBoundary(char[][] board, int x, int y) {
+        return x >= 0 
+            && x < board.length 
+            && y >= 0
+            && y < board[0].length;
+    }
+}
+```
+
+
+
+
 
 
 ### Greedy
@@ -2863,7 +2972,7 @@ Output: 8
 Explanation: The possible sequences are "A", "B", "AA", "AB", "BA", "AAB", "ABA", "BAA".
 ```
 
-----
+---
 
 - DFS
 
@@ -2895,4 +3004,186 @@ class Solution {
         return sum;
     }
 }
+```
+
+
+#### 104. Maximum Depth of Binary Tree
+> 给定二叉树的根，返回其最大深度。
+> 
+> 二叉树的最大深度是从根节点向下到最远的叶节点的最长路径上的节点数。
+
+```txt
+Input: root = [3,9,20,null,null,15,7]
+Output: 3
+```
+
+---
+
+```java
+class Solution {
+    public int maxDepth(TreeNode root) {
+        return dfs(root);
+    }
+    
+    private int dfs(TreeNode node) {
+        if (null == node)
+            return 0;
+
+        return Math.max(dfs(node.left), dfs(node.right)) + 1;
+    }
+}
+```
+
+
+#### 94. Binary Tree Inorder Traversal
+> 给定二叉树的根，返回其节点值的中序遍历。
+
+```txt
+Input: root = [1,null,2,3]
+Output: [1,3,2]
+```
+
+---
+
+```java
+class Solution {
+    
+    List<Integer> result;
+    
+    public List<Integer> inorderTraversal(TreeNode root) {
+        result = new ArrayList<>();
+
+        dfs(root);
+
+        return result;    
+    }
+
+    private void dfs(TreeNode node) {
+        if (node == null)
+            return;
+        
+        dfs(node.left);
+        result.add(node.val);
+        dfs(node.right);
+    }
+}
+```
+
+
+#### 207. Course Schedule
+> 您必须学习的课程总共有`numCourses`，标签从`0`到`numCourses-1`。
+> 
+> 您将获得一个数组 `prerequisites`，其中 `prerequisites[i]=[ai，bi]` 表示如果您想要学习课程 `ai`，您必须首先学习课程`bi`。
+>
+> 例如，对[0，1]表示要选修课程0，必须先选修课程1。
+>
+> 如果可以完成所有课程，则返回TRUE。否则，返回FALSE。
+
+```txt
+Example 1:
+
+Input: numCourses = 2, prerequisites = [[1,0]]
+
+Output: true
+
+Explanation: There are a total of 2 courses to take. 
+To take course 1 you should have finished course 0. So it is possible.
+```
+
+---
+
+- graph: key-要学的课程，value-其全部前置课程
+- 三种状态
+  - 在这里，状态 1 表示正在访问的节点，有助于检测环的存在。当你在DFS过程中访问一个节点时，将其标记为1表示该节点正在当前的DFS遍历中被访问。如果在同一轮DFS中再次访问到了状态为1的节点，说明存在环。这就是为什么要有这个状态的原因。
+
+```java
+class Solution {
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        // 构建有向图
+        List<List<Integer>> graph = new ArrayList<>();
+
+        for (int i = 0; i < numCourses; i++) { 
+            graph.add(new ArrayList<>()); // 必要，不然hasCycle中遍历可能会NPE
+        }
+        for (int[] prerequisite : prerequisites) {
+            graph.get(prerequisite[0]).add(prerequisite[1]);
+        }
+
+        // 用数组来表示节点的状态，0表示未访问，1表示正在访问，2表示已完成访问
+        int[] visited = new int[numCourses];
+
+        // 对每个节点进行DFS
+        for (int i = 0; i < numCourses; i++) {
+            if (visited[i] == 0 && hasCycle(graph, visited, i)) {
+                return false; // 存在环，不能完成所有课程
+            }
+        }
+
+        return true; // 不存在环，可以完成所有课程
+    }
+
+    private boolean hasCycle(List<List<Integer>> graph, int[] visited, int course) {
+        // 标记当前节点为正在访问
+        visited[course] = 1;
+
+        // 遍历当前节点的所有邻居
+        for (int neighbor : graph.get(course)) {
+            if (visited[neighbor] == 1) {
+                return true; // 发现环
+            }
+         
+            if (visited[neighbor] == 0 && hasCycle(graph, visited, neighbor)) {
+                return true; // 递归遍历邻居节点
+            }
+        }
+
+        // 标记当前节点为已完成访问
+        visited[course] = 2;
+        return false;
+    }
+}
+
+
+```
+
+拓扑法
+通过维护每门课程的入度（inDegree），在每一轮循环中移除入度为0的课程，直到所有课程都被移除或者无法再移除。
+- 每门课程的入度表示有多少其他课程依赖于这门课程，即有多少先修课程。
+- removed 数组标志已经移除的先修关系，
+- totalRemoved 记录总共移除的先修关系数量
+- currentRemoved 记录当前轮次移除的先修关系数量。
+
+```java
+class Solution {
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        int[] inDegree = new int[numCourses]; // 用来记录每门课程的入度
+        for (int[] prerequisite : prerequisites) {
+            inDegree[prerequisite[1]]++;
+        }
+        
+        int totalRemoved = 0; // 记录已经移除的先修关系数量
+        int[] removed = new int[prerequisites.length]; // 记录已经移除的先修关系的标志数组
+        while (totalRemoved < prerequisites.length) {
+            int currentRemoved = 0; // 记录当前轮次移除的先修关系数量
+            for (int i = 0; i < prerequisites.length; i++) {
+                if (removed[i] == 1) {
+                    continue; // 如果该关系已经被移除，跳过
+                }
+                int[] prerequisite = prerequisites[i];
+                if (inDegree[prerequisite[0]] == 0) {
+                    // 如果当前先修课程入度为0，移除这个先修关系
+                    inDegree[prerequisite[1]]--;
+                    removed[i] = 1;
+                    currentRemoved++;
+                }
+            }
+            if (currentRemoved == 0) {
+                return false; // 如果当前轮次没有移除任何先修关系，说明存在环
+            }
+            totalRemoved += currentRemoved; // 更新总的移除数量
+        }
+        return true;
+    }
+}
+
 ```
