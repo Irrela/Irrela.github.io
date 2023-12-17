@@ -67,6 +67,7 @@ tags:
       - [90. Subsets II](#90-subsets-ii)
       - [39. Combination Sum](#39-combination-sum)
       - [40. Combination Sum II](#40-combination-sum-ii)
+      - [113. Path Sum II](#113-path-sum-ii)
       - [131. Palindrome Partitioning](#131-palindrome-partitioning)
       - [22. Generate Parentheses](#22-generate-parentheses)
       - [17. Letter Combinations of a Phone Number](#17-letter-combinations-of-a-phone-number)
@@ -79,6 +80,7 @@ tags:
       - [104. Maximum Depth of Binary Tree](#104-maximum-depth-of-binary-tree)
       - [94. Binary Tree Inorder Traversal](#94-binary-tree-inorder-traversal)
       - [207. Course Schedule](#207-course-schedule)
+        - [拓扑法](#拓扑法)
 
 
 
@@ -2505,6 +2507,69 @@ class Solution {
 }
 ```
 
+#### 113. Path Sum II
+
+> 给定一个二叉树的根和一个整数`targetSum`，返回路径中节点值之和等于`targetSum`的所有`根到叶路径`。
+> 
+> 每条路径都应该作为节点值列表返回，而不是节点引用。
+> 
+> 根到叶路径是从根开始并在任何叶节点结束的路径。叶子是没有子节点的节点。
+
+```txt
+Input: root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
+
+Output: [[5,4,11,2],[5,8,4,5]]
+
+Explanation: There are two paths whose sum equals targetSum:
+5 + 4 + 11 + 2 = 22
+5 + 8 + 4 + 5 = 22
+```
+
+---
+- 回溯
+- 当到达叶子节点且路径和等于目标值时，添加路径的副本
+  - 因为是叶子结点所以要判断左右子节点为null
+  - 如果找到，
+
+
+```java
+class Solution {
+
+    List<List<Integer>> result;
+    public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+        result = new ArrayList<>();
+
+        backtrack(root, targetSum, new ArrayList<Integer>());
+
+        return result;
+
+    }
+
+    private void backtrack(TreeNode node, int remaining, List<Integer> current){
+
+        if (node == null) {
+            return;
+        }
+
+        int newRemaining = remaining - node.val;
+
+        current.add(node.val);
+
+        if (node.left == null && node.right == null && newRemaining == 0) {
+            result.add(new ArrayList(current));
+            // 因为这里是guide语句，所以要在return之前将状态回滚
+            // 如果将下方两个backtrack写入else，则可以共用最后的回滚语句
+            current.remove(current.size()-1);
+            return;
+        }
+
+        backtrack(node.left, newRemaining, current);
+        backtrack(node.right, newRemaining, current);
+        current.remove(current.size()-1);
+    }
+}
+```
+
 
 #### 131. Palindrome Partitioning
 给定一串S，划分S，使划分出的每一个子串是回文。
@@ -3146,7 +3211,7 @@ class Solution {
 
 ```
 
-拓扑法
+##### 拓扑法
 通过维护每门课程的入度（inDegree），在每一轮循环中移除入度为0的课程，直到所有课程都被移除或者无法再移除。
 - 每门课程的入度表示有多少其他课程依赖于这门课程，即有多少先修课程。
 - removed 数组标志已经移除的先修关系，
