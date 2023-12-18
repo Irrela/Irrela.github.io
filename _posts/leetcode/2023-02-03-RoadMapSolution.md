@@ -22,6 +22,7 @@ tags:
     - [1493. Longest Subarray of 1's After Deleting One Element](#1493-longest-subarray-of-1s-after-deleting-one-element)
       - [手动记录zero\_idx](#手动记录zero_idx)
       - [不记录zero\_idx, 让left递增直到zero\_idx](#不记录zero_idx-让left递增直到zero_idx)
+      - [Longest Consecutive Sequence](#longest-consecutive-sequence)
     - [Interval](#interval)
       - [986. Interval List Intersections](#986-interval-list-intersections)
       - [57. Insert Interval](#57-insert-interval)
@@ -36,7 +37,7 @@ tags:
     - [Hash Maps](#hash-maps)
       - [205. Isomorphic Strings](#205-isomorphic-strings)
       - [290. Word Pattern](#290-word-pattern)
-      - [49. Group Anagrams](#49-group-anagrams)
+      - [Group Anagrams](#group-anagrams)
       - [438. Find All Anagrams in a String](#438-find-all-anagrams-in-a-string)
       - [974. Subarray Sums Divisible by K](#974-subarray-sums-divisible-by-k)
     - [Modified Binary Search](#modified-binary-search)
@@ -606,6 +607,59 @@ class Solution {
     }
 }
 ```
+
+
+#### Longest Consecutive Sequence
+```java
+/**
+ * 128. Longest Consecutive Sequence
+ * 问题描述：
+ * 给定一个未排序的整数数组 nums，返回最长连续元素序列的长度。
+ * 
+ * 要求算法的时间复杂度为 O(n)。
+ * 
+ * 
+ * 思路：
+ * 使用 HashSet 存储数组元素，以便进行快速查找。
+ * 遍历数组中的每个元素，对于每个元素 x，检查 x-1 是否在 HashSet 中，如果不在，则 x 是一个连续序列的起点。
+ * 从起点 x 开始向右扩展，直到不在 HashSet 中为止，更新最长连续序列的长度。
+ */
+class Solution {
+    
+    /**
+     * 返回最长连续元素序列的长度。
+     * 
+     * @param nums 未排序的整数数组
+     * @return 最长连续元素序列的长度
+     */
+    public int longestConsecutive(int[] nums) {
+        // 将数组转换为 HashSet，以便进行快速查找
+        Set<Integer> numSet = new HashSet<>();
+        for (int num : nums) {
+            numSet.add(num);
+        }
+
+        int best = 0;
+
+        for (int x : numSet) {
+            // 如果 x-1 不在 HashSet 中，说明 x 是一个序列的起点
+            if (!numSet.contains(x - 1)) {
+                int y = x + 1;
+                // 向右扩展，直到不在 HashSet 中为止
+                while (numSet.contains(y)) {
+                    y++;
+                }
+                // 更新最长连续序列的长度
+                best = Math.max(best, y - x);
+            }
+        }
+
+        return best;
+    }
+}
+
+```
+
 
 ### Interval
 
@@ -1261,38 +1315,58 @@ class Solution {
 }
 ```
 
-#### 49. Group Anagrams
-
-- 对于每个字符串，将其字符排序后的结果作为 key，
-- 使用hashmap, 将具有相同 key 的字符串放在同一个列表中。
-
-> Arrays.sort()
-> new ArrayList<>(map.values()): 用Collection直接初始化一个List(其他Collection 也行，比如Set<String> set = new HashSet<>(someList), 只能将一个list转化为set完成去重)
-
+#### Group Anagrams
 ```java
+/**
+ * 49. Group Anagrams
+ * 
+ * 问题描述：
+ * 给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。
+ * 
+ * 示例：
+ * 输入: ["eat", "tea", "tan", "ate", "nat", "bat"]
+ * 输出:
+ * [
+ *   ["ate","eat","tea"],
+ *   ["nat","tan"],
+ *   ["bat"]
+ * ]
+ * 
+ * 思路：
+ * 使用哈希表存储每个字母异位词的字符频率，然后利用哈希值作为键，将字母异位词归类。
+ * 
+ * 技巧：
+ * - new ArrayList<>(map.values()): 用Collection直接初始化一个List(其他Collection 也行，比如Set<String> set = new HashSet<>(someList), 只能将一个list转化为set完成去重)
+ * - collection.addAll(ele collections)
+ */
 class Solution {
+    /**
+     * 将字母异位词组合在一起
+     * 
+     * @param strs 字符串数组
+     * @return 字母异位词分组
+     */
     public List<List<String>> groupAnagrams(String[] strs) {
-        if (strs == null || strs.length == 0) {
-            return new ArrayList<>();
-        }
-
-        Map<String, List<String>> map = new HashMap<>();
+        var hashGroups = new HashMap<Integer, List<String>>();
 
         for (String str : strs) {
-            char[] chars = str.toCharArray();
+            int[] charFrequency = new int[26];
 
-            Arrays.sort(chars);
-            String sortedStr = new String(chars);
+            // 计算字符频率
+            for (char c : str.toCharArray()) {
+                charFrequency[c - 'a']++;
+            }
 
-            List<String> vals = map.getOrDefault(sortedStr, new ArrayList<>());
-            vals.add(str);
-            map.put(sortedStr, vals);
+            // 使用哈希值作为键，将字母异位词归类
+            int hash = Arrays.hashCode(charFrequency);
+            hashGroups.computeIfAbsent(hash, k -> new ArrayList<>()).add(str);
         }
 
-
-        return new ArrayList<>(map.values());
+        // 将结果添加到最终答案中
+        return new ArrayList(hashGroups.values());
     }
 }
+
 ```
 
 
@@ -1544,36 +1618,55 @@ class Solution {
 ```
 
 #### 162. Find Peak Element
-- 二分法
-- 可能有多个peak点，所以只需要`mid-1 < mid > mid+1`就可以判断为peak
-- 注意index 0 和 len -1的边界判断方式
-
 ```java
+/**
+ * 
+ * 问题描述：找峰值
+ * 
+ * 
+ * 思路：
+ * 利用二分法查找峰值，不断缩小搜索范围
+ * 可能有多个peak点，所以只需要`mid-1 < mid > mid+1`就可以判断为peak
+ *  - else 为 mid <= mid - 1 || mid <= mid + 1
+ * 注意特殊情况和两端点为峰值的情况
+ */
 class Solution {
+    /**
+     * 查找峰值元素的索引
+     *
+     * @param nums 给定的数组
+     * @return 峰值元素的索引，如果不存在峰值则返回 -1
+     */
     public int findPeakElement(int[] nums) {
         int len = nums.length;
+
+        // 处理特殊情况
+        if (len == 0)
+            return -1;
         if (len == 1)
             return 0;
 
-        if (nums[0] > nums[1]) 
-            return 0;
+        int lo = 0, hi = len - 1;
 
-        if (nums[len-1] > nums[len-2])
-            return len-1;
+        // 判断两端点是否为峰值
+        if (nums[lo] > nums[lo + 1])
+            return lo;
+        if (nums[hi] > nums[hi - 1])
+            return hi;
 
-        int begin = 1, end = len-2;
+        // 二分法查找峰值
+        while (lo <= hi) {
+            int mid = lo + (hi - lo) / 2;
 
-        while (begin <= end) {
-            int mid = begin + (end - begin) / 2;
-
-            if (nums[mid] > nums[mid+1] && nums[mid] > nums[mid-1])
+            if (nums[mid] > nums[mid + 1] && nums[mid] > nums[mid - 1])
                 return mid;
-            else if (nums[mid] < nums[mid+1])
-                begin = mid + 1;
-            else if (nums[mid] < nums[mid-1])
-                end = mid - 1;  
+            else if (nums[mid] <= nums[mid + 1])
+                lo = mid + 1;
+            else // nums[mid] <= nums[mid + 1]
+                hi = mid - 1;
         }
 
+        // 没有找到峰值
         return -1;
     }
 }
