@@ -76,11 +76,19 @@ tags:
     - [Greedy](#greedy)
       - [455. Assign Cookies](#455-assign-cookies)
     - [DFS](#dfs)
+      - [Symmetric Tree](#symmetric-tree)
+      - [226. Invert Binary Tree](#226-invert-binary-tree)
       - [1079. Letter Tile Possibilities](#1079-letter-tile-possibilities-1)
       - [104. Maximum Depth of Binary Tree](#104-maximum-depth-of-binary-tree)
       - [94. Binary Tree Inorder Traversal](#94-binary-tree-inorder-traversal)
       - [207. Course Schedule](#207-course-schedule)
         - [拓扑法](#拓扑法)
+      - [Binary Tree Right Side View](#binary-tree-right-side-view)
+      - [Clone Graph](#clone-graph)
+      - [Lowest Common Ancestor of a Binary Search Tree](#lowest-common-ancestor-of-a-binary-search-tree)
+      - [Lowest Common Ancestor of a Binary Tree](#lowest-common-ancestor-of-a-binary-tree)
+    - [BFS](#bfs)
+      - [Binary Tree Right Side View](#binary-tree-right-side-view-1)
 
 
 
@@ -3024,6 +3032,120 @@ public class CookieProblem {
 
 ### DFS
 
+#### Symmetric Tree
+```java
+/**
+ * 101. Symmetric Tree
+ * 问题描述：
+ * 给定一个二叉树，判断它是否是镜像对称的。
+ * 
+ * 思路：
+ * 递归地比较左子树的左节点和右子树的右节点，以及左子树的右节点和右子树的左节点。
+ * 如果它们都相等，则满足镜像对称的条件。
+ */
+public class SymmetricTree {
+    /**
+     * 判断给定的二叉树是否是镜像对称的。
+     * 
+     * @param root 二叉树的根节点
+     * @return 如果是镜像对称的，返回 true；否则，返回 false。
+     */
+    public boolean isSymmetric(TreeNode root) {
+        // 如果根节点为空，视为对称
+        if (null == root)
+            return true;
+
+        // 调用递归函数判断左右子树是否对称
+        return isMirror(root.left, root.right);
+    }
+
+    /**
+     * 递归判断两个节点是否对称。
+     * 
+     * @param left 左子树节点
+     * @param right 右子树节点
+     * @return 如果对称，返回 true；否则，返回 false。
+     */
+    private boolean isMirror(TreeNode left, TreeNode right) {
+        // 左右节点均为空，对称
+        if (null == left && null == right)
+            return true;
+        // 左右节点一个为空，一个非空，不对称
+        if (null == left || null == right)
+            return false;
+        // 左右节点的值不相等，不对称
+        if (left.val != right.val)
+            return false;
+
+        // 递归判断左子树的左节点和右子树的右节点，以及左子树的右节点和右子树的左节点是否对称
+        return isMirror(left.left, right.right) && isMirror(left.right, right.left);
+    }
+}
+```
+
+#### 226. Invert Binary Tree
+```java
+/**
+ * 226. 翻转二叉树
+ * 
+ * 问题描述：
+ * 翻转一棵二叉树。
+ * 
+ * 示例：
+ * 输入：
+ *      4
+ *     / \
+ *    2   7
+ *   / \ / \
+ *  1  3 6  9
+ * 输出：
+ *      4
+ *     / \
+ *    7   2
+ *   / \ / \
+ *  9  6 3  1
+ * 
+ * 思路：
+ * 通过深度优先搜索（DFS），递归地交换每个节点的左右子树。
+ */
+public class Solution {
+    
+    /**
+     * 翻转二叉树的入口方法
+     * @param root 二叉树的根节点
+     * @return 翻转后的二叉树根节点
+     */
+    public TreeNode invertTree(TreeNode root) {
+        // 调用深度优先搜索
+        dfs(root);
+        // 返回翻转后的二叉树根节点
+        return root;
+    }
+
+    /**
+     * 深度优先搜索方法，递归地翻转每个节点的左右子树
+     * @param node 当前节点
+     */
+    private void dfs(TreeNode node) {
+        // 如果当前节点为空，直接返回
+        if (null == node) {
+            return;
+        }
+        
+        // 交换当前节点的左右子树
+        TreeNode temp = node.left;
+        node.left = node.right;
+        node.right = temp;
+
+        // 递归处理左子树
+        dfs(node.left);
+        // 递归处理右子树
+        dfs(node.right);
+    }
+}
+
+```
+
 #### 1079. Letter Tile Possibilities
 您有n个瓷砖，每个瓷砖上印有一个字母瓷砖[i]。
 
@@ -3251,4 +3373,324 @@ class Solution {
     }
 }
 
+```
+
+
+#### Binary Tree Right Side View
+
+```java
+/**
+ * 199. Binary Tree Right Side View
+ * 问题描述：
+ * 给定一个二叉树，想象自己站在它的右侧，返回从顶部到底部你能看到的节点值。
+ * 
+ * 示例:
+ * 输入: [1,2,3,null,5,null,4]
+ * 输出: [1, 3, 4]
+ * 解释:
+ *    1            <---
+ *  /   \
+ * 2     3         <---
+ *  \     \
+ *   5     4       <---
+ * 
+ * 思路：
+ * 通过深度优先搜索（DFS）遍历二叉树，记录每一层最右侧的节点值。
+ *  Note:如果当前深度等于结果列表的大小，说明是该深度第一次访问到的节点，加入结果集
+ *  如果不加这个判断，该深度所有右节点都会被加入结果集
+ */
+class Solution {
+
+    /**
+     * 保存结果的列表
+     */
+    private List<Integer> res;
+
+    /**
+     * 获取二叉树右视图的入口方法
+     * 
+     * @param root 二叉树的根节点
+     * @return 从右侧看得到的节点值列表
+     */
+    public List<Integer> rightSideView(TreeNode root) {
+        res = new ArrayList<>();
+        dfs(root, 0);
+        return res;
+    }
+
+    private void dfs(TreeNode node, int depth) {
+        // 递归终止条件
+        if (null == node)
+            return;
+
+        // 如果当前深度等于结果列表的大小，说明是该深度第一次访问到的节点，加入结果集
+        if (depth == res.size())
+            res.add(node.val);
+
+        // 由于要从右侧开始看，先递归访问右子树
+        dfs(node.right, depth + 1);
+        dfs(node.left, depth + 1);
+    }
+}
+```
+
+#### Clone Graph
+```java
+/**
+ * 133. 深度复制无向图
+ * 
+ * 问题描述：
+ * 给定一个无向图的节点引用，返回该图的深度复制（克隆）。
+ * 图中的每个节点包含一个整数（int）值以及一个邻居节点的列表（List[Node]）。
+ * 
+ * 思路：
+ * - 使用深度优先搜索（DFS）遍历整个图，
+ * - 使用 HashMap 记录已经访问的节点以及它们的克隆节点。
+ *  - map可以记录原节点和克隆节点的映射关系，用于获得最后的返回值和添加cloned 邻居节点
+ * - Note: dfs(neighbor); 完成后，neighbor 已被访问，且创建了cloned，所以下面添加时一定能找到
+ */
+
+class Solution {
+    // 存储原节点和克隆节点的映射关系
+    private Map<Node, Node> map;
+
+    /**
+     * 克隆图
+     * 
+     * @param node 图的起始节点
+     * @return 克隆后的图的起始节点
+     */
+    public Node cloneGraph(Node node) {
+        if (null == node)
+            return null;
+
+        // 初始化映射关系
+        map = new HashMap<>();
+
+        // 开始深度优先遍历
+        dfs(node);
+
+        // 返回克隆的节点
+        return map.get(node);
+    }
+
+    /**
+     * 深度优先遍历图
+     * 
+     * @param node 当前遍历的节点
+     */
+    private void dfs(Node node) {
+        // 如果节点已经访问过，直接返回
+        if (map.containsKey(node))
+            return;
+
+        // 克隆当前节点（只有val，neighbors目前还是空，后面遍历原节点neighbors， dfs创建cloned并添加）
+        Node cloned = new Node(node.val);
+        map.put(node, cloned);
+
+        // 遍历邻居节点
+        for (Node neighbor : node.neighbors) {
+            // 递归深度优先遍历
+            dfs(neighbor);
+
+            // Note: 递归完成，此时 neighbor 已被访问，且创建了cloned，所以下面添加时一定能找到
+            // 将邻居节点的克隆节点加入到当前节点的克隆节点的邻居列表中
+            map.get(node).neighbors.add(map.get(neighbor));
+        }
+    }
+}
+
+```
+
+
+#### Lowest Common Ancestor of a Binary Search Tree
+
+```java
+/**
+ * 235. Lowest Common Ancestor of a Binary Search Tree
+ * 问题描述：
+ * 给定一个二叉搜索树（BST），找到该树中两个指定节点的最近公共祖先（LCA）。
+ * 
+ * 思路：
+ * 由于是二叉搜索树，可以利用其性质:
+ * 在树中，左子树的所有节点都小于根节点，右子树的所有节点都大于根节点。
+ * 
+ * 如果p和q都小于根节点，说明它们都在根节点的左子树中，最近公共祖先也一定在左子树中。
+ * 如果p和q都大于根节点，说明它们都在根节点的右子树中，最近公共祖先也一定在右子树中。
+ * 如果一个在左，一个在右，说明当前根节点就是最近公共祖先。
+ */
+
+class Solution {
+
+    TreeNode small;
+    TreeNode big;
+
+    /**
+     * 找到两个节点的最近公共祖先
+     *
+     * @param root 二叉搜索树的根节点
+     * @param p    第一个节点
+     * @param q    第二个节点
+     * @return 最近公共祖先节点
+     */
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (p.val < q.val) {
+            small = p;
+            big = q;
+        } else {
+            small = q;
+            big = p;
+        }
+
+        return dfs(root);
+    }
+
+    /**
+     * 递归搜索最近公共祖先
+     *
+     * @param node 当前节点
+     * @return 最近公共祖先节点
+     */
+    private TreeNode dfs(TreeNode node) {
+        if (node.val < small.val)
+            return dfs(node.right);
+
+        if (node.val > big.val)
+            return dfs(node.left);
+
+        // node.val >= small.val && node.val <= big.val
+        return node;
+    }
+}
+
+```
+
+
+#### Lowest Common Ancestor of a Binary Tree
+```java
+/**
+ * 236. Lowest Common Ancestor of a Binary Tree
+ * 问题描述：
+ * 给定一个二叉树，找到该树中两个指定节点的最近公共祖先。
+ * 
+ * 思路：
+ * 使用深度优先搜索（DFS）遍历二叉树，查找节点 p 和节点 q，找到后返回最近公共祖先。
+ *  dfs左右子树，如果能找到p或q则返回，无则返回null
+ *  如果dfs左右子树都不为null，说明一边一个，则直接返回当前node
+ *  如果都在一边，则返回dfs那一侧的结果(右子树里递归上来的lca)
+ */
+
+class Solution {
+    private TreeNode p;
+    private TreeNode q;
+
+    /**
+     * 找到两个节点的最近公共祖先
+     */
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        this.p = p;
+        this.q = q;
+
+        return dfs(root);
+    }
+
+    /**
+     * 深度优先搜索，查找节点 p 和节点 q 的最近公共祖先
+     *
+     * @param node 当前节点
+     * @return 最近公共祖先节点
+     */
+    private TreeNode dfs(TreeNode node) {
+        // 如果当前节点为空，返回 null
+        if (node == null) {
+            return null;
+        }
+        
+        // 如果当前节点是 p 或者 q 中的一个，直接返回当前节点
+        if (node.val == p.val || node.val == q.val) {
+            return node;
+        }
+
+        // 在左子树中查找
+        TreeNode foundLeft = dfs(node.left);
+        // 在右子树中查找
+        TreeNode foundRight = dfs(node.right);
+
+        // 如果左右子树都找到了节点，说明当前节点是最近公共祖先
+        if (foundLeft != null && foundRight != null) {
+            return node;
+        }
+
+        // 如果左子树找到了节点，返回左子树的结果，否则返回右子树的结果
+        return (foundLeft == null) ? foundRight : foundLeft;
+    }
+}
+
+```
+
+
+
+### BFS
+
+#### Binary Tree Right Side View
+
+```java
+/**
+ * 199. Binary Tree Right Side View
+ * 问题描述：
+ * 给定一个二叉树，返回其右视图。即每一层最右边的节点的值。
+ * 
+ * 示例:
+ * 输入: [1,2,3,null,5,null,4]
+ * 输出: [1, 3, 4]
+ * 解释:
+ *    1            <---
+ *  /   \
+ * 2     3         <---
+ *  \     \
+ *   5     4       <---
+ * 
+ * 思路：
+ * 使用广度优先搜索（BFS）遍历每一层的节点，每层最后一个节点即为右视图的节点。
+ */
+class Solution {
+    
+    /**
+     * 返回二叉树的右视图节点值列表。
+     * 
+     * @param root 二叉树的根节点
+     * @return 右视图节点值列表
+     */
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if (root == null)
+            return result;
+
+        // 使用队列进行广度优先搜索
+        Deque<TreeNode> queue = new ArrayDeque<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
+
+            // 遍历当前层的所有节点
+            for (int i = 0; i < levelSize; i++) {
+                TreeNode node = queue.poll();
+
+                // 将左子节点入队
+                if (node.left != null)
+                    queue.offer(node.left);
+                
+                // 将右子节点入队
+                if (node.right != null)
+                    queue.offer(node.right);
+            }
+
+            // 将当前层的最后一个节点值加入结果列表
+            result.add(queue.peekLast().val);
+        }
+
+        return result;
+    }
+}
 ```
