@@ -1,5 +1,5 @@
 ---
-title: Shadowing JP
+title: シャドーイン
 categories: Japanese
 tags:
 - Japanese
