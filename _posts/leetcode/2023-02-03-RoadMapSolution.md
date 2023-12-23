@@ -86,12 +86,17 @@ tags:
         - [拓扑法](#拓扑法)
       - [Binary Tree Right Side View](#binary-tree-right-side-view)
       - [Clone Graph](#clone-graph)
+      - [Number of Islands](#number-of-islands)
       - [Lowest Common Ancestor of a Binary Search Tree](#lowest-common-ancestor-of-a-binary-search-tree)
       - [Lowest Common Ancestor of a Binary Tree](#lowest-common-ancestor-of-a-binary-tree)
     - [BFS](#bfs)
       - [993. Cousins in Binary Tree](#993-cousins-in-binary-tree)
       - [Binary Tree Right Side View](#binary-tree-right-side-view-1)
       - [Binary Tree Level Order Traversal](#binary-tree-level-order-traversal)
+      - [Binary Tree Zigzag Level Order Traversal](#binary-tree-zigzag-level-order-traversal)
+      - [](#)
+    - [Union find](#union-find)
+      - [Find if Path Exists in Graph](#find-if-path-exists-in-graph)
 
 
 
@@ -3597,6 +3602,90 @@ class Solution {
 
 ```
 
+#### Number of Islands
+```java
+/**
+ * 200. Number of Islands
+ * 
+ * 问题描述：
+ * 给定一个 m x n 的二维二进制矩阵 grid 表示一个地图。 '1' 表示陆地，'0' 表示水域。岛屿被水域包围，并且通过水平或垂直连接相邻的陆地而形成。
+ * 假设网格的四个边均被水域包围。找到给定地图中岛屿的数量。岛屿是由相邻的陆地水平或垂直连接形成的。
+ * 
+ * 思路：
+ * 使用深度优先搜索（DFS）或广度优先搜索（BFS）遍历整个地图，当遇到 '1' 时，将与该陆地相连的所有陆地标记为已访问，直到形成一个岛屿。
+ * 统计岛屿的数量即为所求。
+ */
+class Solution {
+    private char[][] grid;
+    private int rows, cols;
+    private int[][] directions = new int[][] {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+
+    /**
+     * 计算岛屿数量
+     * 
+     * @param grid 二维数组表示的地图
+     * @return 岛屿数量
+     */
+    public int numIslands(char[][] grid) {
+        rows = grid.length;
+        cols = grid[0].length;
+        int islandCount = 0;
+        this.grid = grid;
+
+        // 遍历整个地图
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                // 如果当前位置是陆地，进行深度优先搜索
+                if (grid[i][j] == '1') {
+                    dfs(i, j);
+                    islandCount++;
+                }
+            }
+        }
+
+        return islandCount;
+    }
+
+    /**
+     * 深度优先搜索，将与当前陆地相连的所有陆地标记为已访问
+     * 
+     * @param x 当前位置的行坐标
+     * @param y 当前位置的列坐标
+     */
+    private void dfs(int x, int y) {
+        // 如果当前位置越界或者为水域，则返回
+        if (!withinBoundary(x, y) || grid[x][y] == '0') {
+            return;
+        }
+
+        // 标记当前位置为已访问
+        grid[x][y] = '0';
+
+        // 检查上下左右四个方向
+        for (int[] direction : directions) {
+            int newX = x + direction[0];
+            int newY = y + direction[1];
+
+            // 递归进行深度优先搜索
+            if (withinBoundary(newX, newY)) {
+                dfs(newX, newY);
+            }
+        }
+    }
+
+    /**
+     * 检查坐标是否在地图范围内
+     * 
+     * @param x 行坐标
+     * @param y 列坐标
+     * @return 是否在地图范围内
+     */
+    private boolean withinBoundary(int x, int y) {
+        return x >= 0 && x < rows && y >= 0 && y < cols;
+    }
+}
+
+```
 
 #### Lowest Common Ancestor of a Binary Search Tree
 
@@ -3940,6 +4029,178 @@ class Solution {
             }
 
             res.add(row);
+        }
+    }
+}
+
+```
+
+
+#### Binary Tree Zigzag Level Order Traversal
+
+```java
+
+/**
+ * 103. Binary Tree Zigzag Level Order Traversal
+ * 问题描述：
+ * 给定二叉树的根节点，返回其蛇形层序遍历的节点值（即从左到右，下一层从右到左，交替进行）。
+ *
+ * 思路：
+ * 使用广度优先搜索（BFS）来遍历二叉树，通过维护一个队列和一个标志位，控制每一层的遍历方向。
+ */
+class Solution {
+    List<List<Integer>> res;
+
+    /**
+     * 蛇形层序遍历入口函数
+     *
+     * @param root 二叉树的根节点
+     * @return 蛇形层序遍历结果
+     */
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        res = new ArrayList<>();
+        if (null == root)
+            return res;
+
+        bfs(root);
+        return res;
+    }
+
+    /**
+     * 使用BFS进行蛇形层序遍历
+     *
+     * @param node 当前层的起始节点
+     */
+    private void bfs(TreeNode node) {
+        Deque<TreeNode> queue = new ArrayDeque<>();
+
+        queue.offerLast(node);
+        boolean leftToRight = true;
+
+        while (!queue.isEmpty()) {
+            int rowLen = queue.size();
+            List<Integer> row = new LinkedList<>();
+
+            for (int i = 0; i < rowLen; i++) {
+                TreeNode cur = queue.pollFirst();
+
+                if (leftToRight)
+                    row.add(cur.val);
+                else
+                    row.add(0, cur.val);
+
+                if (null != cur.left)
+                    queue.offerLast(cur.left);
+                if (null != cur.right)
+                    queue.offerLast(cur.right);
+            }
+
+            res.add(row);
+            leftToRight = !leftToRight;
+        }
+    }
+}
+
+```
+
+####
+```java
+
+```
+
+
+
+### Union find
+
+#### Find if Path Exists in Graph
+```java
+package roadmap;
+/**
+ * 1971. Find if Path Exists in Graph
+ * 问题描述：给定一个无向图，判断从源节点到目标节点是否存在有效路径。
+ *
+ * 思路：使用并查集（Union Find）来判断两个节点是否属于同一个集合，从而确定是否存在有效路径。
+ */
+public class ValidPath {
+
+    private int[] root;
+    private int[] rank;
+
+    /**
+     * 判断从源节点到目标节点是否存在有效路径。
+     *
+     * @param n             图中节点的数量。
+     * @param edges         表示图中连接关系的边。
+     * @param source        源节点。
+     * @param destination   目标节点。
+     * @return              如果存在有效路径，返回 true；否则返回 false。
+     */
+    public boolean validPath(int n, int[][] edges, int source, int destination) {
+        // 初始化并查集
+        root = new int[n];
+        rank = new int[n];
+        for (int i = 0; i < n; i++) {
+            root[i] = i;
+            rank[i] = 1;
+        }
+
+        // 遍历边，合并节点
+        for (int[] edge : edges) {
+            int head = edge[0];
+            int tail = edge[1];
+
+            // 如果当前边连接的是源节点和目标节点，则直接返回 true
+            if ((head == source && tail == destination) || (head == destination && tail == source)) {
+                return true;
+            }
+
+            merge(head, tail);
+        }
+
+        // 判断源节点和目标节点是否属于同一个集合
+        return find(source) == find(destination);
+    }
+
+    /**
+     * 查找节点 x 所在集合的根节点。
+     *
+     * @param x 要查找的节点。
+     * @return  节点 x 所在集合的根节点。
+     */
+    private int find(int x) {
+        if (root[x] == x) {
+            return x;
+        }
+
+        // 压缩路径
+        // 把沿途的每个节点的父节点都设为根节点
+        root[x] = find(root[x]);
+        return root[x];
+    }
+
+    /**
+     * 合并两个节点所在的集合。
+     *
+     * @param x 节点 x。
+     * @param y 节点 y。
+     */
+    private void merge(int x, int y) {
+        int rootX = find(x);
+        int rootY = find(y);
+
+        // 将 rank 较小的集合合并到 rank 较大的集合中
+        if (rank[rootX] <= rank[rootY]) {
+            root[rootX] = rootY;
+        } else {
+            root[rootY] = rootX;
+        }
+            
+        // 如果两个集合的 rank 相等且不属于同一个集合，则将新根节点的 rank 增加 1
+        // 如果深度相同且根节点不同，则根据上面包括 == 的分支，将新的父节点的秩增加
+        // 如我选择rank[rootX] <= rank[rootY]，root[rootX] = rootY; 即等于的时候rootY是父节点
+        // 所以rank[rootY]++
+        if (rank[rootX] == rank[rootY] && rootX != rootY) {
+            rank[rootY]++;
         }
     }
 }
