@@ -89,7 +89,9 @@ tags:
       - [Lowest Common Ancestor of a Binary Search Tree](#lowest-common-ancestor-of-a-binary-search-tree)
       - [Lowest Common Ancestor of a Binary Tree](#lowest-common-ancestor-of-a-binary-tree)
     - [BFS](#bfs)
+      - [993. Cousins in Binary Tree](#993-cousins-in-binary-tree)
       - [Binary Tree Right Side View](#binary-tree-right-side-view-1)
+      - [Binary Tree Level Order Traversal](#binary-tree-level-order-traversal)
 
 
 
@@ -3725,6 +3727,88 @@ class Solution {
 
 ### BFS
 
+#### 993. Cousins in Binary Tree
+```java
+/**
+ * 问题描述：
+ * 判断二叉树中给定值 x 和 y 的节点是否为堂兄弟节点。
+ * 堂兄弟节点是指深度相同但父节点不同的节点。
+ *
+ * 思路：
+ * 使用广度优先搜索（BFS）遍历二叉树
+ * 在同一层依次出队时检查是否同时找到x,y.
+ * 加入左右子节点时检查是不是分别是x，y（亲兄弟返回false）
+ * 这种顺序刚好也能检查到root的左右节点分别是xy的情况
+ */
+
+class Solution {
+
+    /**
+     * 判断是否为堂兄弟节点
+     *
+     * @param root 二叉树的根节点
+     * @param x    第一个节点的值
+     * @param y    第二个节点的值
+     * @return 如果是堂兄弟节点，返回 true；否则返回 false
+     */
+    public boolean isCousins(TreeNode root, int x, int y) {
+        if (root == null) {
+            return false;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            boolean foundX = false;
+            boolean foundY = false;
+
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+
+                // 检查当前节点是否为值 x 或 y 的节点
+                if (node.val == x) {
+                    foundX = true;
+                }
+                if (node.val == y) {
+                    foundY = true;
+                }
+
+                // 检查 x 和 y 是否为同一父节点的子节点（不是堂兄弟节点）
+                if (node.left != null && node.right != null) {
+                    if ((node.left.val == x && node.right.val == y) || (node.left.val == y && node.right.val == x)) {
+                        return false;
+                    }
+                }
+
+                // 将子节点加入队列，准备遍历下一层
+                if (node.left != null) {
+                    queue.offer(node.left);
+                }
+                if (node.right != null) {
+                    queue.offer(node.right);
+                }
+            }
+
+            // 检查是否在同一层找到了 x 和 y
+            if (foundX && foundY) {
+                return true;
+            } else if (foundX || foundY) {
+                // 如果只找到其中一个值，它们不可能是堂兄弟节点
+                return false;
+            }
+        }
+
+        // 在树中未找到 x 和 y
+        return false;
+    }
+}
+
+```
+
+
+
 #### Binary Tree Right Side View
 
 ```java
@@ -3786,4 +3870,78 @@ class Solution {
         return result;
     }
 }
+```
+
+#### Binary Tree Level Order Traversal
+```java
+/**
+ * 102. Binary Tree Level Order Traversal
+ * 
+ * 问题描述：
+ * 给定一个二叉树，返回其节点值的层序遍历。
+ * 
+ * 示例：
+ * 输入: [3,9,20,null,null,15,7]
+ * 输出:
+ * [
+ *   [3],
+ *   [9,20],
+ *   [15,7]
+ * ]
+ * 
+ * 思路：
+ * 使用广度优先搜索（BFS）进行层序遍历。通过队列实现，依次将每一层的节点加入队列，
+ * 并在遍历每一层时将节点值加入结果列表。
+ */
+class Solution {
+    List<List<Integer>> res;
+
+    /**
+     * 二叉树的层序遍历
+     * 
+     * @param root 二叉树的根节点
+     * @return 层序遍历结果
+     */
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        res = new ArrayList<>();
+        if (null == root) {
+            return res;
+        }
+        bfs(root);
+
+        return res;
+    }
+
+    /**
+     * 广度优先搜索遍历二叉树
+     * 
+     * @param node 当前处理的节点
+     */
+    private void bfs(TreeNode node) {
+        Deque<TreeNode> queue = new ArrayDeque<>();
+
+        queue.offerLast(node);
+
+        while (!queue.isEmpty()) {
+
+            List<Integer> row = new ArrayList<>();
+            int rowLen = queue.size();
+
+            for (int i = 0; i < rowLen; i++) {
+                TreeNode cur = queue.pollFirst();
+
+                row.add(cur.val);
+
+                if (null != cur.left)
+                    queue.offerLast(cur.left);
+
+                if (null != cur.right)
+                    queue.offerLast(cur.right);
+            }
+
+            res.add(row);
+        }
+    }
+}
+
 ```
