@@ -97,6 +97,7 @@ tags:
       - [](#)
     - [Union find](#union-find)
       - [Find if Path Exists in Graph](#find-if-path-exists-in-graph)
+      - [Number of Islands](#number-of-islands-1)
 
 
 
@@ -4202,6 +4203,110 @@ public class ValidPath {
         if (rank[rootX] == rank[rootY] && rootX != rootY) {
             rank[rootY]++;
         }
+    }
+}
+
+```
+
+#### Number of Islands
+```java
+/**
+ * 200. Number of Islands
+ * 
+ * 问题描述：
+ * 给定一个 m x n 的二维二进制网格 grid 表示一个地图，'1' 表示陆地，'0' 表示水域。
+ * 计算岛屿的数量。岛屿被水域包围，通过水平或垂直连接相邻的陆地而形成。可以假设网格的四个边均被水域包围。
+ * 
+ * 思路：
+ * 使用并查集来维护岛屿之间的连接关系。根据行列数计算一维index，转化成一维并查集
+ * 通过遍历网格，初始化并查集，并在每次遇到land时计数加一
+ * 第二次遍历将相邻的陆地连接起来，每当完成一次链接，将计数减一
+ */
+class Solution {
+    int[] root;
+    int[] rank;
+    int count; // 记录岛屿的数量
+
+    /**
+     * 计算岛屿数量的方法
+     * @param grid 二维二进制网格
+     * @return 岛屿数量
+     */
+    public int numIslands(char[][] grid) {
+        if (grid == null || grid.length == 0 || grid[0].length == 0) {
+            return 0;
+        }
+
+        int rows = grid.length;
+        int cols = grid[0].length;
+
+        root = new int[rows * cols];
+        rank = new int[rows * cols];
+
+        // 初始化并查集
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (grid[i][j] == '1') {
+                    int index = i * cols + j;
+                    root[index] = index;
+                    rank[index] = 1;
+                    count++; // 第一次遍历遇到land就先计数一次
+                }
+            }
+        }
+
+        // 遍历整个 grid
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (grid[i][j] == '1') {
+                    int index = i * cols + j;
+
+                    // 将相邻的岛屿连接起来
+                    if (i > 0 && grid[i - 1][j] == '1')
+                        union(index, (i - 1) * cols + j);
+                    if (j > 0 && grid[i][j - 1] == '1')
+                        union(index, i * cols + (j - 1));
+                }
+            }
+        }
+
+        return count;
+    }
+
+    /**
+     * 查找节点所属集合的根节点
+     * @param x 节点
+     * @return 根节点
+     */
+    int find(int x) {
+        if (x == root[x])
+            return x;
+        // 路径压缩，将沿途的每个节点的父节点都设为根节点
+        root[x] = find(root[x]);
+        return root[x];
+    }
+
+    /**
+     * 将两个集合合并
+     * @param x 节点 x
+     * @param y 节点 y
+     */
+    void union(int x, int y) {
+        int rootX = find(x), rootY = find(y);
+
+        // 深度更大的根节点做父
+        if (rank[rootX] <= rank[rootY])
+            root[rootX] = rootY;
+        else
+            root[rootY] = rootX;
+
+        // 如果深度相同且根节点不同，则根据上面包括 == 的分支，将新的父节点的秩增加
+        // 如我选择 rank[rootX] <= rank[rootY]，root[rootX] = rootY; 即等于的时候 rootY 是父节点
+        // 所以 rank[rootY]++
+        if (rank[rootX] == rank[rootY] && rootX != rootY)
+            rank[rootX]++;
+        if (rootX != rootY)
+            count--;
     }
 }
 
