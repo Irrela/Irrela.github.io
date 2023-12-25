@@ -95,6 +95,10 @@ tags:
       - [Binary Tree Level Order Traversal](#binary-tree-level-order-traversal)
       - [Binary Tree Zigzag Level Order Traversal](#binary-tree-zigzag-level-order-traversal)
       - [](#)
+    - [Dynamic Plan](#dynamic-plan)
+      - [Climbing Stairs](#climbing-stairs)
+      - [Unique Paths](#unique-paths)
+      - [Coin Change](#coin-change)
     - [Union find](#union-find)
       - [Find if Path Exists in Graph](#find-if-path-exists-in-graph)
       - [Number of Islands](#number-of-islands-1)
@@ -4109,6 +4113,161 @@ class Solution {
 
 ```
 
+### Dynamic Plan
+#### Climbing Stairs
+
+> 关于DP的一个演化流程：https://segmentfault.com/a/1190000015944750
+
+```java
+/**
+ * 70. Climbing Stairs
+ * 问题描述：爬楼梯，每次可以爬1阶或2阶，求爬到第n阶的方法数。
+ * 
+ * 
+ * 思路：采用动态规划，避免递归中的重复计算。
+ * 
+ */
+public class ClimbingStairs {
+
+    /**
+     * 计算爬到第n阶的方法数。
+     *
+     * @param n 目标阶数
+     * @return 方法数
+     */
+    public int climbStairs(int n) {
+        // 边界条件
+        if (n == 1) {
+            return 1;
+        }
+        if (n == 2) {
+            return 2;
+        }
+
+        // 初始化变量
+        int twoStepBefore = 1;  // n-2阶的方法数
+        int oneStepBefore = 2;  // n-1阶的方法数
+        int current = 0;        // 当前阶的方法数
+
+        // 动态规划计算
+        for (int i = 2; i < n; i++) {
+            current = twoStepBefore + oneStepBefore;
+            twoStepBefore = oneStepBefore;
+            oneStepBefore = current;
+        }
+
+        return current;
+    }
+
+    /**
+     * 主方法用于测试
+     *
+     * @param args 参数
+     */
+    public static void main(String[] args) {
+        // 测试
+        ClimbingStairs solution = new ClimbingStairs();
+        int result = solution.climbStairs(5);
+        System.out.println("爬到第5阶的方法数：" + result);
+    }
+}
+
+```
+
+#### Unique Paths
+```java
+/**
+ * 62. Unique Paths
+ * 
+ * 问题描述：
+ * 一个机器人位于一个 m x n 网格的左上角。机器人每次只能向下或向右移动一步，机器人试图到达网格的右下角。总共有多少条不同的路径？
+ * 
+ * 思路：
+ * 动态规划问题。使用二维数组 dp 存储到达每个格子的路径数。
+ * 初始化第一行和第一列为1，因为机器人只能向下或向右移动。
+ * 对于其他格子，dp[i][j] = dp[i-1][j] + dp[i][j-1]，即可得到到达当前格子的路径数。
+ */
+
+class Solution {
+    /**
+     * 计算不同路径的数量
+     * 
+     * @param m 网格的行数
+     * @param n 网格的列数
+     * @return 不同路径的数量
+     */
+    public int uniquePaths(int m, int n) {
+        // dp 数组用于存储到达每个格子的路径数
+        int[][] dp = new int[m][n];
+
+        // 初始化第一行和第一列为1，因为机器人只能向下或向右移动
+        for (int i = 0; i < m; i++) {
+            dp[i][0] = 1;
+        }
+
+        for (int i = 0; i < n; i++) {
+            dp[0][i] = 1;
+        }
+
+        // 计算其他格子的路径数
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+            }
+        }
+
+        // 返回右下角格子的路径数
+        return dp[m - 1][n - 1];
+    }
+}
+```
+
+#### Coin Change
+```java
+/**
+ * 322. Coin Change
+ * 问题描述：给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。
+ * 如果不能凑成总金额，返回 -1。
+ *
+ * 思路：动态规划。
+ * 使用一维数组 dp 存储每个金额所需的最小硬币数量。
+ * 初始化dp时设为amount+1，这是一个不可能的大值表示未解决（不要用MAX, 有越界可能）
+ * 从小的coin开始，从小到大遍历dp，比较当前dp 和 用当前coin组成（dp[i - coin] + 1） 谁更小，如果后者小说明可以通过使用当前coin构成 更少硬币数的组合。
+ * 后续依次用更大面额的coin重复这一过程。
+ */
+class Solution {
+    /**
+     * 
+     * 计算最少的硬币个数
+     *
+     * @param coins  不同面额的硬币
+     * @param amount 总金额
+     * @return 最少的硬币个数，无法凑成返回 -1
+     */
+    public int coinChange(int[] coins, int amount) {
+        // 初始化一个数组来存储最小硬币数量
+        int[] dp = new int[amount + 1];
+        // 将数组初始化为一个不可能的大值，表示尚未找到解决方案
+        Arrays.fill(dp, amount + 1);
+
+        // 组成金额 0 需要 0 个硬币
+        dp[0] = 0;
+
+        // 动态规划的核心逻辑
+        for (int coin : coins) {
+            // coin = 1 之后为 [0,1,2,3,4,5....]
+            for (int i = coin; i <= amount; i++) {
+                // 更新当前金额所需的最小硬币数量
+                dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+            }
+        }
+
+        // 如果 dp[amount] 仍然是初始值，表示无法组成该金额
+        return dp[amount] > amount ? -1 : dp[amount];
+    }
+}
+
+```
 
 
 ### Union find
