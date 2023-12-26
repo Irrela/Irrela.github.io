@@ -99,6 +99,11 @@ tags:
       - [Climbing Stairs](#climbing-stairs)
       - [Unique Paths](#unique-paths)
       - [Coin Change](#coin-change)
+      - [House Robber](#house-robber)
+      - [Edit Distance](#edit-distance)
+    - [Cyclic Sort](#cyclic-sort)
+      - [Missing Number](#missing-number)
+      - [](#-1)
     - [Union find](#union-find)
       - [Find if Path Exists in Graph](#find-if-path-exists-in-graph)
       - [Number of Islands](#number-of-islands-1)
@@ -4275,6 +4280,195 @@ class Solution {
 
 ```
 
+#### House Robber
+```java
+/**
+ * 198. House Robber
+ * 打家劫舍问题：在一条街上有多个房子，每个房子里有一定数量的钱。相邻的房子装有安全系统，如果两个相邻的房子在同一天晚上被打劫，就会触发警报。求在不触发警报的情况下，能够打劫到的最大金额。
+ * 
+ * 思路：使用动态规划。
+ * 对于每个房子，可以选择抢或不抢，
+ * 维护一个状态数组来记录到每个房子为止的最大金额。
+ * 确保相邻的房子不能同时被抢。
+ */
+class Solution {
+    
+    /**
+     * 计算能够打劫到的最大金额
+     * 
+     * @param nums 表示每个房子里的钱的数组
+     * @return 返回最大金额
+     */
+    public int rob(int[] nums) {
+        int len = nums.length;
+        
+        // 创建一个数组来存储到每个房子为止的最大金额
+        int[] dp = new int[len];
+
+        // 特殊情况处理
+        if (len == 1) return nums[0];
+        if (len == 2) return Math.max(nums[0], nums[1]);
+
+        // 初始化前两个房子的最大金额
+        dp[0] = nums[0];
+        dp[1] = Math.max(nums[0], nums[1]);
+
+        // 从第三个房子开始，更新每个房子的最大金额
+        for (int i = 2; i < len; i++) {
+            // 在选择抢当前房子和不抢当前房子之间取最大值
+            dp[i] = Math.max(dp[i-1], dp[i-2] + nums[i]);
+        }
+        
+        // 返回最后一个房子的最大金额
+        return dp[len-1];
+    }
+}
+
+```
+
+#### Edit Distance
+```java
+/**
+ * 72. Edit Distance
+ * 
+ * 问题描述：
+ * 给定两个单词 word1 和 word2，请计算将 word1 转换为 word2 所需的最小操作数。
+ * 你可以对一个单词进行如下三种操作：
+ * 1. 插入一个字符
+ * 2. 删除一个字符
+ * 3. 替换一个字符
+ * 
+ * 示例：
+ * 输入: word1 = "horse", word2 = "ros"
+ * 输出: 3
+ * 解释: horse -> rorse (替换 'h' 为 'r')
+ *       rorse -> rose (删除 'r')
+ *       rose -> ros (删除 'e')
+ * 
+ * 思路：
+ * 使用动态规划。
+ * 定义一个二维数组 dp，其中 dp[i][j] 表示将 word1 的前 i 个字符转换为 word2 的前 j 个字符所需的最小操作数。
+ * ！！！ 要 m+1 的size，让最后一个index为m
+ * 
+ * dp[i][j - 1]：插入操作
+ * 表示在 word1 的前 i 个字符转换为 word2 的前 j - 1 个字符所需的最小操作数。
+ * 我们可以在 word1 的末尾插入一个字符，以匹配 word2 的第 j 个字符。
+ * 
+ * dp[i - 1][j - 1]：替换操作
+ * 表示在 word1 的前 i - 1 个字符转换为 word2 的前 j - 1 个字符所需的最小操作数。
+ * 我们可以替换 word1 的第 i 个字符，使其与 word2 的第 j 个字符相匹配。
+ * 
+ * dp[i - 1][j - 1]：替换操作
+ * 表示在 word1 的前 i - 1 个字符转换为 word2 的前 j - 1 个字符所需的最小操作数。
+ * 我们可以替换 word1 的第 i 个字符，使其与 word2 的第 j 个字符相匹配。
+ * 
+ */
+
+class Solution {
+    /**
+     * 计算将 word1 转换为 word2 所需的最小操作数
+     * 
+     * @param word1 第一个单词
+     * @param word2 第二个单词
+     * @return 最小操作数
+     */
+    public int minDistance(String word1, String word2) {
+        int m = word1.length();
+        int n = word2.length();
+
+        // dp数组，dp[i][j]表示将word1的前i个字符转换为word2的前j个字符所需的最小操作数
+        int[][] dp = new int[m + 1][n + 1];
+
+        // 如果word2为空，删除操作等同于删除word1中的字符
+        for (int i = 0; i <= m; i++) {
+            dp[i][0] = i;
+        }
+        
+        // 如果word1为空，插入操作等同于在word2中插入相同的字符
+        for (int i = 0; i <= n; i++) {
+            dp[0][i] = i;
+        }        
+
+        char[] char1 = word1.toCharArray();
+        char[] char2 = word2.toCharArray();
+        // 初始化dp数组
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                // 如果当前字符相等，不需要操作，继承前一个状态的操作数
+                if (char1[i - 1] == char2[j - 1]) {
+                    dp[i][j] = dp[i - 1][j - 1];
+                }
+                // 如果当前字符不相等，可以进行插入、删除或替换操作，取最小操作数
+                else {
+                    dp[i][j] = 1 + Math.min(Math.min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]);
+                }
+            }
+        }
+
+        // 返回将word1转换为word2所需的最小操作数
+        return dp[m][n];
+    }
+}
+
+```
+
+### Cyclic Sort
+
+#### Missing Number
+```java
+/**
+ * 268. Missing Number
+ * 
+ * 问题描述：
+ * 给定一个包含 n 个不同数字的数组 nums，数字范围在 [0, n]，返回在数组中缺失的唯一数字。
+ * 
+ * 思路：
+ * 使用 Cyclic Sort 算法，将每个数字放在其正确的位置上。
+ * 然后遍历数组，找到第一个不在正确位置上的数字，其索引即为缺失的数字。
+ * 如果所有数字都在正确位置上，那么缺失的数字就是 n。
+ * 
+ * Note: 最后返回nums.length, 应对 [0, 1]这种情形, n=2,缺失的也是2
+ */
+class Solution {
+    /**
+     * 寻找缺失的数字
+     * 
+     * @param nums 包含 n 个不同数字的数组
+     * @return 缺失的数字
+     */
+    public int missingNumber(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            while (nums[i] < nums.length && nums[i] != i) {
+                swap(nums, i, nums[i]);
+            }
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != i) {
+                return i;
+            }
+        }
+
+        return nums.length; // 
+    }
+
+    /**
+     * 交换数组中的两个元素
+     * 
+     * @param arr 数组
+     * @param i   要交换的元素索引之一
+     * @param j   要交换的元素索引之二
+     */
+    private void swap(int[] arr, int i, int j) {
+        var temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}
+
+```
+
+#### 
 
 ### Union find
 
