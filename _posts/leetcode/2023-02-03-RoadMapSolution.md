@@ -4130,6 +4130,25 @@ class Solution {
 public class ClimbingStairs {
 
     /**
+     * 更通用的dp模版
+     **/
+    public int climbStairs(int n) {
+        int[] dp = new int[n+1];
+
+        if (n == 1) return 1;
+        if (n == 2) return 2;
+
+        dp[1] = 1;
+        dp[2] = 2;
+
+        for (int i = 3; i <=n; i++) {
+            dp[i] = dp[i-1]+ dp[i-2];
+        }
+
+        return dp[n];
+    }
+
+    /**
      * 计算爬到第n阶的方法数。
      *
      * @param n 目标阶数
@@ -4158,20 +4177,7 @@ public class ClimbingStairs {
 
         return current;
     }
-
-    /**
-     * 主方法用于测试
-     *
-     * @param args 参数
-     */
-    public static void main(String[] args) {
-        // 测试
-        ClimbingStairs solution = new ClimbingStairs();
-        int result = solution.climbStairs(5);
-        System.out.println("爬到第5阶的方法数：" + result);
-    }
 }
-
 ```
 
 #### Unique Paths
