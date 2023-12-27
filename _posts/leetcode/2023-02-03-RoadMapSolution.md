@@ -103,6 +103,9 @@ tags:
       - [Edit Distance](#edit-distance)
     - [Cyclic Sort](#cyclic-sort)
       - [Missing Number](#missing-number)
+      - [Set Mismatch](#set-mismatch)
+      - [Find All Numbers Disappeared in an Array](#find-all-numbers-disappeared-in-an-array)
+      - [Find the Duplicate Number](#find-the-duplicate-number)
       - [](#-1)
     - [Union find](#union-find)
       - [Find if Path Exists in Graph](#find-if-path-exists-in-graph)
@@ -4468,7 +4471,242 @@ class Solution {
 
 ```
 
+#### Set Mismatch
+```java
+/**
+ * 645. Set Mismatch
+ * 
+ * 问题描述：
+ * 给定一个整数数组 nums，其中 1 ≤ nums[i] ≤ n（n 为数组长度），其中一个数字重复出现且一个数字缺失。
+ * 找到这两个数字并以数组的形式返回。
+ * 
+ * 思路：
+ * 使用 Cyclic Sort 算法，通过不断将数字放到其正确的位置上，
+ * 正确位置： num[i] == i+1; 
+ * 不在正确位置且不是重复数字的交换i和nums[i]-1（ [1,2,2,4]中第二个2，即index=2的2，我们不希望他和index=1的2交换。）
+ * 
+ * 再次遍历 nums[i] != i + 1 （不在正确位置上的，即重复的数字[1,2,2,4]中index=2, 重复的nums[2], 缺失的i+1）
+ */
+
+class Solution {
+    /**
+     * 找到重复和缺失的数字
+     * 
+     * @param nums 包含重复和缺失数字的数组
+     * @return 包含重复和缺失数字的数组
+     */
+    public int[] findErrorNums(int[] nums) {
+        int[] result = new int[2];
+        
+        int i = 0;
+        while (i < nums.length) {
+            // 如果当前数字不在正确的位置上，并且不是重复的数字
+            // NoTE: 如[1,2,2,4]，当遍历到index2时，我们不希望他和index1的2交换
+            if (nums[i] != i + 1 && nums[i] != nums[nums[i] - 1]) {
+                // 交换当前位置的数字到正确的位置上
+                swap(nums, i, nums[i] - 1);
+            } else {
+                i++;
+            }
+        }
+        
+        // 找到重复的数字和缺失的数字
+        for (i = 0; i < nums.length; i++) {
+            if (nums[i] != i + 1) {
+                result[0] = nums[i];  // 重复的数字
+                result[1] = i + 1;     // 缺失的数字
+                break;
+            }
+        }
+        
+        return result;
+    }
+
+    /**
+     * 交换数组中两个位置的元素
+     * 
+     * @param arr 数组
+     * @param i   第一个位置的索引
+     * @param j   第二个位置的索引
+     */
+    private void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}
+```
+
+#### Find All Numbers Disappeared in an Array
+```java
+/**
+ * 448. Find All Numbers Disappeared in an Array
+ *
+ * 问题描述：
+ * 给定一个包含 n 个整数的数组 nums，其中 nums[i] 在区间 [1, n] 内。
+ * 返回 [1, n] 范围内不存在在数组中的所有数字。
+ *
+ * 思路：
+ * 使用 Cyclic Sort 算法，将数字放到正确的位置
+ * 正确位置: nums[j] != j + 1
+ * 换法：nums[i] != nums[nums[i] - 1] 交换 i 和 nums[i] - 1
+ */
+public class Solution {
+    /**
+     * 找到数组中消失的数字
+     *
+     * @param nums 包含 n 个整数的数组，其中 nums[i] 在区间 [1, n] 内
+     * @return [1, n] 范围内不存在在数组中的所有数字
+     */
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        List<Integer> result = new ArrayList<>();
+
+        // 执行 Cyclic Sort
+        int i = 0;
+        while (i < nums.length) {
+            if (nums[i] != nums[nums[i] - 1]) {
+                // 交换 nums[i] 和 nums[nums[i] - 1]，将数字放到正确的位置
+                int temp = nums[i];
+                nums[i] = nums[temp - 1];
+                nums[temp - 1] = temp;
+            } else {
+                i++;
+            }
+        }
+
+        // 找到不在正确位置的数字
+        for (int j = 0; j < nums.length; j++) {
+            if (nums[j] != j + 1) {
+                result.add(j + 1);
+            }
+        }
+
+        return result;
+    }
+}
+
+```
+
+#### Find the Duplicate Number
+```java
+/**
+ * 287. Find the Duplicate Number
+ * 
+ * NOTE:  基本可用448. Find All Numbers Disappeared in an Array 一样的交换方式
+ * 即交换 index： i 和 nums[i] - 1， 适用于最后得到[1,2,3,4... ]这样的arr
+ *
+ * 问题描述：
+ * 给定一个包含 n + 1 个整数的数组 nums，其中每个整数在范围 [1, n] 之间，证明必定存在一个重复的整数。假设只有一个重复的整数，找出这个重复的数。
+ * 
+ * 思路：
+ * 使用Cyclic Sort算法，将数组中的元素放到它们正确的位置。在遍历的过程中，一旦发现当前位置的元素不等于它正确的位置上的元素，就进行交换。
+ * 最终，再次遍历数组，找到第一个不在正确位置的数字即为重复的数字。
+ */
+class Solution {
+    /**
+     * 寻找重复的数字
+     *
+     * @param nums 包含 n + 1 个整数的数组，每个整数在范围 [1, n] 之间
+     * @return 重复的整数
+     */
+    public int findDuplicate(int[] nums) {
+        int i = 0;
+        // Cyclic Sort
+        while (i < nums.length) {
+            if (nums[i] != nums[nums[i] - 1]) {
+                // 交换 nums[i] 和 nums[nums[i] - 1]，将数字放到正确的位置
+                int temp = nums[i];
+                nums[i] = nums[temp - 1];
+                nums[temp - 1] = temp;
+            } else {
+                i++;
+            }
+        }
+
+        // 找到第一个不在正确位置的数字，即为重复的数字
+        for (int j = 0; j < nums.length; j++) {
+            if (nums[j] != j + 1) {
+                return nums[j];
+            }
+        }
+
+        // 如果没有重复的数字，返回-1
+        return -1;
+    }
+}
+
+```
+
 #### 
+```java
+/**
+ * 442. Find All Duplicates in an Array
+ * 
+ * NOTE:  基本可用448. Find All Numbers Disappeared in an Array 一样的交换方式
+ * 即交换 index： i 和 nums[i] - 1， 适用于最后得到[1,2,3,4... ]这样的arr
+ * 
+ * 问题描述：
+ * 给定一个包含 n 个整数的数组 nums，其中每个数字都在 1 到 n 之间（包括 1 和 n），
+ * 请找出所有重复的数字，返回它们的列表。
+ * 
+ * 思路：
+ * 使用 Cyclic Sort 将每个数字放到它们正确的位置，然后找出不在正确位置的数字。
+ */
+class Solution {
+    /**
+     * 找出所有重复的数字
+     * 
+     * @param nums 包含 n 个整数的数组
+     * @return 重复的数字列表
+     */
+    public List<Integer> findDuplicates(int[] nums) {
+        List<Integer> duplicates = new ArrayList<>();
+
+        int i = 0;
+        // Cyclic Sort
+        while (i < nums.length) {
+            if (nums[i] != nums[nums[i] - 1]) {
+                // 交换 nums[i] 和 nums[nums[i] - 1]，将数字放到正确的位置
+                int temp = nums[i];
+                nums[i] = nums[temp - 1];
+                nums[temp - 1] = temp;
+            } else {
+                i++;
+            }
+        }
+
+        // 找到不在正确位置的数字即为重复的数字
+        for (int j = 0; j < nums.length; j++) {
+            if (nums[j] != j + 1) {
+                duplicates.add(nums[j]);
+            }
+        }
+
+        return duplicates;
+    }
+}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Union find
 
