@@ -6,22 +6,17 @@ tags:
 ---
 
 - [Solution](#solution)
-  - [Two Pointers](#two-pointers)
-    - [Valid Palindrome](#valid-palindrome)
-    - [680. Valid Palindrome II](#680-valid-palindrome-ii)
-      - [Naive one based on Valid Palindrome I](#naive-one-based-on-valid-palindrome-i)
-    - [Closest Sum](#closest-sum)
-    - [3Sum](#3sum)
-    - [Best Time to Buy and Sell Stock](#best-time-to-buy-and-sell-stock)
-    - [209. Minimum Size Subarray Sum](#209-minimum-size-subarray-sum)
-    - [3. Longest Substring Without Repeating Characters](#3-longest-substring-without-repeating-characters)
-    - [904. Fruit Into Baskets](#904-fruit-into-baskets)
-      - [基于最长连续水果类型的解法](#基于最长连续水果类型的解法)
-      - [基于sliding windows的解法（Recommended）](#基于sliding-windows的解法recommended)
-    - [567. Permutation in String](#567-permutation-in-string)
-    - [1493. Longest Subarray of 1's After Deleting One Element](#1493-longest-subarray-of-1s-after-deleting-one-element)
-      - [手动记录zero\_idx](#手动记录zero_idx)
-      - [不记录zero\_idx, 让left递增直到zero\_idx](#不记录zero_idx-让left递增直到zero_idx)
+    - [Two Pointers](#two-pointers)
+      - [Valid Palindrome](#valid-palindrome)
+      - [680. Valid Palindrome II](#680-valid-palindrome-ii)
+      - [Closest Sum](#closest-sum)
+      - [3Sum](#3sum)
+      - [Best Time to Buy and Sell Stock](#best-time-to-buy-and-sell-stock)
+      - [209. Minimum Size Subarray Sum](#209-minimum-size-subarray-sum)
+      - [3. Longest Substring Without Repeating Characters](#3-longest-substring-without-repeating-characters)
+      - [904. Fruit Into Baskets](#904-fruit-into-baskets)
+      - [567. Permutation in String](#567-permutation-in-string)
+      - [1493. Longest Subarray of 1's After Deleting One Element](#1493-longest-subarray-of-1s-after-deleting-one-element)
       - [Longest Consecutive Sequence](#longest-consecutive-sequence)
     - [Interval](#interval)
       - [986. Interval List Intersections](#986-interval-list-intersections)
@@ -34,6 +29,11 @@ tags:
       - [61. Rotate List](#61-rotate-list)
       - [328. Odd Even Linked List](#328-odd-even-linked-list)
       - [143. Reorder List](#143-reorder-list)
+    - [Stack](#stack)
+      - [Valid Parentheses](#valid-parentheses)
+      - [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
+      - [Evaluate Reverse Polish Notation](#evaluate-reverse-polish-notation)
+      - [](#)
     - [Hash Maps](#hash-maps)
       - [205. Isomorphic Strings](#205-isomorphic-strings)
       - [290. Word Pattern](#290-word-pattern)
@@ -76,6 +76,7 @@ tags:
       - [79. Word Search](#79-word-search)
     - [Greedy](#greedy)
       - [455. Assign Cookies](#455-assign-cookies)
+      - [Jump Game](#jump-game)
     - [DFS](#dfs)
       - [Symmetric Tree](#symmetric-tree)
       - [226. Invert Binary Tree](#226-invert-binary-tree)
@@ -94,7 +95,7 @@ tags:
       - [Binary Tree Right Side View](#binary-tree-right-side-view-1)
       - [Binary Tree Level Order Traversal](#binary-tree-level-order-traversal)
       - [Binary Tree Zigzag Level Order Traversal](#binary-tree-zigzag-level-order-traversal)
-      - [](#)
+      - [](#-1)
     - [Dynamic Plan](#dynamic-plan)
       - [Climbing Stairs](#climbing-stairs)
       - [Unique Paths](#unique-paths)
@@ -106,7 +107,7 @@ tags:
       - [Set Mismatch](#set-mismatch)
       - [Find All Numbers Disappeared in an Array](#find-all-numbers-disappeared-in-an-array)
       - [Find the Duplicate Number](#find-the-duplicate-number)
-      - [](#-1)
+      - [](#-2)
     - [Union find](#union-find)
       - [Find if Path Exists in Graph](#find-if-path-exists-in-graph)
       - [Number of Islands](#number-of-islands-1)
@@ -114,9 +115,9 @@ tags:
 
 
 # Solution
-## Two Pointers
+### Two Pointers
 
-### Valid Palindrome
+#### Valid Palindrome
 ```java
 // Use built-in replaceAll
 class Solution {
@@ -185,9 +186,14 @@ class Solution {
 }
 ```
 
-### 680. Valid Palindrome II
-#### Naive one based on Valid Palindrome I
+#### 680. Valid Palindrome II
+
 ```java
+/**
+ * Naive one based on Valid Palindrome I
+ * 
+ * 
+ * */
 class Solution {
     public boolean validPalindrome(String s) {
         int left = 0;
@@ -218,7 +224,7 @@ class Solution {
 }
 ```
 
-### Closest Sum
+#### Closest Sum
 ```java
 class Solution {
     public int[] twoSum(int[] numbers, int target) {
@@ -285,7 +291,7 @@ class Solution {
 }
 ```
 
-### 3Sum
+#### 3Sum
 ```java
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
@@ -333,7 +339,7 @@ class Solution {
 
 ```
 
-### Best Time to Buy and Sell Stock
+#### Best Time to Buy and Sell Stock
 > 用双指针 O(n^2) 太高。
 
 ```java
@@ -357,7 +363,7 @@ class Solution {
 ```
 
 
-### 209. Minimum Size Subarray Sum
+#### 209. Minimum Size Subarray Sum
 ```java
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
@@ -388,7 +394,7 @@ class Solution {
 }
 ```
 
-### 3. Longest Substring Without Repeating Characters
+#### 3. Longest Substring Without Repeating Characters
 ```java
 class Solution {
     public int lengthOfLongestSubstring(String s) {
@@ -419,11 +425,11 @@ class Solution {
 ```
 
 
-### 904. Fruit Into Baskets
+#### 904. Fruit Into Baskets
 > 内核: 找一个最长的仅有两种元素组成的子串
 
-#### 基于最长连续水果类型的解法
 ```java
+// 基于最长连续水果类型的解法
 class Solution {
     public int totalFruit(int[] fruits) {
         int maxFruits = 0;           // Initialize the maximum number of fruits to be collected.
@@ -466,8 +472,8 @@ class Solution {
 }
 ```
 
-#### 基于sliding windows的解法（Recommended）
 ```java
+// 基于sliding windows的解法（Recommended）
 class Solution {
     public int totalFruit(int[] fruits) {
         Map<Integer, Integer> map = new HashMap<>();  // Create a HashMap to store fruit counts.
@@ -500,7 +506,7 @@ class Solution {
 }
 ```
 
-### 567. Permutation in String
+#### 567. Permutation in String
 > 1. 用toCharArray代替charAt，提高速度
 > 2. 只构建一次count_s2，然后每次循环用滑动窗口更新改数组
 
@@ -567,9 +573,9 @@ class Solution {
 }
 ```
 
-### 1493. Longest Subarray of 1's After Deleting One Element
-#### 手动记录zero_idx
+#### 1493. Longest Subarray of 1's After Deleting One Element
 ```java
+// 手动记录zero_idx
 class Solution {
     public int longestSubarray(int[] nums) {
         int len = nums.length;
@@ -597,8 +603,10 @@ class Solution {
     }
 }
 ```
-#### 不记录zero_idx, 让left递增直到zero_idx
+
+
 ```java
+// 不记录zero_idx, 让left递增直到zero_idx
 class Solution {
     public int longestSubarray(int[] nums) {
         int len = nums.length;
@@ -1212,6 +1220,207 @@ class Solution {
     }
 }
 ```
+
+### Stack
+#### Valid Parentheses
+```java
+/**
+ * 20. Valid Parentheses
+ * 
+ * 问题描述：
+ * 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。
+ * 有效字符串需满足：
+ * 1. 左括号必须用相同类型的右括号闭合。
+ * 2. 左括号必须以正确的顺序闭合。
+ * 
+ * 示例：
+ * 输入：s = "()"
+ * 输出：true
+ * 
+ * 输入：s = "()[]{}"
+ * 输出：true
+ * 
+ * 输入：s = "(]"
+ * 输出：false
+ * 
+ * 输入：s = "([)]"
+ * 输出：false
+ * 
+ * 输入：s = "{[]}"
+ * 输出：true
+ * 
+ * 思路：
+ * 使用栈来处理括号匹配问题，遇到左括号就入栈，遇到右括号就出栈，并检查匹配关系。
+ * 如果遇到右括号时栈为空或者与栈顶元素不匹配，则字符串无效。
+ */
+class Solution {
+    /**
+     * 判断给定字符串是否是有效的括号组合
+     *
+     * @param s 给定的字符串
+     * @return 如果是有效的括号组合，返回 true；否则，返回 false。
+     */
+    public boolean isValid(String s) {
+        // 使用栈来存储左括号
+        Deque<Character> stack = new ArrayDeque<>();
+
+        // 遍历字符串中的每个字符
+        for (char c : s.toCharArray()) {
+            // 如果是左括号，入栈
+            if (c == '(' || c == '[' || c == '{') {
+                stack.offerLast(c);
+                continue;
+            }
+
+            // 如果是右括号，判断栈是否为空
+            if (stack.isEmpty()) {
+                return false;
+            }
+
+            // 出栈并检查匹配关系
+            char popped = stack.pollLast();
+            if ((c == ')' && popped != '(')
+                    || (c == ']' && popped != '[')
+                    || (c == '}' && popped != '{')) {
+                return false;
+            }
+        }
+
+        // 最后检查栈是否为空
+        return stack.isEmpty();
+    }
+}
+```
+
+#### Binary Tree Inorder Traversal
+```java
+/**
+ * 94. Binary Tree Inorder Traversal
+ * 二叉树中序遍历
+ *
+ * 问题描述：
+ * 给定二叉树的根节点，返回中序遍历结果。
+ *
+ * 思路：
+ * 使用栈辅助进行中序遍历，从根节点开始，将节点及其左子树逐个入栈，
+ * 然后出栈并访问，再转向右子树。
+ * 
+ * Note: inorder, 中序遍历首先遍历左子树，然后访问根结点，最后遍历右子树
+ */
+class Solution {
+    /**
+     * 中序遍历二叉树
+     *
+     * @param root 二叉树的根节点
+     * @return 中序遍历结果
+     */
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) return res;
+
+        Stack<TreeNode> stack = new Stack<>();
+
+        TreeNode node = root;
+        while (node != null || !stack.isEmpty()) {
+            // 将节点及其左子树逐个入栈
+            while (node != null) {
+                stack.push(node);
+                node = node.left;
+            }
+
+            // 出栈并访问节点
+            node = stack.pop();
+            res.add(node.val);
+
+            // 转向右子树
+            node = node.right;
+        }
+
+        return res;
+    }
+}
+```
+
+
+#### Evaluate Reverse Polish Notation
+```java
+/**
+ * 150. Evaluate Reverse Polish Notation
+ * 逆波兰表达式求值
+ * 
+ * 问题描述：
+ * 给定逆波兰表达式，求其值。
+ * 
+ * 思路：
+ * 使用栈来处理逆波兰表达式。遍历表达式，如果是操作数，入栈；如果是运算符，弹出栈顶的两个操作数，进行运算，将结果压入栈。
+ * 
+ */
+class Solution {
+    /**
+     * 计算逆波兰表达式的值
+     * 
+     * @param tokens 逆波兰表达式的字符串数组
+     * @return 计算结果
+     */
+    public int evalRPN(String[] tokens) {
+        Deque<Integer> stack = new ArrayDeque<>();
+
+        for (String token : tokens) {
+            if (!isOperator(token)) {
+                stack.offerLast(Integer.valueOf(token));
+            } else {
+                int num2 = stack.pollLast();
+                int num1 = stack.pollLast();
+                int temp;
+
+                // 根据运算符进行计算
+                if (token.equals("+")) {
+                    temp = num1 + num2;
+                } else if (token.equals("-")) {
+                    temp = num1 - num2;
+                } else if (token.equals("*")) {
+                    temp = num1 * num2;
+                } else {
+                    temp = num1 / num2;
+                }
+
+                stack.offerLast(temp);
+            }
+        }
+
+        return stack.pollLast();
+    }
+
+    /**
+     * 判断字符串是否是运算符
+     * 
+     * @param str 输入字符串
+     * @return 是否是运算符
+     */
+    private boolean isOperator(String str) {
+        return str.equals("+") 
+            || str.equals("-") 
+            || str.equals("*") 
+            || str.equals("/");
+    }
+}
+
+```
+
+####
+```java
+
+```
+
+
+
+
+
+
+
+
+
+
 
 ### Hash Maps
 #### 205. Isomorphic Strings
@@ -2164,6 +2373,8 @@ class Solution {
     }
 }
 ```
+
+
 
 
 ### Two Heaps
@@ -3137,6 +3348,50 @@ public class CookieProblem {
         }
         
         return count;
+    }
+}
+
+```
+
+#### Jump Game
+```java
+/**
+ * 55. Jump Game
+ * 跳跃游戏
+ * 
+ * 问题描述：
+ * 给定一个整数数组 nums，判断是否能够到达数组的最后一个位置。
+ * 每个元素表示在该位置可以跳跃的最大长度。
+ * 
+ * 思路：
+ * 使用贪心算法，从左到右遍历数组，维护一个变量 maxReach 表示当前能够到达的最远位置。
+ * 如果在遍历过程中发现某个位置 i 大于 maxReach，说明无法到达当前位置，返回 false。
+ * 更新 maxReach 为当前位置能够到达的最远位置。
+ * 如果 maxReach 已经超过数组末尾，返回 true。
+ */
+class Solution {
+
+    /**
+     * 判断是否能够到达数组的最后一个位置
+     * 
+     * @param nums 给定的整数数组
+     * @return 如果能够到达最后一个位置，返回 true；否则返回 false。
+     */
+    public boolean canJump(int[] nums) {
+        int maxReach = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            // 如果当前位置超过了当前能够到达的最远位置，返回false
+            if (i > maxReach) return false;
+
+            // 更新当前能够到达的最远位置
+            maxReach = Math.max(maxReach, i + nums[i]);
+
+            // 如果最远位置已经超过数组末尾，说明可以到达最后一个位置
+            if (maxReach >= nums.length - 1) return true;
+        }
+
+        return false;
     }
 }
 
