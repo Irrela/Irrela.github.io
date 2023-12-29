@@ -4154,7 +4154,7 @@ class Solution {
 class Solution {
     private char[][] grid;
     private int rows, cols;
-    private int[][] directions = new int[][] {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+    private int[][] directions = new int[][] { {1, 0}, {-1, 0}, {0, 1}, {0, -1} };
 
     /**
      * 计算岛屿数量
