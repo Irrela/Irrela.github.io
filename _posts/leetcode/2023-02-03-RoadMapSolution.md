@@ -63,6 +63,7 @@ tags:
         - [大根堆](#大根堆)
         - [二分搜索（最优性能）](#二分搜索最优性能)
     - [K-way merge](#k-way-merge)
+      - [Top K Frequent Elements](#top-k-frequent-elements)
     - [Backtracking](#backtracking)
       - [78. Subsets](#78-subsets)
       - [90. Subsets II](#90-subsets-ii)
@@ -77,6 +78,10 @@ tags:
     - [Greedy](#greedy)
       - [455. Assign Cookies](#455-assign-cookies)
       - [Jump Game](#jump-game)
+      - [Jump Game II](#jump-game-ii)
+      - [Queue Reconstruction by Height](#queue-reconstruction-by-height)
+      - [Non-overlapping Intervals](#non-overlapping-intervals)
+      - [Gas Station](#gas-station)
     - [DFS](#dfs)
       - [Symmetric Tree](#symmetric-tree)
       - [226. Invert Binary Tree](#226-invert-binary-tree)
@@ -2588,7 +2593,63 @@ class Solution {
 }
 ```
 
+
+
 ### K-way merge
+
+#### Top K Frequent Elements
+```java
+
+/**
+ * 347. Top K Frequent Elements
+ * 
+ * 问题描述：给定一个整数数组 nums 和一个整数 k，返回前 k 个高频元素。
+ *
+ * 思路：使用最小堆（Min Heap）维护频率最高的 k 个元素。
+ */
+class Solution {
+    /**
+     * 返回前 k 个高频元素
+     *
+     * @param nums 给定的整数数组
+     * @param k    前 k 个高频元素
+     * @return     高频元素数组
+     */
+    public int[] topKFrequent(int[] nums, int k) {
+        // Step 1: 统计每个元素的频率
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
+        for (int num : nums) {
+            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+        }
+
+        // 使用最小堆来保存频率最高的 k 个元素
+        PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>(
+                Comparator.comparingInt(Map.Entry::getValue)
+        );
+
+        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+            pq.add(entry);
+
+            if (pq.size() > k) {
+                pq.poll();
+            }
+        }
+
+        // 构建结果数组
+        int[] res = new int[k];
+        int i = 0;
+        while (!pq.isEmpty()) {
+            res[i++] = pq.poll().getKey();
+        }
+
+        return res;
+    }
+}
+
+```
+
+
+
 
 ### Backtracking
 
@@ -3394,8 +3455,215 @@ class Solution {
         return false;
     }
 }
+```
+#### Jump Game II
+```java
+/**
+ * 45. Jump Game II
+ * 跳跃游戏 II
+ * 
+ * 给定一个非负整数数组 nums ，你最初位于数组的第一个位置。
+ * 数组中的每个元素代表你在该位置可以跳跃的最大长度。
+ * 你的目标是使用最少的跳跃次数到达数组的最后一个位置。
+ * 如果无法到达，则返回 -1。
+ * 
+ * 思路：
+ * 使用贪心算法。和 BFS
+ * 
+ * 维护当前层能够到达的最远位置，遍历层内index更新这个位置，
+ * 如果该层内尚不能达到最后位置，则steps++, 进入下一层
+ */
+class Solution {
+    /**
+     * 跳跃游戏 II 的解决方法
+     *
+     * @param nums 给定的非负整数数组
+     * @return 最少的跳跃次数，如果无法到达则返回 -1
+     */
+    public int jump(int[] nums) {
+        // 如果数组长度为 1，不需要跳跃
+        if (nums.length == 1) return 0;
+
+        int maxRange = 0; // 当前能够到达的最远位置
+        int index = 0;    // 当前位置
+        int steps = 1;    // 跳跃步数
+
+        while (index <= maxRange) { // 还没有尝试完目前能到达的index
+            int curMax = maxRange;
+            // 遍历当前层到当前能够到达的最远位置之间的元素
+            // 层间遍历时maxRange可能会更新，所以要用一个变量固定当前层的maxRange
+            // 类似于BFS层遍历时先用size记录queue.size()
+            for (; index <= curMax; index++) {
+                int range = index + nums[index];
+                // 如果当前位置能够到达数组末尾，则返回步数
+                if (range >= nums.length - 1) return steps;
+
+                // 更新当前能够到达的最远位置
+                maxRange = Math.max(range, maxRange);
+            }
+            steps++;
+        }
+
+        return -1; // 无法到达数组末尾
+    }
+}
 
 ```
+
+
+#### Queue Reconstruction by Height
+```java
+/**
+ * 406. Queue Reconstruction by Height
+ * 问题描述：根据给定的身高和前面的人数，重建队列。
+ * 
+ * 思路：先按照身高降序、人数升序排序，
+ * 然后依次插入到结果列表的指定位置。
+ * 
+ * 挑选出最高的一组人，并将他们分类到一个子数组中(S)。
+ * 因为没有其他人群比他们高，所以每个人的index将与他的k值相同
+ * 
+ * 对于第二高的组(以及其余的)，按k值将它们逐一插入(S)。以此类推。
+ * 
+ * E.g.
+ * input: [[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]]
+ * subarray after step 1: [[7,0], [7,1]]
+ * subarray after step 2: [[7,0], [6,1], [7,1]]
+ */
+class Solution {
+
+    /**
+     * 重建队列的方法。
+     *
+     * @param people 二维数组，每个元素表示一个人的身高和前面的人数。
+     * @return 重建后的队列。
+     */
+    public int[][] reconstructQueue(int[][] people) {
+        // 结果列表，用LinkedList实现以便于插入操作
+        List<int[]> res = new LinkedList<>();
+
+        // 按照身高降序、人数升序排序
+        Arrays.sort(people, (a, b) -> a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]);
+
+        // 将排序后的人依次插入到指定位置
+        for (int[] p : people) {
+            res.add(p[1], p);
+        }
+
+        // 转换为数组并返回
+        return res.toArray(new int[people.length][2]);
+    }
+}
+```
+
+#### Non-overlapping Intervals
+```java
+/**
+ * 435. Non-overlapping Intervals
+ * 无重叠区间
+ * 
+ * 问题描述：给定一系列区间，找到最大数量的不重叠区间，使得剩余的区间最少。
+ * 
+ * 思路：按照区间的结束位置排序 
+ * 按照区间的结束位置进行排序的原因是为了尽可能地保留更多的可用空间
+ * 贪心的思想基于以下观察：
+ * 选择结束位置早的区间更有利于保留更多的空间： 如果有两个区间，一个在位置 [a, b] 结束，另一个在位置 [c, d] 结束，且 b < d，那么选择结束位置早的区间更容易腾出空间供其他区间使用。 
+ * 
+ * 然后遍历区间，选择不重叠的区间即可。
+ */
+class Solution {
+    /**
+     * 计算最小的区间移除数量
+     * 
+     * @param intervals 区间数组，每个区间用一个长度为2的数组表示，分别表示起始位置和结束位置。
+     * @return 最小的区间移除数量
+     */
+    public int eraseOverlapIntervals(int[][] intervals) {
+        // 按照结束位置升序排序
+        Arrays.sort(intervals, (a, b) -> a[1] - b[1]);
+
+        int count = 1; // 不重叠区间的计数，初始为1，因为第一个区间总是被选择的
+        int end = intervals[0][1]; // 当前不重叠区间的结束位置
+
+        // 遍历区间
+        for (int i = 1; i < intervals.length; i++) {
+            // 如果当前区间的起始位置大于等于当前不重叠区间的结束位置
+            if (intervals[i][0] >= end) {
+                count++; // 选择当前区间
+                end = intervals[i][1]; // 更新不重叠区间的结束位置
+            }
+        }
+
+        // 返回需要移除的区间数量
+        return intervals.length - count;
+    }
+}
+
+```
+
+#### Gas Station
+```java
+/**
+ * 134. Gas Station
+ * 加油站环路问题：
+ * 
+ * 给定 n 个加油站，每个加油站有汽油 gas[i] 和花费 cost[i]。从某一加油站出发，判断是否能绕环一周。
+ * 如果存在解，返回起始加油站的索引；否则返回 -1。
+ *
+ * 思路：
+ * 使用贪心算法。从每个加油站出发，尝试是否能够完成整个环路。
+ * 如果从当前加油站到下一个加油站的剩余油量小于0，则重新选择起始加油站。
+ * 如果最终能够回到起始加油站且总的剩余油量不为负数，则返回起始加油站的索引。
+ */
+class Solution {
+    /**
+     * 判断是否能够完成加油站环路
+     *
+     * @param gas   每个加油站的汽油量数组
+     * @param cost  每个加油站到下一站的花费数组
+     * @return 如果存在解，返回起始加油站的索引；否则返回 -1。
+     */
+    public int canCompleteCircuit(int[] gas, int[] cost) {
+        int n = gas.length;
+
+        int[] net = new int[n]; // 记录每个加油站的净剩余油量
+        for (int i = 0; i < n; i++) {
+            net[i] = gas[i] - cost[i];
+        }
+
+        int start = -1; // 起始加油站的索引
+        int total = 0; // 记录总的剩余油量
+        int current = 0; // 记录当前起始加油站到当前加油站的剩余油量
+
+        for (int i = 0; i < n; i++) {
+            if (start == -1 && net[i] >= 0) {
+                start = i;
+            }
+
+            total += net[i];
+            current += net[i];
+
+            if (current < 0) {
+                // 如果当前起始加油站到当前加油站的剩余油量小于0，
+                // 则重新选择起始加油站，并重置当前剩余油量
+                start = -1;
+                current = 0;
+            }
+        }
+
+        // 如果总的剩余油量小于0，说明无法完成整个环路
+        if (total < 0) {
+            return -1;
+        } else {
+            return start;
+        }
+    }
+}
+
+
+```
+
+
 
 
 ### DFS
