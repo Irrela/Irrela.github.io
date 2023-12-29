@@ -1,2 +1,0 @@
-["target/debug/minigrep"]
-Problem parsing arguments: not enough arguments
