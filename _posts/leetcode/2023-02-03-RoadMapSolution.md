@@ -64,6 +64,8 @@ tags:
         - [二分搜索（最优性能）](#二分搜索最优性能)
     - [K-way merge](#k-way-merge)
       - [Top K Frequent Elements](#top-k-frequent-elements)
+    - [Merge Intervals](#merge-intervals)
+      - [Kth Smallest Element in a Sorted Matrix](#kth-smallest-element-in-a-sorted-matrix)
     - [Backtracking](#backtracking)
       - [78. Subsets](#78-subsets)
       - [90. Subsets II](#90-subsets-ii)
@@ -2646,6 +2648,90 @@ class Solution {
     }
 }
 
+```
+
+
+### Merge Intervals
+```py3
+class Solution:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        """
+        56. Merge Intervals
+
+        合并重叠区间
+
+        # 思路
+        1. 首先按区间的起始位置进行排序。
+        2. 遍历排序后的区间列表，合并重叠区间。
+
+        # Note
+        注意在遍历时的条件判断和区间合并的逻辑。
+        """
+
+        # 按区间的起始位置进行排序
+        intervals.sort(key=lambda x: x[0])
+
+        res = []
+
+        start, end = intervals[0][0], intervals[0][1]
+
+        for i in range(1, len(intervals)):
+            # 判断是否与当前合并区间重叠
+            if intervals[i][0] <= end:
+                end = max(end, intervals[i][1])  # 合并重叠区间
+            else:
+                res.append([start, end])  
+                start, end = intervals[i][0], intervals[i][1]  
+
+        res.append([start, end])  # 处理最后一个合并区间
+        return res
+```
+
+#### Kth Smallest Element in a Sorted Matrix
+```py3
+# 堆解法
+class Solution:
+    def kthSmallest(self, matrix: List[List[int]], k: int) -> int:
+        """
+        378. Kth Smallest Element in a Sorted Matrix
+        在二维矩阵中找第 k 小的元素
+
+        # 问题描述
+        给定一个 n x n 矩阵，其中每行和每列元素均按升序排序，
+        找到矩阵中第 k 小的元素。请注意，它是排序后的第 k 小元素，
+        而不是第 k 个不同的元素。
+
+        # 思路
+        使用最小堆，将每行的第一个元素以及所在行和列的索引加入堆中，
+        然后每次弹出堆顶元素，将其所在行的下一个元素加入堆中，
+        直到找到第 k 小的元素。
+
+        # Note
+        注意矩阵的边界情况和堆的处理。
+        """
+
+        rows, cols = len(matrix), len(matrix[0])
+
+        # 使用列表推导式初始化堆，每个元素包括值、行索引、列索引
+        heap = [[matrix[row][0], row, 0] for row in range(rows)]
+
+        # 将列表转化为最小堆
+        heapq.heapify(heap)
+
+        # 从堆中弹出 k-1 个元素
+        for i in range(k-1):
+            num, x, y = heapq.heappop(heap)
+
+            # 如果所在行还有元素，将下一个元素加入堆
+            if y < cols-1:
+                heapq.heappush(heap, [matrix[x][y+1], x, y+1])
+
+        # 弹出第 k 小的元素并返回其值
+        return heapq.heappop(heap)[0]
+```
+
+```py3
+# 基于二分查找 TODO
 ```
 
 
