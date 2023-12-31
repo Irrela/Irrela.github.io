@@ -45,6 +45,7 @@ tags:
   - [其他](#其他)
     - [git pull 与 fetch](#git-pull-与-fetch)
     - [在windows上出现LF替换](#在windows上出现lf替换)
+    - [删除大文件后无法push](#删除大文件后无法push)
   - [撤销最近一次commit](#撤销最近一次commit)
     - [reset](#reset)
     - [git revert](#git-revert)
@@ -331,6 +332,35 @@ https://stackoverflow.com/questions/5834014/lf-will-be-replaced-by-crlf-in-git-w
 
 > git config --global core.safecrlf false // 禁用警告并保持它的功能
 
+
+### 删除大文件后无法push
+
+```bash
+remote: error: Trace: 13ecde7b720918a8e45ed68a41feb1bb3c877ae61e7afdd7c77e8fc40b63294a
+remote: error: See https://gh.io/lfs for more information.
+remote: error: File public/static/multimedia/sample.mp4 is 112.69 MB; this exceeds GitHub's file size limit of 100.00 MB
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
+```
+
+处理方式：
+```bash
+git status
+
+# ->
+# On branch master
+# Your branch is ahead of 'origin/master' by 10 commits.
+# (use "git push" to publish your local commits)
+
+git reset HEAD~10
+# 有多少commits ahead ~ 后面就是多少
+
+# ->
+# Unstaged changes after reset: ....
+
+
+# 现在可以重新zsh push
+
+```
 
 ## 撤销最近一次commit
 ### reset
