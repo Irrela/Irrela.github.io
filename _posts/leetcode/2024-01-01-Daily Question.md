@@ -7,7 +7,7 @@
 ## 贪心
 ### Medium
 #### 1599. Maximum Profit of Operating a Centennial Wheel
-```py3
+```py
 class Solution:
     def minOperationsMaxProfit(self, customers: List[int], boardingCost: int, runningCost: int) -> int:
         '''

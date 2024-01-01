@@ -2652,7 +2652,7 @@ class Solution {
 
 
 ### Merge Intervals
-```py3
+```py
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         """
@@ -2688,7 +2688,7 @@ class Solution:
 ```
 
 #### Kth Smallest Element in a Sorted Matrix
-```py3
+```py
 # 堆解法
 class Solution:
     def kthSmallest(self, matrix: List[List[int]], k: int) -> int:
@@ -2730,7 +2730,7 @@ class Solution:
         return heapq.heappop(heap)[0]
 ```
 
-```py3
+```py
 # 基于二分查找 TODO
 ```
 
