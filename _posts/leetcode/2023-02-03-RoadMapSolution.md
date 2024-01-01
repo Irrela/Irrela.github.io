@@ -2732,6 +2732,41 @@ class Solution:
 
 ```py
 # 基于二分查找 TODO
+class Solution:
+    
+    def kthSmallest(self, matrix: List[List[int]], k: int) -> int:
+        rows, cols = len(matrix), len(matrix[0])
+        lo, hi = matrix[0][0], matrix[-1][-1]
+
+        def get_no_more_than(target):
+            max_num, count = float("-inf"), 0
+
+            i, j = 0, cols - 1
+
+            while 0 <= i < rows and 0 <= j < cols:
+                if matrix[i][j] <= target:
+                    count += j + 1 # 一整行
+                    max_num = max(max_num, matrix[i][j])
+                    i += 1
+                else: # matrix[i][j] > target
+                    j -= 1
+            return max_num, count
+
+        res = 0
+        while lo <= hi:
+            mid = lo + (hi - lo) // 2
+            max_num, count = get_no_more_than(mid)
+
+            if count < k:
+                lo = mid + 1
+            elif count > k:
+                res = max_num
+                hi = mid - 1
+            else:
+                res = max_num
+                hi = mid - 1
+
+        return res    
 ```
 
 
