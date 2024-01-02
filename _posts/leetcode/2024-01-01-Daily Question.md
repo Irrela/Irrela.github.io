@@ -2,6 +2,8 @@
 - [贪心](#贪心)
   - [Medium](#medium)
     - [1599. Maximum Profit of Operating a Centennial Wheel](#1599-maximum-profit-of-operating-a-centennial-wheel)
+- [循环节](#循环节)
+  - [Count The Repetitions](#count-the-repetitions)
 
 
 ## 贪心
@@ -63,4 +65,72 @@ class Solution:
                 max_profit_operations = total_operations + i + 1
 
         return max_profit_operations if max_profit_operations > 0 else -1
+```
+
+
+## 循环节
+### Count The Repetitions
+```py
+class Solution:
+    def getMaxRepetitions(self, s1: str, n1: int, s2: str, n2: int) -> int:
+        '''
+        # 问题描述
+        466. Count The Repetitions
+
+        给出两个字符串s1和s2，以及两个整数n1和n2。定义字符串str = [s, n]表示由字符串s重复n次构成的字符串。
+
+        定义如果我们可以从s2中删除一些字符使其变为s1，那么字符串s1可以从字符串s2获得。
+
+        请返回最大整数m，使得str2 = [s2, m]可以从str1 = [s1, n1]获得。
+
+        # 思路
+        通过观察s1和s2的匹配过程，找到循环节的起始位置和长度。
+        利用循环节的信息来加速计算，避免不必要的重复匹配。
+
+        # Note
+        1. 在判断是否有解之前，首先判断长度是否满足要求。
+        2. 利用两个字典`map1`和`map2`记录循环节的信息，提高计算效率。
+        '''
+
+        len1, len2 = len(s1), len(s2)
+        index1, index2 = 0, 0
+
+        # 判断是否有解
+        if len1 == 0 or len2 == 0 or len1 * n1 < len2 * n2:
+            return 0
+
+        # 用于记录循环节的信息
+        map1, map2 = dict(), dict()
+        res = 0
+
+        # 遍历字符串s1
+        while index1 // len1 < n1:
+            # 检查是否到达s1的末尾
+            if index1 % len1 == len1 - 1:
+                # 判断是否存在循环节
+                if index2 % len2 in map1:
+                    val = map1[index2 % len2]
+                    cycle_len = index1 // len1 - val // len1
+                    cycle_num = (n1 - 1 - index1 // len1) // cycle_len
+                    cycle_s2_num = index2 // len2 - map2[index2 % len2] // len2
+
+                    # 更新index1和res
+                    index1 += cycle_num * cycle_len * len1
+                    res += cycle_num * cycle_s2_num
+                else:
+                    # 记录循环节的起始位置
+                    map1[index2 % len2] = index1
+                    map2[index2 % len2] = index2
+
+            # 检查当前字符是否匹配
+            if s1[index1 % len1] == s2[index2 % len2]:
+                # 检查是否到达s2的末尾
+                if index2 % len2 == len2 - 1:
+                    res += 1
+                index2 += 1
+            index1 += 1
+
+        # 返回结果
+        return res // n2
+
 ```
