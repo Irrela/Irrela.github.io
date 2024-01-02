@@ -1,8 +1,8 @@
 ---
 title: Kubernetes
-categories: Web
+categories: Middleware
 tags:
-- Web
+- Middleware
 ---
 
 - [Learn Kubernetes Basics](#learn-kubernetes-basics)

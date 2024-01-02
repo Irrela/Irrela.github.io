@@ -1,8 +1,8 @@
 ---
 title: ElasticSearch
-categories: Middleware
+categories: DB
 tags:
-- Middleware
+- DB
 ---
 
 
