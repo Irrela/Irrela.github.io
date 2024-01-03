@@ -1,10 +1,110 @@
 
-- [贪心](#贪心)
+- [链表](#链表)
   - [Medium](#medium)
+    - [Remove Nodes From Linked List](#remove-nodes-from-linked-list)
+- [单调](#单调)
+  - [Medium](#medium-1)
+    - [Remove Nodes From Linked List](#remove-nodes-from-linked-list-1)
+- [贪心](#贪心)
+  - [Medium](#medium-2)
     - [1599. Maximum Profit of Operating a Centennial Wheel](#1599-maximum-profit-of-operating-a-centennial-wheel)
 - [循环节](#循环节)
   - [Count The Repetitions](#count-the-repetitions)
 
+
+## 链表
+### Medium
+#### Remove Nodes From Linked List
+```py
+class Solution:
+    def removeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        """
+        2487. Remove Nodes From Linked List
+        移除链表中值较大的节点
+
+        # 思路
+        1. 翻转链表
+        2. next 比 node 小就删掉next（包含了next向后遍历）, 否则node = node.next
+        3. 再翻转链表
+
+        Input:  [5,2,13,3,8]
+        Output: [13,8]
+
+        """
+        # 反转链表
+        head = self.reverse(head)
+        node = head
+
+        while node.next:
+            if node.val > node.next.val:
+                # 删除下一个节点
+                node.next = node.next.next
+            else:
+                node = node.next
+
+        # 再次反转链表
+        return self.reverse(head)
+
+    def reverse(self, head):
+        """
+        反转链表
+
+        Parameters:
+        - head: ListNode，链表的头结点
+
+        Returns:
+        - ListNode，反转后的链表的头结点
+        """
+        prev = None
+        node = head
+
+        while node:
+            next = node.next
+            node.next = prev
+            prev = node
+            node = next
+        
+        return prev
+
+```
+
+## 单调
+### Medium
+#### Remove Nodes From Linked List
+```py
+    def removeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        """
+        2487. Remove Nodes From Linked List
+        移除链表中值较大的节点
+
+        # 思路
+        1. 单调栈，小于等于栈顶的压栈，否则将比当前node小的全部出栈，当前node压栈
+        2. 依次出栈，并将栈顶的next指向刚出栈的
+        3. 返回最后一个出栈的
+
+        # Note
+        出栈链接时注意 while len(stack) > 1
+        """
+        stack = []
+        node = head
+        
+        while node:
+            if len(stack) == 0 or node.val <= stack[-1].val:
+                stack.append(node)
+                node = node.next
+                continue
+            
+            while stack and node.val > stack[-1].val:
+                stack.pop()
+            stack.append(node)
+            node = node.next
+        
+        while len(stack) > 1:
+            popped = stack.pop()
+            stack[-1].next = popped
+
+        return stack.pop()
+```
 
 ## 贪心
 ### Medium
