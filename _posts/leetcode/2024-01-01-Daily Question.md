@@ -8,6 +8,8 @@
 - [贪心](#贪心)
   - [Medium](#medium-2)
     - [1599. Maximum Profit of Operating a Centennial Wheel](#1599-maximum-profit-of-operating-a-centennial-wheel)
+- [动态规划](#动态规划)
+  - [2397. Maximum Rows Covered by Columns](#2397-maximum-rows-covered-by-columns)
 - [循环节](#循环节)
   - [Count The Repetitions](#count-the-repetitions)
 
@@ -165,6 +167,40 @@ class Solution:
                 max_profit_operations = total_operations + i + 1
 
         return max_profit_operations if max_profit_operations > 0 else -1
+```
+
+
+## 动态规划
+### 2397. Maximum Rows Covered by Columns
+```py
+class Solution:
+    def maximumRows(self, matrix: List[List[int]], numSelect: int) -> int:
+        m = len(matrix)
+        n = len(matrix[0])
+        cnt = [0] * m
+
+        for i in range(m):
+            for j in range(n):
+                if matrix[i][j] == 1:
+                    cnt[i] |= 1 << j
+
+        N = 1 << n
+        ans = 0
+
+        for i in range(N):
+            c = bin(i).count('1')
+            if c != numSelect:
+                continue
+
+            temp = 0
+
+            for j in range(m):
+                if (i | cnt[j]) == i:
+                    temp += 1
+
+            ans = max(ans, temp)
+
+        return ans
 ```
 
 
