@@ -2,6 +2,7 @@
 - [链表](#链表)
   - [Medium](#medium)
     - [Remove Nodes From Linked List](#remove-nodes-from-linked-list)
+    - [](#)
 - [单调](#单调)
   - [Medium](#medium-1)
     - [Remove Nodes From Linked List](#remove-nodes-from-linked-list-1)
@@ -69,6 +70,37 @@ class Solution:
         return prev
 
 ```
+
+#### 
+```py
+class Solution:
+    def insertGreatestCommonDivisors(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        """
+        2807. Insert Greatest Common Divisors in Linked List
+
+        快慢指针做链表插入
+
+        gcd算法
+        """
+        slow, fast = head, head.next
+
+        while slow and fast:
+            gcd_node = self.get_gcd(slow.val, fast.val)
+            slow.next = gcd_node
+            gcd_node.next = fast
+
+            slow = fast
+            fast = fast.next
+
+        return head
+
+    def get_gcd(self, left, right):
+        while right != 0:
+            left, right = right, left % right
+
+        return ListNode(left)
+```
+
 
 ## 单调
 ### Medium

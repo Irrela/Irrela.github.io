@@ -6,6 +6,7 @@ tags:
 ---
 
 - [Common Snippet](#common-snippet)
+  - [GCD](#gcd)
   - [Stack, Queue, Heap](#stack-queue-heap)
   - [Reverse Linked List](#reverse-linked-list)
   - [交错合并两个链表(长度无限制)](#交错合并两个链表长度无限制)
@@ -79,6 +80,26 @@ tags:
 
 
 # Common Snippet
+## GCD
+
+计算两个数的最大公约数（GCD）通常使用`欧几里得算法`，也称为`辗转相除法`。
+
+这个算法基于以下数学原理：两个数的最大公约数等于其中较小的数和两数相除余数的最大公约数。
+
+```py
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+# 例子
+num1 = 48
+num2 = 18
+
+result = gcd(num1, num2)
+print(f"The GCD of {num1} and {num2} is: {result}")
+```
+
 ## Stack, Queue, Heap
 
 ```java
