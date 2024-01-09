@@ -10,7 +10,8 @@
   - [Medium](#medium-2)
     - [1599. Maximum Profit of Operating a Centennial Wheel](#1599-maximum-profit-of-operating-a-centennial-wheel)
 - [动态规划](#动态规划)
-  - [2397. Maximum Rows Covered by Columns](#2397-maximum-rows-covered-by-columns)
+    - [Extra Characters in a String](#extra-characters-in-a-string)
+    - [Maximum Rows Covered by Columns](#maximum-rows-covered-by-columns)
 - [循环节](#循环节)
   - [Count The Repetitions](#count-the-repetitions)
 
@@ -203,33 +204,92 @@ class Solution:
 
 
 ## 动态规划
-### 2397. Maximum Rows Covered by Columns
+#### Extra Characters in a String
+```py
+class Solution:
+    def minExtraChar(self, s: str, dictionary: List[str]) -> int:
+        """
+        # 问题描述
+        2707. Extra Characters in a String
+
+        给定字符串 s 和一个字符串字典 dictionary，求通过在字符串 s 中插入最少数量的字符，使得插入后的字符串是 dictionary 中某个字符串的前缀。
+
+        # 思路
+        使用动态规划求解。定义 dp[i] 表示 s 的前 i 个字符中，最少需要插入多少个字符才能满足条件。
+        初始化 dp[0] 为 0，表示空串不需要插入字符。
+
+        遍历 s 的每个位置 i，初始化 dp[i] 为 dp[i-1] + 1，表示默认情况下需要插入一个字符。
+        然后，再次遍历前面的字符 j（从 i-1 到 0），检查 s[j:i] 是否在字典中。如果是，则更新 dp[i] 为 dp[j]，表示可以通过在 s[j:i] 中插入一些字符，使得 dp[i] 达到最小值。
+
+        最终返回 dp[size]，其中 size 是字符串 s 的长度。
+
+        # Note
+        - 使用动态规划时，考虑问题的最优子结构性质，即问题的最优解可以通过子问题的最优解来有效地构造。
+        - ***使用哈希集合加速字典中字符串的查找过程***。
+        """
+
+        size = len(s)
+        dp = [math.inf] * (size + 1)
+        dp[0] = 0
+
+        hash_set = set(dictionary)
+
+        for i in range(1, size + 1):
+            dp[i] = dp[i - 1] + 1
+            for j in range(i - 1, -1, -1):
+                if s[j:i] in hash_set:
+                    dp[i] = min(dp[i], dp[j])
+
+        return dp[size]
+```
+
+#### Maximum Rows Covered by Columns
 ```py
 class Solution:
     def maximumRows(self, matrix: List[List[int]], numSelect: int) -> int:
+        """
+        2397. Maximum Rows Covered by Columns
+        给定一个0-1矩阵和一个整数numSelect，选择numSelect列，使得覆盖的行数最大。
+
+        Parameters:
+        - matrix: List[List[int]]，0-1矩阵
+        - numSelect: int，选择的列数
+
+        Returns:
+        - int，覆盖的最大行数
+        """
+
+        # 获取矩阵的行数和列数
         m = len(matrix)
         n = len(matrix[0])
+
+        # 记录每行的二进制表示
         cnt = [0] * m
 
+        # 将矩阵中值为1的列标记到每行的二进制表示中
         for i in range(m):
             for j in range(n):
                 if matrix[i][j] == 1:
                     cnt[i] |= 1 << j
 
+        # 枚举所有可能的列集合
         N = 1 << n
         ans = 0
 
         for i in range(N):
+            # 统计当前列集合的1的个数
             c = bin(i).count('1')
             if c != numSelect:
                 continue
 
             temp = 0
 
+            # 遍历每行，检查是否被当前列集合覆盖
             for j in range(m):
                 if (i | cnt[j]) == i:
                     temp += 1
 
+            # 更新最大行数
             ans = max(ans, temp)
 
         return ans
