@@ -245,54 +245,57 @@ class Solution:
 
 #### Maximum Rows Covered by Columns
 ```py
+from typing import List
+
 class Solution:
     def maximumRows(self, matrix: List[List[int]], numSelect: int) -> int:
         """
         2397. Maximum Rows Covered by Columns
-        给定一个0-1矩阵和一个整数numSelect，选择numSelect列，使得覆盖的行数最大。
+        返回选取指定数量的行使得行内包含的 1 的数量最大化。
 
-        Parameters:
-        - matrix: List[List[int]]，0-1矩阵
-        - numSelect: int，选择的列数
+        思路:
+        - 因为cols < 12且只有0,1, 可以考虑枚举，总共 1 << 12 == 4096种可能
+        - 对于每一种可能，依次检查能覆盖多少row，全局更新最大的数量
+            - 如何检查覆盖数呢，以cols == 3 为例，如果当前选取情况为101，既选第一列和第三列，对于行 101可以覆盖，对于011无法覆盖（可以用位与运算，101 & 011 == 001 ！= 011所以无法覆盖）
+        - 所以先要把每一行搞成二进制，初始化为0，如果对应位置是1，则用其二进制数 与 1 << j 做位或
+            - 比如对于 101
+                - 0 |= 1 << 0 # 001 | 000 -> 001
+                - 1 |= 1 << 2 # 00001 | 00100 -> 00101
 
         Returns:
-        - int，覆盖的最大行数
+        - int，最大化行内包含的 1 的数量
         """
-
         # 获取矩阵的行数和列数
-        m = len(matrix)
-        n = len(matrix[0])
+        rows = len(matrix)
+        cols = len(matrix[0])
 
-        # 记录每行的二进制表示
-        cnt = [0] * m
+        # 将每行的 1 和 0 转换为二进制表示，存储在 binary_rows 中
+        binary_rows = [0] * rows
+        for row in range(rows):
+            for col in range(cols):
+                if matrix[row][col] == 1:
+                    binary_rows[row] |= 1 << col
 
-        # 将矩阵中值为1的列标记到每行的二进制表示中
-        for i in range(m):
-            for j in range(n):
-                if matrix[i][j] == 1:
-                    cnt[i] |= 1 << j
+        # 初始化最大行数为 0
+        ret = 0
 
-        # 枚举所有可能的列集合
-        N = 1 << n
-        ans = 0
-
-        for i in range(N):
-            # 统计当前列集合的1的个数
-            c = bin(i).count('1')
-            if c != numSelect:
+        # 遍历所有可能的行的组合
+        for mask in range(1, 1 << cols):
+            # 如果该组合中的 1 的数量不等于 numSelect，则跳过
+            if bin(mask).count('1') != numSelect:
                 continue
 
+            # 计算当前组合下的行内包含的 1 的数量
             temp = 0
-
-            # 遍历每行，检查是否被当前列集合覆盖
-            for j in range(m):
-                if (i | cnt[j]) == i:
+            for bin_row in binary_rows:
+                if mask & bin_row == bin_row:
                     temp += 1
 
-            # 更新最大行数
-            ans = max(ans, temp)
+            # 更新最大值
+            ret = max(ret, temp)
 
-        return ans
+        return ret
+
 ```
 
 
