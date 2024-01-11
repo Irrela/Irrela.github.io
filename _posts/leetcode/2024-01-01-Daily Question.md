@@ -1,3 +1,9 @@
+---
+title: Leetcode Daily Question
+categories: Leetcode
+tags:
+  - Leetcode
+---
 
 - [链表](#链表)
   - [Medium](#medium)
