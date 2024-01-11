@@ -11,6 +11,8 @@
     - [1599. Maximum Profit of Operating a Centennial Wheel](#1599-maximum-profit-of-operating-a-centennial-wheel)
 - [动态规划](#动态规划)
     - [Extra Characters in a String](#extra-characters-in-a-string)
+    - [](#-1)
+- [位运算](#位运算)
     - [Maximum Rows Covered by Columns](#maximum-rows-covered-by-columns)
 - [循环节](#循环节)
   - [Count The Repetitions](#count-the-repetitions)
@@ -243,6 +245,56 @@ class Solution:
         return dp[size]
 ```
 
+####
+```py
+"""
+2645. Minimum Additions to Make Valid String
+
+# 问题描述 
+    给定一个字符串 word，你可以在任意位置插入字母 "a"、"b" 或 "c"，任意次数。返回使 word 成为有效字符串所需的最小插入字母数。
+
+    一个字符串被称为有效的，如果它可以通过多次连接字符串 "abc" 来形成。
+
+# 思路 
+    使用动态规划来解决这个问题。定义一个数组 dp，其中 dp[i] 表示将字符串的前 i 个字符变为有效字符串所需的最小插入次数。
+
+    初始化 dp 数组，其中 dp[i] 的初始值为 i，因为最坏情况下，每个字符都需要插入一次。
+
+    然后遍历字符串，更新 dp 数组。对于每个字符，分两种情况：
+    1. 如果当前字符大于前一个字符，说明当前字符可以和前一个字符组成有效字符串的一部分，此时更新 dp[i] = min(dp[i], dp[i-1]-1)。
+    2. 否则，需要插入两个字符，更新 dp[i] = dp[i-1] + 2。
+
+    最终返回 dp 数组的最后一个元素，即为将整个字符串变为有效字符串所需的最小插入次数。
+
+# Note 
+    - 该算法使用动态规划，通过状态转移方程来更新每个字符位置的最小插入次数。
+"""
+
+class Solution:
+    def addMinimum(self, word: str) -> int:
+        # 获取字符串长度
+        n = len(word)
+
+        # 初始化动态规划数组，dp[i] 表示将字符串的前 i 个字符变为有效字符串所需的最小插入次数
+        dp = [i for i in range(n+1)]
+        
+        # 遍历字符串，更新 dp 数组
+        for i in range(1, n+1):
+            index = i - 1
+            # 默认插入两个字符
+            dp[i] = dp[i-1] + 2
+            
+            # 如果当前字符大于前一个字符，更新插入次数
+            if index >= 1 and word[index] > word[index-1]:
+                dp[i] = min(dp[i-1]-1, dp[i])
+
+        # 返回最终结果，即将整个字符串变为有效字符串所需的最小插入次数
+        return dp[-1]
+
+```
+
+## 位运算
+
 #### Maximum Rows Covered by Columns
 ```py
 from typing import List
@@ -259,8 +311,8 @@ class Solution:
             - 如何检查覆盖数呢，以cols == 3 为例，如果当前选取情况为101，既选第一列和第三列，对于行 101可以覆盖，对于011无法覆盖（可以用位与运算，101 & 011 == 001 ！= 011所以无法覆盖）
         - 所以先要把每一行搞成二进制，初始化为0，如果对应位置是1，则用其二进制数 与 1 << j 做位或
             - 比如对于 101
-                - 0 |= 1 << 0 # 001 | 000 -> 001
-                - 1 |= 1 << 2 # 00001 | 00100 -> 00101
+                - col-0: 0 |= 1 << 0 # 001 | 000 -> 001
+                - col-2: 1 |= 1 << 2 # 00001 | 00100 -> 00101
 
         Returns:
         - int，最大化行内包含的 1 的数量
