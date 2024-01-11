@@ -118,6 +118,9 @@ tags:
     - [Union find](#union-find)
       - [Find if Path Exists in Graph](#find-if-path-exists-in-graph)
       - [Number of Islands](#number-of-islands-1)
+    - [Out of Question](#out-of-question)
+      - [Majority Element](#majority-element)
+      - [](#-3)
 
 
 
@@ -5551,4 +5554,111 @@ class Solution {
     }
 }
 
+```
+
+### Out of Question
+#### Majority Element
+```swift
+/**
+169. Majority Element
+ # 问题描述 
+ 给定一个大小为 n 的数组 nums，返回数组的主要元素。
+
+ 主要元素是指在数组中出现次数大于 ⌊n / 2⌋ 的元素。你可以假设数组是非空的，并且主要元素总是存在的。
+
+ # 思路 
+ 使用摩尔投票法解决这个问题。摩尔投票法的基本思想是在每一轮投票中，删除两个不同的元素，直到投票结束，剩下的元素就是可能的主要元素。
+
+ 具体步骤如下：
+ 1. 初始化计数器 `cnt` 为 1，当前可能的主要元素 `num` 为数组的第一个元素 `nums[0]`。
+ 2. 从数组的第二个元素开始遍历，如果当前元素与 `num` 相同，则 `cnt` 加 1，否则 `cnt` 减 1。
+ 3. 如果 `cnt` 变为 0，说明之前的元素无法成为主要元素，更新 `num` 为当前元素，并将 `cnt` 重置为 1。
+ 4. 最终 `num` 即为可能的主要元素。
+
+ # Note 
+ - 该算法基于摩尔投票法，通过删除两个不同的元素的方式来寻找可能的主要元素。
+ */
+
+class Solution {
+    func majorityElement(_ nums: [Int]) -> Int {
+        var len = nums.count
+        if len < 2 {
+            return nums[0]
+        }
+        var cnt = 1
+        var num = nums[0]
+
+        for i in 1..<len {
+            if nums[i] == num {
+                cnt += 1
+            } else {
+                cnt -= 1
+                if cnt == 0 {
+                    num = nums[i]
+                    cnt = 1
+                }
+            }
+        }
+
+        return num
+    }
+}
+```
+
+
+####
+```swift
+/**
+ # 问题描述 
+ 给定一个整数数组 nums，返回一个数组 answer，其中 answer[i] 等于 nums 中除了 nums[i] 之外所有元素的乘积。
+
+ nums 的任意前缀或后缀的乘积都保证在 32 位整数范围内。
+
+ 你必须实现时间复杂度为 O(n) 并且不使用除法操作的算法。
+
+ # 思路 
+ 本题的核心思路是使用两个数组来保存当前元素左边和右边的乘积，然后将这两个数组相乘得到最终结果。
+
+ 具体步骤如下：
+ 1. 创建两个数组 `prefixProds` 和 `suffixProds`，分别用于保存当前元素左边的乘积和右边的乘积，初始化所有元素为 1。
+ 2. 使用一个循环计算 `prefixProds` 数组，从左到右遍历，每次更新当前元素左边的乘积。
+ 3. 使用另一个循环计算 `suffixProds` 数组，从右到左遍历，每次更新当前元素右边的乘积。
+ 4. 创建一个结果数组 `ret`，遍历原始数组，将 `prefixProds[i] * suffixProds[i]` 的结果添加到 `ret` 中。
+ 5. 返回最终结果数组 `ret`。
+
+ # Note 
+ - 使用两个数组分别保存左边和右边的乘积，避免使用除法操作。
+ */
+
+class Solution {
+    func productExceptSelf(_ nums: [Int]) -> [Int] {
+        // 获取数组长度
+        let len = nums.count
+
+        // 初始化左边和右边乘积数组
+        var prefixProds = Array(repeating: 1, count: len)
+        var suffixProds = Array(repeating: 1, count: len)
+
+        // 计算左边乘积数组
+        var prefixProd = 1
+        for i in 0..<len {
+            prefixProds[i] = prefixProd
+            prefixProd *= nums[i]
+        }
+
+        // 计算右边乘积数组
+        var suffixProd = 1
+        for i in (0..<len).reversed() {
+            suffixProds[i] = suffixProd
+            suffixProd *= nums[i]
+        }
+
+        // 计算最终结果数组
+        var ret: [Int] = []
+        for i in 0..<len {
+            ret.append(prefixProds[i] * suffixProds[i])
+        }
+        return ret
+    }
+}
 ```
