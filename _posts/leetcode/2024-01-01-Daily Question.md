@@ -11,7 +11,7 @@
     - [1599. Maximum Profit of Operating a Centennial Wheel](#1599-maximum-profit-of-operating-a-centennial-wheel)
 - [动态规划](#动态规划)
     - [Extra Characters in a String](#extra-characters-in-a-string)
-    - [](#-1)
+    - [Minimum Additions to Make Valid String](#minimum-additions-to-make-valid-string)
 - [位运算](#位运算)
     - [Maximum Rows Covered by Columns](#maximum-rows-covered-by-columns)
 - [循环节](#循环节)
@@ -245,7 +245,7 @@ class Solution:
         return dp[size]
 ```
 
-####
+#### Minimum Additions to Make Valid String
 ```py
 """
 2645. Minimum Additions to Make Valid String
