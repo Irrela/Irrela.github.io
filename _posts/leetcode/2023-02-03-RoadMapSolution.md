@@ -7,6 +7,7 @@ tags:
 
 - [Solution](#solution)
     - [Two Pointers](#two-pointers)
+      - [Sort Colors](#sort-colors)
       - [Valid Palindrome](#valid-palindrome)
       - [680. Valid Palindrome II](#680-valid-palindrome-ii)
       - [Closest Sum](#closest-sum)
@@ -126,6 +127,82 @@ tags:
 
 # Solution
 ### Two Pointers
+
+#### Sort Colors
+
+```go
+/**
+75. Sort Colors
+# 问题描述
+给定一个包含红色、白色和蓝色，一共 n 个元素的数组，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。我们使用整数 0、 1 和 2 分别表示红色、白色和蓝色。
+
+# 思路
+使用两个指针 `p0` 和 `p1` 分别表示下一个存放 0 和 1 的位置。遍历数组，遇到 0 就和 `p0` 位置的元素交换，同时如果 `p0 < p1`，再将当前元素和 `p1` 位置的元素交换。遇到 1 就和 `p1` 位置的元素交换。这样就能保持 0 在前，1 在中，2 在后的顺序。
+
+# Note
+- 遍历数组，使用两个指针 `p0` 和 `p1` 分别表示下一个存放 0 和 1 的位置。
+- 遇到 0 就和 `p0` 位置的元素交换，如果 `p0 < p1`，再将当前元素和 `p1` 位置的元素交换。同时 `p0` 和 `p1` 向后移动。
+- 遇到 1 就和 `p1` 位置的元素交换，同时 `p1` 向后移动。
+- 遇到 2 不用处理，因为 2 应该在最后，遇到 2 时不需要交换。
+*/
+func sortColors(nums []int) {
+    p0, p1 := 0, 0
+    for i, c := range nums {
+        if c == 0 {
+            nums[i], nums[p0] = nums[p0], nums[i]
+            if p0 < p1 {
+                nums[i], nums[p1] = nums[p1], nums[i]
+            }
+            p0++
+            p1++
+        } else if c == 1 {
+            nums[i], nums[p1] = nums[p1], nums[i]
+            p1++
+        }
+    }
+}
+
+```
+
+或者自实现冒泡排序
+```go
+/*
+75. Sort Colors
+
+# 问题描述
+给定一个包含红色、白色或蓝色，一共 n 个元素的数组，将数组中的元素进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色的顺序排列。
+
+使用数字 0、1 和 2 分别表示红色、白色和蓝色。
+
+你必须在不使用库函数的情况下解决这个问题。
+
+# 思路
+采用冒泡排序的思想，每一轮通过比较相邻元素的大小，将较大的元素交换到右侧，逐步将最大的元素冒泡到数组末尾。
+
+# Note
+为了实现原地排序，使用了 swap 函数进行元素交换。
+*/
+func sortColors(nums []int) {
+    n := len(nums)
+
+    for i := 0; i < n; i++ {
+        for j := 0; j < n-1-i; j++ {
+            if nums[j] > nums[j+1] {
+                swap(nums, j, j+1)
+            }
+        }
+    }
+}
+
+/**
+swap 函数用于交换数组中的两个元素的位置。
+*/
+func swap(nums []int, a int, b int) {
+    temp := nums[a]
+    nums[a] = nums[b]
+    nums[b] = temp
+}
+```
 
 #### Valid Palindrome
 ```java
