@@ -130,14 +130,20 @@ tags:
 
 #### Sort Colors
 
-```go
+```swift
 /**
 75. Sort Colors
 # 问题描述
 给定一个包含红色、白色和蓝色，一共 n 个元素的数组，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。我们使用整数 0、 1 和 2 分别表示红色、白色和蓝色。
 
 # 思路
-使用两个指针 `p0` 和 `p1` 分别表示下一个存放 0 和 1 的位置。遍历数组，遇到 0 就和 `p0` 位置的元素交换，同时如果 `p0 < p1`，再将当前元素和 `p1` 位置的元素交换。遇到 1 就和 `p1` 位置的元素交换。这样就能保持 0 在前，1 在中，2 在后的顺序。
+使用两个指针 `p0` 和 `p1` 分别表示下一个存放 0 和 1 的位置。
+遍历数组，遇到 0 就和 `p0` 位置的元素交换，同时如果 `p0 < p1`，再将当前元素和 `p1` 位置的元素交换。
+（为什么要再将当前元素和 `p1` 位置的元素交换？ 
+当 == 0 时，p0p1都会自增1， 当 == 1 时，只有p1自增，所以p0 < p1时，p0位置一定已经是1了，所以第一次交换后p0上为0，i上为1，此时再把i上的1交换到p1上去
+）
+
+遇到 1 就和 `p1` 位置的元素交换。这样就能保持 0 在前，1 在中，2 在后的顺序。
 
 # Note
 - 遍历数组，使用两个指针 `p0` 和 `p1` 分别表示下一个存放 0 和 1 的位置。
@@ -145,21 +151,32 @@ tags:
 - 遇到 1 就和 `p1` 位置的元素交换，同时 `p1` 向后移动。
 - 遇到 2 不用处理，因为 2 应该在最后，遇到 2 时不需要交换。
 */
-func sortColors(nums []int) {
-    p0, p1 := 0, 0
-    for i, c := range nums {
-        if c == 0 {
-            nums[i], nums[p0] = nums[p0], nums[i]
-            if p0 < p1 {
-                nums[i], nums[p1] = nums[p1], nums[i]
+class Solution {
+    func sortColors(_ nums: inout [Int]) {
+        var p0 = 0, p1 = 0
+        for (i, color) in nums.enumerated() {
+            if color == 0 {
+                // 元组交换法
+                (nums[p0], nums[i]) = (nums[i], nums[p0])
+                // swap(&nums, i, p0)
+                if p0 < p1 {
+                    swap(&nums, i, p1)
+                }
+                p0+=1
+                p1+=1
+            } else if color == 1 {
+                swap(&nums, i, p1)
+                p1+=1
             }
-            p0++
-            p1++
-        } else if c == 1 {
-            nums[i], nums[p1] = nums[p1], nums[i]
-            p1++
         }
     }
+
+    func swap(_ nums: inout [Int], _ i: Int, _ j: Int) {
+        let temp = nums[i]
+        nums[i] = nums[j]
+        nums[j] = temp
+    }
+
 }
 
 ```
