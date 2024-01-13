@@ -7,6 +7,7 @@ tags:
 
 - [Solution](#solution)
     - [(多指针)Two Pointers](#多指针two-pointers)
+      - [Linked List Cycle](#linked-list-cycle)
       - [Valid Palindrome](#valid-palindrome)
       - [Closest Sum](#closest-sum)
       - [3Sum](#3sum)
@@ -130,6 +131,43 @@ tags:
 
 # Solution
 ### (多指针)Two Pointers
+
+#### Linked List Cycle
+```py
+"""
+141. Linked List Cycle
+# 问题描述 
+给定一个链表的头节点 head，判断该链表是否包含循环。
+
+链表中存在循环的条件是：存在某个节点，通过不断跟随 next 指针可以再次到达该节点。在内部，pos 用于表示尾部的 next 指针连接的节点的索引。请注意，pos 不作为参数传递。
+
+如果链表中存在循环，则返回 True，否则返回 False。
+
+# 思路 
+使用快慢指针法判断链表是否有循环。快指针每次移动两步，慢指针每次移动一步。如果存在循环，快慢指针最终会相遇（考虑田径跑道跑步，一起出发，快的人能够套圈）。
+
+# Note 
+- 这是一种常见的链表问题解决方法，时间复杂度为 O(n)，其中 n 是链表的长度。
+"""
+
+from typing import Optional
+
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        # 初始化快慢指针
+        slow, fast = head, head
+
+        # 使用快慢指针判断链表是否有循环
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+            if fast == slow:
+                return True
+
+        # 如果循环结束，说明链表中没有循环
+        return False
+
+```
 
 #### Valid Palindrome
 ```java
