@@ -8,12 +8,13 @@ tags:
 - [链表](#链表)
   - [Medium](#medium)
     - [Remove Nodes From Linked List](#remove-nodes-from-linked-list)
-    - [](#)
+    - [Insert Greatest Common Divisors in Linked List](#insert-greatest-common-divisors-in-linked-list)
 - [单调](#单调)
   - [Medium](#medium-1)
     - [Remove Nodes From Linked List](#remove-nodes-from-linked-list-1)
 - [贪心](#贪心)
   - [Medium](#medium-2)
+    - [Construct String With Repeat Limit](#construct-string-with-repeat-limit)
     - [1599. Maximum Profit of Operating a Centennial Wheel](#1599-maximum-profit-of-operating-a-centennial-wheel)
 - [动态规划](#动态规划)
     - [Extra Characters in a String](#extra-characters-in-a-string)
@@ -80,7 +81,7 @@ class Solution:
 
 ```
 
-#### 
+#### Insert Greatest Common Divisors in Linked List
 ```py
 class Solution:
     def insertGreatestCommonDivisors(self, head: Optional[ListNode]) -> Optional[ListNode]:
@@ -151,6 +152,64 @@ class Solution:
 
 ## 贪心
 ### Medium
+#### Construct String With Repeat Limit
+```py
+"""
+2182. Construct String With Repeat Limit
+# 问题描述 
+给定一个字符串 s 和一个整数 repeatLimit。构建一个新字符串 repeatLimitedString，使用字符串 s 的字符，以使相同字母不会连续出现超过 repeatLimit 次。不需要使用字符串 s 中的所有字符。
+
+返回 lexicographically largest 的 repeatLimitedString。
+
+# 思路 
+1. 首先，统计字符串 s 中每个字母的出现次数，使用数组 map 来表示，其中 map[i] 表示字母 'a' + i 的出现次数。
+2. 从字母 'z' 开始向字母 'a' 遍历，构建结果字符串 ret。
+3. 对于当前字母 i，首先尽可能地添加连续 repeatLimit 次当前字母到 ret 中，同时更新 map[i] 和 repeat 变量。
+4. 如果 map[i] 还有剩余次数，说明当前字母还可以继续添加，但是需要在添加之前找到下一个可用的字母 j，且 j 的剩余次数 map[j] 大于 0。将字母 j 添加到 ret 中，同时更新 map[j] 和 repeat 变量，然后继续添加字母 i。
+5. 重复步骤3和4，直到所有字母都被处理完。
+
+# Note 
+- 字母的顺序是按照字母表的降序进行处理，因为要构建 lexicographically largest 的字符串。
+- 使用 map 数组记录字母出现次数，方便查找和更新。
+"""
+
+class Solution:
+    def repeatLimitedString(self, s: str, repeatLimit: int) -> str:
+        # 统计每个字母的出现次数
+        map = [0] * 26
+
+        for char in s:
+            offset = ord(char) - ord('a')
+            map[offset] += 1
+
+        ret = ""
+        # 从字母 'z' 开始向字母 'a' 遍历
+        for i in range(25, -1, -1):
+            char = chr(ord('a') + i)
+            repeat = repeatLimit
+            # 尽可能地添加连续 repeatLimit 次当前字母
+            while map[i] > 0 :
+                while map[i] > 0 and repeat > 0:
+                    ret += char
+                    repeat -= 1
+                    map[i] -= 1
+                # 寻找下一个可用的字母
+                while map[i] > 0:
+                    j = i - 1
+                    while j >= 0 and map[j] == 0:
+                        j -= 1
+                    # 如果找不到下一个可用字母，返回结果
+                    if j < 0:
+                        return ret
+                    else:
+                        ret += chr(ord("a") + j)
+                        map[j] -= 1
+                        repeat = repeatLimit
+                        break
+
+        return ret
+```
+
 #### 1599. Maximum Profit of Operating a Centennial Wheel
 ```py
 class Solution:
