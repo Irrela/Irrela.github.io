@@ -6,35 +6,37 @@ tags:
 ---
 
 - [Solution](#solution)
-    - [Two Pointers](#two-pointers)
-      - [Sort Colors](#sort-colors)
+    - [(多指针)Two Pointers](#多指针two-pointers)
       - [Valid Palindrome](#valid-palindrome)
-      - [680. Valid Palindrome II](#680-valid-palindrome-ii)
       - [Closest Sum](#closest-sum)
       - [3Sum](#3sum)
       - [Best Time to Buy and Sell Stock](#best-time-to-buy-and-sell-stock)
-      - [209. Minimum Size Subarray Sum](#209-minimum-size-subarray-sum)
+      - [Minimum Size Subarray Sum](#minimum-size-subarray-sum)
       - [3. Longest Substring Without Repeating Characters](#3-longest-substring-without-repeating-characters)
       - [904. Fruit Into Baskets](#904-fruit-into-baskets)
       - [567. Permutation in String](#567-permutation-in-string)
       - [1493. Longest Subarray of 1's After Deleting One Element](#1493-longest-subarray-of-1s-after-deleting-one-element)
       - [Longest Consecutive Sequence](#longest-consecutive-sequence)
+      - [Trapping Rain Water](#trapping-rain-water)
+      - [Container With Most Water](#container-with-most-water)
+      - [Sort Colors](#sort-colors)
     - [Interval](#interval)
-      - [986. Interval List Intersections](#986-interval-list-intersections)
+      - [Interval List Intersections](#interval-list-intersections)
       - [57. Insert Interval](#57-insert-interval)
       - [56. Merge Intervals](#56-merge-intervals)
-    - [Linked List Manipulation](#linked-list-manipulation)
+    - [(链表)Linked List Manipulation](#链表linked-list-manipulation)
       - [24. Swap Nodes in Pairs](#24-swap-nodes-in-pairs)
       - [234. Palindrome Linked List](#234-palindrome-linked-list)
       - [92. Reverse Linked List II](#92-reverse-linked-list-ii)
       - [61. Rotate List](#61-rotate-list)
       - [328. Odd Even Linked List](#328-odd-even-linked-list)
       - [143. Reorder List](#143-reorder-list)
-    - [Stack](#stack)
+    - [(栈)Stack](#栈stack)
       - [Valid Parentheses](#valid-parentheses)
       - [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
       - [Evaluate Reverse Polish Notation](#evaluate-reverse-polish-notation)
-      - [](#)
+    - [(单调集合) Mono](#单调集合-mono)
+      - [Trapping Rain Water](#trapping-rain-water-1)
     - [Hash Maps](#hash-maps)
       - [205. Isomorphic Strings](#205-isomorphic-strings)
       - [290. Word Pattern](#290-word-pattern)
@@ -67,7 +69,7 @@ tags:
       - [Top K Frequent Elements](#top-k-frequent-elements)
     - [Merge Intervals](#merge-intervals)
       - [Kth Smallest Element in a Sorted Matrix](#kth-smallest-element-in-a-sorted-matrix)
-    - [Backtracking](#backtracking)
+    - [(回溯)Backtracking](#回溯backtracking)
       - [78. Subsets](#78-subsets)
       - [90. Subsets II](#90-subsets-ii)
       - [39. Combination Sum](#39-combination-sum)
@@ -89,7 +91,7 @@ tags:
       - [Symmetric Tree](#symmetric-tree)
       - [226. Invert Binary Tree](#226-invert-binary-tree)
       - [1079. Letter Tile Possibilities](#1079-letter-tile-possibilities-1)
-      - [104. Maximum Depth of Binary Tree](#104-maximum-depth-of-binary-tree)
+      - [Maximum Depth of Binary Tree](#maximum-depth-of-binary-tree)
       - [94. Binary Tree Inorder Traversal](#94-binary-tree-inorder-traversal)
       - [207. Course Schedule](#207-course-schedule)
         - [拓扑法](#拓扑法)
@@ -103,123 +105,31 @@ tags:
       - [Binary Tree Right Side View](#binary-tree-right-side-view-1)
       - [Binary Tree Level Order Traversal](#binary-tree-level-order-traversal)
       - [Binary Tree Zigzag Level Order Traversal](#binary-tree-zigzag-level-order-traversal)
-      - [](#-1)
-    - [Dynamic Plan](#dynamic-plan)
+      - [](#)
+    - [(动态规划)Dynamic Plan](#动态规划dynamic-plan)
       - [Climbing Stairs](#climbing-stairs)
       - [Unique Paths](#unique-paths)
       - [Coin Change](#coin-change)
       - [House Robber](#house-robber)
       - [Edit Distance](#edit-distance)
+      - [Trapping Rain Water](#trapping-rain-water-2)
     - [Cyclic Sort](#cyclic-sort)
       - [Missing Number](#missing-number)
       - [Set Mismatch](#set-mismatch)
       - [Find All Numbers Disappeared in an Array](#find-all-numbers-disappeared-in-an-array)
       - [Find the Duplicate Number](#find-the-duplicate-number)
-      - [](#-2)
+      - [](#-1)
     - [Union find](#union-find)
       - [Find if Path Exists in Graph](#find-if-path-exists-in-graph)
       - [Number of Islands](#number-of-islands-1)
     - [Out of Question](#out-of-question)
       - [Majority Element](#majority-element)
-      - [](#-3)
+      - [](#-2)
 
 
 
 # Solution
-### Two Pointers
-
-#### Sort Colors
-
-```swift
-/**
-75. Sort Colors
-# 问题描述
-给定一个包含红色、白色和蓝色，一共 n 个元素的数组，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。我们使用整数 0、 1 和 2 分别表示红色、白色和蓝色。
-
-# 思路
-使用两个指针 `p0` 和 `p1` 分别表示下一个存放 0 和 1 的位置。
-遍历数组，遇到 0 就和 `p0` 位置的元素交换，同时如果 `p0 < p1`，再将当前元素和 `p1` 位置的元素交换。
-（为什么要再将当前元素和 `p1` 位置的元素交换？ 
-当 == 0 时，p0p1都会自增1， 当 == 1 时，只有p1自增，所以p0 < p1时，p0位置一定已经是1了，所以第一次交换后p0上为0，i上为1，此时再把i上的1交换到p1上去
-）
-
-遇到 1 就和 `p1` 位置的元素交换。这样就能保持 0 在前，1 在中，2 在后的顺序。
-
-# Note
-- 遍历数组，使用两个指针 `p0` 和 `p1` 分别表示下一个存放 0 和 1 的位置。
-- 遇到 0 就和 `p0` 位置的元素交换，如果 `p0 < p1`，再将当前元素和 `p1` 位置的元素交换。同时 `p0` 和 `p1` 向后移动。
-- 遇到 1 就和 `p1` 位置的元素交换，同时 `p1` 向后移动。
-- 遇到 2 不用处理，因为 2 应该在最后，遇到 2 时不需要交换。
-*/
-class Solution {
-    func sortColors(_ nums: inout [Int]) {
-        var p0 = 0, p1 = 0
-        for (i, color) in nums.enumerated() {
-            if color == 0 {
-                // 元组交换法
-                (nums[p0], nums[i]) = (nums[i], nums[p0])
-                // swap(&nums, i, p0)
-                if p0 < p1 {
-                    swap(&nums, i, p1)
-                }
-                p0+=1
-                p1+=1
-            } else if color == 1 {
-                swap(&nums, i, p1)
-                p1+=1
-            }
-        }
-    }
-
-    func swap(_ nums: inout [Int], _ i: Int, _ j: Int) {
-        let temp = nums[i]
-        nums[i] = nums[j]
-        nums[j] = temp
-    }
-
-}
-
-```
-
-或者自实现冒泡排序
-```go
-/*
-75. Sort Colors
-
-# 问题描述
-给定一个包含红色、白色或蓝色，一共 n 个元素的数组，将数组中的元素进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色的顺序排列。
-
-使用数字 0、1 和 2 分别表示红色、白色和蓝色。
-
-你必须在不使用库函数的情况下解决这个问题。
-
-# 思路
-采用冒泡排序的思想，每一轮通过比较相邻元素的大小，将较大的元素交换到右侧，逐步将最大的元素冒泡到数组末尾。
-
-# Note
-为了实现原地排序，使用了 swap 函数进行元素交换。
-*/
-func sortColors(nums []int) {
-    n := len(nums)
-
-    for i := 0; i < n; i++ {
-        for j := 0; j < n-1-i; j++ {
-            if nums[j] > nums[j+1] {
-                swap(nums, j, j+1)
-            }
-        }
-    }
-}
-
-/**
-swap 函数用于交换数组中的两个元素的位置。
-*/
-func swap(nums []int, a int, b int) {
-    temp := nums[a]
-    nums[a] = nums[b]
-    nums[b] = temp
-}
-```
+### (多指针)Two Pointers
 
 #### Valid Palindrome
 ```java
@@ -290,10 +200,12 @@ class Solution {
 }
 ```
 
-#### 680. Valid Palindrome II
 
 ```java
+
 /**
+ * 680. Valid Palindrome II
+ * 
  * Naive one based on Valid Palindrome I
  * 
  * 
@@ -467,7 +379,9 @@ class Solution {
 ```
 
 
-#### 209. Minimum Size Subarray Sum
+#### Minimum Size Subarray Sum
+
+209. Minimum Size Subarray Sum
 ```java
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
@@ -791,11 +705,193 @@ class Solution {
 }
 
 ```
+#### Trapping Rain Water
+```py
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        """
+        42. Trapping Rain Water
 
+        # 问题描述
+        给定一个非负整数列表，表示一个高程图，其中每个条形块的宽度为1。计算下雨后它能够存储多少水。
+
+        # 思路
+        使用两个数组分别记录每个位置的左侧最大高度和右侧最大高度，然后遍历数组，计算每个位置上能够存储的水量。
+
+        # Note
+        - 时间复杂度：O(n)
+        - 空间复杂度：O(n)
+        """
+
+        len_height = len(height)
+        water_trapped = 0
+
+        if len_height < 2:
+            return 0
+
+        max_left = [0] * len_height
+        max_right = [0] * len_height
+
+        # 计算每个位置的左侧最大高度
+        for i in range(1, len_height):
+            max_left[i] = max(max_left[i-1], height[i-1])
+
+        # 计算每个位置的右侧最大高度
+        for i in range(len_height-2, -1, -1):
+            max_right[i] = max(max_right[i+1], height[i+1])
+
+        # 计算每个位置上能够存储的水量
+        for i in range(1, len_height-1):
+            min_height = min(max_left[i], max_right[i])
+
+            if height[i] < min_height:
+                water_trapped += min_height - height[i]
+
+        return water_trapped
+
+```
+
+#### Container With Most Water
+```py
+class Solution:
+    def maxArea(self, height):
+        """
+        11. Container With Most Water
+
+        # 问题描述
+        给定一个长度为n的整数数组height。数组中的每个元素height[i]表示直线的高度，将直线与x轴平行绘制，形成n条垂直线段。
+        找出两条线，与x轴一起构成一个容器，使容器能够容纳的水最多。返回容器的最大水容量。
+
+        # 思路
+        使用双指针法，初始化左指针(left)和右指针(right)分别指向数组的第一个和最后一个元素。
+        计算当前容器的水量，即两条线段之间的距离乘以较小的高度。然后移动较小高度的指针，直至找到更高的线段。
+        不断迭代这个过程，直到左指针超过右指针。
+
+        # Note
+        - 关于每次移动较低一侧为什么可以保证全局最优：todo
+        - 移动时可以加个剪枝
+        - 对比
+        """
+        # 获取数组长度
+        n = len(height)
+        # 初始化最大水容量和左右指针
+        max_water = 0
+        left, right = 0, n - 1
+
+        # 循环直到左指针超过右指针
+        while left < right:
+            # 计算当前容器的水量
+            current_water = min(height[left], height[right]) * (right - left)
+            # 更新最大水容量
+            max_water = max(max_water, current_water)
+
+            # 移动较小高度的指针, 并剪枝
+            if min_height == height[left]:
+                while left < right and height[left] <= min_height:
+                    left += 1
+            else:
+                while left < right and height[right] <= min_height:
+                    right -= 1
+
+        return max_water
+```
+
+#### Sort Colors
+
+```swift
+/**
+75. Sort Colors
+# 问题描述
+给定一个包含红色、白色和蓝色，一共 n 个元素的数组，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。我们使用整数 0、 1 和 2 分别表示红色、白色和蓝色。
+
+# 思路
+使用两个指针 `p0` 和 `p1` 分别表示下一个存放 0 和 1 的位置。
+遍历数组，遇到 0 就和 `p0` 位置的元素交换，同时如果 `p0 < p1`，再将当前元素和 `p1` 位置的元素交换。
+（为什么要再将当前元素和 `p1` 位置的元素交换？ 
+当 == 0 时，p0p1都会自增1， 当 == 1 时，只有p1自增，所以p0 < p1时，p0位置一定已经是1了，所以第一次交换后p0上为0，i上为1，此时再把i上的1交换到p1上去
+）
+
+遇到 1 就和 `p1` 位置的元素交换。这样就能保持 0 在前，1 在中，2 在后的顺序。
+
+# Note
+- 遍历数组，使用两个指针 `p0` 和 `p1` 分别表示下一个存放 0 和 1 的位置。
+- 遇到 0 就和 `p0` 位置的元素交换，如果 `p0 < p1`，再将当前元素和 `p1` 位置的元素交换。同时 `p0` 和 `p1` 向后移动。
+- 遇到 1 就和 `p1` 位置的元素交换，同时 `p1` 向后移动。
+- 遇到 2 不用处理，因为 2 应该在最后，遇到 2 时不需要交换。
+*/
+class Solution {
+    func sortColors(_ nums: inout [Int]) {
+        var p0 = 0, p1 = 0
+        for (i, color) in nums.enumerated() {
+            if color == 0 {
+                // 元组交换法
+                (nums[p0], nums[i]) = (nums[i], nums[p0])
+                // swap(&nums, i, p0)
+                if p0 < p1 {
+                    swap(&nums, i, p1)
+                }
+                p0+=1
+                p1+=1
+            } else if color == 1 {
+                swap(&nums, i, p1)
+                p1+=1
+            }
+        }
+    }
+
+    func swap(_ nums: inout [Int], _ i: Int, _ j: Int) {
+        let temp = nums[i]
+        nums[i] = nums[j]
+        nums[j] = temp
+    }
+
+}
+
+```
+
+或者自实现冒泡排序
+```go
+/*
+75. Sort Colors
+
+# 问题描述
+给定一个包含红色、白色或蓝色，一共 n 个元素的数组，将数组中的元素进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色的顺序排列。
+
+使用数字 0、1 和 2 分别表示红色、白色和蓝色。
+
+你必须在不使用库函数的情况下解决这个问题。
+
+# 思路
+采用冒泡排序的思想，每一轮通过比较相邻元素的大小，将较大的元素交换到右侧，逐步将最大的元素冒泡到数组末尾。
+
+# Note
+为了实现原地排序，使用了 swap 函数进行元素交换。
+*/
+func sortColors(nums []int) {
+    n := len(nums)
+
+    for i := 0; i < n; i++ {
+        for j := 0; j < n-1-i; j++ {
+            if nums[j] > nums[j+1] {
+                swap(nums, j, j+1)
+            }
+        }
+    }
+}
+
+/**
+swap 函数用于交换数组中的两个元素的位置。
+*/
+func swap(nums []int, a int, b int) {
+    temp := nums[a]
+    nums[a] = nums[b]
+    nums[b] = temp
+}
+```
 
 ### Interval
 
-#### 986. Interval List Intersections
+#### Interval List Intersections
 
 - `List<int[]>` 存储结果，`.toArray(new int[result.size()][])` 返回结果处理
 - 双指针指向第一维，用于选取interval
@@ -805,6 +901,9 @@ class Solution {
 - 根据end大小判断哪个指针跳入下个interval
 
 ```java
+/**
+ * 986. Interval List Intersections
+ * */
 class Solution {
     public int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
         // Create a list to store the result intervals
@@ -941,7 +1040,7 @@ class Solution {
 ```
 
 
-### Linked List Manipulation
+### (链表)Linked List Manipulation
 #### 24. Swap Nodes in Pairs
 
 - 用prev, left, right, after来做swap
@@ -1325,7 +1424,7 @@ class Solution {
 }
 ```
 
-### Stack
+### (栈)Stack
 #### Valid Parentheses
 ```java
 /**
@@ -1511,12 +1610,12 @@ class Solution {
 
 ```
 
-####
-```java
 
+### (单调集合) Mono
+#### Trapping Rain Water
+```py
+# todo
 ```
-
-
 
 
 
@@ -2869,7 +2968,7 @@ class Solution:
 
 
 
-### Backtracking
+### (回溯)Backtracking
 
 #### 78. Subsets
 给定一个包含 ***唯一元素*** 的整数数组nums，返回所有可能的子集
@@ -4048,7 +4147,7 @@ class Solution {
 ```
 
 
-#### 104. Maximum Depth of Binary Tree
+#### Maximum Depth of Binary Tree
 > 给定二叉树的根，返回其最大深度。
 > 
 > 二叉树的最大深度是从根节点向下到最远的叶节点的最长路径上的节点数。
@@ -4059,7 +4158,7 @@ Output: 3
 ```
 
 ---
-
+104. Maximum Depth of Binary Tree
 ```java
 class Solution {
     public int maxDepth(TreeNode root) {
@@ -4862,7 +4961,8 @@ class Solution {
 
 ```
 
-### Dynamic Plan
+### (动态规划)Dynamic Plan
+
 #### Climbing Stairs
 
 > 关于DP的一个演化流程：https://segmentfault.com/a/1190000015944750
@@ -5154,6 +5254,11 @@ class Solution {
     }
 }
 
+```
+
+#### Trapping Rain Water
+```py
+# todo
 ```
 
 ### Cyclic Sort
