@@ -32,6 +32,7 @@ tags:
       - [61. Rotate List](#61-rotate-list)
       - [328. Odd Even Linked List](#328-odd-even-linked-list)
       - [143. Reorder List](#143-reorder-list)
+      - [LRU Cache](#lru-cache)
     - [(栈)Stack](#栈stack)
       - [Valid Parentheses](#valid-parentheses)
       - [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
@@ -1460,6 +1461,106 @@ class Solution {
         return dummy.next;
     }
 }
+```
+
+#### LRU Cache
+```py
+"""
+146. LRU Cache
+# 问题描述
+设计一个数据结构，满足最近最少使用（LRU）缓存的约束条件。
+
+# 思路
+- 使用哈希表和双向链表实现LRU缓存。
+- 哈希表用于快速查找，双向链表用于维护使用顺序。
+- 在哈希表中存储键和对应的双向链表节点，链表头表示最近使用，链表尾表示最久未使用。
+- 在get操作中，找到对应节点后，将其移动到链表头。
+- 在put操作中:
+    - !!若键已存在，则更新值并将节点移动到链表头!!
+    - 若不存在，创建新节点并加入链表头，若容量超限则删除链表尾节点。
+
+# Note
+- __init__(self, capacity: int): 初始化LRU缓存，包括哈希表、容量、大小、以及虚拟头尾节点。
+- get(self, key: int) -> int: 获取键对应的值，若不存在返回-1，并将节点移动到链表头。
+- put(self, key: int, value: int) -> None: 存储键值对，若键已存在则更新值并移动到链表头，否则创建新节点并加入链表头，若容量超限则删除链表尾节点。
+- remove_node(self, node: DLinkedNode): 辅助方法，从链表中移除节点。
+- add_after(self, node: DLinkedNode, previous_node: DLinkedNode): 辅助方法，将节点插入到指定节点之后。
+"""
+
+from typing import Dict
+
+class DLinkedNode:
+    def __init__(self, key=0, val=0):
+        self.key = key
+        self.val = val
+        self.next = None
+        self.prev = None
+
+class LRUCache:
+
+    def __init__(self, capacity: int):
+        # 使用哈希表存储键和对应的节点
+        self.map: Dict[int, DLinkedNode] = dict()
+        self.capacity = capacity
+        self.size = 0
+
+        # 虚拟头尾节点，方便处理边界情况
+        self.head = DLinkedNode()
+        self.tail = DLinkedNode()
+        self.head.next = self.tail
+        self.tail.prev = self.head
+
+
+    def get(self, key: int) -> int:
+        if key in self.map:
+            # 获取节点，并将其移动到链表头
+            node = self.map[key]
+            self.remove_node(node)
+            self.add_after(node, self.head)
+            return node.val
+        else:
+            return -1
+        
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.map:
+            # 更新节点值，并将其移动到链表头
+            node = self.map[key]
+            node.val = value
+            self.map[key] = node
+
+            self.remove_node(node)
+            self.add_after(node, self.head)
+        
+        else:
+            if self.size == self.capacity:
+                # 容量超限，删除链表尾节点
+                popped_node = self.tail.prev
+                self.remove_node(popped_node)
+
+                # 从哈希表中移除键
+                self.map.pop(popped_node.key)
+                self.size -= 1
+            
+            # 创建新节点并加入链表头
+            new_node = DLinkedNode(key, value)
+            self.map[new_node.key] = new_node
+            self.add_after(new_node, self.head)
+            self.size += 1
+
+            
+    def remove_node(self, node: DLinkedNode):
+        # 从链表中移除节点
+        node.prev.next = node.next
+        node.next.prev = node.prev        
+
+    
+    def add_after(self, node: DLinkedNode, previous_node: DLinkedNode):
+        # 将节点插入到指定节点之后
+        node.prev = previous_node
+        node.next = previous_node.next
+        previous_node.next.prev = node
+        previous_node.next = node
 ```
 
 ### (栈)Stack
