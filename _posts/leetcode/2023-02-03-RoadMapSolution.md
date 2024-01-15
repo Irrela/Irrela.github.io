@@ -13,7 +13,7 @@ tags:
       - [3Sum](#3sum)
       - [Best Time to Buy and Sell Stock](#best-time-to-buy-and-sell-stock)
       - [Minimum Size Subarray Sum](#minimum-size-subarray-sum)
-      - [3. Longest Substring Without Repeating Characters](#3-longest-substring-without-repeating-characters)
+      - [Longest Substring Without Repeating Characters](#longest-substring-without-repeating-characters)
       - [904. Fruit Into Baskets](#904-fruit-into-baskets)
       - [567. Permutation in String](#567-permutation-in-string)
       - [1493. Longest Subarray of 1's After Deleting One Element](#1493-longest-subarray-of-1s-after-deleting-one-element)
@@ -21,6 +21,7 @@ tags:
       - [Trapping Rain Water](#trapping-rain-water)
       - [Container With Most Water](#container-with-most-water)
       - [Sort Colors](#sort-colors)
+      - [Longest Palindromic Substring](#longest-palindromic-substring)
     - [Interval](#interval)
       - [Interval List Intersections](#interval-list-intersections)
       - [57. Insert Interval](#57-insert-interval)
@@ -33,6 +34,7 @@ tags:
       - [328. Odd Even Linked List](#328-odd-even-linked-list)
       - [143. Reorder List](#143-reorder-list)
       - [LRU Cache](#lru-cache)
+      - [Remove Duplicates from Sorted List II](#remove-duplicates-from-sorted-list-ii)
     - [(栈)Stack](#栈stack)
       - [Valid Parentheses](#valid-parentheses)
       - [Binary Tree Inorder Traversal](#binary-tree-inorder-traversal)
@@ -451,8 +453,9 @@ class Solution {
 }
 ```
 
-#### 3. Longest Substring Without Repeating Characters
+#### Longest Substring Without Repeating Characters
 ```java
+3. Longest Substring Without Repeating Characters
 class Solution {
     public int lengthOfLongestSubstring(String s) {
         int len = s.length();
@@ -926,6 +929,53 @@ func swap(nums []int, a int, b int) {
     nums[a] = nums[b]
     nums[b] = temp
 }
+```
+
+#### Longest Palindromic Substring
+```py
+"""
+# 问题描述 
+5. Longest Palindromic Substring
+给定一个字符串 s，返回其中最长的回文子串。
+
+# 思路 
+采用中心扩展法，遍历字符串，以每个字符为中心，分别向左右扩展，判断回文子串的长度。注意考虑奇数和偶数长度的回文串情况。
+
+# Note 
+- 定义expand方法，用于中心扩展，返回回文串的起始和结束索引。
+- 初始化start和end，用于记录最长回文子串的起始和结束索引。
+- 遍历字符串，以每个字符为中心，分别计算奇数和偶数长度的回文串。
+- 更新最长回文子串的起始和结束索引。
+- 返回最长回文子串。
+"""
+
+class Solution:
+    def expand(self, s, left, right):
+        """
+        中心扩展方法，返回回文串的起始和结束索引。
+        """
+        n = len(s)
+        while left >= 0 and right < n and s[left] == s[right]:
+            left -= 1
+            right += 1
+        return left + 1, right - 1
+
+    def longestPalindrome(self, s: str) -> str:
+        start, end = 0, 0
+        for i in range(len(s)):
+            # 计算奇数长度的回文串
+            left_odd, right_odd = self.expand(s, i, i)
+            # 计算偶数长度的回文串
+            left_even, right_even = self.expand(s, i, i + 1)
+            
+            # 更新最长回文子串的起始和结束索引
+            if right_odd - left_odd > end - start:
+                start, end = left_odd, right_odd
+            if right_even - left_even > end - start:
+                start, end = left_even, right_even
+        
+        # 返回最长回文子串
+        return s[start: end + 1]
 ```
 
 ### Interval
@@ -1561,6 +1611,40 @@ class LRUCache:
         node.next = previous_node.next
         previous_node.next.prev = node
         previous_node.next = node
+```
+
+#### Remove Duplicates from Sorted List II
+```py
+class Solution:
+    """
+    82. Remove Duplicates from Sorted List II
+    # 问题描述
+    给定一个排序链表的头部，删除所有具有重复数字的节点，只保留原始列表中不重复的数字。同时返回排序后的链表。
+
+    # 思路
+    1. 使用dummy节点来处理可能删除头节点的情况。
+    2. 使用cur指针遍历链表，纪录重复节点的开始，并删除所有重复节点。
+    3. 返回处理后的链表。
+
+    # Note
+    - 在处理链表问题时，dummy节点的使用可以简化边界情况的处理。
+    - 注意链表节点的连接关系，确保在删除节点时不会丢失其他节点。
+    """
+
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # 使用dummy节点处理可能删除头节点的情况
+        dummy = ListNode(next=head)
+        cur = dummy
+
+        while cur.next and cur.next.next:
+            val = cur.next.val  # 记录cur.next的值，有可能是一段重复节点的开始
+            if val == cur.next.next.val:  # cur.next是一段重复节点开始node
+                while cur.next and cur.next.val == val:  # 循环删除next节点
+                    cur.next = cur.next.next
+            else:
+                cur = cur.next
+
+        return dummy.next
 ```
 
 ### (栈)Stack
