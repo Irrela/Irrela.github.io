@@ -60,9 +60,10 @@ tags:
       - [973. K Closest Points to Origin](#973-k-closest-points-to-origin)
       - [347. Top K Frequent Elements](#347-top-k-frequent-elements)
       - [358. Rearrange String k Distance Apart](#358-rearrange-string-k-distance-apart)
-    - [Sliding Window](#sliding-window)
+    - [(滑动窗口)Sliding Window](#滑动窗口sliding-window)
       - [239. Sliding Window Maximum](#239-sliding-window-maximum)
       - [480. Sliding Window Median](#480-sliding-window-median)
+      - [Minimum Window Substring TODO](#minimum-window-substring-todo)
     - [Two Heaps](#two-heaps)
       - [1985. Find the Kth Largest Integer in the Array](#1985-find-the-kth-largest-integer-in-the-array)
       - [4. Median of Two Sorted Arrays](#4-median-of-two-sorted-arrays)
@@ -117,6 +118,7 @@ tags:
       - [House Robber](#house-robber)
       - [Edit Distance](#edit-distance)
       - [Trapping Rain Water](#trapping-rain-water-2)
+      - [Count of Integers](#count-of-integers)
     - [Cyclic Sort](#cyclic-sort)
       - [Missing Number](#missing-number)
       - [Set Mismatch](#set-mismatch)
@@ -2686,7 +2688,7 @@ class Solution {
 ```
 
 
-### Sliding Window
+### (滑动窗口)Sliding Window
 #### 239. Sliding Window Maximum
 - 单调递减队列， 队首保持当前窗口最大值
 - 注意窗口初次形成时记录第一个值
@@ -2800,7 +2802,46 @@ class Solution {
 }
 ```
 
+#### Minimum Window Substring TODO
+76. Minimum Window Substring
+```py
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        n = len(s)
+        record = False
+        t_map=dict()
+        for char in t:
+            t_map[char] = t_map.get(char, 0) + 1
 
+        lo, hi = 0, 0
+        start, end = 0, n-1
+
+        while hi < n:
+            if s[hi] in t_map:
+                t_map[s[hi]] -= 1
+
+            while lo <= hi and self.fill(t_map):
+                if hi - lo <= end - start:
+                    start, end = lo, hi
+                    record = True                                
+                if s[lo] in t_map:
+                    t_map[s[lo]] +=1                    
+                lo+=1
+            hi+=1
+
+        if start == end and s[start:end+1] != t:
+            return ""
+        if not record:
+            return ""
+        return s[start:end+1]
+
+    def fill(self, map: Dict[str, int]) -> bool:
+        for val in map.values():
+            if val > 0: 
+                return False
+
+        return True
+```
 
 
 ### Two Heaps
@@ -5483,6 +5524,32 @@ class Solution {
 ```py
 # todo
 ```
+#### Count of Integers
+2719. Count of Integers
+```py
+class Solution:
+    def count(self, num1: str, num2: str, min_sum: int, max_sum: int) -> int:
+        n = len(num2)
+        num1 = num1.zfill(n)  # 补前导零，和 num2 对齐
+
+        @cache
+        def dfs(i: int, s: int, limit_low: bool, limit_high: bool) -> int:
+            if s > max_sum:  # 非法
+                return 0
+            if i == n:
+                return s >= min_sum
+
+            lo = int(num1[i]) if limit_low else 0
+            hi = int(num2[i]) if limit_high else 9
+
+            res = 0
+            for d in range(lo, hi + 1):  # 枚举当前数位填 d
+                res += dfs(i + 1, s + d, limit_low and d == lo, limit_high and d == hi)
+            return res
+
+        return dfs(0, 0, True, True) % 1_000_000_007
+```
+
 
 ### Cyclic Sort
 
