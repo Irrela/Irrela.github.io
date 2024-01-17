@@ -93,6 +93,7 @@ tags:
       - [Non-overlapping Intervals](#non-overlapping-intervals)
       - [Gas Station](#gas-station)
     - [DFS](#dfs)
+      - [Balanced Binary Tree](#balanced-binary-tree)
       - [Symmetric Tree](#symmetric-tree)
       - [226. Invert Binary Tree](#226-invert-binary-tree)
       - [1079. Letter Tile Possibilities](#1079-letter-tile-possibilities-1)
@@ -118,7 +119,7 @@ tags:
       - [House Robber](#house-robber)
       - [Edit Distance](#edit-distance)
       - [Trapping Rain Water](#trapping-rain-water-2)
-      - [Count of Integers](#count-of-integers)
+      - [Count of Integers TODO](#count-of-integers-todo)
     - [Cyclic Sort](#cyclic-sort)
       - [Missing Number](#missing-number)
       - [Set Mismatch](#set-mismatch)
@@ -2803,13 +2804,31 @@ class Solution {
 ```
 
 #### Minimum Window Substring TODO
-76. Minimum Window Substring
 ```py
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
+        """
+        76. Minimum Window Substring
+        # 问题描述
+        给定两个字符串 s 和 t，分别为长度 m 和 n。返回 s 中的最小窗口子串，使得窗口包含 t 中的所有字符（包括重复字符）。如果不存在这样的子串，则返回空字符串 ""。
+
+        生成的测试用例确保答案是唯一的。
+
+        # 思路
+        使用双指针（滑动窗口）的方法。首先，创建字典 t_map 来记录字符串 t 中每个字符的出现次数。然后，使用两个指针 lo 和 hi 分别表示窗口的左右边界，不断移动 hi 指针扩大窗口，同时检查 t_map 中的字符是否都被包含在窗口中。如果是，则尝试缩小窗口，移动 lo 指针。
+
+        在每次移动 hi 指针时，更新 t_map 中字符的计数。在每次移动 lo 指针时，检查窗口内的字符是否满足包含 t 中所有字符的条件，并更新最小窗口的起始和结束位置。
+
+        # Note
+        注意使用 t_map 来记录 t 中字符的计数。fill 函数用于检查 t_map 中的字符是否都被包含在窗口中。
+
+        """
+
         n = len(s)
         record = False
-        t_map=dict()
+        t_map = dict()
+
+        # 初始化 t_map 字典，记录 t 中每个字符的出现次数
         for char in t:
             t_map[char] = t_map.get(char, 0) + 1
 
@@ -2825,10 +2844,11 @@ class Solution:
                     start, end = lo, hi
                     record = True                                
                 if s[lo] in t_map:
-                    t_map[s[lo]] +=1                    
-                lo+=1
-            hi+=1
+                    t_map[s[lo]] += 1                    
+                lo += 1
+            hi += 1
 
+        # 处理边界情况
         if start == end and s[start:end+1] != t:
             return ""
         if not record:
@@ -2836,11 +2856,81 @@ class Solution:
         return s[start:end+1]
 
     def fill(self, map: Dict[str, int]) -> bool:
+        """
+        # Note
+        检查字典 map 中的值是否都小于等于零，如果是则返回 True，表示窗口内的字符包含了 t 中的所有字符。
+        """
         for val in map.values():
             if val > 0: 
                 return False
 
         return True
+
+```
+
+优化fill版本
+```py
+from typing import Dict
+
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        """
+        76. Minimum Window Substring
+        # 问题描述
+        给定两个字符串 s 和 t，分别为长度 m 和 n。返回 s 中的最小窗口子串，使得窗口包含 t 中的所有字符（包括重复字符）。如果不存在这样的子串，则返回空字符串 ""。
+
+        生成的测试用例确保答案是唯一的。
+
+        # 思路
+        - 使用双指针（滑动窗口）的方法。
+            - 首先，创建字典 t_map 来记录字符串 t 中每个字符的出现次数。
+            - 然后，使用两个指针 lo 和 hi 分别表示窗口的左右边界，不断移动 hi 指针扩大窗口，同时检查 t_map 中的字符是否都被包含在窗口中。如果是，则尝试缩小窗口，移动 lo 指针。
+
+        - 在每次移动 hi 指针时，更新 t_map 中字符的计数。
+        - 在每次移动 lo 指针时，检查窗口内的字符是否满足包含 t 中所有字符的条件，并更新最小窗口的起始和结束位置。
+
+        # Note
+        - 注意使用 t_map 来记录 t 中字符的计数。
+        """
+
+        n = len(s)
+        record = False
+        t_map = dict()
+
+        # 初始化 t_map 字典，记录 t 中每个字符的出现次数
+        for char in t:
+            t_map[char] = t_map.get(char, 0) + 1
+
+        lo, hi = 0, 0
+        start, end = 0, n-1
+        satisfied_chars = 0  # 记录当前窗口中满足条件的字符数量
+
+        while hi < n:
+            if s[hi] in t_map:
+                t_map[s[hi]] -= 1
+                if t_map[s[hi]] >= 0:
+                    satisfied_chars += 1
+
+            while lo <= hi and satisfied_chars == len(t):
+                if hi - lo <= end - start:
+                    start, end = lo, hi
+                    record = True
+
+                if s[lo] in t_map:
+                    t_map[s[lo]] += 1
+                    if t_map[s[lo]] > 0:
+                        satisfied_chars -= 1
+
+                lo += 1
+            hi += 1
+
+        # 处理边界情况
+        if start == end and s[start:end+1] != t:
+            return ""
+        if not record:
+            return ""
+        return s[start:end+1]
+
 ```
 
 
@@ -4249,6 +4339,60 @@ class Solution {
 
 ### DFS
 
+#### Balanced Binary Tree
+```py
+class Solution:
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        """
+        110. Balanced Binary Tree
+        判断给定的二叉树是否是高度平衡的。
+        
+        # 思路
+        - 利用深度优先搜索（DFS）遍历二叉树节点，计算每个节点的左右子树的高度，
+        - 然后判断其高度差是否超过 1，如果超过 1 则返回 -1，表示不是高度平衡的。
+        - 最后，判断整个二叉树是否是高度平衡的，即返回值是否为 -1。
+        """
+
+        # 如果根节点为空，即空树，认为是平衡的
+        if not root:
+            return True
+
+        # 利用深度优先搜索检查每个节点的平衡性
+        return self.dfs(root) != -1
+
+    
+    def dfs(self, node: Optional[TreeNode]) -> int:
+        """
+        递归地计算二叉树节点的深度，并检查其平衡性。
+        
+        :param node: 当前节点
+        :return: 若节点平衡，则返回节点的深度；若不平衡，则返回-1
+        """
+        
+        # 当前节点为空，深度为0
+        if not node:
+            return 0
+        
+        # 递归计算左子树的深度
+        left = self.dfs(node.left)
+        # 如果左子树不平衡，直接返回-1
+        if left == -1:
+            return -1
+        
+        # 递归计算右子树的深度
+        right = self.dfs(node.right)
+        # 如果右子树不平衡，直接返回-1
+        if right == -1:
+            return -1
+
+        # 检查当前节点的平衡性，如果不平衡，返回-1；否则返回当前节点的深度
+        if abs(left - right) > 1:
+            return -1
+        else:
+            return max(left, right) + 1
+```
+
+
 #### Symmetric Tree
 ```java
 /**
@@ -5524,7 +5668,7 @@ class Solution {
 ```py
 # todo
 ```
-#### Count of Integers
+#### Count of Integers TODO
 2719. Count of Integers
 ```py
 class Solution:
