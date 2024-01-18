@@ -5476,9 +5476,81 @@ class Solution {
 ```
 
 ####
-```java
+```py
+"""
+# 问题描述
+设计一个算法，将二叉树序列化和反序列化。序列化是将数据结构或对象转换为一系列位，以便可以存储在文件或内存缓冲区中，或通过网络连接链路传输，以便在同一计算机环境中或另一计算机环境中重建。
+
+限制条件: 序列化/反序列化算法的输入/输出格式与LeetCode序列化二叉树的格式相同。但并非必须遵循此格式，因此请根据自己的创意采用不同的方法。
+
+# 思路
+- 我们可以使用层次遍历来序列化和反序列化二叉树。
+- 在序列化时，我们按照层次遍历的顺序遍历树，并将节点值添加到一个列表中。
+- 在反序列化时，我们逐个从列表中取出节点值，按照层次遍历的顺序重建二叉树。
+
+# Note
+- 反序列化时的做法，也是用queue，while queue， 如果pop不是"null" 加到left， i++， 然后重复，加到right， i++。
+
+"""
+
+from collections import deque
+
+class Codec:
+
+    def serialize(self, root):
+        """将树编码为字符串。
+
+        :type root: TreeNode
+        :rtype: str
+        """
+        if not root:
+            return "[]"
+        
+        queue = deque()
+        ret_list = []
+
+        queue.append(root)
+        while queue:
+            popped_node = queue.popleft()
+            if popped_node:
+                ret_list.append(str(popped_node.val))
+                queue.append(popped_node.left)
+                queue.append(popped_node.right)
+            else:
+                ret_list.append("null")
+
+        return '[' + ','.join(ret_list) + ']'
+
+    def deserialize(self, data):
+        """将编码后的数据解码为树。
+
+        :type data: str
+        :rtype: TreeNode
+        """
+        if data == "[]":
+            return
+        
+        values, i = data[1:-1].split(','), 1
+        root = TreeNode(int(values[0]))
+        queue = deque()
+        queue.append(root)
+
+        while queue:
+            node = queue.popleft()
+            if values[i] != "null":
+                node.left = TreeNode(int(values[i]))
+                queue.append(node.left)
+            i += 1
+
+            if values[i] != "null":
+                node.right = TreeNode(int(values[i]))
+                queue.append(node.right)
+            i += 1
+
+        return root
 
 ```
+
 
 ### (动态规划)Dynamic Plan
 
