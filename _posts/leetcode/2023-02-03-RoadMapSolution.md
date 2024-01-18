@@ -93,6 +93,7 @@ tags:
       - [Non-overlapping Intervals](#non-overlapping-intervals)
       - [Gas Station](#gas-station)
     - [DFS](#dfs)
+      - [Diameter of Binary Tree](#diameter-of-binary-tree)
       - [Balanced Binary Tree](#balanced-binary-tree)
       - [Symmetric Tree](#symmetric-tree)
       - [226. Invert Binary Tree](#226-invert-binary-tree)
@@ -106,12 +107,13 @@ tags:
       - [Number of Islands](#number-of-islands)
       - [Lowest Common Ancestor of a Binary Search Tree](#lowest-common-ancestor-of-a-binary-search-tree)
       - [Lowest Common Ancestor of a Binary Tree](#lowest-common-ancestor-of-a-binary-tree)
+      - [](#)
     - [BFS](#bfs)
       - [993. Cousins in Binary Tree](#993-cousins-in-binary-tree)
       - [Binary Tree Right Side View](#binary-tree-right-side-view-1)
       - [Binary Tree Level Order Traversal](#binary-tree-level-order-traversal)
       - [Binary Tree Zigzag Level Order Traversal](#binary-tree-zigzag-level-order-traversal)
-      - [](#)
+      - [](#-1)
     - [(动态规划)Dynamic Plan](#动态规划dynamic-plan)
       - [Climbing Stairs](#climbing-stairs)
       - [Unique Paths](#unique-paths)
@@ -125,13 +127,13 @@ tags:
       - [Set Mismatch](#set-mismatch)
       - [Find All Numbers Disappeared in an Array](#find-all-numbers-disappeared-in-an-array)
       - [Find the Duplicate Number](#find-the-duplicate-number)
-      - [](#-1)
+      - [](#-2)
     - [Union find](#union-find)
       - [Find if Path Exists in Graph](#find-if-path-exists-in-graph)
       - [Number of Islands](#number-of-islands-1)
     - [Out of Question](#out-of-question)
       - [Majority Element](#majority-element)
-      - [](#-2)
+      - [](#-3)
 
 
 
@@ -4339,6 +4341,57 @@ class Solution {
 
 ### DFS
 
+#### Diameter of Binary Tree
+```py
+"""
+# 问题描述 
+给定一个二叉树的根节点，返回该树的直径长度。
+
+二叉树的直径是指树中任意两个节点之间的最长路径长度。这条路径可以经过根节点，也可以不经过。
+
+路径的长度由路径上的边的数量表示。
+
+# 思路 
+- 使用深度优先搜索（DFS）来遍历二叉树，计算每个节点的左右子树深度，并在遍历的过程中更新直径的最大值。
+- 对于每个节点，其左子树深度加上右子树深度就是以该节点为根的子树的直径。
+- 在递归的过程中，使用一个变量来保存全局最大直径。
+
+# Note 
+- not node时返回-1
+- ！！！dfs更新的ret和递归返回的值不一样，是这道题的特点
+"""
+
+from typing import Optional
+
+class Solution:
+    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        # 用于保存最大直径
+        ret = 0
+    
+        def dfs(node: Optional[TreeNode]) -> int:
+            # 递归终止条件
+            # 下面 +1 后，对于叶子节点就刚好是 0
+            if not node:
+                return -1 
+
+            # 递归计算左右子树深度
+            l_depth = dfs(node.left) + 1
+            r_depth = dfs(node.right) + 1
+
+            # 更新全局最大直径
+            nonlocal ret
+            ret = max(ret, l_depth + r_depth)
+
+            # 返回当前节点的深度
+            return max(l_depth, r_depth)
+
+        # 从根节点开始深度优先搜索
+        dfs(root)
+
+        # 返回最大直径
+        return ret
+```
+
 #### Balanced Binary Tree
 ```py
 class Solution:
@@ -5010,7 +5063,6 @@ class Solution {
 
 ```
 
-
 #### Lowest Common Ancestor of a Binary Tree
 ```java
 /**
@@ -5073,6 +5125,65 @@ class Solution {
 
 ```
 
+#### 
+```py
+"""
+# 问题描述
+给定两个整数数组 preorder 和 inorder，其中 preorder 是二叉树的前序遍历，inorder 是相同树的中序遍历。构建并返回二叉树。
+
+# 思路
+- 首先，使用中序遍历构建一个字典 inorder_map，将每个节点的值映射到其在中序遍历中的位置。
+
+- 然后，使用递归的方式构建二叉树。递归函数 dfs 接受三个参数：
+    - pre_left 表示当前子树在前序遍历中的起始位置，
+    - pre_right 表示结束位置，
+    - left_in 表示当前子树在中序遍历中的起始位置。
+
+- 在递归函数中，首先判断 pre_left 是否大于 pre_right，若是，则返回 None。否则，取出当前子树的根节点值 root_val，并创建一个树节点 root_node。
+
+- 接着，通过查找 inorder_map，找到根节点在中序遍历中的位置 root_in。计算左子树的大小 left_tree_size，然后递归构建左子树和右子树。
+
+- 最后，返回当前根节点 root_node。
+
+# Note
+- 这个算法的关键在于利用前序遍历的顺序确定根节点，再通过中序遍历确定左右子树的边界。
+- 递归地处理左右子树，直至构建整个二叉树。
+"""
+
+from typing import List, Optional
+
+class Solution:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        inorder_map = dict()
+
+        # 构建中序遍历的值到位置的映射
+        n = len(preorder)
+        for i in range(n):
+            inorder_map[inorder[i]] = i
+
+        def dfs(pre_left: int, pre_right: int, left_in: int) -> Optional[TreeNode]:
+            # 判断是否为空子树
+            if pre_left > pre_right:
+                return None
+
+            # 取当前子树的根节点值(前序遍历中的第一个节点就是根节点)
+            root_val = preorder[pre_left]
+            # 在中序遍历中定位根节点
+            root_in = inorder_map[root_val]
+            # 把根节点建立出来
+            root_node = TreeNode(root_val)
+
+            # 计算左子树的大小，递归构建左右子树
+            left_tree_size = root_in - left_in
+            root_node.left = dfs(pre_left + 1, pre_left + left_tree_size, left_in)
+            root_node.right = dfs(pre_left + left_tree_size + 1, pre_right, root_in + 1)
+
+            return root_node
+
+        # 调用递归函数构建整个二叉树
+        return dfs(0, n - 1, 0)
+
+```
 
 
 ### BFS
