@@ -23,6 +23,8 @@ tags:
     - [Maximum Rows Covered by Columns](#maximum-rows-covered-by-columns)
 - [循环节](#循环节)
   - [Count The Repetitions](#count-the-repetitions)
+- [Pending](#pending)
+    - [Removing Minimum Number of Magic Beans](#removing-minimum-number-of-magic-beans)
 
 
 ## 链表
@@ -480,5 +482,47 @@ class Solution:
 
         # 返回结果
         return res // n2
+
+```
+
+## Pending
+
+#### Removing Minimum Number of Magic Beans
+
+![图解](https://pic.leetcode-cn.com/1644881496-veNnxl-2171.drawio%20(2).png)
+
+```py
+"""
+2171. Removing Minimum Number of Magic Beans
+
+# 问题描述 
+给定一个正整数数组 beans，其中每个整数表示一个特定魔法袋中找到的魔法豆的数量。
+
+从每个袋子中删除任意数量的豆子（可能为零），以使每个剩余的非空袋子中的豆子数量相等。一旦从袋子中删除了豆子，就不能将其返回到任何袋子中。
+
+返回你必须移除的最小魔法豆的数量。
+
+# 思路 
+1. 对 beans 数组进行升序排序，方便后续计算。
+2. 计算 beans 数组中所有元素的总和，以便后续计算每个剩余袋子中的豆子数量相等时的总和。
+3. 见图解
+4. 返回最小的豆子移除数量。
+
+# Note 
+"""
+class Solution:
+    def minimumRemoval(self, beans: List[int]) -> int:
+        # 1. 对数组进行升序排序
+        beans.sort()
+        # 2. 计算总和
+        bean_sum = sum(beans)
+        # 3. 初始化最小移除豆子数量
+        ret = float("inf")
+
+        # 4. 遍历数组，计算每次去除元素后的总和，更新最小值
+        for i in range(len(beans)):
+            ret = min(ret, bean_sum - beans[i] * (len(beans) - i))
+
+        return ret
 
 ```
