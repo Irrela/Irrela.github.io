@@ -19,6 +19,7 @@ tags:
 - [动态规划](#动态规划)
     - [Extra Characters in a String](#extra-characters-in-a-string)
     - [Minimum Additions to Make Valid String](#minimum-additions-to-make-valid-string)
+    - [Minimum Time to Make Array Sum At Most x](#minimum-time-to-make-array-sum-at-most-x)
 - [位运算](#位运算)
     - [Maximum Rows Covered by Columns](#maximum-rows-covered-by-columns)
 - [循环节](#循环节)
@@ -358,6 +359,62 @@ class Solution:
         # 返回最终结果，即将整个字符串变为有效字符串所需的最小插入次数
         return dp[-1]
 
+```
+
+#### Minimum Time to Make Array Sum At Most x
+
+```py
+"""
+2809. Minimum Time to Make Array Sum At Most x
+
+# 问题描述
+给定两个长度相等的整数数组 nums1 和 nums2，其索引为 0 至 nums1.length - 1。每秒钟，对于所有索引 0 <= i < nums1.length，nums1[i] 的值都会增加 nums2[i]。在此操作完成后，你可以执行以下操作：
+
+选择一个索引 0 <= i < nums1.length，并令 nums1[i] = 0。
+
+你还有一个整数 x。
+
+返回在你能使 nums1 的所有元素之和小于或等于 x 的最小时间，如果不可能，则返回 -1。
+
+# 思路
+1. 首先，将 nums1 和 nums2 按照 nums2 的值进行排序，形成 pairs 数组。
+2. 使用动态规划来计算在每个时刻选择操作的情况下，nums1 的总和。
+3. 创建二维数组 state，其中 state[i][j] 表示在 pairs 的前 i 个元素中选择 j 个执行操作时，nums1 的总和。
+4. 使用状态转移方程 state[i+1][j] = max(state[i][j], state[i][j-1] + a + b * j)，其中 a 和 b 分别为 pairs[i] 的两个元素。
+5. 遍历所有状态，找到满足条件 s1 + s2 * index - val <= x 的最小 index。
+6. 返回该 index，如果不存在满足条件的 index，则返回 -1。
+
+# Note
+- !!!用二维数组的话，dp倒序正序都一样，但如果优化掉第一维度，那必须用倒序
+因为state[i + 1][j]依赖state[i][j - 1]，如果正序的话，计算state[j]时state[j-1]实际上已经被更新为这一轮i的state[i+1][j-1]，而不是我们本来要的state[i][j - 1]
+"""
+
+from typing import List
+
+class Solution:
+    def minimumTime(self, nums1: List[int], nums2: List[int], x: int) -> int:
+        # 将 pairs 按 nums2 的值排序
+        pairs = sorted(zip(nums1, nums2), key=lambda t: t[1])
+        n = len(pairs)
+        
+        # 初始化状态数组
+        state = [[0 for _ in range(n + 1)] for _ in range(n + 1)]
+
+        # 动态规划计算状态数组
+        for i, (a, b) in enumerate(pairs):
+            for j in range(i + 1, 0, -1):
+            # for j in range(1, i+2):                
+                state[i + 1][j] = max(state[i][j], state[i][j - 1] + a + b * j)
+
+        s1 = sum(nums1)
+        s2 = sum(nums2)
+
+        # 遍历状态数组，找到满足条件的最小 index
+        for index, val in enumerate(state[n]):
+            if s1 + s2 * index - val <= x:
+                return index
+
+        return -1
 ```
 
 ## 位运算
