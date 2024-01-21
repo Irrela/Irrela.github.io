@@ -20,6 +20,8 @@ tags:
     - [Extra Characters in a String](#extra-characters-in-a-string)
     - [Minimum Additions to Make Valid String](#minimum-additions-to-make-valid-string)
     - [Minimum Time to Make Array Sum At Most x](#minimum-time-to-make-array-sum-at-most-x)
+- [二分法](#二分法)
+    - [Split Array Largest Sum](#split-array-largest-sum)
 - [位运算](#位运算)
     - [Maximum Rows Covered by Columns](#maximum-rows-covered-by-columns)
 - [循环节](#循环节)
@@ -416,6 +418,75 @@ class Solution:
 
         return -1
 ```
+
+## 二分法
+
+#### Split Array Largest Sum
+```py
+from typing import List
+import math
+
+class Solution:
+    """
+    410. Split Array Largest Sum
+    # 问题描述
+    给定一个整数数组 nums 和一个整数 k，将 nums 分割成 k 个非空子数组，使得任何子数组中的最大和尽量小。
+    返回最小的子数组最大和。
+
+    # 思路
+    通过二分查找的方式，找到一个合适的值，使得数组分割后的子数组最大和最小。
+    在每一次二分查找中，判断是否可以按照当前的最大和进行分割，如果可以，则在左半部分继续查找，否则在右半部分查找。
+
+    # Note
+    使用二分查找时，首先确定查找范围，这里的左边界是数组中的最大值减1，右边界是数组的总和。
+    在每次二分查找中，根据中间值判断是否可以按照该值进行分割，更新左右边界，并最终返回最小的满足条件的值。
+
+    """
+    def splitArray(self, nums: List[int], k: int) -> int:
+        arr_sum = 0
+        arr_max = 0
+
+        # 计算数组总和和最大值
+        for x in nums:
+            arr_sum += x
+            arr_max = max(arr_max, x)
+
+        # 初始化左右边界
+        left = max(arr_max - 1, (arr_sum - 1) / k)
+        right = arr_sum
+
+        # 二分查找
+        while left + 1 < right:
+            mid = left + (right - left) // 2
+            if self.check(nums, k, mid):
+                right = mid
+            else:
+                left = mid
+
+        return math.floor(right)
+
+    def check(self, nums: List[int], k: int, max_val: int) -> bool:
+        """
+        # 检查是否可以按照给定的最大值进行分割数组
+        :param nums: 待分割的数组
+        :param k: 分割的份数
+        :param max_val: 当前的最大值
+        :return: 是否可以按照当前最大值分割数组
+        """
+        cnt, s = 1, 0
+
+        for x in nums:
+            if s + x <= max_val:
+                s += x
+            else:
+                if cnt == k:
+                    return False
+                cnt += 1
+                s = x
+
+        return True
+```
+
 
 ## 位运算
 
