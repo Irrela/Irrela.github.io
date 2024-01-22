@@ -16,6 +16,7 @@ tags:
   - [Medium](#medium-2)
     - [Construct String With Repeat Limit](#construct-string-with-repeat-limit)
     - [1599. Maximum Profit of Operating a Centennial Wheel](#1599-maximum-profit-of-operating-a-centennial-wheel)
+    - [](#)
 - [动态规划](#动态规划)
     - [Extra Characters in a String](#extra-characters-in-a-string)
     - [Minimum Additions to Make Valid String](#minimum-additions-to-make-valid-string)
@@ -274,6 +275,70 @@ class Solution:
         return max_profit_operations if max_profit_operations > 0 else -1
 ```
 
+#### 
+```py
+"""
+# 问题描述 
+给定一个整数 num，最多可以交换两个数字一次，以获取最大的可能值。
+
+返回可以得到的最大值。
+
+# 思路
+- 从右往左，保持最大数字的下标max_index，
+    - 如果i更大，更新max_index为i
+    - 如果不如max_index更大，说明当前i和max_index是一组可能的交换组， 将low，high下标更新为max_index,i
+
+- 遍历完成后，如果low，high还是初始值（可以设为-1），说明num本身就是降序，直接返回num
+
+- 否则交换low，high， 此时low是后置的最靠右的最大数，high是最靠左的小值（不一定是最小值，但一定是最靠左的小于max_index的值，这使交换后num最大）
+
+# Note 
+- 将数字转化为列表以便于处理每一位数字。
+- 通过从左到右遍历寻找最大数字的方式找到交换位置。
+"""
+
+class Solution:
+    def maximumSwap(self, num: int) -> int:
+        ret = 0
+        arr = []
+        num_mut = num
+
+        # 将数字拆分为个位数字并存储在列表中
+        while num_mut > 0:
+            arr.append(num_mut % 10)
+            num_mut //= 10
+
+        n = len(arr)
+
+        # 如果只有一个数字，直接返回原始数字
+        if n == 1:
+            return num
+
+        max_index = 0
+        low, high = -1, -1
+
+        # 从左到右遍历数字列表，找到需要交换的位置
+        for i in range(n):
+            if arr[i] > arr[max_index]:
+                max_index = i
+            elif arr[i] < arr[max_index]:
+                low, high = max_index, i
+
+        # 如果没有找到需要交换的位置，返回原始数字
+        if low == -1:
+            return num
+
+        # 交换数字
+        arr[low], arr[high] = arr[high], arr[low]
+
+        # 重新构造交换后的数字
+        base = 1
+        for i in range(n):
+            ret += arr[i] * base
+            base *= 10
+
+        return ret
+```
 
 ## 动态规划
 #### Extra Characters in a String
