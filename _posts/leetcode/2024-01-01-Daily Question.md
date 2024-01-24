@@ -12,6 +12,7 @@ tags:
 - [单调](#单调)
   - [Medium](#medium-1)
     - [Remove Nodes From Linked List](#remove-nodes-from-linked-list-1)
+    - [Beautiful Towers I](#beautiful-towers-i)
 - [贪心](#贪心)
   - [Medium](#medium-2)
     - [Construct String With Repeat Limit](#construct-string-with-repeat-limit)
@@ -154,6 +155,74 @@ class Solution:
             stack[-1].next = popped
 
         return stack.pop()
+```
+
+#### Beautiful Towers I
+```py
+"""
+2865. Beautiful Towers I
+# 问题描述 
+给定一个长度为n的数组maxHeights，数组中的元素表示建造n座塔的最大高度。每座塔的高度不能超过对应位置上maxHeights的值。
+
+任务是在坐标轴上建造n座塔，第i座塔的坐标为i，高度为heights[i]。
+
+塔的配置是美丽的，如果满足以下条件：
+1 <= heights[i] <= maxHeights[i]
+heights是一个山脉数组。
+数组heights是山脉数组，如果存在索引i满足：
+对于所有0 < j <= i，heights[j - 1] <= heights[j]
+对于所有i <= k < n - 1，heights[k + 1] <= heights[k]
+
+要求返回美丽配置的塔的高度之和的最大可能值。
+
+# 思路 
+使用单调栈来处理两次遍历：
+1. 第一次从左到右遍历，计算每个位置之前的高度和（pres数组）。
+2. 第二次从右到左遍历，计算每个位置之后的高度和（afters数组）。
+在每个位置i处，计算pres[i] + afters[i] - maxHeights[i]的值，更新最大高度之和。
+
+# Note 
+- 单调栈的使用可以帮助我们在一次遍历中找到每个位置的前一个或后一个满足条件的位置。
+- 遍历两次数组以分别计算每个位置之前和之后的高度和，然后更新最大高度之和。
+"""
+
+from typing import List
+
+class Solution:
+    def maximumSumOfHeights(self, maxHeights: List[int]) -> int:
+        n = len(maxHeights)
+        ret = 0
+
+        pres = [0] * n
+        afters = [0] * n
+
+        # 计算每个位置之前的高度和
+        mono_stack = []
+        for i in range(n):
+            while mono_stack and maxHeights[i] < maxHeights[mono_stack[-1]]:
+                mono_stack.pop()
+            if mono_stack:
+                pres[i] = pres[mono_stack[-1]] + (i - mono_stack[-1]) * maxHeights[i]
+            else:
+                pres[i] = (i + 1) * maxHeights[i]
+            mono_stack.append(i)
+
+        # 计算每个位置之后的高度和
+        mono_stack = []            
+        for i in range(n-1, -1, -1):
+            while mono_stack and maxHeights[i] < maxHeights[mono_stack[-1]]:
+                mono_stack.pop()
+            if mono_stack:
+                afters[i] = afters[mono_stack[-1]] + (mono_stack[-1] - i) * maxHeights[i]
+            else:
+                afters[i] = (n - 1 - i + 1) * maxHeights[i]
+            mono_stack.append(i)
+
+            # 更新最大高度之和
+            ret = max(ret, pres[i] + afters[i] - maxHeights[i])
+
+        return ret
+
 ```
 
 ## 贪心
