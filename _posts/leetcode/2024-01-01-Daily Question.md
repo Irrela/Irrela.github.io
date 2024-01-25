@@ -26,6 +26,7 @@ tags:
     - [Split Array Largest Sum](#split-array-largest-sum)
 - [位运算](#位运算)
     - [Maximum Rows Covered by Columns](#maximum-rows-covered-by-columns)
+    - [Sum of Values at Indices With K Set Bits](#sum-of-values-at-indices-with-k-set-bits)
 - [循环节](#循环节)
   - [Count The Repetitions](#count-the-repetitions)
 - [Pending](#pending)
@@ -676,6 +677,74 @@ class Solution:
             ret = max(ret, temp)
 
         return ret
+
+```
+
+#### Sum of Values at Indices With K Set Bits
+```py
+"""
+2859. Sum of Values at Indices With K Set Bits
+# 问题描述
+给定一个整数数组 nums 和一个整数 k。
+
+返回一个整数，表示 nums 中具有恰好 k 个设置位的对应索引处元素的总和。
+
+整数的设置位是其二进制表示中存在的 1。
+
+例如，21的二进制表示为10101，其中有3个设置位。
+"""
+
+
+class Solution:
+    def sumIndicesWithKSetBits(self, nums: List[int], k: int) -> int:
+        """
+        计算具有恰好 k 个设置位的索引对应元素的总和。
+
+        :param nums: 给定的整数数组
+        :param k: 设置位的数量
+        :return: 元素总和
+        """
+
+        ret = 0
+        for index, num in enumerate(nums):
+            # 判断当前索引的二进制表示中设置位的数量是否等于 k
+            # if index.bin_count("1") == k:
+            if self.bit_count_divide_conquer(index) == k:
+                ret += num
+        return ret
+
+    def bit_count_bf(self, n):
+        """
+        使用暴力循环统计二进制表示中设置位的数量。
+
+        :param n: 待统计的整数
+        :return: 设置位的数量
+        """
+        count = 0
+        while n:
+            count += n & 1
+            n >>= 1
+        return count
+        
+    def bit_count_divide_conquer(self, x):
+        """
+        使用分治法统计整数 x 二进制表示中设置位的数量。
+
+        分治法通过将整数 x 的比特位分组相加，从而高效地计算设置位的数量。
+
+        :param x: 待统计的整数
+        :return: 设置位的数量
+        """
+        # 将 x 中的比特位按奇偶位置两两相加
+        x = (x & 0b0101010101) + ((x & 0b1010101010) >> 1)
+        
+        # 将相邻两组的结果再进行两两相加
+        x = ((x & 0b0011001100) >> 2) + (x & 0b1100110011)
+        
+        # 将相邻两个 4 比特位组的结果相加
+        x = (x >> 8) + ((x >> 4) & 0b1111) + (x & 0b1111)
+        
+        return x
 
 ```
 
