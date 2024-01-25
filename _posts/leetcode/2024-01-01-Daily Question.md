@@ -708,7 +708,8 @@ class Solution:
         ret = 0
         for index, num in enumerate(nums):
             # 判断当前索引的二进制表示中设置位的数量是否等于 k
-            # if index.bin_count("1") == k:
+            # if index.bin_count() == k:
+            # if bin(index).count("1") == k:
             if self.bit_count_divide_conquer(index) == k:
                 ret += num
         return ret
