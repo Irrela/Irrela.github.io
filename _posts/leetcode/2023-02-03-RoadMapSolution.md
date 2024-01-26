@@ -128,7 +128,7 @@ tags:
       - [Find All Numbers Disappeared in an Array](#find-all-numbers-disappeared-in-an-array)
       - [Find the Duplicate Number](#find-the-duplicate-number)
       - [](#-2)
-    - [Union find](#union-find)
+    - [并查集](#并查集)
       - [Find if Path Exists in Graph](#find-if-path-exists-in-graph)
       - [Number of Islands](#number-of-islands-1)
     - [Out of Question](#out-of-question)
@@ -6171,10 +6171,10 @@ class Solution {
 
 
 
-### Union find
+### 并查集
 
 #### Find if Path Exists in Graph
-```java
+```py
 package roadmap;
 /**
  * 1971. Find if Path Exists in Graph
@@ -6182,90 +6182,97 @@ package roadmap;
  *
  * 思路：使用并查集（Union Find）来判断两个节点是否属于同一个集合，从而确定是否存在有效路径。
  */
-public class ValidPath {
 
-    private int[] root;
-    private int[] rank;
+"""
+ 1971. Find if Path Exists in Graph
+# 问题描述 
+给定一个无向图，判断从源节点到目标节点是否存在有效路径。
 
-    /**
-     * 判断从源节点到目标节点是否存在有效路径。
-     *
-     * @param n             图中节点的数量。
-     * @param edges         表示图中连接关系的边。
-     * @param source        源节点。
-     * @param destination   目标节点。
-     * @return              如果存在有效路径，返回 true；否则返回 false。
-     */
-    public boolean validPath(int n, int[][] edges, int source, int destination) {
-        // 初始化并查集
-        root = new int[n];
-        rank = new int[n];
-        for (int i = 0; i < n; i++) {
-            root[i] = i;
-            rank[i] = 1;
-        }
+# 思路 
+使用并查集（Union-Find）来判断两个顶点是否属于同一个连通分量。
+首先初始化每个顶点为独立的集合root，
+然后遍历边，将相邻的顶点合并到同一个集合中。最
+后检查源顶点和目标顶点是否属于同一个集合，若是则存在有效路径。
 
-        // 遍历边，合并节点
-        for (int[] edge : edges) {
-            int head = edge[0];
-            int tail = edge[1];
+# Note 
+- 并查集的`find`方法用于查找顶点所属的集合，通过路径压缩优化。
+- 并查集的`merge`方法用于合并两个集合，按秩rank进行合并，避免退化成链表。
+"""
+class Solution:
+    # 声明为类属性，所有实例共享
+    # 也可用__init__声明为实例属性
+    root = []
+    rank = []
 
-            // 如果当前边连接的是源节点和目标节点，则直接返回 true
-            if ((head == source && tail == destination) || (head == destination && tail == source)) {
-                return true;
-            }
+    def validPath(self, n, edges, source, destination):
+        """
+        判断从源节点到目标节点是否存在有效路径。
 
-            merge(head, tail);
-        }
+        :param n: 图中节点的数量。
+        :param edges: 表示图中连接关系的边。
+        :param source: 源节点。
+        :param destination: 目标节点。
+        :return: 如果存在有效路径，返回 True；否则返回 False。
+        """
+        # 初始化并查集
+        # 最初情况下，每个节点都是独立的集合，自己是自己的根节点。
+        self.root = [i for i in range(n)]
+        # rank 通常表示树的深度或者秩
+        # 在合并两个集合时，将深度较小的树合并到深度较大的树中。这样的优化可以有效地减小树的深度，使得查询和合并等操作的时间复杂度更加稳定。
+        self.rank = [1] * n
 
-        // 判断源节点和目标节点是否属于同一个集合
-        return find(source) == find(destination);
-    }
+        # 遍历边，合并节点
+        for edge in edges:
+            head, tail = edge[0], edge[1]
 
-    /**
-     * 查找节点 x 所在集合的根节点。
-     *
-     * @param x 要查找的节点。
-     * @return  节点 x 所在集合的根节点。
-     */
-    private int find(int x) {
-        if (root[x] == x) {
-            return x;
-        }
+            # 如果当前边连接的是源节点和目标节点，则直接返回 True
+            if (head == source and tail == destination) or (head == destination and tail == source):
+                return True
 
-        // 压缩路径
-        // 把沿途的每个节点的父节点都设为根节点
-        root[x] = find(root[x]);
-        return root[x];
-    }
+            self.merge(head, tail)
 
-    /**
-     * 合并两个节点所在的集合。
-     *
-     * @param x 节点 x。
-     * @param y 节点 y。
-     */
-    private void merge(int x, int y) {
-        int rootX = find(x);
-        int rootY = find(y);
+        # 判断源节点和目标节点是否属于同一个集合
+        return self.find(source) == self.find(destination)
 
-        // 将 rank 较小的集合合并到 rank 较大的集合中
-        if (rank[rootX] <= rank[rootY]) {
-            root[rootX] = rootY;
-        } else {
-            root[rootY] = rootX;
-        }
-            
-        // 如果两个集合的 rank 相等且不属于同一个集合，则将新根节点的 rank 增加 1
-        // 如果深度相同且根节点不同，则根据上面包括 == 的分支，将新的父节点的秩增加
-        // 如我选择rank[rootX] <= rank[rootY]，root[rootX] = rootY; 即等于的时候rootY是父节点
-        // 所以rank[rootY]++
-        if (rank[rootX] == rank[rootY] && rootX != rootY) {
-            rank[rootY]++;
-        }
-    }
-}
+    def find(self, x):
+        """
+        递归查找节点 x 所在集合的根节点。
+        副作用：每次递归中进行路径压缩
 
+        :param x: 要查找的节点。
+        :return: 节点 x 所在集合的根节点。
+        """
+        # 退出标志：x的root指向自己
+        if self.root[x] == x:
+            return x
+
+        # 压缩路径
+        # 把沿途的每个节点的父节点都设为根节点
+        self.root[x] = self.find(self.root[x])
+        return self.root[x]
+
+    def merge(self, x, y):
+        """
+        合并两个节点所在的集合。
+
+        :param x: 节点 x。
+        :param y: 节点 y。
+        """
+        root_x = self.find(x)
+        root_y = self.find(y)
+
+        # 将 rank 较小的集合合并到 rank 较大的集合中
+        if self.rank[root_x] <= self.rank[root_y]:
+            self.root[root_x] = root_y
+        else:
+            self.root[root_y] = root_x
+
+        # 如果两个集合的 rank 相等且不属于同一个集合，则将新根节点的 rank 增加 1
+        # 如果深度相同且根节点不同，则根据上面包括 == 的分支，将新的父节点的秩增加
+        # 如我选择 rank[root_x] <= rank[root_y]，root[root_x] = root_y; 即等于的时候 root_y 是父节点
+        # 所以 rank[root_y]++
+        if self.rank[root_x] == self.rank[root_y] and root_x != root_y:
+            self.rank[root_y] += 1
 ```
 
 #### Number of Islands
