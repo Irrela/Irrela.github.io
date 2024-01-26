@@ -29,6 +29,8 @@ tags:
     - [Sum of Values at Indices With K Set Bits](#sum-of-values-at-indices-with-k-set-bits)
 - [循环节](#循环节)
   - [Count The Repetitions](#count-the-repetitions)
+- [并查集](#并查集)
+    - [Minimum Edge Weight Equilibrium Queries in a Tree](#minimum-edge-weight-equilibrium-queries-in-a-tree)
 - [Pending](#pending)
     - [Removing Minimum Number of Magic Beans](#removing-minimum-number-of-magic-beans)
 
@@ -815,6 +817,102 @@ class Solution:
         # 返回结果
         return res // n2
 
+```
+
+## 并查集
+#### Minimum Edge Weight Equilibrium Queries in a Tree
+```py
+class Solution:
+    """
+    2846. Minimum Edge Weight Equilibrium Queries in a Tree
+    # 问题描述
+    给定一颗有 n 个节点（标记为 0 到 n-1）的无向树，以及一维数组 edges，表示树上的 n-1 条边，每条边有一个权重。
+    还有一维数组 queries，表示 m 个查询，每个查询是一个长度为 2 的数组 [ai, bi]，表示路径上的两个节点。
+
+    对于每个查询，找到使得路径上每条边的权重相等所需的最小操作次数。在一次操作中，可以选择树上的任意一条边，并将其权重更改为任意值。
+
+    注意：
+    - 查询是相互独立的，即每个新查询都返回树的初始状态。
+    - 从 ai 到 bi 的路径是一个节点序列，以 ai 开始，以 bi 结束，序列中每两个相邻的节点在树中共享一条边。
+    
+    # 思路
+    - 使用并查集（Union-Find）来找到路径上的最近公共祖先（Lowest Common Ancestor, LCA）。
+    - 使用 Tarjan 算法进行深度优先搜索，计算每个节点到根节点的边权重统计信息。
+    - 对于每个查询，通过计算统计信息，找到最小操作次数。
+
+    # Note
+    - 使用并查集的路径压缩优化，减少递归深度。
+    - 通过 Tarjan 算法计算路径上每个节点到根节点的边权重统计信息。
+    - 在每个查询中，通过计算总权重和最大权重，得到最小操作次数。
+    """
+
+    def find(self, uf: List[int], i: int) -> int:
+        """
+        寻找并查集中节点 i 的根节点，实现路径压缩。
+        """
+        if uf[i] == i:
+            return i
+        uf[i] = self.find(uf, uf[i])
+        return uf[i]
+
+    def minOperationsQueries(self, n: int, edges: List[List[int]], queries: List[List[int]]) -> List[int]:
+        """
+        计算每个查询的最小操作次数。
+        """
+        m, W = len(queries), 26
+        neighbors = [dict() for i in range(n)]
+
+        # 构建无向图的邻接表
+        for edge in edges:
+            neighbors[edge[0]][edge[1]] = edge[2]
+            neighbors[edge[1]][edge[0]] = edge[2]
+
+        queryArr = [[] for i in range(n)]
+
+        # 将查询按起始节点分组
+        for i in range(m):
+            queryArr[queries[i][0]].append([queries[i][1], i])
+            queryArr[queries[i][1]].append([queries[i][0], i])
+
+        count = [[0 for j in range(W + 1)] for i in range(n)]
+        visited, uf, lca = [0 for i in range(n)], [0 for i in range(n)], [0 for i in range(m)]
+
+        def tarjan(node: int, parent: int):
+            """
+            使用 Tarjan 算法计算边权重统计信息。
+            """
+            if parent != -1:
+                count[node] = count[parent].copy()
+                count[node][neighbors[node][parent]] += 1
+            uf[node] = node
+
+            for child in neighbors[node].keys():
+                if child == parent:
+                    continue
+                tarjan(child, node)
+                uf[child] = node
+
+            for [node1, index] in queryArr[node]:
+                if node != node1 and not visited[node1]:
+                    continue
+                lca[index] = self.find(uf, node1)
+
+            visited[node] = 1
+
+        tarjan(0, -1)
+        res = [0 for i in range(m)]
+
+        # 计算每个查询的最小操作次数
+        for i in range(m):
+            totalCount, maxCount = 0, 0
+            for j in range(1, W+1):
+                t = count[queries[i][0]][j] + count[queries[i][1]][j] - 2 * count[lca[i]][j]
+                maxCount = max(maxCount, t)
+                totalCount += t
+
+            res[i] = totalCount - maxCount
+
+        return res
 ```
 
 ## Pending
