@@ -6197,6 +6197,21 @@ package roadmap;
 # Note 
 - 并查集的`find`方法用于查找顶点所属的集合，通过路径压缩优化。
 - 并查集的`merge`方法用于合并两个集合，按秩rank进行合并，避免退化成链表。
+- 为什么只有rank相等时需要为新节点rank+1：相等时需要选择其中一个节点作为根节点，那么被合并过来的那个树的深度本身是rank，附在新节点下面后
+
+    A    C     
+   /    / 
+  B    D
+
+合并后（合并时选择A作为新根节点）
+
+    A
+   / \
+  B   C
+     /
+    D
+
+此时A的深度需要加1   
 """
 class Solution:
     # 声明为类属性，所有实例共享
@@ -6268,10 +6283,9 @@ class Solution:
             self.root[root_y] = root_x
 
         # 如果两个集合的 rank 相等且不属于同一个集合，则将新根节点的 rank 增加 1
-        # 如果深度相同且根节点不同，则根据上面包括 == 的分支，将新的父节点的秩增加
-        # 如我选择 rank[root_x] <= rank[root_y]，root[root_x] = root_y; 即等于的时候 root_y 是父节点
-        # 所以 rank[root_y]++
+        # 具体来说，如果两个集合的秩相等，就需要选择其中一个作为新的根节点，并且由于选择了一个根节点作为新的父节点，所以新的根节点的秩需要增加，以确保之后其他节点合并到这个根节点时，秩的更新依然能够反映树的深度。
         if self.rank[root_x] == self.rank[root_y] and root_x != root_y:
+            # 这里选择root_y增加是因为上一步合并时，处理rank相等时把x集合合并到了root_y，所以root_y代表了新节点
             self.rank[root_y] += 1
 ```
 
