@@ -24,6 +24,7 @@ tags:
     - [Minimum Time to Make Array Sum At Most x](#minimum-time-to-make-array-sum-at-most-x)
 - [二分法](#二分法)
     - [Split Array Largest Sum](#split-array-largest-sum)
+    - [](#-1)
 - [位运算](#位运算)
     - [Maximum Rows Covered by Columns](#maximum-rows-covered-by-columns)
     - [Sum of Values at Indices With K Set Bits](#sum-of-values-at-indices-with-k-set-bits)
@@ -623,7 +624,71 @@ class Solution:
 
         return True
 ```
+#### 
+```py
+"""
+# 问题描述 
+你是一家公司的老板，该公司使用不同类型的金属制作合金。有 n 种不同类型的金属，你可以使用 k 台机器来制作合金。每台机器需要使用每种金属的特定数量来制作一个合金。
 
+对于第 i 台机器来说，制作一个合金需要 composition[i][j] 单位第 j 种金属。最初，你拥有 stock[i] 单位第 i 种金属，购买一单位第 i 种金属的成本为 cost[i] 个硬币。
+
+给定整数 n、k、budget，一个基于1索引的二维数组 composition，以及基于1索引的数组 stock 和 cost，你的目标是在不超过 budget 个硬币的情况下，最大化公司可以制造的合金数量。
+
+所有的合金必须由同一台机器制作。
+
+返回公司可以制造的合金的最大数量。
+
+
+# 思路 
+为了最大化公司可以制造的合金数量，我们可以使用二分查找。在每一次迭代中，计算中间值 mid，并检查使用该中间值时公司的总成本是否超过了预算。
+如果超过了预算，则表示 mid 值太大，需要将高端范围缩小；否则，我们可以尝试增加 mid 值，以看看能否制造更多的合金。
+
+对于每个 mid 值，我们遍历每一种金属，计算需要购买的金属数量，然后计算购买这些金属的总成本。如果总成本超过了预算，说明 mid 值太大，我们需要缩小高端范围；否则，更新结果并尝试增大 mid 值。
+
+最终返回结果即为最大制造的合金数量。
+
+
+# Note 
+- 我们使用二分查找来找到最大的制造合金数量，因为这是一个优化问题，需要在一定范围内寻找最优解。
+- 在每次迭代中，使用 zip 函数同时迭代合金的组成、金属库存和金属购买成本，使代码更为简洁和可读。
+- 对于购买金属的数量，我们使用 metal_to_buy = metal_per_alloy * mid - metal_stock 的方式计算，这是为了确保我们购买的金属数量大于等于合金需要的数量。
+- 我们使用二分查找的方式不断调整 mid 值，以在预算范围内找到最大的合金制造数量。
+"""
+
+from typing import List
+
+class Solution:
+    def maxNumberOfAlloys(self, n: int, k: int, budget: int, composition: List[List[int]], stock: List[int], cost: List[int]) -> int:
+        ret = 0
+        for i in range(k):
+            low, high = 0, budget + sum(stock)
+            
+            # 二分查找
+            while low <= high:
+                mid = low + (high - low) // 2
+                # 对于固定机器，固定合金产量mid下，使用的全部金属的花费
+                expense = 0
+                
+                # zip 函数用于将多个可迭代对象的元素按顺序打包成元组。它返回一个迭代器，每次迭代都会生成一个包含输入可迭代对象对应位置元素的元组。
+                metal_detail = zip(composition[i], stock, cost)
+                # 遍历每一种金属的需求，库存和成本
+                for metal_per_alloy, metal_stock, metal_price in metal_detail:
+                    # 计算需要购买的金属数量
+                    metal_to_buy = metal_per_alloy * mid - metal_stock
+                    if metal_to_buy > 0:
+                        # 计算购买这些金属的总成本
+                        expense += metal_to_buy * metal_price
+                
+                if expense > budget:
+                    # 如果总成本超过预算，缩小高端范围
+                    high = mid - 1
+                else:
+                    # 更新结果并尝试增大 mid 值, 这个更新是对于遍历不同机器得到的最大值选取全局最大值
+                    ret = max(ret, mid)
+                    low = mid + 1
+        return ret
+
+```
 
 ## 位运算
 
