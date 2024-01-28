@@ -34,6 +34,7 @@ tags:
     - [Minimum Edge Weight Equilibrium Queries in a Tree](#minimum-edge-weight-equilibrium-queries-in-a-tree)
 - [Pending](#pending)
     - [Removing Minimum Number of Magic Beans](#removing-minimum-number-of-magic-beans)
+    - [Water and Jug Problem](#water-and-jug-problem)
 
 
 ## 链表
@@ -654,9 +655,6 @@ class Solution:
 - 对于购买金属的数量，我们使用 metal_to_buy = metal_per_alloy * mid - metal_stock 的方式计算，这是为了确保我们购买的金属数量大于等于合金需要的数量。
 - 我们使用二分查找的方式不断调整 mid 值，以在预算范围内找到最大的合金制造数量。
 """
-
-from typing import List
-
 class Solution:
     def maxNumberOfAlloys(self, n: int, k: int, budget: int, composition: List[List[int]], stock: List[int], cost: List[int]) -> int:
         ret = 0
@@ -1020,4 +1018,46 @@ class Solution:
 
         return ret
 
+```
+
+
+#### Water and Jug Problem
+```py
+"""
+365. Water and Jug Problem
+# 问题描述
+给定两个容量分别为jug1Capacity和jug2Capacity的水壶。有无限的水源可用。判断是否可以精确地测量出targetCapacity升的水。
+
+如果可以测量出targetCapacity升的水，则最终必须在一个或两个水壶中包含targetCapacity升的水。
+
+允许的操作：
+1. 向任一水壶中加满水。
+2. 把任一水壶的水倒空。
+3. 从一个水壶中向另一个水壶倒水，直到另一个水壶满了，或者第一个水壶为空。
+
+# 思路
+根据裴蜀定理，只有当targetCapacity是jug1Capacity和jug2Capacity的最大公约数的倍数时，才可能通过上述操作得到targetCapacity的水量。因此，首先计算jug1Capacity和jug2Capacity的最大公约数s_gcd，然后判断targetCapacity是否是s_gcd的倍数。
+
+# Note
+裴蜀定理（Bézout's identity）：对于任意给定的两个整数a和b，存在整数x和y，使得ax + by = gcd(a, b)。
+"""
+
+class Solution:
+    def canMeasureWater(self, jug1Capacity: int, jug2Capacity: int, targetCapacity: int) -> bool:
+        # 计算最大公约数
+        s_gcd = self.gcd(jug1Capacity, jug2Capacity)
+
+        # 如果两个水壶的容量之和小于目标容量，无法得到目标容量的水
+        if jug1Capacity + jug2Capacity < targetCapacity:
+            return False
+
+        # 判断目标容量是否是最大公约数的倍数
+        return targetCapacity % s_gcd == 0 
+
+
+    def gcd(self, a, b):
+        # 辗转相除法计算最大公约数
+        while b != 0:
+            a, b = b, a % b
+        return a
 ```
