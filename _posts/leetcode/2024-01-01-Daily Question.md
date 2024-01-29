@@ -22,6 +22,7 @@ tags:
     - [Extra Characters in a String](#extra-characters-in-a-string)
     - [Minimum Additions to Make Valid String](#minimum-additions-to-make-valid-string)
     - [Minimum Time to Make Array Sum At Most x](#minimum-time-to-make-array-sum-at-most-x)
+    - [Freedom Trail](#freedom-trail)
 - [二分法](#二分法)
     - [Split Array Largest Sum](#split-array-largest-sum)
     - [](#-1)
@@ -557,6 +558,71 @@ class Solution:
 
         return -1
 ```
+
+#### Freedom Trail
+```py
+"""
+514. Freedom Trail
+# 问题描述
+在Fallout 4游戏中，任务"Road to Freedom"要求玩家达到一个名为"Freedom Trail Ring"的金属拨号，并使用该拨号拼写特定的关键字以打开门。
+
+给定一个字符串ring，表示刻在外环上的代码，以及另一个字符串key，表示需要拼写的关键字，返回拼写关键字所有字符所需的最小步数。
+
+最初，环的第一个字符位于"12:00"方向。您应该逐个拼写key中的所有字符，通过顺时针或逆时针旋转环，使key的每个字符都与"12:00"方向对齐，然后按下中心按钮。
+
+在旋转环以拼写关键字符key[i]的阶段：
+
+您可以将环顺时针或逆时针旋转一格，这算作一步。旋转的最终目的是将环的一个字符与"12:00"方向对齐，其中此字符必须等于key[i]。
+如果字符key[i]已经与"12:00"方向对齐，请按下中心按钮进行拼写，这也算作一步。按下后，您可以开始拼写key中的下一个字符（下一个阶段）。否则，您已经完成了所有的拼写。
+
+# 思路
+- 将字符转换为ASCII码方便处理。
+- 使用动态规划（DP）来找到最小步数。
+- 通过构建ring_map，将每个字符的位置映射到列表中。
+- 使用DP数组dp[i][j]表示拼写key的前i个字符，ring的第j个字符对齐到"12:00"方向的最小步数。
+- 初始化第一行dp[0][j]，表示拼写第一个字符的步数。
+- 递推计算dp[i][j]，考虑从上一行的任意位置pre_idx到当前位置cur_idx的步数，取最小值。
+- 最后取dp数组最后一行的最小值，加上key的长度，即为所需的最小步数。
+
+# Note
+- ASCII码转换使用ord(char) - ord("a")。
+- 构建ring_map列表，存储ring中每个字符的位置。
+- 使用动态规划数组dp来保存中间状态。
+- 在计算dp数组时，考虑每个字符的所有可能对齐位置，并选择最小步数。
+"""
+
+class Solution:
+    def findRotateSteps(self, ring: str, key: str) -> int:
+        # 将字符转换为ASCII码
+        ring = [ord(char) - ord("a") for char in ring]
+        key = [ord(char) - ord("a") for char in key]
+
+        # 构建ring中每个字符的位置映射
+        ring_map = [[] for _ in range(26)]
+        for i, char in enumerate(ring):
+            ring_map[char].append(i)
+
+        len_ring = len(ring)
+        len_key = len(key)        
+
+        # 初始化DP数组
+        # dp[i][j] 存储的是拼写关键字的前 i 个字符，同时将环的第 j 个字符对齐到 "12:00" 方向所需的最小步数。
+        dp = [[float("inf") for _ in range(len_ring)] for _ in range(len_key)]
+        for i in ring_map[key[0]]:
+            # key的第一个char
+            dp[0][i] = min(i, len_ring - i)
+
+        # 递推计算DP数组
+        for i in range(1, len_key):
+            for cur_idx in ring_map[key[i]]:
+                for pre_idx in ring_map[key[i-1]]:
+                    dis = abs(cur_idx - pre_idx)
+                    dp[i][cur_idx] = min(dp[i][cur_idx], dp[i-1][pre_idx] + min(dis, len_ring - dis))
+
+        # 返回最小步数
+        return min(dp[-1]) + len_key
+```
+
 
 ## 二分法
 
