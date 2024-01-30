@@ -36,6 +36,7 @@ tags:
 - [Pending](#pending)
     - [Removing Minimum Number of Magic Beans](#removing-minimum-number-of-magic-beans)
     - [Water and Jug Problem](#water-and-jug-problem)
+    - [](#-2)
 
 
 ## 链表
@@ -1126,4 +1127,52 @@ class Solution:
         while b != 0:
             a, b = b, a % b
         return a
+```
+
+
+####
+```py
+from typing import List
+
+class Solution:
+    def minimumSeconds(self, nums: List[int]) -> int:
+        """
+        # 问题描述
+        给定一个包含n个整数的数组nums（下标从0开始）。
+        每秒钟，你需要对数组执行以下操作：
+        对于范围[0, n-1]内的每个索引i，用nums[i]、nums[(i-1+n)%n]或nums[(i+1)%n]之一替换nums[i]。
+        注意：所有元素将同时被替换。
+
+        返回使数组nums中的所有元素相等所需的最小秒数。
+
+        # 思路
+        核心： 计算相同元素两两相邻间的最大距离
+
+        遍历数组nums，将每个元素出现的索引记录到字典s_map中。
+
+        计算每个元素索引间距离，记录最大值。另外还需要计算首位，因为扩散可以环形扩散。
+        
+
+        # Note
+        在计算最大距离时，注意元素在数组首尾之间的情况，需要考虑环形数组的性质。
+        """
+        n = len(nums)
+        ret = n
+        s_map = dict()
+
+        # 遍历数组，记录每个元素的索引
+        for i, val in enumerate(nums):
+            if val in s_map:
+                s_map[val].append(i)
+            else:
+                s_map[val] = [i]
+
+        # 计算每个元素相等所需的最小秒数
+        for li in s_map.values():
+            temp = n - (li[-1] - li[0]) # 首尾距离
+            for i in range(1, len(li)):
+                temp = max(temp, li[i] - li[i-1])
+            ret = min(temp, ret)
+
+        return ret // 2
 ```
