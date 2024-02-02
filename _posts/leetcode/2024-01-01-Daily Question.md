@@ -18,6 +18,7 @@ tags:
     - [Construct String With Repeat Limit](#construct-string-with-repeat-limit)
     - [1599. Maximum Profit of Operating a Centennial Wheel](#1599-maximum-profit-of-operating-a-centennial-wheel)
     - [](#)
+    - [](#-1)
 - [动态规划](#动态规划)
     - [Extra Characters in a String](#extra-characters-in-a-string)
     - [Minimum Additions to Make Valid String](#minimum-additions-to-make-valid-string)
@@ -25,7 +26,7 @@ tags:
     - [Freedom Trail](#freedom-trail)
 - [二分法](#二分法)
     - [Split Array Largest Sum](#split-array-largest-sum)
-    - [](#-1)
+    - [](#-2)
 - [位运算](#位运算)
     - [Maximum Rows Covered by Columns](#maximum-rows-covered-by-columns)
     - [Sum of Values at Indices With K Set Bits](#sum-of-values-at-indices-with-k-set-bits)
@@ -36,7 +37,7 @@ tags:
 - [Pending](#pending)
     - [Removing Minimum Number of Magic Beans](#removing-minimum-number-of-magic-beans)
     - [Water and Jug Problem](#water-and-jug-problem)
-    - [](#-2)
+    - [](#-3)
 
 
 ## 链表
@@ -415,6 +416,58 @@ class Solution:
 
         return ret
 ```
+
+####
+```py
+from typing import List
+
+class Solution:
+    def stoneGameVI(self, aliceValues: List[int], bobValues: List[int]) -> int:
+        """
+        # 问题描述
+        Alice 和 Bob 轮流玩游戏，Alice 先手。
+        有 n 个石头堆，每位玩家在自己的回合中可以从石头堆中取一个石头，并根据石头的价值获得相应的分数。
+        Alice 和 Bob 可能对石头的价值有不同的看法。
+
+        给定两个长度为 n 的整数数组 aliceValues 和 bobValues，其中 aliceValues[i] 和 bobValues[i] 分别表示 Alice 和 Bob 对第 i 个石头的价值。
+
+        胜者是在所有石头都被选取后得分最高的人。如果两位玩家得分相同，则游戏为平局。双方都将以最佳方式进行游戏，并且双方都了解对方的价值。
+
+        确定游戏的结果，并且：
+        - 如果 Alice 获胜，返回 1。
+        - 如果 Bob 获胜，返回 -1。
+        - 如果游戏平局，返回 0。
+
+        # 思路
+        -> 最优： 拿走对自己和对对手价值最高的
+        -> 直接sum(synthesized[::2]) - sum(bobValues) : 前者包含了bob拿不到的， 减去bob所有的，等于bob拿全部剩下的。
+        1. 将 Alice 和 Bob 对应位置的石头价值相加，得到 synthesized 列表。
+        2. 将 synthesized 列表按照石头总价值降序排序。
+        3. 计算 Alice 得分，即 synthesized 中偶数索引位置的石头总价值之和，减去 Bob 的石头总价值之和。
+        4. 判断得分 ret，并返回相应结果。
+
+        # Note
+        
+
+        """
+        n = len(aliceValues)
+
+        # 合成每个石头的价值
+        synthesized = [a + b for a, b in zip(aliceValues, bobValues)]
+
+        # 将合成后的石头按照总价值降序排序
+        synthesized.sort(key=lambda p: -p)
+
+        # 计算 Alice 的得分
+        ret = sum(synthesized[::2]) - sum(bobValues)
+
+        # 根据得分结果返回相应的值
+        if ret == 0:
+            return ret
+        return 1 if ret > 0 else -1
+
+```
+
 
 ## 动态规划
 #### Extra Characters in a String
