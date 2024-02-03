@@ -24,9 +24,10 @@ tags:
     - [Minimum Additions to Make Valid String](#minimum-additions-to-make-valid-string)
     - [Minimum Time to Make Array Sum At Most x](#minimum-time-to-make-array-sum-at-most-x)
     - [Freedom Trail](#freedom-trail)
+    - [](#-2)
 - [二分法](#二分法)
     - [Split Array Largest Sum](#split-array-largest-sum)
-    - [](#-2)
+    - [](#-3)
 - [位运算](#位运算)
     - [Maximum Rows Covered by Columns](#maximum-rows-covered-by-columns)
     - [Sum of Values at Indices With K Set Bits](#sum-of-values-at-indices-with-k-set-bits)
@@ -37,7 +38,7 @@ tags:
 - [Pending](#pending)
     - [Removing Minimum Number of Magic Beans](#removing-minimum-number-of-magic-beans)
     - [Water and Jug Problem](#water-and-jug-problem)
-    - [](#-3)
+    - [](#-4)
 
 
 ## 链表
@@ -675,6 +676,93 @@ class Solution:
 
         # 返回最小步数
         return min(dp[-1]) + len_key
+```
+
+#### 
+```go
+// stoneGameVII 解决石子游戏 VII 问题
+//
+// 问题描述：
+//   给定一个数组 stones ，表示石头的值。两位玩家轮流执行操作，每次可以移除 1 到 3 颗石头。
+//   每位玩家的目标是移除石头的总和最大。如果玩家 A 和玩家 B 都发挥出最佳水平，返回玩家 A 的分数减去玩家 B 的分数。
+//
+// 思路：
+//   prefixSum[i]表示前i块石头的总价值，
+//   dfs[i][j] 表示 表示剩余石子从 stones[i] 到 stones[j] 先手得分减去后手得分的最大值。
+//   状态转移方程：dfs(i,j)=max(s[j+1]−s[i+1]−dfs(i+1,j), s[j]−s[i]−dfs(i,j−1))
+//   记忆化搜索：定义一个二维数组 memo 存储已经计算过的结果，减少重复计算。
+// 
+// Note：
+//
+func stoneGameVII(stones []int) int {
+	n := len(stones)
+
+	// 计算前缀和数组
+	prefixSum := make([]int, n+1)
+	for i := 1; i < n+1; i++ {
+		prefixSum[i] = prefixSum[i-1] + stones[i-1]
+	}
+
+	// 初始化记忆数组
+	memo := make([][]int, n)
+	for i := range memo {
+		memo[i] = make([]int, n)
+	}
+
+	// 递归函数，计算当前玩家与对手的最大分差
+	var dfs func(int, int) int
+	dfs = func(i, j int) int {
+		if i == j {
+			return 0
+		}
+		if memo[i][j] == 0 {
+			// 计算当前玩家选择移除左端或右端石头的情况，选择使得分差最大的方案
+			memo[i][j] = max(prefixSum[j+1]-prefixSum[i+1]-dfs(i+1, j), prefixSum[j]-prefixSum[i]-dfs(i, j-1))
+		}
+
+		return memo[i][j]
+	}
+
+	// 返回结果
+	return dfs(0, n-1)
+}
+```
+
+```go
+// 进一步升级为dp
+// 思路：
+//   - 使用动态规划求解，定义dp数组表示在给定区间内两个玩家的最大分数差值。
+//
+// Note：
+//   - 如何思考循环顺序？什么时候要正序枚举，什么时候要倒序枚举？
+//     盯着状态转移方程，想一想，要计算 f[i][j]f[i][j]f[i][j]，其一，必须先把 f[i+1][j]f[i+1][j]f[i+1][j] 算出来，那么只有 iii 从大到小枚举才能做到；其二，必须先把 f[i][j−1]f[i][j-1]f[i][j−1] 算出来，那么对于内层循环，只有 jjj 从小到大枚举才能做到。
+//
+func stoneGameVII(stones []int) int {
+	n := len(stones)
+
+	// 计算前缀和
+	prefixSum := make([]int, n+1)
+	for i := 1; i <= n; i++ {
+		prefixSum[i] = prefixSum[i-1] + stones[i-1]
+	}
+
+	// 初始化动态规划数组
+	dp := make([][]int, n)
+	for i := range dp {
+		dp[i] = make([]int, n)
+	}
+
+	// 动态规划计算最大分数差值
+	for i := n - 1; i >= 0; i-- {
+		for j := i + 1; j < n; j++ { // TODO： 为什么是从i+1
+			dp[i][j] = 
+            max(prefixSum[j+1]-prefixSum[i+1]-dp[i+1][j], prefixSum[j]-prefixSum[i]-dp[i][j-1])
+		}
+	}
+
+	return dp[0][n-1]
+}
+
 ```
 
 
