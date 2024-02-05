@@ -24,10 +24,11 @@ tags:
     - [Minimum Additions to Make Valid String](#minimum-additions-to-make-valid-string)
     - [Minimum Time to Make Array Sum At Most x](#minimum-time-to-make-array-sum-at-most-x)
     - [Freedom Trail](#freedom-trail)
-    - [](#-2)
+    - [stoneGameVII](#stonegamevii)
+    - [Jump Game VI](#jump-game-vi)
 - [二分法](#二分法)
     - [Split Array Largest Sum](#split-array-largest-sum)
-    - [](#-3)
+    - [](#-2)
 - [位运算](#位运算)
     - [Maximum Rows Covered by Columns](#maximum-rows-covered-by-columns)
     - [Sum of Values at Indices With K Set Bits](#sum-of-values-at-indices-with-k-set-bits)
@@ -38,7 +39,7 @@ tags:
 - [Pending](#pending)
     - [Removing Minimum Number of Magic Beans](#removing-minimum-number-of-magic-beans)
     - [Water and Jug Problem](#water-and-jug-problem)
-    - [](#-4)
+    - [](#-3)
 
 
 ## 链表
@@ -678,7 +679,7 @@ class Solution:
         return min(dp[-1]) + len_key
 ```
 
-#### 
+#### stoneGameVII 
 ```go
 // stoneGameVII 解决石子游戏 VII 问题
 //
@@ -763,6 +764,64 @@ func stoneGameVII(stones []int) int {
 	return dp[0][n-1]
 }
 
+```
+
+#### Jump Game VI
+```java
+/**
+ * 1696. Jump Game VI
+ * 问题描述：
+ * 给定一个0索引的整数数组 nums 和一个整数 k。
+ * 初始时，你站在索引 0 处。在一次移动中，你最多可以向前跳跃 k 步，但不能超出数组边界。
+ * 换句话说，你可以从索引 i 跳到范围 [i + 1, min(n - 1, i + k)] 内的任何索引。
+ * 你希望到达数组的最后一个索引（索引 n - 1）。你的得分是访问数组中每个索引 j 时 nums[j] 的总和。
+ * 返回你可以获得的最大得分。
+ * 
+ * 思路：
+ * 使用动态规划和优先队列（堆）来解决问题。维护一个动态规划数组 dp，表示到达每个位置的最大得分。
+ * 使用优先队列来保存当前能够到达的位置及其得分，保证每次取出的位置都是得分最高的。
+ * 
+ * Note: 
+ * 还可以用单调队列来优化dp
+ * 
+ */
+class Solution {
+    
+    /**
+     * 计算最大得分
+     * 
+     * @param nums 给定的整数数组
+     * @param k 最大跳跃步数
+     * @return 最大得分
+     */
+    public int maxResult(int[] nums, int k) {
+        int len = nums.length;
+
+        int[] dp = new int[len];
+        dp[0] = nums[0];
+
+        // 使用优先队列，按得分从高到低排序
+        PriorityQueue<int[]> heap = new PriorityQueue<>((a, b) -> b[0] - a[0]);
+        heap.add(new int[]{dp[0], 0});
+
+        // 遍历数组
+        for (int i = 1; i < len; i++) {
+            // 移除超出跳跃范围的位置
+            while (heap.peek()[1] + k < i) {
+                heap.poll();
+            }
+
+            // 计算当前位置的最大得分
+            dp[i] = heap.peek()[0] + nums[i];
+
+            // 将当前位置及得分加入优先队列
+            heap.add(new int[]{dp[i], i});
+        }
+
+        // 返回最终的最大得分
+        return dp[len - 1];
+    }
+}
 ```
 
 
