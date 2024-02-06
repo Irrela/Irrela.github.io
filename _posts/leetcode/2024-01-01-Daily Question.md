@@ -17,8 +17,9 @@ tags:
   - [Medium](#medium-2)
     - [Construct String With Repeat Limit](#construct-string-with-repeat-limit)
     - [1599. Maximum Profit of Operating a Centennial Wheel](#1599-maximum-profit-of-operating-a-centennial-wheel)
-    - [](#)
-    - [](#-1)
+    - [Maximum Swap](#maximum-swap)
+    - [stoneGameVI](#stonegamevi)
+    - [魔塔游戏](#魔塔游戏)
 - [动态规划](#动态规划)
     - [Extra Characters in a String](#extra-characters-in-a-string)
     - [Minimum Additions to Make Valid String](#minimum-additions-to-make-valid-string)
@@ -28,7 +29,7 @@ tags:
     - [Jump Game VI](#jump-game-vi)
 - [二分法](#二分法)
     - [Split Array Largest Sum](#split-array-largest-sum)
-    - [](#-2)
+    - [Maximum Number of Alloys](#maximum-number-of-alloys)
 - [位运算](#位运算)
     - [Maximum Rows Covered by Columns](#maximum-rows-covered-by-columns)
     - [Sum of Values at Indices With K Set Bits](#sum-of-values-at-indices-with-k-set-bits)
@@ -39,7 +40,7 @@ tags:
 - [Pending](#pending)
     - [Removing Minimum Number of Magic Beans](#removing-minimum-number-of-magic-beans)
     - [Water and Jug Problem](#water-and-jug-problem)
-    - [](#-3)
+    - [Minimum Seconds to Equalize a Circular Array](#minimum-seconds-to-equalize-a-circular-array)
 
 
 ## 链表
@@ -354,9 +355,10 @@ class Solution:
         return max_profit_operations if max_profit_operations > 0 else -1
 ```
 
-#### 
+#### Maximum Swap
 ```py
 """
+670. Maximum Swap
 # 问题描述 
 给定一个整数 num，最多可以交换两个数字一次，以获取最大的可能值。
 
@@ -419,7 +421,7 @@ class Solution:
         return ret
 ```
 
-####
+#### stoneGameVI
 ```py
 from typing import List
 
@@ -470,6 +472,60 @@ class Solution:
 
 ```
 
+#### 魔塔游戏
+```py
+from typing import List
+import heapq
+
+class Solution:
+    def magicTower(self, nums: List[int]) -> int:
+        """
+        LCP 30. 魔塔游戏
+        # 问题描述
+        小扣当前位于魔塔游戏第一层，共有 N 个房间，编号为 0 ~ N-1。每个房间的补血道具/怪物对于血量影响记于数组 nums，其中正数表示道具补血数值，即血量增加对应数值；
+        负数表示怪物造成伤害值，即血量减少对应数值；0 表示房间对血量无影响。
+
+        小扣初始血量为 1，且无上限。假定小扣原计划按房间编号升序访问所有房间补血/打怪，为保证血量始终为正值，小扣需对房间访问顺序进行调整，每次仅能将一个怪物房间（负数的房间）调整至访问顺序末尾。
+        请返回小扣最少需要调整几次，才能顺利访问所有房间。若调整顺序也无法访问完全部房间，请返回 -1。
+
+        # 思路
+         - 使用优先队列（最小堆）来保存怪物的血量变化，每次选择最小的怪物，将其放到最后，确保当前血量最小
+         - 如果当前血量小于等于 0，说明当前小扣可能无法通过当前房间，需要调整访问顺序
+         - 调整的原则是将最小的怪物移到最后，同时更新当前血量
+         - 返回调整的次数
+
+        # Note
+        - 使用 heapq 来实现最小堆，heappush 和 heappop 分别用于插入和弹出最小元素
+        """
+
+        n = len(nums)
+        score = 1
+        ret = 0
+        min_heap = []
+
+        # 如果所有房间的数值和小于 0，则无法访问完全部房间
+        if sum(nums) < 0:
+            return -1
+
+        for i in range(n):
+            # 如果当前房间数值为负数，将其加入最小堆
+            if nums[i] < 0:
+                heapq.heappush(min_heap, nums[i])
+
+            # 更新当前血量
+            score += nums[i]
+
+            # 如果当前血量小于 1，需要调整顺序
+            if score < 1:
+                # 弹出最小堆中最小的负数，将其加回到数组末尾
+                cur_min = heapq.heappop(min_heap)
+                score -= cur_min
+                nums.append(cur_min)
+                n += 1
+                ret += 1
+
+        return ret
+```
 
 ## 动态规划
 #### Extra Characters in a String
@@ -892,9 +948,11 @@ class Solution:
 
         return True
 ```
-#### 
+
+#### Maximum Number of Alloys
 ```py
 """
+2861. Maximum Number of Alloys
 # 问题描述 
 你是一家公司的老板，该公司使用不同类型的金属制作合金。有 n 种不同类型的金属，你可以使用 k 台机器来制作合金。每台机器需要使用每种金属的特定数量来制作一个合金。
 
@@ -1330,13 +1388,14 @@ class Solution:
 ```
 
 
-####
+#### Minimum Seconds to Equalize a Circular Array
 ```py
 from typing import List
 
 class Solution:
     def minimumSeconds(self, nums: List[int]) -> int:
         """
+        2808. Minimum Seconds to Equalize a Circular Array
         # 问题描述
         给定一个包含n个整数的数组nums（下标从0开始）。
         每秒钟，你需要对数组执行以下操作：
