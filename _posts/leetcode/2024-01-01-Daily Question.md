@@ -14,7 +14,7 @@ tags:
     - [Remove Nodes From Linked List](#remove-nodes-from-linked-list-1)
     - [Beautiful Towers I](#beautiful-towers-i)
 - [DFS](#dfs)
-    - [](#)
+    - [Cousins in Binary Tree](#cousins-in-binary-tree)
     - [Lowest Common Ancestor of a Binary Tree](#lowest-common-ancestor-of-a-binary-tree)
 - [BFS](#bfs)
     - [Cousins in Binary Tree II](#cousins-in-binary-tree-ii)
@@ -241,9 +241,11 @@ class Solution:
 
 ```
 ## DFS
-####
+#### Cousins in Binary Tree
 ```py
 """
+993. Cousins in Binary Tree
+
 # 问题描述
 给定一棵具有唯一值的二叉树的根节点以及树中两个不同节点的值 x 和 y，如果树中对应于值 x 和 y 的节点是堂兄弟节点，则返回 True；否则，返回 False。
 在二叉树中，两个节点是堂兄弟节点是指它们具有相同的深度，但是它们的父节点不同。
