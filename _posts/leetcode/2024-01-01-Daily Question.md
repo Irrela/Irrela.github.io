@@ -13,6 +13,11 @@ tags:
   - [Medium](#medium-1)
     - [Remove Nodes From Linked List](#remove-nodes-from-linked-list-1)
     - [Beautiful Towers I](#beautiful-towers-i)
+- [DFS](#dfs)
+    - [](#)
+    - [Lowest Common Ancestor of a Binary Tree](#lowest-common-ancestor-of-a-binary-tree)
+- [BFS](#bfs)
+    - [Cousins in Binary Tree II](#cousins-in-binary-tree-ii)
 - [贪心](#贪心)
   - [Medium](#medium-2)
     - [Construct String With Repeat Limit](#construct-string-with-repeat-limit)
@@ -234,6 +239,164 @@ class Solution:
 
         return ret
 
+```
+## DFS
+####
+```py
+"""
+# 问题描述
+给定一棵具有唯一值的二叉树的根节点以及树中两个不同节点的值 x 和 y，如果树中对应于值 x 和 y 的节点是堂兄弟节点，则返回 True；否则，返回 False。
+在二叉树中，两个节点是堂兄弟节点是指它们具有相同的深度，但是它们的父节点不同。
+
+# 思路
+- 首先，我们需要遍历整棵二叉树来确定给定值 x 和 y 的深度以及它们的父节点。
+- 接着，我们可以在遍历的过程中检查节点是否为堂兄弟节点，即它们的深度相同但父节点不同。
+
+# Note
+- 在二叉树中，根节点的深度为 0，每个深度为 k 的节点的子节点的深度为 k + 1。
+"""
+
+class Solution:
+    def isCousins(self, root: Optional[TreeNode], x: int, y: int) -> bool:
+        depth_x, depth_y = -1, -1
+
+        def dfs(node: Optional[TreeNode], x: int, y: int, cur_depth: int):
+            nonlocal depth_x, depth_y
+
+            if not node:
+                return 
+
+            if node.left and node.right:
+                if node.left.val == x and node.right.val == y:
+                    return False
+
+                if node.right.val == x and node.left.val == y:
+                    return False
+
+            if (node.left and node.left.val == x) or (node.right and node.right.val == x):
+                depth_x = cur_depth+1
+
+            if (node.left and node.left.val == y) or (node.right and node.right.val == y):
+                depth_y = cur_depth+1
+
+            dfs(node.left, x, y, cur_depth+1)
+            dfs(node.right, x, y, cur_depth+1)
+
+        dfs(root, x, y, 0)
+
+        if depth_x == -1 or depth_y == -1:
+            return False
+
+        return depth_x == depth_y
+```
+
+#### Lowest Common Ancestor of a Binary Tree
+```py
+236. Lowest Common Ancestor of a Binary Tree
+# 问题描述 
+"""
+给定一个二叉树，找到两个给定节点在树中的最低共同祖先（LCA）。
+
+根据维基百科对LCA的定义：“最低共同祖先被定义为树中具有p和q作为后代的最低节点（其中我们允许一个节点是其自身的后代）。”
+"""
+
+# 思路 
+"""
+- 如果当前节点时p或q，返回当前节点（重要，这是递归下层目标节点向上的步骤）
+- dfs左右子树结果，如果分别是p和q，则当前节点就是lca
+- 如果当前节点只包含一个目标节点，说明最低共同祖先在另一侧，返回另一边的dfs结果
+"""
+
+# Note 
+"""
+- 时间复杂度：O(N)，其中N为二叉树的节点数，因为我们需要遍历整个二叉树。
+- 空间复杂度：O(H)，其中H为二叉树的高度，递归调用的栈空间。
+"""
+
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        
+        def dfs(node: 'TreeNode'):
+            if not node: 
+                return None
+
+            if node.val == p.val or node.val == q.val:
+                return node
+
+            foundLeft = dfs(node.left)
+            foundRight = dfs(node.right)
+
+            if foundLeft and foundRight:
+                return node
+
+            return foundLeft if foundLeft else foundRight
+
+        return dfs(root)
+
+```
+
+## BFS
+#### Cousins in Binary Tree II
+```py
+class Solution:
+    def replaceValueInTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        """
+        2641. Cousins in Binary Tree II
+        问题描述：
+        给定二叉树的根节点，将树中每个节点的值替换为其所有堂兄弟节点值的总和。
+        二叉树中的两个节点如果具有相同的深度但不同的父节点，则它们是堂兄弟节点。
+        返回修改后的树的根节点。
+
+        注意，节点的深度是从根节点到它的路径中的边数。
+        
+        思路：
+        1. 首先使用层次遍历，计算每个深度上节点值的总和，存储在字典中。
+        2. 然后再次进行层次遍历，逐个更新每个节点的值为其所有堂兄弟节点值的总和。
+        
+        Note：
+        这里使用字典存储每个深度的节点值总和，以便后续遍历过程中能够快速获取到堂兄弟节点的值。
+        """
+        if not root:
+            return None
+
+        queue = deque([root])
+        depth_sum_map = {0: root.val}
+        depth = 0
+
+        # 计算每个深度上节点值的总和
+        while queue:
+            depth += 1
+            depth_size = len(queue)
+            depth_sum = 0
+            for _ in range(depth_size):
+                node = queue.popleft()
+                if node.left:
+                    queue.append(node.left)
+                    depth_sum += node.left.val
+                if node.right:
+                    queue.append(node.right)
+                    depth_sum += node.right.val
+            depth_sum_map[depth] = depth_sum
+
+        # 更新每个节点的值为其所有堂兄弟节点值的总和
+        queue.append(root)
+        while queue:
+            depth_size = len(queue)
+            for _ in range(depth_size):
+                node = queue.popleft()
+                left_val = node.left.val if node.left else 0
+                right_val = node.right.val if node.right else 0
+                if node.left:
+                    queue.append(node.left)
+                    node.left.val = depth_sum_map[depth + 1] - left_val - right_val
+                if node.right:
+                    queue.append(node.right)
+                    node.right.val = depth_sum_map[depth + 1] - left_val - right_val
+
+        # 更新根节点的值为0
+        root.val = 0
+
+        return root
 ```
 
 ## 贪心
