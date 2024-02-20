@@ -14,7 +14,7 @@ tags:
     - [Remove Nodes From Linked List](#remove-nodes-from-linked-list-1)
     - [Beautiful Towers I](#beautiful-towers-i)
 - [递归 Recursion](#递归-recursion)
-    - [](#)
+    - [Construct Binary Tree from Preorder and Inorder Traversal](#construct-binary-tree-from-preorder-and-inorder-traversal)
 - [DFS](#dfs)
     - [Cousins in Binary Tree](#cousins-in-binary-tree)
     - [Lowest Common Ancestor of a Binary Tree](#lowest-common-ancestor-of-a-binary-tree)
@@ -244,9 +244,10 @@ class Solution:
 ```
 
 ## 递归 Recursion
-####
+#### Construct Binary Tree from Preorder and Inorder Traversal
 ```py
 """
+105. Construct Binary Tree from Preorder and Inorder Traversal
 # 问题描述 
 给定两个整数数组 preorder 和 inorder，其中 preorder 是二叉树的前序遍历，inorder 是二叉树的中序遍历。构建并返回该二叉树。
 
