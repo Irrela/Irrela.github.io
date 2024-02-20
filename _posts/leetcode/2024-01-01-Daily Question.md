@@ -13,6 +13,8 @@ tags:
   - [Medium](#medium-1)
     - [Remove Nodes From Linked List](#remove-nodes-from-linked-list-1)
     - [Beautiful Towers I](#beautiful-towers-i)
+- [递归 Recursion](#递归-recursion)
+    - [](#)
 - [DFS](#dfs)
     - [Cousins in Binary Tree](#cousins-in-binary-tree)
     - [Lowest Common Ancestor of a Binary Tree](#lowest-common-ancestor-of-a-binary-tree)
@@ -240,6 +242,71 @@ class Solution:
         return ret
 
 ```
+
+## 递归 Recursion
+####
+```py
+"""
+# 问题描述 
+给定两个整数数组 preorder 和 inorder，其中 preorder 是二叉树的前序遍历，inorder 是二叉树的中序遍历。构建并返回该二叉树。
+
+ - preOrder的结构是[curNode, [leftTree...], [rightTree...]]
+ - inOrder的结构是[[leftTree...], curNode, [rightTree...]]
+ - postOrder的结构是[[leftTree...], [rightTree...], curNode]
+
+# 思路 
+ - 建立中序遍历值和index的映射方便根据值查找其中序遍历index
+ - 根据前序遍历确定根节点
+ - 递归函数构建子树，返回子树根节点
+
+# Note 
+ - 前序遍历的第一个节点为根节点
+ - recur函数的推出条件非常重要，处理左右子树为空的各种情况
+ - 在中序遍历中，根节点左边的节点为左子树，右边的节点为右子树
+"""
+
+class Solution:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        if len(preorder) == 0:
+            return None
+
+        self.preorder = preorder
+        self.inorder_map = dict()
+        for index, node_val in enumerate(inorder):
+            self.inorder_map[node_val] = index
+
+        return self.recur(0, len(preorder) - 1, 0)
+
+        
+    def recur(self, start_idx_pre, end_idx_pre, start_idx_in):
+        """
+        递归构一个子树，返回子树根节点
+
+        @param start_idx_pre: 当前子树在前序遍历中的起始索引
+        @param end_idx_pre: 当前子树在前序遍历中的结束索引
+        @param start_idx_in: 当前子树在中序遍历中的起始索引
+        @return: 构建好的当前子树的根节点
+        """
+
+        # 推出条件非常重要！！！， 这样写可以对应左右子树为空的边界情况
+        if start_idx_pre > end_idx_pre:
+            return None
+        
+        node_idx_pre = start_idx_pre
+        node = TreeNode(self.preorder[node_idx_pre])
+        node_idx_in = self.inorder_map[node.val]
+        
+        left_size = node_idx_in - start_idx_in
+
+        node.left = self.recur(node_idx_pre + 1, node_idx_pre + left_size, start_idx_in)
+        node.right = self.recur(node_idx_pre + left_size + 1, end_idx_pre, node_idx_in + 1)
+
+        return node
+```
+
+
+
+
 ## DFS
 #### Cousins in Binary Tree
 ```py
