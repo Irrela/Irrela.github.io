@@ -15,6 +15,7 @@ tags:
     - [Beautiful Towers I](#beautiful-towers-i)
 - [递归 Recursion](#递归-recursion)
     - [Construct Binary Tree from Preorder and Inorder Traversal](#construct-binary-tree-from-preorder-and-inorder-traversal)
+    - [Construct Binary Tree from Inorder and Postorder Traversal](#construct-binary-tree-from-inorder-and-postorder-traversal)
 - [DFS](#dfs)
     - [Cousins in Binary Tree](#cousins-in-binary-tree)
     - [Lowest Common Ancestor of a Binary Tree](#lowest-common-ancestor-of-a-binary-tree)
@@ -305,7 +306,78 @@ class Solution:
         return node
 ```
 
+#### Construct Binary Tree from Inorder and Postorder Traversal
+```py
+"""
+106. Construct Binary Tree from Inorder and Postorder Traversal
+# 问题描述 
+从中序和后序遍历构建二叉树
 
+ - preOrder的结构是[curNode, [leftTree...], [rightTree...]]
+ - inOrder的结构是[[leftTree...], curNode, [rightTree...]]
+ - postOrder的结构是[[leftTree...], [rightTree...], curNode]
+
+# 思路 
+ - 建立中序遍历值和index的映射方便根据值查找其中序遍历index
+ - 根据前序遍历确定根节点
+ - 递归函数构建子树，返回子树根节点
+
+"""
+class Solution:
+    def buildTree(self, inorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
+        if len(inorder) == 0:
+            return None
+        
+        self.postorder = postorder
+        self.inorder_map = dict()
+        for index, val in enumerate(inorder):
+            self.inorder_map[val] = index
+
+        return self.recur(len(postorder) - 1, 0, len(postorder) - 1)
+
+    def recur(self, end_pos, start_pos, end_in):
+        if start_pos > end_pos:
+            return None
+
+        node_pos = end_pos
+        node = TreeNode(self.postorder[node_pos])
+        node_in = self.inorder_map[node.val]
+
+        right_size = end_in - node_in
+        node.left = self.recur(end_pos - right_size - 1, start_pos, node_in - 1)
+        node.right = self.recur(end_pos - 1, end_pos - right_size, end_in)
+
+        return node
+```
+
+recur 四参数版本，不会有递归超深度问题。
+```py
+class Solution:
+    def buildTree(self, inorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
+        if len(inorder) == 0:
+            return None
+        
+        self.postorder = postorder
+        self.inorder_map = dict()
+        for index, val in enumerate(inorder):
+            self.inorder_map[val] = index
+
+        return self.recur(0, len(postorder) - 1, 0, len(inorder) - 1)
+
+    def recur(self, start_pos, end_pos, start_in, end_in):
+        if start_pos > end_pos or start_in > end_in:
+            return None
+
+        node_pos = end_pos
+        node = TreeNode(self.postorder[node_pos])
+        node_in = self.inorder_map[node.val]
+
+        left_size = node_in - start_in
+        node.left = self.recur(start_pos, start_pos + left_size - 1, start_in, node_in - 1)
+        node.right = self.recur(start_pos + left_size, end_pos - 1, node_in + 1, end_in)
+
+        return node
+```
 
 
 ## DFS
