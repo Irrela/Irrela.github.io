@@ -16,6 +16,7 @@ tags:
 - [递归 Recursion](#递归-recursion)
     - [Construct Binary Tree from Preorder and Inorder Traversal](#construct-binary-tree-from-preorder-and-inorder-traversal)
     - [Construct Binary Tree from Inorder and Postorder Traversal](#construct-binary-tree-from-inorder-and-postorder-traversal)
+    - [Construct Binary Tree from Preorder and Postorder Traversal](#construct-binary-tree-from-preorder-and-postorder-traversal)
 - [DFS](#dfs)
     - [Cousins in Binary Tree](#cousins-in-binary-tree)
     - [Lowest Common Ancestor of a Binary Tree](#lowest-common-ancestor-of-a-binary-tree)
@@ -375,6 +376,82 @@ class Solution:
         left_size = node_in - start_in
         node.left = self.recur(start_pos, start_pos + left_size - 1, start_in, node_in - 1)
         node.right = self.recur(start_pos + left_size, end_pos - 1, node_in + 1, end_in)
+
+        return node
+```
+
+
+#### Construct Binary Tree from Preorder and Postorder Traversal
+```py
+class Solution:
+    """
+    889. Construct Binary Tree from Preorder and Postorder Traversal
+
+    # 问题描述
+    给定两个整数数组，preorder 和 postorder，其中preorder是二叉树的先序遍历，postorder是相同树的后序遍历。重构并返回二叉树。
+
+    # 思路 
+    - 通过先序遍历序列找到根节点
+    - 使用后序遍历序列找到左右子树的分割点
+    - 递归地构建左右子树
+    """
+
+    def constructFromPrePost(self, preorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
+        """
+        构建二叉树
+
+        Args:
+            preorder: 先序遍历序列
+            postorder: 后序遍历序列
+
+        Returns:
+            重建的二叉树的根节点
+        """
+        if len(preorder) == 0:
+            return None
+
+        self.preorder = preorder
+        self.post_map = dict()
+
+        # 构建后序遍历序列中值到索引的映射
+        for index, val in enumerate(postorder):
+            self.post_map[val] = index
+
+        return self.recur(0, len(preorder)-1, 0, len(postorder)-1)
+
+    def recur(self, start_pre, end_pre, start_post, end_post):
+        """
+        递归地构建二叉树
+
+        Args:
+            start_pre: 先序遍历序列的起始索引
+            end_pre: 先序遍历序列的结束索引
+            start_post: 后序遍历序列的起始索引
+            end_post: 后序遍历序列的结束索引
+
+        Returns:
+            重建的二叉树的根节点
+        """
+        # 如果起始索引大于结束索引，则返回None
+        if end_pre < start_pre or end_post < start_post:
+            return None        
+
+        # 如果序列中只有一个元素，则创建并返回对应的树节点
+        if end_pre == start_pre or end_post == start_post:
+            return TreeNode(self.preorder[start_pre])
+
+        # 创建当前节点
+        node = TreeNode(self.preorder[start_pre])
+
+        # 计算左子树的大小
+        left_pre = start_pre + 1
+        if left_pre >= len(self.preorder):
+            return node
+        left_size = self.post_map[self.preorder[left_pre]] - start_post + 1
+
+        # 递归构建左右子树
+        node.left = self.recur(left_pre, left_pre + left_size - 1, start_post, start_post + left_size - 1)
+        node.right = self.recur(left_pre + left_size, end_pre, start_post + left_size, end_post - 1)
 
         return node
 ```
