@@ -14,6 +14,7 @@ tags:
     - [Remove Nodes From Linked List](#remove-nodes-from-linked-list-1)
     - [Beautiful Towers I](#beautiful-towers-i)
 - [递归 Recursion](#递归-recursion)
+    - [](#)
     - [Construct Binary Tree from Preorder and Inorder Traversal](#construct-binary-tree-from-preorder-and-inorder-traversal)
     - [Construct Binary Tree from Inorder and Postorder Traversal](#construct-binary-tree-from-inorder-and-postorder-traversal)
     - [Construct Binary Tree from Preorder and Postorder Traversal](#construct-binary-tree-from-preorder-and-postorder-traversal)
@@ -246,6 +247,75 @@ class Solution:
 ```
 
 ## 递归 Recursion
+
+####
+```py
+class Solution:
+    """
+    # 问题描述 
+    给定二叉搜索树的根节点和一个由正整数组成的大小为n的数组queries。
+    找到大小为n的二维数组answer，其中answer[i] = [mini, maxi]：
+    mini是树中小于或等于queries[i]的最大值。如果这样的值不存在，则将-1添加到数组中。
+    maxi是树中大于或等于queries[i]的最小值。如果这样的值不存在，则将-1添加到数组中。
+    返回数组answer。
+    
+    # 思路 
+     - 中序遍历BST，得到有序Arr
+     - 对于每个查询值，在有序数组中执行二分查找
+    """
+
+    def closestNodes(self, root: Optional[TreeNode], queries: List[int]) -> List[List[int]]:
+        if not root:
+            return []
+
+        sorted_arr = []  # 存放树节点值的有序数组
+        ret = []  # 存放查询结果的列表
+
+        # 中序遍历
+        def dfs(node):
+            if not node:
+                return
+            nonlocal sorted_arr
+            dfs(node.left)
+            sorted_arr.append(node.val)
+            dfs(node.right)
+
+        # 在有序数组中执行二分查找，最后一个小于等于target的index
+        def binary_search_less(arr, target):
+            lo, hi = 0, len(arr) - 1
+            
+            while lo <= hi:
+                mid = lo + (hi - lo) // 2
+                if arr[mid] < target:
+                    lo = mid + 1
+                elif arr[mid] > target:
+                    hi = mid - 1
+                else:
+                    lo = mid + 1
+            return hi if hi >= 0 else -1
+
+        dfs(root)  # 执行深度优先遍历
+
+        # 对于每个查询值，在有序数组中执行二分查找并确定结果
+        for target in queries:
+            left = binary_search_less(sorted_arr, target)
+            if left == -1:  # 如果找不到小于查询值的节点，则结果为-1和第一个节点值
+                ret.append([-1, sorted_arr[0]])
+                continue
+
+            if target == sorted_arr[left]:  # 如果找到查询值，前后都是该值
+                ret.append([target, target])
+                continue
+            
+            # 如果找不到大于的值取-1
+            right_val = -1 if left == len(sorted_arr) - 1 else sorted_arr[left + 1]
+            # 常规情况： 左右为严格小和严格大
+            ret.append([sorted_arr[left], right_val])
+
+        return ret
+
+```
+
 #### Construct Binary Tree from Preorder and Inorder Traversal
 ```py
 """
