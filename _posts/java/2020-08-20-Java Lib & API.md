@@ -6,7 +6,6 @@ tags:
 ---
 
 - [算法](#算法)
-  - [欧拉筛](#欧拉筛)
   - [partition函数](#partition函数)
   - [gcd lcm](#gcd-lcm)
   - [排序](#排序)
@@ -49,36 +48,6 @@ tags:
   - [内部类](#内部类)
 
 ## 算法
-### 欧拉筛
-```java
-private List<Integer> eula(int n) {
-    List<Integer> res = new ArrayList<>();
-    boolean[] isPrime = new boolean[n + 1];
-
-    int count = 0;
-
-    for(int i = 2; i <= n; i++) {
-        if(!isPrime[i]) {
-            res.add(i);
-            count++;
-        }
-        
-        for(int j = 0; j < count; j++) {
-            if(i * res.get(j) > n) {
-                break;
-            }
-
-            isPrime[i * res.get(j)] = true;
-
-            if(i % res.get(j) == 0) {
-                break;
-            }
-        }
-    }
-    return res;
-}
-```
-
 ### partition函数
 ```java
 private int partition(arr,left,right) {

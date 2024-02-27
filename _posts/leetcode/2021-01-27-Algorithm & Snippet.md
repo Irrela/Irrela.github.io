@@ -6,6 +6,9 @@ tags:
 ---
 
 - [Common Snippet](#common-snippet)
+  - [找素数](#找素数)
+    - [埃氏筛](#埃氏筛)
+    - [欧拉筛(线性筛)](#欧拉筛线性筛)
   - [GCD](#gcd)
   - [Stack, Queue, Heap](#stack-queue-heap)
   - [Reverse Linked List](#reverse-linked-list)
@@ -81,6 +84,90 @@ tags:
 
 
 # Common Snippet
+## 找素数
+### 埃氏筛
+```py
+def sieve_of_eratosthenes(n):
+    """
+    使用埃氏筛法生成小于等于n的所有素数。
+
+    参数：
+        n: 整数，生成素数的上界。
+
+    返回：
+        一个列表，包含小于等于n的所有素数。
+
+    思路：
+        1. 创建一个布尔类型的数组，用来标记每个数是否是素数，初始都标记为True。
+        2. 从2开始，将2的倍数标记为非素数，直到大于n。
+        3. 对于每个未标记为非素数的数，将其倍数标记为非素数。
+        4. 最后，未被标记为非素数的数即为素数。
+
+    复杂度：
+        时间复杂度：O(n log log n)，空间复杂度：O(n)。
+    """
+    primes = [True] * (n + 1)  # 初始化一个标记素数的布尔数组
+    primes[0] = primes[1] = False  # 0和1不是素数
+
+    # 埃氏筛法：从2开始，将其倍数标记为非素数
+    for i in range(2, int(n ** 0.5) + 1):
+        if primes[i]:
+            for j in range(i * i, n + 1, i):
+                primes[j] = False
+
+    return [i for i in range(n + 1) if primes[i]]  # 收集素数并返回
+
+# 示例用法
+n = 100
+primes = sieve_of_eratosthenes(n)
+print(primes)
+```
+
+### 欧拉筛(线性筛)
+```py
+def sieve_of_euler(n):
+    """
+    使用欧拉筛法生成小于等于n的所有素数。
+
+    参数：
+        n: 整数，生成素数的上界。
+
+    返回：
+        一个列表，包含小于等于n的所有素数。
+
+    思路：
+        1. 创建一个布尔类型的数组，用来标记每个数是否是素数，初始都标记为True。
+        2. 遍历2到n的每个数，如果当前数是素数，则将其添加到素数列表中，并标记其倍数为非素数。
+        3. 对于每个数，遍历素数列表中的素数p，如果当前数是p的倍数，则将其标记为非素数。
+        4. 最后，未被标记为非素数的数即为素数。
+
+    复杂度：
+        时间复杂度：O(n log log n)，空间复杂度：O(n)。
+    """
+    primes = []  # 存放素数的列表
+    is_prime = [True] * (n + 1)  # 标记每个数是否为素数的布尔数组
+    is_prime[0] = is_prime[1] = False  # 0和1不是素数
+
+    # 欧拉筛法：遍历2到n的每个数
+    for i in range(2, n + 1):
+        if is_prime[i]:
+            primes.append(i)  # 将当前素数添加到素数列表中
+        # 遍历素数列表中的素数p，将当前数i的倍数标记为非素数
+        for p in primes:
+            if i * p > n:
+                break
+            is_prime[i * p] = False
+            if i % p == 0:
+                break
+
+    return primes
+
+# 示例用法
+n = 100
+primes = sieve_of_euler(n)
+print(primes)
+```
+
 ## GCD
 
 计算两个数的最大公约数（GCD）通常使用`欧几里得算法`，也称为`辗转相除法`。
