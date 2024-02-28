@@ -24,7 +24,7 @@ tags:
 - [BFS](#bfs)
     - [Cousins in Binary Tree II](#cousins-in-binary-tree-ii)
 - [贪心](#贪心)
-  - [Medium](#medium-2)
+    - [](#-1)
     - [Construct String With Repeat Limit](#construct-string-with-repeat-limit)
     - [1599. Maximum Profit of Operating a Centennial Wheel](#1599-maximum-profit-of-operating-a-centennial-wheel)
     - [Maximum Swap](#maximum-swap)
@@ -689,7 +689,56 @@ class Solution:
 ```
 
 ## 贪心
-### Medium
+
+#### 
+```py
+class Solution:
+    """
+    # 问题描述 
+    给定一个整数 n，表示由节点编号为 1 到 n 的节点组成的完全二叉树。树的根是节点 1，树中的每个节点 i 都有两个子节点，其中左子节点是节点 2*i，右子节点是 2*i+1。
+    树中的每个节点都有一个代价，由给定的大小为 n 的整数数组 cost 表示，其中 cost[i] 表示节点 i+1 的代价。你可以任意次数地将任意节点的代价增加 1。
+
+    返回使得从根节点到每个叶子节点的路径的代价相等所需的最小增量数。
+
+    注意：
+    - 完全二叉树是一棵每个节点（除了叶子节点）都有两个子节点的树。
+    - 路径的代价是路径上各节点代价之和。
+    """
+
+    def minIncrements(self, n: int, cost: List[int]) -> int:
+        """
+        计算最小增量数
+
+        # 思路 
+        - 从叶节点开始，比较每组兄弟节点，差值就是必须要要操作的
+        - 操作完后将大的那个值加到父节点的cost上
+        - 同样的方式处理父节点那一层，循环向上
+        """
+
+        start = (n + 1) // 2  # 从中间节点开始
+        ret = 0  # 最小增量数
+
+        # 从下向上，开始向上合并节点
+        while start >= 2:
+            # 遍历当前层的节点
+            for i in range(start, n, 2):
+                # 计算兄弟节点的代价差
+                diff = abs(cost[i - 1] - cost[i])
+                ret += diff  # 累加到最小增量数中
+
+                # 找出较大的代价
+                bigger = max(cost[i - 1], cost[i])
+
+                # 将较大的代价累加到父节点上
+                cost[i // 2 - 1] += bigger
+
+            # 缩小范围到上一层的中间节点
+            start //= 2
+            n //= 2
+
+        return ret
+```
+
 #### Construct String With Repeat Limit
 ```py
 """
