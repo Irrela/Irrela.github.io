@@ -47,6 +47,7 @@ tags:
   - [Count The Repetitions](#count-the-repetitions)
 - [并查集](#并查集)
     - [Minimum Edge Weight Equilibrium Queries in a Tree](#minimum-edge-weight-equilibrium-queries-in-a-tree)
+    - [2368. Reachable Nodes With Restrictions](#2368-reachable-nodes-with-restrictions)
 - [Pending](#pending)
     - [Removing Minimum Number of Magic Beans](#removing-minimum-number-of-magic-beans)
     - [Water and Jug Problem](#water-and-jug-problem)
@@ -1802,6 +1803,91 @@ class Solution:
             res[i] = totalCount - maxCount
 
         return res
+```
+
+#### 2368. Reachable Nodes With Restrictions
+
+![图解](https://assets.leetcode.com/uploads/2022/06/15/ex1drawio.png)
+
+```py
+# 并查集解法
+class UnionFind:
+    """
+    # 问题描述
+    本题要求在给定的无向树中，从节点 0 出发，不经过任何被限制的节点，最多能到达多少个节点。
+
+    # 思路
+     - 首先，我们可以使用并查集来处理节点之间的连接关系。
+     - 然后，遍历所有的边，将不受限制的节点进行合并。
+     - 最后，统计并返回从节点 0 出发可以到达的节点数量。
+    """
+    def __init__(self, n):
+        """
+        初始化并查集
+        """
+        self.f = list(range(n))  # 存储节点的父节点
+        self.rank = [0] * n  # 存储节点的秩（深度）
+
+    def merge(self, x, y):
+        """
+        将两个节点所在的集合合并
+        """
+        rx = self.find(x)
+        ry = self.find(y)
+        if rx != ry:
+            if self.rank[rx] > self.rank[ry]:
+                self.f[ry] = rx
+            elif self.rank[rx] < self.rank[ry]:
+                self.f[rx] = ry
+            else:
+                self.f[ry] = rx
+                self.rank[rx] += 1
+
+    def find(self, x):
+        """
+        查找节点 x 所属的集合的根节点，并进行路径压缩
+        """
+        if x != self.f[x]:
+            self.f[x] = self.find(self.f[x])
+        return self.f[x]
+
+    def count(self):
+        """
+        统计并返回集合中节点的数量
+        """
+        cnt = 0
+        rt = self.find(0)
+        for i in range(len(self.f)):
+            if rt == self.find(i):
+                cnt += 1
+        return cnt
+
+
+class Solution:
+    """
+    # 问题描述
+    本题要求在给定的无向树中，从节点 0 出发，不经过任何被限制的节点，最多能到达多少个节点。
+
+    # 思路
+     - 首先，我们可以使用并查集来处理节点之间的连接关系。
+     - 然后，遍历所有的边，将不受限制的节点进行合并。
+     - 最后，统计并返回从节点 0 出发可以到达的节点数量。
+    """
+    def reachableNodes(self, n: int, edges: List[List[int]], restricted: List[int]) -> int:
+        """
+        计算从节点 0 出发，不经过任何被限制的节点，最多能到达的节点数量
+        """
+        is_restricted = [0] * n
+        for x in restricted:
+            is_restricted[x] = 1
+
+        uf = UnionFind(n)
+        for v in edges:
+            if is_restricted[v[0]] or is_restricted[v[1]]:
+                continue
+            uf.merge(v[0], v[1])
+        return uf.count()
+
 ```
 
 ## Pending
