@@ -5,6 +5,8 @@ tags:
   - Leetcode
 ---
 
+- [队列，栈](#队列栈)
+    - [225. Implement Stack using Queues](#225-implement-stack-using-queues)
 - [链表](#链表)
   - [Medium](#medium)
     - [Remove Nodes From Linked List](#remove-nodes-from-linked-list)
@@ -52,6 +54,64 @@ tags:
     - [Removing Minimum Number of Magic Beans](#removing-minimum-number-of-magic-beans)
     - [Water and Jug Problem](#water-and-jug-problem)
     - [Minimum Seconds to Equalize a Circular Array](#minimum-seconds-to-equalize-a-circular-array)
+
+>> ![图解](https://pic.leetcode-cn.com/1644881496-veNnxl-2171.drawio%20(2).png)
+
+## 队列，栈
+#### 225. Implement Stack using Queues
+
+![图解](https://assets.leetcode-cn.com/solution-static/225/225_fig2.gif)
+
+```py
+class MyStack:
+    """
+    # 问题描述 
+    实现一个使用两个队列的后进先出（LIFO）栈。实现 MyStack 类：
+    - void push(int x) 将元素 x 压入栈顶。
+    - int pop() 移除并返回栈顶元素。
+    - int top() 返回栈顶元素。
+    - boolean empty() 如果栈是空的，返回 true ；否则，返回 false 。
+
+    # 思路 
+     - 使用两个队列模拟栈的操作。
+     - push 操作时，先将元素添加到队列中，然后将队列中原有的元素依次出队并入队，使得新添加的元素位于队列的头部，实现栈的后进先出效果。
+     - pop、top 操作直接对队列进行相应的操作即可。
+    """
+
+    def __init__(self):
+        self.queue = collections.deque()
+
+    def push(self, x: int) -> None:
+        """
+        将元素 x 压入栈顶
+        """
+        n = len(self.queue)
+
+        self.queue.append(x)
+
+        # 将队列中原有的元素依次出队并入队，使得新添加的元素位于队列的头部
+        for _ in range(n):
+            self.queue.append(self.queue.popleft())
+
+    def pop(self) -> int:
+        """
+        移除并返回栈顶元素
+        """
+        return self.queue.popleft() if self.queue else None
+
+    def top(self) -> int:
+        """
+        返回栈顶元素
+        """
+        return self.queue[0] if self.queue else None
+
+    def empty(self) -> bool:
+        """
+        如果栈是空的，返回 True；否则，返回 False
+        """
+        return len(self.queue) == 0
+```
+
 
 
 ## 链表
