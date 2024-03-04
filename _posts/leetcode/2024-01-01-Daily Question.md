@@ -6,6 +6,7 @@ tags:
 ---
 
 - [队列，栈](#队列栈)
+    - [232. Implement Queue using Stacks](#232-implement-queue-using-stacks)
     - [225. Implement Stack using Queues](#225-implement-stack-using-queues)
 - [链表](#链表)
   - [Medium](#medium)
@@ -58,6 +59,64 @@ tags:
 >> ![图解](https://pic.leetcode-cn.com/1644881496-veNnxl-2171.drawio%20(2).png)
 
 ## 队列，栈
+#### 232. Implement Queue using Stacks
+```py
+class MyQueue:
+    """
+    # 问题描述 
+    实现一个只使用两个栈来模拟队列的数据结构，支持队列的所有功能（push、peek、pop 和 empty）。
+
+    # 思路 
+     - 使用两个栈，一个用来作为入队栈（instack），一个用来作为出队栈（outstack）。
+     - push 操作直接将元素压入 instack。
+     - pop 和 peek 操作时，如果 outstack 不为空，则直接从 outstack 出栈；如果 outstack 为空，则将 instack 中的所有元素依次弹出并压入 outstack，再进行出栈或查看操作。
+     - empty 操作判断两个栈是否都为空。
+    """
+
+    def __init__(self):
+        """
+        初始化 MyQueue 类，创建 instack 和 outstack 两个栈。
+        """
+        self.instack = collections.deque()
+        self.outstack = collections.deque()
+
+    def push(self, x: int) -> None:
+        """
+        将元素压入队列。
+        """
+        self.instack.append(x)
+
+    def pop(self) -> int:
+        """
+        弹出队列的首个元素并返回。
+        """
+        if not self.outstack:
+            # 如果 outstack 为空，则将 instack 中的所有元素依次压入 outstack
+            while self.instack:
+                self.outstack.append(self.instack.pop())
+        # 返回 outstack 的首个元素
+        return self.outstack.pop() if self.outstack else None
+
+    def peek(self) -> int:
+        """
+        返回队列的首个元素。
+        """
+        if not self.outstack:
+            # 如果 outstack 为空，则将 instack 中的所有元素依次压入 outstack
+            while self.instack:
+                self.outstack.append(self.instack.pop())
+        # 返回 outstack 的首个元素（不弹出）
+        return self.outstack[-1] if self.outstack else None
+
+    def empty(self) -> bool:
+        """
+        判断队列是否为空。
+        """
+        # 判断两个栈是否都为空
+        return len(self.instack) == 0 and len(self.outstack) == 0
+```
+
+
 #### 225. Implement Stack using Queues
 
 ![图解](https://assets.leetcode-cn.com/solution-static/225/225_fig2.gif)
