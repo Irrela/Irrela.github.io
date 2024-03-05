@@ -26,6 +26,9 @@ tags:
     - [Lowest Common Ancestor of a Binary Tree](#lowest-common-ancestor-of-a-binary-tree)
 - [BFS](#bfs)
     - [Cousins in Binary Tree II](#cousins-in-binary-tree-ii)
+- [图算法](#图算法)
+    - [三种算法](#三种算法)
+    - [1976. Number of Ways to Arrive at Destination](#1976-number-of-ways-to-arrive-at-destination)
 - [贪心](#贪心)
     - [](#-1)
     - [Construct String With Repeat Limit](#construct-string-with-repeat-limit)
@@ -807,6 +810,86 @@ class Solution:
 
         return root
 ```
+
+
+## 图算法
+
+#### 三种算法
+
+1. Floyd算法（Floyd-Warshall算法）是一种用于解决图中`所有顶点对`之间最短路径的算法
+   - 带权重的有向图或无向图：Floyd算法可以处理带`有负权重边`（但`不含负权重环`）的图，因为它基于动态规划的思想，能够正确处理负权重边。
+   - 稠密图：相对于Dijkstra算法和Bellman-Ford算法，Floyd算法更适合处理稠密图，因为它的时间复杂度为O(n^3)，`与图中边的数量无关`。
+   - `不需要单源顶点`：与Dijkstra算法和Bellman-Ford算法不同，Floyd算法不需要指定一个起始顶点，它可以同时计算出图中所有顶点对之间的最短路径。
+
+
+2. Dijkstra算法是一种用于解决带有非负权重边的单源最短路径问题的经典算法
+   - 图的`单源最短路径`问题：给定一个加权有向图或加权无向图，以及一个`起始顶点`，Dijkstra算法可以计算出从起始顶点到图中所有其他顶点的最短路径。
+   - 非负权重边的图：Dijkstra算法`要求图中的边权重都为非负数`。如果图中存在负权重边，则Dijkstra算法可能无法正确计算出最短路径。
+   - 无环图或有向无环图（DAG）：Dijkstra算法可以应用于有向无环图（DAG），因为这种图不存在环，因此不会出现负权重环的情况。
+   - 网络路由：Dijkstra算法最初被设计用于计算计算机网络中的路由信息，以确定从一个节点到所有其他节点的最短路径
+
+3. Bellman-Ford算法通常用于解决带有负权重边的单源最短路径问题。
+   - 带有负权重边的图：Bellman-Ford算法`可以处理带有负权重边`的加权有向图或加权无向图。
+   - `检测负权重环`：除了计算最短路径，Bellman-Ford算法还可以检测图中是否存在负权重环。当算法在执行完所有的边的松弛操作后，如果仍然存在可以继续减小路径长度的情况，那么说明图中存在负权重环。
+   - 任意加权有向图或无向图：Bellman-Ford算法没有对图的拓扑结构进行要求，因此它适用于任意形状的图，包括有环、无环、连通或不连通的图。
+
+
+#### 1976. Number of Ways to Arrive at Destination 
+```py
+class Solution:
+    """
+    # 问题描述
+    给定一个城市，由n个交叉路口组成，编号从0到n-1，其中一些交叉路口之间有双向道路连接。输入数据保证你可以从任意一个交叉路口到达其他任意一个交叉路口，并且任意两个交叉路口之间最多只有一条道路。
+
+    给定一个整数n和一个二维整数数组roads，其中roads[i] = [ui, vi, timei]表示交叉路口ui和vi之间有一条需要timei分钟的道路。你想知道从交叉路口0到交叉路口n-1以最短时间到达的方式有多少种。
+
+    返回以最短时间到达目的地的方式数。由于答案可能很大，因此请返回它对10^9 + 7取模的结果。
+
+    # 思路 
+     - 使用Dijkstra算法计算最短路径长度，并记录路径数。
+    """
+    def countPaths(self, n: int, roads: List[List[int]]) -> int:
+        # 邻接矩阵表示图
+        g = [[float('inf') for _ in range(n)] for _ in range(n)]  
+        
+        # 构建邻接矩阵
+        for x, y, d in roads:
+            g[x][y] = d
+            g[y][x] = d
+
+        # 到达每个点的最短路径长度
+        dis = [float('inf')] * n
+        dis[0] = 0
+        
+        # 到达每个点的最短路径数量
+        f = [0] * n
+        f[0] = 1
+        
+        # 标记是否已经确定最短路径
+        done = [False] * n
+        
+        while True:
+            x = -1
+            # 寻找未确定最短路径的点中距离最小的点
+            for i, ok in enumerate(done):
+                if not ok and (x < 0 or dis[i] < dis[x]):
+                    x = i
+            if x == n - 1:
+                # 已经找到最短路径，返回路径数量
+                return f[-1]
+            done[x] = True
+            
+            # 更新邻居节点的最短路径长度和路径数量
+            dx = dis[x]
+            for y, d in enumerate(g[x]):
+                new_dis = dx + d
+                if new_dis < dis[y]:
+                    dis[y] = new_dis
+                    f[y] = f[x]
+                elif new_dis == dis[y]:
+                    f[y] = (f[y] + f[x]) % 1_000_000_007
+```
+
 
 ## 贪心
 
