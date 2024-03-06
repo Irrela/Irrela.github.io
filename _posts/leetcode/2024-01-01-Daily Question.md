@@ -47,6 +47,7 @@ tags:
     - [Split Array Largest Sum](#split-array-largest-sum)
     - [Maximum Number of Alloys](#maximum-number-of-alloys)
 - [位运算](#位运算)
+    - [Find the K-or of an Array](#find-the-k-or-of-an-array)
     - [Maximum Rows Covered by Columns](#maximum-rows-covered-by-columns)
     - [Sum of Values at Indices With K Set Bits](#sum-of-values-at-indices-with-k-set-bits)
 - [循环节](#循环节)
@@ -1718,6 +1719,38 @@ class Solution:
 ```
 
 ## 位运算
+
+#### Find the K-or of an Array
+```py
+class Solution:
+    def findKOr(self, nums: List[int], k: int) -> int:
+        """
+        # 问题描述
+        2917. Find the K-or of an Array
+        给定一个非负整数数组 nums 和一个整数 k，要求求出 nums 的 K-or。
+        
+        K-or 指的是一个非负整数，满足以下条件：
+        - 第 i 位在 K-or 中被设置，当且仅当在 nums 中至少有 k 个元素的第 i 位被设置。
+        
+        返回 nums 的 K-or。
+
+        注意：一个整数 x 的第 i 位被设置，当且仅当 (2^i AND x) == 2^i，其中 AND 是按位与运算符。
+        
+        # 思路 
+        - 遍历 nums 中的每个位，统计每个位上为 1 的元素个数 cnt1
+        - 如果 cnt1 大于等于 k，将当前位设置为 1
+        """
+        ans = 0
+        # 从最低位到最高位遍历
+        for i in range(31):
+            # 统计当前位为 1 的元素个数
+            cnt1 = sum(x >> i & 1 for x in nums)
+            # 如果当前位为 1 的元素个数大于等于 k，将当前位设置为 1
+            if cnt1 >= k:
+                ans |= 1 << i
+        return ans
+
+```
 
 #### Maximum Rows Covered by Columns
 ```py
