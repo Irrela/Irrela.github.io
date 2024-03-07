@@ -46,6 +46,8 @@ tags:
 - [二分法](#二分法)
     - [Split Array Largest Sum](#split-array-largest-sum)
     - [Maximum Number of Alloys](#maximum-number-of-alloys)
+- [模运算](#模运算)
+    - [Find the Divisibility Array of a String](#find-the-divisibility-array-of-a-string)
 - [位运算](#位运算)
     - [Find the K-or of an Array](#find-the-k-or-of-an-array)
     - [Maximum Rows Covered by Columns](#maximum-rows-covered-by-columns)
@@ -1716,6 +1718,34 @@ class Solution:
                     low = mid + 1
         return ret
 
+```
+
+## 模运算
+#### Find the Divisibility Array of a String
+```py
+class Solution(object):
+    def divisibilityArray(self, word, m):
+        """
+        # 问题描述
+        2575. Find the Divisibility Array of a String
+        给定一个由数字组成的长度为n的字符串word（下标从0开始），以及一个正整数m。
+        定义字符串word的除数数组div为一个长度为n的整数数组，满足以下条件：
+        - 如果word的前缀子串word[0,...,i]的数值能够被m整除，则div[i] = 1；
+        - 否则，div[i] = 0。
+
+        返回字符串word的除数数组div。
+
+        # 思路 
+        - 使用一个变量cur来记录当前前缀子串的数值对m的模。
+        - 遍历字符串word的每个字符，更新cur，并根据cur是否为0来确定对应位置上的div值。
+        """
+
+        cur = 0  # 初始化当前前缀子串对m的模
+        res = []  # 用于存储结果的数组
+        for c in word:
+            cur = (cur * 10 + int(c)) % m  # 更新当前前缀子串对m的模
+            res.append(1 if cur == 0 else 0)  # 根据当前前缀子串的模是否为0来确定结果数组中的值
+        return res
 ```
 
 ## 位运算
