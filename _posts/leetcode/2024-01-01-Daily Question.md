@@ -37,6 +37,7 @@ tags:
     - [stoneGameVI](#stonegamevi)
     - [魔塔游戏](#魔塔游戏)
 - [动态规划](#动态规划)
+    - [Maximum Number of Moves in a Grid](#maximum-number-of-moves-in-a-grid)
     - [Extra Characters in a String](#extra-characters-in-a-string)
     - [Minimum Additions to Make Valid String](#minimum-additions-to-make-valid-string)
     - [Minimum Time to Make Array Sum At Most x](#minimum-time-to-make-array-sum-at-most-x)
@@ -1235,6 +1236,78 @@ class Solution:
 ```
 
 ## 动态规划
+#### Maximum Number of Moves in a Grid
+```cpp
+/**
+ * 2684. Maximum Number of Moves in a Grid
+ * 问题描述：
+ * 给定一个大小为 m x n 的矩阵 grid，其中元素均为正整数。
+ * 可以从第一列的任何单元格开始，以以下方式遍历网格：
+ * 从单元格 (row, col) 开始，可以移动到以下任何单元格：(row - 1, col + 1)，(row, col + 1) 和 (row + 1, col + 1)，
+ * 前提是要移动到的单元格的值严格大于当前单元格的值。
+ * 返回可以执行的最大移动次数。
+ * 
+ * 思路：
+ * 在遍历第一列的同时，遍历每个单元格，检查其上方、当前和下方相邻的单元格，如果上方和下方的单元格的值都小于当前单元格的值，
+ * 则当前单元格无法移动到下一列，标记为 maxValue。最后遍历最后一列的所有行，找到第一个不是 maxValue 的单元格所在的列数，
+ * 该列数即为可以到达的最大列数。
+ * 
+ */
+
+class Solution {
+public:
+    /**
+     * @brief 计算可以执行的最大移动次数
+     * 
+     * @param grid 输入的矩阵
+     * @return int 可以执行的最大移动次数
+     */
+    int maxMoves(vector<vector<int>>& grid) {
+        int maxValue = std::numeric_limits<int>::max();
+        
+        int rows = grid.size();
+        if (rows == 0) return 0;
+        int cols = grid[0].size();
+        if (cols == 0) return 0;        
+
+        // 遍历第一列
+        for (int col = 1; col < cols; col++) {
+            // 遍历每一行
+            for (int row = 0; row < rows; row++) {
+                // 三个可能的前一行索引
+                int arr[] = {row - 1, row, row + 1};
+                bool flag = false;
+                // 检查上方、当前和下方相邻的单元格
+                for (int preRow : arr) {
+                    if (preRow >= 0 && preRow < rows && grid[row][col] > grid[preRow][col - 1]) {
+                        flag = true;
+                        break;
+                    } 
+                }
+
+                // 如果无法移动到下一列，则标记当前单元格为 maxValue
+                if (!flag) {
+                    grid[row][col] = maxValue;
+                }
+            }
+        }
+
+        // 从右到左遍历最后一列的所有行
+        for (int col = cols - 1; col >= 0; col--) {
+            for (int row = 0; row < rows; row ++) {
+                // 找到第一个不是 maxValue 的单元格所在的列数，即可以到达的最大列数
+                if (grid[row][col] != maxValue) {
+                    return col;
+                }
+            }
+        }
+
+        return 0;
+    }
+};
+```
+
+
 #### Extra Characters in a String
 ```py
 class Solution:
