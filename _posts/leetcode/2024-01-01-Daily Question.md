@@ -1238,31 +1238,31 @@ class Solution:
 ## 动态规划
 #### Maximum Number of Moves in a Grid
 ```cpp
-/**
- * 2684. Maximum Number of Moves in a Grid
- * 问题描述：
- * 给定一个大小为 m x n 的矩阵 grid，其中元素均为正整数。
- * 可以从第一列的任何单元格开始，以以下方式遍历网格：
- * 从单元格 (row, col) 开始，可以移动到以下任何单元格：(row - 1, col + 1)，(row, col + 1) 和 (row + 1, col + 1)，
- * 前提是要移动到的单元格的值严格大于当前单元格的值。
- * 返回可以执行的最大移动次数。
- * 
- * 思路：
- * 在遍历第一列的同时，遍历每个单元格，检查其上方、当前和下方相邻的单元格，如果上方和下方的单元格的值都小于当前单元格的值，
- * 则当前单元格无法移动到下一列，标记为 maxValue。最后遍历最后一列的所有行，找到第一个不是 maxValue 的单元格所在的列数，
- * 该列数即为可以到达的最大列数。
- * 
- */
-
 class Solution {
 public:
     /**
+     * 2684. Maximum Number of Moves in a Grid
      * @brief 计算可以执行的最大移动次数
+     * 
+     * 问题描述：
+     * 给定一个m x n的矩阵grid，其中包含正整数。
+     * 从矩阵的第一列的任意单元格开始，你可以按以下方式遍历矩阵：
+     * 从单元格(row, col)出发，你可以移动到(row - 1, col + 1)，(row, col + 1)和(row + 1, col + 1)中的任意单元格，
+     * 前提是你要移动到的单元格的值严格大于当前单元格的值。
+     * 返回你可以执行的最大移动次数。
+     * 
+     * 思路：
+     * 1. 从左往右遍历每一列。
+     * 2. 对于每一列，从上往下遍历每个单元格。
+     * 3. 对于当前单元格，检查其上方、当前和下方相邻的单元格，确定是否可到达下一列。
+     * 4. 如果无法移动到下一列，则将当前单元格的值设为最大值，表示无法到达。
+     * 5. 如果当前列无法到达任何单元格，则记录当前列数，表示无法继续移动。
+     * 6. 如果所有列都可到达，则返回最后一列的列数。
      * 
      * @param grid 输入的矩阵
      * @return int 可以执行的最大移动次数
      */
-    int maxMoves(vector<vector<int>>& grid) {
+    int maxMoves(std::vector<std::vector<int>>& grid) {
         int maxValue = std::numeric_limits<int>::max();
         
         int rows = grid.size();
@@ -1270,41 +1270,47 @@ public:
         int cols = grid[0].size();
         if (cols == 0) return 0;        
 
-        // 遍历第一列
+        int unreachableColumn = -1; // 记录无法到达的最大列数
+
+        // 从左往右遍历每一列
         for (int col = 1; col < cols; col++) {
-            // 遍历每一行
+            // 当前列是否有可到达的单元格
+            bool columnReachable = false; 
+
+            // 从上往下遍历每一行
             for (int row = 0; row < rows; row++) {
-                // 三个可能的前一行索引
-                int arr[] = {row - 1, row, row + 1};
-                bool flag = false;
                 // 检查上方、当前和下方相邻的单元格
-                for (int preRow : arr) {
+                bool canMoveToNextColumn = false;
+                for (int preRow : {row - 1, row, row + 1}) {
                     if (preRow >= 0 && preRow < rows && grid[row][col] > grid[preRow][col - 1]) {
-                        flag = true;
+                        canMoveToNextColumn = true;
+                        columnReachable = true; // 当前列有可到达的单元格
                         break;
                     } 
                 }
 
                 // 如果无法移动到下一列，则标记当前单元格为 maxValue
-                if (!flag) {
+                if (!canMoveToNextColumn) {
                     grid[row][col] = maxValue;
                 }
             }
-        }
 
-        // 从右到左遍历最后一列的所有行
-        for (int col = cols - 1; col >= 0; col--) {
-            for (int row = 0; row < rows; row ++) {
-                // 找到第一个不是 maxValue 的单元格所在的列数，即可以到达的最大列数
-                if (grid[row][col] != maxValue) {
-                    return col;
-                }
+            // 如果当前列无法到达任何单元格，则记录当前列数
+            if (!columnReachable) {
+                unreachableColumn = col - 1;
+                break;
             }
         }
 
-        return 0;
+        // 如果有无法到达的列，则直接返回最后一个可到达的列数
+        if (unreachableColumn != -1) {
+            return unreachableColumn;
+        }
+
+        return cols - 1; // 所有列都可到达，则返回最后一列的列数
     }
 };
+
 ```
 
 
