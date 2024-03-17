@@ -25,6 +25,7 @@ tags:
     - [Cousins in Binary Tree](#cousins-in-binary-tree)
     - [Lowest Common Ancestor of a Binary Tree](#lowest-common-ancestor-of-a-binary-tree)
 - [BFS](#bfs)
+    - [Minimum Height Trees](#minimum-height-trees)
     - [Cousins in Binary Tree II](#cousins-in-binary-tree-ii)
 - [图算法](#图算法)
     - [三种算法](#三种算法)
@@ -752,6 +753,84 @@ class Solution:
 ```
 
 ## BFS
+#### Minimum Height Trees
+```cpp
+/**
+ * 310. Minimum Height Trees
+ * 问题描述：
+ * 给定一个由n个节点标记为0到n-1的树，以及一个由n-1条边组成的数组edges，其中edges[i] = [ai, bi]表示树中节点ai和bi之间有一条无向边。您可以选择树的任何节点作为根。当您选择节点x作为根时，结果树的高度为h。在所有可能的根树中，那些具有最小高度（即min(h)）的树被称为最小高度树（MHTs）。
+ * 
+ * 思路：
+ * 使用拓扑排序的思想，从叶节点开始逐层剥离，最终剩下的节点即为MHT的根节点。
+ * 
+ */
+
+#include <vector>
+#include <deque>
+
+using namespace std;
+
+class Solution {
+public:
+    vector<int> findMinHeightTrees(int n, vector<vector<int>>& edges) {
+        vector<int> res;
+
+        if (n == 1) {
+            res.push_back(0);
+            return res;
+        }
+
+        // 记录每个节点的度
+        vector<int> degree(n, 0);
+        // 使用邻接表表示图
+        vector<vector<int>> map;
+
+        // 初始化邻接表
+        for (int i = 0; i < n; ++i) {
+            map.push_back(vector<int>());
+        }
+
+        // 构建邻接表和度数组
+        for (vector<int> edge: edges) {
+            degree[edge[0]]++;
+            degree[edge[1]]++;
+            map.at(edge[0]).push_back(edge[1]);
+            map.at(edge[1]).push_back(edge[0]);
+        }
+
+        // 用双端队列进行层次遍历
+        deque<int> queue;
+        // 将叶节点加入队列
+        for (int i = 0; i < n; i++) {
+            if (degree[i] == 1) queue.push_back(i);
+        }
+
+        // 层次遍历
+        while (!queue.empty()) {
+            res.clear();
+
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                int cur = queue.front();
+                queue.pop_front();
+                res.push_back(cur);
+
+                // 更新相邻节点的度，并将度为1的节点加入队列
+                vector<int> neigbors = map.at(cur);
+                for (int neigbor: neigbors) {
+                    degree[neigbor]--;
+                    if (degree[neigbor] == 1) {
+                        queue.push_back(neigbor);
+                    }
+                }
+            }
+        }
+        return res;
+    }
+};
+```
+
+
 #### Cousins in Binary Tree II
 ```py
 class Solution:

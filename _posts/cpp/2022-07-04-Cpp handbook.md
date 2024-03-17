@@ -7,7 +7,27 @@ tags:
 
 
 # Std
+## Math
+```cpp
+std::max(x, y)
+
+```
+
+
 ## Collection
+
+#### C-style array
+```cpp
+// 使用 new 运算符分配内存
+
+int* array = new int[n];
+
+// 使用 std::fill 来填充数组为 1
+std::fill(array, array + n, 1);
+
+// 使用 delete[] 运算符释放分配的内存
+delete[] array;
+```
 
 #### vector
 ```cpp
@@ -18,6 +38,12 @@ tags:
 int main() {
     // 创建一个 vector 容器
     std::vector<int> myVector;
+
+    // 创建一个大小为 n 的整数数组(默认0)
+    std::vector<int> myVector(n); 
+
+    // 创建一个大小为 n 的整数数组(默认1)
+    std::vector<int> myVector(n, 1);
 
     // 在 vector 尾部插入元素
     myVector.push_back(10);
@@ -58,12 +84,6 @@ int main() {
 int main() {
     // 创建一个整数双端队列
     std::deque<int> myDeque;
-
-    // 创建一个大小为 n 的整数数组(默认0)
-    std::vector<int> degree(n); 
-
-    // 创建一个大小为 n 的整数数组(默认1)
-    std::vector<int> degree(n, 1);
 
     // 在队尾插入一个元素
     myDeque.push_back(10);  // 在队尾插入10
