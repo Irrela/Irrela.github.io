@@ -7,6 +7,12 @@ tags:
 
 
 # Std
+## C-style
+```cpp
+// 声明一个整数数组，包含5个元素
+    int myArray[5];
+```
+
 ## Math
 ```cpp
 std::max(x, y)
