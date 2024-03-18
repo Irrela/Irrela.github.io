@@ -7,11 +7,6 @@ tags:
 
 
 # Std
-## C-style
-```cpp
-// 声明一个整数数组，包含5个元素
-    int myArray[5];
-```
 
 ## Math
 ```cpp
@@ -24,15 +19,19 @@ std::max(x, y)
 
 #### C-style array
 ```cpp
-// 使用 new 运算符分配内存
+    // 声明一个整数数组，包含5个元素，静态内存分配
+    // 无需释放内存，因为数组的生命周期与其所在的作用域相关。
+    // 数组的大小在编译时就确定了，因此无法更改数组的大小
+    int myArray[5];
 
-int* array = new int[n];
+    // 使用 new 运算符动态分配内存，需手动delete
+    int* array = new int[n];
 
-// 使用 std::fill 来填充数组为 1
-std::fill(array, array + n, 1);
+    // 使用 std::fill 来填充数组为 1
+    std::fill(array, array + n, 1);
 
-// 使用 delete[] 运算符释放分配的内存
-delete[] array;
+    // 使用 delete[] 运算符释放分配的内存
+    delete[] array;
 ```
 
 #### vector
