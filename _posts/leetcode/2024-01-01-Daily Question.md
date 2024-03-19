@@ -5,6 +5,8 @@ tags:
   - Leetcode
 ---
 
+- [双指针](#双指针)
+    - [Maximum Score of a Good Subarray](#maximum-score-of-a-good-subarray)
 - [队列，栈](#队列栈)
     - [232. Implement Queue using Stacks](#232-implement-queue-using-stacks)
     - [225. Implement Stack using Queues](#225-implement-stack-using-queues)
@@ -13,7 +15,7 @@ tags:
     - [Remove Nodes From Linked List](#remove-nodes-from-linked-list)
     - [Insert Greatest Common Divisors in Linked List](#insert-greatest-common-divisors-in-linked-list)
 - [单调](#单调)
-  - [Medium](#medium-1)
+    - [Maximum Score of a Good Subarray](#maximum-score-of-a-good-subarray-1)
     - [Remove Nodes From Linked List](#remove-nodes-from-linked-list-1)
     - [Beautiful Towers I](#beautiful-towers-i)
 - [递归 Recursion](#递归-recursion)
@@ -65,6 +67,54 @@ tags:
     - [Minimum Seconds to Equalize a Circular Array](#minimum-seconds-to-equalize-a-circular-array)
 
 >> ![图解](https://pic.leetcode-cn.com/1644881496-veNnxl-2171.drawio%20(2).png)
+
+
+## 双指针
+#### Maximum Score of a Good Subarray
+```cpp
+/**
+ * 1793. Maximum Score of a Good Subarray
+ * 问题描述：
+ * 给定一个整数数组 nums（下标从 0 开始）和一个整数 k。定义子数组 (i, j) 的得分为 min(nums[i], nums[i+1], ..., nums[j]) * (j - i + 1)。一个良好的子数组是一个满足 i <= k <= j 的子数组。返回一个良好子数组的最大得分。
+ * 
+ * 思路：
+ * 我们需要找到以 k 为中心的最大良好子数组。从 k 开始向左右两侧扩展，找到最小高度的边界，并计算以这个边界为范围的得分。我们可以使用双指针法来实现这个过程，一个指针向左，一个指针向右。每次移动指针时，我们都需要更新当前最小高度，并计算以当前边界为范围的得分。最终得到的最大得分即为答案。
+ * 
+ */
+
+class Solution {
+public:
+    /**
+     * 返回良好子数组的最大得分
+     * 
+     * @param nums 整数数组
+     * @param k 中心索引
+     * @return 最大得分
+     */
+    int maximumScore(vector<int>& nums, int k) {
+        int len = nums.size();
+        int ret = nums[k], min_h = nums[k];
+        int i = k, j = k;
+
+        // 向左右两侧扩展，找到最大良好子数组的范围
+        for (int it = 0; it < len - 1; it++) {
+            if (j == len - 1 || (i > 0 && nums[i - 1] > nums[j + 1])) {
+                // 向左移动边界
+                i--;
+                min_h = min(min_h, nums[i]);
+            } else {
+                // 向右移动边界
+                j++;
+                min_h = min(min_h, nums[j]);
+            }
+            // 更新最大得分
+            ret = max(ret, min_h * (j - i + 1));
+        }
+
+        return ret;
+    }
+};
+```
 
 ## 队列，栈
 #### 232. Implement Queue using Stacks
@@ -269,7 +319,69 @@ class Solution:
 
 
 ## 单调
-### Medium
+#### Maximum Score of a Good Subarray
+```cpp
+/**
+ * 1793. Maximum Score of a Good Subarray
+ * 问题描述：
+ * 给定一个整数数组 nums（下标从0开始）和一个整数 k。
+ * 定义子数组 (i, j) 的分数为 min(nums[i], nums[i+1], ..., nums[j]) * (j - i + 1)。
+ * 一个好的子数组是指满足 i <= k <= j 的子数组。
+ * 返回一个好的子数组的最大可能分数。
+ * 
+ * 思路：
+ * 1. 正向遍历nums，使用单调栈找到每个元素左边第一个比它小的元素的位置，存储在 left 数组中。
+ * 2. 反向遍历nums, 使用单调栈找到每个元素右边第一个比它小的元素的位置，存储在 right 数组中。
+ * 3. 遍历数组，计算每个元素作为最小值时的分数(即在left[i] 和 right[i] 之间，否则它就不是最小的数)，并更新最大分数。
+ * 
+ */
+
+class Solution {
+public:
+    int maximumScore(vector<int>& nums, int k) {
+        int len = nums.size();
+        vector<int> left(len, -1); // 存储每个元素左边第一个比它小的元素的位置
+        deque<int> stack;
+
+        // 使用单调栈找到每个元素左边第一个比它小的元素的位置
+        for (int i = 0; i < len; i++) {
+            while (!stack.empty() && nums[i] <= nums[stack.back()]) {
+                stack.pop_back();
+            }
+            if (!stack.empty()) {
+                left[i] = stack.back();
+            }
+            stack.push_back(i);
+        }
+
+        vector<int> right(len, len); // 存储每个元素右边第一个比它小的元素的位置
+        stack.clear();
+        // 使用单调栈找到每个元素右边第一个比它小的元素的位置
+        for (int i = len - 1; i > -1; i--) {
+            int x = nums[i];
+            while (!stack.empty() && x <= nums[stack.back()]) {
+                stack.pop_back();
+            }
+            if (!stack.empty()) {
+                right[i] = stack.back();
+            }
+            stack.push_back(i);
+        }
+
+        int res = 0;
+        // 遍历数组，计算每个元素作为最小值时的分数，并更新最大分数
+        // 已经记录了每个元素左右第一个比它小的元素的index，所以对于每个元素nums[i], 在left[i], right[i]区间它是最小的元素。
+        for (int i = 0; i < len; i++) {
+            if (left[i] < k && k < right[i]) { // 确保区间包含k
+                res = max(res, nums[i] * (right[i] - left[i] - 1));
+            }
+        }
+        return res;
+    }
+};
+
+```
+
 #### Remove Nodes From Linked List
 ```py
     def removeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:

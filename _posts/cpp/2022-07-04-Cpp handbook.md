@@ -13,8 +13,6 @@ tags:
 std::max(x, y)
 
 ```
-
-
 ## Collection
 
 #### C-style array
