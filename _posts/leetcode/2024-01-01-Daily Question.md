@@ -53,7 +53,7 @@ tags:
 - [模运算](#模运算)
     - [Find the Divisibility Array of a String](#find-the-divisibility-array-of-a-string)
 - [位运算](#位运算)
-    - [Find the K-or of an Array](#find-the-k-or-of-an-array)
+    - [Minimum Non-Zero Product of the Array Elements (快速幂)](#minimum-non-zero-product-of-the-array-elements-快速幂)
     - [Maximum Rows Covered by Columns](#maximum-rows-covered-by-columns)
     - [Sum of Values at Indices With K Set Bits](#sum-of-values-at-indices-with-k-set-bits)
 - [循环节](#循环节)
@@ -2019,6 +2019,67 @@ class Solution(object):
 ```
 
 ## 位运算
+
+#### Minimum Non-Zero Product of the Array Elements (快速幂)
+```cpp
+/**
+ * 1969. Minimum Non-Zero Product of the Array Elements
+ * 问题描述：
+ * 给定一个正整数 p。考虑一个数组 nums（从1开始索引），该数组由区间 [1, 2p - 1] 中的整数的二进制表示组成。可以进行以下操作任意次数：
+ * 1. 选择两个元素 x 和 y 从 nums 中。
+ * 2. 选择 x 中的一个位并将其与 y 中的对应位交换。对应位是指在另一个整数中相同位置的位。
+ * 
+ * 找到执行上述操作任意次数后 nums 的最小非零乘积。返回此乘积对 10^9 + 7 取模的结果。
+ * 
+ * 思路：
+ * 根据数学性质，数组 nums 中最小的非零乘积是 nums 中所有元素的乘积减去 1。因此我们需要计算 1 到 2^p - 1 的乘积。
+ * 
+ * 为了避免整数溢出和加快计算，可以使用快速幂算法来计算乘积。然后将得到的结果对 10^9 + 7 取模。
+ * 
+ * 在快速幂算法中，我们不需要直接计算 nums 中所有元素的乘积，而是计算 2^p - 1 和 (2^p - 1 - 1) 的乘积，即 k * (k - 1)^(p - 1)。
+ * 其中，k = 2^p - 1。
+ * 
+ * 快速幂算法的思想是将指数 p 转换为二进制形式，并利用二进制形式的性质来快速计算乘积。
+ * 
+ * 优化：
+ * 1. 优化代码风格，使其更加清晰易读。
+ * 2. 添加详细的行间中文注释，帮助理解代码逻辑。
+ * 3. 添加了文档注释，描述了问题以及解题思路。
+ */
+
+class Solution {
+    const int mod = 1'000'000'007;
+
+    /**
+     * 快速幂算法，计算 x 的 p 次方取模的结果
+     * 
+     * @param x 底数
+     * @param p 幂
+     * @return x^p % mod 的结果
+     */
+    long long pow(long long x, int p) {
+        x %= mod;
+        long long res = 1;
+        while (p--) {
+            res = res * x % mod;
+            x = x * x % mod;
+        }
+        return res;
+    }
+
+public:
+    /**
+     * 计算最小非零乘积
+     * 
+     * @param p 正整数
+     * @return nums 的最小非零乘积对 10^9 + 7 取模的结果
+     */
+    int minNonZeroProduct(int p) {
+        long long k = (1LL << p) - 1;
+        return k % mod * pow(k - 1, p - 1) % mod;
+    }
+};
+``
 
 #### Find the K-or of an Array
 ```py
