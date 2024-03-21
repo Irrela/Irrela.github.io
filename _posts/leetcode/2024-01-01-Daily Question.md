@@ -14,6 +14,8 @@ tags:
   - [Medium](#medium)
     - [Remove Nodes From Linked List](#remove-nodes-from-linked-list)
     - [Insert Greatest Common Divisors in Linked List](#insert-greatest-common-divisors-in-linked-list)
+- [哈希](#哈希)
+    - [Frequency Tracker](#frequency-tracker)
 - [单调](#单调)
     - [Maximum Score of a Good Subarray](#maximum-score-of-a-good-subarray-1)
     - [Remove Nodes From Linked List](#remove-nodes-from-linked-list-1)
@@ -315,6 +317,42 @@ class Solution:
             left, right = right, left % right
 
         return ListNode(left)
+```
+
+## 哈希
+#### Frequency Tracker
+```cpp
+/**
+ * 2671. Frequency Tracker
+ * 问题描述：
+ * 设计一个数据结构来跟踪其中的值，并回答有关其频率的一些查询。
+ * 
+ * 
+ * 思路：
+ * 使用两个哈希表分别记录值出现的次数和各个频率对应的值的个数。
+ * 
+ */
+class FrequencyTracker {
+    unordered_map<int, int> cnt; // number 的出现次数
+    unordered_map<int, int> freq; // number 的出现次数的出现次数
+public:
+    FrequencyTracker() {}
+
+    void add(int number) {
+        freq[cnt[number]]--; // 去掉一个旧的 cnt[number]
+        freq[++cnt[number]]++; // 添加一个新的 cnt[number]
+    }
+
+    void deleteOne(int number) {
+        if (cnt[number] == 0) return; // 不删除任何内容
+        freq[cnt[number]]--; // 去掉一个旧的 cnt[number]
+        freq[--cnt[number]]++; // 添加一个新的 cnt[number]
+    }
+
+    bool hasFrequency(int frequency) {
+        return freq[frequency] != 0; // 至少有一个 number 的出现次数恰好为 frequency
+    }
+};
 ```
 
 

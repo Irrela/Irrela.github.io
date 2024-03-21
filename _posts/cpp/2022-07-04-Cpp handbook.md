@@ -11,6 +11,7 @@ tags:
       - [C-style array](#c-style-array)
       - [vector](#vector)
       - [unordered\_set](#unordered_set)
+      - [unordered\_map](#unordered_map)
       - [Deque](#deque)
 - [Class](#class)
     - [构造函数](#构造函数)
@@ -135,6 +136,42 @@ int main() {
     return 0;
 }
 ```
+#### unordered_map
+```cpp
+#include <iostream>
+#include <unordered_map>
+#include <string>
+
+int main() {
+    // 声明一个unordered_map，键是string类型，值是int类型
+    std::unordered_map<std::string, int> myMap;
+
+    // 插入键值对
+    myMap["apple"] = 3;
+    myMap["banana"] = 5;
+    myMap["orange"] = 2;
+
+    // 访问键值对
+    std::cout << "苹果的数量：" << myMap["apple"] << std::endl;
+
+    // 检查键是否存在
+    if (myMap.find("banana") != myMap.end()) {
+        std::cout << "香蕉存在\n";
+    }
+
+    // 删除键值对
+    myMap.erase("orange");
+
+    // 遍历unordered_map
+    for (const auto& pair : myMap) {
+        std::cout << "水果: " << pair.first << ", 数量: " << pair.second << std::endl;
+    }
+
+    return 0;
+}
+
+```
+
 
 #### Deque
 ```cpp
