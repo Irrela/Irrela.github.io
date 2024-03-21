@@ -5,6 +5,23 @@ tags:
 - Cpp
 ---
 
+- [Std](#std)
+  - [Math](#math)
+  - [Collection](#collection)
+      - [C-style array](#c-style-array)
+      - [vector](#vector)
+      - [unordered\_set](#unordered_set)
+      - [Deque](#deque)
+- [Class](#class)
+    - [构造函数](#构造函数)
+      - [初始化列表](#初始化列表)
+    - [析构函数](#析构函数)
+    - [成员变量和成员函数](#成员变量和成员函数)
+      - [静态成员](#静态成员)
+    - [继承](#继承)
+      - [单继承](#单继承)
+      - [多重继承](#多重继承)
+
 
 # Std
 
@@ -79,6 +96,46 @@ int main() {
 }
 ```
 
+#### unordered_set
+```cpp
+#include <unordered_set>
+
+int main() {
+    // 创建一个无序集合
+    std::unordered_set<int> mySet;
+
+    // 插入元素
+    mySet.insert(3);
+    mySet.insert(1);
+    mySet.insert(4);
+
+    // 查找元素
+    auto it = mySet.find(3);
+    if (it != mySet.end()) {
+        // 元素存在于集合中
+    }
+
+    // 删除元素
+    mySet.erase(1);
+
+    // 遍历集合
+    for (int x : mySet) {
+        // 对集合中的每个元素执行操作
+    }
+
+    // 获取集合大小
+    std::size_t size = mySet.size();
+
+    // 检查集合是否为空
+    bool isEmpty = mySet.empty();
+
+    // 清空集合
+    mySet.clear();
+
+    return 0;
+}
+```
+
 #### Deque
 ```cpp
 #include <iostream>
@@ -138,4 +195,161 @@ int main() {
 
     return 0;
 }
+```
+
+
+# Class
+
+### 构造函数
+```cpp
+class MyClass {
+public:
+    // 默认构造函数
+    MyClass() {
+        // 构造函数体
+    }
+    
+    // 带参数的构造函数
+    MyClass(int x) {
+        // 构造函数体
+    }
+};
+```
+#### 初始化列表
+
+```cpp
+/**
+1. 区别于在函数体中初始化
+2. 在构造函数的参数列表后面使用冒号 : 来定义，然后列出要初始化的成员变量及其对应的值
+3. 常量成员和引用成员，必须使用初始化列表进行初始化，因为它们只能在初始化时赋值，而不能在构造函数的函数体中赋值。
+*/
+class MyClass {
+private:
+    int x;
+    int& y; // 引用类型
+    const int z; // 常数类型
+
+public:
+    // 使用初始化列表
+    MyClass(int a, int b, int c) : x(a), y(b), z(c) {
+        // 构造函数体
+    }
+
+    // 对比：使用函数体初始化
+    MyClass(int a, int b, int c) : y(b), z(c) {
+        x = a; // 使用函数体初始化 x
+        // 构造函数体
+    }
+};
+
+```
+
+### 析构函数
+```cpp
+class MyClass {
+public:
+    // 析构函数
+    /**
+    1. 析构函数的名称是在类名前加上波浪号 ~。
+    2. 用于释放对象占用的资源，如动态分配的内存。
+    3. 在对象销毁时自动调用。
+    */
+    ~MyClass() {
+        // 析构函数体
+    }
+};
+```
+
+### 成员变量和成员函数
+成员变量和成员函数可以是公共的、私有的或受保护的，以及静态的和非静态的。
+
+```cpp
+/**
+1. 默认情况下，成员是私有的。
+2. private 只能被类的成员函数访问
+3. protected 成员与 private 成员类似，但它们可以被派生类（子类）的成员函数访问。
+    - 通过派生类对象的.运算符或指针的->运算符来访问
+4. public 可以被类的对象访问，也可以被类外部的代码访问。
+    - 使用对象的.运算符或指针的->运算符来访问
+*/
+class MyClass {
+private:
+    int privateVar;   // 私有成员变量
+protected:
+    int protectedVar; // 受保护成员变量
+public:
+    int publicVar;    // 公共成员变量
+
+    // 成员函数
+    void myMethod() {
+        // 成员函数体
+    }
+};
+```
+#### 静态成员
+
+```cpp
+/**
+1. 属于类本身而不是类的实例。因此，它们被所有该类的实例共享。
+*/
+class MyClass {
+public:
+    static int staticVar; // 静态成员变量
+
+    static void staticMethod() { // 静态成员函数
+        std::cout << "这是一个静态成员函数" << std::endl;
+    }
+
+    void printStaticVar() {
+        std::cout << "静态成员变量的值为：" << staticVar << std::endl;
+    }
+};
+
+// 初始化静态成员变量
+int MyClass::staticVar = 10;
+
+int main() {
+    // 访问静态成员变量
+    std::cout << "静态成员变量的初始值为：" << MyClass::staticVar << std::endl;
+
+    // 修改静态成员变量的值
+    MyClass::staticVar = 20;
+
+    // 再次访问静态成员变量
+    std::cout << "静态成员变量修改后的值为：" << MyClass::staticVar << std::endl;
+
+    // 调用静态成员函数
+    MyClass::staticMethod();
+
+    // 创建类的对象
+    MyClass obj1, obj2;
+
+    // 打印静态成员变量
+    obj1.printStaticVar();
+    obj2.printStaticVar();
+
+    return 0;
+}
+
+```
+
+
+### 继承
+#### 单继承
+```cpp
+// 使用 : 符号来指定基类
+class DerivedClass : public BaseClass {
+    // 派生类定义
+};
+```
+
+#### 多重继承
+```cpp
+// 用逗号 , 分隔多个基类来实现多重继承
+class Dog : public Animal, public Bird {
+public:
+    void bark() {
+        std::cout << "Dog is barking\n";
+    }
+};
 ```
