@@ -42,7 +42,7 @@ tags:
     - [stoneGameVI](#stonegamevi)
     - [魔塔游戏](#魔塔游戏)
 - [动态规划](#动态规划)
-    - [](#-2)
+    - [Coin Change II](#coin-change-ii)
     - [Maximum Number of Moves in a Grid](#maximum-number-of-moves-in-a-grid)
     - [Extra Characters in a String](#extra-characters-in-a-string)
     - [Minimum Additions to Make Valid String](#minimum-additions-to-make-valid-string)
@@ -1466,7 +1466,9 @@ class Solution:
 ```
 
 ## 动态规划
-#### 
+#### Coin Change II
+518. Coin Change II
+
 容易写错成这个版本
 ```cpp
 class Solution {
