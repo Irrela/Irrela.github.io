@@ -42,6 +42,7 @@ tags:
     - [stoneGameVI](#stonegamevi)
     - [魔塔游戏](#魔塔游戏)
 - [动态规划](#动态规划)
+    - [](#-2)
     - [Maximum Number of Moves in a Grid](#maximum-number-of-moves-in-a-grid)
     - [Extra Characters in a String](#extra-characters-in-a-string)
     - [Minimum Additions to Make Valid String](#minimum-additions-to-make-valid-string)
@@ -1465,6 +1466,51 @@ class Solution:
 ```
 
 ## 动态规划
+#### 
+容易写错成这个版本
+```cpp
+class Solution {
+public:
+    int change(int amount, vector<int>& coins) {
+        vector<long> dp(amount+1, 0);
+        dp[0] = 1;
+
+        // 外层遍历金额，内层遍历coin面值，会存在重复计算
+        // 比如dp[3] 会重复计算 1+1+1, 因为dp[2]和dp[1]存在重复，dp[2]中有dp[1]+1的来源
+        for (long i = 1; i <= amount; i++) {
+            for (int coinValue : coins) {
+                if (i - coinValue >= 0) {
+                    dp[i] += dp[i - coinValue];
+                }
+            }
+        }
+
+        return dp[amount];
+    }
+};
+```
+
+正确写法：
+```cpp
+class Solution {
+public:
+    int change(int amount, vector<int>& coins) {
+        vector<long> dp(amount+1, 0);
+        dp[0] = 1;
+
+        // 外层遍历coin面值，内层遍历金额
+        // 详细可见：https://leetcode.cn/problems/coin-change-ii/solutions/821278/ling-qian-dui-huan-ii-by-leetcode-soluti-f7uh/?envType=daily-question&envId=2024-03-25
+        for (int coinValue : coins) {
+            for (long i = coinValue; i <= amount; i++) {
+                    dp[i] += dp[i - coinValue];
+            }
+        }
+
+        return dp[amount];
+    }
+};
+```
+
 #### Maximum Number of Moves in a Grid
 ```cpp
 class Solution {
@@ -1894,7 +1940,6 @@ class Solution {
     }
 }
 ```
-
 
 ## 二分法
 
