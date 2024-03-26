@@ -33,6 +33,7 @@ tags:
     - [Cousins in Binary Tree II](#cousins-in-binary-tree-ii)
 - [图算法](#图算法)
     - [三种算法](#三种算法)
+    - [2642. Design Graph With Shortest Path Calculator](#2642-design-graph-with-shortest-path-calculator)
     - [1976. Number of Ways to Arrive at Destination](#1976-number-of-ways-to-arrive-at-destination)
 - [贪心](#贪心)
     - [](#-1)
@@ -1067,6 +1068,9 @@ class Solution:
    - `检测负权重环`：除了计算最短路径，Bellman-Ford算法还可以检测图中是否存在负权重环。当算法在执行完所有的边的松弛操作后，如果仍然存在可以继续减小路径长度的情况，那么说明图中存在负权重环。
    - 任意加权有向图或无向图：Bellman-Ford算法没有对图的拓扑结构进行要求，因此它适用于任意形状的图，包括有环、无环、连通或不连通的图。
 
+
+#### 2642. Design Graph With Shortest Path Calculator
+[Dijkstra & Floyd解法](https://leetcode.cn/problems/design-graph-with-shortest-path-calculator/solutions/2229013/dijkstra-suan-fa-mo-ban-pythonjavacgo-by-unmv/?envType=daily-question&envId=2024-03-26)
 
 #### 1976. Number of Ways to Arrive at Destination 
 ```py
