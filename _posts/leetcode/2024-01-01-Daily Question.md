@@ -62,6 +62,8 @@ tags:
     - [Sum of Values at Indices With K Set Bits](#sum-of-values-at-indices-with-k-set-bits)
 - [循环节](#循环节)
   - [Count The Repetitions](#count-the-repetitions)
+- [数学](#数学)
+    - [(区间合并 \& 排序) Count Ways to Group Overlapping Ranges](#区间合并--排序-count-ways-to-group-overlapping-ranges)
 - [并查集](#并查集)
     - [Minimum Edge Weight Equilibrium Queries in a Tree](#minimum-edge-weight-equilibrium-queries-in-a-tree)
     - [2368. Reachable Nodes With Restrictions](#2368-reachable-nodes-with-restrictions)
@@ -2393,6 +2395,80 @@ class Solution:
         return res // n2
 
 ```
+
+## 数学
+#### (区间合并 & 排序) Count Ways to Group Overlapping Ranges
+```cs
+using System;
+
+/// <summary>
+/// 2580. Count Ways to Group Overlapping Ranges
+/// 问题描述：
+/// 给定一个二维整数数组 ranges，其中 ranges[i] = [starti, endi] 表示第 i 个范围内的所有整数，
+/// 返回将范围分成两组的总方法数。要求每个范围只能属于一组，如果两个范围有交叉，它们必须属于同一组。
+/// 
+/// 思路：
+/// 1. 首先对范围按照起始值进行排序，以便处理。
+/// 2. 遍历排序后的范围，如果当前范围的起始值大于前一个范围的结束值，说明可以将当前范围划分到另一组，结果乘以 2。
+/// 3. 遍历过程中更新当前已经处理过的范围的最大结束值。
+/// 4. 返回结果，注意取模操作。
+/// </summary>
+public class Solution {
+    /// <summary>
+    /// 计算给定范围数组可以分成两组的总方法数
+    /// </summary>
+    /// <param name="ranges">给定的范围数组</param>
+    /// <returns>分组总方法数，取模 10^9 + 7</returns>
+    public int CountWays(int[][] ranges) {
+        // 按照起始值对范围进行排序
+        Array.Sort(ranges, (x, y) => x[0].CompareTo(y[0]));
+        int upper = -1;
+        int res = 1;
+
+        // 遍历排序后的范围数组
+        foreach (int[] range in ranges) {
+            // 如果当前范围的起始值大于前一个范围的结束值，说明可以划分到另一组，结果乘以 2
+            if (range[0] > upper) {
+                res *= 2;
+                res %= 1000000007; // 取模操作
+            }
+
+            // 更新当前已处理过的范围的最大结束值
+            upper = Math.Max(upper, range[1]);
+        }
+
+        return res;
+    }
+
+    /// <summary>
+    /// 计算阶乘
+    /// </summary>
+    /// <param name="n">给定的整数</param>
+    /// <returns>n 的阶乘</returns>
+    static int Factorial(int n)
+    {
+        if (n == 0)
+            return 1;
+        return n * Factorial(n - 1);
+    }
+
+    /// <summary>
+    /// 计算组合数
+    /// </summary>
+    /// <param name="n">给定整数 n</param>
+    /// <param name="k">给定整数 k</param>
+    /// <returns>C(n, k)</returns>
+    // 计算组合数
+    static int Combination(int n, int k)
+    {
+        if (k > n)
+            return 0;
+        return Factorial(n) / (Factorial(k) * Factorial(n - k));
+    }
+}
+
+```
+
 
 ## 并查集
 #### Minimum Edge Weight Equilibrium Queries in a Tree
