@@ -34,6 +34,7 @@ tags:
       - [添加污垢飞溅颗粒](#添加污垢飞溅颗粒)
       - [向相机对象添加音乐](#向相机对象添加音乐)
       - [向 Player 添加音效](#向-player-添加音效)
+    - [CWC 2 Challenge 3 - Balloons, Bombs, \& Booleans](#cwc-2-challenge-3---balloons-bombs--booleans)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
       - [Scene操作](#scene操作)
@@ -1015,7 +1016,7 @@ public class PlayerController : MonoBehaviour
 
 #### 向 Player 添加音效
 
-1. In `PlayerController`.cs, declare a new `public AudioClip jumpSound`; and a new `public AudioClip crashSound`;
+1. In `PlayerController.cs`, declare a new `public AudioClip jumpSound`; and a new `public AudioClip crashSound`;
 2. From `Course Library > Sound`, drag a clip onto each new `sound` variable in the inspector
 3. Add an `Audio Source` component to the `player`
 4. Declare a new `private AudioSource playerAudio`; and initialize it as `playerAudio = GetComponent<AudioSource>();`
@@ -1078,6 +1079,183 @@ public void PlayOneShot(AudioClip clip, [UnityEngine.Internal.DefaultValue("1.0F
 ```
 
 > todo: 除开脚本调节音量，是否存在其他方式（声明puc var？）
+
+
+### CWC 2 Challenge 3 - Balloons, Bombs, & Booleans
+
+
+```cs
+public class PlayerControllerX : MonoBehaviour
+{
+    public bool gameOver;
+
+    public float floatForce;
+    private float gravityModifier = 1.5f;
+    private Rigidbody playerRb;
+
+    public ParticleSystem explosionParticle;
+    public ParticleSystem fireworksParticle;
+
+    private AudioSource playerAudio;
+    public AudioClip moneySound;
+    public AudioClip explodeSound;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // 3.The player can’t control the balloon
+        playerRb = GetComponent<Rigidbody>();
+        
+        Physics.gravity *= gravityModifier;
+        playerAudio = GetComponent<AudioSource>();
+
+        // Apply a small upward force at the start of the game
+        playerRb.AddForce(Vector3.up * 5, ForceMode.Impulse);
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // While space is pressed and player is low enough, float up
+        if (Input.GetKey(KeyCode.Space) && !gameOver)
+        {
+            playerRb.AddForce(Vector3.up * floatForce);
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        // if player collides with bomb, explode and set gameOver to true
+        if (other.gameObject.CompareTag("Bomb"))
+        {
+            explosionParticle.Play();
+            playerAudio.PlayOneShot(explodeSound, 1.0f);
+            gameOver = true;
+            Debug.Log("Game Over!");
+            Destroy(other.gameObject);
+        } 
+
+        // if player collides with money, fireworks
+        else if (other.gameObject.CompareTag("Money"))
+        {
+            fireworksParticle.Play();
+            playerAudio.PlayOneShot(moneySound, 1.0f);
+            Destroy(other.gameObject);
+
+        }
+
+        // 9.Bonus: The balloon can drop below the ground
+        else if (other.gameObject.CompareTag("Ground"))
+        {
+            playerRb.AddForce(Vector3.up * 15, ForceMode.Impulse);
+        }
+
+    }
+
+}
+```
+
+```cs
+public class MoveLeftX : MonoBehaviour
+{
+    public float speed;
+    private PlayerControllerX playerControllerScript;
+    private float leftBound = -10;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        playerControllerScript = GameObject.Find("Player").GetComponent<PlayerControllerX>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // If game is not over, move to the left
+        // 4.The background only moves when the game is over
+        if (!playerControllerScript.gameOver)
+        {
+            transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
+        }
+
+        // If object goes off screen that is NOT the background, destroy it
+        if (transform.position.x < leftBound && !gameObject.CompareTag("Background"))
+        {
+            Destroy(gameObject);
+        }
+
+    }
+}
+```
+
+```cs
+public class SpawnManagerX : MonoBehaviour
+{
+    public GameObject[] objectPrefabs;
+    private float spawnDelay = 2;
+    private float spawnInterval = 1.5f;
+
+    private PlayerControllerX playerControllerScript;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // No objects are being spawned
+        InvokeRepeating("SpawnObjects", spawnDelay, spawnInterval);
+        playerControllerScript = GameObject.Find("Player").GetComponent<PlayerControllerX>();
+    }
+
+    // Spawn obstacles
+    void SpawnObjects ()
+    {
+        // Set random spawn location and random object index
+        Vector3 spawnLocation = new Vector3(30, Random.Range(5, 15), 0);
+        int index = Random.Range(0, objectPrefabs.Length);
+
+        // If game is still active, spawn new object
+        if (!playerControllerScript.gameOver)
+        {
+            Instantiate(objectPrefabs[index], spawnLocation, objectPrefabs[index].transform.rotation);
+        }
+
+    }
+}
+
+```
+
+```cs
+public class RepeatBackgroundX : MonoBehaviour
+{
+    private Vector3 startPos;
+    private float repeatWidth;
+
+    private void Start()
+    {
+        startPos = transform.position; // Establish the default starting position 
+        // 7.The background is not repeating properly
+        repeatWidth = GetComponent<BoxCollider>().size.x / 2; // Set repeat width to half of the background
+    }
+
+    private void Update()
+    {
+        // If background moves left by its repeat width, move it back to start position
+        if (transform.position.x < startPos.x - repeatWidth)
+        {
+            transform.position = startPos;
+        }
+    }
+}
+```
+
+
+
+
+
+
+
+
 
 ## Unity Essentials
 
