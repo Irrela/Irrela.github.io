@@ -1062,6 +1062,23 @@ public class PlayerController : MonoBehaviour
 }
 ```
 
+```cs
+/// <summary>
+///   <para>Plays an AudioClip, and scales the AudioSource volume by volumeScale.</para>
+/// </summary>
+/// <param name="clip">The clip being played.</param>
+/// <param name="volumeScale">The scale of the volume (0-1).</param>
+public void PlayOneShot(AudioClip clip, [UnityEngine.Internal.DefaultValue("1.0F")] float volumeScale)
+{
+    if ((Object) clip == (Object) null)
+    Debug.LogWarning((object) "PlayOneShot was called with a null AudioClip.");
+    else
+    AudioSource.PlayOneShotHelper(this, clip, volumeScale);
+}
+```
+
+> todo: 除开脚本调节音量，是否存在其他方式（声明puc var？）
+
 ## Unity Essentials
 
 #### Render mode
