@@ -16,6 +16,8 @@ tags:
     - [Insert Greatest Common Divisors in Linked List](#insert-greatest-common-divisors-in-linked-list)
 - [哈希](#哈希)
     - [Frequency Tracker](#frequency-tracker)
+- [前后缀](#前后缀)
+    - [Minimum Sum of Mountain Triplets I](#minimum-sum-of-mountain-triplets-i)
 - [单调](#单调)
     - [Maximum Score of a Good Subarray](#maximum-score-of-a-good-subarray-1)
     - [Remove Nodes From Linked List](#remove-nodes-from-linked-list-1)
@@ -359,6 +361,56 @@ public:
 };
 ```
 
+## 前后缀
+
+#### Minimum Sum of Mountain Triplets I
+
+```cs
+using System;
+using System.Linq;
+
+public class Solution {
+    /// <summary>
+    /// 2908. Minimum Sum of Mountain Triplets I
+    /// 问题描述：给定一个整数数组 nums，寻找数组中的一个山脉三元组，返回其最小可能的和。如果不存在这样的三元组，则返回 -1。
+    /// 思路：遍历两次数组，分别找到每个元素左侧最小值和右侧最小值，然后计算当前元素与左右最小值的和，取最小值即可。
+    /// </summary>
+    /// <param name="nums">给定的整数数组</param>
+    /// <returns>山脉三元组的最小可能和，若不存在则返回 -1</returns>
+    public int MinimumSum(int[] nums) {
+        int[] sum = nums.ToArray(); // 将数组复制到 sum 中，sum 数组用于记录当前元素及其左侧最小值的和
+
+        int minPre = int.MaxValue; // 初始化左侧最小值为整型最大值
+
+        // 第一次遍历，找到每个元素左侧最小值
+        for (int i = 1; i < nums.Length; i++) {
+            minPre = Math.Min(minPre, nums[i - 1]); // 更新左侧最小值
+            if (nums[i] > minPre) {
+                sum[i] += minPre; // 如果当前元素大于左侧最小值，则将左侧最小值加到当前元素上
+            }
+        }
+
+        int minSum = int.MaxValue; // 初始化最小和为整型最大值
+        int minSuffix = int.MaxValue; // 初始化右侧最小值为整型最大值
+
+        // 第二次遍历，找到每个元素右侧最小值，并计算山脉三元组的最小和
+        for (int i = nums.Length - 2; i > 0; i--) {
+            minSuffix = Math.Min(minSuffix, nums[i + 1]); // 更新右侧最小值
+
+            if (nums[i] > minSuffix && sum[i] != nums[i]) { // 当前元素大于右侧最小值且当前元素与左侧最小值的和不等于当前元素时
+                sum[i] += minSuffix; // 将右侧最小值加到当前元素上
+                minSum = Math.Min(minSum, sum[i]); // 更新最小和
+            }
+        }
+
+        if (minSum == int.MaxValue) { // 如果最小和仍为整型最大值，则不存在山脉三元组，返回 -1
+            return -1;
+        }
+        return minSum; // 返回最小和
+    }
+}
+
+```
 
 ## 单调
 #### Maximum Score of a Good Subarray
