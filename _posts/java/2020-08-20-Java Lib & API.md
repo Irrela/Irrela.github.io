@@ -20,7 +20,7 @@ tags:
     - [java.util](#javautil)
   - [格式化打印](#格式化打印)
   - [Stream](#stream)
-  - [List\<int\[\]\> --\> int\[\]\[\]](#listint----int)
+  - [集合转换为arr](#集合转换为arr)
   - [For遍历](#for遍历)
   - [String](#string)
   - [StringBuilder(java.lang)](#stringbuilderjavalang)
@@ -355,7 +355,8 @@ int[] intArray = Arrays.stream(array).mapToInt(Integer :: intValue).toArray();
 List<Integer> list  = Arrays.stream(li).boxed().collect(Collectors.toList());
 
 ```
-### List<int[]> --> int[][]
+### 集合转换为arr
+
 ```java
 list.toArray(new int[0][0]);
 ```

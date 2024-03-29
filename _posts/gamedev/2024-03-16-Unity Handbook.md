@@ -1,18 +1,13 @@
 ---
-title: U3D
+title: Unity Handbook
 categories: GameDev
 tags:
 - GameDev
 ---
 
-- [DCC](#dcc)
-      - [3D 资源获取](#3d-资源获取)
-      - [2D 资源](#2d-资源)
-      - [音频资源获取](#音频资源获取)
-    - [Audio](#audio)
-        - [3D 音效](#3d-音效)
 - [教程项目](#教程项目)
   - [Junior Programmer](#junior-programmer)
+    - [CWC 1](#cwc-1)
       - [CWC 1 Unit 1 - Player Control](#cwc-1-unit-1---player-control)
       - [CWC 1 Unit 2 - Basic Gameplay](#cwc-1-unit-2---basic-gameplay)
       - [CWC 1 Bonus Features 2](#cwc-1-bonus-features-2)
@@ -20,24 +15,32 @@ tags:
       - [CWC 1 Bonus Features 2](#cwc-1-bonus-features-2-1)
       - [CWC 1 Mod the Cube (纯脚本设置参数)](#cwc-1-mod-the-cube-纯脚本设置参数)
       - [CWC 1 Personal Project](#cwc-1-personal-project)
-    - [CWC 2](#cwc-2)
-      - [CWC 2 Unit 3 - Sound and Effects](#cwc-2-unit-3---sound-and-effects)
+    - [CWC 2 Unit 3 - Sound and Effects](#cwc-2-unit-3---sound-and-effects)
+      - [背景设置](#背景设置)
+      - [调用 player’s Rigidbody 实现跳跃](#调用-players-rigidbody-实现跳跃)
+      - [防止双跳(double-jumping)](#防止双跳double-jumping)
+      - [有碰撞体积的障碍物Prefab， 向player方向translate](#有碰撞体积的障碍物prefab-向player方向translate)
+      - [SpawnManager](#spawnmanager)
+      - [限制Player的pos](#限制player的pos)
+      - [重复背景](#重复背景)
+      - [碰撞触发Game Over, 停止相关代码](#碰撞触发game-over-停止相关代码)
+      - [探索 Player 的 Animations](#探索-player-的-animations)
+      - [设置 Jump 动画](#设置-jump-动画)
+      - [调整 Jump 动画](#调整-jump-动画)
+      - [设置撞击倒地动画](#设置撞击倒地动画)
+      - [防止倒地后还能跳跃](#防止倒地后还能跳跃)
   - [Unity Essentials](#unity-essentials)
-  - [UI](#ui)
       - [Render mode](#render-mode)
-  - [Transform](#transform)
-      - [Translate and Rotate](#translate-and-rotate)
       - [Scene操作](#scene操作)
       - [Camera Projection](#camera-projection)
       - [LateUpdate() 和 Update()](#lateupdate-和-update)
-      - [InvokeRepeating](#invokerepeating)
       - [玩家控制输入](#玩家控制输入)
       - [边界限制](#边界限制)
 - [Handbook](#handbook)
   - [2D 项目](#2d-项目)
       - [Layer](#layer)
-      - [固定](#固定)
-- [项目 \& 团队](#项目--团队)
+      - [Pos固定](#pos固定)
+- [项目及团队](#项目及团队)
   - [流程](#流程)
       - [游戏设计文档](#游戏设计文档)
       - [生产](#生产)
@@ -50,30 +53,12 @@ tags:
       - [错误报告的艺术](#错误报告的艺术)
     - [运营](#运营)
       - [项目回顾](#项目回顾)
-    - [prefab](#prefab)
-
-
-# DCC
-
-#### 3D 资源获取
-
-ProBuilder: 在 Unity 编辑器中创建 3D 艺术和环境。与专用 DCC 相比，Probuilder 的功能有限，但对于想要在不打开外部编辑工具的情况下快速建模 3D 对象的艺术家来说，它很有帮助。  
-
-在线资源: CGTrader, Turbosquid 3D，Unity Asset Store也是专为 Unity 设计的宝贵艺术资源。
-
-#### 2D 资源
-Unity 具有专门为处理 2D 资源而设计的内置工具。例如，`2D Tilemap Editor` 可帮助快速设计 2D 关卡，
-而`Sprite Editor`则可管理进入 2D 动画的各种图像（“Sprite”）。有专门用于2D 物理、2D 灯光等的系统。
-
-
-#### 音频资源获取
-音频数字创作工具 (DCC)，例如Audition、Logic Pro、Reaper和Audacity
-
-
-### Audio
-##### 3D 音效
-Audio source => spatial blend
-https://learn.unity.com/tutorial/create-real-time-3d-audio-effects?uv=2021.3&pathwayId=5f7bcab4edbc2a0023e9c38f&missionId=5f777d9bedbc2a001f6f5ec7&projectId=5faab859edbc2a00209536ce#
+- [DCC](#dcc)
+      - [3D 资源获取](#3d-资源获取)
+      - [2D 资源](#2d-资源)
+      - [音频资源获取](#音频资源获取)
+    - [Audio](#audio)
+        - [3D 音效](#3d-音效)
 
 
 # 教程项目
@@ -940,7 +925,6 @@ public class PlayerController : MonoBehaviour
 
 ## Unity Essentials
 
-## UI
 #### Render mode
 在Unity中设置Canvas的Render Mode可以通过以下步骤完成：
 
@@ -952,10 +936,6 @@ Screen Space - Camera：Canvas将放置在场景中的一个特定相机的前�
 World Space：Canvas将以世界坐标的形式存在，可以在场景中移动和旋转，通常用于在3D场景中创建HUD或者3DUI。
 
 > [Unity certificate](https://unity.com/cn/products/unity-certifications/user-programmer)
-
-## Transform
-#### Translate and Rotate
-
 
 #### Scene操作
 
@@ -995,19 +975,6 @@ LateUpdate方法：
 - LateUpdate方法在所有Update方法执行完毕后被调用，所以它通常用于处理在Update方法中进行了一些更改后的后续调整或校正。
     例如，如果在Update方法中移动了一个对象，并且希望另一个对象跟随该对象移动，那么可以将跟随逻辑放在LateUpdate方法中，以确保它们在位置调整之后执行。
 - LateUpdate还经常用于处理摄像机相关的逻辑，因为它能确保所有其他对象都已经更新完毕，摄像机再进行调整，从而避免画面抖动等问题。
-
-#### InvokeRepeating
-
-```cpp
-// 调用InvokeRepeating方法，在指定的延迟后开始重复执行指定的方法
-
-// 第一个参数："SpawnRandomAnimal" 是要重复调用的方法的名称（字符串）
-// 第二个参数：startDelay 是延迟开始重复调用的时间（以秒为单位）
-// 第三个参数：spawnInterval 是重复调用的时间间隔（以秒为单位）
-InvokeRepeating("SpawnRandomAnimal", startDelay, spawnInterval);
-
-```
-
 
 #### 玩家控制输入
 
@@ -1059,15 +1026,15 @@ InvokeRepeating("SpawnRandomAnimal", startDelay, spawnInterval);
 #### Layer
 Inspector => order in layer
 
-#### 固定
+#### Pos固定
 RigidBody 2D => Dynamic => constraints freeze
 
-or
+或者
 
 RigidBody 2D => Static
 
 
-# 项目 & 团队
+# 项目及团队
 
 ## 流程
 
@@ -1076,7 +1043,7 @@ RigidBody 2D => Static
 
 #### 生产
 
-[分工图](https://unity-connect-prd.storage.googleapis.com/20200923/learn/images/00c0dbf7-09fe-49b8-858a-a75e55c1eddd_Foundations_UnityRT3D_1.1.3.2_chart_of_jobs.png)
+![分工图](https://unity-connect-prd.storage.googleapis.com/20200923/learn/images/00c0dbf7-09fe-49b8-858a-a75e55c1eddd_Foundations_UnityRT3D_1.1.3.2_chart_of_jobs.png)
 
 #### 后期制作
 评估、编辑、润色和修复。这通常包括alpha 测试和beta 测试。 
@@ -1147,6 +1114,24 @@ https://www.ministryoftesting.com/articles/the-art-of-the-bug-report
 
 
 
-### prefab
+# DCC
 
-既然我们的投射物具有我们想要的行为，我们需要把它做成一个`预制件`，这样它就可以在任何地方和任何时间重复使用，包括它的所有行为。
+#### 3D 资源获取
+
+ProBuilder: 在 Unity 编辑器中创建 3D 艺术和环境。与专用 DCC 相比，Probuilder 的功能有限，但对于想要在不打开外部编辑工具的情况下快速建模 3D 对象的艺术家来说，它很有帮助。  
+
+在线资源: CGTrader, Turbosquid 3D，Unity Asset Store也是专为 Unity 设计的宝贵艺术资源。
+
+#### 2D 资源
+Unity 具有专门为处理 2D 资源而设计的内置工具。例如，`2D Tilemap Editor` 可帮助快速设计 2D 关卡，
+而`Sprite Editor`则可管理进入 2D 动画的各种图像（“Sprite”）。有专门用于2D 物理、2D 灯光等的系统。
+
+
+#### 音频资源获取
+音频数字创作工具 (DCC)，例如Audition、Logic Pro、Reaper和Audacity
+
+
+### Audio
+##### 3D 音效
+Audio source => spatial blend
+https://learn.unity.com/tutorial/create-real-time-3d-audio-effects?uv=2021.3&pathwayId=5f7bcab4edbc2a0023e9c38f&missionId=5f777d9bedbc2a001f6f5ec7&projectId=5faab859edbc2a00209536ce#
