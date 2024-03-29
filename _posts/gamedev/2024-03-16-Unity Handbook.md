@@ -35,6 +35,13 @@ tags:
       - [向相机对象添加音乐](#向相机对象添加音乐)
       - [向 Player 添加音效](#向-player-添加音效)
     - [CWC 2 Challenge 3 - Balloons, Bombs, \& Booleans](#cwc-2-challenge-3---balloons-bombs--booleans)
+    - [CWC 2 Lab 3 - Player Control](#cwc-2-lab-3---player-control)
+      - [3.Constrain the Player’s movement](#3constrain-the-players-movement)
+    - [CWC 2 Unit 4 - Gameplay Mechanics](#cwc-2-unit-4---gameplay-mechanics)
+      - [3.Create a focal point for the camera](#3create-a-focal-point-for-the-camera)
+      - [4.Rotate the focal point by user input](#4rotate-the-focal-point-by-user-input)
+      - [5.Add forward force to the player](#5add-forward-force-to-the-player)
+      - [6.Move in direction of focal point](#6move-in-direction-of-focal-point)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
       - [Scene操作](#scene操作)
@@ -1249,12 +1256,104 @@ public class RepeatBackgroundX : MonoBehaviour
 }
 ```
 
+### CWC 2 Lab 3 - Player Control
+
+#### 3.Constrain the Player’s movement
+1. 如果你的玩家正在与不应该碰撞的物体（包括地面）碰撞，请在碰撞器组件中 check `Is trigger` box
+2. 如果玩家的位置或旋转应该受到约束，则扩展刚体组件中的 `constraints` 并约束某些轴
+3. 如果你的玩家可以离开屏幕，写一个if语句检查和重置位置
+4. 如果玩家可以 double-jump 或飞离屏幕，创建一个布尔变量来限制用户的能力
+5. 如果你的玩家应该受到游戏区域外部的物理障碍的限制，创建更原始的平面或立方体，并将它们缩放成墙壁
 
 
 
+### CWC 2 Unit 4 - Gameplay Mechanics
 
 
+#### 3.Create a focal point for the camera
 
+1. Create a new Empty Object and rename it `Focal Point`, 
+2. `Reset its position` to the origin (0, 0, 0), and make the Camera a `child object` of it
+3. Create a new “Scripts” folder, and a new `RotateCamera` script inside it 
+4. Attach the `RotateCamera` script to the Focal Point
+
+#### 4.Rotate the focal point by user input
+
+1. Create the code to rotate the camera based on `rotationSpeed` and `horizontalInput`
+2. Tweak the rotation speed value to get the speed you want
+
+```cs
+public class RotateCamera : MonoBehaviour
+{
+    public float rotationSpeed;
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        transform.Rotate(Vector3.up, horizontalInput * rotationSpeed * Time.deltaTime);
+    }
+}
+```
+
+#### 5.Add forward force to the player
+
+1. Create a new `“PlayerController”` script, apply it to the Player, and open it
+2. Declare a new `public float speed variable` and `initialize` it
+3. Declare a new `private Rigidbody playerRb` and `initialize it in Start()`
+4. In `Update()`, declare a new `forwardInput` variable based on `“Vertical”` input 
+5. Call the `AddForce()` method to move the player forward based forwardInput
+
+```cs
+public class PlayerController : MonoBehaviour
+{
+    private Rigidbody playerRb;
+    public float speed = 5.0f;
+
+    void Start()
+    {
+        playerRb = GetComponent<Rigidbody>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        float fowardInput = Input.GetAxis("Vertical");
+    }
+}
+```
+
+#### 6.Move in direction of focal point
+
+1. Declare a new `private GameObject focalPoint`; and initialize it in `Start()`: `focalPoint = GameObject.Find("Focal Point");`
+2. In the `AddForce` call, Replace` Vector3.forward` with `focalPoint.transform.forward`
+
+```cs
+public class PlayerController : MonoBehaviour
+{
+    private GameObject focalPoint;
+    
+    void Start()
+    {
+        focalPoint = GameObject.Find("Focal Point");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        playerRb.AddForce(focalPoint.transform.forward * (speed * fowardInput));
+    }
+}
+```
+
+> 可选：花点时间来尝试一下 `Global` 与 `Local` 切换菜单，看看两者之间的切换如何改变坐标和定位。
+
+![image](https://unity-connect-prd.storage.googleapis.com/20231214/learn/images/08f436eb-b052-4623-a97d-1e2f4da5a364_image.png)
 
 
 ## Unity Essentials
