@@ -29,6 +29,11 @@ tags:
       - [调整 Jump 动画](#调整-jump-动画)
       - [设置撞击倒地动画](#设置撞击倒地动画)
       - [防止倒地后还能跳跃](#防止倒地后还能跳跃)
+      - [自定义爆炸粒子](#自定义爆炸粒子)
+      - [在碰撞时播放粒子](#在碰撞时播放粒子)
+      - [添加污垢飞溅颗粒](#添加污垢飞溅颗粒)
+      - [向相机对象添加音乐](#向相机对象添加音乐)
+      - [向 Player 添加音效](#向-player-添加音效)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
       - [Scene操作](#scene操作)
@@ -922,6 +927,140 @@ public class PlayerController : MonoBehaviour
     }
 ```
 
+#### 自定义爆炸粒子
+1. From the `Course Library > Particles`, drag `FX_Explosion_Smoke` into the hierarchy, then use the `Play / Restart / Stop` buttons to preview it
+   1. `Play / Restart / Stop` 在 Scene window 右下部
+2. Play around with the `settings` to get your `particle system` the way you want it
+   1. Inspector -> Particle System -> Velocity over lifeTime -> speed Modifier
+3. Make sure to uncheck the `Play on Awake` setting
+   1. Inspector -> Particle System -> Play On Awake
+   2. 设置为true会让该粒子效果在游戏开始就触发
+4. Drag the `particle` onto your player to make it a `child object`, then position it relative to the player 
+   1. 让例子效果成为Player的子obj
+
+
+#### 在碰撞时播放粒子
+1. In `PlayerController.cs`, declare a new `public ParticleSystem explosionParticle`;
+2. In the Inspector, assign the `explosion` to the `explosion particle` variable
+   1. 从 Hierarchy -> Player 的 child Object 拖 `FX_Explosion_Smoke`
+3. In the if-statement where the player collides with an obstacle, call `explosionParticle.Play()`;, then test and tweak the `particle properties`
+
+```cs
+public class PlayerController : MonoBehaviour
+{
+
+    public ParticleSystem explosionParticle;
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        else if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            explosionParticle.Play();
+        }
+    }
+}
+```
+
+#### 添加污垢飞溅颗粒
+
+我们需要的下一个粒子效果是一个泥土飞溅，让玩家看起来像是踢地面，因为他们冲刺通过场景。
+
+诀窍在于，粒子只应该在玩家在地面上的时候才 play。
+
+1. Drag `FX_DirtSplatter` as the Player’s `child object`, reposition it, rotate it, and edit its settings
+   1. rotation.z = -90
+2. Declare a new `public ParticleSystem dirtParticle`;, then `assign` it in the Inspector
+3. Add `dirtParticle.Stop()`; when the player jumps or collides with an obstacle
+4. Add `dirtParticle.Play()`; when the player lands on the ground
+
+```cs
+public class PlayerController : MonoBehaviour
+{
+    public ParticleSystem dirtParticle;
+
+    // Update is called once per frame
+    void Update()
+    {
+        // 检测是否按下空格键
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !gameOver)
+        {
+            dirtParticle.Stop();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {            
+            dirtParticle.Play();
+        }
+        else if (collision.gameObject.CompareTag("Obstacle"))
+        {
+
+            dirtParticle.Stop();
+        }
+    }
+}
+```
+
+#### 向相机对象添加音乐
+我们的粒子效果看起来很好，所以是时候转移到声音了！为了添加音乐，我们需要在相机上附加声音组件。毕竟，相机是场景的眼睛和耳朵。
+
+1. Select the `Main Camera` object, then `Add Component > Audio Source`
+2. From `Course Library > Sound`, drag a music clip onto the `AudioClip` variable in the inspector
+3. Reduce the `volume` so it will be easier to hear `sound effects`
+   1. Inspector -> Audio Source -> Volume
+4. Check the `Loop` checkbox
+   1. Inspector -> Audio Source -> Loop
+
+#### 向 Player 添加音效
+
+1. In `PlayerController`.cs, declare a new `public AudioClip jumpSound`; and a new `public AudioClip crashSound`;
+2. From `Course Library > Sound`, drag a clip onto each new `sound` variable in the inspector
+3. Add an `Audio Source` component to the `player`
+4. Declare a new `private AudioSource playerAudio`; and initialize it as `playerAudio = GetComponent<AudioSource>();`
+5. Call `playerAudio.PlayOneShot(jumpSound, 1.0f)`; when the character `jumps`
+6. Call `playerAudio.PlayOneShot(crashSound, 1.0f)`; when the character `crashes`
+
+```cs
+public class PlayerController : MonoBehaviour
+{
+    public AudioClip jumpSound; // 用于存储跳跃音效的变量
+    public AudioClip crashSound; // 用于存储碰撞音效的变量
+    private AudioSource playerAudio; // 用于播放音效的音频源
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        playerAudio = GetComponent<AudioSource>(); // 获取当前游戏对象上的 AudioSource 组件
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // 检测是否按下空格键，并且玩家处于地面上且游戏未结束
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !gameOver)
+        {      
+            playerAudio.PlayOneShot(jumpSound, 1.0f); // 播放跳跃音效
+        }
+    }
+
+    // 当游戏对象碰撞到其他物体时调用
+    private void OnCollisionEnter(Collision collision)
+    {
+        // 如果碰撞的物体标签为 "Ground"，则不做任何操作
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            // Do nothing
+        }
+        // 如果碰撞的物体标签为 "Obstacle"，播放碰撞音效
+        else if (collision.gameObject.CompareTag("Obstacle"))
+        {           
+            playerAudio.PlayOneShot(crashSound, 1.0f);
+        }
+    }
+}
+```
 
 ## Unity Essentials
 
