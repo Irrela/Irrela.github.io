@@ -46,7 +46,7 @@ tags:
       - [生产](#生产)
       - [后期制作](#后期制作)
       - [GDD](#gdd)
-      - [偏向agile的项目管理Sample](#偏向agile的项目管理sample)
+      - [项目管理](#项目管理)
       - [项目章程 Project Charter](#项目章程-project-charter)
       - [管理项目，项目跟踪器](#管理项目项目跟踪器)
     - [测试](#测试)
@@ -1062,10 +1062,10 @@ Alpha 测试是在内部进行的，以确定问题和需要改进的领域，�
 - 该项目的主要特点
 - 最终交付形式
 
-https://docs.google.com/document/d/1o1KFkuZrPbevpd7ZYBhJ5e8n3GRg6m15HkebVfiTufk/edit
+[GDD Sample](https://docs.google.com/document/d/1o1KFkuZrPbevpd7ZYBhJ5e8n3GRg6m15HkebVfiTufk/edit)
 
-#### 偏向agile的项目管理Sample
-https://docs.google.com/document/d/1FR-GYr2hL67d6MleWTTP-mXfCHVZTM1Mko77MFodxFg/copy
+#### 项目管理
+[Agile风格的项目管理文件 Sample](https://docs.google.com/document/d/1FR-GYr2hL67d6MleWTTP-mXfCHVZTM1Mko77MFodxFg/copy)
 
 #### 项目章程 Project Charter
 设计文件获得批准并且项目被批准生产，项目章程就很有用，特别是当您在团队中工作时。
@@ -1080,7 +1080,7 @@ https://docs.google.com/document/d/1FR-GYr2hL67d6MleWTTP-mXfCHVZTM1Mko77MFodxFg/
 - 项目效益
 - 预算总体概述
 
-https://docs.google.com/document/d/1CzqyP1Qn8Ag-lXPaWVynb0InxUkXyWZLnkY2RllUSj8/edit
+[Project Charter Sample](https://docs.google.com/document/d/1CzqyP1Qn8Ag-lXPaWVynb0InxUkXyWZLnkY2RllUSj8/edit)
 
 #### 管理项目，项目跟踪器
 通过规划适当的时间表和管理项目计划来管理项目
@@ -1101,7 +1101,7 @@ https://docs.google.com/document/d/1CzqyP1Qn8Ag-lXPaWVynb0InxUkXyWZLnkY2RllUSj8/
 ### 测试
 
 #### 错误报告的艺术
-https://www.ministryoftesting.com/articles/the-art-of-the-bug-report
+[错误报告的艺术](https://www.ministryoftesting.com/articles/the-art-of-the-bug-report)
 
 
 ### 运营
