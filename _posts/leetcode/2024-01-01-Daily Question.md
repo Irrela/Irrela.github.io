@@ -38,6 +38,7 @@ tags:
     - [2642. Design Graph With Shortest Path Calculator](#2642-design-graph-with-shortest-path-calculator)
     - [1976. Number of Ways to Arrive at Destination](#1976-number-of-ways-to-arrive-at-destination)
 - [贪心](#贪心)
+    - [Minimum Number of Coins to be Added](#minimum-number-of-coins-to-be-added)
     - [](#-1)
     - [Construct String With Repeat Limit](#construct-string-with-repeat-limit)
     - [1599. Maximum Profit of Operating a Centennial Wheel](#1599-maximum-profit-of-operating-a-centennial-wheel)
@@ -1184,6 +1185,44 @@ class Solution:
 
 
 ## 贪心
+
+#### Minimum Number of Coins to be Added
+```cs
+using System;
+
+public class Solution {
+    /// <summary>
+    /// 2952. Minimum Number of Coins to be Added
+    /// 计算需要添加的最小硬币数量
+    /// </summary>
+    /// <param name="coins">提供的硬币值数组</param>
+    /// <param name="target">目标值</param>
+    /// <returns>需要添加的最小硬币数量</returns>
+    public int MinimumAddedCoins(int[] coins, int target) {
+        // 对硬币值数组进行排序
+        Array.Sort(coins);
+        int res = 0;
+        int x = 1;
+
+        int len = coins.Length, index = 0;
+
+        // 逐步增加x的值直到达到目标值
+        while (x <= target) {
+            if (index < len && coins[index] <= x) {
+                // 如果当前硬币值小于等于x，则将该硬币加入到x中
+                x += coins[index];
+                index++;
+            }
+            else {
+                // 否则，将x乘以2，并增加需要添加的硬币数量
+                x *= 2;
+                res++;
+            }
+        }
+        return res;
+    }
+}
+```
 
 #### 
 ```py
