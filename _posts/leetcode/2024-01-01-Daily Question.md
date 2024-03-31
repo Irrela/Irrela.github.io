@@ -8,6 +8,7 @@ tags:
 - [双指针](#双指针)
     - [Maximum Score of a Good Subarray](#maximum-score-of-a-good-subarray)
 - [队列，栈](#队列栈)
+    - [Verify Preorder Serialization of a Binary Tree](#verify-preorder-serialization-of-a-binary-tree)
     - [232. Implement Queue using Stacks](#232-implement-queue-using-stacks)
     - [225. Implement Stack using Queues](#225-implement-stack-using-queues)
 - [链表](#链表)
@@ -126,6 +127,47 @@ public:
 ```
 
 ## 队列，栈
+#### Verify Preorder Serialization of a Binary Tree
+```cs
+/*
+ * 331. Verify Preorder Serialization of a Binary Tree
+ * 问题描述：
+ * 给定一个字符串 preorder，表示二叉树的先序遍历序列，判断其是否为合法的二叉树序列化。
+ * 
+ * 思路：
+ * 使用栈模拟二叉树的构建过程，遇到连续两个 '#' 且前一个元素不为 '#' 时，将这三个元素替换为一个 '#'，直到无法替换或栈中只剩一个 '#' 为止。
+ * 最终判断栈中元素是否只剩一个 '#' 即可。
+ * 
+ */
+
+public class Solution {
+    /// <summary>
+    /// 判断给定的字符串是否为合法的二叉树序列化
+    /// </summary>
+    /// <param name="preorder">二叉树的先序遍历序列</param>
+    /// <returns>如果是合法的二叉树序列化，返回 true；否则返回 false。</returns>
+    public bool IsValidSerialization(string preorder) {
+        LinkedList<string> deque = new LinkedList<string>(); // 使用双向链表模拟栈
+        string[] charArray = preorder.Split(','); // 将字符串按逗号分割为字符数组
+
+        foreach (string node in charArray) {
+            deque.AddLast(node); // 将字符依次入栈
+
+            // 修正逻辑错误：如果遇到连续两个 '#' 且前一个元素不为 '#'，则将这三个元素替换为一个 '#'
+            while (deque.Count >= 3 && deque.Last.Value == "#" && deque.Last.Previous.Value == "#" && deque.Last.Previous.Previous.Value != "#") {
+                deque.RemoveLast(); // 移除倒数第三个元素
+                deque.RemoveLast(); // 移除倒数第二个元素
+                deque.RemoveLast(); // 移除倒数第一个元素
+                deque.AddLast("#"); // 将一个 '#' 入栈
+            }
+        }
+
+        return deque.Count == 1 && deque.Last.Value == "#"; // 判断栈中是否只剩一个 '#'，是则返回 true，否则返回 false
+    }
+}
+```
+
+
 #### 232. Implement Queue using Stacks
 ```py
 class MyQueue:

@@ -6,7 +6,8 @@ tags:
 ---
 
 - [Collections](#collections)
-  - [Deuqe](#deuqe)
+  - [Stack](#stack)
+  - [Deuqe (LinkedList)](#deuqe-linkedlist)
   - [Array Sort](#array-sort)
   - [Array 深拷贝](#array-深拷贝)
   - [Lambda Comparator](#lambda-comparator)
@@ -134,120 +135,94 @@ public class StringExample {
 ```
 
 ### Collections
-#### Deuqe
+#### Stack
 ```cs
 using System;
 using System.Collections.Generic;
 
-/// <summary>
-/// 示例：演示如何使用Deque<T>类
-/// </summary>
-class Program
-{
-    static void Main(string[] args)
-    {
-        // 创建一个双端队列
-        Deque<int> deque = new Deque<int>();
+public class StackExample {
+    public void StackOperations() {
+        // 创建一个整数类型的栈
+        Stack<int> stack = new Stack<int>();
 
-        // 向队列两端添加元素
-        deque.AddFirst(1);          // 添加到队列头部
-        deque.AddLast(2);           // 添加到队列尾部
+        // 压入元素到栈顶
+        stack.Push(1);
+        stack.Push(2);
+        stack.Push(3);
 
-        // 判断队列是否包含指定元素
-        bool contains = deque.Contains(1);
+        // 获取栈顶元素但不移除
+        int topElement = stack.Peek(); // topElement 的值为 3
 
-        // 将队列中的元素复制到数组
-        int[] array = new int[deque.Count];
-        deque.CopyTo(array, 0);
+        // 移除并返回栈顶元素
+        int poppedElement = stack.Pop(); // poppedElement 的值为 3
 
-        // 移除并返回队列的开头和末尾元素
-        int removedFirst = deque.RemoveFirst();
-        int removedLast = deque.RemoveLast();
+        // 检查栈是否为空
+        bool isEmpty = stack.Count == 0;
 
-        // 获取队列中的元素数量
-        int count = deque.Count;
+        // 获取栈中的元素数量
+        int count = stack.Count;
 
-        // 设置队列容量为实际元素数量
-        deque.TrimExcess();
-
-        // 使用索引器获取或设置指定索引处的元素
-        deque[0] = 3;
-        int elementAtIndex0 = deque[0];
+        // 清空栈
+        stack.Clear();
     }
 }
 
-/// <summary>
-/// 表示一个双端队列
-/// </summary>
-/// <typeparam name="T">队列中元素的类型</typeparam>
-public class Deque<T>
-{
-    /// <summary>
-    /// 初始化一个空的双端队列
-    /// </summary>
-    public Deque() { }
+```
 
-    /// <summary>
-    /// 向双端队列的开头添加元素
-    /// </summary>
-    /// <param name="item">要添加的元素</param>
-    public void AddFirst(T item) { }
+#### Deuqe (LinkedList)
+```cs
+using System;
+using System.Collections.Generic;
 
-    /// <summary>
-    /// 向双端队列的末尾添加元素
-    /// </summary>
-    /// <param name="item">要添加的元素</param>
-    public void AddLast(T item) { }
+public class LinkedListExample {
+    public static void Main(string[] args) {
+        // 创建一个新的链表
+        LinkedList<int> linkedList = new LinkedList<int>();
 
-    /// <summary>
-    /// 清空双端队列中的所有元素
-    /// </summary>
-    public void Clear() { }
+        // 添加元素到链表的末尾
+        linkedList.AddLast(1);
+        linkedList.AddLast(2);
+        linkedList.AddLast(3);
 
-    /// <summary>
-    /// 判断双端队列中是否包含指定元素
-    /// </summary>
-    /// <param name="item">要查找的元素</param>
-    /// <returns>如果找到指定元素则返回 true，否则返回 false</returns>
-    public bool Contains(T item) { return false; }
+        // 遍历链表中的每个节点并输出值
+        foreach (int value in linkedList) {
+            Console.WriteLine(value);
+        }
 
-    /// <summary>
-    /// 将双端队列中的元素复制到指定数组中
-    /// </summary>
-    /// <param name="array">目标数组</param>
-    /// <param name="arrayIndex">目标数组的起始索引</param>
-    public void CopyTo(T[] array, int arrayIndex) { }
+        // 在链表的开头添加元素
+        linkedList.AddFirst(0);
 
-    /// <summary>
-    /// 移除并返回双端队列的开头元素
-    /// </summary>
-    /// <returns>被移除的开头元素</returns>
-    public T RemoveFirst() { return default; }
+        // 移除链表的第一个元素
+        linkedList.RemoveFirst();
 
-    /// <summary>
-    /// 移除并返回双端队列的末尾元素
-    /// </summary>
-    /// <returns>被移除的末尾元素</returns>
-    public T RemoveLast() { return default; }
+        // 在链表的末尾添加元素
+        linkedList.AddLast(4);
 
-    /// <summary>
-    /// 返回双端队列中的元素数量
-    /// </summary>
-    public int Count { get { return 0; } }
+        // 移除链表的最后一个元素
+        linkedList.RemoveLast();
 
-    /// <summary>
-    /// 设置双端队列的容量为实际元素数量
-    /// </summary>
-    public void TrimExcess() { }
+        // 判断链表是否包含指定的值
+        bool contains = linkedList.Contains(2);
 
-    /// <summary>
-    /// 获取或设置指定索引处的元素
-    /// </summary>
-    /// <param name="index">元素的索引</param>
-    /// <returns>指定索引处的元素</returns>
-    public T this[int index] { get { return default; } set { } }
+        // 获取链表中的第一个节点的值
+        int firstValue = linkedList.First.Value;
+
+        // 获取链表中的最后一个节点的值
+        int lastValue = linkedList.Last.Value;
+
+        // 将链表转换为数组
+        int[] array = new int[linkedList.Count];
+        linkedList.CopyTo(array, 0);
+
+        // 清空链表
+        linkedList.Clear();
+
+        // 判断链表是否为空
+        bool isEmpty = linkedList.Count == 0;
+    }
 }
 ```
+
 
 #### Array Sort
 ```cs
