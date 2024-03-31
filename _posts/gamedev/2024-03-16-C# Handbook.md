@@ -7,7 +7,10 @@ tags:
 
 - [Collections](#collections)
   - [Stack](#stack)
+  - [Queue](#queue)
   - [Deuqe (LinkedList)](#deuqe-linkedlist)
+  - [PriorityQueue](#priorityqueue)
+- [Array](#array)
   - [Array Sort](#array-sort)
   - [Array 深拷贝](#array-深拷贝)
   - [Lambda Comparator](#lambda-comparator)
@@ -169,6 +172,26 @@ public class StackExample {
 
 ```
 
+#### Queue
+```cs
+// 常用的 Queue API 如下：
+
+Queue<int> queue = new Queue<int>(); // 创建一个整数类型的队列
+
+queue.Enqueue(10); // 将元素 10 入队
+queue.Enqueue(20); // 将元素 20 入队
+queue.Enqueue(30); // 将元素 30 入队
+
+int firstElement = queue.Peek(); // 获取队列的第一个元素，但不移除
+
+int removedElement = queue.Dequeue(); // 移除并返回队列的第一个元素
+
+bool isEmpty = queue.Count == 0; // 判断队列是否为空
+
+queue.Clear(); // 清空队列中的所有元素
+
+```
+
 #### Deuqe (LinkedList)
 ```cs
 using System;
@@ -223,7 +246,79 @@ public class LinkedListExample {
 }
 ```
 
+#### PriorityQueue
+```cs
+        // 使用Lambda表达式创建一个比较器，用于将整数按照从大到小的顺序排列
+        IComparer<int> comparer = Comparer<int>.Create((x, y) => y.CompareTo(x));
+        // 创建一个优先队列，并传入自定义的比较器
+        PriorityQueue<int, int> priorityQueue = new PriorityQueue<int, int>(comparer);
 
+        // OR
+        PriorityQueue<int, int> priorityQueue = new PriorityQueue<int, int>(Comparer<int>.Create((x, y) => y.CompareTo(x)));
+
+        // 添加一些元素到优先队列
+        priorityQueue.Enqueue(5, 5);
+        priorityQueue.Enqueue(2, 2);
+        priorityQueue.Enqueue(7, 7);
+        priorityQueue.Enqueue(1, 1);
+
+        /// <summary>
+        /// 创建一个新的优先队列。
+        /// </summary>
+        public PriorityQueue();
+
+        /// <summary>
+        /// 创建一个新的优先队列，并根据指定的比较器对元素进行比较。
+        /// </summary>
+        /// <param name="comparer">比较器，用于确定元素的优先级。</param>
+        public PriorityQueue(IComparer<TPriority> comparer);
+
+        /// <summary>
+        /// 获取优先队列中的元素数量。
+        /// </summary>
+        public int Count { get; }
+
+        /// <summary>
+        /// 将指定元素和其对应的优先级添加到优先队列中。
+        /// </summary>
+        /// <param name="element">要添加的元素。</param>
+        /// <param name="priority">元素的优先级。</param>
+        public void Enqueue(TElement element, TPriority priority);
+
+        /// <summary>
+        /// 移除并返回优先队列中具有最高优先级的元素。
+        /// </summary>
+        /// <returns>具有最高优先级的元素。</returns>
+        public TElement Dequeue();
+
+        /// <summary>
+        /// 返回优先队列中具有最高优先级的元素，但不将其移除。
+        /// </summary>
+        /// <returns>具有最高优先级的元素。</returns>
+        public TElement Peek();
+
+        /// <summary>
+        /// 清空优先队列中的所有元素。
+        /// </summary>
+        public void Clear();
+
+        /// <summary>
+        /// 确定指定元素是否在优先队列中。
+        /// </summary>
+        /// <param name="element">要检查的元素。</param>
+        /// <returns>如果元素在队列中，则为true；否则为false。</returns>
+        public bool Contains(TElement element);
+
+        /// <summary>
+        /// 尝试将具有指定值的元素从队列中移除。
+        /// </summary>
+        /// <param name="element">要移除的元素。</param>
+        /// <returns>如果元素成功移除，则为true；否则为false。</returns>
+        public bool Remove(TElement element);        
+
+```
+
+### Array
 #### Array Sort
 ```cs
 int[] numbers = { 4, 2, 6, 1, 9, 5 };
