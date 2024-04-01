@@ -8,6 +8,7 @@ tags:
 - [双指针](#双指针)
     - [Maximum Score of a Good Subarray](#maximum-score-of-a-good-subarray)
 - [队列，栈](#队列栈)
+    - [Faulty Keyboard](#faulty-keyboard)
     - [Verify Preorder Serialization of a Binary Tree](#verify-preorder-serialization-of-a-binary-tree)
     - [232. Implement Queue using Stacks](#232-implement-queue-using-stacks)
     - [225. Implement Stack using Queues](#225-implement-stack-using-queues)
@@ -127,6 +128,70 @@ public:
 ```
 
 ## 队列，栈
+#### Faulty Keyboard
+
+> 不用stack还有一种解法，当遇到 i 时，把当前 string做个翻转，比如用char[] 存然后首尾swap
+
+```cs
+/// <summary>
+/// 2810. Faulty Keyboard
+/// 问题描述：有一个笔记本键盘有故障，每次输入字符 'i' 时会反转已输入的字符串，其他字符正常输入。给定一个字符串 s，模拟输入这个字符串后，笔记本上显示的最终字符串是什么。
+/// 思路：使用两个栈，一个存储正向字符，一个存储反向字符，遇到 'i' 字符时切换栈进行字符反转，最后将两个栈的字符按照正向顺序合并即可。
+/// </summary>
+public class Solution {
+    /// <summary>
+    /// 返回笔记本上最终显示的字符串
+    /// </summary>
+    /// <param name="s">输入字符串</param>
+    /// <returns>最终显示的字符串</returns>
+    public string FinalString(string s) {
+        // 两个栈分别用于存储正向字符和反向字符
+        Stack<char> stack1 = new Stack<char>();
+        Stack<char> stack2 = new Stack<char>();
+        StringBuilder res = new StringBuilder();
+
+        // 记录 'i' 字符出现的次数，用于判断当前是否需要反转字符串
+        int flip = 0;
+
+        // 遍历输入字符串
+        foreach(char c in s) {
+            // 如果字符不是 'i'，则按照正常逻辑压入对应栈中
+            if (c != 'i') {
+                if (stack2.Count == 0) {
+                    stack1.Push(c);
+                } else {
+                    stack2.Push(c);
+                }
+            } else { // 如果字符是 'i'，则切换反转状态，并将对应栈中的字符反转
+                flip++;
+                if (stack2.Count == 0) {
+                    while (stack1.Count != 0) {
+                        stack2.Push(stack1.Pop());
+                    }                    
+                } else {
+                    while (stack2.Count != 0) {
+                        stack1.Push(stack2.Pop());
+                    }       
+                }
+            }
+        }
+
+        // 将两个栈中的字符按照正向顺序合并
+        while (stack1.Count != 0) {
+            res.Insert(0, stack1.Pop());
+        }
+
+        while (stack2.Count != 0) {
+            res.Insert(0, stack2.Pop());
+        }
+
+        // 返回最终的结果字符串
+        return res.ToString();
+    }
+}
+```
+
+
 #### Verify Preorder Serialization of a Binary Tree
 ```cs
 /*

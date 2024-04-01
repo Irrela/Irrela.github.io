@@ -19,123 +19,104 @@ tags:
 
 #### String
 ```cs
-using System;
+// 字符串长度
+string str = "Hello, world!";
+int length = str.Length;
 
-/// <summary>
-/// 字符串操作示例类
-/// </summary>
-public class StringExample {
+// 字符串连接
+string str1 = "Hello";
+string str2 = "world";
+string combined = str1 + str2;
 
-        /// <summary>
-        /// string to int
-        /// </summary>
-        string str = "123";
-        int number = int.Parse(str);
+// 字符串拼接（格式化）
+string formattedString = string.Format("The value of x is {0} and y is {1}", x, y);
 
-        string str = "123";
-        int number;
-        if (int.TryParse(str, out number))
-        {
-        // 字符串转换成功，number 中包含转换后的整数值
-        }
-        else
-        {
-        // 字符串转换失败，number 中为默认值 0
-        }
-        
-        /// <summary>
-        /// 将指定的字符数组转换为字符串
-        /// </summary>
-        /// <param name="chars">要转换的字符数组</param>
-        /// <returns>转换后的字符串</returns>
-        public string CharArrayToString(char[] chars) {
-        return new string(chars);
-        }
+// 字符串比较（区分大小写）
+string str3 = "hello";
+string str4 = "Hello";
+bool isEqualCaseSensitive = str3.Equals(str4);
 
-        /// <summary>
-        /// 从指定的字符串中复制指定数量的字符到新的字符数组中
-        /// </summary>
-        /// <param name="str">要复制的字符串</param>
-        /// <param name="startIndex">复制的起始位置索引</param>
-        /// <param name="length">要复制的字符数</param>
-        /// <returns>复制得到的字符数组</returns>
-        public char[] CopyToCharArray(string str, int startIndex, int length) {
-        char[] chars = new char[length];
-        str.CopyTo(startIndex, chars, 0, length);
-        return chars;
-        }
+// 字符串比较（不区分大小写）
+bool isEqualIgnoreCase = str3.Equals(str4, StringComparison.OrdinalIgnoreCase);
 
-        /// <summary>
-        /// 返回指定字符串中第一个出现的指定字符串的索引位置
-        /// </summary>
-        /// <param name="str">要搜索的字符串</param>
-        /// <param name="value">要查找的子字符串</param>
-        /// <returns>子字符串在主字符串中的起始索引位置，如果未找到返回-1</returns>
-        public int IndexOf(string str, string value) {
-        return str.IndexOf(value);
-        }
+// 字符串转换为大写
+string upperCaseStr = str.ToUpper();
 
-        /// <summary>
-        /// 返回指定字符串中最后一个出现的指定字符串的索引位置
-        /// </summary>
-        /// <param name="str">要搜索的字符串</param>
-        /// <param name="value">要查找的子字符串</param>
-        /// <returns>子字符串在主字符串中的最后一个索引位置，如果未找到返回-1</returns>
-        public int LastIndexOf(string str, string value) {
-        return str.LastIndexOf(value);
-        }
+// 字符串转换为小写
+string lowerCaseStr = str.ToLower();
 
-        /// <summary>
-        /// 将指定字符串中的所有字符转换为大写
-        /// </summary>
-        /// <param name="str">要转换的字符串</param>
-        /// <returns>转换后的字符串</returns>
-        public string ToUpper(string str) {
-        return str.ToUpper();
-        }
+// 字符串包含
+bool containsHello = str.Contains("Hello");
 
-        /// <summary>
-        /// 将指定字符串中的所有字符转换为小写
-        /// </summary>
-        /// <param name="str">要转换的字符串</param>
-        /// <returns>转换后的字符串</returns>
-        public string ToLower(string str) {
-        return str.ToLower();
-        }
+// 字符串分割
+string[] words = str.Split(' ');
 
-        /// <summary>
-        /// 将字符串分割为子字符串数组，使用指定的分隔符字符
-        /// </summary>
-        /// <param name="str">要分割的字符串</param>
-        /// <param name="separator">分隔符字符数组</param>
-        /// <returns>分割后的子字符串数组</returns>
-        public string[] Split(string str, char[] separator) {
-        return str.Split(separator);
-        }
+// 字符串截取
+string substring = str.Substring(startIndex, length);
 
-        /// <summary>
-        /// 将字符串分割为子字符串数组，使用指定的分隔符字符串
-        /// </summary>
-        /// <param name="str">要分割的字符串</param>
-        /// <param name="separator">分隔符字符串数组</param>
-        /// <returns>分割后的子字符串数组</returns>
-        public string[] Split(string str, string[] separator) {
-        return str.Split(separator, StringSplitOptions.None);
-        }
+// 移除字符串两端的空白字符
+string trimmedStr = str.Trim();
 
-        /// <summary>
-        /// 将字符串分割为子字符串数组，使用指定的分隔符字符串和分割选项
-        /// </summary>
-        /// <param name="str">要分割的字符串</param>
-        /// <param name="separator">分隔符字符串数组</param>
-        /// <param name="options">分割选项，例如移除空字符串等</param>
-        /// <returns>分割后的子字符串数组</returns>
-        public string[] Split(string str, string[] separator, StringSplitOptions options) {
-        return str.Split(separator, options);
-        }
-}
+// 字符串替换
+string replacedStr = str.Replace("Hello", "Hi");
+
+// 字符串插入
+string insertedStr = str.Insert(index, " inserted");
+
+// 字符串移除
+string removedStr = str.Remove(startIndex, length);
+
+// 字符串查找
+int index = str.IndexOf("world");
+
+// 字符串倒转
+char[] charArray = str.ToCharArray();
+Array.Reverse(charArray);
+string reversedStr = new string(charArray);
+
+// 字符串格式化
+string formattedString = $"{x} + {y} = {x + y}";
+
+// 字符串填充
+string paddedStr = str.PadLeft(totalWidth, paddingChar);
+
+// 字符串是否为空或空白
+bool isNullOrWhiteSpace = string.IsNullOrWhiteSpace(str);
 
 ```
+
+#### StringBuilder
+```cs
+// StringBuilder 常用的 API
+
+// 构造函数
+StringBuilder sb = new StringBuilder(); // 创建一个空的 StringBuilder
+StringBuilder sb = new StringBuilder("initial string"); // 使用指定的字符串初始化 StringBuilder
+StringBuilder sb = new StringBuilder(100); // 使用指定的容量初始化 StringBuilder
+
+// 属性
+int capacity = sb.Capacity; // 获取 StringBuilder 的当前容量
+int length = sb.Length; // 获取 StringBuilder 的当前长度
+char ch = sb[index]; // 获取指定索引位置的字符
+string str = sb.ToString(); // 将 StringBuilder 转换为字符串
+
+// 方法
+sb.Append(value); // 将指定值追加到 StringBuilder 的末尾
+sb.Insert(index, value); // 在指定索引位置插入值
+sb.Remove(startIndex, length); // 从 StringBuilder 中移除指定范围的字符
+sb.Replace(oldValue, newValue); // 将指定的字符串替换为新的字符串
+sb.Clear(); // 清空 StringBuilder 中的内容
+sb.EnsureCapacity(minimumCapacity); // 确保 StringBuilder 的容量至少为指定值
+sb.CopyTo(startIndex, destination, destinationIndex, count); // 将 StringBuilder 中的一部分复制到目标数组中
+sb.Equals(obj); // 判断 StringBuilder 是否与指定对象相等
+sb.GetHashCode(); // 获取 StringBuilder 的哈希码
+sb.Insert(index, str); // 在指定索引位置插入字符串
+sb.Remove(index, length); // 从指定索引位置开始移除指定长度的字符
+sb.Replace(oldValue, newValue, startIndex, count); // 从指定索引位置开始替换指定数量的字符
+sb.ToString(); // 将 StringBuilder 转换为字符串
+
+```
+
 
 ### Collections
 #### Stack
