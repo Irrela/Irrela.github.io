@@ -42,6 +42,10 @@ tags:
       - [4.Rotate the focal point by user input](#4rotate-the-focal-point-by-user-input)
       - [5.Add forward force to the player](#5add-forward-force-to-the-player)
       - [6.Move in direction of focal point](#6move-in-direction-of-focal-point)
+      - [4.2.1 Add an enemy and a physics material](#421-add-an-enemy-and-a-physics-material)
+      - [4.2.2 Create enemy script to follow player](#422-create-enemy-script-to-follow-player)
+      - [4.2.4.Create a Spawn Manager for the enemy](#424create-a-spawn-manager-for-the-enemy)
+      - [](#)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
       - [Scene操作](#scene操作)
@@ -1354,6 +1358,123 @@ public class PlayerController : MonoBehaviour
 > 可选：花点时间来尝试一下 `Global` 与 `Local` 切换菜单，看看两者之间的切换如何改变坐标和定位。
 
 ![image](https://unity-connect-prd.storage.googleapis.com/20231214/learn/images/08f436eb-b052-4623-a97d-1e2f4da5a364_image.png)
+
+
+
+
+#### 4.2.1 Add an enemy and a physics material
+
+设置一个敌人，并给他们一些特殊的新物理来反弹玩家！
+
+1. Create a new Sphere, rename it `“Enemy”` reposition it, and drag a texture onto it
+2. Add a new `RigidBody` component and adjust its XYZ scale, then test
+3. In a new “Physics Materials” folder, `Create > Physics Material`, then name it `“Bouncy”`
+4. Increase the `Bounciness` to “1”, change `Bounce Combine to “Multiply”`,  apply it to your player and enemy, then test
+
+
+#### 4.2.2 Create enemy script to follow player
+
+告诉敌人跟随玩家的位置，在岛上追逐他们。
+
+1. Make a `new “Enemy” script` and attach it to the Enemy
+2. Declare 3 new variables for  Rigidbody enemyRb;, GameObject player;, and public float speed;
+3. Initialize enemyRb = GetComponent<Rigidbody>();  and  player = GameObject.Find("Player");
+4. In Update(), `AddForce towards in the direction between the Player and the Enemy`
+
+```cs
+public class Enemy : MonoBehaviour
+{
+    public float speed;
+
+    private Rigidbody enemyRb;
+
+    private GameObject player;
+    
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        enemyRb = GetComponent<Rigidbody>();
+        player = GameObject.Find("Player");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        enemyRb.AddForce((player.transform.position - transform.position).normalized * speed);
+    }
+}
+```
+
+
+#### 4.2.4.Create a Spawn Manager for the enemy
+
+现在敌人的行为完全按照我们的意愿进行，我们将把它变成一个预制件，这样它就可以被Spawn Manager实例化了。
+
+1. ` Drag Enemy into the Prefabs folder` to create a new Prefab, then `delete` Enemy from scene
+2. Create a `new “Spawn Manager” object`, attach a `new “SpawnManager” script`, and open it
+3. Declare a new public GameObject enemyPrefab variable then assign the prefab in the inspector
+4. In Start(), `instantiate` a new enemyPrefab at a predetermined location
+5. In `SpawnManager.cs`, in Start(), create` new randomly generated X and Z`
+6. Create a `new Vector3 spawnPos` variable with those random X and Z positions
+7. Incorporate the new spawnPos variable into `the Instantiate call`
+8. `Replace the hard-coded values` with a `spawnRange` variable
+9. Start and Restart your project to make sure it’s working
+10. Create a new function `Vector3 GenerateSpawnPosition() { }`
+11. Copy and Paste the spawnPosX and spawnPosZ variables into the new method
+12. Add the line to return randomPos; in your new method
+13. `Replace` the code in your Instantiate call with your new function name: `GenerateSpawnPosition() `
+
+```cs
+public class SpawnManager : MonoBehaviour
+{
+    public GameObject enemyPrefab; // 定义一个公共的游戏对象变量，用于存储敌人预制体
+
+    private float _spawnRange = 9; // 定义一个私有的浮点型变量，表示生成敌人的范围
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // 在游戏开始时生成一个敌人，位置由GenerateSpawnPosition()函数确定，旋转与enemyPrefab相同
+        Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // 在每一帧更新时执行的内容，暂时为空
+    }
+
+    // 生成敌人的位置
+    Vector3 GenerateSpawnPosition()
+    {
+        // 生成一个随机的X坐标和Z坐标，范围在-_spawnRange和_spawnRange之间
+        float spawnPosX = Random.Range(-_spawnRange, _spawnRange);
+        float spawnPosZ = Random.Range(-_spawnRange, _spawnRange);
+        // 返回一个新的Vector3对象，表示生成敌人的位置，Y轴为0
+        return new Vector3(spawnPosX, 0, spawnPosZ);
+    }
+}
+```
+
+####
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Unity Essentials
