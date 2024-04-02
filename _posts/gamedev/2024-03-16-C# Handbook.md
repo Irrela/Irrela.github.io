@@ -6,10 +6,12 @@ tags:
 ---
 
 - [Collections](#collections)
+  - [List](#list)
   - [Stack](#stack)
   - [Queue](#queue)
   - [Deuqe (LinkedList)](#deuqe-linkedlist)
   - [PriorityQueue](#priorityqueue)
+  - [HashMap](#hashmap)
 - [Array](#array)
   - [Array Sort](#array-sort)
   - [Array 深拷贝](#array-深拷贝)
@@ -87,69 +89,187 @@ bool isNullOrWhiteSpace = string.IsNullOrWhiteSpace(str);
 
 #### StringBuilder
 ```cs
-// StringBuilder 常用的 API
+// 实例化 StringBuilder
+StringBuilder sb = new StringBuilder();
 
-// 构造函数
-StringBuilder sb = new StringBuilder(); // 创建一个空的 StringBuilder
-StringBuilder sb = new StringBuilder("initial string"); // 使用指定的字符串初始化 StringBuilder
-StringBuilder sb = new StringBuilder(100); // 使用指定的容量初始化 StringBuilder
+// 向 StringBuilder 中追加字符串
+sb.Append("Hello");
 
-// 属性
-int capacity = sb.Capacity; // 获取 StringBuilder 的当前容量
-int length = sb.Length; // 获取 StringBuilder 的当前长度
-char ch = sb[index]; // 获取指定索引位置的字符
-string str = sb.ToString(); // 将 StringBuilder 转换为字符串
+// 在指定位置插入字符串
+sb.Insert(5, " ");
 
-// 方法
-sb.Append(value); // 将指定值追加到 StringBuilder 的末尾
-sb.Insert(index, value); // 在指定索引位置插入值
-sb.Remove(startIndex, length); // 从 StringBuilder 中移除指定范围的字符
-sb.Replace(oldValue, newValue); // 将指定的字符串替换为新的字符串
-sb.Clear(); // 清空 StringBuilder 中的内容
-sb.EnsureCapacity(minimumCapacity); // 确保 StringBuilder 的容量至少为指定值
-sb.CopyTo(startIndex, destination, destinationIndex, count); // 将 StringBuilder 中的一部分复制到目标数组中
-sb.Equals(obj); // 判断 StringBuilder 是否与指定对象相等
-sb.GetHashCode(); // 获取 StringBuilder 的哈希码
-sb.Insert(index, str); // 在指定索引位置插入字符串
-sb.Remove(index, length); // 从指定索引位置开始移除指定长度的字符
-sb.Replace(oldValue, newValue, startIndex, count); // 从指定索引位置开始替换指定数量的字符
-sb.ToString(); // 将 StringBuilder 转换为字符串
+// 从指定位置开始删除指定长度的字符
+sb.Remove(5, 1);
 
+// 替换字符串中的指定子串
+sb.Replace("H", "J");
+
+// 清空 StringBuilder 中的内容
+sb.Clear();
+
+// 获取 StringBuilder 的长度（字符数）
+int length = sb.Length;
+
+// 获取或设置 StringBuilder 的容量
+int capacity = sb.Capacity;
+sb.Capacity = 100;
+
+// 将 StringBuilder 转换为字符串
+string str = sb.ToString();
+
+// 获取或设置 StringBuilder 中指定索引位置的字符
+char ch = sb[0];
+sb[0] = 'A';
+
+// 将格式化的字符串追加到 StringBuilder 中
+sb.AppendFormat("Hello {0}!", "world");
+
+// 将多个字符串追加到 StringBuilder 中
+sb.AppendJoin(", ", new string[] { "apple", "banana", "orange" });
+
+// 将多个字符追加到 StringBuilder 中
+sb.Append('A', 3);
+
+// 将字符串中的字符复制到字符数组中
+sb.CopyTo(0, charArray, 0, sb.Length);
+
+// 确保 StringBuilder 中的容量至少为指定值
+sb.EnsureCapacity(100);
+
+// 确定 StringBuilder 中是否包含指定的子字符串
+bool contains = sb.ToString().Contains("Hello");
+
+// 将 StringBuilder 中的所有字符复制到字符数组中
+sb.CopyToCharArray(charArray, 0, sb.Length);
+
+// 确定 StringBuilder 中是否以指定的字符串结尾
+bool endsWith = sb.ToString().EndsWith("world");
+
+// 确定 StringBuilder 中是否包含指定的字符串
+bool equals = sb.ToString().Equals("Hello");
+
+// 确定 StringBuilder 中是否包含指定的字符串，忽略大小写
+bool equalsIgnoreCase = sb.ToString().Equals("hello", StringComparison.OrdinalIgnoreCase);
+
+// 返回 StringBuilder 中指定字符的第一个匹配项的索引
+int index = sb.ToString().IndexOf("H");
+
+// 返回 StringBuilder 中指定字符的最后一个匹配项的索引
+int lastIndex = sb.ToString().LastIndexOf("l");
+
+// 从指定索引开始将 StringBuilder 的一部分内容转换为小写
+sb.ToLower(0, 5);
+
+// 从指定索引开始将 StringBuilder 的一部分内容转换为大写
+sb.ToUpper(0, 5);
+
+// 返回 StringBuilder 中指定索引位置的字符
+char character = sb.ToString()[0];
+
+// 返回 StringBuilder 中指定索引位置的子字符串
+string substring = sb.ToString().Substring(0, 5);
+
+// 将 StringBuilder 中的字符转换为字符数组
+char[] charArray = sb.ToString().ToCharArray();
+
+// 确定 StringBuilder 中的内容是否为空
+bool isEmpty = sb.Length == 0;
+
+// 确定 StringBuilder 中的内容是否以指定的字符串开头
+bool startsWith = sb.ToString().StartsWith("Hello");
+
+// 删除 StringBuilder 中的指定范围的字符
+sb.Remove(0, 5);
 ```
 
 
 ### Collections
+#### List
+```cs
+// 创建一个空的 List
+List<T> list = new List<T>();
+
+// 添加元素
+list.Add(item);
+
+// 添加一组元素
+list.AddRange(collection);
+
+// 在指定位置插入元素
+list.Insert(index, item);
+
+// 移除指定元素
+list.Remove(item);
+
+// 移除符合条件的元素
+list.RemoveAll(predicate);
+
+// 移除指定位置的元素
+list.RemoveAt(index);
+
+// 清空 List
+list.Clear();
+
+// 判断是否包含指定元素
+bool contains = list.Contains(item);
+
+// 获取指定元素的索引
+int index = list.IndexOf(item);
+
+// 获取列表中指定范围的元素
+List<T> range = list.GetRange(index, count);
+
+// 排序
+list.Sort();
+
+// 反转列表中的元素
+list.Reverse();
+
+// 获取列表的元素数量
+int count = list.Count;
+
+// 获取或设置指定位置的元素
+T item = list[index];
+
+// 使用 foreach 循环遍历列表
+foreach (T item in list)
+{
+    // 处理元素
+}
+
+```
+
 #### Stack
 ```cs
 using System;
 using System.Collections.Generic;
 
-public class StackExample {
-    public void StackOperations() {
-        // 创建一个整数类型的栈
-        Stack<int> stack = new Stack<int>();
+// 创建一个新的空栈
+Stack<T> stack = new Stack<T>();
 
-        // 压入元素到栈顶
-        stack.Push(1);
-        stack.Push(2);
-        stack.Push(3);
+// 获取栈中元素的数量
+int count = stack.Count;
 
-        // 获取栈顶元素但不移除
-        int topElement = stack.Peek(); // topElement 的值为 3
+// 将元素压入栈顶
+stack.Push(item);
 
-        // 移除并返回栈顶元素
-        int poppedElement = stack.Pop(); // poppedElement 的值为 3
+// 弹出栈顶元素并返回其值
+T poppedItem = stack.Pop();
 
-        // 检查栈是否为空
-        bool isEmpty = stack.Count == 0;
+// 获取但不移除栈顶元素
+T topItem = stack.Peek();
 
-        // 获取栈中的元素数量
-        int count = stack.Count;
+// 清空栈中所有元素
+stack.Clear();
 
-        // 清空栈
-        stack.Clear();
-    }
-}
+// 判断栈中是否包含特定元素
+bool containsItem = stack.Contains(item);
+
+// 将栈转换为数组
+T[] array = stack.ToArray();
+
+// 从特定索引处开始复制栈元素到现有数组中
+stack.CopyTo(array, startIndex);
 
 ```
 
@@ -178,124 +298,153 @@ queue.Clear(); // 清空队列中的所有元素
 using System;
 using System.Collections.Generic;
 
-public class LinkedListExample {
-    public static void Main(string[] args) {
-        // 创建一个新的链表
-        LinkedList<int> linkedList = new LinkedList<int>();
+// 创建一个 LinkedList
+LinkedList<int> linkedList = new LinkedList<int>();
 
-        // 添加元素到链表的末尾
-        linkedList.AddLast(1);
-        linkedList.AddLast(2);
-        linkedList.AddLast(3);
+// 添加元素
+linkedList.AddLast(10);
+linkedList.AddLast(20);
+linkedList.AddLast(30);
 
-        // 遍历链表中的每个节点并输出值
-        foreach (int value in linkedList) {
-            Console.WriteLine(value);
-        }
+// 在开头添加元素
+linkedList.AddFirst(5);
 
-        // 在链表的开头添加元素
-        linkedList.AddFirst(0);
-
-        // 移除链表的第一个元素
-        linkedList.RemoveFirst();
-
-        // 在链表的末尾添加元素
-        linkedList.AddLast(4);
-
-        // 移除链表的最后一个元素
-        linkedList.RemoveLast();
-
-        // 判断链表是否包含指定的值
-        bool contains = linkedList.Contains(2);
-
-        // 获取链表中的第一个节点的值
-        int firstValue = linkedList.First.Value;
-
-        // 获取链表中的最后一个节点的值
-        int lastValue = linkedList.Last.Value;
-
-        // 将链表转换为数组
-        int[] array = new int[linkedList.Count];
-        linkedList.CopyTo(array, 0);
-
-        // 清空链表
-        linkedList.Clear();
-
-        // 判断链表是否为空
-        bool isEmpty = linkedList.Count == 0;
-    }
+// 访问元素
+Console.WriteLine("LinkedList 中的元素:");
+foreach (int num in linkedList)
+{
+    Console.WriteLine(num);
 }
+
+// 在指定节点后插入元素
+LinkedListNode<int> node = linkedList.Find(20);
+linkedList.AddAfter(node, 25);
+
+// 移除指定元素
+linkedList.Remove(10);
+
+// 移除第一个元素
+linkedList.RemoveFirst();
+
+// 移除最后一个元素
+linkedList.RemoveLast();
+
+// 获取第一个元素
+int firstElement = linkedList.First.Value;
+
+// 获取最后一个元素
+int lastElement = linkedList.Last.Value;
+
+// 清空链表
+linkedList.Clear();
+
+// 检查链表是否为空
+bool isEmpty = linkedList.Count == 0;
 ```
 
 #### PriorityQueue
 ```cs
-        // 使用Lambda表达式创建一个比较器，用于将整数按照从大到小的顺序排列
-        IComparer<int> comparer = Comparer<int>.Create((x, y) => y.CompareTo(x));
-        // 创建一个优先队列，并传入自定义的比较器
-        PriorityQueue<int, int> priorityQueue = new PriorityQueue<int, int>(comparer);
+// 使用Lambda表达式创建一个比较器，用于将整数按照从大到小的顺序排列
+IComparer<int> comparer = Comparer<int>.Create((x, y) => y.CompareTo(x));
+// 创建一个优先队列，并传入自定义的比较器
+PriorityQueue<int, int> priorityQueue = new PriorityQueue<int, int>(comparer);
 
-        // OR
-        PriorityQueue<int, int> priorityQueue = new PriorityQueue<int, int>(Comparer<int>.Create((x, y) => y.CompareTo(x)));
+// OR
+PriorityQueue<int, int> priorityQueue = new PriorityQueue<int, int>(Comparer<int>.Create((x, y) => y.CompareTo(x)));
 
-        // 添加一些元素到优先队列
-        priorityQueue.Enqueue(5, 5);
-        priorityQueue.Enqueue(2, 2);
-        priorityQueue.Enqueue(7, 7);
-        priorityQueue.Enqueue(1, 1);
+// 添加一些元素到优先队列
+priorityQueue.Enqueue(5, 5);
+priorityQueue.Enqueue(2, 2);
+priorityQueue.Enqueue(7, 7);
+priorityQueue.Enqueue(1, 1);
 
-        /// <summary>
-        /// 创建一个新的优先队列。
-        /// </summary>
-        public PriorityQueue();
+/// 创建一个新的优先队列。
+public PriorityQueue();
 
-        /// <summary>
-        /// 创建一个新的优先队列，并根据指定的比较器对元素进行比较。
-        /// </summary>
-        /// <param name="comparer">比较器，用于确定元素的优先级。</param>
-        public PriorityQueue(IComparer<TPriority> comparer);
+/// 创建一个新的优先队列，并根据指定的比较器对元素进行比较。
+/// <param name="comparer">比较器，用于确定元素的优先级。</param>
+public PriorityQueue(IComparer<TPriority> comparer);
 
-        /// <summary>
-        /// 获取优先队列中的元素数量。
-        /// </summary>
-        public int Count { get; }
+/// 获取优先队列中的元素数量。
+public int Count { get; }
 
-        /// <summary>
-        /// 将指定元素和其对应的优先级添加到优先队列中。
-        /// </summary>
-        /// <param name="element">要添加的元素。</param>
-        /// <param name="priority">元素的优先级。</param>
-        public void Enqueue(TElement element, TPriority priority);
+/// 将指定元素和其对应的优先级添加到优先队列中。
+/// <param name="element">要添加的元素。</param>
+/// <param name="priority">元素的优先级。</param>
+public void Enqueue(TElement element, TPriority priority);
 
-        /// <summary>
-        /// 移除并返回优先队列中具有最高优先级的元素。
-        /// </summary>
-        /// <returns>具有最高优先级的元素。</returns>
-        public TElement Dequeue();
+/// 移除并返回优先队列中具有最高优先级的元素。
+/// <returns>具有最高优先级的元素。</returns>
+public TElement Dequeue();
 
-        /// <summary>
-        /// 返回优先队列中具有最高优先级的元素，但不将其移除。
-        /// </summary>
-        /// <returns>具有最高优先级的元素。</returns>
-        public TElement Peek();
+/// 返回优先队列中具有最高优先级的元素，但不将其移除。
+/// <returns>具有最高优先级的元素。</returns>
+public TElement Peek();
 
-        /// <summary>
-        /// 清空优先队列中的所有元素。
-        /// </summary>
-        public void Clear();
+/// 清空优先队列中的所有元素。
+public void Clear();
 
-        /// <summary>
-        /// 确定指定元素是否在优先队列中。
-        /// </summary>
-        /// <param name="element">要检查的元素。</param>
-        /// <returns>如果元素在队列中，则为true；否则为false。</returns>
-        public bool Contains(TElement element);
+/// 确定指定元素是否在优先队列中。
+/// <param name="element">要检查的元素。</param>
+/// <returns>如果元素在队列中，则为true；否则为false。</returns>
+public bool Contains(TElement element);
 
-        /// <summary>
-        /// 尝试将具有指定值的元素从队列中移除。
-        /// </summary>
-        /// <param name="element">要移除的元素。</param>
-        /// <returns>如果元素成功移除，则为true；否则为false。</returns>
-        public bool Remove(TElement element);        
+/// 尝试将具有指定值的元素从队列中移除。
+/// <param name="element">要移除的元素。</param>
+/// <returns>如果元素成功移除，则为true；否则为false。</returns>
+public bool Remove(TElement element);        
+
+```
+
+#### HashMap
+```cs
+// 创建一个Dictionary对象
+Dictionary<string, int> dict = new Dictionary<string, int>();
+
+// 添加键值对
+dict.Add("apple", 5);
+dict["banana"] = 3; // 另一种添加键值对的方式
+
+// 判断是否包含指定的键
+bool containsKey = dict.ContainsKey("apple");
+
+// 获取指定键对应的值
+int value = dict["banana"];
+
+// 获取Dictionary中的所有键
+var keys = dict.Keys;
+
+// 获取Dictionary中的所有值
+var values = dict.Values;
+
+// 获取Dictionary中键值对的数量
+int count = dict.Count;
+
+// 移除指定的键值对
+bool removed = dict.Remove("apple");
+
+// 清空Dictionary
+dict.Clear();
+
+// 使用foreach遍历Dictionary中的键值对
+foreach (var kvp in dict)
+{
+    Console.WriteLine($"Key: {kvp.Key}, Value: {kvp.Value}");
+}
+
+// 使用TryGetValue方法获取指定键的值，避免键不存在时引发异常
+int val;
+if (dict.TryGetValue("banana", out val))
+{
+    Console.WriteLine($"The value of 'banana' is: {val}");
+}
+else
+{
+    Console.WriteLine("'banana' does not exist in the dictionary.");
+}
+
+// 判断指定的键值对是否存在
+bool exists = dict.TryGetValue("apple", out _);
 
 ```
 
