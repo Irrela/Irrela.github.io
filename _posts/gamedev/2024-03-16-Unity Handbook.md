@@ -45,7 +45,8 @@ tags:
       - [4.2.1 Add an enemy and a physics material](#421-add-an-enemy-and-a-physics-material)
       - [4.2.2 Create enemy script to follow player](#422-create-enemy-script-to-follow-player)
       - [4.2.4.Create a Spawn Manager for the enemy](#424create-a-spawn-manager-for-the-enemy)
-      - [](#)
+      - [4.3.1.Choose and prepare a powerup](#431choose-and-prepare-a-powerup)
+      - [4.3.2.Destroy powerup on collision](#432destroy-powerup-on-collision)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
       - [Scene操作](#scene操作)
@@ -1457,11 +1458,134 @@ public class SpawnManager : MonoBehaviour
 }
 ```
 
-####
+#### 4.3.1.Choose and prepare a powerup
+
+为了给这个项目添加一个全新的游戏机制，我们将引入一个新的powerup对象，它将给玩家临时的超能力。
+
+1. From the `Library`, drag a `Powerup` object into the scene, rename it “Powerup” and edit its scale & position
+2. Add a `Box Collider` to the powerup, click Edit Collider to make sure it fits, then check the `“Is Trigger”` checkbox
+3. Create a `new “Powerup” tag` and apply it to the powerup
+4. Drag the Powerup into the `Prefabs` folder to create a new “Original Prefab”
+
+#### 4.3.2.Destroy powerup on collision
+
+作为让powerup工作的第一步，我们将在玩家点击它时使它消失，并设置一个新的布尔变量来跟踪玩家获得它的情况。
+
+1. In `PlayerController.cs`, add a new `OnTriggerEnter()` method
+2. Add an if-statement that destroys `other.CompareTag("Powerup")` powerup on collision
+3. Create a new public bool `hasPowerup`; and set hasPowerup = true;  when you collide with the Powerup
+
+Test for enemy and powerup
+4. Create a `new “Enemy” tag` and apply it to the Enemy Prefab
+5. In PlayerController.cs, add the `OnCollisionEnter()` function
+6. Create the if-statement with the double-condition `testing for enemy tag and hasPowerup boolean`
+7. Create a `Debug.Log` to make sure it’s working
+
+Apply extra knockback with powerup
+8. In `OnCollisionEnter()` declare a new local variable to `get the Enemy’s Rigidbody component `
+9.  Declare a new `variable` to `get the direction away from the player`
+10. Add an `impulse force` to the enemy, using a new `powerupStrength` variable
+
+Create Countdown Routine for powerup
+1. Add a new `IEnumerator` `PowerupCountdownRoutine () {}`
+2. Inside the PowerupCountdownRoutine, `wait 7 seconds`, then disable the powerup 
+3. When player collides with powerup, start the `coroutine`
+
+Add a powerup indicator
+1. From the `Library`, drag a Powerup object into the scene, rename it `Powerup Indicator`, and edit its scale
+2. Uncheck the `Active` checkbox in the inspector
+3. In `PlayerController.cs`, declare a new public GameObject `powerupIndicator` variable, then assign the Powerup Indicator variable in the inspector
+4. When the player collides with the powerup, set the indicator object to Active, then set to Inactive when the powerup expires
+5. In `Update()`, set the Indicator position to the player’s position + an offset value
 
 
+```cs
+public class PlayerController : MonoBehaviour
+{
+    // Rigidbody组件，用于控制玩家角色的物理行为
+    private Rigidbody playerRb;
+    // 移动速度
+    public float speed = 5.0f;
 
+    // 焦点对象
+    private GameObject focalPoint;
 
+    // 是否拥有powerup
+    public bool hasPowerup;
+
+    // Powerup增强强度
+    private float powerupStrength = 15.0f;
+
+    // Powerup指示器对象
+    public GameObject powerupIndicator;
+
+    // 在对象被实例化时调用一次
+    void Start()
+    {
+        // 获取玩家角色的Rigidbody组件
+        playerRb = GetComponent<Rigidbody>();
+        // 查找名为"Focal Point"的游戏对象并赋值给焦点对象
+        focalPoint = GameObject.Find("Focal Point");
+    }
+
+    // 每帧调用一次
+    void Update()
+    {
+        // 获取垂直方向的输入
+        float forwardInput = Input.GetAxis("Vertical");
+        // 向前施加力，基于焦点方向和移动速度
+        playerRb.AddForce(focalPoint.transform.forward * (speed * forwardInput));
+        // 更新Powerup指示器位置
+        powerupIndicator.transform.position = transform.position + new Vector3(0, 1.5f, 0);
+    }
+
+    // 当玩家与其他Collider发生碰撞时调用
+    void OnTriggerEnter(Collider other)
+    {
+        // 如果碰撞对象标签为"Powerup"
+        if (other.CompareTag("Powerup"))
+        {
+            // 设置拥有Powerup为真
+            hasPowerup = true;
+            // 销毁碰撞对象
+            Destroy(other.gameObject);
+            // 启动Powerup计时协程
+            StartCoroutine(PowerupCountdownRoutine());
+            // 激活Powerup指示器对象
+            powerupIndicator.gameObject.SetActive(true);
+        }
+    }
+
+    // 当玩家与其他物体发生碰撞时调用
+    private void OnCollisionEnter(Collision collision)
+    {
+        // 如果碰撞对象标签为"Enemy"且拥有Powerup
+        if (collision.gameObject.CompareTag("Enemy") && hasPowerup)
+        {
+            // 获取敌人Rigidbody组件
+            Rigidbody enemyRigidbody = collision.gameObject.GetComponent<Rigidbody>();
+            // 计算远离玩家的方向
+            Vector3 awayFromPlayer = (collision.gameObject.transform.position - transform.position);
+            // 输出碰撞信息到控制台
+            Debug.Log("Collided with " + collision.gameObject.name + " with powerup set to " + hasPowerup);
+            // 对敌人施加力，基于远离玩家的方向和Powerup增强强度
+            enemyRigidbody.AddForce(awayFromPlayer * powerupStrength, ForceMode.Impulse);
+        }
+    }
+
+    // Powerup计时协程
+    IEnumerator PowerupCountdownRoutine()
+    {
+        // 等待7秒
+        yield return new WaitForSeconds(7);
+        // 设置拥有Powerup为假
+        hasPowerup = false;
+        // 关闭Powerup指示器对象
+        powerupIndicator.gameObject.SetActive(false);
+    }
+}
+
+```
 
 
 
