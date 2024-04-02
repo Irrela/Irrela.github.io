@@ -59,7 +59,7 @@ tags:
       - [4.4.5.Spawn Powerups with new waves](#445spawn-powerups-with-new-waves)
       - [Challenge 4 - Soccer Scripting](#challenge-4---soccer-scripting)
         - [FindGameObjectsWithTag 和 FindObjectsOfType 有什么区别](#findgameobjectswithtag-和-findobjectsoftype-有什么区别)
-      - [Lab 4 - Basic Gameplay](#lab-4---basic-gameplay)
+      - [GetComponent](#getcomponent)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
       - [Scene操作](#scene操作)
@@ -1286,6 +1286,15 @@ public class RepeatBackgroundX : MonoBehaviour
 
 
 ### CWC 2 Unit 4 - Gameplay Mechanics
+Ability:
+- Apply `Physics Materials` to make game objects more or less `bouncy`
+- Calculate new vectors to steer objects in `custom directions`
+- Write more advanced custom functions and variables to make your code clean and professional
+- Write informative debug messages with `Concatenation` 
+- Use `IEnumerator` and `Coroutines` to repeat and delay functions
+- Use for `loops` to efficiently and dynamically run code multiple times
+- Use `SetActive` to make game objects appear and disappear from the scene
+- Use `FindObjectsOfType` to track the current number of objects in the scene
 
 #### 4.1 Watch Where You’re Going
 首先，我们将创建一个新的原型并下载启动文件！你会注意到一个美丽的岛屿，天空和粒子效果...所有这些都可以定制！
@@ -1840,22 +1849,16 @@ enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
 enemyCount = FindObjectsOfType<Enemy>().Length;
 ```
 
+#### GetComponent
+```cs
+void OnCollisionEnter(Collision collision) {
+    if (collision.gameObject.CompareTag("Enemy")) {
+        Rigidbody enemyRb = collision.gameObject.GetComponent<Rigidbody>();
+    }
+}
+```
 
 
-#### Lab 4 - Basic Gameplay
-
-概述：
-
-在本实验中，您将使用所有非玩家对象，以使您的项目具有基本的游戏性。
-
-你将给你的投射物，皮卡，或敌人他们的基本移动和碰撞检测，使他们成为预制件，并有他们随机产生由一个产卵管理器。
-
-在本实验结束时，您应该已经了解了游戏的核心功能。
-
-项目成果：
-
-- 非玩家对象在场景中的适当位置产生，并以基本的移动。
-- 当物体相互碰撞时，它们会按照预期做出反应，要么反弹，要么被摧毁。
 
 
 ## Unity Essentials
