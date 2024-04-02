@@ -69,6 +69,13 @@ tags:
       - [5.1.5.Create object list in Game Manager](#515create-object-list-in-game-manager)
       - [5.1.6.Create a coroutine to spawn objects](#516create-a-coroutine-to-spawn-objects)
       - [5.1.7.Destroy target with click and sensor](#517destroy-target-with-click-and-sensor)
+      - [5.2.1.Add Score text and position it on screen](#521add-score-text-and-position-it-on-screen)
+      - [5.2.2.Edit the Score Text’s properties](#522edit-the-score-texts-properties)
+      - [5.1.3.Initialize score text and variable](#513initialize-score-text-and-variable)
+      - [5.1.4.Create a new UpdateScore method](#514create-a-new-updatescore-method)
+      - [5.1.5.Add score when targets are destroyed](#515add-score-when-targets-are-destroyed)
+      - [5.1.6.Assign a point value to each target](#516assign-a-point-value-to-each-target)
+      - [5.1.7.Add a Particle explosion](#517add-a-particle-explosion)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
       - [Scene操作](#scene操作)
@@ -1885,6 +1892,7 @@ void OnCollisionEnter(Collision collision) {
 
 这些目标将在玩家点击他们或他们掉出边界时被摧毁。
 
+#### 5.1.1.Create project and switch to 2D view
 
 New Functionality:
 - Random objects are tossed into the air on intervals
@@ -1899,7 +1907,6 @@ New Concepts and Skills:
 - While Loops
 - Mouse Events
 
-#### 5.1.1.Create project and switch to 2D view
 
 1. Open `Unity Hub` and create an empty `“Prototype 5`” project in your course directory on the correct Unity version. 
 2. If you forget how to do this, refer to the instructions in Lesson 1.1 - Step 1
@@ -1959,36 +1966,43 @@ New Concepts and Skills:
 4. In `Start()`, use the `StartCoroutine` method to begin spawning objects
 
 ```cs
-using UnityEngine;
-using System.Collections; // 导入用于使用协程的命名空间
-
 public class GameManager : MonoBehaviour
 {
-    private float spawnRate = 1; // 定义一个私有的浮点型变量spawnRate，用于控制目标生成的频率
+    // 定义私有变量spawnRate，表示目标生成的速率
+    private float spawnRate = 1;
     
-    public List<GameObject> targets; // 定义一个公共的GameObject类型的列表targets，用于存储要生成的目标对象
-    
+    // 定义公共列表targets，存储目标对象
+    public List<GameObject> targets;
+
+    // Start方法，在游戏启动时调用
     void Start()
     {
-        // 游戏启动时调用的方法，暂时留空
+        // 启动协程SpawnTarget，用于生成目标
+        StartCoroutine(SpawnTarget());
     }
 
-    // Update is called once per frame
+    // Update方法，在每一帧调用
     void Update()
     {
-        // 每帧调用的方法，暂时留空
+        // 此处暂无内容
     }
 
-    IEnumerator SpawnTarget() // 定义一个返回IEnumerator类型的协程SpawnTarget，用于生成目标对象
+    // 生成目标的协程方法
+    IEnumerator SpawnTarget()
     {
-        while (true) // 创建一个无限循环，使目标持续生成
+        // 循环生成目标
+        while (true)
         {
-            yield return new WaitForSeconds(spawnRate); // 暂停协程的执行，等待spawnRate秒后再继续执行
-            int index = Random.Range(0, targets.Count); // 生成一个随机数，用于确定要生成的目标对象在列表中的索引
-            Instantiate(targets[index]); // 根据随机索引从列表中实例化对应的目标对象
+            // 等待一定时间后再生成下一个目标
+            yield return new WaitForSeconds(spawnRate);
+            // 随机选择一个目标对象
+            int index = Random.Range(0, targets.Count);
+            // 实例化选定的目标对象
+            Instantiate(targets[index]);
         }
     }
 }
+
 
 ```
 
@@ -2061,6 +2075,216 @@ public class Target : MonoBehaviour
 }
 
 ```
+
+
+#### 5.2.1.Add Score text and position it on screen
+
+New Functionality:
+- There is a UI element for score on the screen
+- The player’s score is tracked and displayed by the score text when hit a target
+- There are particle explosions when the player gets an object
+
+New Concepts and Skills:
+- TextMeshPro 
+- Canvas
+- Anchor Points
+- Import Libraries
+- Custom methods with parameters
+- Calling methods from other scripts
+
+
+> 为了在屏幕上显示分数，我们需要添加第一个UI元素。
+
+1. In the `Hierarchy window`,  `right click or select + > UI > TextMeshPro text`, then, if prompted, select the button to `Import TMP Essentials`.
+2. Rename the new object `Score Text`, then zoom out to see the canvas in Scene view.
+3. Change the `Anchor Point` so that it is anchored from the `upper-left corner`.
+   1. Inspector -> React Transform -> 左上角的瞄准框，点击选择模式
+4. In the `Inspector window`, change its `Pos X` and `Pos Y` so that it is in the upper-left corner. 
+   1. 拖动text到右上角即可
+
+
+#### 5.2.2.Edit the Score Text’s properties
+
+> 既然基本文本已经在场景中并且正确定位，我们应该编辑它的属性，使它看起来漂亮并且具有正确的文本。
+
+1. Change its `text to “Score:”`
+2. Choose a `Font Asset`, `Style`, `Size`, and `Vertex color` to look good with your background
+
+> 注意：在Unity的较新版本中，可以在其中编辑文本、字体等的组件名称为Text Mesh Pro—Text（UI）。
+
+![image](https://unity-connect-prd.storage.googleapis.com/20231214/learn/images/74d3c4e2-843b-436c-bd9d-4fae44a254f4_image.png)
+
+#### 5.1.3.Initialize score text and variable
+
+> 我们有一个很好的地方来显示分数在UI中，但没有显示任何东西！我们需要UI来显示一个得分变量，这样玩家就可以跟踪他们的得分。
+
+1. At the top of `GameManager.cs`, add `using TMPro;`
+2. Declare a `new public TextMeshProUGUI scoreText`, then assign that variable in the inspector 
+3. Create a `new private int score` variable and initialize it in `Start()` as `score = 0`;
+4. Also in `Start()`, set `scoreText.text = "Score: " + score;`
+
+#### 5.1.4.Create a new UpdateScore method
+
+> score文本完美地显示score变量，但它永远不会更新。我们需要编写一个新的函数，它可以在UI中显示点。
+
+1. Create a `new private void UpdateScore` method that requires one `int scoreToAdd` parameter
+2. Cut and paste `scoreText.text = "Score: " + score;` into the new method, then call `UpdateScore(0)` in `Start()`
+3. In `UpdateScore()`, increment the score by adding
+4. `score += scoreToAdd`; 
+5. Call `UpdateScore(5)` in the `spawnTarget()` function
+
+#### 5.1.5.Add score when targets are destroyed
+
+> 现在我们有了一个更新分数的方法，当目标被销毁时，我们应该在目标脚本中调用它。
+
+1. In `GameManager.cs`, make the `UpdateScore` method `public`
+2. In `Target.cs`, create a reference to `private GameManager gameManager;` 
+3. Initialize `GameManager` in `Start()`  using the `Find()` method
+4. When a target is `destroyed`, call `UpdateScore(5);`, then `delete` the method call from `SpawnTarget()`
+
+
+#### 5.1.6.Assign a point value to each target
+
+> 当目标被点击时，分数会被更新，但我们希望给每个目标一个不同的值。好的对象应该在分值上有所不同，坏的对象应该减去分值。
+
+1. In `Target.cs`, create a` new public int pointValue` variable
+2. In each of the `Target prefab’s` inspectors, set the `Point Value` to whatever they’re worth, including the bad target’s `negative value`
+3. Add the new variable to `UpdateScore(pointValue);`
+
+#### 5.1.7.Add a Particle explosion
+
+> 分数是完全功能性的，但点击目标是有点...不令人满意。为了增加乐趣，让我们在目标被点击时添加一些爆炸粒子！
+
+1. In `Target.cs`, add a `new public ParticleSystem explosionParticle` variable 
+2. For each of your target prefabs, assign a particle prefab from `Course Library > Particles` to the Explosion Particle variable
+3. In the `OnMouseDown()` function, instantiate a new explosion prefab
+
+
+```cs
+public class Target : MonoBehaviour
+{
+    // Rigidbody组件引用，用于给目标添加力和扭矩
+    private Rigidbody _targetRb;
+    // 目标的最小速度和最大速度
+    private float _minSpeed = 12;
+    private float _maxSpeed = 16;
+    // 目标的最大扭矩
+    private float _maxTorque = 10;
+    // 目标生成的x轴范围
+    private float _xRange = 4;
+    // 目标生成的y轴位置
+    private float _ySpawnPos = -6;
+
+    // 游戏管理器的引用
+    private GameManager _gameManager;
+
+    // 目标的得分值
+    public int pointValue;
+    // 爆炸效果的粒子系统
+    public ParticleSystem explosionParticle;
+
+    // Start函数在目标对象被实例化时调用
+    void Start()
+    {
+        // 获取目标的Rigidbody组件
+        _targetRb = GetComponent<Rigidbody>();
+        // 给目标添加随机方向的冲力
+        _targetRb.AddForce(RandomForce(), ForceMode.Impulse);
+        // 给目标添加随机方向的扭矩
+        _targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse);
+        // 设置目标的初始位置
+        transform.position = RandomSpawnPos();
+        
+        // 获取游戏管理器的引用
+        _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+    }
+
+    // Update函数每帧调用一次
+    void Update()
+    {
+    }
+
+    // 生成随机方向的冲力
+    Vector3 RandomForce()
+    {
+        return Vector3.up * Random.Range(_minSpeed, _maxSpeed);
+    }
+
+    // 生成随机方向的扭矩
+    float RandomTorque()
+    {
+        return Random.Range(-_maxTorque, _maxTorque);
+    }
+
+    // 生成随机位置
+    Vector3 RandomSpawnPos()
+    {
+        return new Vector3(Random.Range(-_xRange, _xRange), _ySpawnPos);
+    }
+
+    // 当目标被点击时调用
+    private void OnMouseDown()
+    {
+        // 销毁目标对象
+        Destroy(gameObject);
+        // 实例化爆炸效果
+        Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+        // 更新游戏得分
+        _gameManager.UpdateScore(pointValue);
+    }
+
+    // 当其他碰撞器进入目标触发器时调用
+    private void OnTriggerEnter(Collider other)
+    {
+        // 销毁目标对象
+        Destroy(gameObject);
+    }
+}
+```
+
+```cs
+using TMPro; // 引入TextMeshProUGUI库
+
+public class GameManager : MonoBehaviour // GameManager类，继承自MonoBehaviour
+{
+    private float _spawnRate = 1; // 私有变量，表示生成速率，默认为1
+    
+    public List<GameObject> targets; // 公有列表，存储GameObject对象，表示游戏中的目标
+    private int _score; // 私有变量，表示游戏分数
+    public TextMeshProUGUI scoreText; // 公有变量，表示用于显示分数的TextMeshProUGUI对象
+
+    void Start() // Start方法，在游戏开始时调用
+    {
+        StartCoroutine(SpawnTarget()); // 开始生成目标
+
+        _score = 0; // 分数初始化为0
+        UpdateScore(0); // 更新显示分数为0
+    }
+
+    // Update is called once per frame
+    void Update() // Update方法，每帧调用一次
+    {
+        // 在此处可以编写游戏逻辑，但当前代码中未实现任何内容
+    }
+
+    IEnumerator SpawnTarget() // 生成目标的协程方法
+    {
+        while (true) // 无限循环，用于持续生成目标
+        {
+            yield return new WaitForSeconds(_spawnRate); // 等待一定时间后执行后续代码
+            int index = Random.Range(0, targets.Count); // 随机选择目标列表中的一个目标
+            Instantiate(targets[index]); // 在场景中生成选择的目标对象
+        }
+    }
+
+    public void UpdateScore(int scoreToAdd) // 更新分数的公有方法，接收一个分数增加值作为参数
+    {
+        _score += scoreToAdd; // 增加分数
+        scoreText.text = "Score: " + _score; // 更新分数显示文本
+    }
+}
+```
+
 
 ## Unity Essentials
 
