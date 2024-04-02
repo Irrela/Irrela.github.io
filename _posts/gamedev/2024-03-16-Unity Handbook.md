@@ -38,6 +38,7 @@ tags:
     - [CWC 2 Lab 3 - Player Control](#cwc-2-lab-3---player-control)
       - [3.Constrain the Player’s movement](#3constrain-the-players-movement)
     - [CWC 2 Unit 4 - Gameplay Mechanics](#cwc-2-unit-4---gameplay-mechanics)
+      - [4.1 Watch Where You’re Going](#41-watch-where-youre-going)
       - [3.Create a focal point for the camera](#3create-a-focal-point-for-the-camera)
       - [4.Rotate the focal point by user input](#4rotate-the-focal-point-by-user-input)
       - [5.Add forward force to the player](#5add-forward-force-to-the-player)
@@ -47,6 +48,18 @@ tags:
       - [4.2.4.Create a Spawn Manager for the enemy](#424create-a-spawn-manager-for-the-enemy)
       - [4.3.1.Choose and prepare a powerup](#431choose-and-prepare-a-powerup)
       - [4.3.2.Destroy powerup on collision](#432destroy-powerup-on-collision)
+      - [Test for enemy and powerup](#test-for-enemy-and-powerup)
+      - [Apply extra knockback with powerup](#apply-extra-knockback-with-powerup)
+      - [Create Countdown Routine for powerup](#create-countdown-routine-for-powerup)
+      - [Add a powerup indicator](#add-a-powerup-indicator)
+      - [4.4.1 Write a for-loop to spawn 3 enemies](#441-write-a-for-loop-to-spawn-3-enemies)
+      - [4.4.2.Give the for-loop a parameter](#442give-the-for-loop-a-parameter)
+      - [4.4.3.Destroy enemies if they fall off](#443destroy-enemies-if-they-fall-off)
+      - [4.4.4.Increase enemyCount with waves](#444increase-enemycount-with-waves)
+      - [4.4.5.Spawn Powerups with new waves](#445spawn-powerups-with-new-waves)
+      - [Challenge 4 - Soccer Scripting](#challenge-4---soccer-scripting)
+        - [FindGameObjectsWithTag 和 FindObjectsOfType 有什么区别](#findgameobjectswithtag-和-findobjectsoftype-有什么区别)
+      - [Lab 4 - Basic Gameplay](#lab-4---basic-gameplay)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
       - [Scene操作](#scene操作)
@@ -1274,6 +1287,24 @@ public class RepeatBackgroundX : MonoBehaviour
 
 ### CWC 2 Unit 4 - Gameplay Mechanics
 
+#### 4.1 Watch Where You’re Going
+首先，我们将创建一个新的原型并下载启动文件！你会注意到一个美丽的岛屿，天空和粒子效果...所有这些都可以定制！
+
+接下来，您将允许玩家以完美的半径围绕岛屿旋转相机，提供一个壮观的场景视图。
+
+玩家将由一个球体代表，包裹在您选择的详细纹理中。
+
+最后，您将为玩家增加力量，允许他们在相机的方向上向前或向后移动。
+
+New Functionality:
+- Camera rotates around the island based on horizontal input
+- Player rolls in direction of camera based on vertical input
+
+New Concepts and Skills:
+- Texture Wraps
+- Camera as child object
+- Global vs Local coordinates
+- Get direction of other object
 
 #### 3.Create a focal point for the camera
 
@@ -1364,6 +1395,17 @@ public class PlayerController : MonoBehaviour
 
 
 #### 4.2.1 Add an enemy and a physics material
+
+New Functionality:
+- Enemy spawns at random location on the island
+- Enemy follows the player around 
+- Spheres bounce off of each other 
+
+New Concepts and Skills:
+- Physics Materials
+- Defining vectors in 3D space
+- Normalizing values
+- Methods with return values
 
 设置一个敌人，并给他们一些特殊的新物理来反弹玩家！
 
@@ -1460,6 +1502,19 @@ public class SpawnManager : MonoBehaviour
 
 #### 4.3.1.Choose and prepare a powerup
 
+New Functionality:
+- When the player collects a powerup, a visual indicator appears
+- When the player collides with an enemy while they have the powerup, the enemy goes flying
+- After a certain amount of time, the powerup ability and indicator disappear
+
+New Concepts and Skills:
+- Debug concatenation
+- Local component variables 
+- IEnumerators and WaitForSeconds()
+- Coroutines
+- SetActive(true/false) 
+
+
 为了给这个项目添加一个全新的游戏机制，我们将引入一个新的powerup对象，它将给玩家临时的超能力。
 
 1. From the `Library`, drag a `Powerup` object into the scene, rename it “Powerup” and edit its scale & position
@@ -1475,23 +1530,23 @@ public class SpawnManager : MonoBehaviour
 2. Add an if-statement that destroys `other.CompareTag("Powerup")` powerup on collision
 3. Create a new public bool `hasPowerup`; and set hasPowerup = true;  when you collide with the Powerup
 
-Test for enemy and powerup
+#### Test for enemy and powerup
 4. Create a `new “Enemy” tag` and apply it to the Enemy Prefab
 5. In PlayerController.cs, add the `OnCollisionEnter()` function
 6. Create the if-statement with the double-condition `testing for enemy tag and hasPowerup boolean`
 7. Create a `Debug.Log` to make sure it’s working
 
-Apply extra knockback with powerup
+#### Apply extra knockback with powerup
 8. In `OnCollisionEnter()` declare a new local variable to `get the Enemy’s Rigidbody component `
 9.  Declare a new `variable` to `get the direction away from the player`
 10. Add an `impulse force` to the enemy, using a new `powerupStrength` variable
 
-Create Countdown Routine for powerup
+#### Create Countdown Routine for powerup
 1. Add a new `IEnumerator` `PowerupCountdownRoutine () {}`
 2. Inside the PowerupCountdownRoutine, `wait 7 seconds`, then disable the powerup 
 3. When player collides with powerup, start the `coroutine`
 
-Add a powerup indicator
+#### Add a powerup indicator
 1. From the `Library`, drag a Powerup object into the scene, rename it `Powerup Indicator`, and edit its scale
 2. Uncheck the `Active` checkbox in the inspector
 3. In `PlayerController.cs`, declare a new public GameObject `powerupIndicator` variable, then assign the Powerup Indicator variable in the inspector
@@ -1588,17 +1643,219 @@ public class PlayerController : MonoBehaviour
 ```
 
 
+#### 4.4.1 Write a for-loop to spawn 3 enemies
+
+- For-loops
+- Increment (++) operator
+- Custom methods with parameters
+- FindObjectsOfType
+
+
+我们应该通过产生一个以上的敌人来挑战玩家。为了做到这一点，我们将使用循环重复敌人实例化。
+
+1. In `SpawnManager.cs`, in Start(), replace single Instantiation with a for-loop that spawns 3 enemies
+2. Move the for-loop to a new void `SpawnEnemyWave()` function, then call that function from Start()
 
 
 
+#### 4.4.2.Give the for-loop a parameter
+
+现在，SpawnEnemyWave只产生3个敌人，但如果我们要动态增加游戏期间产生的敌人数量，我们需要能够传递信息给该方法。
+
+3. Add a parameter int `enemiesToSpawn` to the `SpawnEnemyWave` function 
+4. Replace `i < __` with `i < enemiesToSpawn`
+5. Add this new variable to the function call in `Start(): SpawnEnemyWave(___)`; 
+
+```cs
+public class SpawnManager : MonoBehaviour // 声明 SpawnManager 类，继承自 MonoBehaviour 类
+{
+    public GameObject enemyPrefab; // 可在 Unity 编辑器中设置的敌人预制体
+
+    private float _spawnRange = 9; // 生成敌人的范围
+
+    // Start is called before the first frame update
+    void Start() // 当游戏对象被激活时调用的方法
+    {
+        SpawnEnemyWave(3); // 生成初始敌人波
+    }
+
+    // 生成一个随机的生成位置
+    Vector3 GenerateSpawnPosition() // 生成敌人的随机位置方法
+    {
+        float spawnPosX = Random.Range(-_spawnRange, _spawnRange); // 在指定范围内生成随机 X 坐标
+        float spawnPosZ = Random.Range(-_spawnRange, _spawnRange); // 在指定范围内生成随机 Z 坐标
+        return new Vector3(spawnPosX, 0, spawnPosZ); // 返回随机生成的位置坐标
+    }
+
+    // 生成指定数量的敌人波
+    void SpawnEnemyWave(int enemiesToSpawn) // 生成敌人波的方法，参数为要生成的敌人数量
+    {
+        for (int i = 0; i < enemiesToSpawn; i++) // 循环生成指定数量的敌人
+        {
+            Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation); // 实例化敌人预制体在随机位置
+        }
+    }
+}
+
+```
+
+#### 4.4.3.Destroy enemies if they fall off
+
+一旦玩家摆脱了所有的敌人，他们会感到有点孤独。我们需要摧毁那些倒下的敌人，并在最后一个被征服后产生一个新的敌人浪潮！
+
+1. In `Enemy.cs`, destroy the enemies if their position is less than a `-Y` value
+2. In `SpawnManager.cs`, declare a new public int `enemyCount` variable
+3. In Update(), set `enemyCount = FindObjectsOfType<Enemy>().Length`;
+4. Write the if-statement that if `enemyCount == 0` then `SpawnEnemyWave`, then delete it from `Start()`
+
+```cs
+public class Enemy : MonoBehaviour
+{
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (transform.position.y < -10)
+        {
+            Destroy(gameObject);
+        }
+    }
+}
+```
+
+```cs
+public class SpawnManager : MonoBehaviour
+{
+    public int enemyCount;
+
+    // Update is called once per frame
+    void Update()
+    {
+        enemyCount = FindObjectsOfType<Enemy>().Length;
+        if (enemyCount == 0)
+        {
+            SpawnEnemyWave(1);
+        }
+    }
+}
+```
+
+#### 4.4.4.Increase enemyCount with waves
+
+现在我们控制了敌人的数量，我们应该增加他们的数量在波。每次玩家击败一波敌人，就会有更多的人站起来取代他们的位置。
+
+5. Declare a new `public int waveNumber = 1`;, then implement it in `SpawnEnemyWave(waveNumber)`; 
+6. In the if-statement that tests if there are 0 enemies left, increment waveCount by 1 
 
 
 
+#### 4.4.5.Spawn Powerups with new waves
+
+我们的游戏快完成了，但我们错过了一些东西。
+
+敌人继续随着每一波产卵，但加电被使用一次并永远消失，让玩家容易受到攻击。
+
+我们需要在每一个波浪的随机位置产生增强，这样玩家就有机会反击。
+
+```cs
+public class SpawnManager : MonoBehaviour // 定义 SpawnManager 类，继承自 MonoBehaviour 类
+{
+    public GameObject enemyPrefab; // 可在 Unity 编辑器中指定的敌人预制体对象
+
+    private float _spawnRange = 9; // 敌人生成范围的半径
+
+    public int enemyCount; // 当前场景中的敌人数量
+
+    public int waveNumber = 1; // 当前波次数，默认为 1
+
+    public GameObject powerupPrefab; // 可在 Unity 编辑器中指定的道具预制体对象
+    
+    void Start() // 当游戏开始时执行的函数
+    {
+        SpawnEnemyWave(waveNumber); // 生成敌人波次
+
+        Instantiate(powerupPrefab, GenerateSpawnPosition(), powerupPrefab.transform.rotation); // 生成道具
+    }
+
+    // Update is called once per frame
+    void Update() // 每帧调用的函数
+    {
+        enemyCount = FindObjectsOfType<Enemy>().Length; // 统计当前场景中的敌人数量
+        if (enemyCount == 0) // 如果敌人数量为 0
+        {
+            waveNumber++; // 波次数加一
+            SpawnEnemyWave(waveNumber); // 生成下一波敌人
+
+            Instantiate(powerupPrefab, GenerateSpawnPosition(), powerupPrefab.transform.rotation); // 生成道具
+        }
+    }
+
+    Vector3 GenerateSpawnPosition() // 生成敌人或道具的随机位置
+    {
+        float spawnPosX = Random.Range(-_spawnRange, _spawnRange); // 随机生成 x 坐标
+        float spawnPosZ = Random.Range(-_spawnRange, _spawnRange); // 随机生成 z 坐标
+        return new Vector3(spawnPosX, 0, spawnPosZ); // 返回生成位置的 Vector3 对象
+    }
+
+    void SpawnEnemyWave(int enemiesToSpawn) // 生成指定数量的敌人波次
+    {
+        for (int i = 0; i < enemiesToSpawn; i++) // 循环生成指定数量的敌人
+        {
+            Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation); // 生成敌人对象
+        }
+    }
+}
+
+```
+
+
+#### Challenge 4 - Soccer Scripting
+在一个完全不同的环境中使用你在相扑之战原型中学到的技能：足球场。
+
+就像在原型中一样，你将通过围绕它旋转摄像机并施加向前的力来控制球，但不是把它们从边缘撞下来，你的目标是在它们试图进入你的网时把它们撞到对方的网中。
+
+就像相扑战一样，每一回合后都会有一个新的波会产生更多的敌人球，考验你的防御力。
+
+然而，这个项目几乎没有任何东西在运行！你的工作就是让它正常工作。
+
+Challenge Outcome:
+- Enemies move towards your net, but you can hit them to deflect them away
+- Powerups apply a temporary strength boost, then disappear after 5 seconds
+- When there are no more enemy balls, a new wave spawns with 1 more enemy 
+
+
+##### FindGameObjectsWithTag 和 FindObjectsOfType 有什么区别
+FindGameObjectsWithTag 和 FindObjectsOfType 是 Unity 中用于查找游戏对象的两个不同方法
+
+FindGameObjectsWithTag 通常用于按标签查找游戏对象，例如查找所有敌人、道具等具有相同标签的对象。
+FindObjectsOfType 通常用于按组件类型查找游戏对象，例如查找场景中所有的敌人、所有的道具等具有相同组件类型的对象。
+
+在性能方面，FindGameObjectsWithTag 的效率通常要比 FindObjectsOfType 高，因为按标签查找只需遍历带有指定标签的游戏对象，而按组件类型查找需要遍历场景中所有游戏对象，并检查其是否拥有指定的组件类型。
+
+综上所述，FindGameObjectsWithTag 用于按标签查找游戏对象，而 FindObjectsOfType 用于按组件类型查找游戏对象
+
+```cs
+enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+enemyCount = FindObjectsOfType<Enemy>().Length;
+```
 
 
 
+#### Lab 4 - Basic Gameplay
 
+概述：
 
+在本实验中，您将使用所有非玩家对象，以使您的项目具有基本的游戏性。
+
+你将给你的投射物，皮卡，或敌人他们的基本移动和碰撞检测，使他们成为预制件，并有他们随机产生由一个产卵管理器。
+
+在本实验结束时，您应该已经了解了游戏的核心功能。
+
+项目成果：
+
+- 非玩家对象在场景中的适当位置产生，并以基本的移动。
+- 当物体相互碰撞时，它们会按照预期做出反应，要么反弹，要么被摧毁。
 
 
 ## Unity Essentials
