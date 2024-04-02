@@ -25,7 +25,8 @@ tags:
     - [Remove Nodes From Linked List](#remove-nodes-from-linked-list-1)
     - [Beautiful Towers I](#beautiful-towers-i)
 - [递归 Recursion](#递归-recursion)
-    - [](#)
+    - [All Possible Full Binary Trees](#all-possible-full-binary-trees)
+    - [Closest Nodes Queries in a Binary Search Tree](#closest-nodes-queries-in-a-binary-search-tree)
     - [Construct Binary Tree from Preorder and Inorder Traversal](#construct-binary-tree-from-preorder-and-inorder-traversal)
     - [Construct Binary Tree from Inorder and Postorder Traversal](#construct-binary-tree-from-inorder-and-postorder-traversal)
     - [Construct Binary Tree from Preorder and Postorder Traversal](#construct-binary-tree-from-preorder-and-postorder-traversal)
@@ -41,7 +42,7 @@ tags:
     - [1976. Number of Ways to Arrive at Destination](#1976-number-of-ways-to-arrive-at-destination)
 - [贪心](#贪心)
     - [Minimum Number of Coins to be Added](#minimum-number-of-coins-to-be-added)
-    - [](#-1)
+    - [](#)
     - [Construct String With Repeat Limit](#construct-string-with-repeat-limit)
     - [1599. Maximum Profit of Operating a Centennial Wheel](#1599-maximum-profit-of-operating-a-centennial-wheel)
     - [Maximum Swap](#maximum-swap)
@@ -690,11 +691,63 @@ class Solution:
 
 ## 递归 Recursion
 
-####
+#### All Possible Full Binary Trees
+```cs
+/*
+ * 问题描述：
+ * 894. All Possible Full Binary Trees
+ * 给定一个整数 n，返回所有可能的节点数为 n 的完全二叉树的列表。返回的每棵树的每个节点的值必须为 0。
+ * 
+ * 思路：
+ * 利用递归生成所有可能的完全二叉树。对于奇数个节点，我们可以将根节点分配给左子树，然后迭代生成左子树和右子树。
+ * 为了避免重复计算，使用字典来缓存计算结果。
+ */
+public class Solution {
+    Dictionary<int, List<TreeNode>> map = new Dictionary<int, List<TreeNode>>();
+
+    /// <summary>
+    /// 生成所有可能的完全二叉树
+    /// </summary>
+    /// <param name="n">节点数</param>
+    /// <returns>所有可能的完全二叉树列表</returns>
+    public IList<TreeNode> AllPossibleFBT(int n) {
+        if (!map.ContainsKey(n)) {
+            List<TreeNode> res = new List<TreeNode>();
+
+            if (n == 1) {
+                // 如果只有一个节点，直接生成一个只有根节点的树
+                res.Add(new TreeNode(0));
+            }
+            else if (n % 2 == 1) {
+                // 如果节点数为奇数，递归生成左子树和右子树
+                for (int x = 0; x < n; x++) {
+                    int y = n - 1 - x;
+                    foreach (TreeNode left in AllPossibleFBT(x)) {
+                        foreach (TreeNode right in AllPossibleFBT(y)) {
+                            // 构建根节点，并连接左右子树
+                            TreeNode root = new TreeNode(0);
+                            root.left = left;
+                            root.right = right;
+                            res.Add(root);
+                        }
+                    }
+                }
+            }
+            map.Add(n, res); // 缓存结果
+        }    
+
+        return map[n];
+    }
+}
+```
+
+
+#### Closest Nodes Queries in a Binary Search Tree
 ```py
 class Solution:
     """
     # 问题描述 
+    2476. Closest Nodes Queries in a Binary Search Tree
     给定二叉搜索树的根节点和一个由正整数组成的大小为n的数组queries。
     找到大小为n的二维数组answer，其中answer[i] = [mini, maxi]：
     mini是树中小于或等于queries[i]的最大值。如果这样的值不存在，则将-1添加到数组中。
