@@ -60,6 +60,15 @@ tags:
       - [Challenge 4 - Soccer Scripting](#challenge-4---soccer-scripting)
         - [FindGameObjectsWithTag 和 FindObjectsOfType 有什么区别](#findgameobjectswithtag-和-findobjectsoftype-有什么区别)
       - [GetComponent](#getcomponent)
+    - [CWC 2 Unit 5 - User Interface](#cwc-2-unit-5---user-interface)
+      - [Lesson 5.1 - Clicky Mouse](#lesson-51---clicky-mouse)
+      - [5.1.1.Create project and switch to 2D view](#511create-project-and-switch-to-2d-view)
+      - [5.1.2.Create good and bad targets](#512create-good-and-bad-targets)
+      - [5.1.3.Toss objects randomly in the air](#513toss-objects-randomly-in-the-air)
+      - [5.1.4.Replace messy code with new methods](#514replace-messy-code-with-new-methods)
+      - [5.1.5.Create object list in Game Manager](#515create-object-list-in-game-manager)
+      - [5.1.6.Create a coroutine to spawn objects](#516create-a-coroutine-to-spawn-objects)
+      - [5.1.7.Destroy target with click and sensor](#517destroy-target-with-click-and-sensor)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
       - [Scene操作](#scene操作)
@@ -1859,7 +1868,199 @@ void OnCollisionEnter(Collision collision) {
 ```
 
 
+### CWC 2 Unit 5 - User Interface
+#### Lesson 5.1 - Clicky Mouse
 
+到了最后一个单元的时间了！我们将首先创建一个新项目并导入启动文件，然后将游戏视图切换到2D。
+
+接下来，我们将为玩家创建一个目标对象列表：三个“好”对象和一个“坏”对象。
+
+目标在地图底部的随机位置产卵后将发射旋转到空中。
+
+最后，我们将允许玩家摧毁他们与点击！
+
+项目成果：
+
+三个好目标对象和一个坏目标对象的列表将在屏幕底部的随机位置产生，以随机的力量和扭矩将自己推入空中。
+
+这些目标将在玩家点击他们或他们掉出边界时被摧毁。
+
+
+New Functionality:
+- Random objects are tossed into the air on intervals
+- Objects are given random speed, position, and torque
+- If you click on an object, it is destroyed
+
+New Concepts and Skills: 
+- 2D View
+- AddTorque 
+- Game Manager
+- Lists
+- While Loops
+- Mouse Events
+
+#### 5.1.1.Create project and switch to 2D view
+
+1. Open `Unity Hub` and create an empty `“Prototype 5`” project in your course directory on the correct Unity version. 
+2. If you forget how to do this, refer to the instructions in Lesson 1.1 - Step 1
+3. Click to download the Prototype 5 Starter Files, extract the compressed folder, and then import the .unitypackage into your project. 
+4. If you forget how to do this, refer to the instructions in Lesson 1.1 - Step 2
+5. Open the Prototype 5 scene, then delete the sample scene without saving
+6. Click on the `2D icon` in Scene view to put Scene view in `2D`. 
+7. (optional) Change the texture and color of the `background` and the color of the `borders`
+
+
+#### 5.1.2.Create good and bad targets
+
+> 在游戏中，我们首先需要收集三个好的对象，一个坏的对象要避免。什么是好的，什么是坏的，由你来决定。
+
+1. From the `Library`, drag 3 “good” objects and 1 “bad” object into the Scene, rename them “Good 1”, “Good 2”, “Good 3”, and “Bad 1”
+2. Add `Rigid Body` and `Box Collider` components, then make sure that Colliders surround objects properly
+3. Create a new Scripts folder, a new `Target.cs` script inside it, attach it to the Target objects
+4. Drag all 4 targets into the `Prefabs folder` to create “original prefabs”, then delete them from the scene
+
+#### 5.1.3.Toss objects randomly in the air
+
+> 现在我们有了4个目标预制件，具有相同的脚本，我们需要用随机的力，扭矩和位置将它们抛向空中。
+
+1. In `Target.cs`, declare a new `private Rigidbody targetRb`; and initialize it in `Start()`
+2. In `Start()`, add an `upward force` multiplied by `a randomized speed`
+3. Add a `torque` with randomized `xyz values`
+4. Set the `position` with a randomized `X value`
+
+#### 5.1.4.Replace messy code with new methods
+
+> 我们不再让随机的力、扭矩和位置使Start（）函数变得混乱和不可读，而是将它们存储在全新的、明确命名的自定义方法中。
+
+1. Declare and initialize new private float variables for `minSpeed`, `maxSpeed`, `maxTorque`, `xRange`, and `ySpawnPos`;
+2. Create a new function for Vector3 `RandomForce()` and call it in `Start()`
+3. Create a new function for float `RandomTorque()`, and call it in `Start()`
+4. Create a new function for `RandomSpawnPos()`, have it return a new Vector3 and call it in `Start() `
+
+#### 5.1.5.Create object list in Game Manager
+
+> 接下来我们应该做的是为这些对象创建一个列表。而不是为这些产卵功能制作一个产卵管理器，我们将制作一个游戏管理器，它也将控制游戏状态稍后。
+
+1. Create a new `Game Manager` Empty object.
+2. Create a new `GameManager.cs` script, attach it to the Game Manager GameObject in the Hierarchy window, then open it.
+3. Declare a `new public List<GameObject> targets`;, then in the Game Manager inspector, change the list `Size` to `4` and assign your prefabs. 
+
+> 注：在Unity的较新版本中，您可以通过转到Hierarchy窗口左上角的+号或右键单击Hierarchy窗口来创建新的GameObject。
+
+![image](https://unity-connect-prd.storage.googleapis.com/20231214/learn/images/f524d057-82f7-42da-a26c-d01fe25e0627_image.png)
+
+#### 5.1.6.Create a coroutine to spawn objects
+
+> 既然我们有了一个对象预置列表，我们应该在游戏中使用协程和一种新的循环来实例化它们。
+
+1. Declare and initialize a `new private float spawnRate` variable
+2. Create a new `IEnumerator` `SpawnTarget()` method 
+3. Inside the new method, `while(true), wait 1 second`, generate a `random index`,  and `spawn a random target`
+4. In `Start()`, use the `StartCoroutine` method to begin spawning objects
+
+```cs
+using UnityEngine;
+using System.Collections; // 导入用于使用协程的命名空间
+
+public class GameManager : MonoBehaviour
+{
+    private float spawnRate = 1; // 定义一个私有的浮点型变量spawnRate，用于控制目标生成的频率
+    
+    public List<GameObject> targets; // 定义一个公共的GameObject类型的列表targets，用于存储要生成的目标对象
+    
+    void Start()
+    {
+        // 游戏启动时调用的方法，暂时留空
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // 每帧调用的方法，暂时留空
+    }
+
+    IEnumerator SpawnTarget() // 定义一个返回IEnumerator类型的协程SpawnTarget，用于生成目标对象
+    {
+        while (true) // 创建一个无限循环，使目标持续生成
+        {
+            yield return new WaitForSeconds(spawnRate); // 暂停协程的执行，等待spawnRate秒后再继续执行
+            int index = Random.Range(0, targets.Count); // 生成一个随机数，用于确定要生成的目标对象在列表中的索引
+            Instantiate(targets[index]); // 根据随机索引从列表中实例化对应的目标对象
+        }
+    }
+}
+
+```
+
+#### 5.1.7.Destroy target with click and sensor
+
+> 现在我们的目标正在产卵并被抛向空中，我们需要一种方法让玩家用点击摧毁他们。我们还需要摧毁任何落在屏幕下面的目标。
+
+1. In `Target.cs`, add a new method for `private void OnMouseDown() { }` , and inside that method, destroy the gameObject
+2. Add a new method for `private void OnTriggerEnter(Collider other)` and inside that function, destroy the gameObject
+
+```cs
+public class Target : MonoBehaviour
+{
+    private Rigidbody _targetRb; // Rigidbody组件，用于控制物体的物理行为
+    private float _minSpeed = 12; // 最小速度
+    private float _maxSpeed = 16; // 最大速度
+    private float _maxTorque = 10; // 最大扭矩
+    private float _xRange = 4; // X轴范围
+    private float _ySpawnPos = -6; // Y轴生成位置
+
+    void Start()
+    {
+        // 获取物体的Rigidbody组件
+        _targetRb = GetComponent<Rigidbody>();
+        
+        // 施加随机方向的冲量
+        _targetRb.AddForce(RandomForce(), ForceMode.Impulse);
+        
+        // 施加随机方向的扭矩
+        _targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse);
+        
+        // 设置物体的随机生成位置
+        transform.position = RandomSpawnPos();
+    }
+
+    void Update()
+    {
+        // 每帧更新，留空
+    }
+
+    // 生成随机方向的冲量
+    Vector3 RandomForce()
+    {
+        return Vector3.up * Random.Range(_minSpeed, _maxSpeed);
+    }
+
+    // 生成随机扭矩
+    float RandomTorque()
+    {
+        return Random.Range(-_maxTorque, _maxTorque);
+    }
+
+    // 生成随机生成位置
+    Vector3 RandomSpawnPos()
+    {
+        return new Vector3(Random.Range(-_xRange, _xRange), _ySpawnPos);
+    }
+
+    // 当物体被点击时销毁
+    private void OnMouseDown()
+    {
+        Destroy(gameObject);
+    }
+
+    // 当物体进入触发器时销毁
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);
+    }
+}
+
+```
 
 ## Unity Essentials
 
