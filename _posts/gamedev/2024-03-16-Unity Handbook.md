@@ -71,11 +71,18 @@ tags:
       - [5.1.7.Destroy target with click and sensor](#517destroy-target-with-click-and-sensor)
       - [5.2.1.Add Score text and position it on screen](#521add-score-text-and-position-it-on-screen)
       - [5.2.2.Edit the Score Text’s properties](#522edit-the-score-texts-properties)
-      - [5.1.3.Initialize score text and variable](#513initialize-score-text-and-variable)
-      - [5.1.4.Create a new UpdateScore method](#514create-a-new-updatescore-method)
-      - [5.1.5.Add score when targets are destroyed](#515add-score-when-targets-are-destroyed)
-      - [5.1.6.Assign a point value to each target](#516assign-a-point-value-to-each-target)
-      - [5.1.7.Add a Particle explosion](#517add-a-particle-explosion)
+      - [5.2.3.Initialize score text and variable](#523initialize-score-text-and-variable)
+      - [5.2.4.Create a new UpdateScore method](#524create-a-new-updatescore-method)
+      - [5.2.5.Add score when targets are destroyed](#525add-score-when-targets-are-destroyed)
+      - [5.2.6.Assign a point value to each target](#526assign-a-point-value-to-each-target)
+      - [5.2.7.Add a Particle explosion](#527add-a-particle-explosion)
+      - [5.3.1.Create a Game Over text object](#531create-a-game-over-text-object)
+      - [5.3.2.Make GameOver text appear](#532make-gameover-text-appear)
+      - [5.3.3.Create GameOver function](#533create-gameover-function)
+      - [5.3.4.Stop spawning and score on GameOver](#534stop-spawning-and-score-on-gameover)
+      - [5.3.5.Add a Restart button](#535add-a-restart-button)
+      - [5.3.6.Make the restart button work](#536make-the-restart-button-work)
+      - [5.3.7.Show restart button on game over](#537show-restart-button-on-game-over)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
       - [Scene操作](#scene操作)
@@ -2114,7 +2121,7 @@ New Concepts and Skills:
 
 ![image](https://unity-connect-prd.storage.googleapis.com/20231214/learn/images/74d3c4e2-843b-436c-bd9d-4fae44a254f4_image.png)
 
-#### 5.1.3.Initialize score text and variable
+#### 5.2.3.Initialize score text and variable
 
 > 我们有一个很好的地方来显示分数在UI中，但没有显示任何东西！我们需要UI来显示一个得分变量，这样玩家就可以跟踪他们的得分。
 
@@ -2123,7 +2130,7 @@ New Concepts and Skills:
 3. Create a `new private int score` variable and initialize it in `Start()` as `score = 0`;
 4. Also in `Start()`, set `scoreText.text = "Score: " + score;`
 
-#### 5.1.4.Create a new UpdateScore method
+#### 5.2.4.Create a new UpdateScore method
 
 > score文本完美地显示score变量，但它永远不会更新。我们需要编写一个新的函数，它可以在UI中显示点。
 
@@ -2133,7 +2140,7 @@ New Concepts and Skills:
 4. `score += scoreToAdd`; 
 5. Call `UpdateScore(5)` in the `spawnTarget()` function
 
-#### 5.1.5.Add score when targets are destroyed
+#### 5.2.5.Add score when targets are destroyed
 
 > 现在我们有了一个更新分数的方法，当目标被销毁时，我们应该在目标脚本中调用它。
 
@@ -2143,7 +2150,7 @@ New Concepts and Skills:
 4. When a target is `destroyed`, call `UpdateScore(5);`, then `delete` the method call from `SpawnTarget()`
 
 
-#### 5.1.6.Assign a point value to each target
+#### 5.2.6.Assign a point value to each target
 
 > 当目标被点击时，分数会被更新，但我们希望给每个目标一个不同的值。好的对象应该在分值上有所不同，坏的对象应该减去分值。
 
@@ -2151,7 +2158,7 @@ New Concepts and Skills:
 2. In each of the `Target prefab’s` inspectors, set the `Point Value` to whatever they’re worth, including the bad target’s `negative value`
 3. Add the new variable to `UpdateScore(pointValue);`
 
-#### 5.1.7.Add a Particle explosion
+#### 5.2.7.Add a Particle explosion
 
 > 分数是完全功能性的，但点击目标是有点...不令人满意。为了增加乐趣，让我们在目标被点击时添加一些爆炸粒子！
 
@@ -2283,6 +2290,222 @@ public class GameManager : MonoBehaviour // GameManager类，继承自MonoBehavi
         scoreText.text = "Score: " + _score; // 更新分数显示文本
     }
 }
+```
+
+#### 5.3.1.Create a Game Over text object
+
+New Functionality:
+- A functional Game Over screen with a Restart button
+- When the Restart button is clicked, the game resets
+
+New Concepts and Skills: 
+- Game states 
+- Buttons
+- On Click events
+- Scene management Library
+- UI Library
+- Booleans to control game states
+
+
+> 如果我们想在游戏结束时出现一些“Game Over”文本，我们要做的第一件事就是创建并定制一个新的UI文本元素，上面写着“Game Over”。
+
+1. Right-click on the `Canvas`, create a `new UI > TextMeshPro - Text object`, and rename it “Game Over Text”
+2. In the inspector, edit its `Text`, `Pos X`, `Pos Y`, `Font Asset`, `Size`, `Style`, `Color`, and `Alignment`
+3. Set the `Wrapping` setting to `Disabled`
+   1. Inspector -> TextMeshPro - Text(UI) -> Main settings -> wrapping
+
+#### 5.3.2.Make GameOver text appear
+
+> 我们有一些美丽的游戏结束文本在屏幕上，但它只是坐在和阻挡我们的视线现在。我们应该关闭它，这样游戏结束时它就能重新出现。
+
+1. In `GameManager.cs`, create a `new public TextMeshProUGUI gameOverText`; and assign the Game Over object to it in the inspector
+2. `Uncheck` the `Active` checkbox to deactivate the Game Over text by default
+3. In `Start()`, `activate` the Game Over text
+
+#### 5.3.3.Create GameOver function
+
+> 我们暂时让“游戏结束”文本出现在游戏开始时，但实际上我们希望在其中一个“好”对象丢失并掉落时触发它。
+
+1. Create a `new public void GameOver()` function, and `move` the code that activates the game over text inside it
+2. In `Target.cs`, call `gameManager.GameOver()` if a target collides with the `sensor`
+3. Add a new “Bad” tag to the Bad object, add a condition that will only trigger game over if it’s not a bad object
+
+
+
+#### 5.3.4.Stop spawning and score on GameOver
+
+> “游戏结束”消息会在我们想要的时候出现，但游戏本身会继续进行。为了真正停止游戏并称之为“游戏结束”，我们需要停止生成目标并停止为玩家生成分数。
+
+1. Create a `new public bool isGameActive`;
+2. As the first line In `Start()`, set `isGameActive = true;` and in `GameOver()`, set `isGameActive = false`;
+3. To prevent spawning, in the `SpawnTarget()` coroutine, change `while (true)` to `while (isGameActive)`
+4. To prevent scoring, in `Target.cs`, in the `OnMouseDown()` function, add the condition `if (gameManager.isGameActive) {}`
+
+#### 5.3.5.Add a Restart button
+
+> 我们的游戏结束机制工作得像一个魅力，但没有办法重播游戏。为了让玩家重新启动游戏，我们将创建我们的第一个UI按钮
+
+1. Right-click on the `Canvas` and `Create > UI > Button - TextMeshPro. `
+2. `Rename` the button “Restart Button”
+3. Temporarily `reactivate` the Game Over text in order to `reposition` the Restart Button nicely with the text, then `deactivate` it again 
+4. Select the Text `child object`, then edit its Text to say `Restart`, its Font, Style, and Size
+   1. 注意改text input是在btn的 child object
+
+#### 5.3.6.Make the restart button work
+
+> 我们在场景中添加了重启按钮，看起来不错，但现在我们需要让它真正工作并重启游戏。
+
+1. In `GameManager.cs`, add `using UnityEngine.SceneManagement;`
+2. Create a `new public void RestartGame()` function that reloads the current scene
+3. In the Button’s inspector, `click + to add a new On Click event`, drag it in the Game Manager object and select the `GameManager.RestartGame` function
+   1. Inspector -> Button -> On Click() -> +
+
+#### 5.3.7.Show restart button on game over
+
+> 重新启动按钮看起来很棒，但我们不希望它在我们的脸上整个游戏。类似于“游戏结束”消息，我们将在游戏激活时关闭重启按钮。
+
+1. At the `top of GameManager.cs` add `using UnityEngine.UI;`
+2. Declare a `new public Button restartButton;` and assign the Restart Button to it in the inspector
+3. Uncheck the “Active” checkbox for the Restart Button in the inspector
+4. In the GameOver function, activate the Restart Button
+
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class GameManager : MonoBehaviour
+{
+    private float _spawnRate = 1; // 控制目标生成速率
+
+    public List<GameObject> targets; // 存储所有可能生成的目标
+    private int _score; // 当前得分
+    public TextMeshProUGUI scoreText; // 显示得分的文本UI
+    public TextMeshProUGUI gameOverText; // 显示游戏结束的文本UI
+    public bool isGameActive; // 游戏是否在进行中的标志
+    public Button restartButton; // 重新开始游戏的按钮
+
+    void Start()
+    {
+        isGameActive = true; // 设置游戏状态为进行中
+
+        StartCoroutine(SpawnTarget()); // 启动生成目标的协程
+
+        _score = 0; // 初始化得分为0
+        UpdateScore(0); // 更新显示得分的UI
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // 在Update中暂时没有需要执行的逻辑
+    }
+
+    IEnumerator SpawnTarget()
+    {
+        while (isGameActive) // 只要游戏处于进行中状态
+        {
+            yield return new WaitForSeconds(_spawnRate); // 等待一定时间后执行下一次生成目标的逻辑
+            int index = Random.Range(0, targets.Count); // 随机选择一个目标
+            Instantiate(targets[index]); // 生成选定的目标
+        }
+    }
+
+    public void UpdateScore(int scoreToAdd)
+    {
+        _score += scoreToAdd; // 更新得分
+        scoreText.text = "Score: " + _score; // 更新显示得分的UI文本
+    }
+
+    public void GameOver()
+    {
+        gameOverText.gameObject.SetActive(true); // 激活游戏结束文本UI
+        isGameActive = false; // 设置游戏状态为结束
+
+        restartButton.gameObject.SetActive(true); // 激活重新开始游戏的按钮
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene((SceneManager.GetActiveScene().name)); // 重新加载当前场景，即重新开始游戏
+    }
+}
+
+```
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class GameManager : MonoBehaviour
+{
+    private float _spawnRate = 1; // 控制目标生成速率
+
+    public List<GameObject> targets; // 存储所有可能生成的目标
+    private int _score; // 当前得分
+    public TextMeshProUGUI scoreText; // 显示得分的文本UI
+    public TextMeshProUGUI gameOverText; // 显示游戏结束的文本UI
+    public bool isGameActive; // 游戏是否在进行中的标志
+    public Button restartButton; // 重新开始游戏的按钮
+
+    void Start()
+    {
+        isGameActive = true; // 设置游戏状态为进行中
+
+        StartCoroutine(SpawnTarget()); // 启动生成目标的协程
+
+        _score = 0; // 初始化得分为0
+        UpdateScore(0); // 更新显示得分的UI
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // 在Update中暂时没有需要执行的逻辑
+    }
+
+    // 协程：生成目标
+    IEnumerator SpawnTarget()
+    {
+        while (isGameActive) // 只要游戏处于进行中状态
+        {
+            yield return new WaitForSeconds(_spawnRate); // 等待一定时间后执行下一次生成目标的逻辑
+            int index = Random.Range(0, targets.Count); // 随机选择一个目标
+            Instantiate(targets[index]); // 生成选定的目标
+        }
+    }
+
+    // 更新得分
+    public void UpdateScore(int scoreToAdd)
+    {
+        _score += scoreToAdd; // 更新得分
+        scoreText.text = "Score: " + _score; // 更新显示得分的UI文本
+    }
+
+    // 游戏结束
+    public void GameOver()
+    {
+        gameOverText.gameObject.SetActive(true); // 激活游戏结束文本UI
+        isGameActive = false; // 设置游戏状态为结束
+
+        restartButton.gameObject.SetActive(true); // 激活重新开始游戏的按钮
+    }
+
+    // 重新开始游戏
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // 重新加载当前场景，即重新开始游戏
+    }
+}
+
 ```
 
 
