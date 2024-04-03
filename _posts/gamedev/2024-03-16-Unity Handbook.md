@@ -83,6 +83,12 @@ tags:
       - [5.3.5.Add a Restart button](#535add-a-restart-button)
       - [5.3.6.Make the restart button work](#536make-the-restart-button-work)
       - [5.3.7.Show restart button on game over](#537show-restart-button-on-game-over)
+      - [5.4.1.Create Title text and menu buttons](#541create-title-text-and-menu-buttons)
+      - [5.4.2.Add a DifficultyButton script](#542add-a-difficultybutton-script)
+      - [5.4.3.Call SetDifficulty on button click](#543call-setdifficulty-on-button-click)
+      - [5.4.4.Make your buttons start the game](#544make-your-buttons-start-the-game)
+      - [5.4.5.Deactivate Title Screen on StartGame](#545deactivate-title-screen-on-startgame)
+      - [5.4.6.Use a parameter to change difficulty](#546use-a-parameter-to-change-difficulty)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
       - [Scene操作](#scene操作)
@@ -2507,6 +2513,215 @@ public class GameManager : MonoBehaviour
 }
 
 ```
+
+
+#### 5.4.1.Create Title text and menu buttons
+
+New Functionality
+- Title screen that lets the user start the game
+- Difficulty selection that affects spawn rate
+
+New Concepts and Skills:
+- `AddListener()` 
+- Passing parameters between scripts
+- Divide/Assign (/=) operator
+Grouping child objects
+
+> 我们应该做的第一件事是创建我们将要需要的所有UI元素。这包括一个大标题，以及三个难度按钮。
+
+1. `Duplicate` your Game Over text to create your `Title` Text, editing its name, text and all of its attributes
+2. `Duplicate` your Restart Button and edit its attributes to create an `Easy Button` button
+3. Edit and duplicate the `new Easy button` to create a `Medium Button` and a `Hard Button`
+
+#### 5.4.2.Add a DifficultyButton script
+
+> 我们的难度按钮看起来很棒，但实际上它们并没有做任何事情。如果他们要有自定义的功能，我们首先需要给他们一个新的脚本。
+
+1. For all 3 new buttons, in the Button component, in the `On Click ()` section, click the `minus (-)` button to `remove` the RestartGame functionality
+2. Create a `new DifficultyButton.cs` script and attach it to all 3 buttons
+3. Add `using UnityEngine.UI` to your imports
+4. Create a `new private Button button;` variable and initialize it in `Start() `
+
+
+#### 5.4.3.Call SetDifficulty on button click
+
+> 现在我们有了一个按钮的脚本，我们可以创建一个 `SetDifferential` 方法，并将该方法与这些按钮的点击联系起来，
+
+1. Create a `new void SetDifficulty` function, and inside it, `Debug.Log(gameObject.name + " was clicked");`
+2. Add the `button listener` to call the `SetDifficulty` function
+
+
+#### 5.4.4.Make your buttons start the game
+
+> 标题屏幕看起来很棒，如果你忽略目标物体反弹，但我们没有办法真正开始游戏。我们需要一个 `StartGame` 函数，可以与 `SetDifferential` 通信。
+
+1. In `GameManager.cs`, create a `new public void StartGame()` function and move everything from `Start()` into it
+2. In `DifficultyButton.cs`, create a `new private GameManager gameManager;` and initialize it in `Start()` 
+3. In the `SetDifficulty()` function, call `gameManager.StartGame();`
+
+#### 5.4.5.Deactivate Title Screen on StartGame
+
+> 如果我们希望游戏开始时标题屏幕消失，我们应该将它们存储在一个空的对象中，而不是单独关闭它们。简单地停用单个空父对象可以减少很多工作量。
+
+1. `Right-click` on the `Canvas` and `Create > Empty Object`, rename it `Title Screen`, and `drag` the 3 buttons and title onto it
+2. In `GameManager.cs`, create a `new public GameObject titleScreen;` and assign it in the inspector
+3. In `StartGame()`, deactivate the title screen object
+
+#### 5.4.6.Use a parameter to change difficulty
+
+> 难度按钮开始游戏，但它们仍然不会改变游戏的难度。我们要做的最后一件事是实际上让难度按钮影响目标物体产生的速率。
+
+1. In `DifficultyButton.cs`, create a `new public int difficulty variable`, then in the Inspector, assign the Easy difficulty as 1, Medium as 2, and Hard as 3
+2. Add an `int difficulty` parameter to the `StartGame()` function
+3. In `StartGame(),` set `spawnRate /= difficulty;`
+4. Fix the error in `DifficultyButton.cs` by passing the difficulty parameter to `StartGame(difficulty)`
+
+> 可选：尝试在全屏下玩游戏，方法是转到游戏视图右上角的按钮，然后选择最大化播放。
+
+![image](https://unity-connect-prd.storage.googleapis.com/20231214/learn/images/fed6f61a-bf7d-420c-993e-0aab61913718_image.png)
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class GameManager : MonoBehaviour
+{
+    // 私有变量，控制目标生成速率
+    private float _spawnRate = 1;
+    
+    // 存储所有目标对象的列表
+    public List<GameObject> targets;
+
+    // 记录玩家得分
+    private int _score;
+
+    // 用于显示得分的文本UI
+    public TextMeshProUGUI scoreText;
+
+    // 用于显示游戏结束的文本UI
+    public TextMeshProUGUI gameOverText;
+
+    // 游戏是否处于激活状态的标志
+    public bool isGameActive;
+
+    // 重新开始游戏的按钮
+    public Button restartButton;
+
+    // 游戏开始时的标题界面对象
+    public GameObject titleScreen;
+    
+    void Start()
+    {
+        // 游戏启动时的初始化操作
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // 每帧更新操作
+    }
+    
+    // 生成目标的协程
+    IEnumerator SpawnTarget()
+    {
+        // 当游戏处于激活状态时不断生成目标
+        while (isGameActive)
+        {
+            // 等待一定时间后生成目标
+            yield return new WaitForSeconds(_spawnRate);
+
+            // 在目标列表中随机选择一个目标生成
+            int index = Random.Range(0, targets.Count);
+            Instantiate(targets[index]);
+        }
+    }
+
+    // 更新玩家得分
+    public void UpdateScore(int scoreToAdd)
+    {
+        // 增加得分并更新显示
+        _score += scoreToAdd;
+        scoreText.text = "Score: " + _score;
+    }
+
+    // 游戏结束
+    public void GameOver()
+    {
+        // 显示游戏结束文本并设置游戏状态为非激活
+        gameOverText.gameObject.SetActive(true);
+        isGameActive = false;
+        
+        // 显示重新开始按钮
+        restartButton.gameObject.SetActive(true);
+    }
+
+    // 重新开始游戏
+    public void RestartGame()
+    {
+        // 重新加载当前场景
+        SceneManager.LoadScene((SceneManager.GetActiveScene().name));
+    }
+
+    // 开始游戏
+    public void StartGame(int difficulty)
+    {
+        // 设置游戏为激活状态
+        isGameActive = true;
+
+        // 根据难度调整生成速率
+        _spawnRate /= difficulty;
+        
+        // 启动生成目标的协程
+        StartCoroutine(SpawnTarget());
+
+        // 重置得分
+        _score = 0;
+        UpdateScore(0);
+        
+        // 关闭标题界面
+        titleScreen.gameObject.SetActive(false);
+    }
+}
+```
+
+```cs
+using UnityEngine;
+using UnityEngine.UI;
+
+public class DifficultyButton : MonoBehaviour
+{
+    private Button _button; // 按钮组件引用
+    private GameManager _gameManager; // GameManager组件引用
+    public int difficulty; // 难度参数
+
+    void Start()
+    {
+        _button = GetComponent<Button>(); // 获取当前游戏对象上的按钮组件
+        _button.onClick.AddListener(SetDifficulty); // 为按钮的点击事件添加监听器，当按钮被点击时调用SetDifficulty方法
+
+        _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>(); // 通过名称查找并获取名为"Game Manager"的游戏对象上的GameManager组件
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // 该方法在每一帧更新时调用，但是在这段代码中未做任何操作
+    }
+
+    // 设置游戏难度的方法
+    void SetDifficulty()
+    {
+        Debug.Log(gameObject.name + "was clicked"); // 在控制台打印出当前游戏对象的名称以及 "was clicked"，用于调试信息
+        
+        _gameManager.StartGame(difficulty); // 调用GameManager的StartGame方法，并传入难度参数
+    }
+}
+```
+
 
 
 ## Unity Essentials
