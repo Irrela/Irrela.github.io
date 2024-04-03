@@ -91,6 +91,8 @@ tags:
       - [5.4.6.Use a parameter to change difficulty](#546use-a-parameter-to-change-difficulty)
       - [5.4.bonus 2.Easy: Lives UI](#54bonus-2easy-lives-ui)
       - [5.4.bonus 3.Medium: Music volume](#54bonus-3medium-music-volume)
+      - [5.4.bonus 4.Hard: Pause menu](#54bonus-4hard-pause-menu)
+      - [5.4.bonus 5.Expert: Click-and-swipe](#54bonus-5expert-click-and-swipe)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
       - [Scene操作](#scene操作)
@@ -2745,7 +2747,351 @@ Create a "Lives" UI element that counts down by 1 when an object leaves the bott
 
 ![image](https://i.stack.imgur.com/kFu5q.jpg)
    
+#### 5.4.bonus 4.Hard: Pause menu
 
+> 在游戏过程中，允许用户按下一个键来在暂停和恢复游戏之间切换，在游戏暂停时会出现暂停屏幕。
+
+1. `GameManager.cs` 中增加 bool 判断是否 pause，update中检查该 bool， 对应触发 `pause()` 和 `resume()`
+   1. pause 可以用 `Time.timeScale = 0f; // 将时间缩放设置为 0，游戏暂停`
+   2. `audio source` 可以用 `Pause` 和 `UnPause` 控制音乐
+   3. TODO: 如何在暂停时禁用除开控制是否暂停以外的玩家输入？
+2. Canvas 增加 `UI Image` 设置黑色和透明度做layer， 附加 child text。 pause 时 `setActive(true) `
+   1. TODO: 发现Canvas 的 child obj 无法通过 `GameObject.Find()` 获取，待确认
+
+
+#### 5.4.bonus 5.Expert: Click-and-swipe
+
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class GameManager : MonoBehaviour
+{
+    // 私有变量，控制目标生成速率
+    private float _spawnRate = 1;
+    
+    // 存储所有目标对象的列表
+    public List<GameObject> targets;
+    // 分数
+    private int _score;
+    // 生命值
+    private int _lives;
+    // 音量
+    private float _volume;
+    // 游戏是否暂停的标志
+    private bool _isPaused;
+    
+    // 显示分数的 TextMeshProUGUI 组件
+    public TextMeshProUGUI scoreText;
+    // 显示游戏结束的 TextMeshProUGUI 组件
+    public TextMeshProUGUI gameOverText;
+    // 显示生命值的 TextMeshProUGUI 组件
+    public TextMeshProUGUI livesText;
+    // 显示音量的 TextMeshProUGUI 组件
+    public TextMeshProUGUI volumeText;
+    // 显示暂停界面的 Image 组件
+    public Image pauseLayer;
+
+    // 背景音乐的 AudioSource 组件
+    private AudioSource _backgroundMusic;
+    
+    // 游戏是否处于激活状态
+    public bool isGameActive;
+    // 重新开始按钮
+    public Button restartButton;
+    // 标题界面的游戏对象
+    public GameObject titleScreen;
+    
+    void Start()
+    {
+        // 获取背景音乐的 AudioSource 组件
+        _backgroundMusic = GameObject.Find("Bgm Audio Source").GetComponent<AudioSource>();
+        // 初始化音量
+        UpdateVolume(50);
+    }
+
+    // 每帧调用一次的更新函数
+    void Update()
+    {
+        // 检查游戏是否暂停
+        CheckGamePause();
+
+        // 如果游戏暂停，则暂停游戏；否则恢复游戏
+        if (_isPaused) PauseGame();
+        else ResumeGame();
+    }
+
+    // 协程，用于生成目标对象
+    IEnumerator SpawnTarget()
+    {
+        while (isGameActive)
+        {
+            // 等待指定时间后生成目标对象
+            yield return new WaitForSeconds(_spawnRate);
+            // 在目标列表中随机选择一个目标对象并生成
+            int index = Random.Range(0, targets.Count);
+            Instantiate(targets[index]);
+        }
+    }
+
+    // 更新分数
+    public void UpdateScore(int scoreToAdd)
+    {
+        _score += scoreToAdd;
+        scoreText.text = "Score: " + _score;
+    }
+
+    // 更新生命值
+    public void UpdateLives(int livesToAdd)
+    {
+        _lives += livesToAdd;
+        // 如果生命值为零，游戏结束
+        if (_lives == 0)
+        {
+            GameOver();
+        }
+        livesText.text = "Lives: " + _lives;
+    }
+
+    // 更新音量
+    public void UpdateVolume(float volume)
+    {
+        _volume = volume;
+        // 设置背景音乐的音量
+        _backgroundMusic.volume = _volume / 100;
+        volumeText.text = "Volume: " + volume;
+    }
+
+    // 游戏结束
+    public void GameOver()
+    {
+        // 显示游戏结束文本
+        gameOverText.gameObject.SetActive(true);
+        isGameActive = false;
+        
+        // 显示重新开始按钮
+        restartButton.gameObject.SetActive(true);
+    }
+
+    // 检查游戏是否暂停
+    void CheckGamePause()
+    {
+        // 如果按下了 P 键，切换游戏暂停状态
+        if (Input.GetKeyDown(KeyCode.P)) _isPaused = !_isPaused;
+    }
+
+    // 暂停游戏
+    void PauseGame()
+    {
+        Time.timeScale = 0f; // 将时间缩放设置为 0，游戏暂停
+        _isPaused = true; // 更新暂停状态
+        pauseLayer.gameObject.SetActive(true); // 显示暂停界面
+        _backgroundMusic.Pause(); // 暂停背景音乐
+    }
+
+    // 恢复游戏
+    void ResumeGame()
+    {
+        Time.timeScale = 1f; // 恢复正常时间流逝速度
+        _isPaused = false; // 更新暂停状态
+        pauseLayer.gameObject.SetActive(false); // 隐藏暂停界面
+        _backgroundMusic.UnPause(); // 恢复背景音乐
+    }
+
+    // 重新开始游戏
+    public void RestartGame()
+    {
+        // 重新加载当前场景
+        SceneManager.LoadScene((SceneManager.GetActiveScene().name));
+    }
+
+    // 开始游戏
+    public void StartGame(int difficulty)
+    {
+        isGameActive = true;
+        // 根据难度调整生成目标的速率
+        _spawnRate /= difficulty;
+        
+        // 启动生成目标的协程
+        StartCoroutine(SpawnTarget());
+
+        // 初始化分数
+        _score = 0;
+        UpdateScore(0);
+
+        // 初始化生命值
+        _lives = 3;
+        UpdateLives(0);
+        
+        // 隐藏标题界面
+        titleScreen.gameObject.SetActive(false);
+    }
+}
+```
+
+```cs
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Random = UnityEngine.Random;
+
+public class Target : MonoBehaviour
+{
+    // Rigidbody组件，用于控制目标物体的物理行为
+    private Rigidbody _targetRb;
+    private float _minSpeed = 12; // 目标最小速度
+    private float _maxSpeed = 16; // 目标最大速度
+    private float _maxTorque = 10; // 目标最大扭矩
+    private float _xRange = 4; // 生成目标的X轴范围
+    private float _ySpawnPos = -6; // 生成目标的Y轴位置
+
+    private GameManager _gameManager; // 游戏管理器，用于更新游戏状态和分数
+
+    public int pointValue; // 目标得分值
+    public ParticleSystem explosionParticle; // 爆炸特效
+
+    // Start函数，在对象创建时调用
+    void Start()
+    {
+        // 获取目标的Rigidbody组件
+        _targetRb = GetComponent<Rigidbody>();
+        // 添加随机力到目标上，用于模拟目标初始的随机移动
+        _targetRb.AddForce(RandomForce(), ForceMode.Impulse);
+        // 添加随机扭矩到目标上，用于模拟目标初始的随机旋转
+        _targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse);
+        // 设置目标的初始位置
+        transform.position = RandomSpawnPos();
+        
+        // 获取游戏管理器对象并赋值给_gameManager变量
+        _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        
+    }
+
+    // Update函数，在每一帧更新时调用
+    void Update()
+    {
+        // 这里不需要任何代码，因为目标的行为在Start函数中设置了初始状态，不需要每一帧更新
+    }
+
+    // 生成随机力的函数，返回一个随机的Vector3向量作为力的方向和大小
+    Vector3 RandomForce()
+    {
+        return Vector3.up * Random.Range(_minSpeed, _maxSpeed);
+    }
+
+    // 生成随机扭矩的函数，返回一个随机的浮点数作为扭矩的大小
+    float RandomTorque()
+    {
+        return Random.Range(-_maxTorque, _maxTorque);
+    }
+
+    // 生成随机生成位置的函数，返回一个随机的Vector3向量作为生成位置
+    Vector3 RandomSpawnPos()
+    {
+        return new Vector3(Random.Range(-_xRange, _xRange), _ySpawnPos);
+    }
+
+    // 当鼠标点击目标时调用的函数
+    private void OnMouseDown()
+    {
+        // 检查游戏是否处于活动状态
+        if (_gameManager.isGameActive)
+        {
+            // 销毁目标对象
+            Destroy(gameObject);
+            // 实例化爆炸特效
+            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+            // 更新游戏得分
+            _gameManager.UpdateScore(pointValue);
+        }
+    }
+
+    // 当其他物体进入目标触发器时调用的函数
+    private void OnTriggerEnter(Collider other)
+    {
+        // 销毁目标对象
+        Destroy(gameObject);
+        // 如果目标对象不是标记为"Bad"的，则更新游戏生命值
+        if (!gameObject.CompareTag("Bad"))
+        {
+            _gameManager.UpdateLives(-1);
+        }
+    }
+    
+    // 当鼠标进入目标时调用的函数
+    private void OnMouseEnter()
+    {
+        // 检查鼠标左键是否按下
+        if (Input.GetMouseButton(0))
+        {
+            // 销毁目标对象
+            Destroy(gameObject);
+            // 更新游戏得分
+            _gameManager.UpdateScore(pointValue);
+            // 实例化爆炸特效
+            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+        }
+    }
+}
+
+```
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+// 添加trail
+// 首先在游标后面创建一个空对象
+// 将trail渲染器添加到空对象
+public class CursorFollow : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Start方法在游戏对象被激活时调用，但仅在场景加载时执行一次。
+        // 这里可以进行初始化操作，但在此代码示例中并未实现任何内容。
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // 获取鼠标在屏幕上的位置
+        Vector3 cursorPosition = Input.mousePosition;
+
+        // 将鼠标位置的z坐标设置为10，使其与摄像机距离固定
+        cursorPosition.z = 10;
+
+        // 将屏幕上的鼠标位置转换为世界坐标
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(cursorPosition);
+
+        // 将游戏对象的位置设置为鼠标在世界中的位置，使游戏对象跟随鼠标移动
+        transform.position = worldPosition;
+
+        // 检测鼠标左键是否按下
+        if (Input.GetMouseButton(0))
+        {
+            // 如果鼠标左键被按下，则启用TrailRenderer组件，用于显示轨迹效果
+            GetComponent<TrailRenderer>().enabled = true;
+        }
+        else
+        {
+            // 如果鼠标左键未被按下，则禁用TrailRenderer组件，隐藏轨迹效果
+            GetComponent<TrailRenderer>().enabled = false;
+        }
+    } 
+}
+
+
+```
+
+> 程序的点击和滑动功能，而不是点击，产生一个痕迹，鼠标被拖动。这确实使游戏更容易，所以如果你实现了这一点，你可能还想增加所有级别的游戏难度。
 
 ## Unity Essentials
 
