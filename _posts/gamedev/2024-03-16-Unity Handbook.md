@@ -89,6 +89,8 @@ tags:
       - [5.4.4.Make your buttons start the game](#544make-your-buttons-start-the-game)
       - [5.4.5.Deactivate Title Screen on StartGame](#545deactivate-title-screen-on-startgame)
       - [5.4.6.Use a parameter to change difficulty](#546use-a-parameter-to-change-difficulty)
+      - [5.4.bonus 2.Easy: Lives UI](#54bonus-2easy-lives-ui)
+      - [5.4.bonus 3.Medium: Music volume](#54bonus-3medium-music-volume)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
       - [Scene操作](#scene操作)
@@ -2722,6 +2724,27 @@ public class DifficultyButton : MonoBehaviour
 }
 ```
 
+#### 5.4.bonus 2.Easy: Lives UI
+
+Create a "Lives" UI element that counts down by 1 when an object leaves the bottom of the screen and triggers Game Over when Lives reaches 0.
+
+
+#### 5.4.bonus 3.Medium: Music volume
+
+> 添加背景音乐和UI Slider元素来调节音量。 背景音乐为游戏增加了很多能量，但并不是每个人都喜欢它，所以给人们选择降低音量是件好事。
+
+1. Add `Audio Source Obj` and attach it to `Main Camera`, code it in `GameManager.cs`.
+2. Add `UI slider` and `UI text` for volume, and code them in `GameManager.cs`
+   1. In `Inspector` of `UI slider`, make init volume as `whole number` and set it as `50`
+3. Impl `UpdateVolume(float volume)` in `GameManager.cs`, set text volume and change audio source's volume
+   1. Note: use `float` volume but int, slider accepts float.
+4. Slider -> Inspector -> on value changed -> add (+) -> obj: `GameManager.cs` & func: `UpdateVolume()`
+   1. > Note!!!: func choose `Dynamic float` one, which can pass the slider value as the param of func.
+   
+> 如果想要slider的值传递给绑定func作为入参，需要选择`Dynamic float`
+
+![image](https://i.stack.imgur.com/kFu5q.jpg)
+   
 
 
 ## Unity Essentials
