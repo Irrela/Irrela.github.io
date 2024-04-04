@@ -97,6 +97,7 @@ tags:
       - [1. 变量属性](#1-变量属性)
       - [2.Unity事件函数](#2unity事件函数)
       - [3.对象池 (Object Pooling)](#3对象池-object-pooling)
+      - [4. Awake() 和 Start()](#4-awake-和-start)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
       - [Scene操作](#scene操作)
@@ -3249,8 +3250,110 @@ LateUpdate() 方法在每一帧结束时被调用，确保`在Update()方法之�
 
 > 在整个课程中，我们创建了许多在游戏过程中实例化和销毁对象的原型，但实际上有一种更高效/更高效的方法来做到这一点，称为 `对象池(Object Pooling)`。
 
+对象池(Object Pooling)是一种软件设计模式，它旨在提高应用程序的性能和效率，特别是`在涉及频繁创建和销毁对象的场景下`，比如游戏开发中。
+该模式通过预先创建一组对象，并在需要时重复使用这些对象，从而避免了频繁的对象创建和销毁操作，从而提高了应用程序的性能和响应速度。
+
+对象池适用于以下场景：
+- 频繁创建和销毁对象的情况，比如游戏中的子弹、敌人、特效等。
+- 对象的创建和销毁操作开销较大，影响了应用程序的性能。
+- 对象的复用能够减少系统资源的消耗。
+
+```cs
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ObjectPool : MonoBehaviour
+{
+    public static ObjectPool SharedInstance;
+    public GameObject prefab; // 需要池化的对象的预制体
+    public int poolSize = 10; // 对象池的大小
+
+    private Queue<GameObject> objectPool = new Queue<GameObject>(); // 对象池队列
+
+    void Awake()
+    {
+        SharedInstance = this;
+    }
+
+    private void Start()
+    {
+        // 预先实例化一定数量的对象并加入对象池
+        for (int i = 0; i < poolSize; i++)
+        {
+            GameObject obj = Instantiate(prefab, transform.position, Quaternion.identity);
+            obj.SetActive(false); // 初始状态设为禁用
+            objectPool.Enqueue(obj); // 加入对象池
+        }
+    }
+
+    // 从对象池中获取对象
+    public GameObject GetObjectFromPool()
+    {
+        if (objectPool.Count > 0)
+        {
+            GameObject obj = objectPool.Dequeue(); // 从对象池中取出一个对象
+            obj.SetActive(true); // 激活对象
+            return obj;
+        }
+        else
+        {
+            Debug.LogWarning("Object pool is empty. Creating new object...");
+            return Instantiate(prefab, transform.position, Quaternion.identity); // 如果对象池为空，则创建新对象
+        }
+    }
+
+    // 将对象放回对象池
+    public void ReturnObjectToPool(GameObject obj)
+    {
+        obj.SetActive(false); // 禁用对象
+        objectPool.Enqueue(obj); // 将对象放回对象池
+    }
+}
+```
+
+#### 4. Awake() 和 Start()
+
+在上面的对象池章节中代码中存在:
+
+```cs
+    public static ObjectPool SharedInstance; // 
+    
+    void Awake()
+    {
+        SharedInstance = this;
+    }
+
+```
+对这种写法进行说明：
+
+> 为了方便在其他脚本中访问 ObjectPool 的实例，并确保在整个应用程序中只存在一个实例。
+
+在Unity游戏开发中，`Start()` 和 `Awake()` 是两个常用的生命周期函数，它们在对象实例化和场景加载时起到重要作用。下面我将解释它们的作用以及使用场景，并结合代码示例进行说明。
+
+**`Awake()`：**
+- `Awake()` 是MonoBehaviour类的一个生命周期函数，在对象实例被创建时立即调用。
+- 它在对象的所有组件被初始化之前被调用，所以可以用于初始化对象的状态，但不能保证其他组件已经准备好。
+- `Awake()` 在对象被实例化时只会调用一次，不会在每次激活对象时被调用。
+- 常用于初始化对象的引用、设置初始状态等操作。
+
+**`Start()`：**
+- `Start()` 也是MonoBehaviour类的一个生命周期函数，在对象实例被创建并且所有组件被初始化后调用。
+- 它在`Awake()`之后被调用，可以保证其他组件已经准备好。
+- 与`Awake()`不同，`Start()`会在对象每次激活时都被调用，而不仅仅是在对象实例化时。
+- 常用于初始化一些需要在其他组件准备好后才能执行的操作，如访问其他对象的组件、执行一些初始化逻辑等。
+
+使用场景：
+`Awake()` 的使用场景：
+- 初始化对象的引用，比如查找其他对象、获取组件等。
+- 设置对象的初始状态，如设置初始位置、颜色等。
+
+`Start()` 的使用场景：
+- 执行一些需要在其他组件准备好后才能执行的初始化逻辑。
+- 访问其他对象的组件并执行操作。
+- 进行一些初始化后的设置或计算。
 
 
+总的来说，`Awake()` 主要用于初始化对象的引用和设置初始状态，而 `Start()` 主要用于执行一些初始化逻辑，访问其他对象的组件并执行操作。
 
 
 
