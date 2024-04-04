@@ -93,11 +93,17 @@ tags:
       - [5.4.bonus 3.Medium: Music volume](#54bonus-3medium-music-volume)
       - [5.4.bonus 4.Hard: Pause menu](#54bonus-4hard-pause-menu)
       - [5.4.bonus 5.Expert: Click-and-swipe](#54bonus-5expert-click-and-swipe)
-      - [Lesson 6.1 - Project Optimization](#lesson-61---project-optimization)
+    - [Lesson 6.1 - Project Optimization](#lesson-61---project-optimization)
       - [1. 变量属性](#1-变量属性)
       - [2.Unity事件函数](#2unity事件函数)
       - [3.对象池 (Object Pooling)](#3对象池-object-pooling)
       - [4. Awake() 和 Start()](#4-awake-和-start)
+    - [Lesson 6.2 - Research and Troubleshooting](#lesson-62---research-and-troubleshooting)
+      - [Lesson 6.2.1.Make the vehicle use forces](#lesson-621make-the-vehicle-use-forces)
+      - [Lesson 6.2.2.Prevent car from flipping over](#lesson-622prevent-car-from-flipping-over)
+      - [Lesson 6.2.3.Add a speedometer display](#lesson-623add-a-speedometer-display)
+      - [Lesson 6.2.4.Add an RPM display](#lesson-624add-an-rpm-display)
+      - [Lesson 6.2.5.Prevent driving in mid-air](#lesson-625prevent-driving-in-mid-air)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
       - [Scene操作](#scene操作)
@@ -3101,7 +3107,7 @@ public class CursorFollow : MonoBehaviour
 
 
 
-#### Lesson 6.1 - Project Optimization
+### Lesson 6.1 - Project Optimization
 
 New Concepts and Skills
 - Optimization
@@ -3356,6 +3362,172 @@ public class ObjectPool : MonoBehaviour
 总的来说，`Awake()` 主要用于初始化对象的引用和设置初始状态，而 `Start()` 主要用于执行一些初始化逻辑，访问其他对象的组件并执行操作。
 
 
+### Lesson 6.2 - Research and Troubleshooting
+
+> 尝试在原型1中为车辆添加速度表和RPM显示。
+
+New Concepts and Skills
+- Searching on Unity Answers, Forum, Scripting API
+- Troubleshooting to resolve bugs
+- AddRelativeForce, Center of Mass, RoundToInt
+- Modulus/Remainder (%) operator
+- Looping through lists
+- Custom methods with bool return
+
+#### Lesson 6.2.1.Make the vehicle use forces
+
+> 如果我们要实现一个速度表，我们必须做的第一件事是让车辆加速和减速更像一辆真正的汽车，它使用的是力—而不是 Translate 方法。
+
+1. Open your Prototype 1 project and make a backup
+2. Replace the Translate call with an AddForce call on the vehicle’s Rigidbody, renaming the `speed` variable to `horsePower`
+3. Increase the horsePower to be able to actually move the vehicle
+4. To make the vehicle move in the appropriate direction, change AddForce to `AddRelativeForce`
+   1. 在Unity中，AddRelativeForce 和 AddForce 都是用于给刚体施加力的方法，但它们之间有一些区别：
+    AddForce：
+
+    - AddForce 方法是给刚体施加一个力，这个力是相对于世界坐标系的。
+    - 即使刚体自身处于旋转状态，施加的力也是相对于世界坐标系而言的，不受刚体本身旋转的影响。
+    - 如果需要控制物体的运动方向不受旋转影响，或者需要在世界坐标系下施加力，通常会选择使用 AddForce 方法。
+    
+    AddRelativeForce：
+
+    - AddRelativeForce 方法是给刚体施加一个相对于自身坐标系的力。
+    - 无论刚体当前处于何种旋转状态，施加的力都是相对于刚体本身的坐标系而言的。
+    - 这意味着施加的力会受到刚体自身的旋转影响，可以在刚体局部空间中控制力的方向。
+    - 当需要根据刚体的本地坐标系来施加力，或者需要力的方向随着物体旋转而变化时，通常会使用 AddRelativeForce 方法。
+
+> 提醒：Scene 视图中的 `Global/Local dropdown menu` 是一个有用的工具，可以在空间中按照您想要的方式定向对象。
+
+`全局透视`是从世界的角度观察场景，其中`对象的位置、旋转和比例相对于世界本身`。这是在"场景"视图中打开场景时的默认透视图。
+
+`局部透视`是从特定对象的视角观察场景，其中`对象的位置、旋转和比例都是相对于该对象`的。这对于以更精确的方式编辑对象非常有用。
+
+#### Lesson 6.2.2.Prevent car from flipping over
+
+> 现在我们已经在车辆上实现了真正的物理学，它很容易被推翻。我们需要找到一种方法，使我们的车更安全驾驶。
+
+1. Add `wheel colliders` to the wheels of your vehicle and edit their radius and center position, then disable any other colliders on the wheels
+2. Create a `new GameObject centerOfMass` variable, then in Start(), assign the playerRb variable to the centerOfMass position
+3. Create a new `Empty Child` object for the vehicle called “Center Of Mass”, reposition it, and assign it to the `Center Of Mass` variable in the inspector
+4. `Test` different center of mass positions, speed, and turn speed values to get the car to steer as you like
+
+#### Lesson 6.2.3.Add a speedometer display
+
+> 现在我们的车辆处于半可驾驶状态，让我们在用户界面上显示速度。
+
+1. Add a `new TextMeshPro - Text` object for your `Speedometer Text`
+2. Import the `TMPro library`, then create and assign new create a `new TextMeshProUGUI` variable for your speedometerText 
+3. Create a `new float` variables for your `speed` 
+4. In `Update()`, calculate the speed in `mph` or `kph` then display those values on the UI
+
+
+#### Lesson 6.2.4.Add an RPM display
+
+> 很多汽车模拟器还有一个很酷的功能是显示RPM（每分钟转数）—棘手的部分是弄清楚如何计算它。
+
+1. Create a new `RPM Text` object, then create and assign a `new rpmText` variable for it
+2. In `Update()`, calculate the the RPMs using the `Modulus/Remainder operator` (%), then display that value on the UI
+
+#### Lesson 6.2.5.Prevent driving in mid-air
+
+> 现在我们有了一个大的功能车辆，有一个其他的大错误，我们应该尝试修复：汽车在半空中仍然可以加速/减速，转弯，并增加速度/rpm
+
+1. Declare a `new List of WheelColliders` named `allWheels` (or frontWheels/backWheels), then assign each of your wheels to that list in the inspector
+2. Declare a `new int wheelsOnGround`
+3. Write a bool `IsOnGround()` method that returns true if all wheels are on the ground and false if not
+4. Wrap the acceleration, turning, and speed/rpm functionality in if-statements that check if the car is on the ground
+
+> 检查你的车轮碰撞器的半径和中心是否设置好，确保他们可以接触地面。另外，可以删除四个轮子本来带的 mesh collider
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class PlayerController : MonoBehaviour
+{
+    // 汽车马力
+    private float _horsePower = 3500;
+    // 转向速度
+    private float _turnSpeed = 45.0f;
+    // 水平输入值
+    private float _horizontalInput;
+    // 前进输入值
+    private float _forwardInput;
+
+    // 玩家刚体组件
+    private Rigidbody _playerRb;
+    // 质心对象
+    [SerializeField] private GameObject centerOfMass;
+    // 速度文本显示对象
+    [SerializeField] private TextMeshProUGUI speedmeterText;
+    // 速度
+    [SerializeField] private float speed;
+    // RPM文本显示对象
+    [SerializeField] private TextMeshProUGUI rpmText;
+    // RPM
+    [SerializeField] private float rpm;
+
+    // 所有车轮的碰撞体列表
+    [SerializeField] List<WheelCollider> allWheels;
+    // 接触地面的车轮数量
+    [SerializeField] int wheelsOnGround;
+
+    // 在第一帧更新之前调用
+    void Start()
+    {
+        // 获取玩家刚体组件
+        _playerRb = GetComponent<Rigidbody>();
+        // 设置质心位置
+        _playerRb.centerOfMass = centerOfMass.transform.position;
+    }
+
+    // 每帧更新一次
+    void Update()
+    {
+        // 获取水平输入值
+        _horizontalInput = Input.GetAxis("Horizontal");
+        // 获取前进输入值
+        _forwardInput = Input.GetAxis("Vertical");
+
+        // 如果车辆在地面上
+        if (IsOnGround())
+        {
+            // 前进汽车
+            _playerRb.AddRelativeForce(Vector3.forward * (_forwardInput * _horsePower));
+            
+            // 车辆旋转
+            transform.Rotate(Vector3.up, _turnSpeed * _horizontalInput * Time.deltaTime);
+            
+            // 计算速度
+            speed = Mathf.Round(_playerRb.velocity.magnitude);
+            // 更新速度文本显示
+            speedmeterText.SetText("Speed: " + speed + "kph");
+
+            // 计算RPM
+            rpm = Mathf.Round((speed % 30) * 40);
+            // 更新RPM文本显示
+            rpmText.SetText("RPM: " + rpm);
+        }
+    }
+
+    // 检查车辆是否在地面上的函数
+    bool IsOnGround()
+    {
+        wheelsOnGround = 0;
+        // 遍历所有车轮
+        foreach (WheelCollider wheel in allWheels)
+        {
+            // 如果车轮在地面上，增加接触地面的车轮数量
+            if (wheel.isGrounded) wheelsOnGround++;
+        }
+
+        // 如果有4个车轮在地面上，则返回true，否则返回false
+        return wheelsOnGround == 4;
+    }
+}
+```
 
 ## Unity Essentials
 
