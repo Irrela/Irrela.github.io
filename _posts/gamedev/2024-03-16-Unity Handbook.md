@@ -93,6 +93,10 @@ tags:
       - [5.4.bonus 3.Medium: Music volume](#54bonus-3medium-music-volume)
       - [5.4.bonus 4.Hard: Pause menu](#54bonus-4hard-pause-menu)
       - [5.4.bonus 5.Expert: Click-and-swipe](#54bonus-5expert-click-and-swipe)
+      - [Lesson 6.1 - Project Optimization](#lesson-61---project-optimization)
+      - [1. 变量属性](#1-变量属性)
+      - [2.Unity事件函数](#2unity事件函数)
+      - [3.对象池 (Object Pooling)](#3对象池-object-pooling)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
       - [Scene操作](#scene操作)
@@ -2761,6 +2765,8 @@ Create a "Lives" UI element that counts down by 1 when an object leaves the bott
 
 #### 5.4.bonus 5.Expert: Click-and-swipe
 
+> 程序的点击和滑动功能，而不是点击，产生一个痕迹，鼠标被拖动。这确实使游戏更容易，所以如果你实现了这一点，你可能还想增加所有级别的游戏难度。
+
 
 ```cs
 using System.Collections;
@@ -3091,7 +3097,125 @@ public class CursorFollow : MonoBehaviour
 
 ```
 
-> 程序的点击和滑动功能，而不是点击，产生一个痕迹，鼠标被拖动。这确实使游戏更容易，所以如果你实现了这一点，你可能还想增加所有级别的游戏难度。
+
+
+
+#### Lesson 6.1 - Project Optimization
+
+New Concepts and Skills
+- Optimization
+- Serialized Fields
+- readonly / const / static / protected 
+- Event Functions
+- FixedUpdate() vs. Update() vs. LateUpdate()
+- Awake() vs. Start()
+- Object Pooling
+
+#### 1. 变量属性
+
+> 在课程中，我们只使用过 `public` 或 `private` 变量，但还有许多其他变量属性您应该熟悉。
+
+- [SerializeField]
+- readonly
+- const
+- static
+- protected
+
+**[SerializeField]**
+使用场景：[SerializeField] 是一个属性标记，用于序列化字段。当你想在Unity中将私有字段显示在Inspector面板中时，可以使用该标记。
+示例：
+```cs
+using UnityEngine;
+
+public class Player : MonoBehaviour {
+    [SerializeField]
+    private int health;
+}
+```
+
+**readonly**
+
+使用场景：readonly 关键字用于声明只读字段。一旦赋值，`只读字段的值不能再被修改`。通常用于`在构造函数中初始化`只读字段，或在运行时不希望字段的值被修改的情况下使用。
+示例：
+```cs
+public class MyClass {
+    private readonly int value = 10;
+
+    public MyClass() {
+        // 只读字段可以在构造函数中初始化
+        value = 20; 
+    }
+}
+```
+
+**const**
+
+使用场景：const 关键字用于声明常量。常量`在编译时就必须初始化`，并且一旦初始化后就不能再修改。通常用于定义不会改变的值，例如数学常数等。
+示例：
+```cs
+public class MathConstants {
+    public const double Pi = 3.14159;
+    public const int MaxValue = 100;
+}
+```
+
+**static**
+
+使用场景：static 关键字用于声明静态成员，包括静态字段、静态方法和静态属性。静态成员属于类而不是类的实例，并且在整个应用程序的生命周期内只有一个副本。
+
+static 关键字可以与 `public` 关键字一起使用。当一个成员（字段、方法、属性等）被声明为 static 且同时使用 public 关键字修饰时，这个成员将成为`公共静态成员`，即可以通过类的名称直接访问，也可以通过类的实例访问。
+
+示例：
+```cs
+public class Counter {
+    private static int count;
+
+    public static void Increment() {
+        count++;
+    }
+
+    public static int GetCount() {
+        return count;
+    }
+}
+```
+
+**protected**
+
+使用场景：protected 关键字用于声明受保护的成员，该成员只能在其所属类或其派生类中访问。通常用于`基类中希望派生类能够访问但不希望公开给外部的成员。`
+示例：
+```cs
+public class Animal {
+    protected string name;
+
+    protected void SetName(string newName) {
+        name = newName;
+    }
+}
+
+public class Dog : Animal {
+    public void SetDogName(string newName) {
+        // 派生类可以访问基类的受保护成员
+        SetName(newName);
+    }
+}
+```
+
+#### 2.Unity事件函数
+
+> 在本课程中，我们只使用了默认的 `Update()` 和 `Start()` 事件函数，但您可能想在不同的情况下使用其他函数。
+
+- FixedUpdate()
+- LateUpdate()
+
+#### 3.对象池 (Object Pooling)
+
+> 在整个课程中，我们创建了许多在游戏过程中实例化和销毁对象的原型，但实际上有一种更高效/更高效的方法来做到这一点，称为 `对象池(Object Pooling)`。
+
+
+
+
+
 
 ## Unity Essentials
 
