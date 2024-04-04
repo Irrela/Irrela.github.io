@@ -104,6 +104,11 @@ tags:
       - [Lesson 6.2.3.Add a speedometer display](#lesson-623add-a-speedometer-display)
       - [Lesson 6.2.4.Add an RPM display](#lesson-624add-an-rpm-display)
       - [Lesson 6.2.5.Prevent driving in mid-air](#lesson-625prevent-driving-in-mid-air)
+    - [Lesson 6.3 - Sharing your Projects(打包游戏分发)](#lesson-63---sharing-your-projects打包游戏分发)
+      - [1.Install export Modules](#1install-export-modules)
+      - [2.Build your game for Mac or Windows](#2build-your-game-for-mac-or-windows)
+    - [ECS Survival Guide](#ecs-survival-guide)
+      - [Unity 认证考试](#unity-认证考试)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
       - [Scene操作](#scene操作)
@@ -3528,6 +3533,50 @@ public class PlayerController : MonoBehaviour
     }
 }
 ```
+
+
+### Lesson 6.3 - Sharing your Projects(打包游戏分发)
+
+#### 1.Install export Modules
+
+
+1. Open `Unity Hub` and navigate to the `Installs Tab`
+2. On the Unity version you’ve been using in the course, select the `gear icon`, then select `Add Modules`. 
+3. Select `WebGL Build Support`, and either `Mac or Windows build support`, then click Done and wait for the installation to complete. 
+
+#### 2.Build your game for Mac or Windows
+
+现在我们已经安装了导出模块，我们可以使用它们并导出我们的一个项目：
+1. Open the `project` you would like to build (could be a prototype or your personal project)
+2. In Unity, click `File > Build Settings`, then click `Add Open Scenes` to add your scene
+3. Click `Player Settings` and adjust any settings you want, including making it `“Windowed”`, `“Resizable”`, and whether or not you want to enable the “Display Resolution Dialog”. 
+4. For more information, check out the documentation on configuring player settings. 
+5. Select `Build` or `Build and Run`, name your project, and save it inside a new folder inside your Create with Code folder called “Builds” 
+6. Play your game to test it out, then if you want, rebuild it with different settings
+
+![image](https://unity-connect-prd.storage.googleapis.com/20221114/learn/images/0b1549ac-b522-451c-97d8-08b7779a5760_CWC_B.5.4_image1.png)
+
+
+### ECS Survival Guide
+
+实体组件系统（ECS）是新的面向数据技术栈（DOTS）的一部分，代表了一种全新的编程方式。
+
+在这个新的框架中，代码不是围绕对象（例如Enemy，Obstacle）或组件（例如MoveForward，DestroyOnCollision）来构建，而是围绕关键数据块（例如MoveSpeed，PlayerHealth）来构建。
+
+这个新系统的好处是，它允许极大地提高性能和优化以前认为不可能。
+
+[ECS Survival Guide](https://learn.unity.com/tutorial/ecs-survival-guide?uv=2022.3&pathwayId=5f7e17e1edbc2a5ec21a20af&missionId=5f7648a4edbc2a5578eb67df&projectId=5d092adcedbc2a0e5c02d26f#)
+
+#### Unity 认证考试
+
+[相关认证Link](https://learn.unity.com/tutorial/career-research-and-preparation?uv=2022.3&pathwayId=5f7e17e1edbc2a5ec21a20af&missionId=5f7648a4edbc2a5578eb67df#658f5d0bedbc2a255f0a7210)
+
+
+
+
+
+
+
 
 ## Unity Essentials
 
