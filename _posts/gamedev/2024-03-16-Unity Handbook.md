@@ -4164,3 +4164,65 @@ Unity的`JsonUtility`类有一些限制，它是为了性能和简单性而设�
 ```
 
 ##### 9.在应用程序中加载并保存颜色
+1. Go `MainManager.cs -> Awake()`， 在尾部调用 `LoadColor`
+    ```cs
+        private void Awake()
+        {
+            if (Instance != null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            
+            Instance = this;
+            // 当场景改变时不会被破坏。
+            DontDestroyOnLoad(gameObject);
+            
+            LoadColor(); 
+        }
+    ```  
+
+2. Go `MenuUIHandler.cs ` ， add:
+
+    ```cs
+    private void Start()
+    {
+        ColorPicker.Init();
+        //this will call the NewColorSelected function when the color picker have a color button clicked.
+        ColorPicker.onColorChanged += NewColorSelected;
+        
+        ColorPicker.SelectColor(MainManager.Instance.TeamColor);
+
+    }
+
+    public void Exit()
+    {
+        MainManager.Instance.SaveColor(); 
+
+        #if UNITY_EDITOR
+                EditorApplication.ExitPlaymode();
+        #else
+                Application.Quit(); // original code to quit Unity player
+        #endif
+    }
+    ```
+
+3. testing functionality, Go `MenuUIHandler.cs ` ， add:
+
+    ```cs
+        // 立即从应用程序保存和加载颜色
+        public void SaveColorClicked()
+        {
+            MainManager.Instance.SaveColor();
+        }
+
+        public void LoadColorClicked()
+        {
+            MainManager.Instance.LoadColor();
+            ColorPicker.SelectColor(MainManager.Instance.TeamColor);
+        }
+    ```
+    
+    将这些方法链接到 `Load` 和 ` Save Color` 颜色按钮。
+
+
