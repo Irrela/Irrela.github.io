@@ -3679,9 +3679,59 @@ Right now, all it’s doing is initializing the color buttons. Let’s add two m
    2. Make sure both the Main scene and the Menu scene appear in the Scenes in Build menu. If either is `missing`, go to the Project window, navigate to the `Scenes folder`, then `drag and drop` the missing scene into the `Scenes in Build` section. The Menu scene needs to be above the Main scene in the list so that it has the lowest index value (0). If you need to, select and drag items in the list to change their order. 
    ![image](https://unity-connect-prd.storage.googleapis.com/20210602/learn/images/ffd38942-1378-416b-8f96-070951e4223f_57.png)
 
+6. Configure the Start button
+   1.  In the `Hierarchy`, select the `StartButton` GameObject (which is a child of the StartContainer).
+   2.  In the `Inspector`, find the `Button` component.
+   3.  Find the On `Click ()` property. This is where you can set the events that Unity will invoke when the user selects the button. Select `Add (+)` to add a new Event array.
+   4.  `Drag and drop the Canvas` GameObject to the target field of the `On Click event`, underneath the` Runtime Only` drop-down, to assign it. 
+   ![image](https://unity-connect-prd.storage.googleapis.com/20210602/learn/images/fc0a8c3b-b61f-4f2f-98b7-574e849247ad_56.png)
+   5. In the `Function` dropdown menu, select `MenuUIHandler > StartNew`. 
+   ![image](https://unity-connect-prd.storage.googleapis.com/20210602/learn/images/dfeba75e-a4d1-4801-b6e4-b2f73f79a537_55.png)
+   6. Save your changes, then go to the toolbar and select Play to enter Play mode. 
 
+7. Write a method to quit the application
+   1.  Return to `MenuUIHandler.cs` in your IDE.
+   2.  Under the `StartNew` method, add the following new method called `Exit`: 
+    ```cs
+    public void Exit()
+    {
+        Application.Quit();
+    }
+    ```
+   3.  `Save` and return to the Unity Editor, then test the `Exit` button in Play mode — does it work? Take a moment to consider why before reading on.
+       1.  The button isn’t currently working because `Application.Quit` only works in the built application, not when you’re testing in the Editor. 
+       2.  you’ll need to use a special method to stop PlayMode. That’s where `conditional compiling` comes in.
+   4. Update your Exit method with the following code:
+    ```cs
+        public void Exit()
+        {
+            #if UNITY_EDITOR
+                    EditorApplication.ExitPlaymode();
+            #else
+                    Application.Quit(); // original code to quit Unity player
+            #endif
+        }
+    ```
 
+    > `#` aren’t really “code”. They won’t be compiled and executed — they’re actually instructions for the compiler. 
 
+    Add the following code to the end of the list of namespaces: 
+    ```cs
+        #if UNITY_EDITOR
+        using UnityEditor;
+        #endif
+    ```
+
+10. Challenge: Set up the transition back to the Menu scene
+    1. 在 `UIMainScene.cs` 中加上:
+    ```cs
+        public void BackToMenu()
+        {
+            SceneManager.LoadScene(0);
+        }
+    ```
+    2. 在 `Main -> Hierarchy` 中找到 `Back to Menu` 对应的button 设置好 `On Click ()` 
+    
 
 ## Unity Essentials
 
