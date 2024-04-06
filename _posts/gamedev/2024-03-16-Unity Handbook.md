@@ -3599,6 +3599,44 @@ The `.git` folder tells GitHub that this is, in fact, a GitHub repo.
 The `.gitignore` and `.gitattributes` specify the configuration of your repo. It’s not necessary, but if you would like to see these hidden files, you can Google how to do so for Windows or Mac.
 To give GitHub something to track, you will put an actual Unity project in this folder in the next step.
 
+5.  Download the project zip folder, extract it, and open the `Junior-Programmer-Starter-Files` folder. In it, you find the following folders:
+- Assets
+- Packages
+- ProjectSettings
+
+6. Select all three folders, then copy and paste them into your repo folder, right next to your hidden `.git` files. This folder is now ready to be opened as a Unity project. 
+
+![image](https://unity-connect-prd.storage.googleapis.com/20210602/learn/images/479a21ec-b495-4cd4-8e1a-cfce7b195274_31.png)
+
+7. Add your project repo folder to Unity Hub, and then open the project in the Unity Editor. 
+
+
+8. Do an `initial commit` and `publish` your repo. The first set of files you commit to your repo will be included in the initial commit. You would usually do an initial commit after you first set up your project, so let’s do that now.
+   1. In the `Summary field` below the changes listed to your repo, type `“initial commit”` and `fill in the Description` (e.g. “project starter files”). Then select `Commit to main` to save your changes to the “main” branch of the project.
+   ![image](https://unity-connect-prd.storage.googleapis.com/20210602/learn/images/f2b914bf-ab34-4f3b-834d-fe2a599ccc6a_28.png)
+   2. From the GitHub Desktop interface, select `Publish Repository`. 
+   ![image](https://unity-connect-prd.storage.googleapis.com/20210602/learn/images/3837f369-9417-4d22-a0cf-39aaeded3584_27.png)
+   3. In the window that opens, confirm the Name of your project, and whether you want to keep your code public or private. Then select `Publish Repository`.
+   ![image](https://unity-connect-prd.storage.googleapis.com/20210602/learn/images/7cc3c958-388e-432f-906b-b6a216bd9090_26.png)
+
+9. How does version control work?
+   1. Pushing and pulling changes
+    当您使用版本控制时，您将通过云存储库（或文件存储目录）保存您对项目的更改，并附上一个注释，记录您所做的更改。
+    这意味着您将能够 `pull`（下载）并打开项目的最新版本，在本地对其进行更改，然后将更改 `push`（上传）回云存储库。
+
+   2. Merging changes
+    当多个人同时在同一个项目上工作时，他们有时会对同一个文件进行不同的更改。
+    例如，一个人可能会更改指定给Unity项目中的道具资源的纹理，而另一个人可能会更改其在场景中的位置。
+    版本控制管理项目文件，以便在称为 `merge` 的过程中合并和统一所有更改。
+    有时，对项目文件所做的更改可能会影响相同的值。当发生这种情况时，版本控制系统无法将更改合并在一起，导致 `merge conflict`，这需要开发人员的输入。
+    版本控制系统将识别冲突，通常会并排显示两个不同的值。然后开发人员决定保留哪一个以解决冲突。
+
+   3. Reverting to previous versions
+    版本控制的一个主要好处是跟踪所有随时间的变化。
+    如果任何更改发生冲突，或者您决定最好恢复到早期版本，则可以在任何时间点返回到项目的任何早期版本并将其恢复。
+
+
+ 
 
 
 
