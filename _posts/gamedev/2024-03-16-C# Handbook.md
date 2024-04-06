@@ -11,8 +11,10 @@ tags:
   - [Queue](#queue)
   - [Deuqe (LinkedList)](#deuqe-linkedlist)
   - [PriorityQueue](#priorityqueue)
-  - [HashMap](#hashmap)
+  - [Dictionary](#dictionary)
 - [Array](#array)
+  - [int\[,\] 和 int\[\]\[\]](#int-和-int)
+  - [Array 初始化](#array-初始化)
   - [Array Sort](#array-sort)
   - [Array 深拷贝](#array-深拷贝)
   - [Lambda Comparator](#lambda-comparator)
@@ -396,7 +398,7 @@ public bool Remove(TElement element);
 
 ```
 
-#### HashMap
+#### Dictionary
 ```cs
 // 创建一个Dictionary对象
 Dictionary<string, int> dict = new Dictionary<string, int>();
@@ -449,6 +451,46 @@ bool exists = dict.TryGetValue("apple", out _);
 ```
 
 ### Array
+
+#### int[,] 和 int[][]
+
+在 C# 中，int[,] 表示一个二维数组，也称为矩形数组，其中的每一维都具有相同的长度。
+
+这意味着它是一个具有固定行数和固定列数的矩形结构，`每一行的元素个数相同`。例如：
+
+```cs
+// 这将创建一个3行4列的矩阵，其中每一行都有4个元素。
+int[,] matrix = new int[3, 4];
+```
+
+int[][] 表示一个数组的数组，也称为不规则二维数组，其中的每个子数组的长度可以不同。例如：
+
+```cs
+int[][] matrix = new int[3][];
+matrix[0] = new int[4];
+matrix[1] = new int[3];
+matrix[2] = new int[5];
+```
+这将创建一个包含3个子数组的数组，每个`子数组的长度可以不同`。
+
+
+
+#### Array 初始化
+
+```cs
+// 直接初始化：在声明数组变量时直接指定初始值。
+int[] arr1 = new int[] { 1, 2, 3, 4, 5 };
+int[,] matrix1 = new int[,] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+int[][] arr = new int[][] { { 1, 3 }, { 4, 5, 6 }, { 7 } };
+
+// 使用数组初始化器：在声明数组变量时，通过大括号 {} 指定初始值。
+// Note: 二维数组不能这样初始化
+int[] arr2 = { 1, 2, 3, 4, 5 };
+int[,] matrix2 = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+
+```
+
+
 #### Array Sort
 ```cs
 int[] numbers = { 4, 2, 6, 1, 9, 5 };
