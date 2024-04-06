@@ -5,7 +5,32 @@ tags:
 - GameDev
 ---
 
+- [Handbook](#handbook)
+  - [2D 项目](#2d-项目)
+      - [Layer](#layer)
+      - [Pos固定](#pos固定)
+- [项目及团队](#项目及团队)
+  - [流程](#流程)
+      - [游戏设计文档](#游戏设计文档)
+      - [生产](#生产)
+      - [后期制作](#后期制作)
+      - [GDD](#gdd)
+      - [项目管理](#项目管理)
+      - [项目章程 Project Charter](#项目章程-project-charter)
+      - [管理项目，项目跟踪器](#管理项目项目跟踪器)
+    - [测试](#测试)
+      - [错误报告的艺术](#错误报告的艺术)
+    - [运营](#运营)
+      - [项目回顾](#项目回顾)
+- [DCC](#dcc)
 - [教程项目](#教程项目)
+  - [Unity Essentials](#unity-essentials)
+      - [Render mode](#render-mode)
+      - [Scene操作](#scene操作)
+      - [Camera Projection](#camera-projection)
+      - [LateUpdate() 和 Update()](#lateupdate-和-update)
+      - [玩家控制输入](#玩家控制输入)
+      - [边界限制](#边界限制)
   - [Junior Programmer](#junior-programmer)
     - [CWC 1](#cwc-1)
       - [CWC 1 Unit 1 - Player Control](#cwc-1-unit-1---player-control)
@@ -112,46 +137,217 @@ tags:
     - [Manage Scene Flow and Data](#manage-scene-flow-and-data)
       - [Setup Version Control](#setup-version-control)
       - [Create a scene flow](#create-a-scene-flow)
-      - [Implement data persistence between scenes](#implement-data-persistence-between-scenes)
+      - [实现场景切换时的数据持久性](#实现场景切换时的数据持久性)
         - [Data persistence between scenes](#data-persistence-between-scenes)
         - [Data persistence between sessions](#data-persistence-between-sessions)
         - [DontDestroyOnLoad() and Static members](#dontdestroyonload-and-static-members)
         - [创建一个新的脚本来作为静态类](#创建一个新的脚本来作为静态类)
         - [7. 单例实现 MainManager](#7-单例实现-mainmanager)
         - [8.存储并传递所选颜色](#8存储并传递所选颜色)
-  - [Unity Essentials](#unity-essentials)
-      - [Render mode](#render-mode)
-      - [Scene操作](#scene操作)
-      - [Camera Projection](#camera-projection)
-      - [LateUpdate() 和 Update()](#lateupdate-和-update)
-      - [玩家控制输入](#玩家控制输入)
-      - [边界限制](#边界限制)
-- [Handbook](#handbook)
-  - [2D 项目](#2d-项目)
-      - [Layer](#layer)
-      - [Pos固定](#pos固定)
-- [项目及团队](#项目及团队)
-  - [流程](#流程)
-      - [游戏设计文档](#游戏设计文档)
-      - [生产](#生产)
-      - [后期制作](#后期制作)
-      - [GDD](#gdd)
-      - [项目管理](#项目管理)
-      - [项目章程 Project Charter](#项目章程-project-charter)
-      - [管理项目，项目跟踪器](#管理项目项目跟踪器)
-    - [测试](#测试)
-      - [错误报告的艺术](#错误报告的艺术)
-    - [运营](#运营)
-      - [项目回顾](#项目回顾)
-- [DCC](#dcc)
-      - [3D 资源获取](#3d-资源获取)
-      - [2D 资源](#2d-资源)
-      - [音频资源获取](#音频资源获取)
-    - [Audio](#audio)
-        - [3D 音效](#3d-音效)
+      - [实现会话之间的数据持久性](#实现会话之间的数据持久性)
+        - [如何在会话之间保持数据？](#如何在会话之间保持数据)
+        - [Json and JsonUtility](#json-and-jsonutility)
+        - [6.添加SaveData类](#6添加savedata类)
+        - [7.添加SaveColor方法](#7添加savecolor方法)
+        - [8.添加LoadColor方法](#8添加loadcolor方法)
+        - [9.在应用程序中加载并保存颜色](#9在应用程序中加载并保存颜色)
 
+
+# Handbook
+## 2D 项目
+#### Layer
+Inspector => order in layer
+
+#### Pos固定
+RigidBody 2D => Dynamic => constraints freeze
+
+或者
+
+RigidBody 2D => Static
+
+
+# 项目及团队
+
+## 流程
+
+#### 游戏设计文档
+包括有关故事、游戏玩法、艺术指导、预期目标受众和可访问性的信息。
+
+#### 生产
+
+![分工图](https://unity-connect-prd.storage.googleapis.com/20200923/learn/images/00c0dbf7-09fe-49b8-858a-a75e55c1eddd_Foundations_UnityRT3D_1.1.3.2_chart_of_jobs.png)
+
+#### 后期制作
+评估、编辑、润色和修复。这通常包括alpha 测试和beta 测试。 
+
+Alpha 测试是在内部进行的，以确定问题和需要改进的领域，而 Beta 测试是由潜在的最终用户在产品使用的预期环境中进行的。
+
+#### GDD
+设计文档包含您的项目的蓝图，包括：
+- 高层概述；例如，游戏（或体验）设计文档中的总体项目愿景
+- 项目中特定管道的要求和标准
+- 特定功能的详细设计规范
+
+您应该确定：
+- 该项目的目标和目的
+- 目标用户和受众
+- 该项目的主要特点
+- 最终交付形式
+
+[GDD Sample](https://docs.google.com/document/d/1o1KFkuZrPbevpd7ZYBhJ5e8n3GRg6m15HkebVfiTufk/edit)
+
+#### 项目管理
+[Agile风格的项目管理文件 Sample](https://docs.google.com/document/d/1FR-GYr2hL67d6MleWTTP-mXfCHVZTM1Mko77MFodxFg/copy)
+
+#### 项目章程 Project Charter
+设计文件获得批准并且项目被批准生产，项目章程就很有用，特别是当您在团队中工作时。
+
+这是一份正式文件，描述了整个项目，包括项目的目标、项目的实施方式以及利益相关者是谁。项目章程用于预生产和生产阶段。
+
+项目章程通常包括：
+- 项目理由
+- 项目的目标和限制
+- 主要利益相关者是谁
+- 已识别的风险
+- 项目效益
+- 预算总体概述
+
+[Project Charter Sample](https://docs.google.com/document/d/1CzqyP1Qn8Ag-lXPaWVynb0InxUkXyWZLnkY2RllUSj8/edit)
+
+#### 管理项目，项目跟踪器
+通过规划适当的时间表和管理项目计划来管理项目
+
+项目计划采用设计文件和项目章程中确定的要素，并设置具体任务和交付日期。制作人或项目经理通常会创建此计划，并在需要进行更改时根据需要进行更新。
+
+针对`个人和团队成功跟踪项目`的一些指南包括：
+- 确定必要的项目步骤。
+- 如果在团队中工作，请确定并分配特定的项目角色和职责。
+- 创建包含具体可交付成果和截止日期的时间表。
+- 识别项目管理中的常见问题和问题，例如范围蔓延和过于雄心勃勃的设计计划以及紧迫的时间限制。
+- 确定已完成项目的到期时间。
+- 为将构建到整个项目的项目的每个较小部分设置截止日期。
+- 为每个项目阶段制定合理的时间框架。
+- 如果在团队中工作，请为列表中的每项任务指定任务所有者。
+
+
+### 测试
+
+#### 错误报告的艺术
+[错误报告的艺术](https://www.ministryoftesting.com/articles/the-art-of-the-bug-report)
+
+
+### 运营
+
+#### 项目回顾
+进行回顾的一种简单方法是制作一个包含三列的图表，并确定您认为应该做的事情：
+- 开始做
+- 不要做了
+- 继续做
+
+
+
+# DCC
 
 # 教程项目
+
+## Unity Essentials
+
+#### Render mode
+在Unity中设置Canvas的Render Mode可以通过以下步骤完成：
+
+在Unity编辑器中打开Canvas对象。
+在Inspector面板中，找到Canvas组件。
+在Canvas组件下的Render Mode属性中，你可以选择不同的渲染模式。常见的选项包括：
+Screen Space - Overlay：Canvas将覆盖在场景中的所有其他对象之上，不会随着场景中的相机移动而移动。
+Screen Space - Camera：Canvas将放置在场景中的一个特定相机的前面，你需要指定一个目标相机。
+World Space：Canvas将以世界坐标的形式存在，可以在场景中移动和旋转，通常用于在3D场景中创建HUD或者3DUI。
+
+> [Unity certificate](https://unity.com/cn/products/unity-certifications/user-programmer)
+
+#### Scene操作
+
+1. 按住` 右键 + WASD` 可以以游戏视角调整视角
+2. F键聚焦
+3. 使用滚轮进行放大和缩小，按住滚轮进行平移
+4. 选中对象后，按住` option + 左键` 单击可绕焦点旋转，或按住 `Option + 右键` 单击可放大和缩小
+
+
+#### Camera Projection
+在camera的inspector里调整。
+
+1. 透视投影（Perspective）：
+
+- 透视投影模拟了人眼在现实世界中的视觉效果。远处的物体看起来比较小，而近处的物体看起来比较大，同时也存在景深（近大远小）效果。
+- 透视投影会根据摄像机和物体之间的距离产生景深效果，远离摄像机的物体将显示得比较小，而靠近摄像机的物体将显示得比较大。
+
+2. 正交投影（Orthographic）：
+
+- 正交投影消除了景深效果，使得物体在屏幕上显示的大小与其距离摄像机的距离无关。无论物体距离摄像机多远，它们在屏幕上的大小都是固定的。
+- 正交投影在一些2D游戏或需要简化透视效果的情况下很有用，例如俯视视角的游戏、UI界面等。
+- 用size调整取景范围
+  
+如果你想要实现更加现实的视觉效果，或者需要在游戏中表现景深效果，则使用透视投影是一个不错的选择。
+如果你的游戏是2D游戏，或者你想要简化透视效果并让物体在屏幕上的大小保持固定，那么使用正交投影可能更合适。
+
+
+#### LateUpdate() 和 Update()
+
+Update方法：
+
+- Update方法在每一帧渲染之前被调用，因此它用于处理对象的常规更新逻辑，例如移动、用户输入响应等。
+- 由于它在每一帧渲染之前执行，所以它是处理大多数游戏对象行为的理想位置。
+
+LateUpdate方法：
+
+- LateUpdate方法在所有Update方法执行完毕后被调用，所以它通常用于处理在Update方法中进行了一些更改后的后续调整或校正。
+    例如，如果在Update方法中移动了一个对象，并且希望另一个对象跟随该对象移动，那么可以将跟随逻辑放在LateUpdate方法中，以确保它们在位置调整之后执行。
+- LateUpdate还经常用于处理摄像机相关的逻辑，因为它能确保所有其他对象都已经更新完毕，摄像机再进行调整，从而避免画面抖动等问题。
+
+#### 玩家控制输入
+
+1. Explore the inputs: click `Edit` > `Project Settings`, select `Input Manager` in the left sidebar, then expand the `Axes` fold-out to explore the inputs
+
+```cs
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            // Launch a projectile from the player
+            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        }
+
+        // In order to improve game performance, we need to destroy them when they go out of bounds.
+        if (transform.position.z > topBound) {
+            Destroy(gameObject);
+        }
+        // 如果是要应用到全部prefab的clone，在inspector =》 override => apply all
+```
+
+- animalPrefabs[animalIndex]表示将要实例化的游戏对象的预制体。animalPrefabs是一个数组或列表，存储了多个预制体。animalIndex是一个整数变量，用于指定要实例化的预制体在数组中的索引。
+- new Vector3(0, 0, 20)表示实例化后游戏对象的初始位置。这里的代码将在世界坐标系中创建一个新的位置，x和y坐标为0，z坐标为20。
+- animalPrefabs[animalIndex].transform.rotation表示实例化后游戏对象的初始旋转。这里的代码获取了将要实例化的预制体的旋转信息，并将其应用于新创建的游戏对象。
+
+```cs       
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Instantiate(
+                animalPrefabs[animalIndex], 
+                new Vector3(0, 0, 20), 
+                animalPrefabs[animalIndex].transform.rotation
+                );
+        }        
+
+```
+
+#### 边界限制
+```cs
+        if (Mathf.Abs(transform.position.z) <= bound)
+        {
+            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime * verticalInput);
+        }
+        else
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z > 0 ? bound : -bound);
+        }
+```
+
 
 ## Junior Programmer
 
@@ -3739,7 +3935,7 @@ Right now, all it’s doing is initializing the color buttons. Let’s add two m
     ```
     2. 在 `Main -> Hierarchy` 中找到 `Back to Menu` 对应的button 设置好 `On Click ()` 
 
-#### Implement data persistence between scenes
+#### 实现场景切换时的数据持久性
 
 - 通过使用Unity `DontDestroyOnLoad` 方法确保数据在整个应用程序会话中得到保留
 - 识别何时使用静态类、单例和静态变量来实现数据持久性
@@ -3849,217 +4045,122 @@ To achieve this, you will use:
     }
 ```
 
+#### 实现会话之间的数据持久性
+
+- 在应用程序的初始化序列中调用适当的启动方法
+- 通过应用 `List` 和 `Dictionary` 等数据结构存储和组织数据
+- 在应用程序的关闭序列中保存用户数据
 
 
-## Unity Essentials
-ss
-#### Render mode
-在Unity中设置Canvas的Render Mode可以通过以下步骤完成：
+现在，当您在Unity Editor中测试正在进行的应用程序时，**您为仓库中的叉车选择的颜色将不会在下次测试应用程序时保存**。
 
-在Unity编辑器中打开Canvas对象。
-在Inspector面板中，找到Canvas组件。
-在Canvas组件下的Render Mode属性中，你可以选择不同的渲染模式。常见的选项包括：
-Screen Space - Overlay：Canvas将覆盖在场景中的所有其他对象之上，不会随着场景中的相机移动而移动。
-Screen Space - Camera：Canvas将放置在场景中的一个特定相机的前面，你需要指定一个目标相机。
-World Space：Canvas将以世界坐标的形式存在，可以在场景中移动和旋转，通常用于在3D场景中创建HUD或者3DUI。
+如果您创建此应用程序的版本，则用户**每次运行它时都会获得独立体验**。
 
-> [Unity certificate](https://unity.com/cn/products/unity-certifications/user-programmer)
+**保存用户最后选择的颜色会很有帮助**，以便在他们启动应用程序时自动选择它。
 
-#### Scene操作
+在本教程中，您将在之前的工作基础上实现场景之间的数据持久性，并在会话之间实现数据持久性。
 
-1. 按住` 右键 + WASD` 可以以游戏视角调整视角
-2. F键聚焦
-3. 使用滚轮进行放大和缩小，按住滚轮进行平移
-4. 选中对象后，按住` option + 左键` 单击可绕焦点旋转，或按住 `Option + 右键` 单击可放大和缩小
+- 您将将用户选择的颜色`写入文件`。
+- 您将配置 `MainManager` 以检查应用程序启动时该文件是否存在。如果文件确实存在，则 `MainManager` 将读取存储在其中的颜色，并将颜色选择器设置为该颜色。
 
 
-#### Camera Projection
-在camera的inspector里调整。
+##### 如何在会话之间保持数据？
 
-1. 透视投影（Perspective）：
+为了使数据在会话之间持久化，需要以某种方式存储。
 
-- 透视投影模拟了人眼在现实世界中的视觉效果。远处的物体看起来比较小，而近处的物体看起来比较大，同时也存在景深（近大远小）效果。
-- 透视投影会根据摄像机和物体之间的距离产生景深效果，远离摄像机的物体将显示得比较小，而靠近摄像机的物体将显示得比较大。
+在您的示例中，您需要将用户选择的颜色转换为一种可以存储的格式，然后在他们再次加载应用程序时读取。
 
-2. 正交投影（Orthographic）：
+将复杂数据转换为可以存储的格式的过程称为 `serialization` 。
 
-- 正交投影消除了景深效果，使得物体在屏幕上显示的大小与其距离摄像机的距离无关。无论物体距离摄像机多远，它们在屏幕上的大小都是固定的。
-- 正交投影在一些2D游戏或需要简化透视效果的情况下很有用，例如俯视视角的游戏、UI界面等。
-- 用size调整取景范围
-  
-如果你想要实现更加现实的视觉效果，或者需要在游戏中表现景深效果，则使用透视投影是一个不错的选择。
-如果你的游戏是2D游戏，或者你想要简化透视效果并让物体在屏幕上的大小保持固定，那么使用正交投影可能更合适。
+当您准备好再次访问数据时，将其转换回数据的过程称为 `deserialization`。
+
+在本例中，你将使用 `JSON` 格式。
+
+##### Json and JsonUtility
+
+`JsonUtility` 局限性
+
+Unity的`JsonUtility`类有一些限制，它是为了性能和简单性而设计的。
+
+> `JsonUtility`不适用于基元类型、数组、列表或字典。
+
+正如您所期望的，`JsonUtility`仅适用于Serializable类型: MonoBehaviour或其他可以添加 `[Serializable]` 属性的类/结构。
+
+如果您试图保存一个包含多个数据段的类，而其中一个数据段无法保存，这可能是因为它不可序列化。
+
+例如，如果您将一个类转换为中间有一个字典的JSON，则该字典不会被保存，因为它不可序列化。
+
+> 如果某个类中似乎没有正确保存，请检查以确保它是可序列化的类型！
+
+##### 6.添加SaveData类
+
+要保存和加载用户最后选择的颜色，您需要在 `MainManager` 类中添加三个内容：
+- 存储颜色的 `SaveData` 类。
+- 一个 `Save` 方法，将该类转换为JSON格式并将其写入文件。
+- 一个 `Load` 方法，用于将JSON文件中的数据转换回SaveData类。
 
 
-#### LateUpdate() 和 Update()
+1. Go ` MainManager.cs`
+2. 在 `MainManager` 的末尾添加以下代码（within the scope of its closing brace）：
+    ```cs
+    using System.IO;
 
-Update方法：
+    public class MainManager : MonoBehaviour
+    {    
+        [System.Serializable]
+        class SaveData
+        {
+            public Color TeamColor;
+        }
+    }
+    ```
+3. `[System. Serializable]` 属性这一行对于 `JsonUtility` 是必需的
+4. 为什么要创建一个类，而不直接将 `MainManager` 实例提供给 `JsonUtility` ？
+   1. 大多数时候你不会把所有的东西都保存在 classes 上。使用一个只包含您想要保存的特定数据的小类是一种良好的实践，而且效率更高。
 
-- Update方法在每一帧渲染之前被调用，因此它用于处理对象的常规更新逻辑，例如移动、用户输入响应等。
-- 由于它在每一帧渲染之前执行，所以它是处理大多数游戏对象行为的理想位置。
-
-LateUpdate方法：
-
-- LateUpdate方法在所有Update方法执行完毕后被调用，所以它通常用于处理在Update方法中进行了一些更改后的后续调整或校正。
-    例如，如果在Update方法中移动了一个对象，并且希望另一个对象跟随该对象移动，那么可以将跟随逻辑放在LateUpdate方法中，以确保它们在位置调整之后执行。
-- LateUpdate还经常用于处理摄像机相关的逻辑，因为它能确保所有其他对象都已经更新完毕，摄像机再进行调整，从而避免画面抖动等问题。
-
-#### 玩家控制输入
-
-1. Explore the inputs: click `Edit` > `Project Settings`, select `Input Manager` in the left sidebar, then expand the `Axes` fold-out to explore the inputs
+##### 7.添加SaveColor方法
 
 ```cs
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            // Launch a projectile from the player
-            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
-        }
+    [System.Serializable]
+    class SaveData
+    {
+        public Color TeamColor;
+    }
+    
+    public void SaveColor()
+    {
+        // 创建了保存数据的新实例
+        SaveData data = new SaveData();
+        // 使用MainManager中保存的TeamColor变量填充其团队颜色类成员：
+        data.TeamColor = TeamColor;
 
-        // In order to improve game performance, we need to destroy them when they go out of bounds.
-        if (transform.position.z > topBound) {
-            Destroy(gameObject);
-        }
-        // 如果是要应用到全部prefab的clone，在inspector =》 override => apply all
+        // 使用JsonUtility.ToJson将该实例转换为JSON：
+        string json = JsonUtility.ToJson(data);
+        
+        // 使用File. WriteAllText将字符串写入文件：
+        // 第一个参数是文件的路径
+        // 第二个参数是您要在该文件中写入的文本—在本例中，是您的JSON！
+        File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
+    }
 ```
 
-- animalPrefabs[animalIndex]表示将要实例化的游戏对象的预制体。animalPrefabs是一个数组或列表，存储了多个预制体。animalIndex是一个整数变量，用于指定要实例化的预制体在数组中的索引。
-- new Vector3(0, 0, 20)表示实例化后游戏对象的初始位置。这里的代码将在世界坐标系中创建一个新的位置，x和y坐标为0，z坐标为20。
-- animalPrefabs[animalIndex].transform.rotation表示实例化后游戏对象的初始旋转。这里的代码获取了将要实例化的预制体的旋转信息，并将其应用于新创建的游戏对象。
+##### 8.添加LoadColor方法
 
-```cs       
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            Instantiate(
-                animalPrefabs[animalIndex], 
-                new Vector3(0, 0, 20), 
-                animalPrefabs[animalIndex].transform.rotation
-                );
-        }        
-
-```
-
-#### 边界限制
 ```cs
-        if (Mathf.Abs(transform.position.z) <= bound)
+    public void LoadColor()
+    {
+        string path = Application.persistentDataPath + "/savefile.json";
+        // 使用File.Exists 方法来检查是否存在. json文件。
+        // 如果文件确实存在，则方法将使用File.ReadAllText读取其内容：
+        if (File.Exists(path))
         {
-            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime * verticalInput);
+            string json = File.ReadAllText(path);
+            // 将结果文本提供给JsonUtility. FromJson，以将其转换回SaveData实例：
+            SaveData data = JsonUtility.FromJson<SaveData>(json);
+            // 将TeamColor设置为保存在该SaveData中的颜色：
+            TeamColor = data.TeamColor;
         }
-        else
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z > 0 ? bound : -bound);
-        }
+    }
 ```
 
-# Handbook
-## 2D 项目
-#### Layer
-Inspector => order in layer
-
-#### Pos固定
-RigidBody 2D => Dynamic => constraints freeze
-
-或者
-
-RigidBody 2D => Static
-
-
-# 项目及团队
-
-## 流程
-
-#### 游戏设计文档
-包括有关故事、游戏玩法、艺术指导、预期目标受众和可访问性的信息。
-
-#### 生产
-
-![分工图](https://unity-connect-prd.storage.googleapis.com/20200923/learn/images/00c0dbf7-09fe-49b8-858a-a75e55c1eddd_Foundations_UnityRT3D_1.1.3.2_chart_of_jobs.png)
-
-#### 后期制作
-评估、编辑、润色和修复。这通常包括alpha 测试和beta 测试。 
-
-Alpha 测试是在内部进行的，以确定问题和需要改进的领域，而 Beta 测试是由潜在的最终用户在产品使用的预期环境中进行的。
-
-#### GDD
-设计文档包含您的项目的蓝图，包括：
-- 高层概述；例如，游戏（或体验）设计文档中的总体项目愿景
-- 项目中特定管道的要求和标准
-- 特定功能的详细设计规范
-
-您应该确定：
-- 该项目的目标和目的
-- 目标用户和受众
-- 该项目的主要特点
-- 最终交付形式
-
-[GDD Sample](https://docs.google.com/document/d/1o1KFkuZrPbevpd7ZYBhJ5e8n3GRg6m15HkebVfiTufk/edit)
-
-#### 项目管理
-[Agile风格的项目管理文件 Sample](https://docs.google.com/document/d/1FR-GYr2hL67d6MleWTTP-mXfCHVZTM1Mko77MFodxFg/copy)
-
-#### 项目章程 Project Charter
-设计文件获得批准并且项目被批准生产，项目章程就很有用，特别是当您在团队中工作时。
-
-这是一份正式文件，描述了整个项目，包括项目的目标、项目的实施方式以及利益相关者是谁。项目章程用于预生产和生产阶段。
-
-项目章程通常包括：
-- 项目理由
-- 项目的目标和限制
-- 主要利益相关者是谁
-- 已识别的风险
-- 项目效益
-- 预算总体概述
-
-[Project Charter Sample](https://docs.google.com/document/d/1CzqyP1Qn8Ag-lXPaWVynb0InxUkXyWZLnkY2RllUSj8/edit)
-
-#### 管理项目，项目跟踪器
-通过规划适当的时间表和管理项目计划来管理项目
-
-项目计划采用设计文件和项目章程中确定的要素，并设置具体任务和交付日期。制作人或项目经理通常会创建此计划，并在需要进行更改时根据需要进行更新。
-
-针对`个人和团队成功跟踪项目`的一些指南包括：
-- 确定必要的项目步骤。
-- 如果在团队中工作，请确定并分配特定的项目角色和职责。
-- 创建包含具体可交付成果和截止日期的时间表。
-- 识别项目管理中的常见问题和问题，例如范围蔓延和过于雄心勃勃的设计计划以及紧迫的时间限制。
-- 确定已完成项目的到期时间。
-- 为将构建到整个项目的项目的每个较小部分设置截止日期。
-- 为每个项目阶段制定合理的时间框架。
-- 如果在团队中工作，请为列表中的每项任务指定任务所有者。
-
-
-### 测试
-
-#### 错误报告的艺术
-[错误报告的艺术](https://www.ministryoftesting.com/articles/the-art-of-the-bug-report)
-
-
-### 运营
-
-#### 项目回顾
-进行回顾的一种简单方法是制作一个包含三列的图表，并确定您认为应该做的事情：
-- 开始做
-- 不要做了
-- 继续做
-
-
-
-# DCC
-
-#### 3D 资源获取
-
-ProBuilder: 在 Unity 编辑器中创建 3D 艺术和环境。与专用 DCC 相比，Probuilder 的功能有限，但对于想要在不打开外部编辑工具的情况下快速建模 3D 对象的艺术家来说，它很有帮助。  
-
-在线资源: CGTrader, Turbosquid 3D，Unity Asset Store也是专为 Unity 设计的宝贵艺术资源。
-
-#### 2D 资源
-Unity 具有专门为处理 2D 资源而设计的内置工具。例如，`2D Tilemap Editor` 可帮助快速设计 2D 关卡，
-而`Sprite Editor`则可管理进入 2D 动画的各种图像（“Sprite”）。有专门用于2D 物理、2D 灯光等的系统。
-
-
-#### 音频资源获取
-音频数字创作工具 (DCC)，例如Audition、Logic Pro、Reaper和Audacity
-
-
-### Audio
-##### 3D 音效
-Audio source => spatial blend
-https://learn.unity.com/tutorial/create-real-time-3d-audio-effects?uv=2021.3&pathwayId=5f7bcab4edbc2a0023e9c38f&missionId=5f777d9bedbc2a001f6f5ec7&projectId=5faab859edbc2a00209536ce#
+##### 9.在应用程序中加载并保存颜色
