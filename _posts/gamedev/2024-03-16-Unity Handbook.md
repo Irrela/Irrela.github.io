@@ -3869,6 +3869,14 @@ Right now, all it’s doing is initializing the color buttons. Let’s add two m
 让我们开始编写从菜单加载Main场景的方法：
 
 1. In the Project window, go to `Assets > Scripts`. Double-click `MenuUIHandler.cs` to open the script in your default IDE. You’ll find the following script prepared for you:
+   1. 注意 UI cs可以设定初始化顺序
+    ```cs
+    // Sets the script to be executed later than all default scripts
+    // This is helpful for UI, since other things may need to be initialized before setting the UI
+    [DefaultExecutionOrder(1000)]
+    public class MenuUIHandler : MonoBehaviour
+    {}
+    ```
 2. Under the Start method, add the following new method called StartNew: 
     ```cs
     public void StartNew()
@@ -3882,17 +3890,18 @@ Right now, all it’s doing is initializing the color buttons. Let’s add two m
    2. Make sure both the Main scene and the Menu scene appear in the Scenes in Build menu. If either is `missing`, go to the Project window, navigate to the `Scenes folder`, then `drag and drop` the missing scene into the `Scenes in Build` section. The Menu scene needs to be above the Main scene in the list so that it has the lowest index value (0). If you need to, select and drag items in the list to change their order. 
    ![image](https://unity-connect-prd.storage.googleapis.com/20210602/learn/images/ffd38942-1378-416b-8f96-070951e4223f_57.png)
 
-6. Configure the Start button
+5. Configure the Start button
    1.  In the `Hierarchy`, select the `StartButton` GameObject (which is a child of the StartContainer).
    2.  In the `Inspector`, find the `Button` component.
    3.  Find the On `Click ()` property. This is where you can set the events that Unity will invoke when the user selects the button. Select `Add (+)` to add a new Event array.
-   4.  `Drag and drop the Canvas` GameObject to the target field of the `On Click event`, underneath the` Runtime Only` drop-down, to assign it. 
+   4.  Note: 要将 `MenuUIHandler.cs` attach 到 对应的 Canvas 上
+   5.  `Drag and drop the Canvas` GameObject to the target field of the `On Click event`, underneath the` Runtime Only` drop-down, to assign it. 
    ![image](https://unity-connect-prd.storage.googleapis.com/20210602/learn/images/fc0a8c3b-b61f-4f2f-98b7-574e849247ad_56.png)
-   5. In the `Function` dropdown menu, select `MenuUIHandler > StartNew`. 
+   6. In the `Function` dropdown menu, select `MenuUIHandler > StartNew`. 
    ![image](https://unity-connect-prd.storage.googleapis.com/20210602/learn/images/dfeba75e-a4d1-4801-b6e4-b2f73f79a537_55.png)
-   6. Save your changes, then go to the toolbar and select Play to enter Play mode. 
+   7. Save your changes, then go to the toolbar and select Play to enter Play mode. 
 
-7. Write a method to quit the application
+6. Write a method to quit the application
    1.  Return to `MenuUIHandler.cs` in your IDE.
    2.  Under the `StartNew` method, add the following new method called `Exit`: 
     ```cs
@@ -3925,7 +3934,7 @@ Right now, all it’s doing is initializing the color buttons. Let’s add two m
         #endif
     ```
 
-10. Challenge: Set up the transition back to the Menu scene
+7.  Challenge: Set up the transition back to the Menu scene
     1. 在 `UIMainScene.cs` 中加上:
     ```cs
         public void BackToMenu()
@@ -3946,12 +3955,12 @@ Right now, all it’s doing is initializing the color buttons. Let’s add two m
 在Unity中，在场景中创建的数据可以在该场景中轻松获得。
 但是当用户移动到另一个场景时，会发生什么？通常，这些数据会丢失。
 场景之间的数据持久化是指将数据从场景传输到场景的过程，以便在用户通过应用程序的过程中获得一致的体验。
-`在用户在场景之间移动时需要跟踪用户的数据`
+**在用户在场景之间移动时需要跟踪用户的数据**
 
 ##### Data persistence between sessions
 另外两个例子（正在进行的游戏和文字处理应用程序）通常是多会话体验。
 用户希望保存他们在一个会话期间所做的进展，然后恢复它以继续您停止的地方。
-`需要在多个会话中保存和恢复的数据。`
+**需要在多个会话中保存和恢复的数据。**
 
 
 ##### DontDestroyOnLoad() and Static members
