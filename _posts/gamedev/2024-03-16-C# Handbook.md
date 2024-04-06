@@ -452,6 +452,53 @@ bool exists = dict.TryGetValue("apple", out _);
 
 ### Array
 
+```cs
+// 声明和初始化数组
+int[] numbers = { 1, 2, 3, 4, 5 };
+
+// 获取数组长度
+int length = numbers.Length;
+
+// 访问数组元素
+int firstElement = numbers[0];
+int lastElement = numbers[numbers.Length - 1];
+
+// 修改数组元素
+numbers[2] = 10;
+
+// 遍历数组
+for (int i = 0; i < numbers.Length; i++)
+{
+    Console.WriteLine(numbers[i]);
+}
+
+// 使用 foreach 遍历数组
+foreach (int num in numbers)
+{
+    Console.WriteLine(num);
+}
+
+// 查找数组中的元素
+int index = Array.IndexOf(numbers, 3); // 查找值为3的元素的索引
+bool contains = Array.Exists(numbers, element => element == 3); // 检查数组中是否存在值为3的元素
+
+// 排序数组
+Array.Sort(numbers); // 默认升序排序
+Array.Reverse(numbers); // 将数组元素反转，即降序排序
+
+// 截取数组的一部分
+int[] subArray = new int[3];
+Array.Copy(numbers, 0, subArray, 0, 3); // 从索引0开始复制3个元素到subArray数组中
+
+// 将数组转换为字符串
+string numbersStr = string.Join(", ", numbers); // 将数组元素连接成字符串，用逗号分隔
+
+// 清空数组
+Array.Clear(numbers, 0, numbers.Length); // 将数组元素全部清零
+
+```
+
+
 #### int[,] 和 int[][]
 
 在 C# 中，int[,] 表示一个二维数组，也称为矩形数组，其中的每一维都具有相同的长度。
