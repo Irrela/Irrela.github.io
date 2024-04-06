@@ -111,6 +111,7 @@ tags:
         - [Unity 认证考试](#unity-认证考试)
     - [Manage Scene Flow and Data](#manage-scene-flow-and-data)
       - [Setup Version Control](#setup-version-control)
+      - [Create a scene flow](#create-a-scene-flow)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
       - [Scene操作](#scene操作)
@@ -3637,7 +3638,46 @@ To give GitHub something to track, you will put an actual Unity project in this 
 
 
  
+#### Create a scene flow
 
+您将设置菜单和主场景之间的场景流，以及应用程序中应用程序的退出流。
+
+- 在应用程序的初始化序列中调用适当的启动方法
+- 当事件触发时加载下一个场景
+
+
+正如您在上一个教程中所述，您将在此任务中使用的应用程序有许多不同的场景，用户需要在这些场景之间`导航`。
+
+现在，应用程序直接在主场景中启动。在现实世界的应用程序中，应用程序的开始处会有一个菜单，用户可以在其中调整设置或退出。在本教程中，您将创建该菜单。
+
+1.  If you haven’t done so already, open your project from the Unity Hub.
+2.  In the Project window, go to `Assets > Scenes` and open the `Menu` scene.
+3.  In the Scene view control bar, set the Scene view to `2D` mode.
+5.  In the Hierarchy, expand the Canvas and then the Container GameObject, which contains two more GameObjects: `StartContainer` and `Exit`.  
+5.  Expand the `StartContainer` GameObject. 
+6.  In the toolbar, select Play to enter Play mode. You’ll notice that there are now four color selection buttons available in the white rectangle.
+7.  Exit Play mode.
+
+The color selection buttons are controlled by the `MenuUIHandler.cs` script on the Canvas GameObject. 
+This is a custom script that’s been written for this project. 
+Right now, all it’s doing is initializing the color buttons. Let’s add two methods: one to `start the Main scene` and one to `exit the application`. 
+
+
+让我们开始编写从菜单加载Main场景的方法：
+
+1. In the Project window, go to `Assets > Scripts`. Double-click `MenuUIHandler.cs` to open the script in your default IDE. You’ll find the following script prepared for you:
+2. Under the Start method, add the following new method called StartNew: 
+    ```cs
+    public void StartNew()
+    {
+        SceneManager.LoadScene(1);
+    }
+    ```
+3. Add `using UnityEngine.SceneManagement;`
+4. The LoadScene parameter is a number, but what does this refer to? It’s the `index of the scene` that you want to load. You can define a scene’s index in the `Build Settings` window.
+   1. In Unity Editor’s `top menu`, go to `File > Build Settings…`. The top section in the window is `Scenes In Build`, where a scene’s index is set. 
+   2. Make sure both the Main scene and the Menu scene appear in the Scenes in Build menu. If either is `missing`, go to the Project window, navigate to the `Scenes folder`, then `drag and drop` the missing scene into the `Scenes in Build` section. The Menu scene needs to be above the Main scene in the list so that it has the lowest index value (0). If you need to, select and drag items in the list to change their order. 
+   ![image](https://unity-connect-prd.storage.googleapis.com/20210602/learn/images/ffd38942-1378-416b-8f96-070951e4223f_57.png)
 
 
 
