@@ -112,6 +112,13 @@ tags:
     - [Manage Scene Flow and Data](#manage-scene-flow-and-data)
       - [Setup Version Control](#setup-version-control)
       - [Create a scene flow](#create-a-scene-flow)
+      - [Implement data persistence between scenes](#implement-data-persistence-between-scenes)
+        - [Data persistence between scenes](#data-persistence-between-scenes)
+        - [Data persistence between sessions](#data-persistence-between-sessions)
+        - [DontDestroyOnLoad() and Static members](#dontdestroyonload-and-static-members)
+        - [创建一个新的脚本来作为静态类](#创建一个新的脚本来作为静态类)
+        - [7. 单例实现 MainManager](#7-单例实现-mainmanager)
+        - [8.存储并传递所选颜色](#8存储并传递所选颜色)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
       - [Scene操作](#scene操作)
@@ -3731,10 +3738,121 @@ Right now, all it’s doing is initializing the color buttons. Let’s add two m
         }
     ```
     2. 在 `Main -> Hierarchy` 中找到 `Back to Menu` 对应的button 设置好 `On Click ()` 
-    
+
+#### Implement data persistence between scenes
+
+- 通过使用Unity `DontDestroyOnLoad` 方法确保数据在整个应用程序会话中得到保留
+- 识别何时使用静态类、单例和静态变量来实现数据持久性
+- 使用包含要在场景之间保存的变量的脚本修改游戏对象
+
+
+##### Data persistence between scenes
+在Unity中，在场景中创建的数据可以在该场景中轻松获得。
+但是当用户移动到另一个场景时，会发生什么？通常，这些数据会丢失。
+场景之间的数据持久化是指将数据从场景传输到场景的过程，以便在用户通过应用程序的过程中获得一致的体验。
+`在用户在场景之间移动时需要跟踪用户的数据`
+
+##### Data persistence between sessions
+另外两个例子（正在进行的游戏和文字处理应用程序）通常是多会话体验。
+用户希望保存他们在一个会话期间所做的进展，然后恢复它以继续您停止的地方。
+`需要在多个会话中保存和恢复的数据。`
+
+
+##### DontDestroyOnLoad() and Static members
+您对资源管理模拟项目的简介包括在初始菜单（菜单场景）中选择颜色，并将其应用到仓库中的叉车（主场景）。
+
+目前，这些按钮是存在的，因为我们提供了一个自定义脚本，您在上一个教程中设置其他按钮时已经查看过这些按钮。
+
+现在让我们通过使选定的颜色数据在主场景中可用来实现场景之间的数据持久性。
+
+
+To achieve this, you will use:
+- `DontDestroyOnLoad`: Unity中的一种方法，用于标记游戏对象，即使在加载或卸载新场景时也要保存在内存中。
+- `Static classes and class members`: 静态类成员可以从任何地方访问，而不必引用特定的对象。您可能已经使用过其中的一些，例如 `Time.deltaTime` 或 `Vector3.forward` 。这些不是特定的时间对象或特定的 Vector3, 静态类成员的格式是 `ClassName.memberName`。
+
+##### 创建一个新的脚本来作为静态类
+1.  In the Project window, go to `Assets > Scripts. `
+2.  Create a new script in this folder and name it "`MainManager`". 
+3.  In the Hierarchy, create a new empty GameObject and name it `MainManager`. Assign your new script to the GameObject, and then open the script in your chosen IDE.
+4.  Delete the default `Start()` and `Update()` methods, then add the following code to create a static member to the `MainManager` class:
+    ```cs
+    public class MainManager : MonoBehaviour
+    {
+        public static MainManager Instance;
+
+        private void Awake()
+        {
+            Instance = this;
+            // 当场景改变时不会被破坏。
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
+    ```
+5. 此代码使您能够从任何其他脚本访问 `MainManager` 对象。
+6. 当 PLAY 后，从 Main 到 Menu，MainManager 从正常场景移动到一个名为 DontDestroyOnLoad 的特殊场景。
+    ![image](https://unity-connect-prd.storage.googleapis.com/20210602/learn/images/af0ee89d-e202-4a6c-a15e-95f710341d07_51.png)
+
+##### 7. 单例实现 MainManager
+当我们切换场景是会出现多个 `MainManager` ， 来处理这个问题：
+
+1.  `MainManager.cs`
+2.  Update the `Awake` method with the following code:
+    ```cs
+        private void Awake()
+        {
+            // start of new code
+            if (Instance != null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            // end of new code
+            
+            Instance = this;
+            // 当场景改变时不会被破坏。
+            DontDestroyOnLoad(gameObject);
+        }
+    ```
+    3. 您刚刚添加了一个条件语句来检查实例是否为null。在您第一次启动菜单场景时，没有 `MainManager` 填充实例变量。 这意味着它将为null，因此条件将不满足，脚本将继续按照您之前编写的那样进行。
+    4. 但是，如果您稍后再次加载菜单场景，则已经存在一个 `MainManager` ，因此实例将不会为null。在这种情况下，满足了条件：额外的 `MainManager` 被销毁，脚本在那里退出。
+    5. 这种模式称为 `单例模式` 。您可以使用它来确保 `MainManager` 只有一个实例存在，因此它充当了访问的中心点。
+
+
+##### 8.存储并传递所选颜色
+现在，您已经设置了一个系统，以便在应用程序中的场景之间传递数据。
+让我们在 `MainManager` 上添加一个新的公共成员来传递用户选择的颜色：
+
+1. Go `MainManager.cs`
+2. Add a `new public class member` called `TeamColor` above the `Awake` method:
+    ```cs
+    public Color TeamColor; // new variable declared
+
+    ```
+3. Go `MenuUIHandler.cs`, Update the `NewColorSelected` method with the following code:
+    ```cs
+    public void NewColorSelected(Color color)
+    {
+        // add code here to handle when a color is selected
+        MainManager.Instance.TeamColor = color;
+    }
+    ```
+4. Go `Unit.cs`, Add a new `Start` method with the following code:
+```cs
+    // 为单位（叉车）设置颜色。
+    private void Start()
+    {
+        if (MainManager.Instance != null)
+        {
+            SetColor(MainManager.Instance.TeamColor);
+        }
+    }
+```
+
+
 
 ## Unity Essentials
-
+ss
 #### Render mode
 在Unity中设置Canvas的Render Mode可以通过以下步骤完成：
 
