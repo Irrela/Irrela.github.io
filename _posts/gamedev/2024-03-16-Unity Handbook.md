@@ -93,22 +93,24 @@ tags:
       - [5.4.bonus 3.Medium: Music volume](#54bonus-3medium-music-volume)
       - [5.4.bonus 4.Hard: Pause menu](#54bonus-4hard-pause-menu)
       - [5.4.bonus 5.Expert: Click-and-swipe](#54bonus-5expert-click-and-swipe)
-    - [Lesson 6.1 - Project Optimization](#lesson-61---project-optimization)
+    - [CWC 2 Lesson 6.1 - Project Optimization](#cwc-2-lesson-61---project-optimization)
       - [1. 变量属性](#1-变量属性)
       - [2.Unity事件函数](#2unity事件函数)
       - [3.对象池 (Object Pooling)](#3对象池-object-pooling)
       - [4. Awake() 和 Start()](#4-awake-和-start)
-    - [Lesson 6.2 - Research and Troubleshooting](#lesson-62---research-and-troubleshooting)
+    - [CWC 2 Lesson 6.2 - Research and Troubleshooting](#cwc-2-lesson-62---research-and-troubleshooting)
       - [Lesson 6.2.1.Make the vehicle use forces](#lesson-621make-the-vehicle-use-forces)
       - [Lesson 6.2.2.Prevent car from flipping over](#lesson-622prevent-car-from-flipping-over)
       - [Lesson 6.2.3.Add a speedometer display](#lesson-623add-a-speedometer-display)
       - [Lesson 6.2.4.Add an RPM display](#lesson-624add-an-rpm-display)
       - [Lesson 6.2.5.Prevent driving in mid-air](#lesson-625prevent-driving-in-mid-air)
-    - [Lesson 6.3 - Sharing your Projects(打包游戏分发)](#lesson-63---sharing-your-projects打包游戏分发)
+    - [CWC 2 Lesson 6.3 - Sharing your Projects(打包游戏分发)](#cwc-2-lesson-63---sharing-your-projects打包游戏分发)
       - [1.Install export Modules](#1install-export-modules)
       - [2.Build your game for Mac or Windows](#2build-your-game-for-mac-or-windows)
-    - [ECS Survival Guide](#ecs-survival-guide)
-      - [Unity 认证考试](#unity-认证考试)
+      - [ECS Survival Guide](#ecs-survival-guide)
+        - [Unity 认证考试](#unity-认证考试)
+    - [Manage Scene Flow and Data](#manage-scene-flow-and-data)
+      - [Setup Version Control](#setup-version-control)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
       - [Scene操作](#scene操作)
@@ -3112,7 +3114,7 @@ public class CursorFollow : MonoBehaviour
 
 
 
-### Lesson 6.1 - Project Optimization
+### CWC 2 Lesson 6.1 - Project Optimization
 
 New Concepts and Skills
 - Optimization
@@ -3367,7 +3369,7 @@ public class ObjectPool : MonoBehaviour
 总的来说，`Awake()` 主要用于初始化对象的引用和设置初始状态，而 `Start()` 主要用于执行一些初始化逻辑，访问其他对象的组件并执行操作。
 
 
-### Lesson 6.2 - Research and Troubleshooting
+### CWC 2 Lesson 6.2 - Research and Troubleshooting
 
 > 尝试在原型1中为车辆添加速度表和RPM显示。
 
@@ -3535,7 +3537,7 @@ public class PlayerController : MonoBehaviour
 ```
 
 
-### Lesson 6.3 - Sharing your Projects(打包游戏分发)
+### CWC 2 Lesson 6.3 - Sharing your Projects(打包游戏分发)
 
 #### 1.Install export Modules
 
@@ -3557,7 +3559,7 @@ public class PlayerController : MonoBehaviour
 ![image](https://unity-connect-prd.storage.googleapis.com/20221114/learn/images/0b1549ac-b522-451c-97d8-08b7779a5760_CWC_B.5.4_image1.png)
 
 
-### ECS Survival Guide
+#### ECS Survival Guide
 
 实体组件系统（ECS）是新的面向数据技术栈（DOTS）的一部分，代表了一种全新的编程方式。
 
@@ -3567,10 +3569,35 @@ public class PlayerController : MonoBehaviour
 
 [ECS Survival Guide](https://learn.unity.com/tutorial/ecs-survival-guide?uv=2022.3&pathwayId=5f7e17e1edbc2a5ec21a20af&missionId=5f7648a4edbc2a5578eb67df&projectId=5d092adcedbc2a0e5c02d26f#)
 
-#### Unity 认证考试
+##### Unity 认证考试
 
 [相关认证Link](https://learn.unity.com/tutorial/career-research-and-preparation?uv=2022.3&pathwayId=5f7e17e1edbc2a5ec21a20af&missionId=5f7648a4edbc2a5578eb67df#658f5d0bedbc2a255f0a7210)
 
+
+### Manage Scene Flow and Data
+
+#### Setup Version Control
+
+1.  From the welcome screen in GitHub Desktop, select Create a New Repository on your Hard Drive.
+
+![Create a New Repository](https://unity-connect-prd.storage.googleapis.com/20210602/learn/images/6764e7d0-f47f-482c-8408-bafdc77b3b33_35.png)
+
+2. In the Create a New Repository window that appears, configure your repo’s settings:
+    
+![configure repo’s settings](https://unity-connect-prd.storage.googleapis.com/20210602/learn/images/c6b7b572-aab5-4686-8518-9265d07e61e1_34.png)
+
+3. Select `Create Repository`. This will set the Current Repository dropdown to your new repo. In the main window, you will see that there are currently `“No local changes.”` That is because this is a brand new repo that you haven’t edited yet.
+
+![image](https://unity-connect-prd.storage.googleapis.com/20210602/learn/images/ea6959ff-1698-4531-bfaa-b35f29aeeddd_33.png)
+
+4. Open the folder that was just created on your computer at the location you specified. If your computer is configured to` view hidden files`, you will see it contains three items: 
+- git folder
+- gitattributes 
+- gitignore 
+
+The `.git` folder tells GitHub that this is, in fact, a GitHub repo. 
+The `.gitignore` and `.gitattributes` specify the configuration of your repo. It’s not necessary, but if you would like to see these hidden files, you can Google how to do so for Windows or Mac.
+To give GitHub something to track, you will put an actual Unity project in this folder in the next step.
 
 
 
