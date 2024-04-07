@@ -11,6 +11,7 @@ tags:
   - [Queue](#queue)
   - [Deuqe (LinkedList)](#deuqe-linkedlist)
   - [PriorityQueue](#priorityqueue)
+  - [HashSet](#hashset)
   - [Dictionary](#dictionary)
 - [Array](#array)
   - [int\[,\] 和 int\[\]\[\]](#int-和-int)
@@ -397,6 +398,57 @@ public bool Contains(TElement element);
 public bool Remove(TElement element);        
 
 ```
+
+#### HashSet
+```cs
+// 创建 HashSet
+HashSet<int> hashSet = new HashSet<int>();
+
+// 添加元素
+hashSet.Add(1);
+hashSet.Add(2);
+hashSet.Add(3);
+
+// 判断元素是否存在
+bool contains = hashSet.Contains(2); // true
+
+// 移除元素
+hashSet.Remove(2);
+
+// 获取 HashSet 中元素的数量
+int count = hashSet.Count;
+
+// 清空 HashSet
+hashSet.Clear();
+
+// 遍历 HashSet
+foreach (int item in hashSet)
+{
+    Console.WriteLine(item);
+}
+
+// 复制 HashSet 到数组
+int[] array = new int[hashSet.Count];
+hashSet.CopyTo(array);
+
+// 判断是否为空
+bool isEmpty = hashSet.Count == 0;
+
+// 合并两个 HashSet
+HashSet<int> anotherSet = new HashSet<int>() { 4, 5, 6 };
+hashSet.UnionWith(anotherSet);
+
+// 求交集
+hashSet.IntersectWith(anotherSet);
+
+// 求差集
+hashSet.ExceptWith(anotherSet);
+
+// 判断是否为子集或超集
+bool isSubset = hashSet.IsSubsetOf(anotherSet);
+bool isSuperset = hashSet.IsSupersetOf(anotherSet);
+```
+
 
 #### Dictionary
 ```cs

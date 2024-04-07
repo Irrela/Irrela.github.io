@@ -151,6 +151,7 @@ tags:
         - [7.添加SaveColor方法](#7添加savecolor方法)
         - [8.添加LoadColor方法](#8添加loadcolor方法)
         - [9.在应用程序中加载并保存颜色](#9在应用程序中加载并保存颜色)
+    - [Abstraction in object-oriented programming](#abstraction-in-object-oriented-programming)
 
 
 # Handbook
@@ -4109,6 +4110,7 @@ Unity的`JsonUtility`类有一些限制，它是为了性能和简单性而设�
 - 一个 `Load` 方法，用于将JSON文件中的数据转换回SaveData类。
 
 
+
 1. Go ` MainManager.cs`
 2. 在 `MainManager` 的末尾添加以下代码（within the scope of its closing brace）：
     ```cs
@@ -4146,6 +4148,8 @@ Unity的`JsonUtility`类有一些限制，它是为了性能和简单性而设�
         // 使用JsonUtility.ToJson将该实例转换为JSON：
         string json = JsonUtility.ToJson(data);
         
+        // 需引入 using System.IO; 
+        // using File = System.IO.File;
         // 使用File. WriteAllText将字符串写入文件：
         // 第一个参数是文件的路径
         // 第二个参数是您要在该文件中写入的文本—在本例中，是您的JSON！
@@ -4235,3 +4239,4 @@ Unity的`JsonUtility`类有一些限制，它是为了性能和简单性而设�
     将这些方法链接到 `Load` 和 ` Save Color` 颜色按钮。
 
 
+### Abstraction in object-oriented programming
