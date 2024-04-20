@@ -4244,7 +4244,7 @@ Unity的`JsonUtility`类有一些限制，它是为了性能和简单性而设�
 // 继承 MonoBehaviour
 public class SomeClass : MonoBehaviour { }
 
-// 方法Overriding
+// 方法 Overriding
 public class Enemy : MonoBehaviour { 
 
     // 父类方法增加 virtual 修饰
@@ -4270,5 +4270,50 @@ public class Thief : Enemy
         }
     }
 }
+```
 
+```cs
+// Getter Setter
+// 设置只读 get 访问器
+public class MainManager {
+    public static MainManager Instance { get; } 
+}
+class Program {
+    static void Main(string[] args) {
+        // 通过类名直接访问 MainManager 的单例实例
+        MainManager.Instance.Print();
+    }
+}
+// 设置其只读的 get 访问器和私有的 set 访问器
+public class MainManager {
+    public static MainManager Instance { get; private set; } 
+    public static void Initialize() {
+        // 通过私有 set 访问器在类的内部设置 Instance 属性的值
+        Instance = new MainManager();
+    }
+}
+```
+
+> 这种 naive 的 get set 被称为 `auto-implemented property`, 下面介绍更复杂的情况
+
+```cs
+// backing field
+// 在这段代码中，m_ProductionSpeed 就是 ProductionSpeed 属性的 backing field（后备字段）。
+// 在getter或setter中执行验证或计算
+private float m_ProductionSpeed = 0.5f;
+public float ProductionSpeed 
+{
+    get { return m_ProductionSpeed; } // getter returns backing field
+    set
+    {
+        if (value < 0.0f)
+        {
+            Debug.LogError("You can't set a negative production speed!");
+        }
+        else
+        {
+            m_ProductionSpeed = value; 
+        }
+    }
+}
 ```
