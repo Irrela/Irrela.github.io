@@ -4240,5 +4240,35 @@ Unity的`JsonUtility`类有一些限制，它是为了性能和简单性而设�
 
 
 ### Abstraction in object-oriented programming
+```cs
+// 继承 MonoBehaviour
+public class SomeClass : MonoBehaviour { }
 
-https://vscode.dev/profile/github/80550f84238731d4e6a0c005c2c8f66a
+// 方法Overriding
+public class Enemy : MonoBehaviour { 
+
+    // 父类方法增加 virtual 修饰
+    public virtual void DealDamage () { 
+
+        Player.Health -= 10;
+    }
+}
+
+public class Thief : Enemy
+{
+    // 子类方法增加 override 修饰
+    public override void DealDamage() 
+    {
+        Player.Health -= 2;
+        CommitPettyTheft();
+    }
+    private void Update()
+    {
+        if (Player.isSeen)
+        {
+            DealDamage();
+        }
+    }
+}
+
+```
