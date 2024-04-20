@@ -152,6 +152,10 @@ tags:
         - [8.添加LoadColor方法](#8添加loadcolor方法)
         - [9.在应用程序中加载并保存颜色](#9在应用程序中加载并保存颜色)
     - [Abstraction in object-oriented programming](#abstraction-in-object-oriented-programming)
+      - [继承和方法 Override](#继承和方法-override)
+      - [封装 getter setter](#封装-getter-setter)
+      - [Backing field 与 访问器](#backing-field-与-访问器)
+      - [Profiler 和 定位性能优化瓶颈](#profiler-和-定位性能优化瓶颈)
 
 
 # Handbook
@@ -4240,6 +4244,7 @@ Unity的`JsonUtility`类有一些限制，它是为了性能和简单性而设�
 
 
 ### Abstraction in object-oriented programming
+#### 继承和方法 Override
 ```cs
 // 继承 MonoBehaviour
 public class SomeClass : MonoBehaviour { }
@@ -4272,6 +4277,7 @@ public class Thief : Enemy
 }
 ```
 
+#### 封装 getter setter
 ```cs
 // Getter Setter
 // 设置只读 get 访问器
@@ -4296,6 +4302,8 @@ public class MainManager {
 
 > 这种 naive 的 get set 被称为 `auto-implemented property`, 下面介绍更复杂的情况
 
+#### Backing field 与 访问器
+
 ```cs
 // backing field
 // 在这段代码中，m_ProductionSpeed 就是 ProductionSpeed 属性的 backing field（后备字段）。
@@ -4317,3 +4325,135 @@ public float ProductionSpeed
     }
 }
 ```
+
+#### Profiler 和 定位性能优化瓶颈
+
+在 `Play Mode` 下 查看右上角 `Stats` , 观察FPS
+
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20210530/learn/images/92931991-f9f1-4919-99f2-f6ee72ead755_84.png.2000x0x1.png)
+
+
+Open the `Profiler` by selecting `Window > Analysis > Profiler`.
+
+目前，`Profiler` 完全空白，因为尚未收集到有关该场景的数据。当您启动`Play Mode` 时，`Profiler` 开始工作。确保 `Profiler` 的记录按钮（红点）处于活动状态，然后按 “Play”。
+
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20210530/learn/images/0874f969-dcad-4eb8-a7bc-378accd64559_82.png.2000x0x1.png)
+
+
+`Profiler` 将开始记录性能数据的颜色编码图表。 一两秒钟后，退出播放模式。现在，您已经有了该时间段内应用程序中发生的一切的详细概述。
+
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20210530/learn/images/dc2ddffc-520f-4307-8bb1-8a4cd22dedfd_81.png.2000x0x1.png)
+
+`Profiler` 的上半部分被分为模块，从 `CPU Usage` 开始。这将是我们在本教程中使用的唯一模块。
+
+请注意，蓝色背景不是背景，而是正在运行的脚本的代表！即使从这个非常高的层面来看，我们也可以看出我们的脚本很可能出了问题，因为它们占用的处理能力甚至比渲染场景本身还要多几个数量级。我们将很快检查脚本。
+
+`Profiler` 的下半部分显示了每个帧中发生的事情的视觉分解。如果您在 `Profiler` 的下半部分没有看到条形图可视化，请在 `Profiler Module` 部分正下中选择 `Timeline`。
+
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20210530/learn/images/4c142d9f-5d79-417a-b36a-d3cadbbd5017_80.png.2000x0x1.png)
+
+`CPU Usage` 图表上的白色垂直线代表应用程序中播放的一个帧。在“中央处理器使用情况”模块中单击并拖动此行，查看帧之间的使用情况如何变化。选择中央处理器使用率激增的帧。
+
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20210530/learn/images/79eed5fd-edec-4908-ba91-86e79088aacd_79.png.2000x0x1.png)
+
+在上面的示例中，您可以看到符号**CPU.117.26ms**。这表示完成此帧中的所有内容所需的总时间（以毫秒为单位）。
+
+分析时，我们希望特别关注这个毫秒完成率，因为它是实现最终帧率目标的关键。根据目标帧速率，您每帧将有特定的 ` millisecond budget` 。计算方法是：
+
+> 1000 ms / target frames per second = ms budget
+
+因此，为了达到60 FPS的目标，每帧的毫秒预算为16(1000 / 60 = 16.6667)。这意味着当前正在分析的框架是其需要的七倍多(117.26 / 16 = 7.32)
+
+
+在 `Profiler Timeline` 的顶部有两个交替的标签：`PlayerLoop` 和 `EditorLoop` 。如果您没有看到这些，您可能必须使用滚动轮或触控板来放大。 
+
+`PlayerLoop` 代表游戏本身中运行的所有内容，而 `EditorLoop` 代表在编辑器中运行应用程序时发生的所有内容。在这种情况下，由于我们的最终用户不会在Unity Editor中使用该应用程序，因此可以安全地忽略 `EditorLoop` 并仅关注`PlayerLoop`中发生的事情。
+
+`PlayerLoop` 下面列出的条代表该帧内应用程序中发生的一切，按时间长度降序排列。 `Profiler Timeline` 的颜色经过协调，以匹配中央处理器使用率图表。蓝色大条表示该帧中发生了占用大量时间的特定脚本相关动作
+
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20210530/learn/images/cb519896-f09e-4ea9-ba29-4be56f8500f2_78.png.2000x0x1.png)
+
+单击该栏可查看此操作的源是 `OptimUnit` 脚本，特别是其 `Update` 方法。它需要98.27 ms才能完成，本身就超出了我们的毫秒预算很多倍。另请注意，该脚本有2，000个实例在此框架中运行，这一点很重要，因为我们知道我们正在 `OptimManager` 脚本中生成2，000个叉车。不知何故，这两个因素一定是相关的。
+
+为什么脚本会运行2，000次？每个叉车必须有一个实例。如果我们在 `OptimManager` 上选择 `OptimUnit Prefab`，我们会发现 `OptimUnit` 脚本附加到 `Prefab` 本身-这意味着该脚本确实有2，000个副本正在运行。
+
+接下来，我们可以使用 `Profiler` 来帮助我们识别减慢该项目速度的确切代码行。
+
+OptimUnit脚本Update方法中有很多事情要做，因此让我们从分析器那里获得更多帮助。我们可以通过添加Profiler.BeginSample和Profiler.EndSample方法来分析特定的代码部分。
+
+```cs
+// begin profiling a piece of code with a custom label
+Profiler.BeginSample("Handling Time");
+HandleTime();
+// ends the current profiling sample
+Profiler.EndSample(); 
+
+Profiler.BeginSample("Rotating"); // begin profiling
+
+var t = transform;
+
+if (transform.position.x <= 0)
+    transform.Rotate(currentAngularVelocity * Time.deltaTime, 0, 0);
+else if (transform.position.x > 0)
+    transform.Rotate(-currentAngularVelocity * Time.deltaTime, 0, 0);
+
+if (transform.position.z >= 0)
+    transform.Rotate(0, 0, currentAngularVelocity * Time.deltaTime);
+else if (transform.position.z < 0)
+    transform.Rotate(0, 0, -currentAngularVelocity * Time.deltaTime);
+
+Profiler.EndSample(); // end profiling
+
+Profiler.BeginSample("Moving"); // begin profiling
+        
+Move();
+        
+Profiler.EndSample(); // end profiling
+
+Profiler.BeginSample("Boundary Check"); // begin profiling
+
+//check if we are moving away from the zone and invert velocity if this is the case
+if (transform.position.x > areaSize.x && currentVelocity.x > 0)
+{
+    currentVelocity.x *= -1;
+    PickNewVelocityChangeTime(); //we pick a new change time as we changed velocity
+}
+else if (transform.position.x < -areaSize.x && currentVelocity.x < 0)
+{
+    currentVelocity.x *= -1;
+    PickNewVelocityChangeTime();
+}
+        
+if (transform.position.z > areaSize.z && currentVelocity.z > 0)
+{
+    currentVelocity.z *= -1;
+    PickNewVelocityChangeTime(); //we pick a new change time as we changed velocity
+}
+else if (transform.position.z < -areaSize.z && currentVelocity.z < 0)
+{
+    currentVelocity.z *= -1;
+    PickNewVelocityChangeTime();
+}
+
+Profiler.EndSample(); // end profiling
+```
+
+回到 Editor，在 `Profiler` 中，按 `clear` 按钮以清除当前捕获的数据。
+
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20210530/learn/images/69d5b3a0-e08d-448f-aeae-1ec610784f2e_77.png.2000x0x1.png)
+
+按“播放”并让应用程序运行几秒钟来捕获新数据，然后退出“播放”模式。
+
+在 `Profiler` 窗口的 `CPU Usage` 模块中，选择另一个具有中央处理器使用率峰值的帧。
+
+让我们看看我们标记的代码部分。`OptimUnit.Update` 栏的正下方是一个新的脚本栏。此条代表所有新采样代码。选择它，就会出现其中一个新的示例标签。
+
+单击 `Timeline` 并选择 `Hierarchy` 。
+
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20210530/learn/images/8b22bd72-81db-471d-8347-97b1f753d628_76.png.2000x0x1.png)
+
+框架数据将更改为列表视图，并自动选择四个代码部分的标签。
+
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20210530/learn/images/bc934a6d-f4c6-45c6-9c4a-99ac320086f5_75.png.2000x0x1.png)
+
+在此视图中，在 `Time ms` 列中可以立即清楚地看出问题出在 `Moving` 方法中！现在我们已经确定了问题，是时候尝试在代码中解决它了。
