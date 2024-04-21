@@ -61,62 +61,62 @@ tags:
       - [向 Player 添加音效](#向-player-添加音效)
     - [CWC 2 Challenge 3 - Balloons, Bombs, \& Booleans](#cwc-2-challenge-3---balloons-bombs--booleans)
     - [CWC 2 Lab 3 - Player Control](#cwc-2-lab-3---player-control)
-      - [3.Constrain the Player’s movement](#3constrain-the-players-movement)
-    - [CWC 2 Unit 4 - Gameplay Mechanics](#cwc-2-unit-4---gameplay-mechanics)
+      - [3. 限制 Player 的移动](#3-限制-player-的移动)
+    - [CWC 2 Unit 4 - Gameplay Mechanics（玩法机制）](#cwc-2-unit-4---gameplay-mechanics玩法机制)
       - [4.1 Watch Where You’re Going](#41-watch-where-youre-going)
-      - [3.Create a focal point for the camera](#3create-a-focal-point-for-the-camera)
-      - [4.Rotate the focal point by user input](#4rotate-the-focal-point-by-user-input)
-      - [5.Add forward force to the player](#5add-forward-force-to-the-player)
-      - [6.Move in direction of focal point](#6move-in-direction-of-focal-point)
-      - [4.2.1 Add an enemy and a physics material](#421-add-an-enemy-and-a-physics-material)
-      - [4.2.2 Create enemy script to follow player](#422-create-enemy-script-to-follow-player)
-      - [4.2.4.Create a Spawn Manager for the enemy](#424create-a-spawn-manager-for-the-enemy)
-      - [4.3.1.Choose and prepare a powerup](#431choose-and-prepare-a-powerup)
-      - [4.3.2.Destroy powerup on collision](#432destroy-powerup-on-collision)
-      - [Test for enemy and powerup](#test-for-enemy-and-powerup)
-      - [Apply extra knockback with powerup](#apply-extra-knockback-with-powerup)
-      - [Create Countdown Routine for powerup](#create-countdown-routine-for-powerup)
-      - [Add a powerup indicator](#add-a-powerup-indicator)
-      - [4.4.1 Write a for-loop to spawn 3 enemies](#441-write-a-for-loop-to-spawn-3-enemies)
-      - [4.4.2.Give the for-loop a parameter](#442give-the-for-loop-a-parameter)
-      - [4.4.3.Destroy enemies if they fall off](#443destroy-enemies-if-they-fall-off)
-      - [4.4.4.Increase enemyCount with waves](#444increase-enemycount-with-waves)
-      - [4.4.5.Spawn Powerups with new waves](#445spawn-powerups-with-new-waves)
+      - [3. 为相机创建焦点](#3-为相机创建焦点)
+      - [4. 通过用户输入旋转焦点](#4-通过用户输入旋转焦点)
+      - [5. 给 Player 增加向前的力](#5-给-player-增加向前的力)
+      - [6. 沿 focal point 方向移动](#6-沿-focal-point-方向移动)
+      - [4.2.1 添加敌人和物理材料（physics material）](#421-添加敌人和物理材料physics-material)
+      - [4.2.2 创建敌人脚本来追逐玩家](#422-创建敌人脚本来追逐玩家)
+      - [4.2.4. 创建 enemy 的 Spawn Manager](#424-创建-enemy-的-spawn-manager)
+      - [4.3.1. 选择并准备一个 powerup](#431-选择并准备一个-powerup)
+      - [4.3.2. 碰撞时破坏 powerup](#432-碰撞时破坏-powerup)
+      - [测试 powerup 与 enemy](#测试-powerup-与-enemy)
+      - [对 powerup 应用额外的 knock back](#对-powerup-应用额外的-knock-back)
+      - [为 powerup 创建倒计时 Routine](#为-powerup-创建倒计时-routine)
+      - [增加 powerup 指示器](#增加-powerup-指示器)
+      - [4.4.1 通过 for-loop 产生3波敌人](#441-通过-for-loop-产生3波敌人)
+      - [4.4.2. 通过参数指定产生敌人波次数量](#442-通过参数指定产生敌人波次数量)
+      - [4.4.3. 摧毁跌出平台的敌人](#443-摧毁跌出平台的敌人)
+      - [4.4.4. 每一波次增加敌人的产生数量](#444-每一波次增加敌人的产生数量)
+      - [4.4.5. 每个波次产生新的 powerup](#445-每个波次产生新的-powerup)
       - [Challenge 4 - Soccer Scripting](#challenge-4---soccer-scripting)
         - [FindGameObjectsWithTag 和 FindObjectsOfType 有什么区别](#findgameobjectswithtag-和-findobjectsoftype-有什么区别)
       - [GetComponent](#getcomponent)
     - [CWC 2 Unit 5 - User Interface](#cwc-2-unit-5---user-interface)
       - [Lesson 5.1 - Clicky Mouse](#lesson-51---clicky-mouse)
-      - [5.1.1.Create project and switch to 2D view](#511create-project-and-switch-to-2d-view)
-      - [5.1.2.Create good and bad targets](#512create-good-and-bad-targets)
-      - [5.1.3.Toss objects randomly in the air](#513toss-objects-randomly-in-the-air)
-      - [5.1.4.Replace messy code with new methods](#514replace-messy-code-with-new-methods)
-      - [5.1.5.Create object list in Game Manager](#515create-object-list-in-game-manager)
-      - [5.1.6.Create a coroutine to spawn objects](#516create-a-coroutine-to-spawn-objects)
-      - [5.1.7.Destroy target with click and sensor](#517destroy-target-with-click-and-sensor)
-      - [5.2.1.Add Score text and position it on screen](#521add-score-text-and-position-it-on-screen)
-      - [5.2.2.Edit the Score Text’s properties](#522edit-the-score-texts-properties)
-      - [5.2.3.Initialize score text and variable](#523initialize-score-text-and-variable)
-      - [5.2.4.Create a new UpdateScore method](#524create-a-new-updatescore-method)
-      - [5.2.5.Add score when targets are destroyed](#525add-score-when-targets-are-destroyed)
-      - [5.2.6.Assign a point value to each target](#526assign-a-point-value-to-each-target)
-      - [5.2.7.Add a Particle explosion](#527add-a-particle-explosion)
-      - [5.3.1.Create a Game Over text object](#531create-a-game-over-text-object)
-      - [5.3.2.Make GameOver text appear](#532make-gameover-text-appear)
-      - [5.3.3.Create GameOver function](#533create-gameover-function)
-      - [5.3.4.Stop spawning and score on GameOver](#534stop-spawning-and-score-on-gameover)
-      - [5.3.5.Add a Restart button](#535add-a-restart-button)
-      - [5.3.6.Make the restart button work](#536make-the-restart-button-work)
-      - [5.3.7.Show restart button on game over](#537show-restart-button-on-game-over)
-      - [5.4.1.Create Title text and menu buttons](#541create-title-text-and-menu-buttons)
-      - [5.4.2.Add a DifficultyButton script](#542add-a-difficultybutton-script)
-      - [5.4.3.Call SetDifficulty on button click](#543call-setdifficulty-on-button-click)
-      - [5.4.4.Make your buttons start the game](#544make-your-buttons-start-the-game)
-      - [5.4.5.Deactivate Title Screen on StartGame](#545deactivate-title-screen-on-startgame)
-      - [5.4.6.Use a parameter to change difficulty](#546use-a-parameter-to-change-difficulty)
+      - [5.1.1. 创建 project 并 切换到 2D view](#511-创建-project-并-切换到-2d-view)
+      - [5.1.2. 创建 good 和 bad 目标](#512-创建-good-和-bad-目标)
+      - [5.1.3. 随机地上抛目标](#513-随机地上抛目标)
+      - [5.1.4. 抽象新方法优化混乱的代码](#514-抽象新方法优化混乱的代码)
+      - [5.1.5. 在 Game Manager 中创建 object list](#515-在-game-manager-中创建-object-list)
+      - [5.1.6. 创建 coroutine 来产生 objects](#516-创建-coroutine-来产生-objects)
+      - [5.1.7. 通过 click 和 sensor 来摧毁目标](#517-通过-click-和-sensor-来摧毁目标)
+      - [5.2.1. 添加 Score Text 并将其置于屏幕中](#521-添加-score-text-并将其置于屏幕中)
+      - [5.2.2. 编辑 Score Text 的 properties](#522-编辑-score-text-的-properties)
+      - [5.2.3. 实例化 score text 和 variable](#523-实例化-score-text-和-variable)
+      - [5.2.4. 创建一个新的 UpdateScore 方法](#524-创建一个新的-updatescore-方法)
+      - [5.2.5. 当目标被摧毁时增加 Score](#525-当目标被摧毁时增加-score)
+      - [5.2.6. 为每种目标添加分值变量](#526-为每种目标添加分值变量)
+      - [5.2.7. 添加爆炸粒子](#527-添加爆炸粒子)
+      - [5.3.1. 创建 Game Over text object](#531-创建-game-over-text-object)
+      - [5.3.2. Make GameOver text appear](#532-make-gameover-text-appear)
+      - [5.3.3. Create GameOver function](#533-create-gameover-function)
+      - [5.3.4. GameOver 后停止产生目标和分数变化](#534-gameover-后停止产生目标和分数变化)
+      - [5.3.5. 添加 Restart button](#535-添加-restart-button)
+      - [5.3.6. Make the restart button work](#536-make-the-restart-button-work)
+      - [5.3.7. Show restart button on game over](#537-show-restart-button-on-game-over)
+      - [5.4.1. 闯进 Title text 和 menu buttons](#541-闯进-title-text-和-menu-buttons)
+      - [5.4.2. 添加 DifficultyButton script](#542-添加-difficultybutton-script)
+      - [5.4.3. Call SetDifficulty on button click](#543-call-setdifficulty-on-button-click)
+      - [5.4.4. Make your buttons start the game](#544-make-your-buttons-start-the-game)
+      - [5.4.5. 停用 Title Screen on StartGame](#545-停用-title-screen-on-startgame)
+      - [5.4.6. Use a parameter to change difficulty](#546-use-a-parameter-to-change-difficulty)
       - [5.4.bonus 2.Easy: Lives UI](#54bonus-2easy-lives-ui)
-      - [5.4.bonus 3.Medium: Music volume](#54bonus-3medium-music-volume)
-      - [5.4.bonus 4.Hard: Pause menu](#54bonus-4hard-pause-menu)
+      - [5.4.bonus 3.Medium: 音量](#54bonus-3medium-音量)
+      - [5.4.bonus 4.Hard: 暂停菜单](#54bonus-4hard-暂停菜单)
       - [5.4.bonus 5.Expert: Click-and-swipe](#54bonus-5expert-click-and-swipe)
     - [CWC 2 Lesson 6.1 - Project Optimization](#cwc-2-lesson-61---project-optimization)
       - [1. 变量属性](#1-变量属性)
@@ -1023,7 +1023,7 @@ public class RepeatBackground : MonoBehaviour
 #### 碰撞触发Game Over, 停止相关代码
 当玩家与障碍物碰撞时，我们希望触发一个“游戏结束”状态，停止一切。为了做到这一点，我们需要一种方法来标记和识别玩家碰撞的所有游戏对象。
 
-通过tag来判断player是在和ground碰撞还是和障碍物碰撞
+通过 `tag` 来判断 player 是在和 ground 碰撞还是和障碍物碰撞
 
 ```cs
 public class PlayerController : MonoBehaviour
@@ -1054,7 +1054,7 @@ public class PlayerController : MonoBehaviour
 }
 ```
 
-背景和物体在与障碍物碰撞时继续移动。我们需要MoveLeft脚本与PlayerController通信，并在玩家触发gameOver后停止。
+背景和物体在与障碍物碰撞时继续移动。我们需要 `MoveLeft` 脚本与 `PlayerController` 通信，并在玩家触发 `gameOver` 后停止。
 
 ```cs
 public class MoveLeft : MonoBehaviour
@@ -1087,7 +1087,7 @@ public class MoveLeft : MonoBehaviour
 }
 ```
 
-当gameOver == true时，SpawnManager仍然在增加障碍物大军！我们需要与Spawn Manager脚本沟通，并告诉它在游戏结束时停止。
+当 `gameOver == true` 时， `SpawnManager` 仍然在增加障碍物大军！我们需要与 `Spawn Manager` 脚本沟通，并告诉它在游戏结束时停止。
 
 ```cs
 public class SpawnManager : MonoBehaviour
@@ -1118,19 +1118,16 @@ public class SpawnManager : MonoBehaviour
 ```
 
 #### 探索 Player 的 Animations
-1. 双击Player 的 Animator 组件的 Controller，然后探索不同的Layer，
-    进入Animator window后 各个 Layer 的 网格图，`可以 按住 option 拖拽以查看不同部分`
+1. 双击 `Player` 的 `Animator` 组件的 `Controller` ，然后探索不同的 `Layer` ，进入 `Animator window` 后 各个 `Layer` 的 网格图，可以 按住 `option` 拖拽以查看不同部分
 
 
-2. 其中各个框就是代表不同的 `State`
-    双击 State 可以看动画效果的preview
-    双击链接不同 state 的 arrow line和`各状态间转换的 condition`
+2. 其中各个框就是代表不同的 `State`, 双击 State 可以看动画效果D的 `preview` 双击链接不同 `state` 的 `arrow line` 和`各状态间转换的 condition`
 
-3. 在 Animator Window， Layers tab 右侧有 Parameters tab, 将 Speed_f变量更改为1.0
+3. 在 Animator Window， Layers tab 右侧有 Parameters tab, 将 Speed_f 变量更改为 1.0
 
-4. 右键单击Run_Static> `Set as Layer Default State`
+4. 右键单击 `Run_Static > Set as Layer Default State`
 
-5. 单击Run_Static状态并调整 inspector 中的 `Speed = 1.5f` 值以匹配背景的速度
+5. 单击 Run_Static 状态并调整 inspector 中的 `Speed = 1.5f` 值以匹配背景的速度
 
 
 #### 设置 Jump 动画
@@ -1173,8 +1170,8 @@ public class PlayerController : MonoBehaviour
 
 #### 调整 Jump 动画
 
-1. 单击Running_Jump状态，然后在检查器中降低 `Speed = 0.7` 以减慢动画速度
-2. 调整玩家的质量(60kg)、跳跃力(700)和gravityModifier(1.5)，让你的跳跃刚刚好
+1. 单击 Running_Jump 状态，然后在检查器中降低 `Speed = 0.7` 以减慢动画速度
+2. 调整玩家的质量(60kg)、跳跃力(700)和 gravityModifier(1.5)，让你的跳跃刚刚好
 
 #### 设置撞击倒地动画
 
@@ -1219,7 +1216,7 @@ public class PlayerController : MonoBehaviour
 ```
 
 #### 自定义爆炸粒子
-1. From the `Course Library > Particles`, drag `FX_Explosion_Smoke` into the hierarchy, then use the `Play / Restart / Stop` buttons to preview it
+1. From the `Course Library > Particles`, drag `FX_Explosion_Smoke` into the hierarchy, then use the `Play / Restart / Stop` buttons to preview it 
    1. `Play / Restart / Stop` 在 Scene window 右下部
 2. Play around with the `settings` to get your `particle system` the way you want it
    1. Inspector -> Particle System -> Velocity over lifeTime -> speed Modifier
@@ -1541,7 +1538,7 @@ public class RepeatBackgroundX : MonoBehaviour
 
 ### CWC 2 Lab 3 - Player Control
 
-#### 3.Constrain the Player’s movement
+#### 3. 限制 Player 的移动
 1. 如果你的玩家正在与不应该碰撞的物体（包括地面）碰撞，请在碰撞器组件中 check `Is trigger` box
 2. 如果玩家的位置或旋转应该受到约束，则扩展刚体组件中的 `constraints` 并约束某些轴
 3. 如果你的玩家可以离开屏幕，写一个if语句检查和重置位置
@@ -1550,7 +1547,7 @@ public class RepeatBackgroundX : MonoBehaviour
 
 
 
-### CWC 2 Unit 4 - Gameplay Mechanics
+### CWC 2 Unit 4 - Gameplay Mechanics（玩法机制）
 Ability:
 - Apply `Physics Materials` to make game objects more or less `bouncy`
 - Calculate new vectors to steer objects in `custom directions`
@@ -1580,14 +1577,14 @@ New Concepts and Skills:
 - Global vs Local coordinates
 - Get direction of other object
 
-#### 3.Create a focal point for the camera
+#### 3. 为相机创建焦点
 
 1. Create a new Empty Object and rename it `Focal Point`, 
 2. `Reset its position` to the origin (0, 0, 0), and make the Camera a `child object` of it
 3. Create a new “Scripts” folder, and a new `RotateCamera` script inside it 
 4. Attach the `RotateCamera` script to the Focal Point
 
-#### 4.Rotate the focal point by user input
+#### 4. 通过用户输入旋转焦点
 
 1. Create the code to rotate the camera based on `rotationSpeed` and `horizontalInput`
 2. Tweak the rotation speed value to get the speed you want
@@ -1611,9 +1608,9 @@ public class RotateCamera : MonoBehaviour
 }
 ```
 
-#### 5.Add forward force to the player
+#### 5. 给 Player 增加向前的力
 
-1. Create a new `“PlayerController”` script, apply it to the Player, and open it
+1. Create a new `PlayerController` script, apply it to the Player, and open it
 2. Declare a new `public float speed variable` and `initialize` it
 3. Declare a new `private Rigidbody playerRb` and `initialize it in Start()`
 4. In `Update()`, declare a new `forwardInput` variable based on `“Vertical”` input 
@@ -1638,7 +1635,7 @@ public class PlayerController : MonoBehaviour
 }
 ```
 
-#### 6.Move in direction of focal point
+#### 6. 沿 focal point 方向移动
 
 1. Declare a new `private GameObject focalPoint`; and initialize it in `Start()`: `focalPoint = GameObject.Find("Focal Point");`
 2. In the `AddForce` call, Replace` Vector3.forward` with `focalPoint.transform.forward`
@@ -1668,7 +1665,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-#### 4.2.1 Add an enemy and a physics material
+#### 4.2.1 添加敌人和物理材料（physics material）
 
 New Functionality:
 - Enemy spawns at random location on the island
@@ -1689,7 +1686,7 @@ New Concepts and Skills:
 4. Increase the `Bounciness` to “1”, change `Bounce Combine to “Multiply”`,  apply it to your player and enemy, then test
 
 
-#### 4.2.2 Create enemy script to follow player
+#### 4.2.2 创建敌人脚本来追逐玩家
 
 告诉敌人跟随玩家的位置，在岛上追逐他们。
 
@@ -1724,9 +1721,9 @@ public class Enemy : MonoBehaviour
 ```
 
 
-#### 4.2.4.Create a Spawn Manager for the enemy
+#### 4.2.4. 创建 enemy 的 Spawn Manager 
 
-现在敌人的行为完全按照我们的意愿进行，我们将把它变成一个预制件，这样它就可以被Spawn Manager实例化了。
+现在敌人的行为完全按照我们的意愿进行，我们将把它变成一个预制件，这样它就可以被 Spawn Manager 实例化了。
 
 1. ` Drag Enemy into the Prefabs folder` to create a new Prefab, then `delete` Enemy from scene
 2. Create a `new “Spawn Manager” object`, attach a `new “SpawnManager” script`, and open it
@@ -1774,7 +1771,7 @@ public class SpawnManager : MonoBehaviour
 }
 ```
 
-#### 4.3.1.Choose and prepare a powerup
+#### 4.3.1. 选择并准备一个 powerup
 
 New Functionality:
 - When the player collects a powerup, a visual indicator appears
@@ -1796,31 +1793,31 @@ New Concepts and Skills:
 3. Create a `new “Powerup” tag` and apply it to the powerup
 4. Drag the Powerup into the `Prefabs` folder to create a new “Original Prefab”
 
-#### 4.3.2.Destroy powerup on collision
+#### 4.3.2. 碰撞时破坏 powerup
 
-作为让powerup工作的第一步，我们将在玩家点击它时使它消失，并设置一个新的布尔变量来跟踪玩家获得它的情况。
+作为让 powerup 工作的第一步，我们将在玩家点击它时使它消失，并设置一个新的布尔变量来跟踪玩家获得它的情况。
 
 1. In `PlayerController.cs`, add a new `OnTriggerEnter()` method
 2. Add an if-statement that destroys `other.CompareTag("Powerup")` powerup on collision
 3. Create a new public bool `hasPowerup`; and set hasPowerup = true;  when you collide with the Powerup
 
-#### Test for enemy and powerup
+#### 测试 powerup 与 enemy
 4. Create a `new “Enemy” tag` and apply it to the Enemy Prefab
 5. In PlayerController.cs, add the `OnCollisionEnter()` function
 6. Create the if-statement with the double-condition `testing for enemy tag and hasPowerup boolean`
 7. Create a `Debug.Log` to make sure it’s working
 
-#### Apply extra knockback with powerup
+#### 对 powerup 应用额外的 knock back
 8. In `OnCollisionEnter()` declare a new local variable to `get the Enemy’s Rigidbody component `
 9.  Declare a new `variable` to `get the direction away from the player`
 10. Add an `impulse force` to the enemy, using a new `powerupStrength` variable
 
-#### Create Countdown Routine for powerup
+#### 为 powerup 创建倒计时 Routine
 1. Add a new `IEnumerator` `PowerupCountdownRoutine () {}`
 2. Inside the PowerupCountdownRoutine, `wait 7 seconds`, then disable the powerup 
 3. When player collides with powerup, start the `coroutine`
 
-#### Add a powerup indicator
+#### 增加 powerup 指示器
 1. From the `Library`, drag a Powerup object into the scene, rename it `Powerup Indicator`, and edit its scale
 2. Uncheck the `Active` checkbox in the inspector
 3. In `PlayerController.cs`, declare a new public GameObject `powerupIndicator` variable, then assign the Powerup Indicator variable in the inspector
@@ -1917,7 +1914,7 @@ public class PlayerController : MonoBehaviour
 ```
 
 
-#### 4.4.1 Write a for-loop to spawn 3 enemies
+#### 4.4.1 通过 for-loop 产生3波敌人
 
 - For-loops
 - Increment (++) operator
@@ -1932,7 +1929,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-#### 4.4.2.Give the for-loop a parameter
+#### 4.4.2. 通过参数指定产生敌人波次数量
 
 现在，SpawnEnemyWave只产生3个敌人，但如果我们要动态增加游戏期间产生的敌人数量，我们需要能够传递信息给该方法。
 
@@ -1973,7 +1970,7 @@ public class SpawnManager : MonoBehaviour // 声明 SpawnManager 类，继承自
 
 ```
 
-#### 4.4.3.Destroy enemies if they fall off
+#### 4.4.3. 摧毁跌出平台的敌人
 
 一旦玩家摆脱了所有的敌人，他们会感到有点孤独。我们需要摧毁那些倒下的敌人，并在最后一个被征服后产生一个新的敌人浪潮！
 
@@ -2014,22 +2011,21 @@ public class SpawnManager : MonoBehaviour
 }
 ```
 
-#### 4.4.4.Increase enemyCount with waves
+#### 4.4.4. 每一波次增加敌人的产生数量
 
-现在我们控制了敌人的数量，我们应该增加他们的数量在波。每次玩家击败一波敌人，就会有更多的人站起来取代他们的位置。
+现在我们控制了敌人的数量，我们应该增加他们的数量。每次玩家击败一波敌人，就会有更多的人站起来取代他们的位置。
 
 5. Declare a new `public int waveNumber = 1`;, then implement it in `SpawnEnemyWave(waveNumber)`; 
 6. In the if-statement that tests if there are 0 enemies left, increment waveCount by 1 
 
 
-
-#### 4.4.5.Spawn Powerups with new waves
+#### 4.4.5. 每个波次产生新的 powerup
 
 我们的游戏快完成了，但我们错过了一些东西。
 
-敌人继续随着每一波产卵，但加电被使用一次并永远消失，让玩家容易受到攻击。
+敌人继续随着每一波产生，但 powerup 被使用一次并永远消失，让玩家容易受到攻击。
 
-我们需要在每一个波浪的随机位置产生增强，这样玩家就有机会反击。
+我们需要在每一个波浪的随机位置产生 powerup ，这样玩家就有机会反击。
 
 ```cs
 public class SpawnManager : MonoBehaviour // 定义 SpawnManager 类，继承自 MonoBehaviour 类
@@ -2141,7 +2137,7 @@ void OnCollisionEnter(Collision collision) {
 
 这些目标将在玩家点击他们或他们掉出边界时被摧毁。
 
-#### 5.1.1.Create project and switch to 2D view
+#### 5.1.1. 创建 project 并 切换到 2D view
 
 New Functionality:
 - Random objects are tossed into the air on intervals
@@ -2166,7 +2162,7 @@ New Concepts and Skills:
 7. (optional) Change the texture and color of the `background` and the color of the `borders`
 
 
-#### 5.1.2.Create good and bad targets
+#### 5.1.2. 创建 good 和 bad 目标
 
 > 在游戏中，我们首先需要收集三个好的对象，一个坏的对象要避免。什么是好的，什么是坏的，由你来决定。
 
@@ -2175,7 +2171,7 @@ New Concepts and Skills:
 3. Create a new Scripts folder, a new `Target.cs` script inside it, attach it to the Target objects
 4. Drag all 4 targets into the `Prefabs folder` to create “original prefabs”, then delete them from the scene
 
-#### 5.1.3.Toss objects randomly in the air
+#### 5.1.3. 随机地上抛目标
 
 > 现在我们有了4个目标预制件，具有相同的脚本，我们需要用随机的力，扭矩和位置将它们抛向空中。
 
@@ -2184,7 +2180,7 @@ New Concepts and Skills:
 3. Add a `torque` with randomized `xyz values`
 4. Set the `position` with a randomized `X value`
 
-#### 5.1.4.Replace messy code with new methods
+#### 5.1.4. 抽象新方法优化混乱的代码
 
 > 我们不再让随机的力、扭矩和位置使Start（）函数变得混乱和不可读，而是将它们存储在全新的、明确命名的自定义方法中。
 
@@ -2193,7 +2189,7 @@ New Concepts and Skills:
 3. Create a new function for float `RandomTorque()`, and call it in `Start()`
 4. Create a new function for `RandomSpawnPos()`, have it return a new Vector3 and call it in `Start() `
 
-#### 5.1.5.Create object list in Game Manager
+#### 5.1.5. 在 Game Manager 中创建 object list
 
 > 接下来我们应该做的是为这些对象创建一个列表。而不是为这些产卵功能制作一个产卵管理器，我们将制作一个游戏管理器，它也将控制游戏状态稍后。
 
@@ -2205,7 +2201,7 @@ New Concepts and Skills:
 
 ![image](https://unity-connect-prd.storage.googleapis.com/20231214/learn/images/f524d057-82f7-42da-a26c-d01fe25e0627_image.png)
 
-#### 5.1.6.Create a coroutine to spawn objects
+#### 5.1.6. 创建 coroutine 来产生 objects
 
 > 既然我们有了一个对象预置列表，我们应该在游戏中使用协程和一种新的循环来实例化它们。
 
@@ -2255,7 +2251,7 @@ public class GameManager : MonoBehaviour
 
 ```
 
-#### 5.1.7.Destroy target with click and sensor
+#### 5.1.7. 通过 click 和 sensor 来摧毁目标
 
 > 现在我们的目标正在产卵并被抛向空中，我们需要一种方法让玩家用点击摧毁他们。我们还需要摧毁任何落在屏幕下面的目标。
 
@@ -2326,7 +2322,7 @@ public class Target : MonoBehaviour
 ```
 
 
-#### 5.2.1.Add Score text and position it on screen
+#### 5.2.1. 添加 Score Text 并将其置于屏幕中
 
 New Functionality:
 - There is a UI element for score on the screen
@@ -2352,7 +2348,7 @@ New Concepts and Skills:
    1. 拖动text到右上角即可
 
 
-#### 5.2.2.Edit the Score Text’s properties
+#### 5.2.2. 编辑 Score Text 的 properties
 
 > 既然基本文本已经在场景中并且正确定位，我们应该编辑它的属性，使它看起来漂亮并且具有正确的文本。
 
@@ -2363,7 +2359,7 @@ New Concepts and Skills:
 
 ![image](https://unity-connect-prd.storage.googleapis.com/20231214/learn/images/74d3c4e2-843b-436c-bd9d-4fae44a254f4_image.png)
 
-#### 5.2.3.Initialize score text and variable
+#### 5.2.3. 实例化 score text 和 variable
 
 > 我们有一个很好的地方来显示分数在UI中，但没有显示任何东西！我们需要UI来显示一个得分变量，这样玩家就可以跟踪他们的得分。
 
@@ -2372,7 +2368,7 @@ New Concepts and Skills:
 3. Create a `new private int score` variable and initialize it in `Start()` as `score = 0`;
 4. Also in `Start()`, set `scoreText.text = "Score: " + score;`
 
-#### 5.2.4.Create a new UpdateScore method
+#### 5.2.4. 创建一个新的 UpdateScore 方法
 
 > score文本完美地显示score变量，但它永远不会更新。我们需要编写一个新的函数，它可以在UI中显示点。
 
@@ -2382,7 +2378,7 @@ New Concepts and Skills:
 4. `score += scoreToAdd`; 
 5. Call `UpdateScore(5)` in the `spawnTarget()` function
 
-#### 5.2.5.Add score when targets are destroyed
+#### 5.2.5. 当目标被摧毁时增加 Score
 
 > 现在我们有了一个更新分数的方法，当目标被销毁时，我们应该在目标脚本中调用它。
 
@@ -2392,7 +2388,7 @@ New Concepts and Skills:
 4. When a target is `destroyed`, call `UpdateScore(5);`, then `delete` the method call from `SpawnTarget()`
 
 
-#### 5.2.6.Assign a point value to each target
+#### 5.2.6. 为每种目标添加分值变量
 
 > 当目标被点击时，分数会被更新，但我们希望给每个目标一个不同的值。好的对象应该在分值上有所不同，坏的对象应该减去分值。
 
@@ -2400,7 +2396,7 @@ New Concepts and Skills:
 2. In each of the `Target prefab’s` inspectors, set the `Point Value` to whatever they’re worth, including the bad target’s `negative value`
 3. Add the new variable to `UpdateScore(pointValue);`
 
-#### 5.2.7.Add a Particle explosion
+#### 5.2.7. 添加爆炸粒子
 
 > 分数是完全功能性的，但点击目标是有点...不令人满意。为了增加乐趣，让我们在目标被点击时添加一些爆炸粒子！
 
@@ -2534,7 +2530,7 @@ public class GameManager : MonoBehaviour // GameManager类，继承自MonoBehavi
 }
 ```
 
-#### 5.3.1.Create a Game Over text object
+#### 5.3.1. 创建 Game Over text object
 
 New Functionality:
 - A functional Game Over screen with a Restart button
@@ -2556,7 +2552,7 @@ New Concepts and Skills:
 3. Set the `Wrapping` setting to `Disabled`
    1. Inspector -> TextMeshPro - Text(UI) -> Main settings -> wrapping
 
-#### 5.3.2.Make GameOver text appear
+#### 5.3.2. Make GameOver text appear
 
 > 我们有一些美丽的游戏结束文本在屏幕上，但它只是坐在和阻挡我们的视线现在。我们应该关闭它，这样游戏结束时它就能重新出现。
 
@@ -2564,7 +2560,7 @@ New Concepts and Skills:
 2. `Uncheck` the `Active` checkbox to deactivate the Game Over text by default
 3. In `Start()`, `activate` the Game Over text
 
-#### 5.3.3.Create GameOver function
+#### 5.3.3. Create GameOver function
 
 > 我们暂时让“游戏结束”文本出现在游戏开始时，但实际上我们希望在其中一个“好”对象丢失并掉落时触发它。
 
@@ -2574,7 +2570,7 @@ New Concepts and Skills:
 
 
 
-#### 5.3.4.Stop spawning and score on GameOver
+#### 5.3.4. GameOver 后停止产生目标和分数变化
 
 > “游戏结束”消息会在我们想要的时候出现，但游戏本身会继续进行。为了真正停止游戏并称之为“游戏结束”，我们需要停止生成目标并停止为玩家生成分数。
 
@@ -2583,7 +2579,7 @@ New Concepts and Skills:
 3. To prevent spawning, in the `SpawnTarget()` coroutine, change `while (true)` to `while (isGameActive)`
 4. To prevent scoring, in `Target.cs`, in the `OnMouseDown()` function, add the condition `if (gameManager.isGameActive) {}`
 
-#### 5.3.5.Add a Restart button
+#### 5.3.5. 添加 Restart button
 
 > 我们的游戏结束机制工作得像一个魅力，但没有办法重播游戏。为了让玩家重新启动游戏，我们将创建我们的第一个UI按钮
 
@@ -2593,7 +2589,7 @@ New Concepts and Skills:
 4. Select the Text `child object`, then edit its Text to say `Restart`, its Font, Style, and Size
    1. 注意改text input是在btn的 child object
 
-#### 5.3.6.Make the restart button work
+#### 5.3.6. Make the restart button work
 
 > 我们在场景中添加了重启按钮，看起来不错，但现在我们需要让它真正工作并重启游戏。
 
@@ -2602,7 +2598,7 @@ New Concepts and Skills:
 3. In the Button’s inspector, `click + to add a new On Click event`, drag it in the Game Manager object and select the `GameManager.RestartGame` function
    1. Inspector -> Button -> On Click() -> +
 
-#### 5.3.7.Show restart button on game over
+#### 5.3.7. Show restart button on game over
 
 > 重新启动按钮看起来很棒，但我们不希望它在我们的脸上整个游戏。类似于“游戏结束”消息，我们将在游戏激活时关闭重启按钮。
 
@@ -2751,7 +2747,7 @@ public class GameManager : MonoBehaviour
 ```
 
 
-#### 5.4.1.Create Title text and menu buttons
+#### 5.4.1. 闯进 Title text 和 menu buttons
 
 New Functionality
 - Title screen that lets the user start the game
@@ -2769,7 +2765,7 @@ Grouping child objects
 2. `Duplicate` your Restart Button and edit its attributes to create an `Easy Button` button
 3. Edit and duplicate the `new Easy button` to create a `Medium Button` and a `Hard Button`
 
-#### 5.4.2.Add a DifficultyButton script
+#### 5.4.2. 添加 DifficultyButton script
 
 > 我们的难度按钮看起来很棒，但实际上它们并没有做任何事情。如果他们要有自定义的功能，我们首先需要给他们一个新的脚本。
 
@@ -2779,7 +2775,7 @@ Grouping child objects
 4. Create a `new private Button button;` variable and initialize it in `Start() `
 
 
-#### 5.4.3.Call SetDifficulty on button click
+#### 5.4.3. Call SetDifficulty on button click
 
 > 现在我们有了一个按钮的脚本，我们可以创建一个 `SetDifferential` 方法，并将该方法与这些按钮的点击联系起来，
 
@@ -2787,7 +2783,7 @@ Grouping child objects
 2. Add the `button listener` to call the `SetDifficulty` function
 
 
-#### 5.4.4.Make your buttons start the game
+#### 5.4.4. Make your buttons start the game
 
 > 标题屏幕看起来很棒，如果你忽略目标物体反弹，但我们没有办法真正开始游戏。我们需要一个 `StartGame` 函数，可以与 `SetDifferential` 通信。
 
@@ -2795,7 +2791,7 @@ Grouping child objects
 2. In `DifficultyButton.cs`, create a `new private GameManager gameManager;` and initialize it in `Start()` 
 3. In the `SetDifficulty()` function, call `gameManager.StartGame();`
 
-#### 5.4.5.Deactivate Title Screen on StartGame
+#### 5.4.5. 停用 Title Screen on StartGame
 
 > 如果我们希望游戏开始时标题屏幕消失，我们应该将它们存储在一个空的对象中，而不是单独关闭它们。简单地停用单个空父对象可以减少很多工作量。
 
@@ -2803,7 +2799,7 @@ Grouping child objects
 2. In `GameManager.cs`, create a `new public GameObject titleScreen;` and assign it in the inspector
 3. In `StartGame()`, deactivate the title screen object
 
-#### 5.4.6.Use a parameter to change difficulty
+#### 5.4.6. Use a parameter to change difficulty
 
 > 难度按钮开始游戏，但它们仍然不会改变游戏的难度。我们要做的最后一件事是实际上让难度按钮影响目标物体产生的速率。
 
@@ -2963,7 +2959,7 @@ public class DifficultyButton : MonoBehaviour
 Create a "Lives" UI element that counts down by 1 when an object leaves the bottom of the screen and triggers Game Over when Lives reaches 0.
 
 
-#### 5.4.bonus 3.Medium: Music volume
+#### 5.4.bonus 3.Medium: 音量
 
 > 添加背景音乐和UI Slider元素来调节音量。 背景音乐为游戏增加了很多能量，但并不是每个人都喜欢它，所以给人们选择降低音量是件好事。
 
@@ -2979,7 +2975,7 @@ Create a "Lives" UI element that counts down by 1 when an object leaves the bott
 
 ![image](https://i.stack.imgur.com/kFu5q.jpg)
    
-#### 5.4.bonus 4.Hard: Pause menu
+#### 5.4.bonus 4.Hard: 暂停菜单
 
 > 在游戏过程中，允许用户按下一个键来在暂停和恢复游戏之间切换，在游戏暂停时会出现暂停屏幕。
 
