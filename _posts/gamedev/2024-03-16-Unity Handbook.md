@@ -258,14 +258,17 @@ Alpha 测试是在内部进行的，以确定问题和需要改进的领域，�
 ## Unity Essentials
 
 #### Render mode
-在Unity中设置Canvas的Render Mode可以通过以下步骤完成：
+在Unity中设置Canvas的 `Render Mode` 可以通过以下步骤完成：
 
 在Unity编辑器中打开Canvas对象。
+
 在Inspector面板中，找到Canvas组件。
-在Canvas组件下的Render Mode属性中，你可以选择不同的渲染模式。常见的选项包括：
-Screen Space - Overlay：Canvas将覆盖在场景中的所有其他对象之上，不会随着场景中的相机移动而移动。
-Screen Space - Camera：Canvas将放置在场景中的一个特定相机的前面，你需要指定一个目标相机。
-World Space：Canvas将以世界坐标的形式存在，可以在场景中移动和旋转，通常用于在3D场景中创建HUD或者3DUI。
+
+在Canvas组件下的 `Render Mode` 属性中，你可以选择不同的渲染模式。常见的选项包括：
+
+- **Screen Space - Overlay**：Canvas将覆盖在场景中的所有其他对象之上，不会随着场景中的相机移动而移动。
+- **Screen Space - Camera**：Canvas将放置在场景中的一个特定相机的前面，你需要指定一个目标相机。
+- **World Space**：Canvas将以世界坐标的形式存在，可以在场景中移动和旋转，通常用于在3D场景中创建HUD或者3DUI。
 
 > [Unity certificate](https://unity.com/cn/products/unity-certifications/user-programmer)
 
@@ -310,20 +313,21 @@ LateUpdate方法：
 
 #### 玩家控制输入
 
-1. Explore the inputs: click `Edit` > `Project Settings`, select `Input Manager` in the left sidebar, then expand the `Axes` fold-out to explore the inputs
+1. Explore the inputs: 
+   click `Edit` > `Project Settings`, select `Input Manager` in the left sidebar, then expand the `Axes` fold-out to explore the inputs
 
-```cs
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            // Launch a projectile from the player
-            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
-        }
+    ```cs
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                // Launch a projectile from the player
+                Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+            }
 
-        // In order to improve game performance, we need to destroy them when they go out of bounds.
-        if (transform.position.z > topBound) {
-            Destroy(gameObject);
-        }
-        // 如果是要应用到全部prefab的clone，在inspector =》 override => apply all
-```
+            // In order to improve game performance, we need to destroy them when they go out of bounds.
+            if (transform.position.z > topBound) {
+                Destroy(gameObject);
+            }
+            // 如果是要应用到全部prefab的clone，在inspector =》 override => apply all
+    ```
 
 - animalPrefabs[animalIndex]表示将要实例化的游戏对象的预制体。animalPrefabs是一个数组或列表，存储了多个预制体。animalIndex是一个整数变量，用于指定要实例化的预制体在数组中的索引。
 - new Vector3(0, 0, 20)表示实例化后游戏对象的初始位置。这里的代码将在世界坐标系中创建一个新的位置，x和y坐标为0，z坐标为20。
