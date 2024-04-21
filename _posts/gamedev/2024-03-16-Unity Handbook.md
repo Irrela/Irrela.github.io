@@ -314,6 +314,7 @@ LateUpdate方法：
 #### 玩家控制输入
 
 1. Explore the inputs: 
+   
    click `Edit` > `Project Settings`, select `Input Manager` in the left sidebar, then expand the `Axes` fold-out to explore the inputs
 
     ```cs
@@ -329,21 +330,20 @@ LateUpdate方法：
             // 如果是要应用到全部prefab的clone，在inspector =》 override => apply all
     ```
 
-- animalPrefabs[animalIndex]表示将要实例化的游戏对象的预制体。animalPrefabs是一个数组或列表，存储了多个预制体。animalIndex是一个整数变量，用于指定要实例化的预制体在数组中的索引。
-- new Vector3(0, 0, 20)表示实例化后游戏对象的初始位置。这里的代码将在世界坐标系中创建一个新的位置，x和y坐标为0，z坐标为20。
-- animalPrefabs[animalIndex].transform.rotation表示实例化后游戏对象的初始旋转。这里的代码获取了将要实例化的预制体的旋转信息，并将其应用于新创建的游戏对象。
+- `animalPrefabs[animalIndex]` 表示将要实例化的游戏对象的预制体。animalPrefabs是一个数组或列表，存储了多个预制体。 `animalIndex` 是一个整数变量，用于指定要实例化的预制体在数组中的索引。
+- `new Vector3(0, 0, 20)` 表示实例化后游戏对象的初始位置。这里的代码将在世界坐标系中创建一个新的位置，x和y坐标为0，z坐标为20。
+- `animalPrefabs[animalIndex].transform.rotation` 表示实例化后游戏对象的初始旋转。这里的代码获取了将要实例化的预制体的旋转信息，并将其应用于新创建的游戏对象。
 
-```cs       
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            Instantiate(
-                animalPrefabs[animalIndex], 
-                new Vector3(0, 0, 20), 
-                animalPrefabs[animalIndex].transform.rotation
-                );
-        }        
-
-```
+    ```cs       
+    if (Input.GetKeyDown(KeyCode.S))
+    {
+        Instantiate(
+            animalPrefabs[animalIndex], 
+            new Vector3(0, 0, 20), 
+            animalPrefabs[animalIndex].transform.rotation
+            );
+    }        
+    ```
 
 #### 边界限制
 ```cs
@@ -804,23 +804,22 @@ public class Cube : MonoBehaviour
 1. primitive
 
 2. camera视角的常用实践
-- 对于一个自上而下的游戏，将摄像机定位在（0，10，0）正上方，并在X轴上旋转90度
-
-- 对于侧视图游戏，在X轴上旋转平面—90度
-
-- 对于第三人称视角游戏，在Y轴和Z轴向上移动摄像机，并在X轴上增加其旋转
+   - 对于一个自上而下的游戏，将摄像机定位在（0，10，0）正上方，并在X轴上旋转90度
+   - 对于侧视图游戏，在X轴上旋转平面—90度
+   - 对于第三人称视角游戏，在Y轴和Z轴向上移动摄像机，并在X轴上增加其旋转
 
 3. 同时调节scale
-提示：在Unity的较新版本中，您可以通过切换"启用约束比例"图标，同时设置所有轴上的比例。
-![Enabled Constrained Proportions icon](https://unity-connect-prd.storage.googleapis.com/20231214/learn/images/c2f44eba-5971-4f3b-9463-5ca844720e89_image.png)
+    提示：在Unity的较新版本中，您可以通过切换"启用约束比例"图标，同时设置所有轴上的比例。
+    ![Enabled Constrained Proportions icon](https://unity-connect-prd.storage.googleapis.com/20231214/learn/images/c2f44eba-5971-4f3b-9463-5ca844720e89_image.png)
 
 4. 保存项目，打包备份
-- In the Project window, Right-click on the `“Assets” folder > Export Package`, then click Export
+   - In the `Project window`, Right-click on the `Assets folder > Export Package`, then click `Export`
 
-- Create a new “Backups” folder in your Personal Project folder, then save it with your name and the version number (e.g. Carl_V0.1.unitypackage”)
+   - Create a new `Backups` folder in your Personal Project folder, then save it with your name and the version number (e.g. Carl_V0.1.unitypackage”)
 
-5. GetKey和GetKeyDown
-Input.GetKey(string keyName)：
+5. GetKey 和 GetKeyDown
+   
+`Input.GetKey(string keyName)：`
 
 这个方法用于检测指定按键是否被按下。
 当按键被按下并保持按住时，该方法会持续返回 true。
@@ -828,7 +827,7 @@ Input.GetKey(string keyName)：
 这个方法会在每一帧都检测按键状态。
 
 
-Input.GetKeyDown(string keyName)：
+`Input.GetKeyDown(string keyName)：`
 
 这个方法用于检测指定按键在当前帧是否被按下。
 当按键在当前帧被按下时，该方法返回 true，但是在后续的帧中，即使按键保持按住，也不会再次返回 true。
@@ -839,6 +838,7 @@ Input.GetKeyDown(string keyName)：
 举例来说，假设你想要在玩家按下空格键时触发某个动作：
 
 如果你使用 Input.GetKey("space")，那么当玩家按下空格键后，该动作将在每一帧都触发，只要空格键一直被按住。
+
 如果你使用 Input.GetKeyDown("space")，那么该动作将只在玩家按下空格键的那一帧触发，而不管玩家是否保持按住空格键。
 
 6. Prefab override
@@ -852,7 +852,7 @@ Input.GetKeyDown(string keyName)：
 
 **循环、数据类型、引用、脚本通信和UI。**
 
-为了完成任务，您将为您的投资组合创建一个简单的原型应用程序。在此任务结束时，您将获得参加Unity Certified User：Programmer认证考试所需的所有技能。
+为了完成任务，您将为您的投资组合创建一个简单的原型应用程序。在此任务结束时，您将获得参加 Unity Certified User：Programmer 认证考试所需的所有技能。
 
 在本单元中，您将编程一个快节奏的无休止的 横向卷轴 跑步者游戏，玩家需要时间跳过迎面而来的障碍物，以避免崩溃。
 
@@ -864,15 +864,16 @@ Input.GetKeyDown(string keyName)：
 
 #### 背景设置
 
-在层次结构中选择Background对象，然后在`Sprite Renderer component > Sprite，选择_City、_Nature或_Town`
+在层次结构中选择 `Background` 对象，然后在 `Sprite Renderer component > Sprite，选择_City、_Nature或_Town`
+
 ![image](https://unity-connect-prd.storage.googleapis.com/20231214/learn/images/840375f1-defc-44da-95ec-10f8b6a0429d_image.png)
 
 #### 调用 player’s Rigidbody 实现跳跃
    
-- _playerRb.AddForce(Vector3.up * 100, ForceMode.Impulse):
+- `_playerRb.AddForce(Vector3.up * 100, ForceMode.Impulse):`
     这行代码使用了 ForceMode.Impulse，表示施加的是一个瞬间的冲量。这意味着施加的力将会立即应用到刚体上，不受刚体当前速度的影响，而是立即改变刚体的速度。
 
-- _playerRb.AddForce(Vector3.up * 100):
+- `_playerRb.AddForce(Vector3.up * 100):`
     这行代码没有指定施加的力的方式，默认情况下使用的是 ForceMode.Force，表示施加的是一个持续的力。这意味着施加的力会持续地应用到刚体上，会受到刚体当前速度的影响，并逐渐改变刚体的速度，直到力被移除或受到其他因素的影响。
 
 
@@ -947,8 +948,8 @@ public class MoveLeft : MonoBehaviour
 
 #### SpawnManager 
 
-- 在固定位置生成障碍物prefab， 记得将控制prefab向左translate的脚本override
-- extract 生成障碍物方法并InvokeRepeating 调用
+- 在固定位置生成障碍物 prefab， 记得将控制 prefab 向左 translate 的脚本 override
+- extract 生成障碍物方法并 InvokeRepeating 调用
 
 ```cs
 public class SpawnManager : MonoBehaviour // 定义一个名为 SpawnManager 的类，继承自 MonoBehaviour 类
@@ -981,15 +982,15 @@ public class SpawnManager : MonoBehaviour // 定义一个名为 SpawnManager 的
    
 #### 限制Player的pos
 
-在player刚体组件中，展开constraints，然后冻结除Y position以外的所有
+在player刚体组件中，展开 `constraints` ，然后冻结除 `Y position` 以外的所有
 
 #### 重复背景
-1. 将moveLeft.cs 应用于Background obj
+1. 将 `moveLeft.cs` 应用于 Background obj
 
 2. 为了重复背景，并提供一个世界匆匆而过的错觉，我们需要重置背景对象的位置，使其完美地结合在一起。
 
 3. 我们每隔几秒就重复一次背景，但过渡看起来很尴尬。我们需要使用一些新的变量来完美地和无缝地创建后台循环。
-   - 通过获取背景collider的width来设置repeatWidth 获得更自然的效果 （其比例与背景图由多少重复构成，当然也可以自制倍数图）
+   - 通过获取背景 collider 的 width 来设置 repeatWidth 获得更自然的效果 （其比例与背景图由多少重复构成，当然也可以自制倍数图）
 
 ```cs
 public class RepeatBackground : MonoBehaviour
