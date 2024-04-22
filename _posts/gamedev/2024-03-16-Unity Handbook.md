@@ -106,4 +106,4 @@ URP 和 HDRP 都是 **可编写脚本的渲染管道( SRP )** 。 SRP 是高度�
 3.  资源导入完成后，您可以随意浏览资源库的目录。在 GuidedProject 文件夹中，您将找到每个标志性设计的文件夹：外星人视频游戏商店、建筑渲染和海滨小镇。
    ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211206/learn/images/b5b41c17-c991-4a05-914a-fa1864788a03_image1.png.2000x0x1.png)
 
-4. 从 `[YourProjectDirectory] ​​> Assets > GuidedProject > [YourChosenProject] > Prefabs` 中，将StarterEnvironment资源拖动到层次结构中以将其添加到场景中。如果某些物体缺少粉红色材料，那也没关系！您将在着色器和材质任务中修复该问题。
+4. 从 `[YourProjectDirectory] ​​> Assets > GuidedProject > [YourChosenProject] > Prefabs` 中，将 `StarterEnvironment` 资源拖动到层次结构中以将其添加到场景中。如果某些物体缺少粉红色材料，那也没关系！您将在着色器和材质任务中修复该问题。
