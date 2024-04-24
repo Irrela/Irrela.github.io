@@ -5,10 +5,6 @@ tags:
 - GameDev
 ---
 
-- [Handbook](#handbook)
-  - [2D 项目](#2d-项目)
-      - [Layer](#layer)
-      - [Pos固定](#pos固定)
 - [项目及团队](#项目及团队)
   - [流程](#流程)
       - [游戏设计文档](#游戏设计文档)
@@ -23,6 +19,7 @@ tags:
     - [运营](#运营)
       - [项目回顾](#项目回顾)
 - [DCC](#dcc)
+      - [免费资产来源](#免费资产来源)
 - [教程项目](#教程项目)
   - [Unity Essentials](#unity-essentials)
       - [Render mode](#render-mode)
@@ -158,19 +155,6 @@ tags:
       - [Profiler 和 定位性能优化瓶颈](#profiler-和-定位性能优化瓶颈)
 
 
-# Handbook
-## 2D 项目
-#### Layer
-Inspector => order in layer
-
-#### Pos固定
-RigidBody 2D => Dynamic => constraints freeze
-
-或者
-
-RigidBody 2D => Static
-
-
 # 项目及团队
 
 ## 流程
@@ -252,6 +236,14 @@ Alpha 测试是在内部进行的，以确定问题和需要改进的领域，�
 
 
 # DCC
+
+#### 免费资产来源
+
+- ![Pexels](https://www.pexels.com/)提供免费的 2D 图像和视频。本网站上的所有资产都具有相同的许可协议：它们可以免费使用，并且付款和归属是可选的。
+
+- ![creative commons](https://search.creativecommons.org/)知识共享搜索引擎可让您根据知识共享许可证和来源过滤搜索。该站点索引图像、音频和视频文件。
+
+- ![Open Game Art](https://opengameart.org/)提供 2D 和 3D 艺术、纹理、音乐和声音效果。所有资产都是免费的；但是，有多种不同的许可证类型，因此请务必检查是否需要为每项资产的创建者提供信用。
 
 # 教程项目
 

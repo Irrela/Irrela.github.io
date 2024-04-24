@@ -5,6 +5,22 @@ tags:
 - GameDev
 ---
 
+- [Mission 1 - Intro](#mission-1---intro)
+  - [开始您的指导项目](#开始您的指导项目)
+    - [4.什么是渲染？](#4什么是渲染)
+    - [5.什么是渲染管线？](#5什么是渲染管线)
+    - [6.选择渲染管线](#6选择渲染管线)
+    - [7.创建一个新的URP项目](#7创建一个新的urp项目)
+    - [8.新建场景并导入资源](#8新建场景并导入资源)
+  - [Unity 文档入门](#unity-文档入门)
+- [Mission 2 着色器和材质](#mission-2-着色器和材质)
+  - [开始使用着色器和材质](#开始使用着色器和材质)
+  - [探索网格(Meshes)和渲染(rendering)](#探索网格meshes和渲染rendering)
+      - [网格是如何制作的？](#网格是如何制作的)
+    - [4.网格过滤器(Mesh filter) 和渲染器组件(Renderer Component)](#4网格过滤器mesh-filter-和渲染器组件renderer-component)
+    - [5.在网格渲染器中应用材质](#5在网格渲染器中应用材质)
+
+
 # Mission 1 - Intro
 
 ## 开始您的指导项目
@@ -107,3 +123,116 @@ URP 和 HDRP 都是 **可编写脚本的渲染管道( SRP )** 。 SRP 是高度�
    ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211206/learn/images/b5b41c17-c991-4a05-914a-fa1864788a03_image1.png.2000x0x1.png)
 
 4. 从 `[YourProjectDirectory] ​​> Assets > GuidedProject > [YourChosenProject] > Prefabs` 中，将 `StarterEnvironment` 资源拖动到层次结构中以将其添加到场景中。如果某些物体缺少粉红色材料，那也没关系！您将在着色器和材质任务中修复该问题。
+
+## Unity 文档入门
+
+![Unity文档网站](https://docs.unity.com/) 是您有关 Unity 所有内容的参考库。
+
+# Mission 2 着色器和材质
+
+## 开始使用着色器和材质
+
+在开始之前，如果您愿意，可以通过以下一些方法来设置项目：
+
+1. 您将看到一些图标，指示您将在其他 Creative Core 学习体验中了解的照明功能。要隐藏它们，请打开 **Scene** 视图窗口右上角的 **Gizmos** 下拉菜单，然后将 `3D Icon` 一直调整到最低值。保持 `3D Icon` 启用。
+   ![Gizmos](https://docs.unity3d.com/uploads/Main/gizmo-button-scene-view.png)
+
+2. 如果您看到其他黄线，请禁用Gizmos菜单中的LightProbeGroup 。
+
+3. 要隐藏或查看网格，请使用 Scene 视图控制栏左侧的 网格视图切换按钮。该图标有一个网格和表示 Y 平面的 Y
+
+## 探索网格(Meshes)和渲染(rendering)
+
+用技术术语来说，着色器和材质在网格上运行，网格是游戏对象的表面。它们指示 Unity 的渲染器如何渲染每个网格。在本教程中，您将了解网格和渲染。
+
+学完本教程后，您将能够：
+- 定义网格、其特征及其在渲染 3D 游戏对象中的用途
+- 解释着色器在渲染过程中的作用
+- 将材质分配给游戏对象
+
+每个渲染的 3D 游戏对象都有一个称为网格的几何形状。让我们仔细看看 Unity 编辑器中的网格。
+
+1. 在 Scene 视图中，找到窗口右上角的 `Draw mode` 下拉列表。默认情况下，它设置为 `Shaded` 。
+   ![image](https://docs.unity3d.com/uploads/Main/SceneViewControlBar.png)
+   第一个icon
+
+2. 使用下拉菜单将绘制模式更改为 `Wireframe` 。
+ 
+这就是 3D 场景本身的样子——没有着色器和材质：
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/d0e7cc70-ed8e-44ae-92d8-6aa27dff2f5c_CC_Shad_Mesh_1.png.2000x0x1.png)
+
+网格是游戏对象的 3D 骨架。 
+
+Unity 中的每个游戏对象都有一个网格。它是物体的几何元素。
+
+着色器和材质告诉 Unity 您希望如何将 3D 游戏对象的网格 从 3D 场景渲染到屏幕上的 2D 图像。 
+
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/6644a697-d323-4cd2-af32-38aadd2c4b42_CC_Shad_Mesh_2.png.2000x0x1.png)
+
+> 网格是一系列由顶点（单数：vertex ）定义的平面 2D多边形，顶点是 3D 空间中存储为 XYZ 坐标的点。
+
+https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/4018953b-4e44-43d4-a0de-a0b8f7eb30ab_CC_Shad_Mesh_3.png.2000x0x1.png
+
+如果 3D 物体仅由 2D 多边形制成，它就会像钻石或其他宝石一样具有刻面。 3D 网格需要额外的信息才能使其在某些地方显得平滑或弯曲。
+
+网格数据还包括 **法线** ，它们是定义表面面向的方向的附加值。当所有法线都垂直于边缘时，形状就会显得平坦且多面，如下图所示。
+
+https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/5bc76c0e-2b5d-433f-8b08-9832eee9044b_CC_Shad_Mesh_5.png.2000x0x1.png
+
+法线表示多边形的形状；例如，它是弯曲的而不是平坦的，以及它是如何弯曲的。着色器根据法线将网格渲染为弯曲的，而不实际更改网格。球体实际上是由许多平坦表面组成的网格，但其法线使表面显得光滑。
+
+着色器的工作是考虑来自顶点和法线的所有数据以准确表示网格表面。
+
+#### 网格是如何制作的？
+您可以轻松地将简单的原始形状（例如立方体和球体）添加到 Unity 项目中。任何比这更复杂的东西都是在专门的应用程序中创建的，例如 
+- Blender®
+- Autodesk® 3ds Max®  
+- Maya®
+- Adobe® Substance 3D Collection® 
+- Pixologic® ZBrush®
+
+### 4.网格过滤器(Mesh filter) 和渲染器组件(Renderer Component)
+当您选择苹果或任何非空游戏对象，并在检查器中查看其组件时，网格由网格过滤器组件和网格渲染器组件表示。
+
+1. 在工作台上，选择任意苹果。
+2. 在层次结构中，您将看到苹果是一个带有两个子游戏对象的空游戏对象。从层次结构中，选择子 `AppleBody` 。
+3. 在检查器中，查看 `Apple Body (Mesh Filter)` 和 `Mesh Renderer ` 。
+
+**Mesh Filter component**
+网格过滤器组件指向项目中的网格坐标数据。
+
+如果您愿意，您甚至可以在此处替换网格，方法是选择对象选择器（圆形图标）并从项目中的任何其他对象（例如苹果）中选取网格。
+
+有时，如果您在 Unity 中的游戏对象上做了很多工作（例如，使用着色器和材质或动画），然后想要更改网格，则这会很有用 - 您可以重新导入新网格并替换它。
+
+**Mesh Renderer component**
+网格渲染器组件是您指定网格渲染方式的位置。
+
+这里有几个属性，但最重要的一个是 `materials` 。在这些教程中，您将经常返回网格渲染器组件以将材质应用到游戏对象。
+
+### 5.在网格渲染器中应用材质
+
+`material` 是一种与着色器一起定义网格渲染方式的资源。一种材质可以应用于多种网格。
+
+https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/53faa02d-8b96-4928-aef5-469f89fa568b_CC_Shad_Mesh_6.png.2000x0x1.png
+
+
+让我们使用网格渲染器组件将材质应用到工作台上的白苹果：
+
+1. 如果尚未返回到 `Shaded view` ，请返回。
+2. 在层次结构中，选择名为 `Apple` 的游戏对象，或者在场景视图中，选择白苹果。
+    1. 如有必要，将其移至您可以看到的地方。 （此游戏对象有子游戏对象；移动时请务必选择父对象。）
+3. 在层次结构中，选择 `AppleBody` 子对象。
+4. 在检查器中，找到 `Mesh Renderer`。
+   1. 在这里，您将看到标题为 `Materials` 的部分，其中包含一个标记为 `Element 0` 的项目。 （如果 `Element 0` 不可见，您可能需要选择左侧的折叠页（三角形图标）来展开此部分。）
+   2. 您将在此处 Apply material 。
+   3. 
+   https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/ec7ecc93-30a3-4d29-8040-e4986642d975_CC_Shad_Mesh_7.png.2000x0x1.png
+   
+   4. （加号 ( + ) 和减号 ( - ) 按钮允许您从应用于对象的材料列表中添加和删除材质。虽然可以将多种材质应用于一个游戏对象，但这超出了本项目的范围。） 
+
+5. 让我们通过更换材质来使这个苹果看起来更像一个苹果。在网格渲染器组件中，选择材质名称右侧的对象选择器（圆形图标）。将出现 `Select Material` 对话框窗口。搜索 AppleRed 并选择它。
+   1. https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/83710269-750e-437b-8eaf-d5b94bb8e442_CC_Shad_Mesh_8.png.2000x0x1.png
+   2. 在检查器中，请注意窗口底部或附近的部分（材质检查器），其中列出了材质的属性。此部分的标题将为您刚刚应用的材料的名称。 （您可能需要选择左侧的折页（三角形图标）来展开此部分。）您将在此处创建和配置材质。
+   3. https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/0eb593a8-4712-4993-8bef-c401aa468194_CC_Shad_Mesh_9.png.2000x0x1.png
+
