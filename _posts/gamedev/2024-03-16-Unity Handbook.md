@@ -19,6 +19,10 @@ tags:
       - [网格是如何制作的？](#网格是如何制作的)
     - [4.网格过滤器(Mesh filter) 和渲染器组件(Renderer Component)](#4网格过滤器mesh-filter-和渲染器组件renderer-component)
     - [5.在网格渲染器中应用材质](#5在网格渲染器中应用材质)
+  - [探索着色器(Shader)](#探索着色器shader)
+    - [2.着色器的类型](#2着色器的类型)
+    - [3.基于物理的着色器和渲染](#3基于物理的着色器和渲染)
+    - [4.通用渲染管线中的着色器](#4通用渲染管线中的着色器)
 
 
 # Mission 1 - Intro
@@ -171,13 +175,13 @@ Unity 中的每个游戏对象都有一个网格。它是物体的几何元素�
 
 > 网格是一系列由顶点（单数：vertex ）定义的平面 2D多边形，顶点是 3D 空间中存储为 XYZ 坐标的点。
 
-https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/4018953b-4e44-43d4-a0de-a0b8f7eb30ab_CC_Shad_Mesh_3.png.2000x0x1.png
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/4018953b-4e44-43d4-a0de-a0b8f7eb30ab_CC_Shad_Mesh_3.png.2000x0x1.png)
 
 如果 3D 物体仅由 2D 多边形制成，它就会像钻石或其他宝石一样具有刻面。 3D 网格需要额外的信息才能使其在某些地方显得平滑或弯曲。
 
 网格数据还包括 **法线** ，它们是定义表面面向的方向的附加值。当所有法线都垂直于边缘时，形状就会显得平坦且多面，如下图所示。
 
-https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/5bc76c0e-2b5d-433f-8b08-9832eee9044b_CC_Shad_Mesh_5.png.2000x0x1.png
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/5bc76c0e-2b5d-433f-8b08-9832eee9044b_CC_Shad_Mesh_5.png.2000x0x1.png)
 
 法线表示多边形的形状；例如，它是弯曲的而不是平坦的，以及它是如何弯曲的。着色器根据法线将网格渲染为弯曲的，而不实际更改网格。球体实际上是由许多平坦表面组成的网格，但其法线使表面显得光滑。
 
@@ -214,7 +218,7 @@ https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/5bc76c0e-2
 
 `material` 是一种与着色器一起定义网格渲染方式的资源。一种材质可以应用于多种网格。
 
-https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/53faa02d-8b96-4928-aef5-469f89fa568b_CC_Shad_Mesh_6.png.2000x0x1.png
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/53faa02d-8b96-4928-aef5-469f89fa568b_CC_Shad_Mesh_6.png.2000x0x1.png)
 
 
 让我们使用网格渲染器组件将材质应用到工作台上的白苹果：
@@ -227,12 +231,90 @@ https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/53faa02d-8
    1. 在这里，您将看到标题为 `Materials` 的部分，其中包含一个标记为 `Element 0` 的项目。 （如果 `Element 0` 不可见，您可能需要选择左侧的折叠页（三角形图标）来展开此部分。）
    2. 您将在此处 Apply material 。
    3. 
-   https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/ec7ecc93-30a3-4d29-8040-e4986642d975_CC_Shad_Mesh_7.png.2000x0x1.png
+   ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/ec7ecc93-30a3-4d29-8040-e4986642d975_CC_Shad_Mesh_7.png.2000x0x1.png)
    
    4. （加号 ( + ) 和减号 ( - ) 按钮允许您从应用于对象的材料列表中添加和删除材质。虽然可以将多种材质应用于一个游戏对象，但这超出了本项目的范围。） 
 
 5. 让我们通过更换材质来使这个苹果看起来更像一个苹果。在网格渲染器组件中，选择材质名称右侧的对象选择器（圆形图标）。将出现 `Select Material` 对话框窗口。搜索 AppleRed 并选择它。
-   1. https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/83710269-750e-437b-8eaf-d5b94bb8e442_CC_Shad_Mesh_8.png.2000x0x1.png
+   1. ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/83710269-750e-437b-8eaf-d5b94bb8e442_CC_Shad_Mesh_8.png.2000x0x1.png)
    2. 在检查器中，请注意窗口底部或附近的部分（材质检查器），其中列出了材质的属性。此部分的标题将为您刚刚应用的材料的名称。 （您可能需要选择左侧的折页（三角形图标）来展开此部分。）您将在此处创建和配置材质。
-   3. https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/0eb593a8-4712-4993-8bef-c401aa468194_CC_Shad_Mesh_9.png.2000x0x1.png
+   3. ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/0eb593a8-4712-4993-8bef-c401aa468194_CC_Shad_Mesh_9.png.2000x0x1.png)
 
+## 探索着色器(Shader)
+
+着色器是一个脚本，它应用材质中包含的属性 将 3D 对象 的 meshes 渲染到屏幕上的 2D 图像。
+
+每个着色器都是为特定 [render pipeline](https://learn.unity.com/tutorial/get-started-on-your-guided-project#619fbf21edbc2a39aabd80eb) 编写的。 
+
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/f9a7bbfa-9e76-42f3-bf2c-7ef4bdd896a9_CC_Shad_Shdrs_1.png.2000x0x1.png)
+
+您使用的着色器取决于您的渲染管道。
+
+在 Unity 中，每个模板都附带专门为模板中使用的渲染管道设计的着色器。
+
+着色器可以有很大的不同，提供多种可以应用于您的项目的视觉样式。在稍后的学习体验中，您甚至将学习如何创建自己的着色器！
+
+### 2.着色器的类型
+
+总的来说，着色器中发生两种类型的操作：**片段着色(Fragment shading)** 和 **顶点着色(Vertex shading)** 。
+
+片段着色，也称为像素着色，是表示网格表面以产生 2D 图像中每个像素的颜色的着色。在此项目中，我们将使用片段着色器并详细讨论它们如何使用场景中的光线进行渲染。
+
+顶点着色作用于网格的顶点，通常会更改其位置以使表面移动或变换。我们不会在本次学习体验中介绍顶点着色，但我们将在未来的教程中提供更多资源。
+
+您经常会看到着色器被称为片段着色器或顶点着色器，具体取决于它们的主要用途，但所有着色器都可以执行这两种操作。
+
+### 3.基于物理的着色器和渲染
+
+随着计算机变得越来越强大并且渲染技术不断发展，**基于物理的渲染 (PBR)** 已经变得更加广泛。 
+
+PBR 模拟现实世界的物理和光原理，以在 3D 表面上生成逼真的阴影、反射、环境光和其他光效果。[您可以在 Unity 手册中了解有关这些原则的更多信息](https://docs.unity3d.com/Manual/shader-StandardShader.html)。
+
+使用 PBR ，灯光和表面的属性保持分离。
+
+灯光是根据亮度、颜色和范围来定义的。
+
+表面是使用材料根据颜色、反射率和其他影响光在表面上的行为的现实世界属性来定义的。 （您将在本次学习体验中了解这些现实世界的属性。）然后，着色器根据场景的灯光、表面和 3D 几何体以及其他因素来计算从表面反射的光的质量。
+
+在下图中，每个表面的外观随着场景中光线的变化而变化。每个图像中的表面属性都是相同的——只是光线的颜色和方向发生了变化。
+
+![video](https://connect-cdn-public-prd.unitychina.cn/h1/20211122/learn/images/77875b15-bebe-427b-a7d9-5c436beff2c3_PBRExample.gif._gif_.mp4)
+
+
+另一方面，对于 **非基于物理的渲染** ，渲染的颜色、阴影和反射要么在没有 PBR 科学的情况下进行近似，要么根本不渲染。
+
+使用非 PBR 着色器，红色材质可能会渲染为纯红色或具有简单的反射和阴影。
+
+非 PBR 通常看起来不像 PBR 那样真实，但对于风格化效果来说它可能更理想。
+
+**卡通着色器是一种非 PBR 着色器，它使 3D 场景中的表面看起来像 2D 卡通。**
+
+### 4.通用渲染管线中的着色器
+
+着色器必须与项目的 `渲染管道` 兼容。
+
+在本次学习体验中，我们将在通用 `渲染管道 (URP)` 项目中工作，因此我们将仅使用 URP 着色器。让我们快速浏览一下一些 URP 着色器。
+
+您会看到许多着色器的名称中都包含 **Lit** 或 **Unlit** 。
+
+**Lit** 着色器会对场景中的光线做出响应，而 **Unlit** 的着色器则不会。
+
+**Unlit** 着色器对于某些艺术效果 或 通过不使用光照来更有效地运行的优化项目很有用。
+
+> 注意：更改已创建材质的着色器（正如您将在本演示中所做的那样）并不常见，因为材质基于特定着色器的属性。通常，您将首先选择一个着色器，然后为该着色器配置材质。
+
+浏览着色器：
+
+1. 在工作台上选择一个黄色柠檬（不是白色柠檬）。
+2. 在检查器中，找到位于检查器窗口底部的 material 检查器，并根据需要展开该部分。
+3. 在 material 检查器 顶部的材质缩略图附近，找到 `Shader` 属性。
+4. 使用下拉列表查看着色器类别列表。选择 `Universal Render Pipeline` 以查看 URP 着色器。
+5. 选择黄色柠檬游戏对象后，选择每个 URP 着色器并注意结果。请务必从 `Universal Render Pipeline` 子菜单中选择着色器。
+   1. **2D > Sprite-Lit-Default:** 专为 2D 项目设计，此着色器仅适用于平面对象，并将任何 3D 对象渲染为 2D。作为光照着色器，它将根据场景中到达对象的光线进行渲染。
+   2. **Particles > Lit, Simple Lit, and Unlit:** 这些着色器用于视觉效果 (VFX)。在创意核心途径中，您将在 VFX 任务中使用这些着色器。
+   3. **Terrain > Lit:** 此着色器针对与 Unity 中的 Terrain 工具一起使用进行了优化。在创意核心途径中，您将在原型制作任务中使用此着色器。
+   4. **Baked Lit:** 此着色器会自动应用于光照贴图，您将在创意核心途径的光照任务中遇到它。
+   5. **Complex Lit, Lit, and Simple Lit:** 这些都是通用的、基于物理的光照着色器的变体。
+   6. **Unlit** 如上所述，不使用光的着色器。
+
+在本次学习体验中，我们将使用 **Universal Render Pipeline/Lit Shader,** ，这是一种基于物理的着色器。因为它是基于物理的，所以我们定义的材质将基于现实世界表面的属性，例如反照率颜色、镜面反射值和反射率 - 您将在以后的教程中学习这些概念。 
