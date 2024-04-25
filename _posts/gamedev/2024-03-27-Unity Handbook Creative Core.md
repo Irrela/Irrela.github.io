@@ -55,6 +55,15 @@ tags:
     - [2.什么是凹凸贴图？](#2什么是凹凸贴图)
     - [3.使用法线贴图添加表面细节](#3使用法线贴图添加表面细节)
     - [4.使用高度图添加浮雕](#4使用高度图添加浮雕)
+  - [使用更多纹理贴图细化表面](#使用更多纹理贴图细化表面)
+    - [2.使用遮挡贴图(occlusion maps)强化阴影](#2使用遮挡贴图occlusion-maps强化阴影)
+    - [3.使用微表面贴图(microsurface maps)添加细节](#3使用微表面贴图microsurface-maps添加细节)
+    - [4.使用发射贴图(emission maps)照亮表面](#4使用发射贴图emission-maps照亮表面)
+  - [开始使用 Shader Graph](#开始使用-shader-graph)
+    - [2.打开Shader Graph](#2打开shader-graph)
+    - [3.添加程序图(procedural map)](#3添加程序图procedural-map)
+    - [4.随着时间的推移创造运动(motion)](#4随着时间的推移创造运动motion)
+    - [5.添加输入材质属性](#5添加输入材质属性)
 
 
 # Mission 1 - Intro
@@ -1000,3 +1009,178 @@ UV 坐标类似于常规 2D 空间中的 XY 坐标，但称为 UV 是为了与�
 3. 打开 `Textures > Tiled Textures` 文件夹，找到名称中带有 `Pavement` 的纹理文件。
 4. 应用 `Base Map`（反照率）、 `Metallic Map` 、`Normal Map` 和 `Height Map` 的纹理。
 5. 滑块和数字字段将出现在 `Height Map` 属性处。调整 `Height Map` 值以查看效果。
+
+
+## 使用更多纹理贴图细化表面
+
+一旦熟悉了 URP/Lit 着色器的基本属性，您就会知道如何使用作为 3D 创建者会遇到的许多着色器、材质和纹理。本教程将完成您对该着色器的了解。
+
+学完本教程后，您将能够：
+
+- 解释 URP/Lit 着色器的详细输入的使用
+- 解释高动态范围颜色
+
+在本教程中，我们将向您展示这些其他类型的纹理，并让您自行将它们应用到图库中的作品。然后，您将通过创造性的挑战来测试您的知识。
+
+
+### 2.使用遮挡贴图(occlusion maps)强化阴影
+
+在 3D 图形中，`遮挡(Occlusion)` 是指物体对光线的阻挡。人行道上的裂缝和紧握的拳头手指之间的细暗阴影线都是遮挡的例子。
+
+即使在 PBR 中，环境光也会以奇怪的方式反射到应该被遮挡的地方。 `遮挡贴图(occlusion map)` 向这些遮挡区域添加阴影。
+
+遮挡贴图与 3D 建模软件中的大多数模型一起生成。这些效果有时很微妙，但它们使表面上的光线更加真实，并且可以以底图和凹凸贴图无法做到的方式增强详细的阴影。
+
+对于 Ellen 的模型，遮挡贴图显示在纹理展示中。它是一个灰度（单通道）贴图，仅指示光和阴影，从
+右侧数第二个。
+
+要查看遮挡贴图的效果：
+
+1. 在层次结构中，找到 `Ellen` GameObject 并选择 `Ellen_Body` 子对象。在层次结构中双击它即可放大。
+2. 调整视角，仔细观察模特正面的艾伦衣领。
+3. 在检查器中，找到 `Ellen_Body` 材质并展开其材质检查器。
+4. 将遮挡贴图从 1  调整到 0，然后再调整回来，以查看遮挡贴图的效果。
+
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/f9a88d17-6c7f-4a6d-b95e-71c05cc94fde_CC_Shad_Ref_1.png.2000x0x1.png)
+
+如果没有遮挡贴图，艾伦衣领两侧就没有阴影，这使得该区域看起来很平坦。事实上，在没有遮挡图的情况下，近距离看起来好像有光从她的脖子后面射过来。有了额外的阴影，衣领看起来更圆，阴影看起来她的衣领和背心是两个不同的对象（即使在这个模型上它们是一个）。
+
+现在轮到您应用遮挡贴图了。在工作台上，返回水壶。打开 `Textures > Kettle` 文件夹并尝试识别遮挡贴图。将其应用到水壶上并比较有和没有遮挡贴图的效果。
+
+
+### 3.使用微表面贴图(microsurface maps)添加细节
+
+仔细观察现实世界中具有光滑表面的物体，例如智能手机上布满指纹的玻璃，或者您最喜欢的已被划伤和磨损的咖啡杯。如果您想要对**这些项目进行建模并包含指纹或划痕**等细节，则可以使用微表面贴图来添加底图或法线贴图中未捕获的细节级别。
+
+研究艾伦的微表面图：
+
+1. 放大 Ellen 的脸。
+2. 在层次结构中，选择 `Ellen > Ellen_Body` 对象。
+3. 在检查器中，打开 `Ellen_Head` 材质检查器。
+4. 在 `Detail Inputs` 部分（位于您一直工作的 `Surface Inputs` 部分下方），找到 `Normal Map` 。调整滑块以查看该贴图在艾伦皮肤上的效果。这是一个在常规法线贴图之上工作的平铺纹理。
+5. 比较材质的 `Surface Inputs` 和 `Detail Inputs` 部分  中使用的两个法线贴图，您将看到这两个贴图如何协同工作以创建非常详细的效果。为此，请在材质检查器中选择它们的缩略图，以在项目窗口中查找纹理文件。
+
+URP/Lit Shader 材质的“细节输入”部分中有两个附加纹理：
+- `Detail Inputs Base Map` 可以添加细节颜色，例如织物中的线。
+- `Mask` 是一个 Alpha 通道贴图，可将指定区域与底贴图和法线贴图微表面贴图屏蔽开。
+
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/f4a34651-9aeb-4c68-a300-2b5167f848f8_CC_Shad_Ref_2.png.2000x0x1.png)
+
+### 4.使用发射贴图(emission maps)照亮表面
+
+发光(Emissive)材质似乎会发出自己的光。您可以使用 **emission maps** 来指定表面发光的区域。
+
+观察我们画廊的纹理展览中展示的艾伦的发射图。它大部分是黑色的，但仔细观察，你会看到三个绿点。这张地图上的点与艾伦脖子后面和机器人手臂顶部的灯对齐。
+
+地图上的颜色会影响灯光的颜色。此外，HDR颜色选择器使发射贴图的非黑色区域发出彩色光。
+
+HDR代表 **高动态范围（high dynamic range）** 。 HDR 颜色在常规显示颜色范围之外具有额外的亮度。这些对于发光物体和强烈的镜面反射很有用。 HDR 颜色选择器有一个强度滑块，用于控制向颜色添加多少额外的亮度。
+
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/ffd0fb01-33f1-49f3-a1a1-eb00a6d71628_CC_Shad_Ref_3.png.2000x0x1.png)
+
+## 开始使用 Shader Graph
+
+既然您已经了解了着色的基础知识，您就拥有了更进一步的知识 - 创建您自己的着色器。借助 Shader Graph，您可以轻松应用您的知识来创建令人兴奋的新效果。
+
+学完本教程后，您将能够：
+
+解释 Shader Graph 及其用途
+- 在 Shader Graph 中创建一个新着色器
+- 在 Shader Graph 编辑器窗口中导航
+- 连接常用的 Shader Graph 节点以创建所需的效果
+- 制作具有可配置材质属性的着色器
+- 从自定义 Shader Graph 着色器制作材质
+
+您可以使用着色器和材质创建许多有趣的效果，并且不限于 Unity 提供的着色器。着色器是如果您了解编码语言就可以操作的脚本。尽管学习该语言超出了这些教程的范围，但有一个工具可以使着色器编码变得更容易：Shader Graph。
+
+Shader Graph允许您创建专门的着色​​器，而无需编写代码。特别是，您可以组合纹理并使其在片段着色器中移动，甚至可以更改顶点着色器中的顶点位置。专业的技术艺术家创建自定义着色器来实现专门的艺术风格并创建复杂的物质，如流动的熔岩、风暴云和植被。可能性几乎是无限的！
+
+在本教程中，您将创建一个新的着色器，其视觉效果是您一直使用的 URP/Lit 着色器无法实现的。像专业技术艺术家一样，您将开发此自定义着色器，以便其他艺术家（包括您自己）可以用它创建材质。  
+
+完成后，您将拥有用于艺术创作的有趣的新材质，并且您将获得更多自定义着色器的新想法。
+
+### 2.打开Shader Graph
+
+Shader Graph，顾名思义，可以帮助您使用类似流程图的图表来构建着色器。创建图表时，您可以实时查看着色器的默认材质，这使您可以轻松进行实验。
+看一下您将要构建的着色器的原型。画廊里陈列着两件作品，位于艾伦对面的底座上。要检查此着色器的着色器图：
+
+1. 在“项目”窗口中，导航至 `Assets > CreativeCore_Shaders > ShaderGraphs` 文件夹。在此文件夹中，您将看到四个资源：两个材质和两个使用 Shader Graph 创建的着色器。
+2. 双击 `Example_Shimmer` 着色器资源将其打开。 Shader Graph 窗口将打开，您将看到该图表。
+
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/7efc2130-4ce3-4d51-be6f-f3498a5063ab_CC_Shad_SG_2_1.jpg.2000x0x1.jpg)
+
+**着色器图表窗口**
+
+如果您愿意，可以打开已完成的 Shader Graph 着色器（如上所示）并随时参考。您将从新的空白 Shader Graph 窗口启动自己的着色器：
+
+1. 在项目窗口的 `Assets > CreativeCore_Shaders > ShaderGraphs` 文件夹中，右键单击并选择 `Create > Shader Graph > URP > Lit Shader Graph` 。这将在文件夹中创建一个新的 URP 着色器。
+2. 将新着色器命名为 `Shimmer_ShaderGraph` 或任何您喜欢的名称。
+3. 双击着色器以在新的 `Shader Graph window` 中将其打开。
+    1. 当您检查 `Shader Graph window` 窗口时，您将看到创建着色器时将使用的以下功能：
+    2. ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/e490d65c-a67a-4aa9-a155-9f534e5bf047_CC_Shad_SG_2_2.jpg.2000x0x1.jpg)
+        1. `Shader Graph toolbar (1)` 是您保存着色器资源的位置。
+        2. `Blackboard (2)` 包含使用此着色器创建材质的艺术家可用的属性。您可以在此处定义属性类型及其名称、属性和默认值。
+        3. 您将在 `workspace (3)` 中创建着色器的节点图。
+        4. `Main Preview Window (4)` 将为您提供着色器外观及其行为方式的实时更新。
+        5. `Graph Inspector Window (5)` 将显示您选择的任何节点的当前设置、属性和值。
+        6. `Master Stack (6)` 是着色器图的终点，它定义着色器的最终表面外观。它列出了顶点和片段着色器的主要着色器属性，并为您提供了将在其中插入必要值的最终节点。
+    3. 练习在图表中移动：
+        1. `平移(Pan)` ：单击鼠标中键并拖动，或者按住 `Alt (Windows)` 或 `Option (macOS)` 并单击并拖动。
+        2. `缩放(Zoom)`：旋转滚轮或使用触控板缩放。
+        3. `聚焦并放大(Focus and zoom in)`：选择一个元素并按 `F` 键。
+        4. `适合窗口(Fit to window)`：按 `A` 键。
+
+有关 Shader Graph 用户界面的完整文档，请 [参阅Unity 手册中的 Shader Graph 窗口文档](https://docs.unity3d.com/Packages/com.unity.shadergraph@10.7/manual/Shader-Graph-Window.html)。
+
+
+### 3.添加程序图(procedural map)
+
+本教程的目标是创建具有发光、透明、闪烁效果的自定义着色器。您可以按照以下步骤在库中重新创建着色器 - 或者随时进行实验！
+
+基本的闪光是用 **procedural noise map** 制作的。**程序(Procedural)** 意味着纹理是通过某种公式或算法创建的，而不是来自图像或其他物理源。 Shader Graph 提供了一些程序噪声贴图可供选择。每一个都会生成一个类似云的地图，其中较亮和较暗的区域以看似随机的模式出现。
+
+添加您的第一个节点：
+
+1. 选择 Shader Graph 工作区，然后按空格键打开 `Create Node` 菜单。 （您也可以右键单击并选择 `Create Node` 。）
+2. 使用顶部的搜索输入输入 `Gradient Noise` 。
+3. `Gradient Noise` 节点将出现在结果中。双击将其选中。
+
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/50562ebc-03d2-4770-9c5b-5599d7fc5ab7_CC_Shad_SG_3_1.jpg.2000x0x1.jpg)
+
+### 4.随着时间的推移创造运动(motion)
+
+渐变噪声贴图的程序纹理提供了我们想要的闪烁效果的变化。但我们如何让它动起来呢？您可能还记得，可平铺纹理的 `Offset` 属性会更改其在给定表面上的位置。在此着色器中，您将使偏移值连续变化，以便渐变噪声贴图移动。
+
+正如 URP/Lit Shader 中 `Tiling` 和 `Offset` 一起出现一样，Shader Graph 中 Tiling 和 `Offset` 合并为一个节点。
+
+1. 在工作区中，按空格键或使用上下文菜单（在大多数设备上在工作区中右键单击）创建新的 `Tiling and Offset` 节点。该节点将允许您调整噪声图的比例和位置。
+2. 将 `Tiling and Offset` 节点的输出拖至 `Gradient Noise` 节点的UV输入。现在，您在平铺和偏移中输入的值将影响渐变噪声。
+3. 更改 `Tiling and Offset` 节点上的 `Offset` 以查看偏移如何重新定位图案。我们的下一个目标是使图案不断移动以产生闪烁的效果。
+    1. ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/949f2f50-d7c7-4ec5-8687-57103de75c3a_CC_Shad_SG_3_2.jpg.2000x0x1.jpg)
+4. 创建 `Time` 节点。该节点允许您随时间更改值。
+5. 在本例中，您将更改 offset 以模拟着色器上的滚动效果。将 `Time` 节点的 `Time` 输出拖动到 `Tiling and Offset` 节点上的 `Offset` 输入。
+    1. ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/d85ca5c2-1b81-4f54-9ec6-e46df1c62894_CC_Shad_SG_3_3.jpg.2000x0x1.jpg)
+    2. 噪声纹理现在已动画化！
+6. 要查看默认材质的外观，请将 `Gradient Noise` 节点的输出连接到 `Master Stack` 中的 `Base Color` 。虽然还不是真正的闪光，但你已经在路上了！
+
+> 重要提示：通过选择工具栏顶部的 `Save Asset` 来保存着色器。经常保存！
+
+### 5.添加输入材质属性
+
+如果该着色器允许使用它的艺术家（包括您自己）控制微光运动的速度，那么该着色器将对他们更有用。您可以使用设置材质属性的 `input nodes` 来完成此操作，从而允许艺术家使用材质更改着色器的外观。
+输入节点在`Blackboard`中创建，其标题与着色器相同。
+
+1. 选择黑板上的 ` plus (+)` 按钮，然后选择 `Float` 以创建新的 float（浮点值）输入节点。将其命名为 `ScrollSpeed` 。使用此输入节点，艺术家可以通过在材质中输入浮点数来调整速度。
+   1. ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/34616c56-e735-4970-a280-cc735aebf931_CC_Shad_SG_3_4.jpg.2000x0x1.jpg)
+2. 将输入节点从 `Blackboard` 拖到工作区中。
+   1. ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/14c96339-223a-48de-903d-89526d12a53c_CC_Shad_SG_3_5.jpg.2000x0x1.jpg)
+3.  Time 节点上没有输入槽，因此您需要采用不同的方式来组合 Time 和 ScrollSpeed 值。为此，创建一个 `Multiply` 节点。该节点是组合两个值的简单方法。它需要两个值，将它们相乘，然后输出结果。
+    1.  提示：这是调出“创建节点”菜单的另一种方法：从 ScrollSpeed（或任何）节点的输出中拖动，然后在工作区的空白处放开。将出现“创建节点”菜单，当您选择一个节点时，它会自动连接到您开始时使用的输出。
+4. 通过选择连接器并将其删除，断开 `Time` 和 `Tiling and Offset` 节点的连接。
+5. 将 Time 和 ScrollSpeed 节点的输出连接到 Multiply 节点的输入。
+6. 将 Multiply  输出连接到 Offset 输入。
+    1. ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/e3dfa712-1bb1-4d74-8273-4ffa75a2aa74_CC_Shad_SG_3_6.jpg.2000x0x1.jpg)
+    2. 噪声图的滚动已停止！这是因为 ScrollSpeed 默认值为 0。对于使用此着色器的艺术家来说，此默认值应该大于 0，这样就不会发生这种情况。无论如何，将其更改为较慢的速度也可能会更好。
+7. 要更改默认值，请选择 ScrollSpeed 节点，然后在图形检查器中输入新的默认值。尝试找到一个可以产生良好闪光的值。
+   1. ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/f5bfd138-2db8-4ea7-b774-2646dfaab7fb_CC_Shad_SG_3_7.jpg.2000x0x1.jpg)
+   
