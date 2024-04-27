@@ -64,6 +64,14 @@ tags:
     - [3.添加程序图(procedural map)](#3添加程序图procedural-map)
     - [4.随着时间的推移创造运动(motion)](#4随着时间的推移创造运动motion)
     - [5.添加输入材质属性](#5添加输入材质属性)
+    - [6.组合贴图(Combine maps)](#6组合贴图combine-maps)
+    - [7.对节点进行分组以保持组织有序](#7对节点进行分组以保持组织有序)
+    - [8.允许材质中的纹理缩放](#8允许材质中的纹理缩放)
+    - [9.调整对比度](#9调整对比度)
+    - [10.调整颜色和透明度](#10调整颜色和透明度)
+    - [11.完成着色器](#11完成着色器)
+    - [12.创建测试材料](#12创建测试材料)
+    - [13.探索 Shader Graph](#13探索-shader-graph)
 
 
 # Mission 1 - Intro
@@ -1184,3 +1192,152 @@ Shader Graph，顾名思义，可以帮助您使用类似流程图的图表来�
 7. 要更改默认值，请选择 ScrollSpeed 节点，然后在图形检查器中输入新的默认值。尝试找到一个可以产生良好闪光的值。
    1. ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/f5bfd138-2db8-4ea7-b774-2646dfaab7fb_CC_Shad_SG_3_7.jpg.2000x0x1.jpg)
    
+
+### 6.组合贴图(Combine maps)
+
+着色器现在具有移动噪声，但它可能更加闪亮。您可以通过将此贴图与以不同速度移动的不同噪声贴图相结合来创建更有趣的效果。为此，您将复制到目前为止所做的事情，稍微更改一下副本，然后将两张地图合并为一张。
+
+就像向纹理添加运动一样，组合贴图是另一种只能在自定义着色器中创建的效果！
+
+1. 选择您之前创建的“渐变杂色”、“乘法”、“平铺”和“偏移”节点（不要选择“时间”或“滚动速度”）。您可以绘制一个与它们接触的框，或者在选择它们时使用 `Ctrl (Windows)` 或` Cmd (mac)`。
+
+2. 右键单击​​并选择 `Duplicate` 以复制所选节点。重复的 Multiply 节点仍将连接到相同的输入节点，这很有用。
+   您可以通过降低输入 ScrollSpeed 来减慢新地图的运动速度，而不是加快该新地图的运动速度。例如，如果第二张地图的速度始终是第一张地图的一半，则这两张地图将创建一个不断变化的图案。
+
+3. 要实现此目的，请在“时间”节点和重复的“乘法”节点之间插入一个新的“除法”节​​点。
+
+4. 将 Time 节点的输出连接到 Divide 节点的输入 A，并将 Divide 节点的输出连接到 Multiply 节点的输入 B。
+
+5. 使用 B 输入将 Divide 节点的值设置为 2，将 ScrollSpeed 除以 2。
+   1. ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/257e00e4-e1b1-496c-b8b2-870505d34871_CC_Shad_SG_4_1.jpg.2000x0x1.jpg)
+   
+6. 现在您有两个不同的梯度噪声节点，以不同的速度移动。其中每一个都是值从 0 到 1 的灰度图。要组合它们，您可以使用 Multiply 节点来获取值在 0 到 1 之间的新图。在渐变噪声的右侧添加并连接一个新的 Multiply 节点节点，并将结果输出到Master Stack的Base Color。
+
+### 7.对节点进行分组以保持组织有序
+
+您的图表中现在有相当多的节点。到目前为止你所做的只是一部分。在继续之前，您可以将节点分组在一起以保持它们井井有条，以便更轻松地添加更多节点。
+
+到目前为止，您组装的节点通过随时间改变偏移来在纹理中创建运动。您可以对它们进行分组并标记它们，以帮助您跟踪节点正在执行的操作：
+
+1. 选择生成偏移设置的所有节点。这应该是梯度噪声节点左侧的所有内容（但不包括 the Gradient Noise nodes），如下图所示。
+    1. ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/82df1696-c7ca-43c4-b7b0-f7f4fe2fe296_CC_Shad_SG_5_1.jpg.2000x0x1.jpg)
+   
+2. 选择所有这些节点后，右键单击任意节点（不在工作区背景上）并选择 `Group Selection`  。您也可以按 `Ctrl/Cmd + G` 。将组命名为 `Changing Offset over Time` 。
+
+3. 您还可以折叠各个节点的缩略图并移动它们，直到您满意为止。
+    1. ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/21e03133-3f67-498e-ae03-ce757f390759_CC_Shad_SG_5_2.jpg.2000x0x1.jpg)
+
+
+### 8.允许材质中的纹理缩放
+
+对于使用该着色器制作材质的艺术家来说，允许他们更改纹理的比例会很有用。例如，在大型对象上，微光着色器的输出（就像现在一样）可能看起来太小且有颗粒感。您可以添加一个输入节点，例如为 ScrollSpeed 添加的输入节点，以使纹理可缩放。
+
+当您调整比例时，使两个组合纹理的比例不同可能会很有趣 - 事实上，它会增加闪烁效果。与将其中一张地图的 ScrollSpeed 除以 2 的方式相同，您也可以将其中一张地图的比例除以 2。
+
+您已经执行了这些基本任务 - 尝试按照以下几条准则自行添加所需的节点：
+- 将新的 Float 输入节点命名为 `GradientScales` 。
+- 注意梯度噪声贴图的当前比例输入值。默认值为 10。您可以在输入节点中使用此默认值，或者尝试使用您更喜欢的值。将此与 `Example_Shimmer` 着色器进行比较。
+  - 将 `GradientScales` 的输出接到一个 `Gradient Noise` 的 `Scale` 输入，和 Divide 后接到另一个 `Gradient Noise` 的 `Scale` 输入
+- 在 `Example_Shimmer` 图中，运动较快的贴图由于其较小的“比例”值而具有较大的纹理（该比例的工作方式类似于“平铺”属性：它是每个单位的图块数量）。也请随意尝试一下！  
+- 准备好后，将这些节点（包括渐变噪声节点）分组，并将组命名为“偏移和缩放”。
+
+您的最终结果应类似于下图。
+
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/4545ed86-ba0d-4a27-b619-ffa942b7d758_CC_Shad_SG_5_7.jpg.2000x0x1.jpg)
+
+
+### 9.调整对比度
+到目前为止，着色器变得更加闪亮，但它都是灰度的，有很多黑色，很多白色，中间没有太多灰色。接下来的两个节点将允许艺术家调整纹理的对比度和颜色。
+要调整对比度，您将添加一个重映射节点，该节点会将值从 0-1 范围缩放到更窄的范围。通过缩小范围，最亮和最暗区域之间的差异将会更小。
+1. 首先将 Vector2 输入节点添加到 Blackboard。 Vector2 只是一组两个值。将此输入节点命名为 `RemapValues` ，将其拖到工作区中，并将 Y 设置为 1。
+
+2. 新建 `Remap` 节点  添加到工作区。
+
+3. 将“偏移和缩放”组中 `grayscale map` 的输出连接到 `Remap` 节点的 `In` 输入（我理解时两个gradient noise 经过 multiply 后的输出）。这些是要 `Remap` 的输入值。
+
+4. 将 RemapValues 输入节点连接到 Remap 节点的 `Out Min Max` 输入。这指定了艺术家可以调整的最小和最大输出值。
+
+5. 确保 `In Min Max` 值分别设置为 0 和 1，以匹配输入值的实际范围。然后，RemapValues 节点会将 0-1 的值范围压缩到材质中指定的范围或 RemapValues 中的默认值
+    1. ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/8b7f2bc2-b02d-42fb-a7cc-f433381e3db7_CC_Shad_SG_5_10.jpg.2000x0x1.jpg)
+
+6. 使用图形检查器试验 RemapValues Vector2 的默认值范围。
+
+7. 将重映射节点的输出连接到 `Master Stack` 中的 `Base Color`，以在 `Main Preview` 中查看结果。
+
+将您的结果与 Example_Shimmer 着色器进行比较，并随意调整默认值，甚至节点连接，以获得您喜欢的闪烁结果。还有一个更重要的属性：颜色。
+
+
+### 10.调整颜色和透明度
+
+自行添加一个类型为 Color 的输入节点，名为 `TintColor` 。添加一个乘法节点以将此颜色乘以当前输出。将 `TintColor` 的默认值设置为您喜欢的颜色，并查看 Example_Shimmer 着色器以获取灵感。
+
+将这些节点分组到标题为 `Intensity and Color` 的组中，结果将类似于下图。
+
+![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/b01bd717-8a8b-4a0e-9e6f-7f1bbf8ea7b2_CC_Shad_SG_5_12.jpg.2000x0x1.jpg)
+
+为了使这种颜色真正流行，请将其设为高动态范围 (HDR) 颜色：
+
+1. 选择 TintColor 输入节点并在图形检查器中查看其默认属性。
+
+2. 将 `Mode` 从 `Default` 更改为 `HDR` 。
+
+3. 打开默认颜色的颜色选择器。现在，它具有与您在设置发射贴图时看到的 HDR 颜色选择器相同的“强度”选项。
+
+4. 将新 Multiply 节点的输出连接到 Master Stack 中的 Base Color 输入，以便您可以看到到目前为止的结果。
+   颜色还是不流行，是吗？您可以使用发射贴图使明亮区域更加明亮，这将使明亮区域发光，增加闪烁效果。
+
+5. 从 Multiply 节点到主堆栈中的 `Emission` 输入建立另一个连接。现在这是一个自发光着色器！
+    1. ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/e467bacf-b9a0-4f2b-bbe2-da862103b26b_CC_Shad_SG_5_13.jpg.2000x0x1.jpg)
+    2. 还有一个技巧：您可以使颜色较浅的着色器透明，以创建更加闪烁的效果，该效果比整个对象具有相同透明度时更引人注目。
+
+6. 在图形检查器的 `Graph Settings` 选项卡上，将此着色器的 `Surface` 类型更改为 `Transparent` 。这与您在 URP/Lit Shader 的材质中看到的设置相同。
+    1. ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/99389992-aa51-49fd-b451-2c1b1ca0d95f_CC_Shad_SG_5_14.jpg.2000x0x1.jpg)
+
+7. 更改表面类型可启用主堆栈上的 `Alpha` 输入。将 Remap 节点的灰度噪声输出（不是 Multiply 节点的有色噪声！）连接到 Alpha 输入。
+    1. ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/a37f5e5f-0ef9-47b0-8c58-8e66ce559745_CC_Shad_SG_5_15.jpg.2000x0x1.jpg)
+
+现在你有了一个发光的、闪闪发光的着色器！只需进行一些调整，艺术家就可以使用此着色器更好地控制材质的外观。
+
+### 11.完成着色器
+
+看一下主堆栈的片段着色器输入。还有一些您还没有使用过。您可以将它们保留原样，并将使用该着色器制作的每种材质的默认值设置为默认值，或者您可以允许艺术家调整它们。
+
+这是您的选择，但您可以尝试执行以下一些操作来使此着色器更有用：
+
+1. 为 Metallic 添加一个输入节点（Float）并将其连接到主堆栈上的 `Metallic` 输入。
+
+2. 为 Smoothness 添加一个输入节点（Float），并将其连接到 Master Stack 上的 `Smoothness` 输入。
+
+> 重要提示：通过选择“保存资源”来保存着色器。
+
+
+### 12.创建测试材料
+
+就是这样，您已经创建了一个闪光着色器！剩下要做的唯一一件事就是从该着色器创建可应用于对象的材质。
+
+现在创建一个测试材质并将其应用到着色器和材质库中工作台上的对象：
+
+1. 在 `Assets > CreativeCore_Shaders > Materials` 文件夹中，右键单击并选择 `Create > Material` 。给这种新材料起一个名字，比如“Shimmer”。
+
+2. 选择新材质后，转到检查器窗口更改着色器。它将列在 Shader Graphs 子菜单中。
+
+### 13.探索 Shader Graph
+Shader Graph 可以为您提供许多创建着色器和材质的机会。您可以从使用您的第一个着色器创建一套材质开始，进一步自定义着色器，甚至根据您所学的内容开始一个新的着色器！
+
+根据您所学的知识，您可以轻松尝试以下一些操作：
+
+- 创建一个着色器，允许材质艺术家输入 2D 纹理文件。提示：添加一个Texture2D输入节点和一个Sample Texture 2D节点来管理纹理文件的通道。
+
+- 尝试艺术和程序节点。抖动、混合、Voronoi 和多边形可以很有趣！要查看有关任何特定节点的文档，请将其添加到您的工作区并使用上下文菜单（右键单击）选择 `Open Documentation` 。
+
+- 检查 Shaders and Materials Gallery 项目提供的附加 Shader Graph 着色器：Dissolve_Shader。观察它如何使用 Sine、Add、Subtract 和 Branch 节点。阅读该着色器的 Shader Graph 工作区中的便笺。
+
+- 检查 **Creative Core** 任务的指导项目之一（海滨小镇项目）中的着色器。查看该项目中的水着色器并了解如何创建水效果。
+
+Shader Graph 上还有一些其他资源可以增强您的学习：
+
+- [Unity 手册中的 Shader Graph 文档](https://docs.unity3d.com/Packages/com.unity.shadergraph@10.7/manual/index.html)
+
+- [使用 Shadergraph 制作 Flag Wave](https://learn.unity.com/project/make-a-flag-move-with-shadergraph)：一个 Unity Learn 项目，将向您介绍顶点着色器和顶点位移的过程。
+
+-[ Unity Asset Store 中提供 Shader Graph 着色器(免费资源)](https://assetstore.unity.com/?free=true&q=shader%20graph) ：检查其他创建者的着色器并向其学习。
