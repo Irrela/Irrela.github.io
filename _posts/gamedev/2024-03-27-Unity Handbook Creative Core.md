@@ -72,6 +72,12 @@ tags:
     - [11.完成着色器](#11完成着色器)
     - [12.创建测试材料](#12创建测试材料)
     - [13.探索 Shader Graph](#13探索-shader-graph)
+- [Mission 3 光照](#mission-3-光照)
+  - [Unity 中的光照入门](#unity-中的光照入门)
+    - [2.检查外部照明示例](#2检查外部照明示例)
+    - [4.Unity的全局照明系统](#4unity的全局照明系统)
+    - [5.Unity中的实时光照](#5unity中的实时光照)
+    - [6.Unity中的烘焙光照](#6unity中的烘焙光照)
 
 
 # Mission 1 - Intro
@@ -362,7 +368,7 @@ PBR 模拟现实世界的物理和光原理，以在 3D 表面上生成逼真的
    1. **2D > Sprite-Lit-Default:** 专为 2D 项目设计，此着色器仅适用于平面对象，并将任何 3D 对象渲染为 2D。作为光照着色器，它将根据场景中到达对象的光线进行渲染。
    2. **Particles > Lit, Simple Lit, and Unlit:** 这些着色器用于视觉效果 (VFX)。在创意核心途径中，您将在 VFX 任务中使用这些着色器。
    3. **Terrain > Lit:** 此着色器针对与 Unity 中的 Terrain 工具一起使用进行了优化。在创意核心途径中，您将在原型制作任务中使用此着色器。
-   4. **Baked Lit:** 此着色器会自动应用于光照贴图，您将在创意核心途径的光照任务中遇到它。
+   4. **Baked Lit:** 此着色器会自动应用于 `Lightmapping` ，您将在创意核心途径的光照任务中遇到它。
    5. **Complex Lit, Lit, and Simple Lit:** 这些都是通用的、基于物理的光照着色器的变体。
    6. **Unlit** 如上所述，不使用光的着色器。
 
@@ -1341,3 +1347,116 @@ Shader Graph 上还有一些其他资源可以增强您的学习：
 - [使用 Shadergraph 制作 Flag Wave](https://learn.unity.com/project/make-a-flag-move-with-shadergraph)：一个 Unity Learn 项目，将向您介绍顶点着色器和顶点位移的过程。
 
 -[ Unity Asset Store 中提供 Shader Graph 着色器(免费资源)](https://assetstore.unity.com/?free=true&q=shader%20graph) ：检查其他创建者的着色器并向其学习。
+
+
+# Mission 3 光照
+
+在此任务中，您将在 Unity 编辑器中照亮室内和室外空间，并在此过程中了解 Unity 体验照明的基本原理。最后，您将应用所学知识来完成您自己的照明研究。
+
+当您完成此学习体验时，您将能够：
+- 以模拟真实世界光行为的方式在场景中实施适当的照明
+- 决定适当的照明系统，以便在通用渲染管道 (URP) 项目中实现共同成果
+- 配置光源和阴影以便功能性地照亮场景
+- 配置环境（漫射环境）照明以传达情绪或增强真实感
+- 生成 `Lightmapping` 以在场景中实现烘焙光照
+- 配置光照探针以增加烘焙光照的真实感
+- 配置反射探头以获得准确的反射
+- 解决常见的照明错误，以便正确照亮场景
+
+## Unity 中的光照入门
+
+学完本教程后，您将能够：
+- 解释直接光和间接光之间的区别。
+- 定义术语全局照明。
+- 确定 Unity 的 URP 全局照明系统。
+- 解释 Unity 中实时光照和烘焙光照之间的主要区别。
+
+### 2.检查外部照明示例
+
+在接下来的几个教程中，您将使用两个示例场景：外部场景和内部场景。您将从处理外部场景开始 - 在此之前，让我们回顾一下！
+按照以下说明检查外部场景：
+
+1. 在 Unity 编辑器中打开 Creative Core: Lighting 项目（如果您尚未这样做）。
+
+2. 在“项目”窗口中，转到 `Assets > CreativeCore_Lighting > Scenes ` 并打开 `FinalScene_Lighting_Outdoor`  。
+
+3. 在顶部菜单中，转到 `Window > Rendering > Light Explorer` 。此窗口列出了场景中的所有光源以及您可以直接从窗口调整的关键细节。随着学习体验的进展，您将与此进行更多互动。 
+   1. ![image](https://connect-cdn-public-prd.unitychina.cn/h1/20230807/learn/images/6d89d808-fbc3-42ee-9b80-915a3b572382_image.png.2000x0x1.png)
+
+4. 在顶部菜单中，转到 `Window > Rendering > Lighting` 。您将在工作时使用此窗口来调整各种场景级设置，因此保持其打开会很有帮助。您也可以将“照明”窗口停靠在“检查器”旁边，通常效果很好。
+   1. ![img](https://connect-cdn-public-prd.unitychina.cn/h1/20230807/learn/images/5a450465-2da4-426d-9232-db4e4de9f2c6_image.png.2000x0x1.png)
+   2. Dock window: 拖住对应window 的 tab， 即可拖放
+
+5. 如果您在上一个教程中没有这样做，请花一点时间在场景中导航。圆形剧场是进行照明练习的绝佳户外空间。您可以使用中央空间和不同的楼层进行一些非常有趣的光源和阴影实验！
+
+### 4.Unity的全局照明系统
+
+全局照明是一组可在 Unity 中使用的技术，可提供逼真的照明效果。这些技术称为全局照明，因为它们模拟直接光和间接光，而不仅仅是直接光。
+
+Unity中有两种不同的全局照明系统： **Baked Global Illumination** 系统和 **Realtime Global Illumination system** 。
+
+**Baked Global Illumination System**
+
+ **Baked Global Illumination System** 包括：
+
+- `Lightmapping` ：**预先计算场景中表面的亮度并将结果存储在称为 `Lightmapping`** 的纹理中的过程。该全局照明系统使用称为 **渐进式光照贴图器** 的特定 `Lightmapping` 器系统来完成此过程。
+- `Light Probes` ：一种用于测量（或探测）有关穿过场景中空白空间的光数据的工具。
+- `Reflection Probes` ：在 Unity 中模拟更真实反射的工具。
+
+> 重要提示：在学习过程中，您将了解更多有关这些内容的信息 - 如果您现在不完全理解这意味着什么，请不要担心。
+
+所有渲染管道都支持 **Baked Global Illumination** 系统，您将在处理本次学习体验中的所有场景时使用该系统。
+
+**Realtime Global Illumination system**
+
+ **Realtime Global Illumination system** 包括：
+
+- `Lightmapping` ：此全局照明系统使用已弃用的 `Lightmapping` 器，称为 Enlighten Lightmapper
+- `Light Probes` ： `Light Probes` 在此全局照明系统中具有一些附加功能。
+
+Creative Core路径使用的通用渲染管道 (URP)不支持 **Realtime Global Illumination system** 。
+
+> 注意：这超出了本次学习体验的范围，但Unity 2021 版本及更高版本的全局照明更新有更详细的信息。
+
+**此学习体验中的实时和烘焙照明**
+
+在本次学习体验中，您将使用 **Baked Global Illumination** 系统，而不是 **Realtime Global Illumination system** 。但是您将阅读并了解很多有关实时和烘焙照明的知识，如果您正在考虑全局照明，这可能（可以理解！）令人困惑。那么区别是什么呢？
+
+实时光照和烘焙光照是两种不同的方法，用于确定 Unity 何时计算场景中的光照数据。实时照明和烘焙照明都可以在同一项目中实现，并且将它们结合起来通常是有效照亮场景的最佳方式。
+
+在本教程的其余部分中，您将详细了解实时光照方法和烘焙光照方法之间的区别。
+
+### 5.Unity中的实时光照
+
+当游戏或其他实时体验运行时（即启动且用户参与体验时）， Unity 会在运行时计算实时光照。实时灯光每帧计算一次，这意味着它们可以对场景中移动的角色和其他元素非常敏感。
+
+让我们探讨一下这在实践中意味着什么：
+
+1. 在层次结构中，展开 **Lighting GameObject** 。
+
+2. 选择三个 `StreetLamp` 游戏对象 之一。您选择哪一个并不重要。
+
+3. 使用移动工具 `（Ctrl + W (Windows)` 或 `Cmd + W (macOS)）`  在空间中移动路灯，并观察场景中照明的变化。(此热键不起作用，直接用鼠标拖)
+
+
+### 6.Unity中的烘焙光照
+
+当场景变得更加复杂时，实时灯光可能会使用大量内存，这可能会导致性能下降，特别是对于硬件规格较低的玩家或用户而言。
+
+烘焙照明通过在 **运行时（当用户参与游戏或体验时）之前** 预先计算照明数据来帮助缓解此问题。这可以减少硬件运行体验所需的资源密集程度。
+
+执行计算并将数据保存为称为光照贴图的纹理的过程称为 **baking** 或 **lightmapping** 。
+
+如果您已完成《创意核心：着色器》，您就了解了纹理及其在 Unity 渲染中的作用。正如您之前在本教程中了解到的，将在项目中使用的烘焙光照的计算将由称为 `Progressive Lightmapper` 的光照贴图器系统完成。
+
+烘焙照明可以更高效，但它也可以用于实现对用户来说更真实、更有吸引力的照明。然而，这确实意味着当您与事物交互时，事物不会总是按照您期望的方式响应，除非以特定方式配置灯光和场景。
+
+现在尝试使用场景中的其他路灯进行实验：
+
+1. 在层次结构或场景视图中，选择 `Baked StreetLamp` 游戏对象。这是露天剧场中最高的一座。
+
+2. 使用移动工具( Ctrl / Cmd + W )  在空间中移动此路灯并观察会发生什么。  
+
+这盏路灯发出的光和你可​​以看到它在底座上投射的一小块阴影是通过烘烤过程固定的。他们无法响应您在场景视图中所做的实时更改。要更新它们，您需要重新烘焙场景的光照贴图。
+
+您很快就会了解有关烘焙照明以及如何在场景中实现它的更多信息 - 现在，您将从实时照明的基础知识开始。
