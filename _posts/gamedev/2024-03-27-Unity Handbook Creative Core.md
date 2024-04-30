@@ -94,6 +94,13 @@ tags:
     - [2.配置渲染管线资源](#2配置渲染管线资源)
     - [3.在定向光中启用软阴影](#3在定向光中启用软阴影)
     - [4.考虑post-processing对光照的影响](#4考虑post-processing对光照的影响)
+  - [为您的场景烘焙光照贴图](#为您的场景烘焙光照贴图)
+    - [2.什么是烘焙照明？](#2什么是烘焙照明)
+    - [3.改变灯光模式](#3改变灯光模式)
+    - [4.将光源设置为静态](#4将光源设置为静态)
+    - [5.烘焙光照贴图](#5烘焙光照贴图)
+    - [6.添加区域光(Area Light)](#6添加区域光area-light)
+    - [7.将灯光模式设置为 Mixed](#7将灯光模式设置为-mixed)
 
 
 # Mission 1 - Intro
@@ -1791,3 +1798,153 @@ Unity 中也类似：迭代应用和完善后处理效果可以对项目中照�
 - 色差 Chromatic Aberration
 
 3. 禁用 `PostProcessing` GameObject 以关闭这些效果并在场景视图中查看其影响。完成后，记得再次启用它！
+
+## 为您的场景烘焙光照贴图
+
+现在您已经在室外场景中设置了实时照明，您可以为项目设置第二种类型的照明：烘焙照明。
+
+当您实现了这一点并对整个场景的照明配置进行了一些调整后，您就已经掌握了外部空间照明的基础知识！
+
+学完本教程后，您将能够：
+- 适当配置光源，以便可以进行烘焙。
+- 创建一个新的照明设置资源。
+- 解释为什么烘焙光照的任何更改都需要更新光照贴图。
+- 为您的场景自定义光照贴图属性。
+
+### 2.什么是烘焙照明？
+
+Unity 中有两种不同的光照方法：实时光照和烘焙光照。让我们花点时间回顾一下这两种方法。
+
+**实时照明**
+Unity 在运行时计算实时光照（当您的游戏或其他实时体验运行时）。您在之前的教程中创建的定向光和其他光源目前都是实时光源。
+
+这些灯光每帧计算一次，这意味着它们可以对场景中移动的角色和其他元素非常敏感。然而，当场景变得更加复杂时，这些灯光可能需要大量内存，这可能会导致性能下降——特别是对于硬件规格较低的玩家或用户而言。
+
+**烘焙照明**
+
+Unity 会在运行前（在用户与您的体验交互之前）预先计算烘焙光照。这意味着 Unity 在运行时需要做的就是将光照数据应用到场景。您无法更改在运行时烘焙的灯光的属性，并且它们不会响应动态游戏对象（例如角色走过场景）。
+
+**计算光照的过程涉及生成整个场景的 UV 坐标，就像用于在材质中映射纹理的 UV 坐标一样。这种纹理贴图称为光照贴图**，创建它的过程称为光照贴图或烘焙。
+
+烘焙照明可以更高效，但它也可以用于实现对用户来说更真实、更有吸引力的照明。
+
+### 3.改变灯光模式
+
+光照模式设置使您能够选择要在 Unity 项目中采用的光照方法：
+- 烘烤
+- 即时的
+- 混合
+
+目前，工作场景中的所有灯光都是实时的。在创建烘焙之前，您需要更改其灯光模式：
+
+![img](https://connect-cdn-public-prd.unitychina.cn/h1/20221109/learn/images/00cf0de5-f4ef-40d8-8bb6-a79f455931f7_6_3.png.2000x0x1.png)
+
+1. 在 Unity 编辑器中  打开Creative Core: Lighting项目（如果您尚未这样做）。
+
+2. 在“项目”窗口中，转到 `Assets > CreativeCore_Lighting > Scenes` 并打开 `TutorialScene_Lighting_Outdoor` 。
+
+3. 在层次结构中，展开 `Lighting` GameObject 并选择 `Directional Light`  。
+
+4. 在 Inspector 中，找到 `Light` 组件中的 `Mode` 属性。
+
+5. 将 `Mode` 设置为 `Baked` 。
+
+6. 选择已添加到场景中的其他光源的 GameObject，并以相同的方式将其 `Mode` 属性设置为 `Baked` 。
+
+> 提示：您可以使用 Light Explorer 窗口（顶部菜单：`Windows > Rendering > Light Explorer` ）来快速更改这些。
+
+### 4.将光源设置为静态
+
+如果游戏对象在运行时不移动，则它被视为静态。
+
+您可以使用 `Static` 属性将这些游戏对象标记为静态。然后，Unity 将能够在运行之前预先计算有关它的数据，包括存储在光照贴图中用于全局照明的数据。
+
+在烘焙光照贴图之前，您需要将场景中的光源标记为静态：
+
+1. 在层次结构中，选择环境游戏对象。在检查器中，启用其静态属性。
+   1. ![img](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/35ce19bf-c625-4c5e-859c-89d065cbb33c_CC_Light_6.4.1_StaticPropertyCallout.png.2000x0x1.png)
+
+2. 在出现的“更改静态标志”对话框窗口中，选择“是，更改子项” 。
+   1. ![img](https://connect-cdn-public-prd.unitychina.cn/h1/20221109/learn/images/abeac8a6-269a-4969-beb5-7f38810c29ad_6_4.png.2000x0x1.png)
+   2. 这会将飞机和圆形剧场环境设置为静态。
+
+3. 选择已添加到场景中的任何其他照明道具游戏对象并启用 `Static` 属性。
+
+4. 在圆形剧场空间的中心添加两个额外的 StreetLamp Prefabs进行测试。仅将其中之一设置为 `Static` ，以便在烘焙光照贴图后可以观察它们之间的差异。选择已添加到场景中的光源的 GameObjects 并将其 `Mode` 属性设置为 `Baked` 。
+
+### 5.烘焙光照贴图
+到目前为止，您在本教程中不会看到任何明显的更改影响，因为您**尚未生成光照贴图来存储光照数据**。现在您已准备好这样做了。
+
+> 重要提示：在这个学习项目中，所有网格体都有光照贴图 UV。如果要导入没有光照贴图 UV 的新网格，则需要在烘焙光照贴图之前创建一个或让 Unity 自动生成一个。
+
+**在开始烘烤之前**
+
+Lightmapping Settings: 
+- Progressive CPU Lightmapper(default)
+- Progressive GPU Lightmapper (preview)
+
+**烘焙你的光照贴图**
+
+1. 在“照明”窗口（顶部菜单：`Window > Rendering > Lighting` ）中，转到 `Scene` 选项卡。选择 `New Lighting Settings` 。  
+   1. ![img](https://connect-cdn-public-prd.unitychina.cn/h1/20230807/learn/images/7bddad3b-75c2-4af6-9219-9ead147fc960_image.png.2000x0x1.png)
+
+2. Set the `Lighting Mode` property to `Baked Indirect` 。如果您满足硬件和软件要求，现在还可以将 Lightmapper 属性设置为 `Progressive GPU（preview）` 。
+
+3. 在“项目”窗口中，将新资源命名为 `Baked Lighting` 并将其移至 `Assets >  CreativeCore_Lighting > Settings > Lighting` 。
+
+4. 返回 `Lighting` 窗口，选择窗口底部的 `Generate Lighting` 来烘焙光照贴图。您将在 Unity 编辑器窗口页脚的右侧看到烘焙进度。
+   1. ![img](https://connect-cdn-public-prd.unitychina.cn/h1/20211123/learn/images/df982cce-dc4e-4427-9589-1b2975234b9e_CC_Light_6.5.4_GenerateLightingCallout.png.2000x0x1.png)
+   2. 注意：这可能需要一些时间来处理，并且您的计算机会变慢，尤其是第一次烘焙光照贴图时。这是预期的行为。
+
+5. 注意圆形剧场中央的两盏路灯。您应该注意到，未设置为静态的灯不会像您预期的那样投射光。
+
+6. 尝试移动您烘焙的圆形剧场中心的路灯。正如您在[Unity 照明系统入门](https://learn.unity.com/tutorial/get-started-with-lighting-in-unity)中观察到的那样，您应该注意到，当您移动静态 StreetLamp 游戏对象时，灯光和阴影会固定到位。
+
+### 6.添加区域光(Area Light)
+
+区域光是从矩形一侧均匀发射光到该侧表面区域的矩形。您可以使用这些灯光获得微妙的效果，因为它们可以同时从多个方向照亮物体。
+
+> Area Light 是 baked only 的
+
+使用区域灯为圆形剧场添加一些室外特色照明：
+1. 在“项目”窗口中，转到 `Assets > CreativeCore_Lighting > Prefabs.` 。选择 `LongLight` Prefab 并在场景中实例化它。  
+
+2. 将 `LongLight` 放置在圆形剧场上 - 直接放置在其中一个高层的环境上是一个很好的起点，就像它们在示例场景中的排列一样。
+
+3. 在检查器中，将区域光的 `Color` 属性更改为您在场景中易于识别的颜色。饱和的明亮颜色可能对此有所帮助。
+
+4. Set the `Range`, `Intensity`, and `Indirect Multiplier` properties。现在，尝试将区域光设置为大范围的亮光，以便您可以评估它对场景的影响。您可以使用场景视图中的指导小控件来帮助您观察调整这些属性时的影响。
+   1. 注意：如果您需要回顾这些属性，请查看[之前的教程](https://learn.unity.com/tutorial/add-light-sources-to-your-scene#619ce590edbc2a3ca45150b9)。
+
+5. 在 `Lighting` 窗口中，选择 `Generate Lighting` 以更新烘焙并查看光照。
+
+6. 如果您想进行任何进一步的调整或添加更多区域光，请确保更新您的烘焙，以便您可以看到它们对场景的影响。
+
+### 7.将灯光模式设置为 Mixed
+
+此刻，场景中的路灯已经烤熟。您可以将 set the `Light Mode` to `Mixed` 以创建混合灯光。**它们将动态（实时）阴影与来自同一光源的烘焙光照相结合**。
+
+当用户探索您的体验时，这需要更多处理，**但它可以提高阴影的质量**。对于像这样相对较小且轻量级的项目，通常值得付出性能成本。
+
+一般来说，如果您正在为桌面平台创建游戏或应用程序，您将使用混合、实时和烘焙照明的组合。然而，仅使用烘焙照明可以更轻松地展示可感知的结果，这对学习体验很有帮助。
+
+如果您正在从事像这样的相对较小且轻量级的项目，那么使用混合照明通常值得付出性能成本。
+
+要将路灯切换为混合灯，您需要调整灯光模式：
+
+1. 在层次结构中，展开 `StreetLamp` 游戏对象并选择其子聚光灯游戏对象。
+
+2. 在 Inspector 中，找到 `Light` 组件中的 `Mode` 属性。
+
+3. 将 `Mode` 设置为 `Mixed` 。
+   1. ![img](https://connect-cdn-public-prd.unitychina.cn/h1/20221109/learn/images/6eededf6-86a0-4a6c-b2b3-0130e1c87e29_6_7.png.2000x0x1.png)
+
+4. 对添加到场景中的其他灯光重复此过程。
+
+5. 在“光照”窗口中，选择“生成光照”以更新烘焙。
+
+6. 检查场景中的阴影 - 您的更改是否会产生明显的影响？在这种特殊情况下可能不会，但混合光是一个可供您使用的有用工具。
+
+7. 将更改后的灯光设置回烘焙模式并重新烘焙灯光。
+
+8. 保存您的更改。
