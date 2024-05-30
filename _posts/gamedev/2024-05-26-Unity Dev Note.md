@@ -134,3 +134,14 @@ public class DropdownHandler : MonoBehaviour
 - 点击“+”按钮添加一个新的事件监听器。
 - 将包含回调函数的GameObject拖动到事件目标字段中。
 - 从下拉菜单中选择DropdownHandler.OnDropdownValueChanged方法。
+
+
+# UI Toolkit
+
+#### 字体设置
+
+https://www.bilibili.com/read/cv16408474/
+
+- 选择font后将font asset 设为 none
+- 进uss文件改 -unity-font-definition: resource('Fonts/GenYoMin-B SDF');
+
