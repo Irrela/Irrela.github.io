@@ -18,6 +18,12 @@ tags:
 
 > Atlas Resolution 选 4096 以上
 
+#### Awake 和 Start
+
+Start在所有脚本的Awake方法之后调用，确保所有对象和脚本都已经初始化。
+
+- Awake适用于独立的初始化，不依赖于其他对象或脚本。
+- Start适用于需要依赖其他对象或脚本的初始化，因为此时其他对象和脚本已经被初始化。
 
 
 
@@ -145,3 +151,21 @@ https://www.bilibili.com/read/cv16408474/
 - 选择font后将font asset 设为 none
 - 进uss文件改 -unity-font-definition: resource('Fonts/GenYoMin-B SDF');
 
+画面 · システム設定
+
+画面モード　フルスクリーン　ウィドウ
+
+システム演出効果
+
+カーソル自動消去
+
+テキスト表示速度
+
+オートモード表示速度
+
+
+ゲームを終了します。よろしいですか？
+
+はい　いいえ
+
+次回以降表示しない
