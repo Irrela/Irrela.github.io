@@ -7,6 +7,12 @@ tags:
 
 - [Note](#note)
       - [UI生效需要又EventSystem](#ui生效需要又eventsystem)
+      - [TextMeshPro Text 中文乱码](#textmeshpro-text-中文乱码)
+      - [Awake 和 Start](#awake-和-start)
+      - [DropDown 添加 value on changed](#dropdown-添加-value-on-changed)
+- [UI Toolkit](#ui-toolkit)
+      - [字体设置](#字体设置)
+
 
 
 
@@ -141,6 +147,15 @@ public class DropdownHandler : MonoBehaviour
 - 将包含回调函数的GameObject拖动到事件目标字段中。
 - 从下拉菜单中选择DropdownHandler.OnDropdownValueChanged方法。
 
+
+
+#### OnEnable()
+
+- 在脚本实例启用时调用。
+- 如果对象是首次加载或从禁用状态变为启用状态时，会调用该方法。
+- 常用于注册事件或重新初始化变量。
+
+#### OnValidate()
 
 # UI Toolkit
 
