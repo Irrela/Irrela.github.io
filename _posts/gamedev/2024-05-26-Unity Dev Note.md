@@ -10,10 +10,15 @@ tags:
       - [TextMeshPro Text 中文乱码](#textmeshpro-text-中文乱码)
       - [Awake 和 Start](#awake-和-start)
       - [DropDown 添加 value on changed](#dropdown-添加-value-on-changed)
+      - [OnEnable()](#onenable)
+      - [OnValidate()](#onvalidate)
+      - [assets结构](#assets结构)
+      - [分辨率适配](#分辨率适配)
+    - [FigmaImporter](#figmaimporter)
+      - [Couldn't find font named Montserrat](#couldnt-find-font-named-montserrat)
+      - [AI策略](#ai策略)
 - [UI Toolkit](#ui-toolkit)
       - [字体设置](#字体设置)
-
-
 
 
 # Note
@@ -156,6 +161,58 @@ public class DropdownHandler : MonoBehaviour
 - 常用于注册事件或重新初始化变量。
 
 #### OnValidate()
+
+
+
+#### assets结构
+```txt
+/Assets
+  /Scripts
+    /SaveLoad
+      SaveLoadManager.cs    // 保存和加载管理器
+      GameSave.cs           // 游戏存档类
+    /Player
+      PlayerData.cs         // 玩家数据类
+      PlayerController.cs   // 玩家控制器
+    /World
+      WorldData.cs          // 游戏世界数据类
+    /NPC
+      NPCData.cs            // NPC数据类
+    /UI
+      MainMenu.cs           // 主菜单相关脚本
+      SettingsMenu.cs       // 设置菜单相关脚本
+    /Managers
+      GameManager.cs        // 游戏管理器
+    /Utilities
+      // 通用工具类脚本
+
+```
+
+#### 分辨率适配
+
+使用Canvas Scaler：
+
+Unity的UI系统提供了Canvas Scaler组件，用于调整UI元素在不同分辨率下的大小和比例。
+
+- 在你的Canvas对象上添加Canvas Scaler组件。
+- 设置UI Scale Mode为Scale With Screen Size。
+- 设置Reference Resolution为你设计时的分辨率（例如1920x1080）。
+- 设置Screen Match Mode为你想要的模式，例如Match Width Or Height。然后调整Match值来控制宽高的匹配优先级。
+
+### FigmaImporter 
+
+#### Couldn't find font named Montserrat
+
+- 创建对应textmeshpro font
+- 右键创建好的字体 -> create -> figmaimporter -> font links
+
+
+#### AI策略
+
+高层次策略：使用规划系统或权重系统决定长期目标，如结盟、战争等。
+中层次策略：使用行为树管理角色的中期任务，如完成特定任务、管理资源等。
+低层次行为：使用有限状态机或决策树处理即时行为，如战斗、逃跑等。
+
 
 # UI Toolkit
 
