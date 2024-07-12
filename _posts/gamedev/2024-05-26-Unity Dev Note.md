@@ -4,9 +4,10 @@ categories: GameDev
 tags:
 - GameDev
 ---
-
 - [Note](#note)
-      - [UI生效需要又EventSystem](#ui生效需要又eventsystem)
+      - [Awake，OnEnable，Start中应该干什么](#awakeonenablestart中应该干什么)
+      - [使用委托和事件跨脚本通信](#使用委托和事件跨脚本通信)
+      - [UI生效需要有EventSystem](#ui生效需要有eventsystem)
       - [TextMeshPro Text 中文乱码](#textmeshpro-text-中文乱码)
       - [Awake 和 Start](#awake-和-start)
       - [DropDown 添加 value on changed](#dropdown-添加-value-on-changed)
@@ -14,6 +15,8 @@ tags:
       - [OnValidate()](#onvalidate)
       - [assets结构](#assets结构)
       - [分辨率适配](#分辨率适配)
+      - [ScrollView](#scrollview)
+      - [Sprite 和 Raw Image](#sprite-和-raw-image)
     - [FigmaImporter](#figmaimporter)
       - [Couldn't find font named Montserrat](#couldnt-find-font-named-montserrat)
       - [AI策略](#ai策略)
@@ -21,8 +24,61 @@ tags:
       - [字体设置](#字体设置)
 
 
+
 # Note
-#### UI生效需要又EventSystem
+
+
+#### Awake，OnEnable，Start中应该干什么
+- Awake 方法：用于初始化不依赖于其他对象的内容。通常在 Awake 中初始化私有字段和单例。
+- OnEnable 方法：用于绑定事件或初始化依赖于其他对象的内容。
+- Start 方法：用于初始化依赖于其他对象的内容。这些对象应该在 Awake 中已经被正确初始化。
+
+
+#### 使用委托和事件跨脚本通信
+在Unity中，如果你想让一个按钮按下时触发其他脚本中的方法，使用委托和事件是一种常见且灵活的方法，允许一个对象（比如按钮）按下时触发其他对象（比如脚本）中的方法。
+
+具体步骤如下：
+
+
+1. 定义事件委托：在接收事件的脚本中定义一个委托和事件。
+
+  ```cs
+  public delegate void ButtonClickAction();
+  public static event ButtonClickAction OnButtonClick;
+  
+  ```
+2. 触发事件：在按钮按下时调用事件。
+  ```cs
+  public void OnButtonPress()
+  {
+      if (OnButtonClick != null)
+      {
+          OnButtonClick();
+      }
+  }
+
+  ```
+
+3. 订阅事件：在需要响应按钮事件的脚本中订阅事件。
+  ```cs
+  private void OnEnable()
+  {
+      OtherScript.OnButtonClick += HandleButtonClick;
+  }
+
+  private void OnDisable()
+  {
+      OtherScript.OnButtonClick -= HandleButtonClick;
+  }
+
+  private void HandleButtonClick()
+  {
+      // 处理按钮按下时的逻辑
+  }
+  ```
+
+
+#### UI生效需要有EventSystem
 
 #### TextMeshPro Text 中文乱码
 [自制动态字体](https://www.cnblogs.com/anderson0/p/16130186.html)
@@ -198,6 +254,19 @@ Unity的UI系统提供了Canvas Scaler组件，用于调整UI元素在不同分�
 - 设置UI Scale Mode为Scale With Screen Size。
 - 设置Reference Resolution为你设计时的分辨率（例如1920x1080）。
 - 设置Screen Match Mode为你想要的模式，例如Match Width Or Height。然后调整Match值来控制宽高的匹配优先级。
+
+#### ScrollView
+
+- 脚本的content绑定ScrollView子对象content
+- ScrollView 的 Scroll Rect 组件中 MovementType 选择 Clamped
+- 实现拖动时，在 content 中增加 Content Size Fitter 组件并为对应滑动方向选择 Preferred Size
+- 用预设的ScrollView组件，但只需要一个方向的bar时，在将另一方向bar设为none的同时，记得调整要用的bar 的 transform， 比如 vertical bar可能需要将botton或top设为0，否则会有一小部分本身用于另一方向bar的部分不可用。
+- 如果在使用鼠标滑轮滚动时感觉很慢，可以通过调整 ScrollRect 的 scrollSensitivity 属性来加快滚动速度。ScrollView -> Scroll Rect 组件 -> scrollSensitivity
+
+
+#### Sprite 和 Raw Image
+
+导入的png等图像，可以在图像属性里将type从default换成 sprite(2D)
 
 ### FigmaImporter 
 
