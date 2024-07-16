@@ -6,35 +6,36 @@ tags:
 ---
 
 - [Note](#note)
-      - [Awake，OnEnable，Start中应该干什么](#awakeonenablestart中应该干什么)
-      - [使用委托和事件跨脚本通信](#使用委托和事件跨脚本通信)
-      - [UI生效需要有EventSystem](#ui生效需要有eventsystem)
-      - [TextMeshPro Text 中文乱码](#textmeshpro-text-中文乱码)
-      - [Awake 和 Start](#awake-和-start)
-      - [DropDown 添加 value on changed](#dropdown-添加-value-on-changed)
-      - [OnEnable()](#onenable)
-      - [OnValidate()](#onvalidate)
-      - [assets结构](#assets结构)
-      - [分辨率适配](#分辨率适配)
-      - [ScrollView](#scrollview)
-      - [Sprite 和 Raw Image](#sprite-和-raw-image)
+    - [Awake，OnEnable，Start中应该干什么](#awakeonenablestart中应该干什么)
+    - [使用委托和事件跨脚本通信](#使用委托和事件跨脚本通信)
+    - [UI生效需要有EventSystem](#ui生效需要有eventsystem)
+    - [TextMeshPro Text 中文乱码](#textmeshpro-text-中文乱码)
+    - [Awake 和 Start](#awake-和-start)
+    - [DropDown 添加 value on changed](#dropdown-添加-value-on-changed)
+    - [OnEnable()](#onenable)
+    - [OnValidate()](#onvalidate)
+    - [assets结构](#assets结构)
+    - [分辨率适配](#分辨率适配)
+    - [ScrollView](#scrollview)
+    - [Sprite 和 Raw Image](#sprite-和-raw-image)
     - [FigmaImporter](#figmaimporter)
-      - [Couldn't find font named Montserrat](#couldnt-find-font-named-montserrat)
-      - [AI策略](#ai策略)
+    - [Couldn't find font named Montserrat](#couldnt-find-font-named-montserrat)
+    - [AI策略](#ai策略)
 - [UI Toolkit](#ui-toolkit)
-      - [字体设置](#字体设置)
+    - [字体设置](#字体设置)
+
 
 
 
 # Note
 
-#### Awake，OnEnable，Start中应该干什么
+### Awake，OnEnable，Start中应该干什么
 - Awake 方法：用于初始化不依赖于其他对象的内容。通常在 Awake 中初始化私有字段和单例。
 - OnEnable 方法：用于绑定事件或初始化依赖于其他对象的内容。
 - Start 方法：用于初始化依赖于其他对象的内容。这些对象应该在 Awake 中已经被正确初始化。
 
 
-#### 使用委托和事件跨脚本通信
+### 使用委托和事件跨脚本通信
 在Unity中，如果你想让一个按钮按下时触发其他脚本中的方法，使用委托和事件是一种常见且灵活的方法，允许一个对象（比如按钮）按下时触发其他对象（比如脚本）中的方法。
 
 具体步骤如下：
@@ -79,14 +80,14 @@ tags:
   ```
 
 
-#### UI生效需要有EventSystem
+### UI生效需要有EventSystem
 
-#### TextMeshPro Text 中文乱码
+### TextMeshPro Text 中文乱码
 [自制动态字体](https://www.cnblogs.com/anderson0/p/16130186.html)
 
 > Atlas Resolution 选 4096 以上
 
-#### Awake 和 Start
+### Awake 和 Start
 
 Start在所有脚本的Awake方法之后调用，确保所有对象和脚本都已经初始化。
 
@@ -95,7 +96,7 @@ Start在所有脚本的Awake方法之后调用，确保所有对象和脚本都�
 
 
 
-#### DropDown 添加 value on changed
+### DropDown 添加 value on changed
 两种方法:
 1. 纯代码
 
@@ -211,17 +212,17 @@ public class DropdownHandler : MonoBehaviour
 
 
 
-#### OnEnable()
+### OnEnable()
 
 - 在脚本实例启用时调用。
 - 如果对象是首次加载或从禁用状态变为启用状态时，会调用该方法。
 - 常用于注册事件或重新初始化变量。
 
-#### OnValidate()
+### OnValidate()
 
 
 
-#### assets结构
+### assets结构
 ```txt
 /Assets
   /Scripts
@@ -245,7 +246,7 @@ public class DropdownHandler : MonoBehaviour
 
 ```
 
-#### 分辨率适配
+### 分辨率适配
 
 使用Canvas Scaler：
 
@@ -256,7 +257,7 @@ Unity的UI系统提供了Canvas Scaler组件，用于调整UI元素在不同分�
 - 设置Reference Resolution为你设计时的分辨率（例如1920x1080）。
 - 设置Screen Match Mode为你想要的模式，例如Match Width Or Height。然后调整Match值来控制宽高的匹配优先级。
 
-#### ScrollView
+### ScrollView
 
 - 脚本的content绑定ScrollView子对象content
 - ScrollView 的 Scroll Rect 组件中 MovementType 选择 Clamped
@@ -265,19 +266,19 @@ Unity的UI系统提供了Canvas Scaler组件，用于调整UI元素在不同分�
 - 如果在使用鼠标滑轮滚动时感觉很慢，可以通过调整 ScrollRect 的 scrollSensitivity 属性来加快滚动速度。ScrollView -> Scroll Rect 组件 -> scrollSensitivity
 
 
-#### Sprite 和 Raw Image
+### Sprite 和 Raw Image
 
 导入的png等图像，可以在图像属性里将type从default换成 sprite(2D)
 
 ### FigmaImporter 
 
-#### Couldn't find font named Montserrat
+### Couldn't find font named Montserrat
 
 - 创建对应textmeshpro font
 - 右键创建好的字体 -> create -> figmaimporter -> font links
 
 
-#### AI策略
+### AI策略
 
 高层次策略：使用规划系统或权重系统决定长期目标，如结盟、战争等。
 中层次策略：使用行为树管理角色的中期任务，如完成特定任务、管理资源等。
@@ -286,7 +287,7 @@ Unity的UI系统提供了Canvas Scaler组件，用于调整UI元素在不同分�
 
 # UI Toolkit
 
-#### 字体设置
+### 字体设置
 
 https://www.bilibili.com/read/cv16408474/
 
