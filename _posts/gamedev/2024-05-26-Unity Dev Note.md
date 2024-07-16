@@ -4,6 +4,7 @@ categories: GameDev
 tags:
 - GameDev
 ---
+
 - [Note](#note)
       - [Awake，OnEnable，Start中应该干什么](#awakeonenablestart中应该干什么)
       - [使用委托和事件跨脚本通信](#使用委托和事件跨脚本通信)
@@ -27,7 +28,6 @@ tags:
 
 # Note
 
-
 #### Awake，OnEnable，Start中应该干什么
 - Awake 方法：用于初始化不依赖于其他对象的内容。通常在 Awake 中初始化私有字段和单例。
 - OnEnable 方法：用于绑定事件或初始化依赖于其他对象的内容。
@@ -45,9 +45,10 @@ tags:
   ```cs
   public delegate void ButtonClickAction();
   public static event ButtonClickAction OnButtonClick;
-  
   ```
+
 2. 触发事件：在按钮按下时调用事件。
+
   ```cs
   public void OnButtonPress()
   {
@@ -56,10 +57,10 @@ tags:
           OnButtonClick();
       }
   }
-
   ```
 
-3. 订阅事件：在需要响应按钮事件的脚本中订阅事件。
+1. 订阅事件：在需要响应按钮事件的脚本中订阅事件。
+
   ```cs
   private void OnEnable()
   {
