@@ -29,6 +29,10 @@ tags:
 
 # Note
 
+### Prefab 初始化 UnassignedReferenceException
+
+确认是否是在 Prefab 中的 Prefab , 可能是在hierarchy中prefab中指定了,但没有 apply all, 导致 Instantiate 用的 prefab没有指定inspector对象
+
 ### Awake，OnEnable，Start中应该干什么
 - Awake 方法：用于初始化不依赖于其他对象的内容。通常在 Awake 中初始化私有字段和单例。
 - OnEnable 方法：用于绑定事件或初始化依赖于其他对象的内容。
