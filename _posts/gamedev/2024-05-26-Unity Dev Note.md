@@ -28,6 +28,37 @@ tags:
 
 
 # Note
+### Unity自动创建的Canvas对象
+Canvas组件用于渲染UI元素，无论是通过Unity的UI系统自动创建的Canvas对象，还是手动在现有对象上添加的Canvas组件，都可以实现这个目的。
+
+当你通过Unity的UI系统创建UI元素时（例如，右键点击Hierarchy窗口，选择UI -> Button），Unity会自动创建一个Canvas对象和一个EventSystem对象（如果还没有存在）。这种方式的特点是：
+
+1. 自动配置：
+Unity自动设置了适当的属性和组件，以确保UI元素能够正常渲染和工作。
+包括Canvas组件、Canvas Scaler组件和Graphic Raycaster组件。
+
+2. 默认设置：
+Canvas的Render Mode通常设置为Screen Space - Overlay。
+Canvas Scaler的设置为Constant Pixel Size，这意味着UI元素的尺寸不会随屏幕分辨率变化而自动缩放。
+
+3. 快速开始：
+对于新手或快速原型设计，使用自动创建的Canvas对象是最便捷的方式，因为它已经预先配置好了大多数所需的设置。
+
+### 在一个obj里纵向创建button
+
+给容器obj 添加 `Vertical Layout Group` 以及 `Content Size Fitter`.
+- 配置 Vertical Layout Group的 Padding 和 Spacing 属性，根据需要调整子对象的间距和容器的边距。
+- 将 Horizontal Fit 和 Vertical Fit 属性设置为 Preferred Size。
+
+#### Horizontal Fit 和 Vertical Fit 属性
+- Horizontal Fit: 控制UI元素在水平轴上的尺寸调整方式。
+- Vertical Fit: 控制UI元素在垂直轴上的尺寸调整方式。
+
+这两个属性都有三个选项：
+
+- Unconstrained（不受约束）：该选项表示UI元素的尺寸不会根据内容自动调整，保持手动设置的尺寸。
+- Min Size（最小尺寸）：该选项表示UI元素的尺寸会根据内容的最小尺寸进行调整。最小尺寸通常由内容（如文本、图片等）的最小尺寸决定。
+- Preferred Size（优先尺寸）：该选项表示UI元素的尺寸会根据内容的优先尺寸进行调整。优先尺寸通常是内容在不被裁剪的情况下，所需的最佳尺寸。
 
 ### Prefab 初始化 UnassignedReferenceException
 
