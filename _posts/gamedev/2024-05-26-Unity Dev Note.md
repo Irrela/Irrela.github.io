@@ -28,6 +28,96 @@ tags:
 
 
 # Note
+### 实现一个播片系统
+
+1. Controller
+- Canvas 下新建 gameobj: `VideoController`
+- `VideoController` 新建子对象 RawImage (UI里)  
+- `VideoController` 添加组件 Video Player
+- 添加脚本`VideoController.cs`
+
+3. 创建 Render Texture:
+- 在 Assets 目录中，右键点击并选择 Create -> Render Texture，创建一个新的 Render Texture: `New Render Texture`(或自行命名)。
+- 设置合适的分辨率，如 1920x1080。
+
+4. 设置组件 Video Player
+- 确保组件 Video Player 的 Render Mode 是 `Render Texture`
+- 组件 Video Player 的 Target Texture 选择 新建的 `New Render Texture`
+
+
+5. `VideoController.cs`
+- 脚本提供Inspector 属性: RawImage, 并在inspector 中绑定 `VideoController` 新建子对象 RawImage
+- 在 start 中 `rawImage.texture = videoPlayer.targetTexture;`
+
+> 也可以不通过脚本设置, 直接将 RawImage 对象的 RawImage 组件里的TextTure 绑定 `New Render Texture`, 效果是一样的
+
+6. 调整播片局域和大小
+- 就是RawImage对象的 Rect Transform, 建议size和`New Render Texture` 的size 匹配
+
+```cs
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Video;
+
+public class VideoController : MonoBehaviour
+{
+    private VideoPlayer videoPlayer;
+    public RawImage rawImage;
+
+
+    private string _videoPath = "Videos/KanColle_1.mp4";
+    
+    void Start()
+    {
+        // 获取子对象上的 VideoPlayer 组件
+        videoPlayer = GetComponentInChildren<VideoPlayer>();
+
+        if (videoPlayer == null)
+        {
+            Debug.LogError("VideoPlayer component not found on child object.");
+            return;
+        }
+        
+        rawImage.texture = videoPlayer.targetTexture;
+
+        PlayVideo(_videoPath);
+        
+    }
+
+    public void PlayVideo(string videoPath)
+    {
+        // 检查路径是否为空
+        if (string.IsNullOrEmpty(videoPath))
+        {
+            Debug.LogError("Video path is null or empty.");
+            return;
+        }
+
+        // 加载视频资源
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, videoPath);
+
+        // 开始播放视频
+        videoPlayer.Play();
+    }
+
+    public void StopVideo()
+    {
+        if (videoPlayer.isPlaying)
+        {
+            videoPlayer.Stop();
+        }
+    }
+
+    public void PauseVideo()
+    {
+        if (videoPlayer.isPlaying)
+        {
+            videoPlayer.Pause();
+        }
+    }
+}
+```
+
 ### Unity自动创建的Canvas对象
 Canvas组件用于渲染UI元素，无论是通过Unity的UI系统自动创建的Canvas对象，还是手动在现有对象上添加的Canvas组件，都可以实现这个目的。
 
