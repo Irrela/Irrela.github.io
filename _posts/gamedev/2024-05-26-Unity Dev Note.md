@@ -5,25 +5,34 @@ tags:
 - GameDev
 ---
 
-- [Note](#note)
-    - [Awake，OnEnable，Start中应该干什么](#awakeonenablestart中应该干什么)
-    - [使用委托和事件跨脚本通信](#使用委托和事件跨脚本通信)
-    - [UI生效需要有EventSystem](#ui生效需要有eventsystem)
-    - [TextMeshPro Text 中文乱码](#textmeshpro-text-中文乱码)
-    - [Awake 和 Start](#awake-和-start)
-    - [DropDown 添加 value on changed](#dropdown-添加-value-on-changed)
-    - [OnEnable()](#onenable)
-    - [OnValidate()](#onvalidate)
-    - [assets结构](#assets结构)
-    - [分辨率适配](#分辨率适配)
-    - [ScrollView](#scrollview)
-    - [Sprite 和 Raw Image](#sprite-和-raw-image)
-    - [FigmaImporter](#figmaimporter)
-    - [Couldn't find font named Montserrat](#couldnt-find-font-named-montserrat)
-    - [AI策略](#ai策略)
-- [UI Toolkit](#ui-toolkit)
-    - [字体设置](#字体设置)
+<!-- TOC -->
 
+- [Note](#note)
+        - [实现一个单例manager](#%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%8D%95%E4%BE%8Bmanager)
+        - [实现一个播片系统](#%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%92%AD%E7%89%87%E7%B3%BB%E7%BB%9F)
+        - [Unity自动创建的Canvas对象](#unity%E8%87%AA%E5%8A%A8%E5%88%9B%E5%BB%BA%E7%9A%84canvas%E5%AF%B9%E8%B1%A1)
+        - [在一个obj里纵向创建button](#%E5%9C%A8%E4%B8%80%E4%B8%AAobj%E9%87%8C%E7%BA%B5%E5%90%91%E5%88%9B%E5%BB%BAbutton)
+            - [Horizontal Fit 和 Vertical Fit 属性](#horizontal-fit-%E5%92%8C-vertical-fit-%E5%B1%9E%E6%80%A7)
+        - [Prefab 初始化 UnassignedReferenceException](#prefab-%E5%88%9D%E5%A7%8B%E5%8C%96-unassignedreferenceexception)
+        - [Awake，OnEnable，Start中应该干什么](#awakeonenablestart%E4%B8%AD%E5%BA%94%E8%AF%A5%E5%B9%B2%E4%BB%80%E4%B9%88)
+        - [使用委托和事件跨脚本通信](#%E4%BD%BF%E7%94%A8%E5%A7%94%E6%89%98%E5%92%8C%E4%BA%8B%E4%BB%B6%E8%B7%A8%E8%84%9A%E6%9C%AC%E9%80%9A%E4%BF%A1)
+        - [UI生效需要有EventSystem](#ui%E7%94%9F%E6%95%88%E9%9C%80%E8%A6%81%E6%9C%89eventsystem)
+        - [TextMeshPro Text 中文乱码](#textmeshpro-text-%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81)
+        - [Awake 和 Start](#awake-%E5%92%8C-start)
+        - [DropDown 添加 value on changed](#dropdown-%E6%B7%BB%E5%8A%A0-value-on-changed)
+        - [OnEnable](#onenable)
+        - [OnValidate](#onvalidate)
+        - [assets结构](#assets%E7%BB%93%E6%9E%84)
+        - [分辨率适配](#%E5%88%86%E8%BE%A8%E7%8E%87%E9%80%82%E9%85%8D)
+        - [ScrollView](#scrollview)
+        - [Sprite 和 Raw Image](#sprite-%E5%92%8C-raw-image)
+        - [FigmaImporter](#figmaimporter)
+        - [Couldn't find font named Montserrat](#couldnt-find-font-named-montserrat)
+        - [AI策略](#ai%E7%AD%96%E7%95%A5)
+- [UI Toolkit](#ui-toolkit)
+        - [字体设置](#%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE)
+
+<!-- /TOC -->
 
 
 
@@ -94,8 +103,7 @@ tags:
 5. `VideoController.cs`
 - 脚本提供Inspector 属性: RawImage, 并在inspector 中绑定 `VideoController` 新建子对象 RawImage
 - 在 start 中 `rawImage.texture = videoPlayer.targetTexture;`
-
-> 也可以不通过脚本设置, 直接将 RawImage 对象的 RawImage 组件里的TextTure 绑定 `New Render Texture`, 效果是一样的
+- > 也可以不通过脚本设置, 直接将 RawImage 对象的 RawImage 组件里的TextTure 绑定 `New Render Texture`, 效果是一样的
 
 6. 调整播片局域和大小
 - 就是RawImage对象的 Rect Transform, 建议size和`New Render Texture` 的size 匹配
