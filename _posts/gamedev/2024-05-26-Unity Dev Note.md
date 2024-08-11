@@ -28,6 +28,52 @@ tags:
 
 
 # Note
+
+### 实现一个单例manager
+```cs
+    // 静态实例，用于存储单例的引用
+    private static VideoController _instance;
+
+    // 公共访问点，提供对实例的访问
+    public static VideoController Instance
+    {
+        get
+        {
+            // 如果实例还没有被创建，就在场景中查找它
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<VideoController>();
+
+                // 如果实例仍然是空的，尝试创建一个新的 GameObject 并附加 VideoController 脚本
+                if (_instance == null)
+                {
+                    GameObject singletonObject = new GameObject("VideoController");
+                    _instance = singletonObject.AddComponent<VideoController>();
+
+                    // 防止场景切换时销毁实例
+                    DontDestroyOnLoad(singletonObject);
+                }
+            }
+            return _instance;
+        }
+    }
+
+    // 确保在 Awake 方法中初始化实例
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject); // 保持实例在场景切换时不被销毁
+        }
+        else if (_instance != this)
+        {
+            Destroy(gameObject); // 如果已经存在另一个实例，销毁这个实例
+        }
+    }
+```
+
+
 ### 实现一个播片系统
 
 1. Controller
