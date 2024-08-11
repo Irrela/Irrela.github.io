@@ -5,34 +5,32 @@ tags:
 - GameDev
 ---
 
-<!-- TOC -->
-
 - [Note](#note)
-        - [实现一个单例manager](#实现一个单例manager)
-        - [实现一个播片系统](#实现一个播片系统)
-        - [Unity自动创建的Canvas对象](#unity自动创建的canvas对象)
-        - [在一个obj里纵向创建button](#在一个obj里纵向创建button)
-            - [Horizontal Fit 和 Vertical Fit 属性](#horizontal-fit-和-vertical-fit-属性)
-        - [Prefab 初始化 UnassignedReferenceException](#prefab-初始化-unassignedreferenceexception)
-        - [Awake，OnEnable，Start中应该干什么](#awakeonenablestart中应该干什么)
-        - [使用委托和事件跨脚本通信](#使用委托和事件跨脚本通信)
-        - [UI生效需要有EventSystem](#ui生效需要有eventsystem)
-        - [TextMeshPro Text 中文乱码](#textmeshpro-text-中文乱码)
-        - [Awake 和 Start](#awake-和-start)
-        - [DropDown 添加 value on changed](#dropdown-添加-value-on-changed)
-        - [OnEnable()](#onenable)
-        - [OnValidate()](#onvalidate)
-        - [assets结构](#assets结构)
-        - [分辨率适配](#分辨率适配)
-        - [ScrollView](#scrollview)
-        - [Sprite 和 Raw Image](#sprite-和-raw-image)
-        - [FigmaImporter](#figmaimporter)
-        - [Couldn't find font named Montserrat](#couldnt-find-font-named-montserrat)
-        - [AI策略](#ai策略)
+    - [实现一个单例manager](#实现一个单例manager)
+    - [实现一个播片系统](#实现一个播片系统)
+    - [Unity自动创建的Canvas对象](#unity自动创建的canvas对象)
+    - [在一个obj里纵向创建button](#在一个obj里纵向创建button)
+        - [Horizontal Fit 和 Vertical Fit 属性](#horizontal-fit-和-vertical-fit-属性)
+    - [Prefab 初始化 UnassignedReferenceException](#prefab-初始化-unassignedreferenceexception)
+    - [Awake，OnEnable，Start中应该干什么](#awakeonenablestart中应该干什么)
+    - [使用委托和事件跨脚本通信](#使用委托和事件跨脚本通信)
+    - [UI生效需要有EventSystem](#ui生效需要有eventsystem)
+    - [TextMeshPro Text 中文乱码](#textmeshpro-text-中文乱码)
+    - [Awake 和 Start](#awake-和-start)
+    - [DropDown 添加 value on changed](#dropdown-添加-value-on-changed)
+    - [OnEnable()](#onenable)
+    - [OnValidate()](#onvalidate)
+    - [assets结构](#assets结构)
+    - [分辨率适配](#分辨率适配)
+    - [ScrollView](#scrollview)
+    - [Sprite 和 Raw Image](#sprite-和-raw-image)
+    - [FigmaImporter](#figmaimporter)
+    - [Couldn't find font named Montserrat](#couldnt-find-font-named-montserrat)
+    - [AI策略](#ai策略)
 - [UI Toolkit](#ui-toolkit)
-        - [字体设置](#字体设置)
+    - [字体设置](#字体设置)
 
-<!-- /TOC -->
+
 
 # Note
 
