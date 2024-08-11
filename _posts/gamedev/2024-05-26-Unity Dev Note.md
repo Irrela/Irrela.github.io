@@ -5,7 +5,10 @@ tags:
 - GameDev
 ---
 
+<!-- TOC -->
+
 - [Note](#note)
+    - [Unity 打包 可执行文件](#unity-打包-可执行文件)
     - [实现一个单例manager](#实现一个单例manager)
     - [实现一个播片系统](#实现一个播片系统)
     - [Unity自动创建的Canvas对象](#unity自动创建的canvas对象)
@@ -30,11 +33,44 @@ tags:
 - [UI Toolkit](#ui-toolkit)
     - [字体设置](#字体设置)
 
+<!-- /TOC -->
+
 
 
 # Note
 
-### 实现一个单例manager
+## Unity 打包 可执行文件
+1. 打开 Build Settings
+在 Unity 编辑器中，点击菜单栏的 `File -> Build Settings...` 。
+
+2. 选择平台
+在 `Build Settings` 窗口中，选择 `PC, Mac & Linux Standalone`。
+确保 `Target Platform` 设置为 Windows（默认是 Windows，如果需要 Mac 或 Linux，可切换平台）。
+`Architecture` 设置为 `x86_64`，以支持 64 位系统。
+
+3. 设置场景
+在 `Scenes in Build` 列表中，添加你想要包含在构建中的所有场景。你可以点击 `Add Open Scenes` 添加当前打开的场景，或者将场景文件拖入列表中。
+
+4. Player Settings
+点击 `Player Settings...` 按钮，打开 Player Settings 窗口。
+在 Player Settings 中，你可以设置游戏的名称、公司名、图标、默认屏幕分辨率等。
+在 Other Settings 中，可以设置渲染 API、压缩方法等高级设置。
+
+5. 选择输出路径
+在 `Build Settings` 窗口中，点击 `Build`,  然后选择输出文件夹的路径。选择一个合适的文件夹来保存打包后的文件。
+
+6. 打包游戏
+在 `Build Settings` 窗口中，点击 Build 按钮。Unity 将开始构建你的游戏，并在你指定的文件夹中生成可执行文件（.exe）以及相关的文件和数据文件夹。
+
+7. 运行可执行文件
+在打包完成后，你会在指定的输出文件夹中看到一个 .exe 文件。双击该文件即可运行你的游戏。
+
+额外选项：
+Development Build: 如果你在开发过程中需要调试信息，可以勾选 Development Build。这会生成一个带有调试信息的构建版本。
+Compression Method: 在 Player Settings 中，可以选择不同的压缩方法（如 LZ4HC）来减小打包后的文件大小。
+
+
+## 实现一个单例manager
 ```cs
     // 静态实例，用于存储单例的引用
     private static VideoController _instance;
@@ -79,7 +115,7 @@ tags:
 ```
 
 
-### 实现一个播片系统
+## 实现一个播片系统
 
 1. Controller
 - Canvas 下新建 gameobj: `VideoController`
@@ -168,7 +204,7 @@ public class VideoController : MonoBehaviour
 }
 ```
 
-### Unity自动创建的Canvas对象
+## Unity自动创建的Canvas对象
 Canvas组件用于渲染UI元素，无论是通过Unity的UI系统自动创建的Canvas对象，还是手动在现有对象上添加的Canvas组件，都可以实现这个目的。
 
 当你通过Unity的UI系统创建UI元素时（例如，右键点击Hierarchy窗口，选择UI -> Button），Unity会自动创建一个Canvas对象和一个EventSystem对象（如果还没有存在）。这种方式的特点是：
@@ -184,13 +220,13 @@ Canvas Scaler的设置为Constant Pixel Size，这意味着UI元素的尺寸不�
 3. 快速开始：
 对于新手或快速原型设计，使用自动创建的Canvas对象是最便捷的方式，因为它已经预先配置好了大多数所需的设置。
 
-### 在一个obj里纵向创建button
+## 在一个obj里纵向创建button
 
 给容器obj 添加 `Vertical Layout Group` 以及 `Content Size Fitter`.
 - 配置 Vertical Layout Group的 Padding 和 Spacing 属性，根据需要调整子对象的间距和容器的边距。
 - 将 Horizontal Fit 和 Vertical Fit 属性设置为 Preferred Size。
 
-#### Horizontal Fit 和 Vertical Fit 属性
+### Horizontal Fit 和 Vertical Fit 属性
 - Horizontal Fit: 控制UI元素在水平轴上的尺寸调整方式。
 - Vertical Fit: 控制UI元素在垂直轴上的尺寸调整方式。
 
@@ -200,17 +236,17 @@ Canvas Scaler的设置为Constant Pixel Size，这意味着UI元素的尺寸不�
 - Min Size（最小尺寸）：该选项表示UI元素的尺寸会根据内容的最小尺寸进行调整。最小尺寸通常由内容（如文本、图片等）的最小尺寸决定。
 - Preferred Size（优先尺寸）：该选项表示UI元素的尺寸会根据内容的优先尺寸进行调整。优先尺寸通常是内容在不被裁剪的情况下，所需的最佳尺寸。
 
-### Prefab 初始化 UnassignedReferenceException
+## Prefab 初始化 UnassignedReferenceException
 
 确认是否是在 Prefab 中的 Prefab , 可能是在hierarchy中prefab中指定了,但没有 apply all, 导致 Instantiate 用的 prefab没有指定inspector对象
 
-### Awake，OnEnable，Start中应该干什么
+## Awake，OnEnable，Start中应该干什么
 - Awake 方法：用于初始化不依赖于其他对象的内容。通常在 Awake 中初始化私有字段和单例。
 - OnEnable 方法：用于绑定事件或初始化依赖于其他对象的内容。
 - Start 方法：用于初始化依赖于其他对象的内容。这些对象应该在 Awake 中已经被正确初始化。
 
 
-### 使用委托和事件跨脚本通信
+## 使用委托和事件跨脚本通信
 在Unity中，如果你想让一个按钮按下时触发其他脚本中的方法，使用委托和事件是一种常见且灵活的方法，允许一个对象（比如按钮）按下时触发其他对象（比如脚本）中的方法。
 
 具体步骤如下：
@@ -255,14 +291,14 @@ Canvas Scaler的设置为Constant Pixel Size，这意味着UI元素的尺寸不�
   ```
 
 
-### UI生效需要有EventSystem
+## UI生效需要有EventSystem
 
-### TextMeshPro Text 中文乱码
+## TextMeshPro Text 中文乱码
 [自制动态字体](https://www.cnblogs.com/anderson0/p/16130186.html)
 
 > Atlas Resolution 选 4096 以上
 
-### Awake 和 Start
+## Awake 和 Start
 
 Start在所有脚本的Awake方法之后调用，确保所有对象和脚本都已经初始化。
 
@@ -271,7 +307,7 @@ Start在所有脚本的Awake方法之后调用，确保所有对象和脚本都�
 
 
 
-### DropDown 添加 value on changed
+## DropDown 添加 value on changed
 两种方法:
 1. 纯代码
 
@@ -387,17 +423,17 @@ public class DropdownHandler : MonoBehaviour
 
 
 
-### OnEnable()
+## OnEnable()
 
 - 在脚本实例启用时调用。
 - 如果对象是首次加载或从禁用状态变为启用状态时，会调用该方法。
 - 常用于注册事件或重新初始化变量。
 
-### OnValidate()
+## OnValidate()
 
 
 
-### assets结构
+## assets结构
 ```txt
 /Assets
   /Scripts
@@ -421,7 +457,7 @@ public class DropdownHandler : MonoBehaviour
 
 ```
 
-### 分辨率适配
+## 分辨率适配
 
 使用Canvas Scaler：
 
@@ -432,7 +468,7 @@ Unity的UI系统提供了Canvas Scaler组件，用于调整UI元素在不同分�
 - 设置Reference Resolution为你设计时的分辨率（例如1920x1080）。
 - 设置Screen Match Mode为你想要的模式，例如Match Width Or Height。然后调整Match值来控制宽高的匹配优先级。
 
-### ScrollView
+## ScrollView
 
 - 脚本的content绑定ScrollView子对象content
 - ScrollView 的 Scroll Rect 组件中 MovementType 选择 Clamped
@@ -441,19 +477,19 @@ Unity的UI系统提供了Canvas Scaler组件，用于调整UI元素在不同分�
 - 如果在使用鼠标滑轮滚动时感觉很慢，可以通过调整 ScrollRect 的 scrollSensitivity 属性来加快滚动速度。ScrollView -> Scroll Rect 组件 -> scrollSensitivity
 
 
-### Sprite 和 Raw Image
+## Sprite 和 Raw Image
 
 导入的png等图像，可以在图像属性里将type从default换成 sprite(2D)
 
-### FigmaImporter 
+## FigmaImporter 
 
-### Couldn't find font named Montserrat
+## Couldn't find font named Montserrat
 
 - 创建对应textmeshpro font
 - 右键创建好的字体 -> create -> figmaimporter -> font links
 
 
-### AI策略
+## AI策略
 
 高层次策略：使用规划系统或权重系统决定长期目标，如结盟、战争等。
 中层次策略：使用行为树管理角色的中期任务，如完成特定任务、管理资源等。
@@ -462,7 +498,7 @@ Unity的UI系统提供了Canvas Scaler组件，用于调整UI元素在不同分�
 
 # UI Toolkit
 
-### 字体设置
+## 字体设置
 
 https://www.bilibili.com/read/cv16408474/
 
