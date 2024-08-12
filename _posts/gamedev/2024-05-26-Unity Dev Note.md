@@ -8,8 +8,10 @@ tags:
 <!-- TOC -->
 
 - [Note](#note)
+    - [Rect Transform 的 Pivot](#rect-transform-的-pivot)
     - [Unity 打包 可执行文件](#unity-打包-可执行文件)
     - [实现一个单例manager](#实现一个单例manager)
+    - [VideoPlayer 判断当前影片播放完成的方法](#videoplayer-判断当前影片播放完成的方法)
     - [实现一个播片系统](#实现一个播片系统)
     - [Unity自动创建的Canvas对象](#unity自动创建的canvas对象)
     - [在一个obj里纵向创建button](#在一个obj里纵向创建button)
@@ -38,6 +40,16 @@ tags:
 
 
 # Note
+
+
+## Rect Transform 的 Pivot
+Pivot 是 UI 元素的旋转和缩放中心点。
+
+它的取值范围是 (0, 0) 到 (1, 1)，表示 RectTransform 的相对位置。
+
+例如，如果 Pivot 是 (0.5, 0.5)，则 RectTransform 的中心点位于它的几何中心；如果 Pivot 是 (0, 0)，则 RectTransform 的左下角是它的中心点。
+
+> 做 QTE 缩圈时 shrink circle 的 pivot 就该设为 0.5, 0.5
 
 ## Unity 打包 可执行文件
 1. 打开 Build Settings
@@ -114,6 +126,34 @@ Compression Method: 在 Player Settings 中，可以选择不同的压缩方法�
     }
 ```
 
+## VideoPlayer 判断当前影片播放完成的方法
+
+在 Update 方法中频繁调用 IsVideoFinished 可能会导致性能问题，尤其是在视频播放过程中该方法每帧都被调用。
+
+为了优化，可以考虑以下 `VideoPlayer.loopPointReached` 事件的实现方式:
+
+VideoPlayer 提供了 loopPointReached 事件，当视频播放到最后时触发该事件。你可以使用这个事件来替代 Update 方法中的检测逻辑。
+
+```cs
+private void OnEnable()
+{
+    _videoPlayer.loopPointReached += DoSomethingWhenFinished;
+}
+
+private void OnDisable()
+{
+    _videoPlayer.loopPointReached -= DoSomethingWhenFinished;
+}
+
+private void DoSomethingWhenFinished(VideoPlayer source)
+{
+    // 影片播放完成后的回调逻辑
+}
+
+```
+
+> 需要注意: 在使用 `VideoPlayer.loopPointReached` 事件时，如果你手动将视频的播放进度设置到最后（即 videoPlayer.time = videoPlayer.length;），这个事件可能不会被触发。这是因为 loopPointReached 事件是在视频正常播放到结尾时触发的.
+> 所以要实现 SkipVideo 的话, videoPlayer.time = videoPlayer.length - 0.1 , 然后保持 videoPlayer.Play(), 让其自然触发 loopPointReached
 
 ## 实现一个播片系统
 
