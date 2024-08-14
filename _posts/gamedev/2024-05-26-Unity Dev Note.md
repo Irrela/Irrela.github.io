@@ -8,6 +8,7 @@ tags:
 <!-- TOC -->
 
 - [Note](#note)
+    - [协程等待](#协程等待)
     - [Rect Transform 的 Pivot](#rect-transform-的-pivot)
     - [Unity 打包 可执行文件](#unity-打包-可执行文件)
     - [实现一个单例manager](#实现一个单例manager)
@@ -41,6 +42,39 @@ tags:
 
 # Note
 
+## 协程等待
+在 Unity 中，如果你想延迟销毁一个 GameObject，可以使用协程（Coroutine）来实现。协程允许你在一定时间后执行代码，适合用于延迟操作。以下是如何实现延迟销毁的示例：
+
+```cs
+using UnityEngine;
+using System.Collections;
+
+public class YourClass : MonoBehaviour
+{
+    public GameObject _instantiatedTips;
+
+    // 示例：启动时调用
+    private void Start()
+    {
+        // 延迟3秒后销毁
+        StartCoroutine(DestroyAfterDelay(_instantiatedTips, 3f));
+    }
+
+    private IEnumerator DestroyAfterDelay(GameObject objectToDestroy, float delay)
+    {
+        // 等待指定的时间
+        yield return new WaitForSeconds(delay);
+        
+        // 销毁对象
+        if (objectToDestroy != null)
+        {
+            Destroy(objectToDestroy);
+        }
+    }
+}
+```
+
+> IEnumerator 是 C# 中的一种接口，通常用于迭代集合中的元素，但在 Unity 中，IEnumerator 也被用来实现协程（Coroutine）。协程是一种特殊的方法，允许你在方法执行的过程中暂停，然后在下一帧或指定的时间后继续执行。
 
 ## Rect Transform 的 Pivot
 Pivot 是 UI 元素的旋转和缩放中心点。
