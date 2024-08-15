@@ -8,6 +8,8 @@ tags:
 <!-- TOC -->
 
 - [Note](#note)
+    - [抽象类](#抽象类)
+    - [Horizontal/Vertical Layout Group 子对象不平分width/height](#horizontalvertical-layout-group-子对象不平分widthheight)
     - [协程等待](#协程等待)
     - [Rect Transform 的 Pivot](#rect-transform-的-pivot)
     - [Unity 打包 可执行文件](#unity-打包-可执行文件)
@@ -41,6 +43,71 @@ tags:
 
 
 # Note
+
+## 抽象类
+- 不能实例化
+
+- abstract 方法是没有实现的方法，它们必须在派生类中被实现。派生类实现抽象方法时，使用 override 关键字。
+
+- 部分实现：virtual 方法可以直接在派生类中使用，也可以被覆盖(子类 override)。
+
+```cs
+public abstract class Animal
+{
+    // 允许子类覆盖的 Eat 方法
+    public virtual void Eat()
+    {
+        Console.WriteLine("This animal is eating.");
+    }
+
+    public abstract void MakeSound();
+}
+
+public class Dog : Animal
+{
+    public override void MakeSound()
+    {
+        Console.WriteLine("Woof!");
+    }
+
+    // Dog 覆盖基类的 Eat 方法
+    public override void Eat()
+    {
+        Console.WriteLine("The dog is eating.");
+    }
+}
+
+public class Cat : Animal
+{
+    public override void MakeSound()
+    {
+        Console.WriteLine("Meow!");
+    }
+
+    // Cat 使用基类的 Eat 方法，不需要覆盖
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        Animal myDog = new Dog();
+        myDog.Eat();       // 输出: The dog is eating.
+        myDog.MakeSound(); // 输出: Woof!
+
+        Animal myCat = new Cat();
+        myCat.Eat();       // 输出: This animal is eating.
+        myCat.MakeSound(); // 输出: Meow!
+    }
+}
+```
+
+
+## Horizontal/Vertical Layout Group 子对象不平分width/height
+
+Horizontal Layout Group 默认情况下会让子对象平分宽度。
+
+为了取消这个行为，并让子对象从右到左排列，你可以结合使用 Horizontal Layout Group 和 Content Size Fitter，并`禁用 Horizontal Layout Group 的 Child Force Expand Width` 属性。
 
 ## 协程等待
 在 Unity 中，如果你想延迟销毁一个 GameObject，可以使用协程（Coroutine）来实现。协程允许你在一定时间后执行代码，适合用于延迟操作。以下是如何实现延迟销毁的示例：
