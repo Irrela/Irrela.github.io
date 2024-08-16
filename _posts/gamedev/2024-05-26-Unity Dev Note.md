@@ -8,6 +8,7 @@ tags:
 <!-- TOC -->
 
 - [Note](#note)
+    - [键盘输入实现事件委托](#键盘输入实现事件委托)
     - [抽象类](#抽象类)
     - [Horizontal/Vertical Layout Group 子对象不平分width/height](#horizontalvertical-layout-group-子对象不平分widthheight)
     - [协程等待](#协程等待)
@@ -43,6 +44,54 @@ tags:
 
 
 # Note
+
+## 键盘输入实现事件委托
+
+使用 Unity 的新输入系统.
+
+确保你的项目中安装了 Input System 包。如果没有，请打开 Window > Package Manager，搜索并安装 Input System 包。
+
+> InputAction 需要在 inspector 中操作绑定
+
+```cs
+public class PanelManager : MonoBehaviour
+{
+    public InputAction escAction; // 需要在 inspector 中操作绑定
+
+    private void OnEnable()
+    {
+        escAction.Enable();
+        escAction.performed += OnEscPressed;
+    }
+
+    private void OnDisable()
+    {
+        escAction.performed -= OnEscPressed;
+        escAction.Disable();
+    }
+
+    private void OnEscPressed(InputAction.CallbackContext context)
+    {
+        if (panelStack.Peek() == uiLogin)
+        {
+            return;
+        }
+        
+        if (panelStack.Peek() == uiMain)
+        {
+            OpenPanel(uiEscape);
+            return;
+        }
+
+        if (panelStack.Peek().name.StartsWith("PanelEvent"))
+        {
+            panelStack.Peek().GetComponent<PanelEvent>().ToFold();
+        }
+        
+        CloseTopPanel();
+    }
+}
+```
 
 ## 抽象类
 - 不能实例化
