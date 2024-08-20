@@ -8,8 +8,13 @@ tags:
 <!-- TOC -->
 
 - [Note](#note)
+    - [根据 name 在 parent 中查找 child gameObj](#根据-name-在-parent-中查找-child-gameobj)
+    - [调整gameobj 相对 parent位置](#调整gameobj-相对-parent位置)
+    - [判断一个 GameObject 是否处于激活状态](#判断一个-gameobject-是否处于激活状态)
+    - [脚本触发方法: 比如button的onclick](#脚本触发方法-比如button的onclick)
     - [键盘输入实现事件委托](#键盘输入实现事件委托)
     - [抽象类](#抽象类)
+    - [Grid Layout Group](#grid-layout-group)
     - [Horizontal/Vertical Layout Group 子对象不平分width/height](#horizontalvertical-layout-group-子对象不平分widthheight)
     - [协程等待](#协程等待)
     - [Rect Transform 的 Pivot](#rect-transform-的-pivot)
@@ -44,6 +49,44 @@ tags:
 
 
 # Note
+
+## 根据 name 在 parent 中查找 child gameObj
+
+```cs
+GameObject parentObject = GameObject.Find("ParentObjectName");
+Transform childTransform = parentObject.transform.Find("ChildObjectName");
+
+if (childTransform != null)
+{
+    GameObject childObject = childTransform.gameObject;
+    // 现在你可以对 childObject 做进一步的操作
+}
+else
+{
+    Debug.Log("未找到指定名称的子对象");
+}
+
+```
+
+## 调整gameobj 相对 parent位置
+
+比如要居中, Rect Transform 组件中选择center middle, 并保证pivot是 0.5, 0.5, 再调整posx为0, 则横向居中, posy为0则纵向居中.
+
+## 判断一个 GameObject 是否处于激活状态
+
+```cs
+// 如果 GameObject 的 SetActive(true) 被调用，它的 activeSelf 将为 true；如果调用了 SetActive(false)，它的 activeSelf 将为 false。
+if (myObject.activeSelf)
+
+// 如果一个 GameObject 的父级或祖先被禁用，那么它的 activeInHierarchy 也会返回 false。
+if (myObject.activeInHierarchy)
+
+```
+
+## 脚本触发方法: 比如button的onclick
+```cs
+myButton.onClick.Invoke();
+```
 
 ## 键盘输入实现事件委托
 
@@ -151,6 +194,9 @@ public class Program
 }
 ```
 
+## Grid Layout Group
+
+应对`多排或多行`的布局
 
 ## Horizontal/Vertical Layout Group 子对象不平分width/height
 
