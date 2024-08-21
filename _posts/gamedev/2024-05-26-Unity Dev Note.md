@@ -8,6 +8,7 @@ tags:
 <!-- TOC -->
 
 - [Note](#note)
+    - [](#)
     - [根据 name 在 parent 中查找 child gameObj](#根据-name-在-parent-中查找-child-gameobj)
     - [调整gameobj 相对 parent位置](#调整gameobj-相对-parent位置)
     - [判断一个 GameObject 是否处于激活状态](#判断一个-gameobject-是否处于激活状态)
@@ -49,6 +50,8 @@ tags:
 
 
 # Note
+
+## 
 
 ## 根据 name 在 parent 中查找 child gameObj
 
@@ -488,7 +491,7 @@ Canvas Scaler的设置为Constant Pixel Size，这意味着UI元素的尺寸不�
 具体步骤如下：
 
 
-1. 定义事件委托：在接收事件的脚本中定义一个委托和事件。
+1. 定义事件委托：在接收事件的脚本中定义一个委托和事件(比如一个按钮要触发其他脚本, 就在按钮自己的脚本里定义委托和事件)。
 
   ```cs
   public delegate void ButtonClickAction();
