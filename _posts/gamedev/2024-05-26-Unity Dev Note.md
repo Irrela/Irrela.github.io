@@ -8,9 +8,13 @@ tags:
 <!-- TOC -->
 
 - [Note](#note)
-    - [](#)
+    - [订阅event的字段最好手动初始化](#订阅event的字段最好手动初始化)
+    - [关于持久化 (Serializable & SerializeField)](#关于持久化-serializable--serializefield)
+    - [Dropdown 组件的 Dynamic](#dropdown-组件的-dynamic)
     - [根据 name 在 parent 中查找 child gameObj](#根据-name-在-parent-中查找-child-gameobj)
-    - [调整gameobj 相对 parent位置](#调整gameobj-相对-parent位置)
+    - [让多个 Text 组件纵向排列在一个方框obj, 并让方框obj的height动态适配](#让多个-text-组件纵向排列在一个方框obj-并让方框obj的height动态适配)
+    - [调整 gameobj 的中心点](#调整-gameobj-的中心点)
+    - [调整 gameobj 相对 parent位置](#调整-gameobj-相对-parent位置)
     - [判断一个 GameObject 是否处于激活状态](#判断一个-gameobject-是否处于激活状态)
     - [脚本触发方法: 比如button的onclick](#脚本触发方法-比如button的onclick)
     - [键盘输入实现事件委托](#键盘输入实现事件委托)
@@ -51,7 +55,65 @@ tags:
 
 # Note
 
-## 
+## 订阅event的字段最好手动初始化
+
+```cs
+// 以此为例子, Inventory的value变化监听需要显式地为父对象初始化Inventory才能绑定
+// 即使Person类有 [SerializeField] private SerializableDictionary<ItemEnum, int> inventory = new SerializableDictionary<ItemEnum, int>();
+// 但还是需要 Inventory = new SerializableDictionary<ItemEnum, int>();
+public SerializableDictionary<ItemEnum, int> Inventory
+{
+    get => inventory;
+    set
+    {
+        if (inventory == value) return;
+
+        if (inventory != null)
+        {
+            Debug.Log($"{Name}-Unsubscribing from old inventory");
+            inventory.OnValueChanged -= OnItemChanged;
+        }
+
+        inventory = value;
+
+        if (inventory != null)
+        {
+            Debug.Log($"{Name}-Subscribing to new inventory");
+            inventory.OnValueChanged += OnItemChanged;
+        }
+
+        OnInventoryChanged?.Invoke(inventory);
+    }
+}
+```
+
+## 关于持久化 (Serializable & SerializeField)
+1. [Serializable] 属性
+[Serializable] 是一个 C# 的属性，标记在类或结构上，告诉系统该类可以被序列化, 使类可以在 Inspector 面板中显示。这意味着它的实例可以被保存或恢复。
+
+2. [SerializeField] 属性
+作用于类的字段（field）。
+
+默认情况下，只有 public 字段会被 Unity 序列化并显示在 Inspector 面板中，而使用 [SerializeField] 可以让 private 或 protected 字段也被序列化并显示在 Inspector 中。
+
+```cs
+[Serializable]
+public class GameData
+{
+    public string playerName;       // 自动被序列化（public）
+    [SerializeField] private int score; // 通过 SerializeField 使 private 字段也能被序列化
+    
+    // 非序列化字段
+    [NonSerialized] public bool isAlive; // 此字段不会被序列化
+}
+
+```
+
+
+## Dropdown 组件的 Dynamic
+
+Dropdown 组件有 On Value Changed 方法, 如果希望传递option的index作为参数, 在绑定方法时要选上方的 Dynamic 方法, 否则会让你自己填一个固定参数.
+
 
 ## 根据 name 在 parent 中查找 child gameObj
 
@@ -71,7 +133,33 @@ else
 
 ```
 
-## 调整gameobj 相对 parent位置
+## 让多个 Text 组件纵向排列在一个方框obj, 并让方框obj的height动态适配
+
+1. 在父对象上使用 `Vertical Layout Group`
+- `Child Alignment`: 设置为 Upper Left（或其他适合的对齐方式）。
+- `Child Force Expand Width`: 勾选，以便子元素占满宽度。
+- `Child Force Expand Height`: 不要勾选，以确保子元素的高度随内容变化，而不是强制拉伸。
+
+2. 在父对象上使用 `Content Size Fitter`
+- 为了确保 tips prefab 的高度会根据内容变化，你需要在 Vertical Layout Group 容器上添加 `Content Size Fitter`，让其动态调整大小。
+- 设置 Vertical Fit 为 Preferred Size，以让容器高度根据子元素内容动态扩展。
+
+3. 设置Text (UI), 当出现多行时自动换行并改变自身的height, 避免在父容器中挤压重叠
+- 删除手动设置的 Height 限制
+- 确保 Anchors 设置为上下拉伸（Stretch），以便 RectTransform 能根据内容进行伸缩。
+- 为每个 Text (UI) 组件添加 `Content Size Fitter` 组件，使得高度能够随着文本内容动态变化. `Vertical Fit` 设置为 Preferred Size，这样高度会根据文本内容自动调整。如果希望宽度不随内容变化，则 `Horizontal Fit` 设置为 Unconstrained；如果需要动态调整宽度，则可以设置为 Preferred Size。
+
+
+
+## 调整 gameobj 的中心点
+
+如果我想让中心点在左上角
+
+- Anchor: 在 RectTransform 的 Anchor Presets 中选择 Top Left（通常是第一个选项，图标看起来像一个锚）。
+
+- Pivot: 将 Pivot 设置为 (0, 1)。这意味着在 X 轴上偏移为 0（左侧），在 Y 轴上偏移为 1（顶部）。
+
+## 调整 gameobj 相对 parent位置
 
 比如要居中, Rect Transform 组件中选择center middle, 并保证pivot是 0.5, 0.5, 再调整posx为0, 则横向居中, posy为0则纵向居中.
 
