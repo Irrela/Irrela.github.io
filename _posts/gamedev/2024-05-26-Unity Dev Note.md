@@ -8,6 +8,26 @@ tags:
 <!-- TOC -->
 
 - [Note](#note)
+    - [Dropdown](#dropdown)
+    - [调整分辨率](#调整分辨率)
+        - [1. 屏幕分辨率和窗口大小设置](#1-屏幕分辨率和窗口大小设置)
+        - [2. Canvas 适配（UI）](#2-canvas-适配ui)
+            - [Canvas Scaler](#canvas-scaler)
+            - [Anchors 和 Pivots](#anchors-和-pivots)
+        - [3. 摄像机视野调整](#3-摄像机视野调整)
+            - [正交摄像机 (Orthographic Camera)](#正交摄像机-orthographic-camera)
+            - [透视摄像机 (Perspective Camera)](#透视摄像机-perspective-camera)
+    - [为非ui对象实现 IPointerEnterHandler 等接口](#为非ui对象实现-ipointerenterhandler-等接口)
+    - [Mask 组件](#mask-组件)
+        - [Mask 组件的主要功能](#mask-组件的主要功能)
+        - [示例场景](#示例场景)
+        - [注意事项](#注意事项)
+    - [Canvas 和 Canvas Group 组件](#canvas-和-canvas-group-组件)
+        - [Canvas](#canvas)
+        - [Canvas Group](#canvas-group)
+    - [添加 canvas 组件后 IPointerEnterHandler 等不触发](#添加-canvas-组件后-ipointerenterhandler-等不触发)
+    - [UI Stack 管理（进阶）](#ui-stack-管理进阶)
+    - [通过Awake绑定GameObj, 代替Inspector绑定](#通过awake绑定gameobj-代替inspector绑定)
     - [订阅event的字段最好手动初始化](#订阅event的字段最好手动初始化)
     - [关于持久化 (Serializable & SerializeField)](#关于持久化-serializable--serializefield)
     - [Dropdown 组件的 Dynamic](#dropdown-组件的-dynamic)
@@ -54,6 +74,202 @@ tags:
 
 
 # Note
+
+## Dropdown
+
+- Content 和 Item 的 height 要一致
+- Template 的 height 决定下拉框的高度
+
+## 调整分辨率
+### 1. 屏幕分辨率和窗口大小设置
+Unity 可以通过 `Screen` 类以及项目设置中的 分辨率选项 来控制游戏窗口的分辨率和大小调整。
+
+```cs
+// 在游戏中动态设置分辨率
+// width 和 height：指定屏幕的分辨率（像素）。
+//fullscreenMode：可以是 true 表示全屏，false 表示窗口化模式，也可以使用 FullScreenMode 枚举来指定窗口模式，比如 FullScreenWindow、ExclusiveFullScreen
+Screen.SetResolution(width, height, fullscreenMode); 
+
+// 将分辨率设置为 1920x1080 的全屏模式：
+Screen.SetResolution(1920, 1080, FullScreenMode.FullScreenWindow);
+
+```
+> 你还可以让玩家通过游戏内设置来调整分辨率和全屏模式，并保存这些设置到 PlayerPrefs 中，下次启动游戏时加载这些偏好。
+
+
+监听屏幕分辨率变化
+
+```cs
+// 如果你想要在游戏运行过程中响应屏幕分辨率变化，可以使用 Screen.width 和 Screen.height 来实时获取屏幕尺寸，或者在更新循环中检测屏幕变化：
+private int lastScreenWidth;
+private int lastScreenHeight;
+
+void Start()
+{
+    lastScreenWidth = Screen.width;
+    lastScreenHeight = Screen.height;
+}
+
+void Update()
+{
+    if (Screen.width != lastScreenWidth || Screen.height != lastScreenHeight)
+    {
+        // 处理分辨率变化，例如调整UI布局
+        OnScreenResolutionChanged();
+        lastScreenWidth = Screen.width;
+        lastScreenHeight = Screen.height;
+    }
+}
+
+```
+
+### 2. Canvas 适配（UI）
+
+#### Canvas Scaler
+Canvas 使用 `Canvas Scaler` 组件来自动处理 UI 在不同分辨率下的缩放和适应。
+
+Canvas Scaler 有几种重要的缩放模式：
+- `Constant Pixel Size`：UI 元素始终保持固定的像素大小，不受分辨率影响。这种模式适用于静态布局，但在不同屏幕分辨率下元素可能显得太大或太小。
+- `Scale With Screen Size`（推荐）：这种模式会让 UI 元素根据屏幕的分辨率或尺寸比例进行缩放。你可以指定一个 参考分辨率（例如 1920x1080），然后 Unity 会根据当前屏幕分辨率自动调整 UI 的大小。
+
+#### Anchors 和 Pivots
+为了确保 UI 元素在不同分辨率和屏幕尺寸下保持正确的对齐和布局，使用 锚点（Anchors） 和 轴心点（Pivot） 是非常关键的。
+- `Anchors`：锚点可以设置为相对于父对象的某个边缘，或将 UI 元素固定到某个屏幕位置。比如，将一个按钮锚定到屏幕的右下角，即使分辨率发生变化，按钮仍会保持在右下角。
+- `Pivot`：Pivot 设置了 UI 元素的中心点，影响元素的旋转、缩放和位置计算。比如设置为 (0, 0) 表示元素以左下角为中心。
+
+
+### 3. 摄像机视野调整
+#### 正交摄像机 (Orthographic Camera)
+在 2D 游戏中，通常使用正交摄像机，游戏对象会根据摄像机的 `orthographicSize` 和分辨率进行调整。
+```cs
+// 保持纵横比：如果你的 2D 游戏希望在不同分辨率下保持相同的可视区域，你可以调整摄像机的 orthographicSize。
+Camera.main.orthographicSize = Screen.height / (2 * pixelsPerUnit);
+```
+
+#### 透视摄像机 (Perspective Camera)
+
+在 3D 游戏中，透视摄像机会影响你看到的场景。如果屏幕分辨率发生变化，你可以通过调整摄像机的 视场角 (Field of View, FOV) 来保持适当的场景透视效果。
+
+```cs
+// 在 3D 游戏中，为了适应不同分辨率，通常要确保摄像机的纵横比（aspect ratio）与屏幕分辨率一致：
+Camera.main.aspect = (float)Screen.width / Screen.height;
+```
+
+## 为非ui对象实现 IPointerEnterHandler 等接口
+
+- 对象需要box collider（2d）组件一起使用
+- camera 需要 `physics 2d raycaster`
+- 需要 event System
+
+使用 IPointerEnterHandler 而非 内置的 onMouseEnter ，是因为这样可以避免ui遮挡这些非ui对象时， 非ui对象的onMouseEnter等还是可以被触发
+
+## Mask 组件
+在 Unity 中，Mask 组件用于创建一个遮罩区域，限制其子对象的可见性。
+子对象只有在 Mask 区域内时才会被显示，超出区域的部分会被遮挡。这对于创建裁剪效果、滚动视图和带有边框的 UI 元素非常有用。
+
+### Mask 组件的主要功能
+裁剪子对象：当一个 UI 对象（如 Image 或 RectTransform）上附加了 Mask 组件后，只有在其范围内的子对象才能被显示。任何超出遮罩范围的部分会被自动隐藏。
+
+动态遮罩效果：在滚动列表（Scroll View）等场景中，Mask 可以限制子元素的显示范围，创建类似窗口或边框的效果。
+
+可自定义形状：默认情况下，Mask 使用父对象的形状作为遮罩，但可以结合 Sprite 来自定义遮罩形状。只需将 Sprite 应用到父对象的 Image 上，Mask 会基于该 Sprite 的轮廓来遮挡。
+
+### 示例场景
+滚动视图（Scroll View）：在 Scroll View 中，Mask 用于裁剪内容，只显示滚动视口范围内的部分，隐藏超出部分。
+圆形头像：使用 Mask 可以将矩形图片裁剪成圆形或其他自定义形状，适合用于头像框效果。
+边框和窗口：可以将内容限制在边框范围内，使得边框外的内容不可见，适用于创建窗口、对话框等 UI 元素。
+
+### 注意事项
+Mask 只作用于其子对象。
+Mask 通常与 Image 或 RectTransform 组件一起使用，用来定义遮罩的形状和大小。
+若需要复杂遮罩效果，可以使用 RectMask2D 或 Shader 技术以实现更高级的遮罩。
+
+## Canvas 和 Canvas Group 组件
+
+在 Unity 中，Canvas 和 Canvas Group 是两个不同的组件，各自有独特的作用：
+
+### Canvas
+Canvas 是 UI 系统的核心组件之一，负责管理所有 UI 元素的绘制和呈现。所有 UI 元素（如 Image、Text、Button 等）都必须是 Canvas 的子对象，才能在屏幕上正确显示。
+
+Canvas 的主要功能和属性包括:
+
+1. Render Mode：控制 Canvas 的渲染模式，有三种模式：
+- Screen Space - Overlay：直接将 UI 渲染到屏幕上，不受场景中的相机影响。最常用于游戏的主 UI。
+- Screen Space - Camera：UI 渲染到相机前方的指定位置，使得 UI 可以与相机的视野和缩放有关联。
+- World Space：Canvas 的 UI 元素作为 3D 对象在世界坐标中渲染，适用于需要与场景交互的 3D UI。
+
+2. Graphic Raycaster：Canvas 具有的一个附加组件，用于处理 UI 的鼠标和触摸交互，使按钮、文本等 UI 元素可以接收点击和悬停事件。
+
+3. Sorting Order：用于控制 Canvas 的渲染顺序。数值越高，Canvas 会显示在越上层的位置，适用于叠加多个 Canvas 来控制不同 UI 的显示层级。
+
+### Canvas Group
+Canvas Group 是一个用于控制其子 UI 元素的属性的组件。它提供了一种便捷的方法，可以在一个父对象上设置多个 UI 元素的透明度、交互性等属性，而不需要逐个调整每个 UI 元素。
+
+Canvas Group 的主要功能和属性包括：
+
+1. Alpha：控制整个组的透明度。Alpha 值从 0 到 1，0 表示完全透明，1 表示完全不透明。通常用于控制整个 UI 的淡入淡出效果。
+2. Interactable：启用或禁用整个组的交互性。如果设置为 false，组内的所有按钮和可交互元素将失效。
+3. Blocks Raycasts：启用或禁用该组阻挡射线投射。如果关闭，鼠标点击会穿透此组，作用类似于设置 Raycast Target，用于控制交互性。
+4. Ignore Parent Groups：决定该组是否忽略父级 Canvas Group 的设置。如果勾选此项，当前 Canvas Group 不会继承父组的透明度和交互性设置。
+
+## 添加 canvas 组件后 IPointerEnterHandler 等不触发
+
+还需要添加 `Graphic Raycaster` 组件, `Blocking object` 选择 `Two D`
+
+## UI Stack 管理（进阶）
+在复杂的 UI 场景中，尤其是多窗口、多层级的 UI 系统，可以维护一个 UI 栈来管理窗口的显示顺序，每次打开新窗口时，将它推入栈顶，并调整其 sortingOrder。当窗口关闭时，将其从栈顶移除，并恢复下一个窗口的顺序。
+
+```cs
+public class UIManager : MonoBehaviour
+{
+    private Stack<Canvas> uiStack = new Stack<Canvas>();
+    private int currentSortingOrder = 10;
+
+    public void OpenPopup(Canvas popupCanvas)
+    {
+        currentSortingOrder++;
+        popupCanvas.overrideSorting = true;
+        popupCanvas.sortingOrder = currentSortingOrder;
+        popupCanvas.gameObject.SetActive(true);
+        uiStack.Push(popupCanvas);
+    }
+
+    public void ClosePopup()
+    {
+        if (uiStack.Count > 0)
+        {
+            Canvas topCanvas = uiStack.Pop();
+            topCanvas.gameObject.SetActive(false);
+            currentSortingOrder--;
+        }
+    }
+}
+```
+
+## 通过Awake绑定GameObj, 代替Inspector绑定
+
+> 重点是在 Awake 中绑定而非 Start
+
+```cs
+public class EventFold : MonoBehaviour
+{
+    // ui
+    private TMP_Text tmpText;
+    private Button button;
+    private GameObject panelEvent;
+    
+    // data
+    public EventModel EventModel { get; set;}
+
+    // Start is called before the first frame update
+    private void Awake()
+    {
+        tmpText = gameObject.GetComponentInChildren<TMP_Text>();
+        button = gameObject.GetComponent<Button>();
+    }
+}
+```
+
 
 ## 订阅event的字段最好手动初始化
 
