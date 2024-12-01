@@ -388,3 +388,44 @@ namespace Model
 }
 
 ```
+
+#### 动态创建GameObj的单例写法
+```cs
+private static ExternalDataLoader _instance;
+
+// 获取单例实例的静态方法
+public static ExternalDataLoader Instance
+{
+    get
+    {
+        if (!_instance)
+        {
+            // 如果实例不存在，则查找现有的实例
+            _instance = FindObjectOfType<ExternalDataLoader>();
+
+            // 如果场景中不存在 DataLoader，则创建一个新的 GameObject 并添加 DataLoader 组件
+            if (!_instance)
+            {
+                var singletonObject = new GameObject(nameof(ExternalDataLoader));
+                _instance = singletonObject.AddComponent<ExternalDataLoader>();
+            }
+        }
+
+        return _instance;
+    }
+}
+
+private void Awake()
+{
+    // 确保只有一个实例存在
+    if (!_instance)
+    {
+        _instance = this;
+        DontDestroyOnLoad(gameObject); // 保证切换场景时不销毁该实例
+    }
+    else
+    {
+        Destroy(gameObject); // 如果已经存在实例，则销毁新的实例
+    }
+}
+```
