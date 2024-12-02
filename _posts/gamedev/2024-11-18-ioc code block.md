@@ -5,8 +5,25 @@ tags:
 - GameDev
 ---
 
-#### VideoController
+#### 脚本中增加子 gameObj
 
+> 如果想增加 TMP_Text 组件, 需要 AddComponent<TextMeshProUGUI>
+
+```cs
+// 创建并添加 Content
+GameObject addedContent = new GameObject("Content_add");
+addedContent.transform.SetParent(_instantiatedCheckTooltip.transform);
+
+TMP_Text addComponentTmpText = addedContent.AddComponent<TextMeshProUGUI>();
+addComponentTmpText.font = _instantiatedCheckTooltip.transform.Find("Content").GetComponent<TMP_Text>().font;
+addComponentTmpText.fontMaterial = _instantiatedCheckTooltip.transform.Find("Content").GetComponent<TMP_Text>().fontMaterial;
+ContentSizeFitter contentSizeFitter = addComponentTmpText.AddComponent<ContentSizeFitter>();
+contentSizeFitter.horizontalFit = ContentSizeFitter.FitMode.Unconstrained;
+contentSizeFitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+addComponentTmpText.text = EventOption.GetCheckString();
+```
+
+#### VideoController
 ```cs
 using System.IO;
 using UnityEngine;
