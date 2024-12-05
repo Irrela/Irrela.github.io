@@ -8,6 +8,9 @@ tags:
 <!-- TOC -->
 
 - [Note](#note)
+            - [获得动态伸长的panel的实际height](#获得动态伸长的panel的实际height)
+            - [让 tooltip sorting order 高于其他 UI](#让-tooltip-sorting-order-高于其他-ui)
+    - [Scroll Rect](#scroll-rect)
     - [Dropdown](#dropdown)
     - [调整分辨率](#调整分辨率)
         - [1. 屏幕分辨率和窗口大小设置](#1-屏幕分辨率和窗口大小设置)
@@ -74,6 +77,64 @@ tags:
 
 
 # Note
+
+#### 获得动态伸长的panel的实际height
+
+1. 把需要实际height的操作都放进协程
+
+```cs
+IEnumerator GetContainerHeightAfterLayoutUpdate()
+{
+    // 强制刷新布局
+    LayoutRebuilder.ForceRebuildLayoutImmediate(tipsRectTransform);
+
+    // 等待一帧，确保布局计算已完成
+    yield return null;
+    
+    // 获取更新后的高度
+    Debug.Log($"Container Height: {tipsRectTransform.rect.height}");
+    
+    // 调整 tooltip 的位置 (选项右方)
+    RectTransform buttonRectTransform = GetComponent<RectTransform>();
+    if (tipsRectTransform != null && buttonRectTransform != null)
+    {
+        Vector3[] buttonCorners = new Vector3[4];
+        buttonRectTransform.GetWorldCorners(buttonCorners);
+
+        Vector3 buttonTopRight = buttonCorners[2]; // 获取按钮的右上角位置
+        // tipsRectTransform.position = buttonTopRight + new Vector3(_offset.x + tipsRectTransform.rect.width / 2, _offset.y - tipsRectTransform.rect.height / 2, 0);
+        tipsRectTransform.position = buttonTopRight + new Vector3(_offset.x, _offset.y, 0);
+    
+        UIManager.Instance.AdjustTooltipPosition(tipsRectTransform, UIManager.Instance.uiRoot.GetComponent<RectTransform>());
+    }
+}
+
+StartCoroutine(GetContainerHeightAfterLayoutUpdate());
+```
+
+2. 使用 Canvas.ForceUpdateCanvases()
+
+Canvas.ForceUpdateCanvases() 是一个可以强制刷新所有 UI 组件的函数，确保布局和渲染系统被及时更新。它比 ForceRebuildLayoutImmediate 更强力一些，可以尝试在强制刷新布局后调用它：
+```cs
+// 强制刷新布局
+LayoutRebuilder.ForceRebuildLayoutImmediate(tipsRectTransform);
+
+// 强制刷新所有 Canvas 相关的 UI 元素
+Canvas.ForceUpdateCanvases();
+
+// 获取容器的实际高度
+Debug.Log($"Container Height: {tipsRectTransform.rect.height}");
+
+```
+
+
+#### 让 tooltip sorting order 高于其他 UI
+
+给 tooltip pf 增加 Canavas 组件, 勾选 overriding layer, 设置 Sort Order 高于其他ui所在的canvas即可.
+
+## Scroll Rect
+
+- 在 Scroll Rect 组件中，找到 Scroll Sensitivity 属性。提高 Scroll Sensitivity 的值以增加滚动速度，或降低该值来减慢滚动速度。
 
 ## Dropdown
 
