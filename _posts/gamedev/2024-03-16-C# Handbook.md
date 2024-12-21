@@ -5,26 +5,36 @@ tags:
 - GameDev
 ---
 
-- [Collections](#collections)
-  - [List](#list)
-  - [Stack](#stack)
-  - [Queue](#queue)
-  - [Deuqe (LinkedList)](#deuqe-linkedlist)
-  - [PriorityQueue](#priorityqueue)
-  - [HashSet](#hashset)
-  - [Dictionary](#dictionary)
-- [Array](#array)
-  - [int\[,\] 和 int\[\]\[\]](#int-和-int)
-  - [Array 初始化](#array-初始化)
-  - [Array Sort](#array-sort)
-  - [Array 深拷贝](#array-深拷贝)
-  - [Lambda Comparator](#lambda-comparator)
-- [Other Syntax](#other-syntax)
-- [extension](#extension)
+
+<!-- TOC -->
+
+- [String](#string)
+            - [Strings](#strings)
+            - [StringBuilder](#stringbuilder)
+        - [Collections](#collections)
+            - [List](#list)
+            - [Stack](#stack)
+            - [Queue](#queue)
+            - [Deuqe (LinkedList)](#deuqe-linkedlist)
+            - [PriorityQueue](#priorityqueue)
+            - [HashSet](#hashset)
+            - [Dictionary](#dictionary)
+        - [Array](#array)
+            - [int[,] 和 int[][]](#int-和-int)
+            - [Array 初始化](#array-初始化)
+            - [Array Sort](#array-sort)
+            - [Array 深拷贝](#array-深拷贝)
+            - [Lambda Comparator](#lambda-comparator)
+        - [Other Syntax](#other-syntax)
+        - [extension](#extension)
+
+<!-- /TOC -->
 
 
+# String
 
-#### String
+#### Strings
+
 ```cs
 // 字符串长度
 string str = "Hello, world!";

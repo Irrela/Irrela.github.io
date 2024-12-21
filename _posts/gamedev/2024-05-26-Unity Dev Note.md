@@ -8,10 +8,13 @@ tags:
 <!-- TOC -->
 
 - [Note](#note)
+    - [Dotween](#dotween)
+            - [DOMoveX 和 DOAnchorPosX](#domovex-和-doanchorposx)
             - [获得动态伸长的panel的实际height](#获得动态伸长的panel的实际height)
             - [让 tooltip sorting order 高于其他 UI](#让-tooltip-sorting-order-高于其他-ui)
     - [Scroll Rect](#scroll-rect)
     - [Dropdown](#dropdown)
+            - [OnValueChange 方法传递 option 的 index 作为参数](#onvaluechange-方法传递-option-的-index-作为参数)
     - [调整分辨率](#调整分辨率)
         - [1. 屏幕分辨率和窗口大小设置](#1-屏幕分辨率和窗口大小设置)
         - [2. Canvas 适配（UI）](#2-canvas-适配ui)
@@ -33,7 +36,6 @@ tags:
     - [通过Awake绑定GameObj, 代替Inspector绑定](#通过awake绑定gameobj-代替inspector绑定)
     - [订阅event的字段最好手动初始化](#订阅event的字段最好手动初始化)
     - [关于持久化 (Serializable & SerializeField)](#关于持久化-serializable--serializefield)
-    - [Dropdown 组件的 Dynamic](#dropdown-组件的-dynamic)
     - [根据 name 在 parent 中查找 child gameObj](#根据-name-在-parent-中查找-child-gameobj)
     - [让多个 Text 组件纵向排列在一个方框obj, 并让方框obj的height动态适配](#让多个-text-组件纵向排列在一个方框obj-并让方框obj的height动态适配)
     - [调整 gameobj 的中心点](#调整-gameobj-的中心点)
@@ -51,8 +53,10 @@ tags:
     - [VideoPlayer 判断当前影片播放完成的方法](#videoplayer-判断当前影片播放完成的方法)
     - [实现一个播片系统](#实现一个播片系统)
     - [Unity自动创建的Canvas对象](#unity自动创建的canvas对象)
+- [Layout Group](#layout-group)
     - [在一个obj里纵向创建button](#在一个obj里纵向创建button)
         - [Horizontal Fit 和 Vertical Fit 属性](#horizontal-fit-和-vertical-fit-属性)
+        - [纵向伸展容器的image处理: 9-Slice（九宫格）技术](#纵向伸展容器的image处理-9-slice九宫格技术)
     - [Prefab 初始化 UnassignedReferenceException](#prefab-初始化-unassignedreferenceexception)
     - [Awake，OnEnable，Start中应该干什么](#awakeonenablestart中应该干什么)
     - [使用委托和事件跨脚本通信](#使用委托和事件跨脚本通信)
@@ -77,6 +81,21 @@ tags:
 
 
 # Note
+
+## Dotween
+#### DOMoveX 和 DOAnchorPosX
+
+DOMoveX 方法直接操作的是 Transform.position(世界坐标)，而不是 RectTransform 的 anchoredPosition 或锚点相关属性。
+
+如果你想让 RectTransform 的位置动画符合锚点对齐逻辑，可以使用 DOAnchorPosX，它操作的是 anchoredPosition.x：
+
+```cs
+RectTransform rectTransform = transform.GetComponent<RectTransform>();
+rectTransform.DOAnchorPosX(0, moveDuration)
+    .SetEase(Ease.InOutQuad); // 平滑动画
+```
+
+> 确保目标组件是 RectTransform
 
 #### 获得动态伸长的panel的实际height
 
@@ -140,6 +159,9 @@ Debug.Log($"Container Height: {tipsRectTransform.rect.height}");
 
 - Content 和 Item 的 height 要一致
 - Template 的 height 决定下拉框的高度
+
+#### OnValueChange 方法传递 option 的 index 作为参数
+Dropdown 组件有 On Value Changed 方法, 如果希望传递option的index作为参数, 在绑定方法时要选上方的 Dynamic 方法, 否则会让你自己填一个固定参数.
 
 ## 调整分辨率
 ### 1. 屏幕分辨率和窗口大小设置
@@ -385,12 +407,6 @@ public class GameData
 }
 
 ```
-
-
-## Dropdown 组件的 Dynamic
-
-Dropdown 组件有 On Value Changed 方法, 如果希望传递option的index作为参数, 在绑定方法时要选上方的 Dynamic 方法, 否则会让你自己填一个固定参数.
-
 
 ## 根据 name 在 parent 中查找 child gameObj
 
@@ -824,6 +840,8 @@ Canvas Scaler的设置为Constant Pixel Size，这意味着UI元素的尺寸不�
 3. 快速开始：
 对于新手或快速原型设计，使用自动创建的Canvas对象是最便捷的方式，因为它已经预先配置好了大多数所需的设置。
 
+# Layout Group
+
 ## 在一个obj里纵向创建button
 
 给容器obj 添加 `Vertical Layout Group` 以及 `Content Size Fitter`.
@@ -839,6 +857,33 @@ Canvas Scaler的设置为Constant Pixel Size，这意味着UI元素的尺寸不�
 - Unconstrained（不受约束）：该选项表示UI元素的尺寸不会根据内容自动调整，保持手动设置的尺寸。
 - Min Size（最小尺寸）：该选项表示UI元素的尺寸会根据内容的最小尺寸进行调整。最小尺寸通常由内容（如文本、图片等）的最小尺寸决定。
 - Preferred Size（优先尺寸）：该选项表示UI元素的尺寸会根据内容的优先尺寸进行调整。优先尺寸通常是内容在不被裁剪的情况下，所需的最佳尺寸。
+
+
+### 纵向伸展容器的image处理: 9-Slice（九宫格）技术
+
+纵向伸展容器 例如 Tooltip 的背景（通常是 Image 组件）需要动态适应内容的大小，以保证整体的视觉效果。对于这种需求，使用 9-Slice（九宫格）技术能获得不错的效果
+
+原理：利用 Sprite 的九宫格切片特性，让背景图片的边框部分固定，中心部分可以拉伸。
+
+设置步骤
+- 准备资源：
+    1. 使用带边框的背景图片，确保四个角和边框部分的设计不依赖拉伸。
+    2. 图片格式建议为 PNG 或其他支持透明通道的格式。
+
+- 定义九宫格区域：
+    1. 在 Unity 中选中图片，点击 Sprite Editor。
+    2. 在编辑器中设置图片的 Border 属性：
+    3. 左、右、上、下分别设置边框的像素值，定义不允许拉伸的区域。
+    4. 保存设置。
+
+- 设置图片类型为 Sliced：
+
+- 在图片的 Inspector 面板中，将 Image Type 设置为 Sliced。
+
+
+
+
+
 
 ## Prefab 初始化 UnassignedReferenceException
 

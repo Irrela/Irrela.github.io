@@ -1,9 +1,25 @@
 ---
-title: IOC 归档代码段
+title: IOC
 categories: GameDev
 tags:
 - GameDev
 ---
+
+
+<!-- TOC -->
+
+- [General](#general)
+            - [脚本中增加子 gameObj](#脚本中增加子-gameobj)
+            - [简易单例写法](#简易单例写法)
+            - [动态创建GameObj的单例写法](#动态创建gameobj的单例写法)
+            - [VideoController](#videocontroller)
+- [PLAN 系统](#plan-系统)
+            - [UIPlan](#uiplan)
+            - [PlanFocus](#planfocus)
+
+<!-- /TOC -->
+
+# General
 
 #### 脚本中增加子 gameObj
 
@@ -11,19 +27,81 @@ tags:
 
 ```cs
 // 创建并添加 Content
-GameObject addedContent = new GameObject("Content_add");
-addedContent.transform.SetParent(_instantiatedCheckTooltip.transform);
+private void DoSomething() {
+    GameObject addedContent = new GameObject("Content_add");
+    addedContent.transform.SetParent(_instantiatedCheckTooltip.transform);
 
-TMP_Text addComponentTmpText = addedContent.AddComponent<TextMeshProUGUI>();
-addComponentTmpText.font = _instantiatedCheckTooltip.transform.Find("Content").GetComponent<TMP_Text>().font;
-addComponentTmpText.fontMaterial = _instantiatedCheckTooltip.transform.Find("Content").GetComponent<TMP_Text>().fontMaterial;
-ContentSizeFitter contentSizeFitter = addComponentTmpText.AddComponent<ContentSizeFitter>();
-contentSizeFitter.horizontalFit = ContentSizeFitter.FitMode.Unconstrained;
-contentSizeFitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-addComponentTmpText.text = EventOption.GetCheckString();
+    TMP_Text addComponentTmpText = addedContent.AddComponent<TextMeshProUGUI>();
+    addComponentTmpText.font = _instantiatedCheckTooltip.transform.Find("Content").GetComponent<TMP_Text>().font;
+    addComponentTmpText.fontMaterial = _instantiatedCheckTooltip.transform.Find("Content").GetComponent<TMP_Text>().fontMaterial;
+    ContentSizeFitter contentSizeFitter = addComponentTmpText.AddComponent<ContentSizeFitter>();
+    contentSizeFitter.horizontalFit = ContentSizeFitter.FitMode.Unconstrained;
+    contentSizeFitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+    addComponentTmpText.text = EventOption.GetCheckString();
+}
 ```
 
+#### 简易单例写法
+```cs
+    public static CameraController Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+```
+
+#### 动态创建GameObj的单例写法
+```cs
+private static ExternalDataLoader _instance;
+
+// 获取单例实例的静态方法
+public static ExternalDataLoader Instance
+{
+    get
+    {
+        if (!_instance)
+        {
+            // 如果实例不存在，则查找现有的实例
+            _instance = FindObjectOfType<ExternalDataLoader>();
+
+            // 如果场景中不存在 DataLoader，则创建一个新的 GameObject 并添加 DataLoader 组件
+            if (!_instance)
+            {
+                var singletonObject = new GameObject(nameof(ExternalDataLoader));
+                _instance = singletonObject.AddComponent<ExternalDataLoader>();
+            }
+        }
+
+        return _instance;
+    }
+}
+
+private void Awake()
+{
+    // 确保只有一个实例存在
+    if (!_instance)
+    {
+        _instance = this;
+        DontDestroyOnLoad(gameObject); // 保证切换场景时不销毁该实例
+    }
+    else
+    {
+        Destroy(gameObject); // 如果已经存在实例，则销毁新的实例
+    }
+}
+```
+
+
 #### VideoController
+
 ```cs
 using System.IO;
 using UnityEngine;
@@ -188,9 +266,7 @@ public class VideoController : MonoBehaviour
         }
     }
 }
-
 ```
-
 
 # PLAN 系统
 
@@ -363,86 +439,5 @@ namespace UI
 }
 ```
 
+
 #### PlanFocus
-```cs
-namespace Model
-{
-    public class PlanFocus
-    {
-        public int CountDiplomacyUnit { get; set; } 
-        public int CountWisdomUnit { get; set; } 
-        public int CountIntrigueUnit { get; set; } 
-        public int CountManagementUnit { get; set; } 
-        public int CountHealthUnit { get; set; } 
-        public int CountUniversalUnit { get; set; }
-
-        public PlanFocus(int countDiplomacyUnit, int countWisdomUnit, int countIntrigueUnit, int countManagementUnit, int countHealthUnit, int countUniversalUnit)
-        {
-            CountDiplomacyUnit = countDiplomacyUnit;
-            CountWisdomUnit = countWisdomUnit;
-            CountIntrigueUnit = countIntrigueUnit;
-            CountManagementUnit = countManagementUnit;
-            CountHealthUnit = countHealthUnit;
-            CountUniversalUnit = countUniversalUnit;
-        }
-    }
-    
-    /// <summary>
-    /// 类似政体类型
-    /// </summary>
-    public enum PlanFocusType
-    {
-        一级外交专精,
-        一级才学专精,
-        一级谋略专精,
-        一级经营专精,
-        一级体魄专精,
-        一级全才专精,
-    }
-    
-    
-
-}
-
-```
-
-#### 动态创建GameObj的单例写法
-```cs
-private static ExternalDataLoader _instance;
-
-// 获取单例实例的静态方法
-public static ExternalDataLoader Instance
-{
-    get
-    {
-        if (!_instance)
-        {
-            // 如果实例不存在，则查找现有的实例
-            _instance = FindObjectOfType<ExternalDataLoader>();
-
-            // 如果场景中不存在 DataLoader，则创建一个新的 GameObject 并添加 DataLoader 组件
-            if (!_instance)
-            {
-                var singletonObject = new GameObject(nameof(ExternalDataLoader));
-                _instance = singletonObject.AddComponent<ExternalDataLoader>();
-            }
-        }
-
-        return _instance;
-    }
-}
-
-private void Awake()
-{
-    // 确保只有一个实例存在
-    if (!_instance)
-    {
-        _instance = this;
-        DontDestroyOnLoad(gameObject); // 保证切换场景时不销毁该实例
-    }
-    else
-    {
-        Destroy(gameObject); // 如果已经存在实例，则销毁新的实例
-    }
-}
-```
